@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "897188779737",
+    "project_id": "femalefellows-11bb9",
+    "storage_bucket": "femalefellows-11bb9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897188779737:android:028c2746f0e4f4277a10c8",
+        "android_client_info": {
+          "package_name": "com.example.vs_femalefellows"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6ia65YcPcg1oH183S96WLphlrRl9hNI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
