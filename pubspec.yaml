@@ -93,6 +93,4 @@ flutter:
   - family: Circular
     fonts:
       - asset: lib/fonts/circular-std-medium-500.ttf
-  - family: Rasmus
-    fonts:
-      - asset: lib/fonts/Rasmus-Bold.otf
+

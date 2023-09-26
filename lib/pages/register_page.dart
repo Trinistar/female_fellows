@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
-import 'package:vs_femalefellows/components/login_textfield.dart';
+import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/components/square_tile.dart';
 import 'package:vs_femalefellows/services/auth_service.dart';
 
@@ -106,13 +106,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 SizedBox(height: 25),
                 //username Textfield
-                LoginField(
+                TextBar(
                   controller: emailController,
                   hintText: 'Email',
                   obscureText: false,
                 ),
                 SizedBox(height: 25),
-                LoginField(
+                TextBar(
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,
@@ -121,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   height: 25,
                 ),
-                LoginField(
+                TextBar(
                   controller: confirmController,
                   hintText: ' Confirm Password',
                   obscureText: true,

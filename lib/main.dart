@@ -19,13 +19,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         textTheme: TextTheme(
-          bodyText1: TextStyle(
-            color:Color.fromRGBO(27, 25, 86, 1),
+          bodyLarge: TextStyle(
+            color:Color.fromRGBO(59, 57, 102, 1),
           ),
         ),
         useMaterial3: true,
         fontFamily: 'Circular',
-       scaffoldBackgroundColor:Color.fromRGBO(252, 208, 220, 1),
       ),
       debugShowCheckedModeBanner: false,
       home: OnboardingPage(),

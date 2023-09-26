@@ -17,6 +17,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
   //keep track of pages
   PageController _controller = PageController();
 
+  int currentPage = 0;
+
   //keep track of last page
   bool onLastPage = false;
 

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
-import 'package:vs_femalefellows/components/login_textfield.dart';
+import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/components/square_tile.dart';
 import 'package:vs_femalefellows/services/auth_service.dart';
 
@@ -125,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 10),
-                LoginField(
+                TextBar(
                   controller: emailController,
                   hintText: 'frau@example.com',
                   obscureText: false,
@@ -154,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 10),
-                LoginField(
+                TextBar(
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,
