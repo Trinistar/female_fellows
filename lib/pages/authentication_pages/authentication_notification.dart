@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 
-class AuthAge extends StatefulWidget {
-  const AuthAge({super.key});
+class AuthConnect extends StatefulWidget {
+  const AuthConnect({super.key});
 
   @override
-  State<AuthAge> createState() => _AuthAgeState();
+  State<AuthConnect> createState() => _AuthConnectState();
 }
 
-class _AuthAgeState extends State<AuthAge> {
-  //namecontroller
+class _AuthConnectState extends State<AuthConnect> {
+  //namecheck
   final nameController = TextEditingController();
 
   @override
@@ -21,33 +21,36 @@ class _AuthAgeState extends State<AuthAge> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 170, right: 110),
+              padding: const EdgeInsets.only(top: 170, right: 70),
               child: Text(
-                'Wie alt bist du?',
+                'Wie können wir dich\nerreichen?',
                 style: TextStyle(
                   color: Color.fromRGBO(27, 25, 86, 1),
-                  fontSize: 30,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             SizedBox(
-              height: 60,
+              height: 20,
             ),
             CircleAvatar(
-              backgroundImage: AssetImage('lib/images/Birthday.png'),
+              backgroundImage: AssetImage('lib/images/Group 377.png'),
               radius: 100,
               backgroundColor: Color.fromRGBO(252, 208, 220, 1),
             ),
             SizedBox(
-              height: 50,
+              height: 5,
+            ),
+            SizedBox(
+              height: 30,
             ),
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 250, bottom: 5),
+                  padding: const EdgeInsets.only(right: 280, bottom: 5),
                   child: Text(
-                    'Geburtstag',
+                    'Email',
                     style: TextStyle(
                       fontSize: 15,
                     ),
@@ -55,11 +58,25 @@ class _AuthAgeState extends State<AuthAge> {
                 ),
                 TextBar(
                   controller: nameController,
-                  hintText: 'Lisa',
+                  hintText: 'lisa@muster.de',
                   obscureText: false,
                 ),
                 SizedBox(
                   height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 220, bottom: 5),
+                  child: Text(
+                    'Handynummer',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+                TextBar(
+                  controller: nameController,
+                  hintText: '+49 123 456',
+                  obscureText: false,
                 ),
               ],
             )
