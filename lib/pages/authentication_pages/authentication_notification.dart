@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 
-class AuthConnect extends StatefulWidget {
-  const AuthConnect({super.key});
+class AuthNotification extends StatefulWidget {
+  const AuthNotification({super.key});
 
   @override
-  State<AuthConnect> createState() => _AuthConnectState();
+  State<AuthNotification> createState() => _AuthNotificationState();
 }
 
-class _AuthConnectState extends State<AuthConnect> {
+class _AuthNotificationState extends State<AuthNotification> {
   //namecheck
   final nameController = TextEditingController();
 

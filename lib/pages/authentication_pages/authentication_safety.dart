@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class AuthConnect extends StatefulWidget {
-  const AuthConnect({super.key});
+class AuthSafety extends StatefulWidget {
+  const AuthSafety({super.key});
 
   @override
-  State<AuthConnect> createState() => _AuthConnectState();
+  State<AuthSafety> createState() => _AuthSafetyState();
 }
 
-class _AuthConnectState extends State<AuthConnect> {
+class _AuthSafetyState extends State<AuthSafety> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+ return Scaffold(
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Center(
@@ -18,9 +18,9 @@ class _AuthConnectState extends State<AuthConnect> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 170, right: 40),
+                padding: const EdgeInsets.only(top: 170, right: 50),
                 child: Text(
-                  'Wie möchtest du dich\ntreffen?',
+                  'Datenschutzerlärung\nund Newsletter',
                   style: TextStyle(
                     color: Color.fromRGBO(27, 25, 86, 1),
                     fontSize: 28,
@@ -32,7 +32,7 @@ class _AuthConnectState extends State<AuthConnect> {
                 height: 40,
               ),
               CircleAvatar(
-                backgroundImage: AssetImage('lib/images/Kennenlernene.png'),
+                backgroundImage: AssetImage('lib/images/Anmelden.png'),
                 radius: 100,
                 backgroundColor: Color.fromRGBO(252, 208, 220, 1),
               ),

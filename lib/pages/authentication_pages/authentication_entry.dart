@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_age.dart';
+import 'package:vs_femalefellows/pages/authentication_pages/authentication_connection.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_how.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_notification.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_place.dart';
+import 'package:vs_femalefellows/pages/authentication_pages/authentication_safety.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_who.dart';
 
 class Authentry extends StatefulWidget {
@@ -54,7 +56,9 @@ class _AuthentryState extends State<Authentry> {
               AuthAge(),
               AuthPlace(),
               AuthHow(),
+              AuthNotification(),
               AuthConnect(),
+              AuthSafety(),
             ],
           ),
           //dot indicator
