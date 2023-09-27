@@ -10,6 +10,8 @@ class AuthHow extends StatefulWidget {
 class _AuthHowState extends State<AuthHow> {
   //namecontroller
   final nameController = TextEditingController();
+  //bool for checklist
+  String? question;
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +45,69 @@ class _AuthHowState extends State<AuthHow> {
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 30,
               ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20,),
+                child: Column(
+                  children: [
+                    RadioListTile(
+                      title: Text('Instagram'),
+                        value: "Instagram",
+                        groupValue: question,
+                        onChanged: (newValue) {
+                          setState(() {
+                            question = newValue;
+                          });
+                        }),
+                           RadioListTile(
+                      title: Text('Facebook'),
+                        value: "Facebook",
+                        groupValue: question,
+                        onChanged: (newValue) {
+                          setState(() {
+                            question = newValue;
+                          });
+                        }),
+                           RadioListTile(
+                      title: Text('Linkedin'),
+                        value: "Linkedin",
+                        groupValue: question,
+                        onChanged: (newValue) {
+                          setState(() {
+                            question = newValue;
+                          });
+                        }),
+                           RadioListTile(
+                      title: Text('Presse/Zeitung'),
+                        value: "Presse/Zeitung",
+                        groupValue: question,
+                        onChanged: (newValue) {
+                          setState(() {
+                            question = newValue;
+                          });
+                        }),
+                           RadioListTile(
+                      title: Text('Freunde'),
+                        value: "Freunde",
+                        groupValue: question,
+                        onChanged: (newValue) {
+                          setState(() {
+                            question = newValue;
+                          });
+                        }),
+                           RadioListTile(
+                      title: Text('Sonstiges'),
+                        value: "Sonstiges",
+                        groupValue: question,
+                        onChanged: (newValue) {
+                          setState(() {
+                            question = newValue;
+                          });
+                        })
+                  ],
+                ),
+              )
             ],
           ),
         ),
