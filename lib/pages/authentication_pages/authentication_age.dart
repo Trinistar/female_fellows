@@ -19,9 +19,10 @@ class _AuthAgeState extends State<AuthAge> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 170, right: 110),
+              padding: const EdgeInsets.only(left: 50),
               child: Text(
                 'Wie alt bist du?',
                 style: TextStyle(
@@ -34,10 +35,12 @@ class _AuthAgeState extends State<AuthAge> {
             SizedBox(
               height: 60,
             ),
-            CircleAvatar(
-              backgroundImage: AssetImage('lib/images/Birthday.png'),
-              radius: 100,
-              backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('lib/images/Birthday.png'),
+                radius: 100,
+                backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+              ),
             ),
             SizedBox(
               height: 50,

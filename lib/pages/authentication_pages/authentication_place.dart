@@ -19,9 +19,12 @@ class _AuthPlaceState extends State<AuthPlace> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 170, right: 110),
+              padding: const EdgeInsets.only(
+                left: 50,
+              ),
               child: Text(
                 'Wo wohnst du?',
                 style: TextStyle(
@@ -34,10 +37,12 @@ class _AuthPlaceState extends State<AuthPlace> {
             SizedBox(
               height: 50,
             ),
-            CircleAvatar(
-              backgroundImage: AssetImage('lib/images/Location.png'),
-              radius: 100,
-              backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('lib/images/Location.png'),
+                radius: 100,
+                backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+              ),
             ),
             SizedBox(
               height: 60,

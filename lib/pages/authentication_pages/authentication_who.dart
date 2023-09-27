@@ -11,6 +11,7 @@ class AuthWho extends StatefulWidget {
 class _AuthWhoState extends State<AuthWho> {
   //namecheck
   final nameController = TextEditingController();
+  final lastNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class _AuthWhoState extends State<AuthWho> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 25.0),
+              padding: const EdgeInsets.only(left: 50),
               child: Text(
                 'Wer bist du?',
                 style: TextStyle(
@@ -86,7 +87,7 @@ class _AuthWhoState extends State<AuthWho> {
                   ),
                 ),
                 TextBar(
-                  controller: nameController,
+                  controller: lastNameController,
                   hintText: 'Musterfrau',
                   obscureText: false,
                 ),

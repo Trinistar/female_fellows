@@ -28,28 +28,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(252, 208, 220, 1),
       body: Stack(
-        children: [
-          PageView(
-            controller: _controller,
-            onPageChanged: (index) {
-              setState(() {
-                onLastPage = (index == 4);
-                colorChange = (index == 2);
-              });
-            },
-            children: [
-              // Pages one Onboarding
-              Page1(),
-              Page2(),
-              Page3(),
-              Page4(),
-              Page5(),
-            ],
-          ),
-          //logo
 
+        children: [
+          //Logo
           Container(
             height: 100,
             width: 1000,
@@ -60,27 +44,48 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   alignment: Alignment(0, -0.8)),
             ),
           ),
+       
+          Expanded(
+            child: PageView(
+              controller: _controller,
+              onPageChanged: (index) {
+                setState(() {
+                  onLastPage = (index == 4);
+                  colorChange = (index == 2);
+                });
+              },
+              children: [
+                // Pages Onboarding
+                Page1(),
+                Page2(),
+                Page3(),
+                Page4(),
+                Page5(),
+              ],
+            ),
+          ),
           //dot indicator
           Positioned(
-            bottom: 0.0,
+                   bottom: 0.0,
             left: 0.0,
             right: 0.0,
+
             child: onLastPage
-                ? Padding(
-                  padding: const EdgeInsets.only(left:130),
-                  child: Container(
-                    color: Color.fromRGBO(252, 208, 220, 1),
-                      height: 60,
-                      width: 1000,
+                ? Container(
+                    height: 60,
+                    width: 1000,
+                    color: Colors.transparent,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 130),
                       child: GestureDetector(
                           onTap: () {
                             _controller.jumpTo(0);
                           },
                           child: Text('Zurück zur Einleitung')),
                     ),
-                )
+                  )
                 : Container(
-                  color: Color.fromRGBO(252, 208, 220, 1),
+                    color: Colors.transparent,
                     height: 60,
                     width: 1000,
                     child: Row(
@@ -109,7 +114,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           ),
                         ),
                       ],
-                    )),
+                    ),
+                  ),
           ),
         ],
       ),

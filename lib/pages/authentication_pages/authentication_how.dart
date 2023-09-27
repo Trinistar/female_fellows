@@ -19,9 +19,10 @@ class _AuthHowState extends State<AuthHow> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 170, right: 15),
+                padding: const EdgeInsets.only(left: 50),
                 child: Text(
                   'Wie bist du auf uns\naufmerksam geworden?',
                   style: TextStyle(
@@ -34,10 +35,12 @@ class _AuthHowState extends State<AuthHow> {
               SizedBox(
                 height: 40,
               ),
-              CircleAvatar(
-                backgroundImage: AssetImage('lib/images/Notification.png'),
-                radius: 100,
-                backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+              Center(
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('lib/images/Notification.png'),
+                  radius: 100,
+                  backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+                ),
               ),
               SizedBox(
                 height: 50,

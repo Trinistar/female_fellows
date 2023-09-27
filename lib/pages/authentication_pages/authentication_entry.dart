@@ -31,16 +31,17 @@ class _AuthentryState extends State<Authentry> {
             width: 1000,
             color: Color.fromRGBO(242, 242, 242, 1),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 50, top: 25),
+                  padding: const EdgeInsets.only(left: 60, top: 25),
                   child: Image.asset('lib/images/FF-Logo_blau-1.png',
                       height: 80, alignment: Alignment(0, -0.8)),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
                     top: 15,
-                    right: 80,
+                    left: 50,
                   ),
                   child: Text(
                     'Mitglied werden',
@@ -74,29 +75,12 @@ class _AuthentryState extends State<Authentry> {
             left: 0.0,
             right: 0.0,
             child: Container(
-              height: 60,
+              height: 70,
               width: 1000,
               color: Color.fromRGBO(242, 242, 242, 1),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  GestureDetector(
-                      onTap: () {
-                        if (_controller.page == 0) {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => OnboardingPage(),
-                          ));
-                        } else {
-                          _controller.previousPage(
-                              duration: Duration(microseconds: 500),
-                              curve: Curves.easeIn);
-                        }
-                      },
-                      child: Text('Back')),
-                  SmoothPageIndicator(
-                    controller: _controller,
-                    count: 7,
-                  ),
                   GestureDetector(
                       onTap: () {
                         if (_controller.page == 0) {

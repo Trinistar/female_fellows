@@ -18,9 +18,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        // colorScheme: ColorScheme.fromSeed(
+        //   seedColor: Color.fromRGBO(242, 242, 242, 1),
+        //   secondary: Color.fromRGBO(252, 208, 220, 1),
+        //   surface:  Color.fromRGBO(59, 57, 102, 1),
+        // ),
         textTheme: TextTheme(
           bodyLarge: TextStyle(
-            color:Color.fromRGBO(59, 57, 102, 1),
+            color: Color.fromRGBO(59, 57, 102, 1),
           ),
         ),
         useMaterial3: true,

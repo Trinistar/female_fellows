@@ -20,7 +20,7 @@ class Page1 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: 350,),
+            SizedBox(height: 370,),
             Text(
               'Hinter jeder \nstarken Frau\nstehen starke\n    Frauen',
               style: TextStyle(

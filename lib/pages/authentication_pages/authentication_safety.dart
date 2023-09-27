@@ -10,15 +10,16 @@ class AuthSafety extends StatefulWidget {
 class _AuthSafetyState extends State<AuthSafety> {
   @override
   Widget build(BuildContext context) {
- return Scaffold(
+    return Scaffold(
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 170, right: 50),
+                padding: const EdgeInsets.only(left: 50),
                 child: Text(
                   'Datenschutzerlärung\nund Newsletter',
                   style: TextStyle(
@@ -31,10 +32,12 @@ class _AuthSafetyState extends State<AuthSafety> {
               SizedBox(
                 height: 40,
               ),
-              CircleAvatar(
-                backgroundImage: AssetImage('lib/images/Anmelden.png'),
-                radius: 100,
-                backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+              Center(
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('lib/images/Anmelden.png'),
+                  radius: 100,
+                  backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+                ),
               ),
               SizedBox(
                 height: 50,

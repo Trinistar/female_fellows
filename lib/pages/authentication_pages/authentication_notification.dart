@@ -19,9 +19,12 @@ class _AuthNotificationState extends State<AuthNotification> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 170, right: 70),
+              padding: const EdgeInsets.only(
+                left: 50,
+              ),
               child: Text(
                 'Wie können wir dich\nerreichen?',
                 style: TextStyle(
@@ -34,10 +37,12 @@ class _AuthNotificationState extends State<AuthNotification> {
             SizedBox(
               height: 20,
             ),
-            CircleAvatar(
-              backgroundImage: AssetImage('lib/images/Group 377.png'),
-              radius: 100,
-              backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('lib/images/Group 377.png'),
+                radius: 100,
+                backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+              ),
             ),
             SizedBox(
               height: 5,
