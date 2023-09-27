@@ -31,11 +31,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
       backgroundColor: Color.fromRGBO(252, 208, 220, 1),
       body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 50, top: 25),
-            child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                height: 80, alignment: Alignment(0, -0.8)),
-          ),
           PageView(
             controller: _controller,
             onPageChanged: (index) {
@@ -53,20 +48,41 @@ class _OnboardingPageState extends State<OnboardingPage> {
               Page5(),
             ],
           ),
+          //logo
+
+          Container(
+            height: 100,
+            width: 1000,
+            color: Color.fromRGBO(252, 208, 220, 1),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10, top: 25),
+              child: Image.asset('lib/images/FF-Logo_blau-1.png',
+                  alignment: Alignment(0, -0.8)),
+            ),
+          ),
           //dot indicator
-          onLastPage
-              ? Container(
-                  alignment: Alignment(0, 0.9),
-                  child: GestureDetector(
-                      onTap: () {
-                        _controller.jumpTo(0);
-                      },
-                      child: Text('Zurück zur Einleitung')),
+          Positioned(
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: onLastPage
+                ? Padding(
+                  padding: const EdgeInsets.only(left:130),
+                  child: Container(
+                    color: Color.fromRGBO(252, 208, 220, 1),
+                      height: 60,
+                      width: 1000,
+                      child: GestureDetector(
+                          onTap: () {
+                            _controller.jumpTo(0);
+                          },
+                          child: Text('Zurück zur Einleitung')),
+                    ),
                 )
-              : Container(
-                  alignment: Alignment(0, 0.9),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 25),
+                : Container(
+                  color: Color.fromRGBO(252, 208, 220, 1),
+                    height: 60,
+                    width: 1000,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -93,8 +109,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           ),
                         ),
                       ],
-                    ),
-                  )),
+                    )),
+          ),
         ],
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
-import 'package:vs_femalefellows/pages/register_page.dart';
+import 'package:vs_femalefellows/pages/authentication_pages/authentication_entry.dart';
 import 'package:vs_femalefellows/pages/toggle_page.dart';
 
 class Page5 extends StatelessWidget {
@@ -23,13 +23,11 @@ class Page5 extends StatelessWidget {
             Column(
               children: [
                 LoginButton(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => RegisterPage(
-                          onTap: () {},
-                        ),
-                      ));
-                    },
+                      onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => Authentry(),
+                    ));
+                  },
                     text: 'Mitglied werden'),
                 SizedBox(
                   height: 20,

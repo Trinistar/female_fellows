@@ -71,7 +71,7 @@ class _AuthentryState extends State<Authentry> {
             left: 0.0,
             right: 0.0,
             child: Container(
-              height: 50,
+              height: 60,
               width: 1000,
               color: Color.fromRGBO(242, 242, 242, 1),
               child: Row(
