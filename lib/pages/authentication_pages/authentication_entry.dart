@@ -25,29 +25,6 @@ class _AuthentryState extends State<Authentry> {
       backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       body: Stack(
         children: [
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 50, top: 25),
-                child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                    height: 80, alignment: Alignment(0, -0.8)),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 15,
-                  right: 80,
-                ),
-                child: Text(
-                  'Mitglied werden',
-                  style: TextStyle(
-                    color: Color.fromRGBO(27, 25, 86, 1),
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-            ],
-          ),
-
           PageView(
             controller: _controller,
             children: [
@@ -60,6 +37,33 @@ class _AuthentryState extends State<Authentry> {
               AuthConnect(),
               AuthSafety(),
             ],
+          ),
+          Container(
+            height: 150,
+            width: 1000,
+            color: Color.fromRGBO(242, 242, 242, 1),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 50, top: 25),
+                  child: Image.asset('lib/images/FF-Logo_blau-1.png',
+                      height: 80, alignment: Alignment(0, -0.8)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 15,
+                    right: 80,
+                  ),
+                  child: Text(
+                    'Mitglied werden',
+                    style: TextStyle(
+                      color: Color.fromRGBO(27, 25, 86, 1),
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           //dot indicator
           Container(
