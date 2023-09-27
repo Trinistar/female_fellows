@@ -66,37 +66,44 @@ class _AuthentryState extends State<Authentry> {
             ),
           ),
           //dot indicator
-          Container(
-            alignment: Alignment(0, 0.90),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GestureDetector(
+          Positioned(
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: Container(
+              height: 50,
+              width: 1000,
+              color: Color.fromRGBO(242, 242, 242, 1),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                      onTap: () {
+                        if (_controller.page == 0) {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => OnboardingPage(),
+                          ));
+                        } else {
+                          _controller.previousPage(
+                              duration: Duration(microseconds: 500),
+                              curve: Curves.easeIn);
+                        }
+                      },
+                      child: Text('Back')),
+                  SmoothPageIndicator(
+                    controller: _controller,
+                    count: 7,
+                  ),
+                  GestureDetector(
                     onTap: () {
-                      if (_controller.page == 0) {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => OnboardingPage(),
-                        ));
-                      } else {
-                        _controller.previousPage(
-                            duration: Duration(microseconds: 500),
-                            curve: Curves.easeIn);
-                      }
+                      _controller.nextPage(
+                          duration: Duration(microseconds: 500),
+                          curve: Curves.easeIn);
                     },
-                    child: Text('Back')),
-                SmoothPageIndicator(
-                  controller: _controller,
-                  count: 7,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    _controller.nextPage(
-                        duration: Duration(microseconds: 500),
-                        curve: Curves.easeIn);
-                  },
-                  child: Text('Next'),
-                ),
-              ],
+                    child: Text('Next'),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
