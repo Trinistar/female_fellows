@@ -21,21 +21,18 @@ class TextBar extends StatelessWidget {
         obscureText: obscureText,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black87, width: 2),
+            borderSide: BorderSide(color: Colors.black87),
             // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
-            borderRadius: BorderRadius.circular(10),
+            //borderRadius: BorderRadius.circular(10),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color.fromRGBO(27, 25, 86, 1),
+              color: Color.fromRGBO(27, 25, 86, 1), width: 2,
             ),
           ),
           fillColor: Color.fromRGBO(242, 242, 242, 1),
           filled: true,
           hintText: hintText,
-          hintStyle: TextStyle(
-            color: Color.fromRGBO(27, 25, 86, 1),
-          ),
         ),
       ),
     );

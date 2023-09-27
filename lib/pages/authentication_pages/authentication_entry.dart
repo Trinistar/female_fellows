@@ -23,21 +23,9 @@ class _AuthentryState extends State<Authentry> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(242, 242, 242, 1),
-      body: Stack(
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          PageView(
-            controller: _controller,
-            children: [
-              // Pages one Onboarding
-              AuthWho(),
-              AuthAge(),
-              AuthPlace(),
-              AuthHow(),
-              AuthNotification(),
-              AuthConnect(),
-              AuthSafety(),
-            ],
-          ),
           Container(
             height: 150,
             width: 1000,
@@ -46,8 +34,7 @@ class _AuthentryState extends State<Authentry> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 50, top: 25),
-                  child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                      height: 80, alignment: Alignment(0, -0.8)),
+                  child: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
@@ -65,45 +52,51 @@ class _AuthentryState extends State<Authentry> {
               ],
             ),
           ),
+          Expanded(
+            child: PageView(
+              controller: _controller,
+              children: [
+                // Pages one Onboarding
+                AuthWho(),
+                AuthAge(),
+                AuthPlace(),
+                AuthHow(),
+                AuthNotification(),
+                AuthConnect(),
+                AuthSafety(),
+              ],
+            ),
+          ),
           //dot indicator
-          Positioned(
-            bottom: 0.0,
-            left: 0.0,
-            right: 0.0,
-            child: Container(
-              height: 50,
-              width: 1000,
-              color: Color.fromRGBO(242, 242, 242, 1),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                      onTap: () {
-                        if (_controller.page == 0) {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => OnboardingPage(),
-                          ));
-                        } else {
-                          _controller.previousPage(
-                              duration: Duration(microseconds: 500),
-                              curve: Curves.easeIn);
-                        }
-                      },
-                      child: Text('Back')),
-                  SmoothPageIndicator(
-                    controller: _controller,
-                    count: 7,
-                  ),
-                  GestureDetector(
+          Container(
+            height: 50,
+            width: 1000,
+            color: Color.fromRGBO(242, 242, 242, 1),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GestureDetector(
                     onTap: () {
-                      _controller.nextPage(
-                          duration: Duration(microseconds: 500),
-                          curve: Curves.easeIn);
+                      if (_controller.page == 0) {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => OnboardingPage(),
+                        ));
+                      } else {
+                        _controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
+                      }
                     },
-                    child: Text('Next'),
-                  ),
-                ],
-              ),
+                    child: Text('Back')),
+                SmoothPageIndicator(
+                  controller: _controller,
+                  count: 7,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
+                  },
+                  child: Text('Next'),
+                ),
+              ],
             ),
           ),
         ],
