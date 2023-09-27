@@ -23,21 +23,9 @@ class _AuthentryState extends State<Authentry> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(242, 242, 242, 1),
-      body: Stack(
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          PageView(
-            controller: _controller,
-            children: [
-              // Pages one Onboarding
-              AuthWho(),
-              AuthAge(),
-              AuthPlace(),
-              AuthHow(),
-              AuthNotification(),
-              AuthConnect(),
-              AuthSafety(),
-            ],
-          ),
           Container(
             height: 150,
             width: 1000,
@@ -65,6 +53,21 @@ class _AuthentryState extends State<Authentry> {
               ],
             ),
           ),
+          Expanded(
+            child: PageView(
+              controller: _controller,
+              children: [
+                // Pages one Onboarding
+                AuthWho(),
+                AuthAge(),
+                AuthPlace(),
+                AuthHow(),
+                AuthNotification(),
+                AuthConnect(),
+                AuthSafety(),
+              ],
+            ),
+          ),
           //dot indicator
           Positioned(
             bottom: 0.0,
@@ -77,6 +80,23 @@ class _AuthentryState extends State<Authentry> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  GestureDetector(
+                      onTap: () {
+                        if (_controller.page == 0) {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => OnboardingPage(),
+                          ));
+                        } else {
+                          _controller.previousPage(
+                              duration: Duration(microseconds: 500),
+                              curve: Curves.easeIn);
+                        }
+                      },
+                      child: Text('Back')),
+                  SmoothPageIndicator(
+                    controller: _controller,
+                    count: 7,
+                  ),
                   GestureDetector(
                       onTap: () {
                         if (_controller.page == 0) {

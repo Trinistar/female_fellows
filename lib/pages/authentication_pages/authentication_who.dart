@@ -19,9 +19,10 @@ class _AuthWhoState extends State<AuthWho> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 170, right: 150),
+              padding: const EdgeInsets.only(left: 25.0),
               child: Text(
                 'Wer bist du?',
                 style: TextStyle(
@@ -34,19 +35,23 @@ class _AuthWhoState extends State<AuthWho> {
             SizedBox(
               height: 50,
             ),
-            CircleAvatar(
-              backgroundImage: AssetImage('lib/images/Avatar.png'),
-              radius: 100,
-              backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('lib/images/Avatar.png'),
+                radius: 100,
+                backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+              ),
             ),
             SizedBox(
               height: 5,
             ),
-            Text(
-              'Profilbild / Avatar auswählen',
-              style: TextStyle(
-                color: Color.fromRGBO(27, 25, 86, 1),
-                fontSize: 20,
+            Center(
+              child: Text(
+                'Profilbild / Avatar auswählen',
+                style: TextStyle(
+                  color: Color.fromRGBO(27, 25, 86, 1),
+                  fontSize: 20,
+                ),
               ),
             ),
             SizedBox(
