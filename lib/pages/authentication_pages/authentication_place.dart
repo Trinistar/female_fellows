@@ -10,7 +10,9 @@ class AuthPlace extends StatefulWidget {
 
 class _AuthPlaceState extends State<AuthPlace> {
   //namecontroller
-  final nameController = TextEditingController();
+  final streetController = TextEditingController();
+  final placeController = TextEditingController();
+  final postCodeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +50,10 @@ class _AuthPlaceState extends State<AuthPlace> {
               height: 60,
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 150, bottom: 5),
+                  padding: const EdgeInsets.only(left: 40, bottom: 5),
                   child: Text(
                     'Straße und Hausnummer',
                     style: TextStyle(
@@ -59,12 +62,37 @@ class _AuthPlaceState extends State<AuthPlace> {
                   ),
                 ),
                 TextBar(
-                  controller: nameController,
+                  controller: streetController,
                   hintText: 'Mustersraße 1',
                   obscureText: false,
                 ),
                 SizedBox(
                   height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40, bottom: 5),
+                  child: Text(
+                    'Postleitzahl und Wohnort',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 120),
+                  child: TextBar(
+                    controller: postCodeController,
+                    hintText: '35510',
+                    obscureText: false,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 80),
+                  child: TextBar(
+                    controller: placeController,
+                    hintText: 'Musterort',
+                    obscureText: false,
+                  ),
                 ),
               ],
             )

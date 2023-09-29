@@ -11,6 +11,8 @@ class AuthNotification extends StatefulWidget {
 class _AuthNotificationState extends State<AuthNotification> {
   //namecheck
   final nameController = TextEditingController();
+  final numberController = TextEditingController();
+  String? question;
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +53,13 @@ class _AuthNotificationState extends State<AuthNotification> {
               height: 30,
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 280, bottom: 5),
+                  padding: const EdgeInsets.only(
+                    left: 40,
+                    bottom: 5,
+                  ),
                   child: Text(
                     'Email',
                     style: TextStyle(
@@ -70,7 +76,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                   height: 20,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 220, bottom: 5),
+                  padding: const EdgeInsets.only(left: 40, bottom: 5),
                   child: Text(
                     'Handynummer',
                     style: TextStyle(
@@ -79,12 +85,12 @@ class _AuthNotificationState extends State<AuthNotification> {
                   ),
                 ),
                 TextBar(
-                  controller: nameController,
+                  controller: numberController,
                   hintText: '+49 123 456',
                   obscureText: false,
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

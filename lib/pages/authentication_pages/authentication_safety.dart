@@ -10,13 +10,13 @@ class AuthSafety extends StatefulWidget {
 class _AuthSafetyState extends State<AuthSafety> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+ return Scaffold(
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 50),

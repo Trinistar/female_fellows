@@ -59,9 +59,10 @@ class _AuthWhoState extends State<AuthWho> {
               height: 30,
             ),
             Column(
+               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 250, bottom: 5),
+                  padding: const EdgeInsets.only(left:40, bottom: 5),
                   child: Text(
                     'Vorname',
                     style: TextStyle(
@@ -78,7 +79,7 @@ class _AuthWhoState extends State<AuthWho> {
                   height: 20,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 250, bottom: 5),
+                  padding: const EdgeInsets.only(left:40, bottom: 5),
                   child: Text(
                     'Nachname',
                     style: TextStyle(
