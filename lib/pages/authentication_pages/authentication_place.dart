@@ -78,21 +78,23 @@ class _AuthPlaceState extends State<AuthPlace> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 120),
-                  child: TextBar(
-                    controller: postCodeController,
-                    hintText: '35510',
-                    obscureText: false,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 80),
-                  child: TextBar(
-                    controller: placeController,
-                    hintText: 'Musterort',
-                    obscureText: false,
-                  ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: TextBar(
+                        controller: postCodeController,
+                        hintText: '35510',
+                        obscureText: false,
+                      ),
+                    ),
+                    Expanded(
+                      child: TextBar(
+                        controller: placeController,
+                        hintText: 'Musterort',
+                        obscureText: false,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             )

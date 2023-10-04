@@ -40,6 +40,9 @@ dependencies:
   google_sign_in: ^6.1.5
   smooth_page_indicator: ^1.1.0
   date_format: ^2.0.7
+  flutter_localizations:
+    sdk: flutter
+  intl: any
   
 
 
@@ -64,6 +67,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  generate: true
 
   # To add assets to your application, add an assets section, like this:
   assets:

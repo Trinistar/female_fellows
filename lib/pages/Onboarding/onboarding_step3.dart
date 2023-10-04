@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page3 extends StatelessWidget {
   const Page3({super.key});
@@ -21,7 +22,7 @@ class Page3 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right:80),
             child: Text(
-              'Nehme an\nspannenden\nEvents teil.',
+             AppLocalizations.of(context)!.onboardingPageThreeTitle,
               style: TextStyle(
                 color: Color.fromRGBO(27, 25, 86, 1),
                 fontSize: 35,
@@ -42,7 +43,7 @@ class Page3 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 25),
             child: Text(
-              'Genieße eine Vielzahl von\nVeranstaltungen, die von Frauen\nfür Frauen organisiert werden. Du\nkannst an Live-Events und\ndigitalen Aktivitäten teilnehmen.',
+            AppLocalizations.of(context)!.onboardingPageThreeBody,
               style: TextStyle(
                 color: Color.fromRGBO(27, 25, 86, 1),
                 fontSize: 15,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page4 extends StatelessWidget {
   const Page4({super.key});
@@ -21,7 +22,7 @@ class Page4 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Text(
-              'Werde Teil unserer\nFemale Fellows\nCommunity.',
+           AppLocalizations.of(context)!.onboardingPageFourTitle,
               style: TextStyle(
                 color: Color.fromRGBO(27, 25, 86, 1),
                 fontSize: 35,
@@ -41,7 +42,7 @@ class Page4 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 25),
             child: Text(
-              'Tauche in unsere Themengruppen\nein, um dich mit Gleichgesinnten\nauszutauschen und zu vernetzen.\nLass dich von den Erfolgsstories\nanderer Tandems inspirieren.',
+             AppLocalizations.of(context)!.onboardingPageFourBody,
               style: TextStyle(
                 color: Color.fromRGBO(27, 25, 86, 1),
                 fontSize: 15,

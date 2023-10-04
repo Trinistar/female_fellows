@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({super.key});
@@ -19,7 +20,7 @@ class Page2 extends StatelessWidget {
             height: 130,
           ),
           Text(
-            'Die perfekte\nTandem-\nPartnerin finden.',
+           AppLocalizations.of(context)!.onboardingPageTwoTitle,
             style: TextStyle(
               color: Color.fromRGBO(27, 25, 86, 1),
               fontSize: 35,
@@ -39,7 +40,7 @@ class Page2 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 25),
             child: Text(
-              'Das Female Fellows Tandemprojekt\nverbindet Frauen mit und ohne\nFlucht- und Migrationserfahrung.',
+             AppLocalizations.of(context)!.onboardingPageTwoBody,
               style: TextStyle(
                 color: Color.fromRGBO(27, 25, 86, 1),
                 fontSize: 15,

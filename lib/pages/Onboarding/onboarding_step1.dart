@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_entry.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page1 extends StatelessWidget {
   const Page1({super.key});
@@ -20,9 +20,11 @@ class Page1 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: 370,),
+            SizedBox(
+              height: 370,
+            ),
             Text(
-              'Hinter jeder \nstarken Frau\nstehen starke\n    Frauen',
+              AppLocalizations.of(context)!.onboardingPageOneTitle,
               style: TextStyle(
                 color: Color.fromRGBO(27, 25, 86, 1),
                 fontSize: 30,
@@ -31,20 +33,19 @@ class Page1 extends StatelessWidget {
             SizedBox(
               height: 25,
             ),
-              Divider(
-                    thickness: 5,
-                    indent: 40,
-                    endIndent: 310,
-                    color: Color.fromRGBO(27, 25, 86, 1),
-        
-                  ),
-                    SizedBox(
+            Divider(
+              thickness: 5,
+              indent: 40,
+              endIndent: 310,
+              color: Color.fromRGBO(27, 25, 86, 1),
+            ),
+            SizedBox(
               height: 10,
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 140,bottom: 15),
+              padding: const EdgeInsets.only(right: 140, bottom: 15),
               child: Text(
-                'Wir sind hier , um Frauen\nmit Flucht- und Migrations-\nerfahrung zu stärken und\nFempowerment zu leben.',
+                AppLocalizations.of(context)!.onboardingPageOneBody,
                 style: TextStyle(
                   color: Color.fromRGBO(27, 25, 86, 1),
                   fontSize: 15,
@@ -61,7 +62,9 @@ class Page1 extends StatelessWidget {
                   },
                   text: 'Mitglied werden'),
             ),
-                SizedBox(height: 140,)
+            SizedBox(
+              height: 140,
+            )
           ],
         ),
       ),
