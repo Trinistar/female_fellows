@@ -8,6 +8,10 @@ class AuthConnect extends StatefulWidget {
 }
 
 class _AuthConnectState extends State<AuthConnect> {
+
+  //Checkmark for radio 
+ String? question;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +46,33 @@ class _AuthConnectState extends State<AuthConnect> {
               SizedBox(
                 height: 50,
               ),
+              RadioListTile(
+                  title: Text('vor Ort'),
+                  value: "vor Ort",
+                  groupValue: question,
+                  onChanged: (newValue) {
+                    setState(() {
+                      question = newValue ;
+                    });
+                  }),
+              RadioListTile(
+                  title: Text('Online'),
+                  value: "Online",
+                  groupValue: question,
+                  onChanged: ( newValue) {
+                    setState(() {
+                      question = newValue ;
+                    });
+                  }),
+              RadioListTile(
+                  title: Text('vor Ort & Online'),
+                  value: "vor Ort & Online",
+                  groupValue: question,
+                  onChanged: (newValue) {
+                    setState(() {
+                      question = newValue;
+                    });
+                  }),
             ],
           ),
         ),

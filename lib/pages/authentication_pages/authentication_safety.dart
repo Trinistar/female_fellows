@@ -8,6 +8,9 @@ class AuthSafety extends StatefulWidget {
 }
 
 class _AuthSafetyState extends State<AuthSafety> {
+  // Checkbox Radio
+  String? question;
+
   @override
   Widget build(BuildContext context) {
  return Scaffold(
@@ -42,6 +45,33 @@ class _AuthSafetyState extends State<AuthSafety> {
               SizedBox(
                 height: 50,
               ),
+                   RadioListTile(
+                  title: Text('Ja, ich möchte den Newsletter abonnieren'),
+                  value: "Ja, ich möchte den Newsletter abonnieren",
+                  groupValue: question,
+                  onChanged: (newValue) {
+                    setState(() {
+                      question = newValue;
+                    });
+                  }),
+              RadioListTile(
+                  title: Text('Ja, ich habe die Datenschutz-vereinbarung von Female Fellows e.V. gelesen und stimme zu.'),
+                  value: "Ja, ich habe die Datenschutz-vereinbarung von Female Fellows e.V. gelesen und stimme zu.",
+                  groupValue: question,
+                  onChanged: (newValue) {
+                    setState(() {
+                      question = newValue;
+                    });
+                  }),
+              RadioListTile(
+                  title: Text('Ich habe den Verhaltenskodex von Female Fellows gelesen und stimme zu. '),
+                  value: "Ich habe den Verhaltenskodex von Female Fellows gelesen und stimme zu. ",
+                  groupValue: question,
+                  onChanged: (newValue) {
+                    setState(() {
+                      question = newValue;
+                    });
+                  }),
             ],
           ),
         ),

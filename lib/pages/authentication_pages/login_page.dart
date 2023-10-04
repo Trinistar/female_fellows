@@ -4,6 +4,7 @@ import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/pages/home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -18,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
+
 
   //sign User IN
   void signUserIn() async {
@@ -43,7 +45,8 @@ class _LoginPageState extends State<LoginPage> {
       //show error message
       showErroMessage(e.code);
     }
-    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Homepage()));
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => Homepage()));
   }
 
   // Error Messages
@@ -183,34 +186,31 @@ class _LoginPageState extends State<LoginPage> {
                       controller: passwordController,
                       obscureText: !isPasswordVisible,
                       decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black87),
-                            // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
-                            borderRadius: BorderRadius.circular(10),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black87),
+                          // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromRGBO(27, 25, 86, 1),
+                            width: 2,
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color.fromRGBO(27, 25, 86, 1),
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        fillColor: Color.fromRGBO(242, 242, 242, 1),
+                        filled: true,
+                        hintText: 'Password',
+                        suffixIcon: IconButton(
+                          onPressed: () => (),
+                          icon: Icon(
+                            isPasswordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: Colors.grey,
                           ),
-                          fillColor: Color.fromRGBO(242, 242, 242, 1),
-                          filled: true,
-                          hintText: 'Password',
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              isPasswordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Colors.grey,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                isPasswordVisible = !isPasswordVisible;
-                              });
-                            },
-                          )),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
