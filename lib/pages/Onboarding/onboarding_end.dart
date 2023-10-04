@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_entry.dart';
 import 'package:vs_femalefellows/pages/toggle_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page5 extends StatelessWidget {
   const Page5({super.key});
@@ -28,7 +29,8 @@ class Page5 extends StatelessWidget {
                       builder: (context) => Authentry(),
                     ));
                   },
-                    text: 'Mitglied werden'),
+                    text: AppLocalizations.of(context)!.buttonRegistration,
+                    ),
                 SizedBox(
                   height: 20,
                 ),
@@ -44,8 +46,8 @@ class Page5 extends StatelessWidget {
                     );
                   },
                   child: Container(
-                    padding: EdgeInsets.all(25),
-                    margin: const EdgeInsets.symmetric(horizontal: 70),
+                    padding: EdgeInsets.all(20),
+                    margin: const EdgeInsets.symmetric(horizontal: 60),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(
@@ -55,7 +57,7 @@ class Page5 extends StatelessWidget {
                         color: Colors.transparent),
                     child: Center(
                         child: Text(
-                      'Jetzt loslegen',
+                     AppLocalizations.of(context)!.login,
                       style: const TextStyle(
                           color: Color.fromRGBO(27, 25, 86, 27),
                           fontWeight: FontWeight.bold,
@@ -64,7 +66,7 @@ class Page5 extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 100,
+                  height: 120,
                 )
               ],
             ),

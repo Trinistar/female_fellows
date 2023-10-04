@@ -2,8 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
-import 'package:vs_femalefellows/components/square_tile.dart';
-import 'package:vs_femalefellows/services/auth_service.dart';
+
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -166,17 +165,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 const SizedBox(height: 50),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    //google
-                    SquareTile(
-                        onTap: () => Authservice().signInWithGoogle(),
-                        imagePath: 'lib/images/google.png'),
-                    SizedBox(width: 10),
-                    //apple
-                  ],
-                ),
+        
                 SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

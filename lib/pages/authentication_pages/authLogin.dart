@@ -5,20 +5,18 @@ import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/pages/home_page.dart';
 
-class LoginPage extends StatefulWidget {
-  final Function()? onTap;
-  const LoginPage({super.key, required this.onTap});
+class AuthLoginPage extends StatefulWidget {
+  const AuthLoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<AuthLoginPage> createState() => _AuthLoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _AuthLoginPageState extends State<AuthLoginPage> {
   //text editing controller
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
-
   //sign User IN
   void signUserIn() async {
     showDialog(
@@ -43,7 +41,8 @@ class _LoginPageState extends State<LoginPage> {
       //show error message
       showErroMessage(e.code);
     }
-    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Homepage()));
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => Homepage()));
   }
 
   // Error Messages
@@ -78,22 +77,6 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       body: Column(
         children: [
-          Container(
-            height: 150,
-            width: 1000,
-            color: Color.fromRGBO(242, 242, 242, 1),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 60, top: 25),
-                  child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                      height: 80, alignment: Alignment(0, -0.8)),
-                ),
-              ],
-            ),
-          ),
           SingleChildScrollView(
             child: Expanded(
               child: Column(

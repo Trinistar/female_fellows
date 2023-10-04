@@ -5,6 +5,7 @@ import 'package:vs_femalefellows/pages/Onboarding/onboarding_step2.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_step3.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_step4.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_end.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -22,16 +23,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
   //keep track of last page
   bool onLastPage = false;
 
-  //colorswitch
-  bool colorChange = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(252, 208, 220, 1),
       body: Stack(
-
         children: [
           //Logo
           Container(
@@ -44,14 +41,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   alignment: Alignment(0, -0.8)),
             ),
           ),
-       
+
           Expanded(
             child: PageView(
               controller: _controller,
               onPageChanged: (index) {
                 setState(() {
                   onLastPage = (index == 4);
-                  colorChange = (index == 2);
                 });
               },
               children: [
@@ -66,10 +62,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           ),
           //dot indicator
           Positioned(
-                   bottom: 0.0,
+            bottom: 0.0,
             left: 0.0,
             right: 0.0,
-
             child: onLastPage
                 ? Container(
                     height: 60,
@@ -81,7 +76,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           onTap: () {
                             _controller.jumpTo(0);
                           },
-                          child: Text('Zurück zur Einleitung')),
+                          child: Text(
+                            AppLocalizations.of(context)!.intro,
+                          )),
                     ),
                   )
                 : Container(
@@ -95,7 +92,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             onTap: () {
                               _controller.jumpToPage(5);
                             },
-                            child: Text('Skip')),
+                            child: Text(
+                              AppLocalizations.of(context)!.skip,
+                            )),
                         SmoothPageIndicator(
                           controller: _controller,
                           count: 4,
@@ -108,7 +107,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           },
                           child: Row(
                             children: [
-                              Text('Start'),
+                              Text(
+                                AppLocalizations.of(context)!.start,
+                              ),
                               Icon(Icons.arrow_forward)
                             ],
                           ),

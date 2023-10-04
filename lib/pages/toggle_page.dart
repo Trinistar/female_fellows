@@ -6,10 +6,10 @@ class TogglePage extends StatefulWidget {
   const TogglePage({super.key});
 
   @override
-  State<TogglePage> createState() => _RegisterPageState();
+  State<TogglePage> createState() => _TogglePageState();
 }
 
-class _RegisterPageState extends State<TogglePage> {
+class _TogglePageState extends State<TogglePage> {
   //show LoginPage
   bool shoLoginPage = true;
   //toggle between Pages

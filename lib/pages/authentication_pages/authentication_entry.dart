@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
+import 'package:vs_femalefellows/pages/authentication_pages/authLogin.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_age.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_connection.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_how.dart';
@@ -8,6 +9,7 @@ import 'package:vs_femalefellows/pages/authentication_pages/authentication_notif
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_place.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_safety.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_who.dart';
+import 'package:vs_femalefellows/pages/toggle_page.dart';
 
 class Authentry extends StatefulWidget {
   const Authentry({super.key});
@@ -18,6 +20,12 @@ class Authentry extends StatefulWidget {
 
 class _AuthentryState extends State<Authentry> {
   PageController _controller = PageController();
+
+  int currentPage = 0;
+
+  //keep track of last page
+  bool onLastPage = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +65,11 @@ class _AuthentryState extends State<Authentry> {
           Expanded(
             child: PageView(
               controller: _controller,
+                onPageChanged: (index) {
+                setState(() {
+                  onLastPage = (index == 7);
+                });
+              },
               children: [
                 // Pages one Onboarding
                 AuthWho(),
@@ -66,10 +79,13 @@ class _AuthentryState extends State<Authentry> {
                 AuthNotification(),
                 AuthConnect(),
                 AuthSafety(),
+                AuthLoginPage(),
               ],
             ),
           ),
           //dot indicator
+         onLastPage?
+         Container():
           Positioned(
             bottom: 0.0,
             left: 0.0,
@@ -100,9 +116,15 @@ class _AuthentryState extends State<Authentry> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      _controller.nextPage(
-                          duration: Duration(microseconds: 500),
-                          curve: Curves.easeIn);
+                      if (_controller.page == 6) {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TogglePage(),
+                        ));
+                      } else {
+                        _controller.nextPage(
+                            duration: Duration(microseconds: 500),
+                            curve: Curves.easeIn);
+                      }
                     },
                     child: Text('Next'),
                   ),

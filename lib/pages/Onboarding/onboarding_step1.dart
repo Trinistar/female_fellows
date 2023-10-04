@@ -60,7 +60,8 @@ class Page1 extends StatelessWidget {
                       builder: (context) => Authentry(),
                     ));
                   },
-                  text: 'Mitglied werden'),
+                  text: AppLocalizations.of(context)!.buttonRegistration,
+                  )
             ),
             SizedBox(
               height: 140,
