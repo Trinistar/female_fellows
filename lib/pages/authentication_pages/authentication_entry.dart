@@ -9,7 +9,7 @@ import 'package:vs_femalefellows/pages/authentication_pages/authentication_notif
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_place.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_safety.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_who.dart';
-import 'package:vs_femalefellows/pages/toggle_page.dart';
+
 
 class Authentry extends StatefulWidget {
   const Authentry({super.key});
@@ -46,7 +46,7 @@ class _AuthentryState extends State<Authentry> {
                   child: Image.asset('lib/images/FF-Logo_blau-1.png',
                       height: 80, alignment: Alignment(0, -0.8)),
                 ),
-                Padding(
+          onLastPage?Container():  Padding(
                   padding: const EdgeInsets.only(
                     top: 15,
                     left: 50,
@@ -116,15 +116,11 @@ class _AuthentryState extends State<Authentry> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      if (_controller.page == 6) {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => TogglePage(),
-                        ));
-                      } else {
+                    
                         _controller.nextPage(
                             duration: Duration(microseconds: 500),
                             curve: Curves.easeIn);
-                      }
+                      
                     },
                     child: Text('Next'),
                   ),

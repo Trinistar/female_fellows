@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:vs_femalefellows/pages/authentication_pages/authLogin.dart';
 import 'package:vs_femalefellows/pages/home_page.dart';
-import 'package:vs_femalefellows/pages/toggle_page.dart';
+
 
 
 class Authpage extends StatelessWidget {
@@ -18,7 +19,7 @@ class Authpage extends StatelessWidget {
         }
         // user is not logged in 
         else{
-          return TogglePage();
+          return AuthLoginPage();
         }
 
       }),
