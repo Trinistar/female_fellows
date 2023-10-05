@@ -91,6 +91,36 @@ class _AuthNotificationState extends State<AuthNotification> {
                 ),
               ],
             ),
+            SizedBox(height: 10,)
+            ,
+            Row(
+              children: [
+                    Expanded(child: 
+                 RadioListTile(
+                              contentPadding: EdgeInsets.only(left:40),
+                        title: Text('Anruf'),
+                          value: "Anruf",
+                          groupValue: question,
+                          onChanged: (newValue) {
+                            setState(() {
+                              question = newValue;
+                            });
+                          }),
+                ),
+                Expanded(child: 
+                 RadioListTile(
+                               contentPadding: EdgeInsets.only(left:5),
+                        title: Text('Whatsapp'),
+                          value: "Whatsapp",
+                          groupValue: question,
+                          onChanged: (newValue) {
+                            setState(() {
+                              question = newValue;
+                            });
+                          }),
+                ),
+              ],
+            )
           ],
         ),
       ),

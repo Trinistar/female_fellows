@@ -17,6 +17,7 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
+
   //sign User IN
   void signUserIn() async {
     showDialog(
@@ -76,7 +77,23 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       body: Column(
+         mainAxisSize: MainAxisSize.min,
         children: [
+          Container(
+            height: 150,
+            width: 1000,
+            color: Color.fromRGBO(242, 242, 242, 1),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 60, top: 25),
+                  child: Image.asset('lib/images/FF-Logo_blau-1.png',
+                      height: 80, alignment: Alignment(0, -0.8)),
+                ),
+              ],
+            ),
+          ),
           SingleChildScrollView(
             child: Expanded(
               child: Column(

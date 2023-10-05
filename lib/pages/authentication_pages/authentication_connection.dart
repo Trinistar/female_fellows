@@ -46,33 +46,49 @@ class _AuthConnectState extends State<AuthConnect> {
               SizedBox(
                 height: 50,
               ),
-              RadioListTile(
-                  title: Text('vor Ort'),
-                  value: "vor Ort",
-                  groupValue: question,
-                  onChanged: (newValue) {
-                    setState(() {
-                      question = newValue ;
-                    });
-                  }),
-              RadioListTile(
-                  title: Text('Online'),
-                  value: "Online",
-                  groupValue: question,
-                  onChanged: ( newValue) {
-                    setState(() {
-                      question = newValue ;
-                    });
-                  }),
-              RadioListTile(
-                  title: Text('vor Ort & Online'),
-                  value: "vor Ort & Online",
-                  groupValue: question,
-                  onChanged: (newValue) {
-                    setState(() {
-                      question = newValue;
-                    });
-                  }),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Column(children: [
+                   RadioListTile(
+                    dense: true,
+                    title: Text('vor Ort',style: TextStyle(
+                    fontSize: 15,
+                  ),),
+                    value: "vor Ort",
+                    groupValue: question,
+                    onChanged: (newValue) {
+                      setState(() {
+                        question = newValue ;
+                      });
+                    }),
+                RadioListTile(
+                  dense: true,
+                    title: Text('Online',style: TextStyle(
+                    fontSize: 15,
+                  ),),
+                    value: "Online",
+                    groupValue: question,
+                    onChanged: ( newValue) {
+                      setState(() {
+                        question = newValue ;
+                      });
+                    }),
+                RadioListTile(
+                  dense: true,
+                    title: Text('vor Ort & Online',style: TextStyle(
+                    fontSize: 15,
+                  ),),
+                    value: "vor Ort & Online",
+                    groupValue: question,
+                    onChanged: (newValue) {
+                      setState(() {
+                        question = newValue;
+                      });
+                    }),
+              
+                ],),
+              )
+             
             ],
           ),
         ),

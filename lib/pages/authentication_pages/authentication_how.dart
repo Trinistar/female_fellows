@@ -48,11 +48,16 @@ class _AuthHowState extends State<AuthHow> {
                 height: 30,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20,),
+                padding: const EdgeInsets.only(
+                  left: 20,
+                ),
                 child: Column(
                   children: [
                     RadioListTile(
-                      title: Text('Instagram'),
+                        dense: true,
+                        title: Text('Instagram',style: TextStyle(
+                  fontSize: 15,
+                ),),
                         value: "Instagram",
                         groupValue: question,
                         onChanged: (newValue) {
@@ -60,8 +65,11 @@ class _AuthHowState extends State<AuthHow> {
                             question = newValue;
                           });
                         }),
-                           RadioListTile(
-                      title: Text('Facebook'),
+                    RadioListTile(
+                        dense: true,
+                        title: Text('Facebook',style: TextStyle(
+                  fontSize: 15,
+                ),),
                         value: "Facebook",
                         groupValue: question,
                         onChanged: (newValue) {
@@ -69,8 +77,11 @@ class _AuthHowState extends State<AuthHow> {
                             question = newValue;
                           });
                         }),
-                           RadioListTile(
-                      title: Text('Linkedin'),
+                    RadioListTile(
+                        dense: true,
+                        title: Text('Linkedin',style: TextStyle(
+                  fontSize: 15,
+                ),),
                         value: "Linkedin",
                         groupValue: question,
                         onChanged: (newValue) {
@@ -78,8 +89,11 @@ class _AuthHowState extends State<AuthHow> {
                             question = newValue;
                           });
                         }),
-                           RadioListTile(
-                      title: Text('Presse/Zeitung'),
+                    RadioListTile(
+                        dense: true,
+                        title: Text('Presse/Zeitung',style: TextStyle(
+                  fontSize: 15,
+                ),),
                         value: "Presse/Zeitung",
                         groupValue: question,
                         onChanged: (newValue) {
@@ -87,8 +101,11 @@ class _AuthHowState extends State<AuthHow> {
                             question = newValue;
                           });
                         }),
-                           RadioListTile(
-                      title: Text('Freunde'),
+                    RadioListTile(
+                        dense: true,
+                        title: Text('Freunde',style: TextStyle(
+                  fontSize: 15,
+                ),),
                         value: "Freunde",
                         groupValue: question,
                         onChanged: (newValue) {
@@ -96,8 +113,11 @@ class _AuthHowState extends State<AuthHow> {
                             question = newValue;
                           });
                         }),
-                           RadioListTile(
-                      title: Text('Sonstiges'),
+                    RadioListTile(
+                        dense: true,
+                        title: Text('Sonstiges',style: TextStyle(
+                  fontSize: 15,
+                ),),
                         value: "Sonstiges",
                         groupValue: question,
                         onChanged: (newValue) {

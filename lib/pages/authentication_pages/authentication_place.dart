@@ -80,20 +80,58 @@ class _AuthPlaceState extends State<AuthPlace> {
                 ),
                 Row(
                   children: [
-                    Flexible(
-                      child: TextBar(
-                        controller: postCodeController,
-                        hintText: '35510',
-                        obscureText: false,
-                      ),
-                    ),
                     Expanded(
-                      child: TextBar(
-                        controller: placeController,
-                        hintText: 'Musterort',
-                        obscureText: false,
-                      ),
-                    ),
+                      child: Padding(
+      padding: const EdgeInsets.only(left: 40.0,right: 55),
+      child: TextField(
+        controller: postCodeController,
+   
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black87),
+            // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Color.fromRGBO(27, 25, 86, 1),
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          fillColor: Color.fromRGBO(242, 242, 242, 1),
+          filled: true,
+          hintText:'35510',
+        ),
+      ),
+    ),
+     ),Expanded(
+                      child: Padding(
+      padding: const EdgeInsets.only(right: 10.0),
+      child: TextField(
+        controller: placeController,
+   
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black87),
+            // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Color.fromRGBO(27, 25, 86, 1),
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          fillColor: Color.fromRGBO(242, 242, 242, 1),
+          filled: true,
+          hintText:'Wohnort',
+        ),
+      ),
+    ),
+     ),
+     SizedBox(width: 30,)
                   ],
                 ),
               ],

@@ -10,7 +10,6 @@ import 'package:vs_femalefellows/pages/authentication_pages/authentication_place
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_safety.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_who.dart';
 
-
 class Authentry extends StatefulWidget {
   const Authentry({super.key});
 
@@ -34,38 +33,40 @@ class _AuthentryState extends State<Authentry> {
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            height: 150,
-            width: 1000,
-            color: Color.fromRGBO(242, 242, 242, 1),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 60, top: 25),
-                  child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                      height: 80, alignment: Alignment(0, -0.8)),
-                ),
-          onLastPage?Container():  Padding(
-                  padding: const EdgeInsets.only(
-                    top: 15,
-                    left: 50,
+          onLastPage
+              ? Container()
+              : Container(
+                  height: 150,
+                  width: 1000,
+                  color: Color.fromRGBO(242, 242, 242, 1),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 60, top: 25),
+                        child: Image.asset('lib/images/FF-Logo_blau-1.png',
+                            height: 80, alignment: Alignment(0, -0.8)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 15,
+                          left: 50,
+                        ),
+                        child: Text(
+                          'Mitglied werden',
+                          style: TextStyle(
+                            color: Color.fromRGBO(27, 25, 86, 1),
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  child: Text(
-                    'Mitglied werden',
-                    style: TextStyle(
-                      color: Color.fromRGBO(27, 25, 86, 1),
-                      fontSize: 20,
-                    ),
-                  ),
                 ),
-              ],
-            ),
-          ),
           Expanded(
             child: PageView(
               controller: _controller,
-                onPageChanged: (index) {
+              onPageChanged: (index) {
                 setState(() {
                   onLastPage = (index == 7);
                 });
@@ -84,50 +85,48 @@ class _AuthentryState extends State<Authentry> {
             ),
           ),
           //dot indicator
-         onLastPage?
-         Container():
-          Positioned(
-            bottom: 0.0,
-            left: 0.0,
-            right: 0.0,
-            child: Container(
-              height: 70,
-              width: 1000,
-              color: Color.fromRGBO(242, 242, 242, 1),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                      onTap: () {
-                        if (_controller.page == 0) {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => OnboardingPage(),
-                          ));
-                        } else {
-                          _controller.previousPage(
-                              duration: Duration(microseconds: 500),
-                              curve: Curves.easeIn);
-                        }
-                      },
-                      child: Text('Back')),
-                  SmoothPageIndicator(
-                    controller: _controller,
-                    count: 7,
+          onLastPage
+              ? Container()
+              : Positioned(
+                  bottom: 0.0,
+                  left: 0.0,
+                  right: 0.0,
+                  child: Container(
+                    height: 70,
+                    width: 1000,
+                    color: Color.fromRGBO(242, 242, 242, 1),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        GestureDetector(
+                            onTap: () {
+                              if (_controller.page == 0) {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => OnboardingPage(),
+                                ));
+                              } else {
+                                _controller.previousPage(
+                                    duration: Duration(microseconds: 500),
+                                    curve: Curves.easeIn);
+                              }
+                            },
+                            child: Text('Back')),
+                        SmoothPageIndicator(
+                          controller: _controller,
+                          count: 7,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            _controller.nextPage(
+                                duration: Duration(microseconds: 500),
+                                curve: Curves.easeIn);
+                          },
+                          child: Text('Next'),
+                        ),
+                      ],
+                    ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                    
-                        _controller.nextPage(
-                            duration: Duration(microseconds: 500),
-                            curve: Curves.easeIn);
-                      
-                    },
-                    child: Text('Next'),
-                  ),
-                ],
-              ),
-            ),
-          ),
+                ),
         ],
       ),
     );

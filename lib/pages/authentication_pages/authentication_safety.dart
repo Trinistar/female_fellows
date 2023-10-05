@@ -13,13 +13,13 @@ class _AuthSafetyState extends State<AuthSafety> {
 
   @override
   Widget build(BuildContext context) {
- return Scaffold(
+    return Scaffold(
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-             crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 50),
@@ -45,8 +45,15 @@ class _AuthSafetyState extends State<AuthSafety> {
               SizedBox(
                 height: 50,
               ),
-                   RadioListTile(
-                  title: Text('Ja, ich möchte den Newsletter abonnieren'),
+              RadioListTile(
+                contentPadding: EdgeInsets.only(left: 20),
+                  dense: true,
+                  title: Text(
+                    'Ja, ich möchte den\nNewsletter abonnieren',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
                   value: "Ja, ich möchte den Newsletter abonnieren",
                   groupValue: question,
                   onChanged: (newValue) {
@@ -55,8 +62,15 @@ class _AuthSafetyState extends State<AuthSafety> {
                     });
                   }),
               RadioListTile(
-                  title: Text('Ja, ich habe die Datenschutz-vereinbarung von Female Fellows e.V. gelesen und stimme zu.'),
-                  value: "Ja, ich habe die Datenschutz-vereinbarung von Female Fellows e.V. gelesen und stimme zu.",
+                  dense: true,
+                  title: Text(
+                    'Ja, ich habe die Datenschutz-\nvereinbarungvon Female Fellows e.V. gelesen und stimme zu.',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  value:
+                      "Ja, ich habe die Datenschutz-vereinbarung von Female Fellows e.V. gelesen und stimme zu.",
                   groupValue: question,
                   onChanged: (newValue) {
                     setState(() {
@@ -64,8 +78,15 @@ class _AuthSafetyState extends State<AuthSafety> {
                     });
                   }),
               RadioListTile(
-                  title: Text('Ich habe den Verhaltenskodex von Female Fellows gelesen und stimme zu. '),
-                  value: "Ich habe den Verhaltenskodex von Female Fellows gelesen und stimme zu. ",
+                  dense: true,
+                  title: Text(
+                    'Ich habe den Verhaltenskodex von\nFemale Fellows gelesen und stimme zu. ',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  value:
+                      "Ich habe den Verhaltenskodex von Female Fellows gelesen und stimme zu. ",
                   groupValue: question,
                   onChanged: (newValue) {
                     setState(() {
