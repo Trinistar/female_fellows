@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:vs_femalefellows/pages/home_page.dart';
+import 'package:vs_femalefellows/pages/navigation_page.dart';
 
 class AuthLoginPage extends StatefulWidget {
   const AuthLoginPage({super.key});
@@ -43,7 +43,7 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
       showErroMessage(e.code);
     }
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Homepage()));
+        .push(MaterialPageRoute(builder: (context) => Navigation()));
   }
 
   // Error Messages
