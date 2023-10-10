@@ -77,7 +77,7 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(242, 242, 242, 1),
       body: Column(
-         mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             height: 150,
@@ -214,32 +214,7 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30),
-                    child: Row(
-                      children: [
-                        Checkbox(
-                          value: isChecked,
-                          onChanged: (bool? newValue) {
-                            setState(() {
-                              isChecked = newValue!;
-                            });
-                          },
-                        ),
-                        Text(
-                          'Remember me',
-                          style: TextStyle(color: Colors.grey.shade700),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 80,
+                    height: 100,
                   ),
                   LoginButton(
                     text: 'Sign In',

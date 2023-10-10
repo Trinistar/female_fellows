@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/authLogin.dart';
+import 'package:vs_femalefellows/pages/authentication_pages/authentication_login.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_age.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_connection.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_how.dart';

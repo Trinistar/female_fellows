@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/authLogin.dart';
+import 'package:vs_femalefellows/pages/authentication_pages/authentication_login.dart';
 import 'package:vs_femalefellows/pages/home_page.dart';
 
 
