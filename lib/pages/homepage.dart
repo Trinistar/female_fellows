@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vs_femalefellows/components/carousel_items.dart';
+import 'package:vs_femalefellows/components/image_button.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,22 +14,25 @@ class _HomeState extends State<Home> {
   final user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: ListView(
-        shrinkWrap: true,
-        children: [
-          Stack(
-            clipBehavior: Clip.none,
+    return ListView(
+      shrinkWrap: true,
+      children: [
+        //first container
+        SizedBox(
+          height: 520,
+          width: 1000,
+          child: Stack(
             children: [
               Container(
                 width: 1000,
-                height: 400,
+                height: 380,
                 decoration: BoxDecoration(
                   borderRadius:
                       BorderRadius.only(bottomRight: Radius.circular(60)),
                   color: Color.fromRGBO(27, 25, 68, 1),
                 ),
               ),
+
               Positioned(
                 top: 25,
                 left: 350,
@@ -67,46 +70,12 @@ class _HomeState extends State<Home> {
                 left: 200,
                 child: Image.asset('lib/images/handright.png'),
               ),
-
-              //White Container next to Pink
-              Positioned(
-                top: 320,
-                left: 200,
-                child: Column(
-                  children: [
-                    Stack(
-                      children: [
-                        Container(
-                          width: 320,
-                          height: 200,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                          ),
-                        ),
-                        Positioned(
-                          left: 110,
-                          child: Container(
-                            width: 100,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(60),
-                              ),
-                              color:Color.fromRGBO(27, 25, 68, 1),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
               //pink Container with text
               Positioned(
                 top: 230,
                 child: Column(
                   children: [
-                         Container(
+                    Container(
                       width: 320,
                       height: 250,
                       decoration: BoxDecoration(
@@ -117,7 +86,7 @@ class _HomeState extends State<Home> {
                         ),
                         color: Color.fromRGBO(252, 208, 220, 1),
                       ),
-                    ), 
+                    ),
                     Stack(
                       clipBehavior: Clip.none,
                       children: [
@@ -176,81 +145,44 @@ class _HomeState extends State<Home> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
               ),
-              //Container with title
-              Positioned(
-                top: 510,
-                child: Column(
-                  children: [
-                    Container(
-                      width: 1000,
-                      height: 500,
-                      color: Colors.white,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text(
-                          'Tandem-Erfolgsstories',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              //Carousel Slider
-              Positioned(
-                top: 550,
-                left: 40,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CarousItem(),
-                    CarousItem(),
-                    CarousItem(),
-                  ],
-                ),
-              ),
-              // Image for Tandem clickable ???
-              Positioned(
-                top: 730,
-                left: 40,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Container(
-                    alignment: Alignment.bottomCenter,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(40)),
-                      color: Color.fromRGBO(106, 104, 206, 1),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(40)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10),
-                            child: Text(
-                              'Finde deine perfekte\nTandem-Partnerin',
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Image(
-                            image: AssetImage('lib/images/Findpartner.png'),
-                            fit: BoxFit.cover,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              )
             ],
           ),
-        ],
-      ),
+        ),
+////////////////////////////
+
+        //Container with title Tandem
+        Padding(
+          padding: const EdgeInsets.only(left: 40),
+          child: Text(
+            'Tandem-Erfolgsstories',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          ),
+        ),
+        //carousel
+        SizedBox(
+          height: 150,
+          width: 1000,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                CarousItem(),
+                CarousItem(),
+                CarousItem(),
+                CarousItem(),
+                CarousItem(),
+                CarousItem(),
+                CarousItem(),
+                CarousItem(),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(
+          child: ImageButton(),
+        ),
+      ],
     );
   }
 }
