@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:vs_femalefellows/components/carousel_items.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -9,10 +11,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-    final user = FirebaseAuth.instance.currentUser!;
+  final user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
-    return  ListView(
+    return SingleChildScrollView(
+      child: ListView(
+        shrinkWrap: true,
         children: [
           Stack(
             clipBehavior: Clip.none,
@@ -27,7 +31,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Positioned(
-                top: 30,
+                top: 25,
                 left: 350,
                 child: CircleAvatar(
                   backgroundImage: AssetImage('lib/images/Avatar.png'),
@@ -36,7 +40,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Positioned(
-                top: 60,
+                top: 40,
                 left: 40,
                 child: Text(
                   'Hallo ${user.email!},',
@@ -47,7 +51,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Positioned(
-                top: 110,
+                top: 90,
                 left: 40,
                 child: Text(
                   'Schön das du dabei bist!',
@@ -55,19 +59,54 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Positioned(
-                top: 110,
+                top: 90,
                 child: Image.asset('lib/images/handleft.png'),
               ),
               Positioned(
-                top: 180,
+                top: 160,
                 left: 200,
                 child: Image.asset('lib/images/handright.png'),
               ),
+
+              //White Container next to Pink
               Positioned(
-                top: 250,
+                top: 320,
+                left: 200,
                 child: Column(
                   children: [
-                    Container(
+                    Stack(
+                      children: [
+                        Container(
+                          width: 320,
+                          height: 200,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                          ),
+                        ),
+                        Positioned(
+                          left: 110,
+                          child: Container(
+                            width: 100,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(60),
+                              ),
+                              color:Color.fromRGBO(27, 25, 68, 1),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              //pink Container with text
+              Positioned(
+                top: 230,
+                child: Column(
+                  children: [
+                         Container(
                       width: 320,
                       height: 250,
                       decoration: BoxDecoration(
@@ -78,7 +117,7 @@ class _HomeState extends State<Home> {
                         ),
                         color: Color.fromRGBO(252, 208, 220, 1),
                       ),
-                    ),
+                    ), 
                     Stack(
                       clipBehavior: Clip.none,
                       children: [
@@ -108,50 +147,110 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
+              //Feathers in pink container
               Positioned(
-                top: 270,
+                top: 250,
                 left: 240,
                 child: Image.asset('lib/images/federoben.png'),
               ),
               Positioned(
-                top: 300,
+                top: 280,
                 left: 210,
                 child: Image.asset('lib/images/federlinks.png'),
               ),
               Positioned(
-                top: 300,
+                top: 280,
                 left: 270,
                 child: Image.asset('lib/images/federrechts.png'),
               ),
               Positioned(
-                top: 350,
+                top: 330,
                 left: 280,
                 child: Image.asset('lib/images/federunten.png'),
               ),
               Positioned(
-                top: 320,
+                top: 300,
                 left: 40,
                 child: Text(
                   'Entdecke Events, finde dein\nperfekte Tandem-Partnerin\nund lass dich von unseren\nErfolgsgeschichten inspirieren.',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
               ),
+              //Container with title
+              Positioned(
+                top: 510,
+                child: Column(
+                  children: [
+                    Container(
+                      width: 1000,
+                      height: 500,
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 40),
+                        child: Text(
+                          'Tandem-Erfolgsstories',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              //Carousel Slider
               Positioned(
                 top: 550,
                 left: 40,
-                child: Column(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Tandem-Erfolgsstories',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                    ),
+                    CarousItem(),
+                    CarousItem(),
+                    CarousItem(),
                   ],
+                ),
+              ),
+              // Image for Tandem clickable ???
+              Positioned(
+                top: 730,
+                left: 40,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                      color: Color.fromRGBO(106, 104, 206, 1),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Text(
+                              'Finde deine perfekte\nTandem-Partnerin',
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          Image(
+                            image: AssetImage('lib/images/Findpartner.png'),
+                            fit: BoxFit.cover,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               )
             ],
           ),
         ],
-      );
+      ),
+    );
   }
 }

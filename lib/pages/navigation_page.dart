@@ -33,14 +33,13 @@ class _HomepageState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:Color.fromRGBO(25, 27, 68, 1),
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
-            topLeft:
-                Radius.circular(20.0), 
-            topRight:
-                Radius.circular(20.0), 
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
           ),
         ),
         child: BottomNavigationBar(
