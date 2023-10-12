@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/components/carousel_items.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
 
 class EventCarousel extends StatelessWidget {
   const EventCarousel({super.key});

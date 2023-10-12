@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ThridDivider extends StatelessWidget {
-  const ThridDivider({super.key});
+class DividerBouthCorner extends StatelessWidget {
+  final Color color1;
+  final Color color2;
+
+  
+  const DividerBouthCorner({super.key,required this.color1,required this.color2});
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +15,12 @@ class ThridDivider extends StatelessWidget {
         Container(
           width: 1000,
           height: 100,
-          color: Color.fromRGBO(236, 240, 243, 1),
+          color: color1,
+        //  Color.fromRGBO(236, 240, 243, 1),
         ),
         Container(
           decoration: BoxDecoration(
-       color: Color.fromRGBO(27, 25, 68, 1),
+              color: color2,
               borderRadius:
                   BorderRadius.only(bottomRight: Radius.circular(60))),
           width: 410,
@@ -24,7 +29,7 @@ class ThridDivider extends StatelessWidget {
         Positioned(
           top: 50,
           child: Container(
-         color: Color.fromRGBO(27, 25, 68, 1),
+            color: color2,
             width: 50,
             height: 50,
           ),
@@ -33,7 +38,8 @@ class ThridDivider extends StatelessWidget {
           top: 50,
           child: Container(
             decoration: BoxDecoration(
-                color: Color.fromRGBO(236, 240, 243, 1),
+                color: color1,
+                //Color.fromRGBO(236, 240, 243, 1),
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(60))),
             width: 1000,
             height: 50,

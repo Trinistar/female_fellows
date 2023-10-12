@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/pages/authentication_pages/authentication_login.dart';
@@ -27,107 +28,110 @@ class _AuthentryState extends State<Authentry> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          onLastPage
-              ? Container()
-              : Container(
-                  height: 150,
-                  width: 1000,
-                  color: Color.fromRGBO(242, 242, 242, 1),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 60, top: 25),
-                        child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                            height: 80, alignment: Alignment(0, -0.8)),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 15,
-                          left: 50,
-                        ),
-                        child: Text(
-                          'Mitglied werden',
-                          style: TextStyle(
-                            color: Color.fromRGBO(27, 25, 86, 1),
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-          Expanded(
-            child: PageView(
-              controller: _controller,
-              onPageChanged: (index) {
-                setState(() {
-                  onLastPage = (index == 7);
-                });
-              },
-              children: [
-                // Pages one Onboarding
-                AuthWho(),
-                AuthAge(),
-                AuthPlace(),
-                AuthHow(),
-                AuthNotification(),
-                AuthConnect(),
-                AuthSafety(),
-                AuthLoginPage(),
-              ],
-            ),
-          ),
-          //dot indicator
-          onLastPage
-              ? Container()
-              : Positioned(
-                  bottom: 0.0,
-                  left: 0.0,
-                  right: 0.0,
-                  child: Container(
-                    height: 70,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(statusBarColor: Color.fromRGBO(242, 242, 242, 1)),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+        body: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            onLastPage
+                ? Container()
+                : Container(
+                    height: 150,
                     width: 1000,
                     color: Color.fromRGBO(242, 242, 242, 1),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        GestureDetector(
-                            onTap: () {
-                              if (_controller.page == 0) {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => OnboardingPage(),
-                                ));
-                              } else {
-                                _controller.previousPage(
-                                    duration: Duration(microseconds: 500),
-                                    curve: Curves.easeIn);
-                              }
-                            },
-                            child: Text('Back')),
-                        SmoothPageIndicator(
-                          controller: _controller,
-                          count: 7,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 60, top: 25),
+                          child: Image.asset('lib/images/FF-Logo_blau-1.png',
+                              height: 80, alignment: Alignment(0, -0.8)),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            _controller.nextPage(
-                                duration: Duration(microseconds: 500),
-                                curve: Curves.easeIn);
-                          },
-                          child: Text('Next'),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 15,
+                            left: 50,
+                          ),
+                          child: Text(
+                            'Mitglied werden',
+                            style: TextStyle(
+                              color: Color.fromRGBO(27, 25, 86, 1),
+                              fontSize: 20,
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   ),
-                ),
-        ],
+            Expanded(
+              child: PageView(
+                controller: _controller,
+                onPageChanged: (index) {
+                  setState(() {
+                    onLastPage = (index == 7);
+                  });
+                },
+                children: [
+                  // Pages one Onboarding
+                  AuthWho(),
+                  AuthAge(),
+                  AuthPlace(),
+                  AuthHow(),
+                  AuthNotification(),
+                  AuthConnect(),
+                  AuthSafety(),
+                  AuthLoginPage(),
+                ],
+              ),
+            ),
+            //dot indicator
+            onLastPage
+                ? Container()
+                : Positioned(
+                    bottom: 0.0,
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      height: 70,
+                      width: 1000,
+                      color: Color.fromRGBO(242, 242, 242, 1),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                if (_controller.page == 0) {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => OnboardingPage(),
+                                  ));
+                                } else {
+                                  _controller.previousPage(
+                                      duration: Duration(microseconds: 500),
+                                      curve: Curves.easeIn);
+                                }
+                              },
+                              child: Text('Back')),
+                          SmoothPageIndicator(
+                            controller: _controller,
+                            count: 7,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              _controller.nextPage(
+                                  duration: Duration(microseconds: 500),
+                                  curve: Curves.easeIn);
+                            },
+                            child: Text('Next'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+          ],
+        ),
       ),
     );
   }

@@ -1,0 +1,17 @@
+Color.fromRGBO(252, 208, 220, 1),    Pink
+
+
+
+Color.fromRGBO(236, 240, 243, 1), grau
+
+Color.fromRGBO(242, 242, 242, 1) , grau
+
+
+
+
+ Color.fromRGBO(27, 25, 86, 27),   blau
+
+
+
+
+ color: Color.fromRGBO(59, 57, 102, 1), text

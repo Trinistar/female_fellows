@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:vs_femalefellows/pages/Eventpages/event.dart';
 import 'package:vs_femalefellows/pages/Profil/profil.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
-import 'package:vs_femalefellows/pages/homepage.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 
 class Navigation extends StatefulWidget {
   Navigation({super.key});
