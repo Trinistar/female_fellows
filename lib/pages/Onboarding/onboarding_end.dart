@@ -51,7 +51,7 @@ class Page5 extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(
-                          color: Color.fromRGBO(27, 25, 86, 27),
+                          color:  Theme.of(context).colorScheme.primary,
                           width: 2.0,
                         ),
                         color: Colors.transparent),
@@ -59,7 +59,6 @@ class Page5 extends StatelessWidget {
                         child: Text(
                      AppLocalizations.of(context)!.login,
                       style: const TextStyle(
-                          color: Color.fromRGBO(27, 25, 86, 27),
                           fontWeight: FontWeight.bold,
                           fontSize: 18),
                     )),

@@ -18,7 +18,7 @@ FirstContainer({super.key});
                 decoration: BoxDecoration(
                   borderRadius:
                       BorderRadius.only(bottomRight: Radius.circular(60)),
-                  color: Color.fromRGBO(27, 25, 68, 1),
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
 
@@ -28,7 +28,7 @@ FirstContainer({super.key});
                 child: CircleAvatar(
                   backgroundImage: AssetImage('lib/images/Avatar.png'),
                   radius: 25,
-                  backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
                 ),
               ),
               Positioned(
@@ -73,7 +73,7 @@ FirstContainer({super.key});
                           topLeft: Radius.circular(60),
                           topRight: Radius.circular(60),
                         ),
-                        color: Color.fromRGBO(252, 208, 220, 1),
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
                     Stack(
@@ -86,7 +86,7 @@ FirstContainer({super.key});
                             height: 50,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(),
-                              color: Color.fromRGBO(252, 208, 220, 1),
+                              color:Theme.of(context).colorScheme.secondary,
                             ),
                           ),
                         ),

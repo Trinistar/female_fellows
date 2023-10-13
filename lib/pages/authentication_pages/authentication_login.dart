@@ -75,14 +75,14 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             height: 150,
             width: 1000,
-            color: Color.fromRGBO(242, 242, 242, 1),
+            color:  Theme.of(context).colorScheme.surface,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -105,7 +105,7 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                     child: Text(
                       AppLocalizations.of(context)!.loginPageTitle,
                       style: TextStyle(
-                        color: Color.fromRGBO(27, 25, 86, 1),
+                        color:  Theme.of(context).colorScheme.primary,
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
                       ),
@@ -119,7 +119,7 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                     child: Text(
                       AppLocalizations.of(context)!.loginPageBody,
                       style: TextStyle(
-                        color: Color.fromRGBO(27, 25, 86, 1),
+                        color: Theme.of(context).colorScheme.primary,
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
@@ -190,12 +190,12 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color.fromRGBO(27, 25, 86, 1),
+                              color:  Theme.of(context).colorScheme.primary,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          fillColor: Color.fromRGBO(242, 242, 242, 1),
+                          fillColor:  Theme.of(context).colorScheme.surface,
                           filled: true,
                           hintText: 'Password',
                           suffixIcon: IconButton(

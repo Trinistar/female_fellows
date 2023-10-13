@@ -15,8 +15,6 @@ class DividerBouthCorner extends StatelessWidget {
         Container(
           width: 1000,
           height: 100,
-          color: color1,
-        //  Color.fromRGBO(236, 240, 243, 1),
         ),
         Container(
           decoration: BoxDecoration(
@@ -39,7 +37,6 @@ class DividerBouthCorner extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
                 color: color1,
-                //Color.fromRGBO(236, 240, 243, 1),
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(60))),
             width: 1000,
             height: 50,

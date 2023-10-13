@@ -27,12 +27,12 @@ class TextBar extends StatelessWidget {
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color.fromRGBO(27, 25, 86, 1),
+              color:  Theme.of(context).colorScheme.primary,
               width: 2,
             ),
             borderRadius: BorderRadius.circular(10),
           ),
-          fillColor: Color.fromRGBO(242, 242, 242, 1),
+          fillColor:  Theme.of(context).colorScheme.surface,
           filled: true,
           hintText: hintText,
         ),

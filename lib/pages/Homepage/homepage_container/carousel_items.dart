@@ -13,7 +13,7 @@ class CarousItem extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(40)),
-          color: Color.fromRGBO(252, 208, 220, 1),
+          color:  Theme.of(context).colorScheme.secondary,
         ),
         height: 160,
         child: ClipRRect(

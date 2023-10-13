@@ -27,7 +27,7 @@ class _AuthConnectState extends State<AuthConnect> {
                 child: Text(
                   'Wie möchtest du dich\ntreffen?',
                   style: TextStyle(
-                    color: Color.fromRGBO(27, 25, 86, 1),
+                    color:  Theme.of(context).colorScheme.primary,
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
@@ -40,7 +40,7 @@ class _AuthConnectState extends State<AuthConnect> {
                 child: CircleAvatar(
                   backgroundImage: AssetImage('lib/images/Kennenlernene.png'),
                   radius: 100,
-                  backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+                  backgroundColor:  Theme.of(context).colorScheme.secondary,
                 ),
               ),
               SizedBox(

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       localizationsDelegates: [
-         AppLocalizations.delegate, 
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -30,11 +30,15 @@ class MyApp extends StatelessWidget {
         Locale('de'), // Deutsch
       ],
       theme: ThemeData(
-        // colorScheme: ColorScheme.fromSeed(
-        //   seedColor: Color.fromRGBO(242, 242, 242, 1),
-        //   secondary: Color.fromRGBO(252, 208, 220, 1),
-        //   surface:  Color.fromRGBO(59, 57, 102, 1),
-        // ),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor:Color.fromRGBO(27, 25, 86, 27),
+          primary: Color.fromRGBO(27, 25, 86, 27),
+          secondary: Color.fromRGBO(252, 208, 220, 1),
+          surface: Color.fromRGBO(242, 242, 242, 1),
+          surfaceVariant:Color.fromRGBO(236, 240, 243, 1),
+          tertiary: Color.fromRGBO(106, 104, 206, 1),
+         
+        ),
         textTheme: TextTheme(
           bodyLarge: TextStyle(
             color: Color.fromRGBO(59, 57, 102, 1),

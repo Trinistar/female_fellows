@@ -24,7 +24,7 @@ class Page3 extends StatelessWidget {
             child: Text(
              AppLocalizations.of(context)!.onboardingPageThreeTitle,
               style: TextStyle(
-                color: Color.fromRGBO(27, 25, 86, 1),
+                color:  Theme.of(context).colorScheme.primary,
                 fontSize: 35,
               ),
             ),
@@ -37,7 +37,7 @@ class Page3 extends StatelessWidget {
             thickness: 5,
             indent: 70,
             endIndent: 280,
-            color: Color.fromRGBO(27, 25, 86, 1),
+            color:  Theme.of(context).colorScheme.primary,
           ),
           SizedBox(height: 20),
           Padding(
@@ -45,7 +45,7 @@ class Page3 extends StatelessWidget {
             child: Text(
             AppLocalizations.of(context)!.onboardingPageThreeBody,
               style: TextStyle(
-                color: Color.fromRGBO(27, 25, 86, 1),
+                color:  Theme.of(context).colorScheme.primary,
                 fontSize: 15,
               ),
             ),

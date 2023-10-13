@@ -29,10 +29,10 @@ class _AuthentryState extends State<Authentry> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(statusBarColor: Color.fromRGBO(242, 242, 242, 1)),
+      value: SystemUiOverlayStyle(statusBarColor:  Theme.of(context).colorScheme.surface,),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Color.fromRGBO(242, 242, 242, 1),
+        backgroundColor:  Theme.of(context).colorScheme.surface,
         body: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -41,7 +41,7 @@ class _AuthentryState extends State<Authentry> {
                 : Container(
                     height: 150,
                     width: 1000,
-                    color: Color.fromRGBO(242, 242, 242, 1),
+                    color:  Theme.of(context).colorScheme.surface,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -58,7 +58,7 @@ class _AuthentryState extends State<Authentry> {
                           child: Text(
                             'Mitglied werden',
                             style: TextStyle(
-                              color: Color.fromRGBO(27, 25, 86, 1),
+                              color:  Theme.of(context).colorScheme.primary,
                               fontSize: 20,
                             ),
                           ),
@@ -97,7 +97,7 @@ class _AuthentryState extends State<Authentry> {
                     child: Container(
                       height: 70,
                       width: 1000,
-                      color: Color.fromRGBO(242, 242, 242, 1),
+                      color:  Theme.of(context).colorScheme.surface,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

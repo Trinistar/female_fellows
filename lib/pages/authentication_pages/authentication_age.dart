@@ -45,7 +45,7 @@ class _AuthAgeState extends State<AuthAge> {
               child: Text(
                 'Wie alt bist du?',
                 style: TextStyle(
-                  color: Color.fromRGBO(27, 25, 86, 1),
+                  color:  Theme.of(context).colorScheme.primary,
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
@@ -60,7 +60,7 @@ class _AuthAgeState extends State<AuthAge> {
                 child: CircleAvatar(
                   backgroundImage: AssetImage('lib/images/Birthday.png'),
                   radius: 100,
-                  backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+                  backgroundColor:  Theme.of(context).colorScheme.secondary,
                 ),
               ),
             ),

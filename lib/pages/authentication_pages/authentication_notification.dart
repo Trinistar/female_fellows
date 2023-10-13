@@ -30,7 +30,7 @@ class _AuthNotificationState extends State<AuthNotification> {
               child: Text(
                 'Wie können wir dich\nerreichen?',
                 style: TextStyle(
-                  color: Color.fromRGBO(27, 25, 86, 1),
+                  color:  Theme.of(context).colorScheme.primary,
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
@@ -43,7 +43,7 @@ class _AuthNotificationState extends State<AuthNotification> {
               child: CircleAvatar(
                 backgroundImage: AssetImage('lib/images/Group 377.png'),
                 radius: 100,
-                backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+                backgroundColor:  Theme.of(context).colorScheme.secondary,
               ),
             ),
             SizedBox(

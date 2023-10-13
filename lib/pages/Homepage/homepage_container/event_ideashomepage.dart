@@ -8,7 +8,7 @@ class EventIdeas extends StatelessWidget {
     return      Container(
           width: 1000,
           height: 250,
-          color: Color.fromRGBO(27, 25, 68, 1),
+          color: Theme.of(context).colorScheme.primary,
           child: Padding(
             padding: const EdgeInsets.only(left: 40),
             child:

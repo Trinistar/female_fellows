@@ -30,7 +30,7 @@ class _AuthPlaceState extends State<AuthPlace> {
               child: Text(
                 'Wo wohnst du?',
                 style: TextStyle(
-                  color: Color.fromRGBO(27, 25, 86, 1),
+                  color:  Theme.of(context).colorScheme.primary,
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
@@ -43,7 +43,7 @@ class _AuthPlaceState extends State<AuthPlace> {
               child: CircleAvatar(
                 backgroundImage: AssetImage('lib/images/Location.png'),
                 radius: 100,
-                backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+                backgroundColor:  Theme.of(context).colorScheme.secondary,
               ),
             ),
             SizedBox(
@@ -94,12 +94,12 @@ class _AuthPlaceState extends State<AuthPlace> {
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color.fromRGBO(27, 25, 86, 1),
+              color:  Theme.of(context).colorScheme.primary,
               width: 2,
             ),
             borderRadius: BorderRadius.circular(10),
           ),
-          fillColor: Color.fromRGBO(242, 242, 242, 1),
+          fillColor:  Theme.of(context).colorScheme.surface,
           filled: true,
           hintText:'35510',
         ),
@@ -119,12 +119,12 @@ class _AuthPlaceState extends State<AuthPlace> {
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color.fromRGBO(27, 25, 86, 1),
+              color:  Theme.of(context).colorScheme.primary,
               width: 2,
             ),
             borderRadius: BorderRadius.circular(10),
           ),
-          fillColor: Color.fromRGBO(242, 242, 242, 1),
+          fillColor:  Theme.of(context).colorScheme.surface,
           filled: true,
           hintText:'Wohnort',
         ),

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/pages/Homepage/foerderin_homepage.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage_container/foerderin_homepage.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/challenges_hompage.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/end_homepage.dart';
@@ -60,38 +60,38 @@ class _HomeState extends State<Home> {
         ),
         ImageButton(),
         DividerBouthCorner(
-          color1: Color.fromRGBO(236, 240, 243, 1),
+          color1: Theme.of(context).colorScheme.surface,
           color2: Colors.white,
         ),
         EventCarousel(),
         DividerCornerLeft(
-          color1: Color.fromRGBO(236, 240, 243, 1),
-          color2: Color.fromRGBO(27, 25, 68, 1),
+          color1:  Theme.of(context).colorScheme.surfaceVariant,
+          color2: Theme.of(context).colorScheme.primary,
         ),
         EventIdeas(),
         DividerBouthCorner(
-          color1: Color.fromRGBO(236, 240, 243, 1),
-          color2: Color.fromRGBO(27, 25, 68, 1),
+          color1:  Theme.of(context).colorScheme.surfaceVariant,
+          color2: Theme.of(context).colorScheme.primary,
         ),
         ThemeGroups(),
         DividerBouthCorner(
           color1: Colors.white,
-          color2: Color.fromRGBO(236, 240, 243, 1),
+          color2:  Theme.of(context).colorScheme.surfaceVariant,
         ),
         Challenges(),
         DividerCornerLeft(
-          color1: Color.fromRGBO(236, 240, 243, 1),
-          color2: Color.fromRGBO(27, 25, 68, 1),
+          color1:  Theme.of(context).colorScheme.surfaceVariant,
+          color2:  Theme.of(context).colorScheme.primary,
         ),
         NewJobs(),
         DividerBouthCorner(
           color1: Colors.white,
-          color2: Color.fromRGBO(27, 25, 68, 1),
+          color2:  Theme.of(context).colorScheme.primary,
         ),
         Foerderin(),
         DividerCornerLeft(
           color1: Colors.white,
-          color2: Color.fromRGBO(106, 104, 206, 1),
+          color2: Theme.of(context).colorScheme.tertiary,
         ),
         End(),
       ],

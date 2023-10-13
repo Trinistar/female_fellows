@@ -9,7 +9,7 @@ class EventCarousel extends StatelessWidget {
     return   Container(
           width: 1000,
           height: 300,
-          color: Color.fromRGBO(236, 240, 243, 1),
+          color:Theme.of(context).colorScheme.surfaceVariant,
           child: Padding(
             padding: const EdgeInsets.only(left: 30),
             child: Column(

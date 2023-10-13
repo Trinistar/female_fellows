@@ -26,7 +26,7 @@ class Page1 extends StatelessWidget {
             Text(
               AppLocalizations.of(context)!.onboardingPageOneTitle,
               style: TextStyle(
-                color: Color.fromRGBO(27, 25, 86, 1),
+                color:  Theme.of(context).colorScheme.primary,
                 fontSize: 30,
               ),
             ),
@@ -37,7 +37,7 @@ class Page1 extends StatelessWidget {
               thickness: 5,
               indent: 40,
               endIndent: 310,
-              color: Color.fromRGBO(27, 25, 86, 1),
+              color:  Theme.of(context).colorScheme.primary,
             ),
             SizedBox(
               height: 10,
@@ -47,7 +47,7 @@ class Page1 extends StatelessWidget {
               child: Text(
                 AppLocalizations.of(context)!.onboardingPageOneBody,
                 style: TextStyle(
-                  color: Color.fromRGBO(27, 25, 86, 1),
+                  color:  Theme.of(context).colorScheme.primary,
                   fontSize: 15,
                 ),
               ),

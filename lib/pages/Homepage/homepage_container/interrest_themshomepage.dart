@@ -8,7 +8,7 @@ class ThemeGroups extends StatelessWidget {
     return Container(
       width: 1000,
       height: 320,
-      color: Color.fromRGBO(236, 240, 243, 1),
+      color: Theme.of(context).colorScheme.surfaceVariant,
       child: Padding(
         padding: const EdgeInsets.only(left: 30),
         child: Column(
@@ -48,7 +48,7 @@ class ThemeGroups extends StatelessWidget {
               child: ElevatedButton( onPressed: (){},
               style: ElevatedButton.styleFrom( 
                 fixedSize: Size(320, 60),
-                backgroundColor:  Color.fromRGBO(27, 25, 86, 27),
+                backgroundColor: Theme.of(context).colorScheme.primary,
                ),
               child: Text('Zu allen Themengruppen',style: TextStyle(color: Colors.white,
               fontSize: 15),

@@ -34,7 +34,7 @@ class _HomepageState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(statusBarColor:  Color.fromRGBO(25, 27, 68, 1),),
+      value: SystemUiOverlayStyle(statusBarColor:   Theme.of(context).colorScheme.primary,),
       child: Scaffold(
         backgroundColor: Colors.white,
         //Pages 
@@ -52,8 +52,8 @@ class _HomepageState extends State<Navigation> {
             currentIndex: _currentIndex,
             onTap: _navigation,
             type: BottomNavigationBarType.fixed,
-            selectedItemColor: Color.fromRGBO(252, 208, 220, 1),
-            unselectedItemColor: Color.fromRGBO(25, 27, 68, 1),
+            selectedItemColor:  Theme.of(context).colorScheme.secondary,
+            unselectedItemColor:  Theme.of(context).colorScheme.primary,
             iconSize: 30,
             items: [
               BottomNavigationBarItem(

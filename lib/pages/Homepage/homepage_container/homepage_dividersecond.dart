@@ -14,7 +14,6 @@ class DividerCornerLeft extends StatelessWidget {
           height: 40,
           width: 50,
           color: color1,
-          //Color.fromRGBO(236, 240, 243, 1),
         ),
         Container(
           width: 1000,
@@ -22,7 +21,6 @@ class DividerCornerLeft extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(topLeft: Radius.circular(60)),
             color:color2,
-            // Color.fromRGBO(27, 25, 68, 1),
           ),
         )
       ],

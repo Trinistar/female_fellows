@@ -22,7 +22,7 @@ class ImageButton extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(40)),
-              color: Color.fromRGBO(106, 104, 206, 1),
+              color: Theme.of(context).colorScheme.tertiary,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,

@@ -7,7 +7,7 @@ class End extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 200,
-      color: Color.fromRGBO(106, 104, 206, 1),
+      color: Theme.of(context).colorScheme.tertiary,
 
       child: Padding(
         padding: const EdgeInsets.only(top: 10),

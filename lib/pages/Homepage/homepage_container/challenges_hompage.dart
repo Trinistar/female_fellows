@@ -29,7 +29,7 @@ class Challenges extends StatelessWidget {
                       onPressed: () {},
                       
                       mini: true,
-                      backgroundColor: Color.fromRGBO(27, 25, 86, 27),
+                      backgroundColor: Theme.of(context).colorScheme.primary,
                       child: Icon(
                         Icons.add,
                         color: Colors.white,

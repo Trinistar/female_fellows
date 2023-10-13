@@ -27,17 +27,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(statusBarColor:  Color.fromRGBO(252, 208, 220, 1),),
+      value: SystemUiOverlayStyle(statusBarColor:   Theme.of(context).colorScheme.secondary,),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+        backgroundColor:  Theme.of(context).colorScheme.secondary,
         body: Stack(
           children: [
             //Logo
             Container(
               height: 100,
               width: 1000,
-              color: Color.fromRGBO(252, 208, 220, 1),
+              color:  Theme.of(context).colorScheme.secondary,
               child: Padding(
                 padding: const EdgeInsets.only(left: 10, top: 25),
                 child: Image.asset('lib/images/FF-Logo_blau-1.png',

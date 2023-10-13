@@ -27,7 +27,7 @@ class _AuthWhoState extends State<AuthWho> {
               child: Text(
                 'Wer bist du?',
                 style: TextStyle(
-                  color: Color.fromRGBO(27, 25, 86, 1),
+                  color:  Theme.of(context).colorScheme.primary,
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
@@ -40,7 +40,7 @@ class _AuthWhoState extends State<AuthWho> {
               child: CircleAvatar(
                 backgroundImage: AssetImage('lib/images/Avatar.png'),
                 radius: 100,
-                backgroundColor: Color.fromRGBO(252, 208, 220, 1),
+                backgroundColor:  Theme.of(context).colorScheme.secondary,
               ),
             ),
             SizedBox(
@@ -50,7 +50,7 @@ class _AuthWhoState extends State<AuthWho> {
               child: Text(
                 'Profilbild / Avatar auswählen',
                 style: TextStyle(
-                  color: Color.fromRGBO(27, 25, 86, 1),
+                  color:  Theme.of(context).colorScheme.primary,
                   fontSize: 20,
                 ),
               ),
