@@ -74,6 +74,8 @@ class _AuthWhoState extends State<AuthWho> {
                   controller: nameController,
                   hintText: 'Lisa',
                   obscureText: false,
+                     onChange: (),
+                       validator: (),
                 ),
                 SizedBox(
                   height: 20,
@@ -91,6 +93,8 @@ class _AuthWhoState extends State<AuthWho> {
                   controller: lastNameController,
                   hintText: 'Musterfrau',
                   obscureText: false,
+                     onChange: (),
+                       validator: (),
                 ),
               ],
             )

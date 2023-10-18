@@ -1,24 +1,32 @@
 import 'package:flutter/material.dart';
 
+
 class TextBar extends StatelessWidget {
   final controller;
   final String hintText;
   final bool obscureText;
+  final onChange;
+  final validator;
+  
 
   const TextBar({
     super.key,
     required this.controller,
     required this.hintText,
     required this.obscureText,
+    required this.onChange,
+    required this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40.0),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         obscureText: obscureText,
+        validator:validator,
+        onChanged: onChange,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black87),

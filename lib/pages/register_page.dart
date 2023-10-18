@@ -107,6 +107,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 //username Textfield
                 TextBar(
                   controller: emailController,
+                     onChange: (),
+                       validator: (),
                   hintText: 'Email',
                   obscureText: false,
                 ),
@@ -114,6 +116,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 TextBar(
                   controller: passwordController,
                   hintText: 'Password',
+                     onChange: (),
+                       validator: (),
                   obscureText: true,
                 ),
                 //confirm Password
@@ -124,6 +128,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: confirmController,
                   hintText: ' Confirm Password',
                   obscureText: true,
+                     onChange: (),
+                       validator: (),
                 ),
                 SizedBox(
                   height: 10,
