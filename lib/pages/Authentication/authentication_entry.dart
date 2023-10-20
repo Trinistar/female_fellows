@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_verification.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/Login/authentication_login.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/authentication_age.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/authentication_connection.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/authentication_how.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/authentication_notification.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/authentication_place.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/authentication_safety.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/authentication_who.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_age.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_connection.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_how.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_notification.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_place.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_safety.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_who.dart';
 
 class Authentry extends StatefulWidget {
   const Authentry({super.key});
@@ -29,43 +29,65 @@ class _AuthentryState extends State<Authentry> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(statusBarColor:  Theme.of(context).colorScheme.surface,),
+      value: SystemUiOverlayStyle(
+        statusBarColor: Theme.of(context).colorScheme.surface,
+      ),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor:  Theme.of(context).colorScheme.surface,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         body: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            onLastPage
-                ? Container()
-                : Container(
-                    height: 150,
-                    width: 1000,
-                    color:  Theme.of(context).colorScheme.surface,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 60, top: 25),
-                          child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                              height: 80, alignment: Alignment(0, -0.8)),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 15,
-                            left: 50,
-                          ),
-                          child: Text(
-                            'Mitglied werden',
-                            style: TextStyle(
-                              color:  Theme.of(context).colorScheme.primary,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ],
+            onLastPage?    Container(
+              height: 150,
+              width: 1000,
+              color: Theme.of(context).colorScheme.surface,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 60, top: 25),
+                    child: Image.asset('lib/images/FF-Logo_blau-1.png',
+                        height: 80, alignment: Alignment(0, -0.8)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 15,
+                      left: 50,
+                    ),
+               
+                  ),
+                ],
+              ),
+            ):
+            Container(
+              height: 150,
+              width: 1000,
+              color: Theme.of(context).colorScheme.surface,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 60, top: 25),
+                    child: Image.asset('lib/images/FF-Logo_blau-1.png',
+                        height: 80, alignment: Alignment(0, -0.8)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 15,
+                      left: 50,
+                    ),
+                    child: Text(
+                      'Mitglied werden',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 20,
+                      ),
                     ),
                   ),
+                ],
+              ),
+            ),
             Expanded(
               child: PageView(
                 controller: _controller,
@@ -83,7 +105,7 @@ class _AuthentryState extends State<Authentry> {
                   AuthNotification(),
                   AuthConnect(),
                   AuthSafety(),
-                  AuthLoginPage(),
+                  AuthVerfication()
                 ],
               ),
             ),
@@ -97,7 +119,7 @@ class _AuthentryState extends State<Authentry> {
                     child: Container(
                       height: 70,
                       width: 1000,
-                      color:  Theme.of(context).colorScheme.surface,
+                      color: Theme.of(context).colorScheme.surface,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

@@ -65,8 +65,8 @@ class _AuthPlaceState extends State<AuthPlace> {
                   controller: streetController,
                   hintText: 'Mustersraße 1',
                   obscureText: false,
-                     onChange: (),
-                       validator: (),
+                   onChange: null,
+                       validator: null,
                 ),
                 SizedBox(
                   height: 20,

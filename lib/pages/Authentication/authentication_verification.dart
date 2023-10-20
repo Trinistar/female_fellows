@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vs_femalefellows/blocs/LoginBloc/login_bloc.dart';
+import 'package:vs_femalefellows/blocs/LoginBloc/login_event.dart';
+import 'package:vs_femalefellows/blocs/LoginBloc/login_state.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:vs_femalefellows/pages/auth_page.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/Login/form_submission_status.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/Login/login_bloc.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/Login/login_event.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/Login/login_state.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:vs_femalefellows/pages/navigation_page.dart';
-
-class AuthLoginPage extends StatefulWidget {
-  const AuthLoginPage({super.key});
+class AuthVerfication extends StatefulWidget {
+  const AuthVerfication({super.key});
 
   @override
-  State<AuthLoginPage> createState() => _AuthLoginPageState();
+  State<AuthVerfication> createState() => _AuthVerficationState();
 }
 
-class _AuthLoginPageState extends State<AuthLoginPage> {
+class _AuthVerficationState extends State<AuthVerfication> {
   /////////////////////////////////
   ////////////////////////
   ///////////////
@@ -27,53 +22,6 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
-  signUserIn() async {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-      // pop Loading circle
-      Navigator.pop(context);
-    } on FirebaseAuthException catch (e) {
-      // pop Loading circle
-      Navigator.pop(context);
-
-      //show error message
-      showErroMessage(e.code);
-    }
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Navigation()));
-  }
-
-  // Error Messages
-  void showErroMessage(String message) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          backgroundColor: Colors.pink.shade100,
-          title: Center(
-              child: Text(
-            message,
-            style: const TextStyle(
-              color: Colors.black87,
-            ),
-          )),
-        );
-      },
-    );
-  } ///////////////////////
-  ///////////////////////////////
-  /////////////////////////////////////////////////////
 
   // bool for Passwordicon
   bool isPasswordVisible = false;
@@ -90,26 +38,10 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: BlocProvider(
         create: (context) => LoginBloc(
-          authpage: context.read<Authpage>(),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              height: 150,
-              width: 1000,
-              color: Theme.of(context).colorScheme.surface,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 60, top: 25),
-                    child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                        height: 80, alignment: Alignment(0, -0.8)),
-                  ),
-                ],
-              ),
-            ),
             SingleChildScrollView(
               child: Expanded(
                 child: Form(
@@ -121,7 +53,7 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                       Padding(
                         padding: const EdgeInsets.only(left: 50),
                         child: Text(
-                          AppLocalizations.of(context)!.loginPageTitle,
+                          AppLocalizations.of(context)!.verficationTitle,
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.primary,
                             fontSize: 28,
@@ -172,8 +104,11 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                           return TextBar(
                             controller: emailController,
                             hintText: 'frau@example.com',
-                            validator: (value) =>
-                                state.isValidEmail ? null : 'email is to short',
+                            validator: (value) {
+                              if (state is LoginValidation) {
+                                state.isValidEmail ? null : 'Email is to short';
+                              }
+                            },
                             obscureText: false,
                             /////////BlocState/////
                             onChange: (value) => context
@@ -215,9 +150,14 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                           builder: (context, state) {
                             return TextFormField(
                               /////////BlocState/////
-                              validator: (value) => state.isValidPassword
-                                  ? null
-                                  : 'Password is to short',
+                              validator: (value) {
+                                if (state is LoginValidation) {
+                                  state.isValidPassword
+                                      ? null
+                                      : 'Password is to short';
+                                }
+                                return null;
+                              },
                               onChanged: (value) => context
                                   .read<LoginBloc>()
                                   .add(LoginPasswordChanged(password: value)),
@@ -264,18 +204,16 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                       ),
                       BlocBuilder<LoginBloc, LoginState>(
                         builder: (context, state) {
-                          return state.formStatus is FormSubmitting
-                              ? CircularProgressIndicator()
-                              : LoginButton(
-                                  text: 'Sign In',
-                                  onTap: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      context
-                                          .read<LoginBloc>()
-                                          .add(LoginSubmitted());
-                                    }
-                                  },
-                                );
+                          return LoginButton(
+                            text: 'Mitglied werden',
+                            onTap: () {
+                              if (_formKey.currentState!.validate()) {
+                                context.read<LoginBloc>().add(LoginSubmitted(
+                                      email: emailController.text,
+                                      password: passwordController.text));
+                              }
+                            },
+                          );
                         },
                       ),
                     ],

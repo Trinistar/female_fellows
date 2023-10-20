@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
-import 'package:vs_femalefellows/pages/auth_page.dart';
-import 'package:vs_femalefellows/pages/authentication_pages/Login/authentication_login.dart';
+import 'package:vs_femalefellows/services/authrepository.dart';
+import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
 import 'services/firebase_options.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        RepositoryProvider(create: (context)=>Authpage(),
-        child: AuthLoginPage(),)
+        RepositoryProvider(create: (context)=>AuthRepository(),
+        child: LoginPage(),)
       
       ],
       child: MaterialApp(

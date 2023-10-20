@@ -13,5 +13,7 @@
     "start": "Start",
     "login": "Jetzt loslegen",
     "loginPageTitle": "Login",
-    "loginPageBody": "Logge dich mit deiner Email\nund deinem Passwort ein"
+    "loginPageBody": "Logge dich mit deiner Email\nund deinem Passwort ein",
+    "verficationTitle": "Verifizierung",
+    "verficationBody": "Gib hier deine Email\nund dein Passwort an"
 }
