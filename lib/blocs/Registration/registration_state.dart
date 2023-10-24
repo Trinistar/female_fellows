@@ -11,10 +11,10 @@ final class RegistrationInitial extends RegistrationState {}
 
 class FormSignup extends RegistrationState {}
 
-class SignUpSucces extends RegistrationState {
+class SignUpSuccess extends RegistrationState {
   final User currentuser;
 
-  SignUpSucces({required this.currentuser});
+  SignUpSuccess({required this.currentuser});
 }
 
 class SignUpFailure extends RegistrationState {}

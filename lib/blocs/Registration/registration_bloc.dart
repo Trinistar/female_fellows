@@ -15,7 +15,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
         final User? currentuser =
             await _authpage.signUp(email: event.email, password: event.password);
         if (currentuser != null) {
-          emit(SignUpSucces(currentuser: currentuser));
+          emit(SignUpSuccess(currentuser: currentuser));
         } else {
           emit(SignUpFailure());
         }

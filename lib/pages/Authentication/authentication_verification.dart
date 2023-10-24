@@ -36,7 +36,9 @@ class _AuthVerficationState extends State<AuthVerfication> {
         child: BlocConsumer<RegistrationBloc, RegistrationState>(
           listener: (context, state) {
             if (state is SignUpFailure) {
-              SnackBar;
+              SnackBar(
+                content: Text('Failure'),
+              );
             }
           },
           builder: (context, state) {

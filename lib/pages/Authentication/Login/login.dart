@@ -270,7 +270,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                     MaterialPageRoute(builder: (context) => Navigation()));
               }
               if (state is SubmissionFailure) {
-                SnackBar;
+                SnackBar(content: Text('Failure'),);
               }
             },
           ),
