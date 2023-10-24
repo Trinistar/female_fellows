@@ -9,7 +9,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   LoginBloc() : super(InitialFormStatus()) {
     on<LoginEmailChanged>((event, emit) {
-      print(event.email);
       if (event.email!.length >= 3) {
         emit(LoginValidation(
           isValidEmail: true,
