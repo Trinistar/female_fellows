@@ -8,6 +8,7 @@ import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
+import 'package:vs_femalefellows/services/controller.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -18,9 +19,6 @@ class LoginPage extends StatefulWidget {
 
 class _AuthLoginPageState extends State<LoginPage> {
   //text editing controller
-  final emailController = TextEditingController();
-
-  final passwordController = TextEditingController();
 
   // bool for Passwordicon
   bool isPasswordVisible = false;
@@ -125,7 +123,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                             BlocBuilder<LoginBloc, LoginState>(
                               builder: (context, state) {
                                 return TextBar(
-                                  controller: emailController,
+                                  controller: Controller.emailController,
                                   hintText: 'frau@example.com',
 
                                   validator: (value) {
@@ -194,7 +192,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                                         .add(LoginPasswordChanged(
                                             password: value)),
                                     /////////BlocState/////
-                                    controller: passwordController,
+                                    controller: Controller.passwordController,
                                     obscureText: !isPasswordVisible,
                                     decoration: InputDecoration(
                                         enabledBorder: OutlineInputBorder(
@@ -243,14 +241,14 @@ class _AuthLoginPageState extends State<LoginPage> {
                               builder: (context, state) {
                                 return LoginButton(
                                   text: 'Sign In',
-                                  onTap: 
-                                      () {
+                                  onTap: () {
                                     if (_formKey.currentState!.validate()) {
                                       context.read<LoginBloc>().add(
                                           LoginSubmitted(
-                                              email: emailController.text,
-                                              password:
-                                                  passwordController.text));
+                                              email: Controller
+                                                  .emailController.text,
+                                              password: Controller
+                                                  .passwordController.text));
                                     }
                                   },
                                 );
@@ -270,7 +268,9 @@ class _AuthLoginPageState extends State<LoginPage> {
                     MaterialPageRoute(builder: (context) => Navigation()));
               }
               if (state is SubmissionFailure) {
-                SnackBar(content: Text('Failure'),);
+                SnackBar(
+                  content: Text('Failure'),
+                );
               }
             },
           ),

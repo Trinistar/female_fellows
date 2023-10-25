@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
+import 'package:vs_femalefellows/services/controller.dart';
 
 class AuthNotification extends StatefulWidget {
   const AuthNotification({super.key});
@@ -10,8 +11,6 @@ class AuthNotification extends StatefulWidget {
 
 class _AuthNotificationState extends State<AuthNotification> {
   //namecheck
-  final nameController = TextEditingController();
-  final numberController = TextEditingController();
   String? question;
 
   @override
@@ -68,7 +67,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                   ),
                 ),
                 TextBar(
-                  controller: nameController,
+                  controller: Controller.emailController,
                   hintText: 'lisa@muster.de',
                   obscureText: false,
                      onChange: null,
@@ -87,7 +86,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                   ),
                 ),
                 TextBar(
-                  controller: numberController,
+                  controller: Controller.phonenumberController,
                   hintText: '+49 123 456',
                   obscureText: false,
                  onChange: null,

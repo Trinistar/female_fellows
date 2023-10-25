@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/Registration/registration_bloc.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
+import 'package:vs_femalefellows/services/controller.dart';
 
 class AuthWho extends StatefulWidget {
   const AuthWho({super.key});
@@ -77,7 +78,7 @@ class _AuthWhoState extends State<AuthWho> {
                     BlocBuilder<RegistrationBloc, RegistrationState>(
                       builder: (context, state) {
                         return TextBar(
-                          controller: nameController,
+                          controller: Controller.firstnameController,
                           hintText: 'Lisa',
                           obscureText: false,
                           onChange: (value) =>
@@ -101,7 +102,7 @@ class _AuthWhoState extends State<AuthWho> {
                       ),
                     ),
                     TextBar(
-                      controller: lastNameController,
+                      controller: Controller.lastnameController,
                       hintText: 'Musterfrau',
                       obscureText: false,
                       onChange: null,

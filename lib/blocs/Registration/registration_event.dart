@@ -23,8 +23,8 @@ class InputChanged extends RegistrationEvent {
   final bool? safty;
   final String? password;
 
-  InputChanged(
-  {   this.lastname,
+  InputChanged({
+    this.lastname,
     this.profilpicture,
     this.birthday,
     this.streetname,
@@ -37,7 +37,7 @@ class InputChanged extends RegistrationEvent {
     this.meeting,
     this.safty,
     this.password,
-     this.firstname,
+    this.firstname,
   });
 }
 
@@ -49,12 +49,12 @@ class Signup extends RegistrationEvent {
   final String streetname;
   final String postcode;
   final String place;
-  final bool notification;
+  final bool? notification;
   final String email;
   final String phonenumber;
-  final bool callortext;
-  final bool meeting;
-  final bool safty;
+  final bool? callortext;
+  final bool? meeting;
+  final bool? safty;
   final String password;
 
   Signup(
@@ -66,10 +66,10 @@ class Signup extends RegistrationEvent {
       required this.streetname,
       required this.postcode,
       required this.place,
-      required this.notification,
+      this.notification,
       required this.email,
       required this.phonenumber,
-      required this.callortext,
-      required this.meeting,
-      required this.safty});
+      this.callortext,
+      this.meeting,
+      this.safty});
 }

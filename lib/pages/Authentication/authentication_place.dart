@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
+import 'package:vs_femalefellows/services/controller.dart';
 
 class AuthPlace extends StatefulWidget {
   const AuthPlace({super.key});
@@ -10,9 +11,6 @@ class AuthPlace extends StatefulWidget {
 
 class _AuthPlaceState extends State<AuthPlace> {
   //namecontroller
-  final streetController = TextEditingController();
-  final placeController = TextEditingController();
-  final postCodeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +60,7 @@ class _AuthPlaceState extends State<AuthPlace> {
                   ),
                 ),
                 TextBar(
-                  controller: streetController,
+                  controller: Controller.streetnameController,
                   hintText: 'Mustersraße 1',
                   obscureText: false,
                    onChange: null,
@@ -86,7 +84,7 @@ class _AuthPlaceState extends State<AuthPlace> {
                       child: Padding(
       padding: const EdgeInsets.only(left: 40.0,right: 55),
       child: TextField(
-        controller: postCodeController,
+        controller: Controller.postcodeController,
    
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
@@ -111,7 +109,7 @@ class _AuthPlaceState extends State<AuthPlace> {
                       child: Padding(
       padding: const EdgeInsets.only(right: 10.0),
       child: TextField(
-        controller: placeController,
+        controller: Controller.placeController,
    
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(

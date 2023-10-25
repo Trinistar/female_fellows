@@ -4,6 +4,9 @@ import 'package:vs_femalefellows/blocs/Registration/registration_bloc.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
+import 'package:vs_femalefellows/services/controller.dart';
+
 
 class AuthVerfication extends StatefulWidget {
   const AuthVerfication({super.key});
@@ -14,9 +17,6 @@ class AuthVerfication extends StatefulWidget {
 
 class _AuthVerficationState extends State<AuthVerfication> {
   //text editing controller
-  final emailController = TextEditingController();
-
-  final passwordController = TextEditingController();
 
   // bool for Passwordicon
   bool isPasswordVisible = false;
@@ -35,6 +35,10 @@ class _AuthVerficationState extends State<AuthVerfication> {
         create: (context) => RegistrationBloc(),
         child: BlocConsumer<RegistrationBloc, RegistrationState>(
           listener: (context, state) {
+              if (state is SignUpSuccess) {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Navigation()));
+              }
             if (state is SignUpFailure) {
               SnackBar(
                 content: Text('Failure'),
@@ -108,7 +112,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                           BlocBuilder<RegistrationBloc, RegistrationState>(
                             builder: (context, state) {
                               return TextBar(
-                                controller: emailController,
+                                controller: Controller.emailController,
                                 hintText: 'frau@example.com',
                                 validator: null,
                                 obscureText: false,
@@ -159,7 +163,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                                       .add(InputChanged(
                                           password: value)),
                                   /////////BlocState/////
-                                  controller: passwordController,
+                                  controller: Controller.passwordController,
                                   obscureText: !isPasswordVisible,
                                   decoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
@@ -208,20 +212,20 @@ class _AuthVerficationState extends State<AuthVerfication> {
                                 onTap: () {
                                   if (_formKey.currentState!.validate()) {
                                     context.read<RegistrationBloc>().add(Signup(
-                                      password: passwordController.text,
-                                      lastname:'' ,
-                                          profilpicture: '',
-                                          birthday: '',
-                                          streetname: '',
-                                          postcode: '',
-                                          place: '',
+                                      password: Controller.passwordController.text,
+                                      lastname:Controller.lastnameController.text,
+                                          profilpicture: Controller.profilpictureController.text,
+                                          birthday: Controller.birthdayController.text,
+                                          streetname: Controller.streetnameController.text,
+                                          postcode: Controller.postcodeController.text,
+                                          place: Controller.placeController.text,
                                           notification: false,
-                                          phonenumber: '',
+                                          phonenumber: Controller.phonenumberController.text,
                                           callortext: false,
                                           meeting: false,
                                           safty: false,
-                                          email: emailController.text,
-                                          firstname: '',
+                                          email:Controller.emailController.text,
+                                          firstname: Controller.firstnameController.text,
                                         ));
                                   }
                                 },
