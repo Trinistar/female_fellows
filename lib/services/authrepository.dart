@@ -1,13 +1,10 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 enum AuthStatus { unkown, authenticated, unauthenticated }
 
 class AuthRepository implements Exception {
   final _controller = StreamController<AuthStatus>();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
 
 //Registration for User
   Future<User?> signUp(

@@ -1,40 +1,54 @@
-import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-/// {@template user}
-/// User model
-///
-/// [FFUser.empty] represents an unauthenticated user.
-/// {@endtemplate}
-class FFUser extends Equatable {
-  /// {@macro user}
-  const FFUser({
-    required this.id,
+
+class FFUser  {
+  final String? firstname;
+  final String? lastname;
+  final String? profilpicture;
+  final String? birthday;
+  final String? streetname;
+  final String? postcode;
+  final String? place;
+  final bool? notification;
+  final String? email;
+  final String? phonenumber;
+  final bool? callortext;
+  final bool? meeting;
+  final bool? safty;
+  final String? password;
+  
+   FFUser({
+    this.lastname,
+    this.profilpicture,
+    this.birthday,
+    this.streetname,
+    this.postcode,
+    this.notification,
+    this.place,
     this.email,
-    this.name,
-    this.photo,
+    this.phonenumber,
+    this.callortext,
+    this.meeting,
+    this.safty,
+    this.password,
+    this.firstname,
   });
 
-  /// The current user's email address.
-  final String? email;
 
-  /// The current user's id.
-  final String id;
-
-  /// The current user's name (display name).
-  final String? name;
-
-  /// Url for the current user's photo.
-  final String? photo;
-
-  /// Empty user which represents an unauthenticated user.
-  static const empty = FFUser(id: '');
-
-  /// Convenience getter to determine whether the current user is empty.
-  bool get isEmpty => this == FFUser.empty;
-
-  /// Convenience getter to determine whether the current user is not empty.
-  bool get isNotEmpty => this != FFUser.empty;
-
-  @override
-  List<Object?> get props => [email, id, name, photo];
+  List<Object?> get props => [
+        email,
+        firstname,
+        lastname,
+        phonenumber,
+        password,
+        profilpicture,
+        streetname,
+        place,
+        postcode,
+        notification,
+        callortext,
+        safty,
+        meeting,
+        birthday,
+      ];
 }

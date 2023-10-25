@@ -1,5 +1,7 @@
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:vs_femalefellows/blocs/Registration/registration_bloc.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/services/controller.dart';
@@ -12,6 +14,27 @@ class AuthWho extends StatefulWidget {
 }
 
 class _AuthWhoState extends State<AuthWho> {
+  Uint8List? _image;
+
+  void pickImage() async {
+    Uint8List img = await selectImage(ImageSource.gallery);
+    setState(() {
+      _image = img;
+    });
+  }
+
+  selectImage(ImageSource source) async {
+    try {
+      final ImagePicker selectImage = ImagePicker();
+      XFile? file = await selectImage.pickImage(source: source);
+      if (file != null) {
+        return await file.readAsBytes();
+      }
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
   //namecheck
   final nameController = TextEditingController();
   final lastNameController = TextEditingController();
@@ -42,10 +65,22 @@ class _AuthWhoState extends State<AuthWho> {
                   height: 50,
                 ),
                 Center(
-                  child: CircleAvatar(
-                    backgroundImage: AssetImage('lib/images/Avatar.png'),
-                    radius: 100,
-                    backgroundColor: Theme.of(context).colorScheme.secondary,
+                  child: GestureDetector(
+                    onTap: pickImage,
+                    child: _image != null
+                        ? CircleAvatar(
+                            backgroundImage: MemoryImage(_image!),
+                            radius: 100,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.secondary,
+                          )
+                        : CircleAvatar(
+                            backgroundImage:
+                                AssetImage('lib/images/Avatar.png'),
+                            radius: 100,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.secondary,
+                          ),
                   ),
                 ),
                 SizedBox(
