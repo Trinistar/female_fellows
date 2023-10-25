@@ -13,8 +13,9 @@ class FormSignup extends RegistrationState {}
 
 class SignUpSuccess extends RegistrationState {
   final User currentuser;
+  final FFUser userdata;
 
-  SignUpSuccess({required this.currentuser});
+  SignUpSuccess({required this.currentuser,required this.userdata});
 }
 
 class SignUpFailure extends RegistrationState {}

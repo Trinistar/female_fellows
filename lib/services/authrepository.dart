@@ -7,18 +7,17 @@ class AuthRepository implements Exception {
   final _controller = StreamController<AuthStatus>();
 
 //Registration for User
-  Future<User?> signUp(
-      {required String email, 
-      required String password,
-      // other 
-      //
-      //
-      }) async {
+  Future<User?> signUp({
+    required String email,
+    required String password,
+  }) async {
     try {
-      final UserCredential currentuser= await
-      FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
-       return currentuser.user;
+      final UserCredential currentuser =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return currentuser.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         throw Exception('This password is too weak');
@@ -28,7 +27,7 @@ class AuthRepository implements Exception {
     } catch (e) {
       throw Exception(e.toString());
     }
-    return null ;
+    return null;
   }
 
   /* Stream<AuthStatus> get status async* {

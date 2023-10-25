@@ -1,6 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'user_model.g.dart';
 
+@JsonSerializable()
 class FFUser  {
   final String? firstname;
   final String? lastname;
@@ -10,14 +12,14 @@ class FFUser  {
   final String? postcode;
   final String? place;
   final bool? notification;
-  final String? email;
+ String? email;
   final String? phonenumber;
   final bool? callortext;
   final bool? meeting;
   final bool? safty;
   final String? password;
   
-   FFUser({
+  FFUser({
     this.lastname,
     this.profilpicture,
     this.birthday,
@@ -33,6 +35,10 @@ class FFUser  {
     this.password,
     this.firstname,
   });
+
+  factory FFUser.fromJson(Map<String, dynamic> json) =>
+      _$FFUserFromJson(json);
+  Map<String, dynamic> toJson() => _$FFUserToJson(this);
 
 
   List<Object?> get props => [
