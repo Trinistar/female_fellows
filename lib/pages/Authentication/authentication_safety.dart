@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+typedef bool hasConfessed( bool newValue );
 
 typedef void BoolCallback(bool id);
 

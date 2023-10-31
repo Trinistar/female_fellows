@@ -45,8 +45,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
             ),
     
-            Expanded(
-              child: PageView(
+        
+             PageView(
                 controller: _controller,
                 onPageChanged: (index) {
                   setState(() {
@@ -61,7 +61,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   Page4(),
                   Page5(),
                 ],
-              ),
+              
             ),
             //dot indicator
             Positioned(
