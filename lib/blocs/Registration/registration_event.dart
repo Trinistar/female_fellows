@@ -44,24 +44,24 @@ class InputChanged extends RegistrationEvent {
 class Signup extends RegistrationEvent {
   final String firstname;
   final String lastname;
-  final String profilpicture;
+  final String profilPicture;
   final String birthday;
   final String streetname;
   final String postcode;
   final String place;
   final bool? notification;
-  final String email;
+final String email;
   final String phonenumber;
-  final bool? callortext;
+  final bool? callOrText;
   final bool? meeting;
-  final bool? safty;
+  final bool? safety;
   final String password;
 
   Signup(
       {required this.firstname,
       required this.password,
       required this.lastname,
-      required this.profilpicture,
+      required this.profilPicture,
       required this.birthday,
       required this.streetname,
       required this.postcode,
@@ -69,7 +69,7 @@ class Signup extends RegistrationEvent {
       this.notification,
       required this.email,
       required this.phonenumber,
-      this.callortext,
+      this.callOrText,
       this.meeting,
-      this.safty});
+      this.safety});
 }

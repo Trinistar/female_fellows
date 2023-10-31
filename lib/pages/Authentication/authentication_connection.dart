@@ -56,9 +56,9 @@ class _AuthConnectState extends State<AuthConnect> {
                   ),),
                     value: "vor Ort",
                     groupValue: question,
-                    onChanged: (newValue) {
+                    onChanged: (place) {
                       setState(() {
-                        question = newValue ;
+                        question = place ;
                       });
                     }),
                 RadioListTile(
@@ -68,9 +68,9 @@ class _AuthConnectState extends State<AuthConnect> {
                   ),),
                     value: "Online",
                     groupValue: question,
-                    onChanged: ( newValue) {
+                    onChanged: (online) {
                       setState(() {
-                        question = newValue ;
+                        question = online ;
                       });
                     }),
                 RadioListTile(
@@ -80,9 +80,9 @@ class _AuthConnectState extends State<AuthConnect> {
                   ),),
                     value: "vor Ort & Online",
                     groupValue: question,
-                    onChanged: (newValue) {
+                    onChanged: (placeOnline) {
                       setState(() {
-                        question = newValue;
+                        question = placeOnline;
                       });
                     }),
               

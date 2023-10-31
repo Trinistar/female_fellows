@@ -1,12 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
-
 part 'user_model.g.dart';
 
 @JsonSerializable()
 class FFUser  {
   final String? firstname;
   final String? lastname;
-  final String? profilpicture;
+  final String? profilPicture;
   final String? birthday;
   final String? streetname;
   final String? postcode;
@@ -14,14 +13,14 @@ class FFUser  {
   final bool? notification;
  String? email;
   final String? phonenumber;
-  final bool? callortext;
+  final bool? callOrText;
   final bool? meeting;
-  final bool? safty;
+  final bool? safety;
   final String? password;
   
   FFUser({
     this.lastname,
-    this.profilpicture,
+    this.profilPicture,
     this.birthday,
     this.streetname,
     this.postcode,
@@ -29,9 +28,9 @@ class FFUser  {
     this.place,
     this.email,
     this.phonenumber,
-    this.callortext,
+    this.callOrText,
     this.meeting,
-    this.safty,
+    this.safety,
     this.password,
     this.firstname,
   });
@@ -47,13 +46,13 @@ class FFUser  {
         lastname,
         phonenumber,
         password,
-        profilpicture,
+        profilPicture,
         streetname,
         place,
         postcode,
         notification,
-        callortext,
-        safty,
+        callOrText,
+        safety,
         meeting,
         birthday,
       ];

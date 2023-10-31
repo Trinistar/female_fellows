@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AuthSafety extends StatefulWidget {
-  const AuthSafety({super.key});
+  AuthSafety({super.key, required this.hasConfessed});
+
+  bool Function(bool)? hasConfessed;
 
   @override
   State<AuthSafety> createState() => _AuthSafetyState();
@@ -9,7 +11,20 @@ class AuthSafety extends StatefulWidget {
 
 class _AuthSafetyState extends State<AuthSafety> {
   // Checkbox Radio
-  String? question;
+  bool _question = false;
+
+  bool _question2 = false;
+
+  bool _question3 = false;
+
+  void checkBool() {
+    if (_question && _question2 && _question3) {
+      print(_question);
+      widget.hasConfessed!(true);
+    } else {
+      widget.hasConfessed!(false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +41,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                 child: Text(
                   'Datenschutzerlärung\nund Newsletter',
                   style: TextStyle(
-                    color:  Theme.of(context).colorScheme.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
@@ -39,60 +54,57 @@ class _AuthSafetyState extends State<AuthSafety> {
                 child: CircleAvatar(
                   backgroundImage: AssetImage('lib/images/Anmelden.png'),
                   radius: 100,
-                  backgroundColor:  Theme.of(context).colorScheme.secondary,
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
                 ),
               ),
               SizedBox(
                 height: 50,
               ),
-              RadioListTile(
-                contentPadding: EdgeInsets.only(left: 20),
+              CheckboxListTile(
                   dense: true,
                   title: Text(
-                    'Ja, ich möchte den\nNewsletter abonnieren',
+                    'Ja, ich möchte den Newsletter abonnieren ',
                     style: TextStyle(
                       fontSize: 15,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  value: "Ja, ich möchte den Newsletter abonnieren",
-                  groupValue: question,
+                  value: _question,
                   onChanged: (newValue) {
                     setState(() {
-                      question = newValue;
+                      _question = newValue ?? false;
                     });
                   }),
-              RadioListTile(
+              CheckboxListTile(
                   dense: true,
                   title: Text(
-                    'Ja, ich habe die Datenschutz-\nvereinbarungvon Female Fellows e.V. gelesen und stimme zu.',
+                    'Ja, ich habe die Datenschutz-\nvereinbarungvon Female Fellows e.V. gelesen und stimme zu. ',
                     style: TextStyle(
                       fontSize: 15,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  value:
-                      "Ja, ich habe die Datenschutz-vereinbarung von Female Fellows e.V. gelesen und stimme zu.",
-                  groupValue: question,
+                  value:  _question2,
                   onChanged: (newValue) {
                     setState(() {
-                      question = newValue;
+                      _question2 = newValue ?? false;
                     });
                   }),
-              RadioListTile(
+              CheckboxListTile(
                   dense: true,
                   title: Text(
                     'Ich habe den Verhaltenskodex von\nFemale Fellows gelesen und stimme zu. ',
                     style: TextStyle(
                       fontSize: 15,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  value:
-                      "Ich habe den Verhaltenskodex von Female Fellows gelesen und stimme zu. ",
-                  groupValue: question,
+                  value: _question3,
                   onChanged: (newValue) {
                     setState(() {
-                      question = newValue;
+                      _question3 = newValue ?? false;
                     });
-                  }),
+                  })
             ],
           ),
         ),

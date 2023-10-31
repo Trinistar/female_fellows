@@ -15,22 +15,22 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
       emit(FormSignup());
       try {
         FFUser userdata = FFUser(
-          password: Controller.passwordController.text,
-          lastname: Controller.lastnameController.text,
-          profilpicture: Controller.profilpictureController.text,
+          password: event.password,/////////?????????????
+          lastname: Controller.lastnameController.text,/////////?????????????
+          profilPicture: Controller.profilpictureController.text,
           birthday: Controller.birthdayController.text,
           streetname: Controller.streetnameController.text,
           postcode: Controller.postcodeController.text,
           place: Controller.placeController.text,
           notification: false,
           phonenumber: Controller.phonenumberController.text,
-          callortext: false,
+          callOrText: false,
           meeting: false,
-          safty: false,
+          safety: false,
           email: Controller.emailController.text,
           firstname: Controller.firstnameController.text,
         );
-        
+
         final User? currentuser = await _authpage.signUp(
             email: event.email, password: event.password);
         if (currentuser != null) {

@@ -7,11 +7,21 @@ class AuthHow extends StatefulWidget {
   State<AuthHow> createState() => _AuthHowState();
 }
 
+enum Socialmedia {
+  insta,
+  facebook,
+  linkedin,
+  newspaper,
+  friends,
+  everythingelse
+}
+
 class _AuthHowState extends State<AuthHow> {
   //namecontroller
   final nameController = TextEditingController();
   //bool for checklist
-  String? question;
+  Socialmedia? _socialmedia;
+  bool? checkbox= false ;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +38,7 @@ class _AuthHowState extends State<AuthHow> {
                 child: Text(
                   'Wie bist du auf uns\naufmerksam geworden?',
                   style: TextStyle(
-                    color:  Theme.of(context).colorScheme.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
@@ -41,7 +51,7 @@ class _AuthHowState extends State<AuthHow> {
                 child: CircleAvatar(
                   backgroundImage: AssetImage('lib/images/Notification.png'),
                   radius: 100,
-                  backgroundColor:  Theme.of(context).colorScheme.secondary,
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
                 ),
               ),
               SizedBox(
@@ -55,76 +65,95 @@ class _AuthHowState extends State<AuthHow> {
                   children: [
                     RadioListTile(
                         dense: true,
-                        title: Text('Instagram',style: TextStyle(
-                  fontSize: 15,
-                ),),
-                        value: "Instagram",
-                        groupValue: question,
-                        onChanged: (newValue) {
+                        title: Text(
+                          'Instagram',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        value: Socialmedia.insta,
+                        groupValue: _socialmedia,
+                        onChanged: (Socialmedia? value) {
                           setState(() {
-                            question = newValue;
+                            _socialmedia = value;
                           });
                         }),
                     RadioListTile(
                         dense: true,
-                        title: Text('Facebook',style: TextStyle(
-                  fontSize: 15,
-                ),),
-                        value: "Facebook",
-                        groupValue: question,
-                        onChanged: (newValue) {
+                        title: Text(
+                          'Facebook',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        value: Socialmedia.facebook,
+                        groupValue: _socialmedia,
+                        onChanged: (Socialmedia? value) {
                           setState(() {
-                            question = newValue;
+                            _socialmedia = value;
                           });
                         }),
                     RadioListTile(
                         dense: true,
-                        title: Text('Linkedin',style: TextStyle(
-                  fontSize: 15,
-                ),),
-                        value: "Linkedin",
-                        groupValue: question,
-                        onChanged: (newValue) {
+                        title: Text(
+                          'Linkedin',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        value: Socialmedia.linkedin,
+                        groupValue: _socialmedia,
+                        onChanged: (Socialmedia? value) {
                           setState(() {
-                            question = newValue;
+                            _socialmedia = value;
                           });
                         }),
                     RadioListTile(
                         dense: true,
-                        title: Text('Presse/Zeitung',style: TextStyle(
-                  fontSize: 15,
-                ),),
-                        value: "Presse/Zeitung",
-                        groupValue: question,
-                        onChanged: (newValue) {
+                        title: Text(
+                          'Presse/Zeitung',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        value: Socialmedia.newspaper,
+                        groupValue: _socialmedia,
+                        onChanged: (Socialmedia? value) {
                           setState(() {
-                            question = newValue;
+                            _socialmedia = value;
                           });
                         }),
                     RadioListTile(
                         dense: true,
-                        title: Text('Freunde',style: TextStyle(
-                  fontSize: 15,
-                ),),
-                        value: "Freunde",
-                        groupValue: question,
-                        onChanged: (newValue) {
+                        title: Text(
+                          'Freunde',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        value: Socialmedia.friends,
+                        groupValue: _socialmedia,
+                        onChanged: (Socialmedia? value) {
                           setState(() {
-                            question = newValue;
+                            _socialmedia = value;
                           });
                         }),
-                    RadioListTile(
+                     RadioListTile(
                         dense: true,
-                        title: Text('Sonstiges',style: TextStyle(
-                  fontSize: 15,
-                ),),
-                        value: "Sonstiges",
-                        groupValue: question,
-                        onChanged: (newValue) {
+                        title: Text(
+                          'Sonstiges',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        value: Socialmedia.everythingelse,
+                        groupValue: _socialmedia,
+                        onChanged: (Socialmedia? value) {
                           setState(() {
-                            question = newValue;
+                            _socialmedia = value;
                           });
-                        })
+                        }), 
+                
                   ],
                 ),
               )
