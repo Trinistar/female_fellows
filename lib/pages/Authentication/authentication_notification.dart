@@ -29,7 +29,7 @@ class _AuthNotificationState extends State<AuthNotification> {
               child: Text(
                 'Wie können wir dich\nerreichen?',
                 style: TextStyle(
-                  color:  Theme.of(context).colorScheme.primary,
+                  color: Theme.of(context).colorScheme.primary,
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
@@ -42,7 +42,7 @@ class _AuthNotificationState extends State<AuthNotification> {
               child: CircleAvatar(
                 backgroundImage: AssetImage('lib/images/Group 377.png'),
                 radius: 100,
-                backgroundColor:  Theme.of(context).colorScheme.secondary,
+                backgroundColor: Theme.of(context).colorScheme.secondary,
               ),
             ),
             SizedBox(
@@ -70,8 +70,8 @@ class _AuthNotificationState extends State<AuthNotification> {
                   controller: Controller.emailController,
                   hintText: 'lisa@muster.de',
                   obscureText: false,
-                     onChange: null,
-                       validator: null,
+                  onChange: null,
+                  validator: null,
                 ),
                 SizedBox(
                   height: 20,
@@ -89,38 +89,39 @@ class _AuthNotificationState extends State<AuthNotification> {
                   controller: Controller.phonenumberController,
                   hintText: '+49 123 456',
                   obscureText: false,
-                 onChange: null,
-                       validator: null,
+                  onChange: null,
+                  validator: null,
                 ),
               ],
             ),
-            SizedBox(height: 10,)
-            ,
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
-                    Expanded(child: 
-                 RadioListTile(
-                              contentPadding: EdgeInsets.only(left:40),
-                        title: Text('Anruf'),
-                          value: "Anruf",
-                          groupValue: question,
-                          onChanged: (newValue) {
-                            setState(() {
-                              question = newValue;
-                            });
-                          }),
+                Expanded(
+                  child: RadioListTile(
+                      contentPadding: EdgeInsets.only(left: 40),
+                      title: Text('Anruf'),
+                      value: "Anruf",
+                      groupValue: question,
+                      onChanged: (newValue) {
+                        setState(() {
+                          question = newValue;
+                        });
+                      }),
                 ),
-                Expanded(child: 
-                 RadioListTile(
-                               contentPadding: EdgeInsets.only(left:5),
-                        title: Text('Whatsapp'),
-                          value: "Whatsapp",
-                          groupValue: question,
-                          onChanged: (newValue) {
-                            setState(() {
-                              question = newValue;
-                            });
-                          }),
+                Expanded(
+                  child: RadioListTile(
+                      contentPadding: EdgeInsets.only(left: 5),
+                      title: Text('Whatsapp'),
+                      value: "Whatsapp",
+                      groupValue: question,
+                      onChanged: (newValue) {
+                        setState(() {
+                          question = newValue;
+                        });
+                      }),
                 ),
               ],
             )

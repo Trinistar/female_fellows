@@ -117,11 +117,8 @@ bool Function(bool)? _hasUserConfessed;
             //dot indicator
             onLastPage
                 ? Container()
-                : Positioned(
-                    bottom: 0.0,
-                    left: 0.0,
-                    right: 0.0,
-                    child: Container(
+                
+                   : Container(
                       height: 70,
                       width: 1000,
                       color: Theme.of(context).colorScheme.surface,
@@ -156,7 +153,7 @@ bool Function(bool)? _hasUserConfessed;
                         ],
                       ),
                     ),
-                  ),
+                  
           ],
         ),
       ),

@@ -136,6 +136,7 @@ class _AuthHowState extends State<AuthHow> {
                         onChanged: (Socialmedia? value) {
                           setState(() {
                             _socialmedia = value;
+                            print(value);
                           });
                         }),
                      RadioListTile(

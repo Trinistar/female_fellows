@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+typedef bool hasConfessed( bool newValue );
 
 class AuthSafety extends StatefulWidget {
   AuthSafety({super.key, required this.hasConfessed});

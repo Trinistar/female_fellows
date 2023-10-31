@@ -11,7 +11,7 @@ class Page2 extends StatelessWidget {
         image: DecorationImage(
           image: AssetImage('lib/images/Onboarding – Step 1_ Tandem.png'),
           fit: BoxFit.cover,
-          alignment: Alignment.center,
+          alignment: Alignment.bottomCenter,
         ),
       ),
       child: Column(
