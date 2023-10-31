@@ -6,7 +6,7 @@ typedef void BoolCallback(bool id);
 class AuthSafety extends StatefulWidget {
   AuthSafety({super.key, required this.hasConfessed, required this.onSettingsChanged});
 
-  void Function(bool, bool, bool)? hasConfessed;
+  void Function( bool, bool)? hasConfessed;
 
   final BoolCallback onSettingsChanged;
 
@@ -69,7 +69,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                   onChanged: (newValue) {
                     setState(() {
                       _question = newValue ?? false;
-                      widget.hasConfessed!(_question, _question2, _question3);
+                    
                       //widget.onSettingsChanged(_question);
                     });
                   }),
@@ -86,7 +86,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                   onChanged: (newValue) {
                     setState(() {
                       _question2 = newValue ?? false;
-                      widget.hasConfessed!(_question, _question2, _question3);
+                      widget.hasConfessed!( _question2, _question3);
                     });
                   }),
               CheckboxListTile(
@@ -102,7 +102,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                   onChanged: (newValue) {
                     setState(() {
                       _question3 = newValue ?? false;
-                      widget.hasConfessed!(_question, _question2, _question3);
+                      widget.hasConfessed!( _question2, _question3);
                     });
                   })
             ],

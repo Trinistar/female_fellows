@@ -22,21 +22,19 @@ class _AuthentryState extends State<Authentry> {
   PageController _controller = PageController();
 
 // Value for Checkboxes DataSafety
-  void _hasUserConfessed(bool newValue, bool newValue2, bool newValue3) {
+  void _hasUserConfessed(bool newValue2, bool newValue3) {
     setState(() {
-      if (newValue && newValue2 && newValue3) {
+      if (newValue2 && newValue3) {
         _accepted = true;
       } else {
         _accepted = false;
       }
     });
-    print(_accepted);
   }
 
   bool _accepted = false;
 
   void updateId(bool newId) {
-    print(newId);
     setState(() {
       _accepted = newId;
     });
@@ -44,15 +42,18 @@ class _AuthentryState extends State<Authentry> {
 
   void _handlePageChange() {
     if (_controller.page == 5) {
-      _accepted ? _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn) : null;
+      _accepted
+          ? _controller.nextPage(
+              duration: Duration(microseconds: 500), curve: Curves.easeIn)
+          : null;
     } else {
-      _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
+      _controller.nextPage(
+          duration: Duration(microseconds: 500), curve: Curves.easeIn);
     }
   }
 
   //keep track of page
   bool onLastPage = false;
-  bool safetyPage = false;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +77,8 @@ class _AuthentryState extends State<Authentry> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 60, top: 25),
-                          child: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
+                          child: Image.asset('lib/images/FF-Logo_blau-1.png',
+                              height: 80, alignment: Alignment(0, -0.8)),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -96,7 +98,8 @@ class _AuthentryState extends State<Authentry> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 60, top: 25),
-                          child: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
+                          child: Image.asset('lib/images/FF-Logo_blau-1.png',
+                              height: 80, alignment: Alignment(0, -0.8)),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -120,7 +123,6 @@ class _AuthentryState extends State<Authentry> {
                 onPageChanged: (index) {
                   setState(() {
                     onLastPage = (index == 6);
-                    safetyPage = (index == 5);
                   });
 
                   if (index == 5) {
@@ -148,39 +150,39 @@ class _AuthentryState extends State<Authentry> {
             //dot indicator
             onLastPage
                 ? Container()
-                
-                   : Container(
-                      height: 70,
-                      width: 1000,
-                      color: Theme.of(context).colorScheme.surface,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          MaterialButton(
-                              disabledTextColor: Colors.grey,
-                              onPressed: () {
-                                if (_controller.page == 0) {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => OnboardingPage(),
-                                  ));
-                                } else {
-                                  _controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
-                                }
-                              },
-                              child: Text('Back')),
-                          SmoothPageIndicator(
-                            controller: _controller,
-                            count: 6,
-                          ),
-                          MaterialButton(
+                : Container(
+                    height: 70,
+                    width: 1000,
+                    color: Theme.of(context).colorScheme.surface,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        MaterialButton(
                             disabledTextColor: Colors.grey,
-                            onPressed: _handlePageChange,
-                            child: Text('Next'),
-                          ),
-                        ],
-                      ),
+                            onPressed: () {
+                              if (_controller.page == 0) {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => OnboardingPage(),
+                                ));
+                              } else {
+                                _controller.previousPage(
+                                    duration: Duration(microseconds: 500),
+                                    curve: Curves.easeIn);
+                              }
+                            },
+                            child: Text('Back')),
+                        SmoothPageIndicator(
+                          controller: _controller,
+                          count: 6,
+                        ),
+                        MaterialButton(
+                          disabledTextColor: Colors.grey,
+                          onPressed: _handlePageChange,
+                          child: Text('Next'),
+                        ),
+                      ],
                     ),
-                  
+                  ),
           ],
         ),
       ),

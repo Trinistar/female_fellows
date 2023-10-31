@@ -53,7 +53,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 SingleChildScrollView(
-                  child: Expanded(
+                
                     child: Form(
                       key: _formKey,
                       child: Column(
@@ -235,7 +235,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                         ],
                       ),
                     ),
-                  ),
+                  
                 ),
               ],
             );
