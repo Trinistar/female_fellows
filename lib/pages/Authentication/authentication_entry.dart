@@ -26,14 +26,18 @@ class _AuthentryState extends State<Authentry> {
     setState(() {
       if (newValue && newValue2 && newValue3) {
         _accepted = true;
+        _disabledNextButton = false;
       } else {
         _accepted = false;
+        _disabledNextButton = true;
       }
     });
     print(_accepted);
   }
 
   bool _accepted = false;
+
+  bool _disabledNextButton = false;
 
   void updateId(bool newId) {
     print(newId);
@@ -121,10 +125,12 @@ class _AuthentryState extends State<Authentry> {
                   setState(() {
                     onLastPage = (index == 6);
                     safetyPage = (index == 5);
+                    _disabledNextButton = false;
                   });
 
                   if (index == 5) {
                     setState(() {
+                      _disabledNextButton = true;
                       _accepted = false;
                     });
                   }
@@ -177,7 +183,7 @@ class _AuthentryState extends State<Authentry> {
                           ),
                           MaterialButton(
                             disabledTextColor: Colors.grey,
-                            onPressed: _handlePageChange,
+                            onPressed: _disabledNextButton ? null : _handlePageChange,
                             child: Text('Next'),
                           ),
                         ],
