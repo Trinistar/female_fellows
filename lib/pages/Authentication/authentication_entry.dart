@@ -26,8 +26,10 @@ class _AuthentryState extends State<Authentry> {
     setState(() {
       if (newValue2 && newValue3) {
         _accepted = true;
+     
       } else {
         _accepted = false;
+
       }
     });
   }
@@ -124,7 +126,6 @@ class _AuthentryState extends State<Authentry> {
                   setState(() {
                     onLastPage = (index == 6);
                   });
-
                   if (index == 5) {
                     setState(() {
                       _accepted = false;
@@ -177,7 +178,7 @@ class _AuthentryState extends State<Authentry> {
                         ),
                         MaterialButton(
                           disabledTextColor: Colors.grey,
-                          onPressed: _handlePageChange,
+                          onPressed: _accepted ?  null : _handlePageChange ,
                           child: Text('Next'),
                         ),
                       ],
