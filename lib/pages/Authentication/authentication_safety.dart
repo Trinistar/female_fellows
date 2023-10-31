@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AuthSafety extends StatefulWidget {
-  AuthSafety({super.key, required this.hasConfessed});
+typedef void BoolCallback(bool id);
 
-  bool Function(bool)? hasConfessed;
+class AuthSafety extends StatefulWidget {
+  AuthSafety({super.key, required this.hasConfessed, required this.onSettingsChanged});
+
+  void Function(bool, bool, bool)? hasConfessed;
+
+  final BoolCallback onSettingsChanged;
 
   @override
   State<AuthSafety> createState() => _AuthSafetyState();
@@ -16,15 +20,6 @@ class _AuthSafetyState extends State<AuthSafety> {
   bool _question2 = false;
 
   bool _question3 = false;
-
-  void checkBool() {
-    if (_question && _question2 && _question3) {
-      print(_question);
-      widget.hasConfessed!(true);
-    } else {
-      widget.hasConfessed!(false);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +68,8 @@ class _AuthSafetyState extends State<AuthSafety> {
                   onChanged: (newValue) {
                     setState(() {
                       _question = newValue ?? false;
+                      widget.hasConfessed!(_question, _question2, _question3);
+                      //widget.onSettingsChanged(_question);
                     });
                   }),
               CheckboxListTile(
@@ -84,10 +81,11 @@ class _AuthSafetyState extends State<AuthSafety> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  value:  _question2,
+                  value: _question2,
                   onChanged: (newValue) {
                     setState(() {
                       _question2 = newValue ?? false;
+                      widget.hasConfessed!(_question, _question2, _question3);
                     });
                   }),
               CheckboxListTile(
@@ -103,6 +101,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                   onChanged: (newValue) {
                     setState(() {
                       _question3 = newValue ?? false;
+                      widget.hasConfessed!(_question, _question2, _question3);
                     });
                   })
             ],

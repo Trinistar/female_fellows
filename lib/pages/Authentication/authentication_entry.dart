@@ -22,8 +22,33 @@ class _AuthentryState extends State<Authentry> {
   PageController _controller = PageController();
 
 // Value for Checkboxes DataSafety
-bool Function(bool)? _hasUserConfessed;
-  
+  void _hasUserConfessed(bool newValue, bool newValue2, bool newValue3) {
+    setState(() {
+      if (newValue && newValue2 && newValue3) {
+        _accepted = true;
+      } else {
+        _accepted = false;
+      }
+    });
+    print(_accepted);
+  }
+
+  bool _accepted = false;
+
+  void updateId(bool newId) {
+    print(newId);
+    setState(() {
+      _accepted = newId;
+    });
+  }
+
+  void _handlePageChange() {
+    if (_controller.page == 5) {
+      _accepted ? _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn) : null;
+    } else {
+      _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
+    }
+  }
 
   //keep track of page
   bool onLastPage = false;
@@ -51,8 +76,7 @@ bool Function(bool)? _hasUserConfessed;
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 60, top: 25),
-                          child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                              height: 80, alignment: Alignment(0, -0.8)),
+                          child: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -72,8 +96,7 @@ bool Function(bool)? _hasUserConfessed;
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 60, top: 25),
-                          child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                              height: 80, alignment: Alignment(0, -0.8)),
+                          child: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -93,13 +116,18 @@ bool Function(bool)? _hasUserConfessed;
                   ),
             Expanded(
               child: PageView(
-                physics: _hasUserConfessed != null ? NeverScrollableScrollPhysics():AlwaysScrollableScrollPhysics()  ,
                 controller: _controller,
                 onPageChanged: (index) {
                   setState(() {
                     onLastPage = (index == 6);
                     safetyPage = (index == 5);
                   });
+
+                  if (index == 5) {
+                    setState(() {
+                      _accepted = false;
+                    });
+                  }
                 },
                 children: [
                   // Pages one Onboarding
@@ -108,9 +136,12 @@ bool Function(bool)? _hasUserConfessed;
                   AuthPlace(),
                   AuthHow(),
                   AuthNotification(),
-                //  AuthConnect(),
-                  AuthSafety(hasConfessed: _hasUserConfessed,),
-                  AuthVerfication()
+                  //  AuthConnect(),
+                  AuthSafety(
+                    hasConfessed: _hasUserConfessed,
+                    onSettingsChanged: updateId,
+                  ),
+                  if (_accepted) AuthVerfication()
                 ],
               ),
             ),
@@ -128,16 +159,15 @@ bool Function(bool)? _hasUserConfessed;
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          GestureDetector(
-                              onTap: () {
+                          MaterialButton(
+                              disabledTextColor: Colors.grey,
+                              onPressed: () {
                                 if (_controller.page == 0) {
                                   Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => OnboardingPage(),
                                   ));
                                 } else {
-                                  _controller.previousPage(
-                                      duration: Duration(microseconds: 500),
-                                      curve: Curves.easeIn);
+                                  _controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                                 }
                               },
                               child: Text('Back')),
@@ -145,12 +175,9 @@ bool Function(bool)? _hasUserConfessed;
                             controller: _controller,
                             count: 6,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              _controller.nextPage(
-                                  duration: Duration(microseconds: 500),
-                                  curve: Curves.easeIn);
-                            },
+                          MaterialButton(
+                            disabledTextColor: Colors.grey,
+                            onPressed: _handlePageChange,
                             child: Text('Next'),
                           ),
                         ],
