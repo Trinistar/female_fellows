@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 
 typedef bool hasConfessed(bool newValue);
 
@@ -58,55 +59,82 @@ class _AuthSafetyState extends State<AuthSafety> {
               SizedBox(
                 height: 50,
               ),
-              CheckboxListTile(
-                  dense: true,
-                  title: Text(
-                    'Ja, ich möchte den Newsletter abonnieren ',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                  value: _question,
-                  onChanged: (newValue) {
-                    setState(() {
-                      _question = newValue ?? false;
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: SizedBox(
+                  width: 350,
+                  child: CheckboxListTile(
+                      controlAffinity: ListTileControlAffinity.leading,
+                      dense: true,
+                      title: Text(
+                        'Ja, ich möchte den Newsletter abonnieren ',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                      value: _question,
+                      onChanged: (newsletter) {
+                        setState(() {
+                          _question = newsletter ?? false;
 
-                      //widget.onSettingsChanged(_question);
-                    });
-                  }),
-              CheckboxListTile(
-                  dense: true,
-                  title: Text(
-                    'Ja, ich habe die Datenschutz-\nvereinbarungvon Female Fellows e.V. gelesen und stimme zu. ',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                  value: _question2,
-                  onChanged: (newValue) {
-                    setState(() {
-                      _question2 = newValue ?? false;
-                      widget.hasConfessed!(_question2, _question3);
-                    });
-                  }),
-              CheckboxListTile(
-                  dense: true,
-                  title: Text(
-                    'Ich habe den Verhaltenskodex von\nFemale Fellows gelesen und stimme zu. ',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                  value: _question3,
-                  onChanged: (newValue) {
-                    setState(() {
-                      _question3 = newValue ?? false;
-                      widget.hasConfessed!(_question2, _question3);
-                    });
-                  })
+                          //widget.onSettingsChanged(_question);
+                        });
+                      }),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: SizedBox(
+                  width: 350,
+                  child: CheckboxListTile(
+                      controlAffinity: ListTileControlAffinity.leading,
+                      dense: true,
+                      title: GestureDetector(
+                        onTap: () =>
+                            Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Tandementry(),
+                        )),
+                        child: Text(
+                          'Ja, ich habe die Datenschutz-\nvereinbarungvon Female Fellows e.V. gelesen und stimme zu. ',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                        ),
+                      ),
+                      value: _question2,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _question2 = newValue ?? false;
+                          widget.hasConfessed!(_question2, _question3);
+                        });
+                      }),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: SizedBox(
+                  width: 350,
+                  child: CheckboxListTile(
+                      controlAffinity: ListTileControlAffinity.leading,
+                      dense: true,
+                      title: Text(
+                        'Ich habe den Verhaltenskodex von\nFemale Fellows gelesen und stimme zu. ',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                      value: _question3,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _question3 = newValue ?? false;
+                          widget.hasConfessed!(_question2, _question3);
+                        });
+                      }),
+                ),
+              ),
             ],
           ),
         ),
