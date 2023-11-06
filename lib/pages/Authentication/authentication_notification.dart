@@ -11,8 +11,9 @@ class AuthNotification extends StatefulWidget {
 
 class _AuthNotificationState extends State<AuthNotification> {
   //namecheck
-  String? question;
-
+  bool _whatsapp = false;
+  bool _number = false;
+  bool _email = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +37,7 @@ class _AuthNotificationState extends State<AuthNotification> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 40,
             ),
             Center(
               child: CircleAvatar(
@@ -54,77 +55,65 @@ class _AuthNotificationState extends State<AuthNotification> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 40,
-                    bottom: 5,
-                  ),
-                  child: Text(
-                    'Email',
-                    style: TextStyle(
-                      fontSize: 15,
-                    ),
-                  ),
-                ),
-                TextBar(
-                  controller: Controller.emailController,
-                  hintText: 'lisa@muster.de',
-                  obscureText: false,
-                  onChange: null,
-                  validator: null,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 40, bottom: 5),
-                  child: Text(
-                    'Handynummer',
-                    style: TextStyle(
-                      fontSize: 15,
-                    ),
-                  ),
-                ),
-                TextBar(
-                  controller: Controller.phonenumberController,
-                  hintText: '+49 123 456',
-                  obscureText: false,
-                  onChange: null,
-                  validator: null,
-                ),
+         
+
+                CheckboxListTile(
+                    controlAffinity: ListTileControlAffinity.leading,
+                    contentPadding: EdgeInsets.only(left: 40),
+                    title: Text('Anruf'),
+                    value: _number,
+                    onChanged: (newValue) {
+                      setState(() {
+                        _number = newValue ?? false;
+                      });
+                    }),
+                CheckboxListTile(
+                    controlAffinity: ListTileControlAffinity.leading,
+                    contentPadding: EdgeInsets.only(left: 40),
+                    title: Text('Whatsapp'),
+                    value: _whatsapp,
+                    onChanged: (newValue) {
+                      setState(() {
+                        _whatsapp = newValue ?? false;
+                      });
+                    }),
+                CheckboxListTile(
+                    controlAffinity: ListTileControlAffinity.leading,
+                    contentPadding: EdgeInsets.only(left: 40),
+                    title: Text('Email'),
+                    value: _email,
+                    onChanged: (newValue) {
+                      setState(() {
+                        _email = newValue ?? false;
+                      });
+                    }),
+
+                _number || _whatsapp
+                    ? Padding(
+                        padding: const EdgeInsets.only(left: 40, bottom: 5),
+                        child: Text(
+                          'Handynummer',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      )
+                    : Container(),
+
+                _number || _whatsapp
+                    ? TextBar(
+                        controller: Controller.phonenumberController,
+                        hintText: '+49 123 456',
+                        obscureText: false,
+                        onChange: null,
+                        validator: null,
+                      )
+                    : Container(),
               ],
             ),
             SizedBox(
               height: 10,
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: RadioListTile(
-                      contentPadding: EdgeInsets.only(left: 40),
-                      title: Text('Anruf'),
-                      value: "Anruf",
-                      groupValue: question,
-                      onChanged: (newValue) {
-                        setState(() {
-                          question = newValue;
-                        });
-                      }),
-                ),
-                Expanded(
-                  child: RadioListTile(
-                      contentPadding: EdgeInsets.only(left: 5),
-                      title: Text('Whatsapp'),
-                      value: "Whatsapp",
-                      groupValue: question,
-                      onChanged: (newValue) {
-                        setState(() {
-                          question = newValue;
-                        });
-                      }),
-                ),
-              ],
-            )
           ],
         ),
       ),

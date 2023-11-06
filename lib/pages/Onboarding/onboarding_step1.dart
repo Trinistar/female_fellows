@@ -13,7 +13,7 @@ class Page1 extends StatelessWidget {
         image: DecorationImage(
           image: AssetImage('lib/images/Onboarding – Startscreen.png'),
           fit: BoxFit.cover,
-          alignment: Alignment.bottomCenter,
+          alignment: Alignment.center,
         ),
       ),
       child: SingleChildScrollView(

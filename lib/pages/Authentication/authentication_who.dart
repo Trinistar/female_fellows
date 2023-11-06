@@ -112,6 +112,7 @@ class _AuthWhoState extends State<AuthWho> {
                     ),
                     BlocBuilder<RegistrationBloc, RegistrationState>(
                       builder: (context, state) {
+                          //TODO inputvalidierung für Plichtfelder
                         return TextBar(
                           controller: Controller.firstnameController,
                           hintText: 'Lisa',

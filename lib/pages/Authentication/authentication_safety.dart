@@ -9,7 +9,7 @@ class AuthSafety extends StatefulWidget {
   AuthSafety(
       {super.key, required this.hasConfessed, required this.onSettingsChanged});
 
-  final void Function(bool, bool)? hasConfessed;
+  final void Function(bool)? hasConfessed;
 
   final BoolCallback onSettingsChanged;
 
@@ -83,6 +83,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                       }),
                 ),
               ),
+              SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(left: 30),
                 child: SizedBox(
@@ -96,7 +97,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                           builder: (context) => Tandementry(),
                         )),
                         child: Text(
-                          'Ja, ich habe die Datenschutz-\nvereinbarungvon Female Fellows e.V. gelesen und stimme zu. ',
+                          'Ja, ich habe die Datenschutz-\nvereinbarung und die AGB`s\nvon Female Fellows e.V. gelesen und stimme zu. ',
                           style: TextStyle(
                             fontSize: 15,
                             color: Theme.of(context).colorScheme.primary,
@@ -107,12 +108,12 @@ class _AuthSafetyState extends State<AuthSafety> {
                       onChanged: (newValue) {
                         setState(() {
                           _question2 = newValue ?? false;
-                          widget.hasConfessed!(_question2, _question3);
+                          widget.hasConfessed!(_question2);
                         });
                       }),
                 ),
               ),
-              Padding(
+          /*     Padding(
                 padding: const EdgeInsets.only(left: 30),
                 child: SizedBox(
                   width: 350,
@@ -120,7 +121,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                       controlAffinity: ListTileControlAffinity.leading,
                       dense: true,
                       title: Text(
-                        'Ich habe den Verhaltenskodex von\nFemale Fellows gelesen und stimme zu. ',
+                        'Ich habe die AGB`s von\nFemale Fellows gelesen und stimme zu. ',
                         style: TextStyle(
                           fontSize: 15,
                           color: Theme.of(context).colorScheme.primary,
@@ -134,7 +135,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                         });
                       }),
                 ),
-              ),
+              ), */
             ],
           ),
         ),

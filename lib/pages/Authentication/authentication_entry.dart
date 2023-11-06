@@ -22,9 +22,9 @@ class _AuthentryState extends State<Authentry> {
   PageController _controller = PageController();
 
 // Value for Checkboxes DataSafety
-  void _hasUserConfessed(bool newValue2, bool newValue3) {
+  void _hasUserConfessed(bool newValue2) {
     setState(() {
-      if (newValue2 && newValue3) {
+      if (newValue2 ) {
         _accepted = true;
         _disabledNextButton = false;
       } else {

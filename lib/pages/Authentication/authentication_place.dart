@@ -47,13 +47,14 @@ class _AuthPlaceState extends State<AuthPlace> {
             SizedBox(
               height: 60,
             ),
+            //TODO inputvalidierung für Plichtfelder
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 40, bottom: 5),
                   child: Text(
-                    'Straße und Hausnummer',
+                    'Straße und Hausnummer*',
                     style: TextStyle(
                       fontSize: 15,
                     ),
@@ -72,7 +73,7 @@ class _AuthPlaceState extends State<AuthPlace> {
                 Padding(
                   padding: const EdgeInsets.only(left: 40, bottom: 5),
                   child: Text(
-                    'Postleitzahl und Wohnort',
+                    'Postleitzahl und Wohnort*',
                     style: TextStyle(
                       fontSize: 15,
                     ),
