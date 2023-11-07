@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
+import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
@@ -127,16 +128,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                               style: TextStyle(
                                 fontSize: 18,
                               ),
-                            ), /* 
-                                      SizedBox(
-                                        width: 120,
-                                      ),
-                                      Text(
-                                        'Forgot Password?',
-                                        style: TextStyle(
-                                          color: Colors.grey.shade700,
-                                        ),
-                                      ), */
+                            ),
                           ],
                         ),
                       ),
@@ -214,6 +206,29 @@ class _AuthVerficationState extends State<AuthVerfication> {
                           );
                         },
                       ),
+                        SizedBox(
+                              height: 30,
+                            ),
+                         Center(
+                                child: Text(
+                                  AppLocalizations.of(context)!.loginTextup,
+                                  style: TextStyle(
+                                      color:
+                                          Theme.of(context).colorScheme.primary),
+                                )),
+                            Center(
+                                child: GestureDetector(
+                              onTap: () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage())),
+                              child: Text(
+                                AppLocalizations.of(context)!.loginTextdown,
+                                style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    decoration: TextDecoration.underline),
+                              ),
+                            )),
                     ],
                   ),
                 ),

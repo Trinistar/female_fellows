@@ -39,15 +39,6 @@ class _AuthentryState extends State<Authentry> {
   }
 
   void _hasChoosed( LocalOrNot) {
-    setState(() {
-      if (LocalOrNot) {
-        _accepted = true;
-        _disabledNextButton = false;
-      } else {
-        _accepted = false;
-        _disabledNextButton = true;
-      }
-    });
   }
 
   void updateId(bool newId) {
@@ -154,7 +145,7 @@ class _AuthentryState extends State<Authentry> {
                   Authlocal(
                     hasChoosed: _hasChoosed,
                     onSettingsChanged: updateId,
-                  ),if (_accepted)
+                  ),
                   AuthAge(),
                   AuthPlace(),
                   AuthHow(),

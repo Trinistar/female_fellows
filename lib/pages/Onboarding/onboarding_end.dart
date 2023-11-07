@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
-import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
 
 class Page5 extends StatelessWidget {
   const Page5({super.key});
@@ -40,7 +40,7 @@ class Page5 extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return LoginPage();
+                          return Navigation();
                         },
                       ),
                     );
@@ -57,7 +57,7 @@ class Page5 extends StatelessWidget {
                         color: Colors.transparent),
                     child: Center(
                         child: Text(
-                     AppLocalizations.of(context)!.login,
+                     AppLocalizations.of(context)!.startnow,
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18),

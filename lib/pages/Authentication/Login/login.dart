@@ -8,6 +8,7 @@ import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
+import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -108,7 +109,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                               child: Row(
                                 children: [
                                   Text(
-                                    'Email',
+                                    AppLocalizations.of(context)!.email,
                                     style: TextStyle(
                                       fontSize: 18,
                                     ),
@@ -152,7 +153,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                               child: Row(
                                 children: [
                                   Text(
-                                    'Password',
+                                    AppLocalizations.of(context)!.password,
                                     style: TextStyle(
                                       fontSize: 18,
                                     ),
@@ -240,7 +241,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                             BlocBuilder<LoginBloc, LoginState>(
                               builder: (context, state) {
                                 return LoginButton(
-                                  text: 'Sign In',
+                                  text: AppLocalizations.of(context)!.signin,
                                   onTap: () {
                                     if (_formKey.currentState!.validate()) {
                                       context.read<LoginBloc>().add(
@@ -254,6 +255,29 @@ class _AuthLoginPageState extends State<LoginPage> {
                                 );
                               },
                             ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Center(
+                                child: Text(
+                                  AppLocalizations.of(context)!.signinTextup,
+                                  style: TextStyle(
+                                      color:
+                                          Theme.of(context).colorScheme.primary),
+                                )),
+                            Center(
+                                child: GestureDetector(
+                              onTap: () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => OnboardingPage())),
+                              child: Text(
+                                AppLocalizations.of(context)!.signinTextdown,
+                                style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    decoration: TextDecoration.underline),
+                              ),
+                            )),
                           ],
                         ),
                       ),
