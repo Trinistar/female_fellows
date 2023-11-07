@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/services/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthPlace extends StatefulWidget {
   const AuthPlace({super.key});
@@ -26,7 +27,7 @@ class _AuthPlaceState extends State<AuthPlace> {
                 left: 50,
               ),
               child: Text(
-                'Wo wohnst du?',
+                 AppLocalizations.of(context)!.authenticationPlace,
                 style: TextStyle(
                   color:  Theme.of(context).colorScheme.primary,
                   fontSize: 30,
@@ -54,7 +55,7 @@ class _AuthPlaceState extends State<AuthPlace> {
                 Padding(
                   padding: const EdgeInsets.only(left: 40, bottom: 5),
                   child: Text(
-                    'Straße und Hausnummer*',
+           AppLocalizations.of(context)!.authenticationStreet,
                     style: TextStyle(
                       fontSize: 15,
                     ),
@@ -73,7 +74,7 @@ class _AuthPlaceState extends State<AuthPlace> {
                 Padding(
                   padding: const EdgeInsets.only(left: 40, bottom: 5),
                   child: Text(
-                    'Postleitzahl und Wohnort*',
+                   AppLocalizations.of(context)!.authenticationPostcode,
                     style: TextStyle(
                       fontSize: 15,
                     ),

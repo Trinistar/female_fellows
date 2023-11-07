@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/services/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthNotification extends StatefulWidget {
   const AuthNotification({super.key});
@@ -28,7 +29,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                 left: 50,
               ),
               child: Text(
-                'Wie können wir dich\nerreichen?',
+    AppLocalizations.of(context)!.authenticationNotificationTitle,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 28,
@@ -60,7 +61,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                 CheckboxListTile(
                     controlAffinity: ListTileControlAffinity.leading,
                     contentPadding: EdgeInsets.only(left: 40),
-                    title: Text('Anruf'),
+                    title: Text(AppLocalizations.of(context)!.authenticationCall),
                     value: _number,
                     onChanged: (newValue) {
                       setState(() {
@@ -70,7 +71,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                 CheckboxListTile(
                     controlAffinity: ListTileControlAffinity.leading,
                     contentPadding: EdgeInsets.only(left: 40),
-                    title: Text('Whatsapp'),
+                    title: Text(AppLocalizations.of(context)!.authenticationWhatsApp),
                     value: _whatsapp,
                     onChanged: (newValue) {
                       setState(() {
@@ -80,7 +81,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                 CheckboxListTile(
                     controlAffinity: ListTileControlAffinity.leading,
                     contentPadding: EdgeInsets.only(left: 40),
-                    title: Text('Email'),
+                    title: Text(AppLocalizations.of(context)!.authenticationEmail),
                     value: _email,
                     onChanged: (newValue) {
                       setState(() {
@@ -92,7 +93,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                     ? Padding(
                         padding: const EdgeInsets.only(left: 40, bottom: 5),
                         child: Text(
-                          'Handynummer',
+                          AppLocalizations.of(context)!.authenticationHandy,
                           style: TextStyle(
                             fontSize: 15,
                           ),

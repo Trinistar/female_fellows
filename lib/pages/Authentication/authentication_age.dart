@@ -1,5 +1,6 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthAge extends StatefulWidget {
   const AuthAge({super.key});
@@ -43,7 +44,7 @@ class _AuthAgeState extends State<AuthAge> {
             Padding(
               padding: const EdgeInsets.only(left: 50),
               child: Text(
-                'Wie alt bist du?',
+                  AppLocalizations.of(context)!.authenticationAge,
                 style: TextStyle(
                   color:  Theme.of(context).colorScheme.primary,
                   fontSize: 30,
@@ -69,7 +70,7 @@ class _AuthAgeState extends State<AuthAge> {
             ),
             Center(
               child: Text(
-                'Klick auf das Bild',
+                  AppLocalizations.of(context)!.authenticationAgeImage,
                 style: TextStyle(
                   color: Color.fromRGBO(27, 25, 86, 1),
                   fontSize: 20,
@@ -85,7 +86,7 @@ class _AuthAgeState extends State<AuthAge> {
                 Padding(
                   padding: const EdgeInsets.only(left: 40, bottom: 5),
                   child: Text(
-                    ' Dein Geburtstag:',
+                      AppLocalizations.of(context)!.authenticationAgeBirthday,
                     style: TextStyle(
                       fontSize: 20,
                     ),

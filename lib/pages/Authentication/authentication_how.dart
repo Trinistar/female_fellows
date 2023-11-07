@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthHow extends StatefulWidget {
   const AuthHow({super.key});
@@ -36,7 +37,7 @@ class _AuthHowState extends State<AuthHow> {
               Padding(
                 padding: const EdgeInsets.only(left: 50),
                 child: Text(
-                  'Wie bist du auf uns\naufmerksam geworden?',
+                   AppLocalizations.of(context)!.authenticationHow,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: 28,
@@ -66,7 +67,7 @@ class _AuthHowState extends State<AuthHow> {
                     RadioListTile(
                         dense: true,
                         title: Text(
-                          'Instagram',
+                          AppLocalizations.of(context)!.authenticationInstagram,
                           style: TextStyle(
                             fontSize: 15,
                           ),
@@ -81,7 +82,7 @@ class _AuthHowState extends State<AuthHow> {
                     RadioListTile(
                         dense: true,
                         title: Text(
-                          'Facebook',
+              AppLocalizations.of(context)!.authenticationFacebook,
                           style: TextStyle(
                             fontSize: 15,
                           ),
@@ -96,7 +97,7 @@ class _AuthHowState extends State<AuthHow> {
                     RadioListTile(
                         dense: true,
                         title: Text(
-                          'Linkedin',
+                         AppLocalizations.of(context)!.authenticationLinkedin,
                           style: TextStyle(
                             fontSize: 15,
                           ),
@@ -111,7 +112,7 @@ class _AuthHowState extends State<AuthHow> {
                     RadioListTile(
                         dense: true,
                         title: Text(
-                          'Presse/Zeitung',
+                       AppLocalizations.of(context)!.authenticationPresse,
                           style: TextStyle(
                             fontSize: 15,
                           ),
@@ -126,7 +127,7 @@ class _AuthHowState extends State<AuthHow> {
                     RadioListTile(
                         dense: true,
                         title: Text(
-                          'Freunde',
+                        AppLocalizations.of(context)!.authenticationFreunde,
                           style: TextStyle(
                             fontSize: 15,
                           ),
@@ -142,7 +143,7 @@ class _AuthHowState extends State<AuthHow> {
                      RadioListTile(
                         dense: true,
                         title: Text(
-                          'Sonstiges',
+                       AppLocalizations.of(context)!.authenticationSonstiges,
                           style: TextStyle(
                             fontSize: 15,
                           ),

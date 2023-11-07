@@ -10,6 +10,7 @@ import 'package:vs_femalefellows/pages/Authentication/authentication_notificatio
 import 'package:vs_femalefellows/pages/Authentication/authentication_place.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_safety.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_who.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Authentry extends StatefulWidget {
   const Authentry({super.key});
@@ -24,7 +25,19 @@ class _AuthentryState extends State<Authentry> {
 // Value for Checkboxes DataSafety
   void _hasUserConfessed(bool newValue2) {
     setState(() {
-      if (newValue2 ) {
+      if (newValue2) {
+        _accepted = true;
+        _disabledNextButton = false;
+      } else {
+        _accepted = false;
+        _disabledNextButton = true;
+      }
+    });
+  }
+
+  void _inputCheckNameLastname(firstname) {
+    setState(() {
+      if (firstname) {
         _accepted = true;
         _disabledNextButton = false;
       } else {
@@ -35,7 +48,6 @@ class _AuthentryState extends State<Authentry> {
   }
 
   bool _accepted = false;
-
   bool _disabledNextButton = false;
 
   void updateId(bool newId) {
@@ -45,7 +57,7 @@ class _AuthentryState extends State<Authentry> {
   }
 
   void _handlePageChange() {
-    if (_controller.page == 5) {
+    if (_controller.page == 5 || _controller.page == 1) {
       _accepted
           ? _controller.nextPage(
               duration: Duration(microseconds: 500), curve: Curves.easeIn)
@@ -111,7 +123,7 @@ class _AuthentryState extends State<Authentry> {
                             left: 50,
                           ),
                           child: Text(
-                            'Mitglied werden',
+                             AppLocalizations.of(context)!.authenticationTitle,
                             style: TextStyle(
                               color: Theme.of(context).colorScheme.primary,
                               fontSize: 20,
@@ -138,8 +150,11 @@ class _AuthentryState extends State<Authentry> {
                 },
                 children: [
                   // Pages one Onboarding
-                  AuthWho(),
-                  AuthAge(),
+                  AuthWho(
+                    hasInput: _inputCheckNameLastname,
+                    onSettingsChanged: updateId,
+                  ),
+                  if (_accepted) AuthAge(),
                   AuthPlace(),
                   AuthHow(),
                   AuthNotification(),

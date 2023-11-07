@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthConnect extends StatefulWidget {
   const AuthConnect({super.key});
@@ -25,7 +26,7 @@ class _AuthConnectState extends State<AuthConnect> {
               Padding(
                 padding: const EdgeInsets.only(left: 50),
                 child: Text(
-                  'Wie möchtest du dich\ntreffen?',
+                AppLocalizations.of(context)!.authenticationConnection,
                   style: TextStyle(
                     color:  Theme.of(context).colorScheme.primary,
                     fontSize: 28,
@@ -51,7 +52,7 @@ class _AuthConnectState extends State<AuthConnect> {
                 child: Column(children: [
                    RadioListTile(
                     dense: true,
-                    title: Text('vor Ort',style: TextStyle(
+                    title: Text( AppLocalizations.of(context)!.authenticationConnectionPlace,style: TextStyle(
                     fontSize: 15,
                   ),),
                     value: "vor Ort",
@@ -63,7 +64,7 @@ class _AuthConnectState extends State<AuthConnect> {
                     }),
                 RadioListTile(
                   dense: true,
-                    title: Text('Online',style: TextStyle(
+                    title: Text(AppLocalizations.of(context)!.authenticationConnectionOnline,style: TextStyle(
                     fontSize: 15,
                   ),),
                     value: "Online",
@@ -75,7 +76,7 @@ class _AuthConnectState extends State<AuthConnect> {
                     }),
                 RadioListTile(
                   dense: true,
-                    title: Text('vor Ort & Online',style: TextStyle(
+                    title: Text(AppLocalizations.of(context)!.authenticationConnectionOnlinePlace,style: TextStyle(
                     fontSize: 15,
                   ),),
                     value: "vor Ort & Online",

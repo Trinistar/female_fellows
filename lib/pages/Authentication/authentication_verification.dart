@@ -63,7 +63,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                           Padding(
                             padding: const EdgeInsets.only(left: 50),
                             child: Text(
-                              AppLocalizations.of(context)!.verficationTitle,
+                              AppLocalizations.of(context)!.verificationTitle,
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
                                 fontSize: 28,
@@ -97,7 +97,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                             child: Row(
                               children: [
                                 Text(
-                                  'Email',
+                                 AppLocalizations.of(context)!.email ,
                                   style: TextStyle(
                                     fontSize: 18,
                                   ),
@@ -130,7 +130,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                             child: Row(
                               children: [
                                 Text(
-                                  'Password',
+                                  AppLocalizations.of(context)!.password ,
                                   style: TextStyle(
                                     fontSize: 18,
                                   ),
@@ -208,7 +208,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                           BlocBuilder<RegistrationBloc, RegistrationState>(
                             builder: (context, state) {
                               return LoginButton(
-                                text: 'Mitglied werden',
+                                text:  AppLocalizations.of(context)!.authenticationTitle,
                                 onTap: () {
                                   if (_formKey.currentState!.validate()) {
                                     context.read<RegistrationBloc>().add(Signup(

@@ -5,9 +5,17 @@ import 'package:image_picker/image_picker.dart';
 import 'package:vs_femalefellows/blocs/Registration/registration_bloc.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/services/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+typedef String hasInput (String name);
+
+typedef void BoolCallback(bool id);
 
 class AuthWho extends StatefulWidget {
-  const AuthWho({super.key});
+  const AuthWho({super.key, required this.hasInput, required this.onSettingsChanged});
+
+    final void Function(String)? hasInput;
+    final BoolCallback onSettingsChanged;
 
   @override
   State<AuthWho> createState() => _AuthWhoState();
@@ -53,7 +61,7 @@ class _AuthWhoState extends State<AuthWho> {
                 Padding(
                   padding: const EdgeInsets.only(left: 50),
                   child: Text(
-                    'Wer bist du?',
+                   AppLocalizations.of(context)!.authenticationWho,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       fontSize: 30,
@@ -88,7 +96,7 @@ class _AuthWhoState extends State<AuthWho> {
                 ),
                 Center(
                   child: Text(
-                    'Profilbild / Avatar auswählen',
+                    AppLocalizations.of(context)!.authenticationPicture,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       fontSize: 20,
@@ -104,7 +112,7 @@ class _AuthWhoState extends State<AuthWho> {
                     Padding(
                       padding: const EdgeInsets.only(left: 40, bottom: 5),
                       child: Text(
-                        'Vorname',
+                        AppLocalizations.of(context)!.authenticationFirstname,
                         style: TextStyle(
                           fontSize: 15,
                         ),
@@ -117,10 +125,13 @@ class _AuthWhoState extends State<AuthWho> {
                           controller: Controller.firstnameController,
                           hintText: 'Lisa',
                           obscureText: false,
-                          onChange: (value) =>
+                          onChange: (name) {setState(() {
+                           
                               context.read<RegistrationBloc>().add(InputChanged(
-                                    firstname: value,
-                                  )),
+                                    firstname: name,
+                                )); widget.hasInput!(name);
+                          });}
+                          ,
                           validator: null,
                         );
                       },
@@ -131,7 +142,7 @@ class _AuthWhoState extends State<AuthWho> {
                     Padding(
                       padding: const EdgeInsets.only(left: 40, bottom: 5),
                       child: Text(
-                        'Nachname',
+                      AppLocalizations.of(context)!.authenticationLastname,
                         style: TextStyle(
                           fontSize: 15,
                         ),

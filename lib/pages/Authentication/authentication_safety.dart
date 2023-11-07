@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 typedef bool hasConfessed(bool newValue);
 
@@ -23,8 +24,6 @@ class _AuthSafetyState extends State<AuthSafety> {
 
   bool _question2 = false;
 
-  bool _question3 = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +37,7 @@ class _AuthSafetyState extends State<AuthSafety> {
               Padding(
                 padding: const EdgeInsets.only(left: 50),
                 child: Text(
-                  'Datenschutzerlärung\nund Newsletter',
+                AppLocalizations.of(context)!.authenticationSafetyTitle,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: 28,
@@ -67,7 +66,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                       controlAffinity: ListTileControlAffinity.leading,
                       dense: true,
                       title: Text(
-                        'Ja, ich möchte den Newsletter abonnieren ',
+                        AppLocalizations.of(context)!.authenticationNewsletter,
                         style: TextStyle(
                           fontSize: 15,
                           color: Theme.of(context).colorScheme.primary,
@@ -97,8 +96,8 @@ class _AuthSafetyState extends State<AuthSafety> {
                           builder: (context) => Tandementry(),
                         )),
                         child: Text(
-                          'Ja, ich habe die Datenschutz-\nvereinbarung und die AGB`s\nvon Female Fellows e.V. gelesen und stimme zu. ',
-                          style: TextStyle(
+                          AppLocalizations.of(context)!.authenticationAGBS,
+                         style: TextStyle(
                             fontSize: 15,
                             color: Theme.of(context).colorScheme.primary,
                           ),
