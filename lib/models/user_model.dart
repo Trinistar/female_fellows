@@ -1,15 +1,14 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vs_femalefellows/models/address.dart';
+
 part 'user_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FFUser  {
   final String? firstname;
   final String? lastname;
   final String? profilPicture;
   final String? birthday;
-  final String? streetname;
-  final String? postcode;
-  final String? place;
   final bool? notification;
  String? email;
   final String? phonenumber;
@@ -17,15 +16,13 @@ class FFUser  {
   final bool? meeting;
   final bool? safety;
   final String? password;
+  final Address? address;
   
   FFUser({
     this.lastname,
     this.profilPicture,
     this.birthday,
-    this.streetname,
-    this.postcode,
     this.notification,
-    this.place,
     this.email,
     this.phonenumber,
     this.callOrText,
@@ -33,6 +30,7 @@ class FFUser  {
     this.safety,
     this.password,
     this.firstname,
+    this.address
   });
 
   factory FFUser.fromJson(Map<String, dynamic> json) =>
@@ -47,13 +45,11 @@ class FFUser  {
         phonenumber,
         password,
         profilPicture,
-        streetname,
-        place,
-        postcode,
         notification,
         callOrText,
         safety,
         meeting,
         birthday,
+        address
       ];
 }

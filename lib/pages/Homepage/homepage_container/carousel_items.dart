@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class CarousItem extends StatelessWidget {
-  final user = FirebaseAuth.instance.currentUser!;
   CarousItem({super.key});
 
   @override
@@ -24,7 +22,7 @@ class CarousItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  '${user.email!} & Lisa',
+                  '& Lisa',
                   style: TextStyle(fontSize: 13),
                   textAlign: TextAlign.center,
                 ),

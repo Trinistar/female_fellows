@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
-import 'package:vs_femalefellows/services/controller.dart';
+import 'package:vs_femalefellows/provider/controller.dart';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthPlace extends StatefulWidget {
