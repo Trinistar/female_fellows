@@ -76,8 +76,6 @@ class _AuthSafetyState extends State<AuthSafety> {
                       onChanged: (newsletter) {
                         setState(() {
                           _question = newsletter ?? false;
-
-                          //widget.onSettingsChanged(_question);
                         });
                       }),
                 ),

@@ -7,15 +7,13 @@ import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/services/controller.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-typedef String hasInput (String name);
 
-typedef void BoolCallback(bool id);
 
 class AuthWho extends StatefulWidget {
-  const AuthWho({super.key, required this.hasInput, required this.onSettingsChanged});
+  const AuthWho(
+      {super.key,});
 
-    final void Function(String)? hasInput;
-    final BoolCallback onSettingsChanged;
+
 
   @override
   State<AuthWho> createState() => _AuthWhoState();
@@ -43,10 +41,6 @@ class _AuthWhoState extends State<AuthWho> {
     }
   }
 
-  //namecheck
-  final nameController = TextEditingController();
-  final lastNameController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +55,7 @@ class _AuthWhoState extends State<AuthWho> {
                 Padding(
                   padding: const EdgeInsets.only(left: 50),
                   child: Text(
-                   AppLocalizations.of(context)!.authenticationWho,
+                    AppLocalizations.of(context)!.authenticationWho,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       fontSize: 30,
@@ -120,18 +114,18 @@ class _AuthWhoState extends State<AuthWho> {
                     ),
                     BlocBuilder<RegistrationBloc, RegistrationState>(
                       builder: (context, state) {
-                          //TODO inputvalidierung für Plichtfelder
+                        //TODO inputvalidierung für Plichtfelder
                         return TextBar(
                           controller: Controller.firstnameController,
                           hintText: 'Lisa',
                           obscureText: false,
-                          onChange: (name) {setState(() {
-                           
+                          onChange: (name) {
+                            setState(() {
                               context.read<RegistrationBloc>().add(InputChanged(
                                     firstname: name,
-                                )); widget.hasInput!(name);
-                          });}
-                          ,
+                                  ));
+                            });
+                          },
                           validator: null,
                         );
                       },
@@ -142,7 +136,7 @@ class _AuthWhoState extends State<AuthWho> {
                     Padding(
                       padding: const EdgeInsets.only(left: 40, bottom: 5),
                       child: Text(
-                      AppLocalizations.of(context)!.authenticationLastname,
+                        AppLocalizations.of(context)!.authenticationLastname,
                         style: TextStyle(
                           fontSize: 15,
                         ),

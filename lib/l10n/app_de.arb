@@ -47,5 +47,9 @@
     "authenticationWho": "Wer bist du?",
     "authenticationPicture": "Profilbild / Avatar auswählen",
     "authenticationFirstname": "Vorname",
-    "authenticationLastname": "Nachname"
+    "authenticationLastname": "Nachname",
+    "authenticationNewcomerTitle": "Ich bin Newcomer",
+    "authenticationNewcomer": "Du wünschst dir mehr Kontakt zu Frauen,\ndie sich gut in Deutschland auskennen?",
+    "authenticationLocalTitle": "Ich bin Local",
+    "authenticationLocal": "Du sucht einen kulturellen Austausch und\nmöchtest dich für ein gutes Zusammenleben stark\nmachen?"
 }

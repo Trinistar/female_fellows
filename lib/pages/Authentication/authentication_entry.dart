@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_local.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_verification.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_age.dart';
@@ -21,8 +22,10 @@ class Authentry extends StatefulWidget {
 
 class _AuthentryState extends State<Authentry> {
   PageController _controller = PageController();
-
+  bool _accepted = false;
+  bool _disabledNextButton = false;
 // Value for Checkboxes DataSafety
+
   void _hasUserConfessed(bool newValue2) {
     setState(() {
       if (newValue2) {
@@ -35,9 +38,9 @@ class _AuthentryState extends State<Authentry> {
     });
   }
 
-  void _inputCheckNameLastname(firstname) {
+  void _hasChoosed( LocalOrNot) {
     setState(() {
-      if (firstname) {
+      if (LocalOrNot) {
         _accepted = true;
         _disabledNextButton = false;
       } else {
@@ -47,9 +50,6 @@ class _AuthentryState extends State<Authentry> {
     });
   }
 
-  bool _accepted = false;
-  bool _disabledNextButton = false;
-
   void updateId(bool newId) {
     setState(() {
       _accepted = newId;
@@ -57,7 +57,7 @@ class _AuthentryState extends State<Authentry> {
   }
 
   void _handlePageChange() {
-    if (_controller.page == 5 || _controller.page == 1) {
+    if (_controller.page == 6) {
       _accepted
           ? _controller.nextPage(
               duration: Duration(microseconds: 500), curve: Curves.easeIn)
@@ -123,7 +123,7 @@ class _AuthentryState extends State<Authentry> {
                             left: 50,
                           ),
                           child: Text(
-                             AppLocalizations.of(context)!.authenticationTitle,
+                            AppLocalizations.of(context)!.authenticationTitle,
                             style: TextStyle(
                               color: Theme.of(context).colorScheme.primary,
                               fontSize: 20,
@@ -138,10 +138,10 @@ class _AuthentryState extends State<Authentry> {
                 controller: _controller,
                 onPageChanged: (index) {
                   setState(() {
-                    onLastPage = (index == 6);
+                    onLastPage = (index == 7);
                     _disabledNextButton = false;
                   });
-                  if (index == 5) {
+                  if (index == 6) {
                     setState(() {
                       _disabledNextButton = true;
                       _accepted = false;
@@ -150,15 +150,15 @@ class _AuthentryState extends State<Authentry> {
                 },
                 children: [
                   // Pages one Onboarding
-                  AuthWho(
-                    hasInput: _inputCheckNameLastname,
+                  AuthWho(),
+                  Authlocal(
+                    hasChoosed: _hasChoosed,
                     onSettingsChanged: updateId,
-                  ),
-                  if (_accepted) AuthAge(),
+                  ),if (_accepted)
+                  AuthAge(),
                   AuthPlace(),
                   AuthHow(),
                   AuthNotification(),
-                  //  AuthConnect(),
                   AuthSafety(
                     hasConfessed: _hasUserConfessed,
                     onSettingsChanged: updateId,
@@ -193,7 +193,7 @@ class _AuthentryState extends State<Authentry> {
                             child: Text('Back')),
                         SmoothPageIndicator(
                           controller: _controller,
-                          count: 6,
+                          count: 7,
                         ),
                         MaterialButton(
                           disabledTextColor: Colors.grey,
