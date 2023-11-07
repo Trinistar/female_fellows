@@ -4,6 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 enum AuthStatus { unkown, authenticated, unauthenticated }
 
 class AuthRepository implements Exception {
+  AuthRepository({FirebaseAuth? firebaseAuth}) : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
+
+  final FirebaseAuth _firebaseAuth;
   final _controller = StreamController<AuthStatus>();
 
 //Registration for User
@@ -12,8 +15,7 @@ class AuthRepository implements Exception {
     required String password,
   }) async {
     try {
-      final UserCredential currentuser =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final UserCredential currentuser = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -41,8 +43,7 @@ class AuthRepository implements Exception {
     required String password,
   }) async {
     try {
-      final UserCredential currentuser =
-          await FirebaseAuth.instance.signInWithEmailAndPassword(
+      final UserCredential currentuser = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -52,8 +53,32 @@ class AuthRepository implements Exception {
     }
   }
 
-  void logout() {
-    _controller.add(AuthStatus.unauthenticated);
+  /// Stream of [User] which will emit the current user when
+  /// the authentication state changes.
+  ///
+  /// Emits [User.empty] if the user is not authenticated.
+  Stream<User?> get user {
+    //return _firebaseAuth.authStateChanges().listen((event) { });
+    return _firebaseAuth.authStateChanges().map((User? firebaseUser) {
+      currentUser = firebaseUser;
+      if (firebaseUser != null) {
+        return firebaseUser;
+      } else {
+        return null;
+      }
+    });
+  }
+
+  User? get currentUser {
+    return null;
+  }
+
+  set currentUser(user) {}
+
+  Future<List<void>> logOut() async {
+    return Future.wait(<Future<void>>[
+      _firebaseAuth.signOut(),
+    ]);
   }
 
   void dispose() => _controller.close();

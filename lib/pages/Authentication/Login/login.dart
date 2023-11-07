@@ -8,7 +8,7 @@ import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
-import 'package:vs_femalefellows/services/controller.dart';
+import 'package:vs_femalefellows/provider/controller.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

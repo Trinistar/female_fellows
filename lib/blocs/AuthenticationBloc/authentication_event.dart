@@ -1,13 +1,30 @@
-part of 'registration_bloc.dart';
+part of 'authentication_bloc.dart';
 
-sealed class RegistrationEvent extends Equatable {
-  const RegistrationEvent();
+sealed class AuthenticationEvent extends Equatable {
+  const AuthenticationEvent();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
-class InputChanged extends RegistrationEvent {
+class AuthenticationUserChangedEvent extends AuthenticationEvent {
+  const AuthenticationUserChangedEvent(this.user);
+
+  final User? user;
+
+  @override
+  List<Object?> get props => <Object?>[user];
+}
+
+class SignOutEvent extends AuthenticationEvent {
+  @override
+  String toString() => 'LoggedOut';
+
+  @override
+  List<Object> get props => <Object>[];
+}
+
+class InputChanged extends AuthenticationEvent {
   final String? firstname;
   final String? lastname;
   final String? profilpicture;
@@ -41,7 +58,7 @@ class InputChanged extends RegistrationEvent {
   });
 }
 
-class Signup extends RegistrationEvent {
+class Signup extends AuthenticationEvent {
   final String firstname;
   final String lastname;
   final String profilPicture;
@@ -72,4 +89,34 @@ final String email;
       this.callOrText,
       this.meeting,
       this.safety});
+}
+
+class SignInWithMailEvent extends AuthenticationEvent {
+  const SignInWithMailEvent({required this.email, required this.password});
+
+  final String email;
+  final String password;
+
+  @override
+  String toString() {
+    return 'LogInWithMailEvent { email: $email }';
+  }
+
+  @override
+  List<Object> get props => <Object>[email, password];
+}
+
+class RegisterWithMailEvent extends AuthenticationEvent {
+  const RegisterWithMailEvent({required this.email, required this.password});
+
+  final String email;
+  final String password;
+
+  @override
+  String toString() {
+    return 'RegisterWithMailEvent { email: $email }';
+  }
+
+  @override
+  List<Object> get props => <Object>[email, password];
 }

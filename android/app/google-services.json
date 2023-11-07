@@ -12,7 +12,20 @@
           "package_name": "com.example.vs_femalefellows"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "897188779737-8abnog7bo81j19ujh2j4oq8h8j90urpl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vs_femalefellows",
+            "certificate_hash": "9dab39d74523924a3c8fff04c6ef0c8af088af44"
+          }
+        },
+        {
+          "client_id": "897188779737-h4ug8p6cr44gcj0t7m1isfql01rhbj42.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD6ia65YcPcg1oH183S96WLphlrRl9hNI4"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897188779737-h4ug8p6cr44gcj0t7m1isfql01rhbj42.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "897188779737-bfhih25u4dmmal68qpf95k9mu73k1u5b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vsFemalefellows"
+              }
+            }
+          ]
         }
       }
     }

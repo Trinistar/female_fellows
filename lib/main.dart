@@ -1,12 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
-import 'package:vs_femalefellows/services/authrepository.dart';
-import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
-import 'services/firebase_options.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
+import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
+
+import 'provider/firebase_options.dart';
+
+final AuthRepository authenticationRepository = AuthRepository();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,9 +26,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        RepositoryProvider(create: (context)=>AuthRepository(),
-        child: LoginPage(),)
-      
+        BlocProvider<AuthenticationBloc>(
+          create: (BuildContext context) => AuthenticationBloc(authenticationRepository: authenticationRepository),
+          lazy: false,
+        ),
+        /* RepositoryProvider(
+          create: (context) => AuthRepository(),
+          child: LoginPage(),
+        ) */
       ],
       child: MaterialApp(
         localizationsDelegates: [
@@ -40,13 +48,12 @@ class MyApp extends StatelessWidget {
         ],
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
-            seedColor:Color.fromRGBO(27, 25, 86, 27),
+            seedColor: Color.fromRGBO(27, 25, 86, 27),
             primary: Color.fromRGBO(27, 25, 86, 27),
             secondary: Color.fromRGBO(252, 208, 220, 1),
             surface: Color.fromRGBO(242, 242, 242, 1),
-            surfaceVariant:Color.fromRGBO(236, 240, 243, 1),
+            surfaceVariant: Color.fromRGBO(236, 240, 243, 1),
             tertiary: Color.fromRGBO(106, 104, 206, 1),
-           
           ),
           textTheme: TextTheme(
             bodyLarge: TextStyle(
@@ -57,7 +64,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Circular',
         ),
         debugShowCheckedModeBanner: false,
-        home: OnboardingPage(),
+        home: Navigation(),
       ),
     );
   }

@@ -8,34 +8,32 @@ part of 'user_model.dart';
 
 FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
       lastname: json['lastname'] as String?,
-      profilPicture: json['profilpicture'] as String?,
+      profilPicture: json['profilPicture'] as String?,
       birthday: json['birthday'] as String?,
-      streetname: json['streetname'] as String?,
-      postcode: json['postcode'] as String?,
       notification: json['notification'] as bool?,
-      place: json['place'] as String?,
       email: json['email'] as String?,
       phonenumber: json['phonenumber'] as String?,
-      callOrText: json['callortext'] as bool?,
+      callOrText: json['callOrText'] as bool?,
       meeting: json['meeting'] as bool?,
-      safety: json['safty'] as bool?,
+      safety: json['safety'] as bool?,
       password: json['password'] as String?,
       firstname: json['firstname'] as String?,
+      address: json['address'] == null
+          ? null
+          : Address.fromJson(json['address'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'firstname': instance.firstname,
       'lastname': instance.lastname,
-      'profilpicture': instance.profilPicture,
+      'profilPicture': instance.profilPicture,
       'birthday': instance.birthday,
-      'streetname': instance.streetname,
-      'postcode': instance.postcode,
-      'place': instance.place,
       'notification': instance.notification,
       'email': instance.email,
       'phonenumber': instance.phonenumber,
-      'callortext': instance.callOrText,
+      'callOrText': instance.callOrText,
       'meeting': instance.meeting,
-      'safty': instance.safety,
+      'safety': instance.safety,
       'password': instance.password,
+      'address': instance.address?.toJson(),
     };

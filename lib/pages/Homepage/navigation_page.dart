@@ -1,10 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vs_femalefellows/pages/Eventpages/event.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 import 'package:vs_femalefellows/pages/Profil/profil.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 
 class Navigation extends StatefulWidget {
   Navigation({super.key});
@@ -14,8 +13,6 @@ class Navigation extends StatefulWidget {
 }
 
 class _HomepageState extends State<Navigation> {
-  final user = FirebaseAuth.instance.currentUser!;
-
   int _currentIndex = 2;
 
   void _navigation(int index) {
