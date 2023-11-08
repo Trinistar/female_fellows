@@ -24,71 +24,71 @@ class SignOutEvent extends AuthenticationEvent {
   List<Object> get props => <Object>[];
 }
 
+//TODO Frank fragen ob ich alles brauche //
 class InputChanged extends AuthenticationEvent {
   final String? firstname;
   final String? lastname;
-  final String? profilpicture;
-  final String? birthday;
-  final String? streetname;
-  final String? postcode;
-  final String? place;
-  final bool? notification;
   final String? email;
   final String? phonenumber;
-  final bool? callortext;
-  final bool? meeting;
-  final bool? safty;
   final String? password;
 
   InputChanged({
     this.lastname,
-    this.profilpicture,
-    this.birthday,
-    this.streetname,
-    this.postcode,
-    this.notification,
-    this.place,
     this.email,
     this.phonenumber,
-    this.callortext,
-    this.meeting,
-    this.safty,
     this.password,
     this.firstname,
   });
 }
 
 class Signup extends AuthenticationEvent {
+  //User//
+  final String email;
+  final String password;
+  //FFUser//
   final String firstname;
   final String lastname;
   final String profilPicture;
   final String birthday;
-  final String streetname;
-  final String postcode;
-  final String place;
-  final bool? notification;
-final String email;
-  final String phonenumber;
-  final bool? callOrText;
-  final bool? meeting;
   final bool? safety;
-  final String password;
+  //Adress//
+  final String streetname;
+  final String zipCode;
+  final String place;
+  //Notifications//
+  final bool? whatsapp;
+  final bool? call;
+  final bool? contactemail;
+  final String phonenumber;
+  //Enum LocalOrNot
+  final LocalOrNewcomer localOrNewcomer;
+  //Enum Socialmedia;
+  final Socialmedia? socialmedia;
 
-  Signup(
-      {required this.firstname,
-      required this.password,
-      required this.lastname,
-      required this.profilPicture,
-      required this.birthday,
-      required this.streetname,
-      required this.postcode,
-      required this.place,
-      this.notification,
-      required this.email,
-      required this.phonenumber,
-      this.callOrText,
-      this.meeting,
-      this.safety});
+  Signup({
+    //User//
+    required this.password,
+    required this.email,
+    //FFUser//
+    required this.firstname,
+    required this.lastname,
+    required this.profilPicture,
+    required this.birthday,
+    //Adress//
+    required this.streetname,
+    required this.zipCode,
+    required this.place,
+    //Notfications//
+    this.whatsapp,
+    this.call,
+    this.contactemail,
+    required this.phonenumber,
+    this.safety,
+    //Enum LocalOrNot
+    required this.localOrNewcomer,
+    //Enum Socialmedia
+    this.socialmedia,
+  });
 }
 
 class SignInWithMailEvent extends AuthenticationEvent {

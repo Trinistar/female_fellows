@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/models/enums.dart';
 
 class AuthHow extends StatefulWidget {
-  const AuthHow({super.key});
+  const AuthHow({super.key, required this.hasMediaChosen});
+
+    final void Function(Socialmedia)? hasMediaChosen;
 
   @override
   State<AuthHow> createState() => _AuthHowState();
-}
-
-enum Socialmedia {
-  insta,
-  facebook,
-  linkedin,
-  newspaper,
-  friends,
-  everythingelse
 }
 
 class _AuthHowState extends State<AuthHow> {

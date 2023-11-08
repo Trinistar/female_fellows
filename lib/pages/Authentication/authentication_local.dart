@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/models/enums.dart';
 
-typedef bool hasChoosed( String LocalOrNot);
+typedef bool hasChosen( String LocalOrNot);
 
 typedef void BoolCallback(bool id);
 
 class Authlocal extends StatefulWidget {
- Authlocal({super.key, required this.onSettingsChanged, required this.hasChoosed});
+ Authlocal({super.key, required this.onSettingsChanged, required this.hasChosen});
 
-  final void Function(LocalOrNot)? hasChoosed;
+  final void Function(LocalOrNewcomer)? hasChosen;
 
   final BoolCallback onSettingsChanged;
 
@@ -16,13 +17,8 @@ class Authlocal extends StatefulWidget {
   State<Authlocal> createState() => _AuthlocalState();
 }
 
-enum LocalOrNot {
-  local,
-  newcomer,
-}
-
 class _AuthlocalState extends State<Authlocal> {
-  LocalOrNot? localOrNot;
+  LocalOrNewcomer? localOrNot;
 
   @override
   Widget build(BuildContext context) {
@@ -76,11 +72,11 @@ class _AuthlocalState extends State<Authlocal> {
                       ),
                       subtitle: Text(
                           AppLocalizations.of(context)!.authenticationNewcomer),
-                      value: LocalOrNot.newcomer,
+                      value: LocalOrNewcomer.newcomer,
                       onChanged: (newValue) {
                         setState(() {
                           localOrNot = newValue;
-                                widget.hasChoosed!(LocalOrNot.newcomer);
+                                widget.hasChosen!(LocalOrNewcomer.newcomer);
 
                           //widget.onSettingsChanged(_question);
                         });
@@ -107,11 +103,11 @@ class _AuthlocalState extends State<Authlocal> {
                       ),
                       subtitle: Text(
                           AppLocalizations.of(context)!.authenticationLocal),
-                      value: LocalOrNot.local,
+                      value: LocalOrNewcomer.local,
                       onChanged: (newValue) {
                         setState(() {
                           localOrNot = newValue;
-                           widget.hasChoosed!(LocalOrNot.local);
+                           widget.hasChosen!(LocalOrNewcomer.local);
                         });
                       }),
                 ),

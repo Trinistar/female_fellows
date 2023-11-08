@@ -10,17 +10,20 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
       lastname: json['lastname'] as String?,
       profilPicture: json['profilPicture'] as String?,
       birthday: json['birthday'] as String?,
-      notification: json['notification'] as bool?,
+      notification: json['notification'] == null
+          ? null
+          : Notifications.fromJson(
+              json['notification'] as Map<String, dynamic>),
       email: json['email'] as String?,
-      phonenumber: json['phonenumber'] as String?,
-      callOrText: json['callOrText'] as bool?,
-      meeting: json['meeting'] as bool?,
       safety: json['safety'] as bool?,
       password: json['password'] as String?,
       firstname: json['firstname'] as String?,
+      localOrNewcomer: $enumDecodeNullable(_$LocalOrNotEnumMap, json['localOrNot']),
       address: json['address'] == null
           ? null
           : Address.fromJson(json['address'] as Map<String, dynamic>),
+      socialmedia:
+          $enumDecodeNullable(_$SocialmediaEnumMap, json['socialmedia']),
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
@@ -28,12 +31,25 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'lastname': instance.lastname,
       'profilPicture': instance.profilPicture,
       'birthday': instance.birthday,
-      'notification': instance.notification,
+      'notification': instance.notification?.toJson(),
       'email': instance.email,
-      'phonenumber': instance.phonenumber,
-      'callOrText': instance.callOrText,
-      'meeting': instance.meeting,
       'safety': instance.safety,
       'password': instance.password,
       'address': instance.address?.toJson(),
+      'localOrNot': _$LocalOrNotEnumMap[instance.localOrNewcomer],
+      'socialmedia': _$SocialmediaEnumMap[instance.socialmedia],
     };
+
+const _$LocalOrNotEnumMap = {
+  LocalOrNewcomer.local: 'local',
+  LocalOrNewcomer.newcomer: 'newcomer',
+};
+
+const _$SocialmediaEnumMap = {
+  Socialmedia.insta: 'insta',
+  Socialmedia.facebook: 'facebook',
+  Socialmedia.linkedin: 'linkedin',
+  Socialmedia.newspaper: 'newspaper',
+  Socialmedia.friends: 'friends',
+  Socialmedia.everythingelse: 'everythingelse',
+};

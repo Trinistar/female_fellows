@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
@@ -29,7 +31,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                 left: 50,
               ),
               child: Text(
-    AppLocalizations.of(context)!.authenticationNotificationTitle,
+                AppLocalizations.of(context)!.authenticationNotificationTitle,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 28,
@@ -56,12 +58,11 @@ class _AuthNotificationState extends State<AuthNotification> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-         
-
                 CheckboxListTile(
                     controlAffinity: ListTileControlAffinity.leading,
                     contentPadding: EdgeInsets.only(left: 40),
-                    title: Text(AppLocalizations.of(context)!.authenticationCall),
+                    title:
+                        Text(AppLocalizations.of(context)!.authenticationCall),
                     value: _number,
                     onChanged: (newValue) {
                       setState(() {
@@ -71,7 +72,8 @@ class _AuthNotificationState extends State<AuthNotification> {
                 CheckboxListTile(
                     controlAffinity: ListTileControlAffinity.leading,
                     contentPadding: EdgeInsets.only(left: 40),
-                    title: Text(AppLocalizations.of(context)!.authenticationWhatsApp),
+                    title: Text(
+                        AppLocalizations.of(context)!.authenticationWhatsApp),
                     value: _whatsapp,
                     onChanged: (newValue) {
                       setState(() {
@@ -81,14 +83,14 @@ class _AuthNotificationState extends State<AuthNotification> {
                 CheckboxListTile(
                     controlAffinity: ListTileControlAffinity.leading,
                     contentPadding: EdgeInsets.only(left: 40),
-                    title: Text(AppLocalizations.of(context)!.authenticationEmail),
+                    title:
+                        Text(AppLocalizations.of(context)!.authenticationEmail),
                     value: _email,
                     onChanged: (newValue) {
                       setState(() {
                         _email = newValue ?? false;
                       });
                     }),
-
                 _number || _whatsapp
                     ? Padding(
                         padding: const EdgeInsets.only(left: 40, bottom: 5),
@@ -100,14 +102,21 @@ class _AuthNotificationState extends State<AuthNotification> {
                         ),
                       )
                     : Container(),
-
                 _number || _whatsapp
-                    ? TextBar(
-                        controller: Controller.phonenumberController,
-                        hintText: '+49 123 456',
-                        obscureText: false,
-                        onChange: null,
-                        validator: null,
+                    ? BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                        builder: (context, state) {
+                          return TextBar(
+                            controller: Controller.phonenumberController,
+                            hintText: '+49 123 456',
+                            obscureText: false,
+                            onChange: (value) => context
+                                .read<AuthenticationBloc>()
+                                .add(InputChanged(
+                                  phonenumber: value,
+                                )),
+                            validator: null,
+                          );
+                        },
                       )
                     : Container(),
               ],

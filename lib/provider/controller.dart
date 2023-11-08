@@ -8,7 +8,7 @@ class Controller {
   static final profilpictureController = TextEditingController();
   static final birthdayController = TextEditingController();
   static final streetnameController = TextEditingController();
-  static final postcodeController = TextEditingController();
+  static final zipCodeController = TextEditingController();
   static final placeController = TextEditingController();
   static final phonenumberController = TextEditingController();
 }

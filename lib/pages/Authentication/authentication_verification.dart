@@ -4,12 +4,17 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/components/login_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
+import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class AuthVerfication extends StatefulWidget {
-  const AuthVerfication({super.key});
+  const AuthVerfication({super.key,required this.userchoice, required this.mediachoice});
+
+  final LocalOrNewcomer userchoice;
+  final Socialmedia mediachoice;
+
 
   @override
   State<AuthVerfication> createState() => _AuthVerficationState();
@@ -19,7 +24,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
   //text editing controller
 
   // bool for Passwordicon
-  bool isPasswordVisible = false;
+  bool _isPasswordVisible = false;
 
   //bool for Remember me Checkbox
   bool isChecked = false;
@@ -34,7 +39,8 @@ class _AuthVerficationState extends State<AuthVerfication> {
       body: BlocConsumer<AuthenticationBloc, AuthenticationState>(
         listener: (context, state) {
           if (state is SignUpSuccess) {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => Navigation()));
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Navigation()));
           }
           if (state is SignUpFailure) {
             SnackBar(
@@ -93,7 +99,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                         child: Row(
                           children: [
                             Text(
-                         AppLocalizations.of(context)!.email ,
+                              AppLocalizations.of(context)!.email,
                               style: TextStyle(
                                 fontSize: 18,
                               ),
@@ -113,7 +119,9 @@ class _AuthVerficationState extends State<AuthVerfication> {
                             validator: null,
                             obscureText: false,
                             /////////BlocState/////
-                            onChange: (value) => context.read<AuthenticationBloc>().add(InputChanged(email: value)),
+                            onChange: (value) => context
+                                .read<AuthenticationBloc>()
+                                .add(InputChanged(email: value)),
                             /////////BlocState/////
                           );
                         },
@@ -124,7 +132,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                         child: Row(
                           children: [
                             Text(
-                           AppLocalizations.of(context)!.password ,
+                              AppLocalizations.of(context)!.password,
                               style: TextStyle(
                                 fontSize: 18,
                               ),
@@ -137,38 +145,46 @@ class _AuthVerficationState extends State<AuthVerfication> {
                       //User passwordfield
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                        child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                        child: BlocBuilder<AuthenticationBloc,
+                            AuthenticationState>(
                           builder: (context, state) {
                             return TextFormField(
                               /////////BlocState/////
                               validator: null,
-                              onChanged: (value) => context.read<AuthenticationBloc>().add(InputChanged(password: value)),
+                              onChanged: (value) => context
+                                  .read<AuthenticationBloc>()
+                                  .add(InputChanged(password: value)),
                               /////////BlocState/////
                               controller: Controller.passwordController,
-                              obscureText: !isPasswordVisible,
+                              obscureText: !_isPasswordVisible,
                               decoration: InputDecoration(
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.black87),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Theme.of(context).colorScheme.primary,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  fillColor: Theme.of(context).colorScheme.surface,
+                                  fillColor:
+                                      Theme.of(context).colorScheme.surface,
                                   filled: true,
                                   hintText: 'Password',
                                   suffixIcon: IconButton(
                                     icon: Icon(
-                                      isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                                      _isPasswordVisible
+                                          ? Icons.visibility
+                                          : Icons.visibility_off,
                                       color: Colors.grey,
                                     ),
                                     onPressed: () {
                                       setState(() {
-                                        isPasswordVisible = !isPasswordVisible;
+                                        _isPasswordVisible = !_isPasswordVisible;
                                       });
                                     },
                                   )),
@@ -182,53 +198,60 @@ class _AuthVerficationState extends State<AuthVerfication> {
                       BlocBuilder<AuthenticationBloc, AuthenticationState>(
                         builder: (context, state) {
                           return LoginButton(
-                   text:  AppLocalizations.of(context)!.authenticationTitle,
+                            text: AppLocalizations.of(context)!
+                                .authenticationTitle,
                             onTap: () {
                               if (_formKey.currentState!.validate()) {
                                 context.read<AuthenticationBloc>().add(Signup(
-                                      password: Controller.passwordController.text,
-                                      lastname: Controller.lastnameController.text,
-                                      profilPicture: Controller.profilpictureController.text,
-                                      birthday: Controller.birthdayController.text,
-                                      streetname: Controller.streetnameController.text,
-                                      postcode: Controller.postcodeController.text,
-                                      place: Controller.placeController.text,
-                                      notification: false,
-                                      phonenumber: Controller.phonenumberController.text,
-                                      callOrText: false,
-                                      meeting: false,
-                                      safety: false,
+                                      //User//
+                                      password:Controller.passwordController.text,
                                       email: Controller.emailController.text,
-                                      firstname: Controller.firstnameController.text,
+                                      //FFUser//
+                                      lastname:Controller.lastnameController.text,
+                                      profilPicture: Controller.profilpictureController.text,
+                                      birthday:Controller.birthdayController.text,
+                                      safety: false,
+                                      firstname:Controller.firstnameController.text,
+                                      //Adress//
+                                      streetname:Controller.streetnameController.text,
+                                      zipCode:Controller.zipCodeController.text,
+                                      place: Controller.placeController.text,
+                                      //Notifications//
+                                      contactemail: false,
+                                      whatsapp: false,
+                                      call: false,
+                                      phonenumber:Controller.phonenumberController.text,
+                                      //Enum LocalOrNot
+                                      localOrNewcomer: widget.userchoice,
+                                      //Enum Socialmedia
+                                      socialmedia: widget.mediachoice,
                                     ));
                               }
                             },
                           );
                         },
                       ),
-                        SizedBox(
-                              height: 30,
-                            ),
-                         Center(
-                                child: Text(
-                                  AppLocalizations.of(context)!.loginTextup,
-                                  style: TextStyle(
-                                      color:
-                                          Theme.of(context).colorScheme.primary),
-                                )),
-                            Center(
-                                child: GestureDetector(
-                              onTap: () => Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (context) => LoginPage())),
-                              child: Text(
-                                AppLocalizations.of(context)!.loginTextdown,
-                                style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                    decoration: TextDecoration.underline),
-                              ),
-                            )),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Center(
+                          child: Text(
+                        AppLocalizations.of(context)!.loginTextup,
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
+                      )),
+                      Center(
+                          child: GestureDetector(
+                        onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage())),
+                        child: Text(
+                          AppLocalizations.of(context)!.loginTextdown,
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                              decoration: TextDecoration.underline),
+                        ),
+                      )),
                     ],
                   ),
                 ),

@@ -23,6 +23,7 @@ class AuthWho extends StatefulWidget {
 class _AuthWhoState extends State<AuthWho> {
   Uint8List? _image;
 
+
   void pickImage() async {
     Uint8List img = await selectImage(ImageSource.gallery);
     setState(() {
@@ -122,7 +123,7 @@ class _AuthWhoState extends State<AuthWho> {
                           context.read<AuthenticationBloc>().add(InputChanged(
                                 firstname: value,
                               )),
-                      validator: null,
+                      validator:null,
                     );
                   },
                 ),

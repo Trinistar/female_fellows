@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_local.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_verification.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_age.dart';
 //import 'package:vs_femalefellows/pages/Authentication/authentication_connection.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_how.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_socialmedia.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_notification.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_place.dart';
+import 'package:vs_femalefellows/pages/Authentication/authentication_adress.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_safety.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_who.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -22,8 +23,11 @@ class Authentry extends StatefulWidget {
 
 class _AuthentryState extends State<Authentry> {
   PageController _controller = PageController();
+  bool onLastPage = false;
   bool _accepted = false;
   bool _disabledNextButton = false;
+  LocalOrNewcomer _userchoice =LocalOrNewcomer.newcomer;
+  Socialmedia _mediachoice= Socialmedia.facebook;
 // Value for Checkboxes DataSafety
 
   void _hasUserConfessed(bool newValue2) {
@@ -38,7 +42,12 @@ class _AuthentryState extends State<Authentry> {
     });
   }
 
-  void _hasChoosed( LocalOrNot) {
+void _mediaChosen(Socialmedia socialmedia){
+  _mediachoice =socialmedia;
+}
+
+  void _hasChosen( LocalOrNewcomer localOrNot) {
+    _userchoice=localOrNot;
   }
 
   void updateId(bool newId) {
@@ -58,9 +67,6 @@ class _AuthentryState extends State<Authentry> {
           duration: Duration(microseconds: 500), curve: Curves.easeIn);
     }
   }
-
-  //keep track of page
-  bool onLastPage = false;
 
   @override
   Widget build(BuildContext context) {
@@ -143,18 +149,20 @@ class _AuthentryState extends State<Authentry> {
                   // Pages one Onboarding
                   AuthWho(),
                   Authlocal(
-                    hasChoosed: _hasChoosed,
+                    hasChosen: _hasChosen,
                     onSettingsChanged: updateId,
                   ),
                   AuthAge(),
                   AuthPlace(),
-                  AuthHow(),
+                  AuthHow(
+                    hasMediaChosen: _mediaChosen,
+                  ),
                   AuthNotification(),
                   AuthSafety(
                     hasConfessed: _hasUserConfessed,
                     onSettingsChanged: updateId,
                   ),
-                  if (_accepted) AuthVerfication()
+                  if (_accepted) AuthVerfication(userchoice: _userchoice,mediachoice: _mediachoice,)
                 ],
               ),
             ),
