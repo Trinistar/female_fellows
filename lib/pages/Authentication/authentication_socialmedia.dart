@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 
-class AuthHow extends StatefulWidget {
-  const AuthHow({super.key, required this.hasMediaChosen});
+
+class AuthSocialmedia extends StatefulWidget {
+  const AuthSocialmedia({super.key, required this.hasMediaChosen});
 
     final void Function(Socialmedia)? hasMediaChosen;
 
   @override
-  State<AuthHow> createState() => _AuthHowState();
+  State<AuthSocialmedia> createState() => _AuthSocialmediaState();
 }
 
-class _AuthHowState extends State<AuthHow> {
-  //namecontroller
-  final nameController = TextEditingController();
+class _AuthSocialmediaState extends State<AuthSocialmedia> {
   //bool for checklist
   Socialmedia? _socialmedia;
   bool? checkbox= false ;
@@ -71,6 +70,7 @@ class _AuthHowState extends State<AuthHow> {
                         onChanged: (Socialmedia? value) {
                           setState(() {
                             _socialmedia = value;
+                            widget.hasMediaChosen!(Socialmedia.insta);
                           });
                         }),
                     RadioListTile(
@@ -86,6 +86,7 @@ class _AuthHowState extends State<AuthHow> {
                         onChanged: (Socialmedia? value) {
                           setState(() {
                             _socialmedia = value;
+                             widget.hasMediaChosen!(Socialmedia.facebook);
                           });
                         }),
                     RadioListTile(
@@ -101,6 +102,7 @@ class _AuthHowState extends State<AuthHow> {
                         onChanged: (Socialmedia? value) {
                           setState(() {
                             _socialmedia = value;
+                             widget.hasMediaChosen!(Socialmedia.linkedin);
                           });
                         }),
                     RadioListTile(
@@ -116,6 +118,7 @@ class _AuthHowState extends State<AuthHow> {
                         onChanged: (Socialmedia? value) {
                           setState(() {
                             _socialmedia = value;
+                             widget.hasMediaChosen!(Socialmedia.newspaper);
                           });
                         }),
                     RadioListTile(
@@ -131,7 +134,7 @@ class _AuthHowState extends State<AuthHow> {
                         onChanged: (Socialmedia? value) {
                           setState(() {
                             _socialmedia = value;
-                            print(value);
+                           widget.hasMediaChosen!(Socialmedia.friends);
                           });
                         }),
                      RadioListTile(
@@ -147,6 +150,7 @@ class _AuthHowState extends State<AuthHow> {
                         onChanged: (Socialmedia? value) {
                           setState(() {
                             _socialmedia = value;
+                             widget.hasMediaChosen!(Socialmedia.everythingelse);
                           });
                         }), 
                 

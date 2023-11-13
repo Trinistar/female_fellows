@@ -3,14 +3,18 @@ import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 typedef bool hasConfessed(bool newValue);
-
 typedef void BoolCallback(bool id);
+typedef bool wantsNewsletter(bool newsletter);
 
 class AuthSafety extends StatefulWidget {
   AuthSafety(
-      {super.key, required this.hasConfessed, required this.onSettingsChanged});
+      {super.key,
+      required this.hasConfessed,
+      required this.onSettingsChanged,
+      required this.wantsNewsletter});
 
   final void Function(bool)? hasConfessed;
+  final void Function(bool)? wantsNewsletter;
 
   final BoolCallback onSettingsChanged;
 
@@ -20,8 +24,7 @@ class AuthSafety extends StatefulWidget {
 
 class _AuthSafetyState extends State<AuthSafety> {
   // Checkbox Radio
-  bool _question = false;
-
+  bool _checkNewsletter = false;
   bool _question2 = false;
 
   @override
@@ -37,7 +40,7 @@ class _AuthSafetyState extends State<AuthSafety> {
               Padding(
                 padding: const EdgeInsets.only(left: 50),
                 child: Text(
-                AppLocalizations.of(context)!.authenticationSafetyTitle,
+                  AppLocalizations.of(context)!.authenticationSafetyTitle,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: 28,
@@ -72,15 +75,18 @@ class _AuthSafetyState extends State<AuthSafety> {
                           color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
-                      value: _question,
+                      value: _checkNewsletter,
                       onChanged: (newsletter) {
                         setState(() {
-                          _question = newsletter ?? false;
+                          _checkNewsletter = newsletter ?? false;
+                          widget.wantsNewsletter!(_checkNewsletter);
                         });
                       }),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 30),
                 child: SizedBox(
@@ -95,7 +101,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                         )),
                         child: Text(
                           AppLocalizations.of(context)!.authenticationAGBS,
-                         style: TextStyle(
+                          style: TextStyle(
                             fontSize: 15,
                             color: Theme.of(context).colorScheme.primary,
                           ),
@@ -110,29 +116,6 @@ class _AuthSafetyState extends State<AuthSafety> {
                       }),
                 ),
               ),
-          /*     Padding(
-                padding: const EdgeInsets.only(left: 30),
-                child: SizedBox(
-                  width: 350,
-                  child: CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      dense: true,
-                      title: Text(
-                        'Ich habe die AGB`s von\nFemale Fellows gelesen und stimme zu. ',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
-                      value: _question3,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _question3 = newValue ?? false;
-                          widget.hasConfessed!(_question2, _question3);
-                        });
-                      }),
-                ),
-              ), */
             ],
           ),
         ),

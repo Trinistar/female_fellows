@@ -6,7 +6,7 @@ import 'package:vs_femalefellows/pages/Authentication/authentication_local.dart'
 import 'package:vs_femalefellows/pages/Authentication/authentication_verification.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_age.dart';
-//import 'package:vs_femalefellows/pages/Authentication/authentication_connection.dart';
+//import 'package:vs_femalefellows/pages/Authentication/authentication_connection.dart'; // unused page //
 import 'package:vs_femalefellows/pages/Authentication/authentication_socialmedia.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_notification.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_adress.dart';
@@ -26,9 +26,22 @@ class _AuthentryState extends State<Authentry> {
   bool onLastPage = false;
   bool _accepted = false;
   bool _disabledNextButton = false;
-  LocalOrNewcomer _userchoice =LocalOrNewcomer.newcomer;
-  Socialmedia _mediachoice= Socialmedia.facebook;
-// Value for Checkboxes DataSafety
+  bool _choiceNewsletter = false;
+  bool _contactcall = false;
+  bool _contactemail = false;
+  bool _contactwhatsapp = false;
+  LocalOrNewcomer _userchoice = LocalOrNewcomer.newcomer;
+  Socialmedia _mediachoice = Socialmedia.facebook;
+
+  void _choiceForContact(bool valuecall,bool valuewhatsapp, bool valueemail,) {
+    setState(() {
+      if (valuecall) {
+        _contactcall = true;
+      } else {
+        _contactcall = false;
+      }
+    });
+  }
 
   void _hasUserConfessed(bool newValue2) {
     setState(() {
@@ -42,12 +55,22 @@ class _AuthentryState extends State<Authentry> {
     });
   }
 
-void _mediaChosen(Socialmedia socialmedia){
-  _mediachoice =socialmedia;
-}
+  void _checkNewsletter(bool newsletterchoice) {
+    setState(() {
+      if (newsletterchoice) {
+        _choiceNewsletter = true;
+      } else {
+        _choiceNewsletter = false;
+      }
+    });
+  }
 
-  void _hasChosen( LocalOrNewcomer localOrNot) {
-    _userchoice=localOrNot;
+  void _mediaChosen(Socialmedia socialmedia) {
+    _mediachoice = socialmedia;
+  }
+
+  void _hasChosen(LocalOrNewcomer localOrNot) {
+    _userchoice = localOrNot;
   }
 
   void updateId(bool newId) {
@@ -153,16 +176,24 @@ void _mediaChosen(Socialmedia socialmedia){
                     onSettingsChanged: updateId,
                   ),
                   AuthAge(),
-                  AuthPlace(),
-                  AuthHow(
+                  AuthAdress(),
+                  AuthSocialmedia(
                     hasMediaChosen: _mediaChosen,
                   ),
-                  AuthNotification(),
+                  AuthNotification(
+                    choiceContact: _choiceForContact,
+                  ),
                   AuthSafety(
+                    wantsNewsletter: _checkNewsletter,
                     hasConfessed: _hasUserConfessed,
                     onSettingsChanged: updateId,
                   ),
-                  if (_accepted) AuthVerfication(userchoice: _userchoice,mediachoice: _mediachoice,)
+                  if (_accepted)
+                    AuthVerfication(
+                      userchoice: _userchoice,
+                      mediachoice: _mediachoice,
+                      wantsNewsletter: _choiceNewsletter,
+                    )
                 ],
               ),
             ),

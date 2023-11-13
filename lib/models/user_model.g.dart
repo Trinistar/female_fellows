@@ -15,10 +15,11 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
           : Notifications.fromJson(
               json['notification'] as Map<String, dynamic>),
       email: json['email'] as String?,
-      safety: json['safety'] as bool?,
+      newsletter: json['newsletter'] as bool?,
       password: json['password'] as String?,
       firstname: json['firstname'] as String?,
-      localOrNewcomer: $enumDecodeNullable(_$LocalOrNotEnumMap, json['localOrNot']),
+      localOrNewcomer: $enumDecodeNullable(
+          _$LocalOrNewcomerEnumMap, json['localOrNewcomer']),
       address: json['address'] == null
           ? null
           : Address.fromJson(json['address'] as Map<String, dynamic>),
@@ -33,14 +34,14 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'birthday': instance.birthday,
       'notification': instance.notification?.toJson(),
       'email': instance.email,
-      'safety': instance.safety,
+      'newsletter': instance.newsletter,
       'password': instance.password,
       'address': instance.address?.toJson(),
-      'localOrNot': _$LocalOrNotEnumMap[instance.localOrNewcomer],
+      'localOrNewcomer': _$LocalOrNewcomerEnumMap[instance.localOrNewcomer],
       'socialmedia': _$SocialmediaEnumMap[instance.socialmedia],
     };
 
-const _$LocalOrNotEnumMap = {
+const _$LocalOrNewcomerEnumMap = {
   LocalOrNewcomer.local: 'local',
   LocalOrNewcomer.newcomer: 'newcomer',
 };

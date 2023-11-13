@@ -24,7 +24,7 @@ class SignOutEvent extends AuthenticationEvent {
   List<Object> get props => <Object>[];
 }
 
-//TODO Frank fragen ob ich alles brauche //
+
 class InputChanged extends AuthenticationEvent {
   final String? firstname;
   final String? lastname;
@@ -50,7 +50,7 @@ class Signup extends AuthenticationEvent {
   final String lastname;
   final String profilPicture;
   final String birthday;
-  final bool? safety;
+  final bool? newsletter;
   //Adress//
   final String streetname;
   final String zipCode;
@@ -74,6 +74,7 @@ class Signup extends AuthenticationEvent {
     required this.lastname,
     required this.profilPicture,
     required this.birthday,
+    this.newsletter,
     //Adress//
     required this.streetname,
     required this.zipCode,
@@ -83,7 +84,7 @@ class Signup extends AuthenticationEvent {
     this.call,
     this.contactemail,
     required this.phonenumber,
-    this.safety,
+    
     //Enum LocalOrNot
     required this.localOrNewcomer,
     //Enum Socialmedia

@@ -15,7 +15,7 @@ class FFUser {
   final String? birthday;
   final Notifications? notification;
   String? email;
-  final bool? safety;
+  final bool? newsletter;
   final String? password;
   final Address? address;
   final LocalOrNewcomer? localOrNewcomer;
@@ -27,7 +27,7 @@ class FFUser {
     this.birthday,
     this.notification,
     this.email,
-    this.safety,
+    this.newsletter,
     this.password,
     this.firstname,
     this.localOrNewcomer,
@@ -45,7 +45,7 @@ class FFUser {
         password,
         profilPicture,
         notification,
-        safety,
+        newsletter,
         birthday,
         address,
         localOrNewcomer,

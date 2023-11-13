@@ -4,14 +4,14 @@ import 'package:vs_femalefellows/provider/controller.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class AuthPlace extends StatefulWidget {
-  const AuthPlace({super.key});
+class AuthAdress extends StatefulWidget {
+  const AuthAdress({super.key});
 
   @override
-  State<AuthPlace> createState() => _AuthPlaceState();
+  State<AuthAdress> createState() => _AuthAdressState();
 }
 
-class _AuthPlaceState extends State<AuthPlace> {
+class _AuthAdressState extends State<AuthAdress> {
   //namecontroller
 
   @override

@@ -5,8 +5,11 @@ import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
+
+typedef bool choiceContact (bool choice);
 class AuthNotification extends StatefulWidget {
-  const AuthNotification({super.key});
+  const AuthNotification({super.key,required this.choiceContact});
+  final void Function (bool ,bool ,bool)? choiceContact;
 
   @override
   State<AuthNotification> createState() => _AuthNotificationState();
@@ -15,7 +18,7 @@ class AuthNotification extends StatefulWidget {
 class _AuthNotificationState extends State<AuthNotification> {
   //namecheck
   bool _whatsapp = false;
-  bool _number = false;
+  bool _call = false;
   bool _email = false;
   @override
   Widget build(BuildContext context) {
@@ -63,10 +66,11 @@ class _AuthNotificationState extends State<AuthNotification> {
                     contentPadding: EdgeInsets.only(left: 40),
                     title:
                         Text(AppLocalizations.of(context)!.authenticationCall),
-                    value: _number,
-                    onChanged: (newValue) {
+                    value: _call,
+                    onChanged: (choice) {
                       setState(() {
-                        _number = newValue ?? false;
+                        _call = choice ?? false;
+                                widget.choiceContact!(_call,_whatsapp,_email);   
                       });
                     }),
                 CheckboxListTile(
@@ -75,9 +79,10 @@ class _AuthNotificationState extends State<AuthNotification> {
                     title: Text(
                         AppLocalizations.of(context)!.authenticationWhatsApp),
                     value: _whatsapp,
-                    onChanged: (newValue) {
+                    onChanged: (choice) {
                       setState(() {
-                        _whatsapp = newValue ?? false;
+                        _whatsapp = choice ?? false;
+                             widget.choiceContact!(_call,_whatsapp,_email);
                       });
                     }),
                 CheckboxListTile(
@@ -86,12 +91,13 @@ class _AuthNotificationState extends State<AuthNotification> {
                     title:
                         Text(AppLocalizations.of(context)!.authenticationEmail),
                     value: _email,
-                    onChanged: (newValue) {
+                    onChanged: (choice) {
                       setState(() {
-                        _email = newValue ?? false;
+                        _email = choice ?? false;
+                                widget.choiceContact!(_call,_whatsapp,_email);
                       });
                     }),
-                _number || _whatsapp
+                _call || _whatsapp
                     ? Padding(
                         padding: const EdgeInsets.only(left: 40, bottom: 5),
                         child: Text(
@@ -102,7 +108,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                         ),
                       )
                     : Container(),
-                _number || _whatsapp
+                _call || _whatsapp
                     ? BlocBuilder<AuthenticationBloc, AuthenticationState>(
                         builder: (context, state) {
                           return TextBar(

@@ -10,10 +10,11 @@ import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class AuthVerfication extends StatefulWidget {
-  const AuthVerfication({super.key,required this.userchoice, required this.mediachoice});
+  const AuthVerfication({super.key,required this.userchoice, required this.mediachoice,required this.wantsNewsletter});
 
   final LocalOrNewcomer userchoice;
   final Socialmedia mediachoice;
+  final bool wantsNewsletter;
 
 
   @override
@@ -210,7 +211,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                                       lastname:Controller.lastnameController.text,
                                       profilPicture: Controller.profilpictureController.text,
                                       birthday:Controller.birthdayController.text,
-                                      safety: false,
+                                      newsletter: widget.wantsNewsletter,                               
                                       firstname:Controller.firstnameController.text,
                                       //Adress//
                                       streetname:Controller.streetnameController.text,

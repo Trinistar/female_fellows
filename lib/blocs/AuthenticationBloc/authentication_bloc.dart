@@ -58,7 +58,7 @@ class AuthenticationBloc
         lastname: Controller.lastnameController.text,
         profilPicture: Controller.profilpictureController.text,
         birthday: Controller.birthdayController.text,
-        safety: false,
+        newsletter:event.newsletter,
         //Adress//
         address: Address(
             street: Controller.streetnameController.text,
@@ -72,7 +72,7 @@ class AuthenticationBloc
           contactwhatsapp: false,
         ),
         //Enum LocalOrNot
-        localOrNewcomer: event.localOrNewcomer ,
+        localOrNewcomer: event.localOrNewcomer,
         //Enum Socailmedia
         socialmedia: event.socialmedia,
       );
