@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vs_femalefellows/pages/Eventpages/event.dart';
+import 'package:vs_femalefellows/pages/Eventpages/event_overview.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 import 'package:vs_femalefellows/pages/Profil/profil.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
@@ -23,7 +23,7 @@ class _HomepageState extends State<Navigation> {
 
   final List<Widget> _pages = [
     Tandementry(),
-    Eventstart(),
+    EventOverview(),
     Home(),
     Profil(),
   ];

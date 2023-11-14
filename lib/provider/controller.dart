@@ -11,4 +11,5 @@ class Controller {
   static final zipCodeController = TextEditingController();
   static final placeController = TextEditingController();
   static final phonenumberController = TextEditingController();
+  static final searchbarController = TextEditingController();
 }
