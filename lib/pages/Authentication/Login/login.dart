@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/LoginBloc/login_bloc.dart';
 import 'package:vs_femalefellows/blocs/LoginBloc/login_event.dart';
 import 'package:vs_femalefellows/blocs/LoginBloc/login_state.dart';
-import 'package:vs_femalefellows/components/login_button.dart';
+import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
@@ -239,7 +239,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                           ),
                           BlocBuilder<LoginBloc, LoginState>(
                             builder: (context, state) {
-                              return LoginButton(
+                              return FFButton(
                                 text: AppLocalizations.of(context)!.signin,
                                 onTap: () {
                                   if (_formKey.currentState!.validate()) {

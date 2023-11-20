@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
       shrinkWrap: true,
       children: [
         //first container
-        FirstContainer(),
+        HomePageTitle(),
         //Container with title Tandem
         Padding(
           padding: const EdgeInsets.only(left: 40),

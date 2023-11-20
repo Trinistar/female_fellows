@@ -11,10 +11,3 @@ enum Socialmedia {
   friends,
   everythingelse
 }
-
-enum EventCategory{
-  language,
-  tandem,
-  sport,
-  outdoor,
-}

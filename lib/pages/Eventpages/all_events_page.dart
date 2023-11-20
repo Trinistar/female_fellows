@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/event_ListTile.dart';
+import 'package:vs_femalefellows/pages/Eventpages/event_authentication_entry.dart';
 
 class AllEvents extends StatefulWidget {
   const AllEvents({super.key});
@@ -11,8 +12,11 @@ class AllEvents extends StatefulWidget {
 class _AllEventsState extends State<AllEvents> {
   @override
   Widget build(BuildContext context) {
-    return 
-              EventListTile();
-
+    return GestureDetector(
+      onTap:  () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Evententry()));
+                  },
+      child: EventListTile());
   }
 }

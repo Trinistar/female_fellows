@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/components/login_button.dart';
+import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
@@ -23,7 +23,7 @@ class Page5 extends StatelessWidget {
           children: [
             Column(
               children: [
-                LoginButton(
+                FFButton(
                       onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => Authentry(),

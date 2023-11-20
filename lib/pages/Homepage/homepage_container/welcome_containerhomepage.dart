@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 
-class FirstContainer extends StatelessWidget {
-  FirstContainer({super.key});
+class HomePageTitle extends StatelessWidget {
+  HomePageTitle({super.key});
 
   @override
   Widget build(BuildContext context) {

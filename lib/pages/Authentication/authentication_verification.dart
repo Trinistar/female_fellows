@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/components/login_button.dart';
+import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
@@ -198,7 +198,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                       ),
                       BlocBuilder<AuthenticationBloc, AuthenticationState>(
                         builder: (context, state) {
-                          return LoginButton(
+                          return FFButton(
                             text: AppLocalizations.of(context)!
                                 .authenticationTitle,
                             onTap: () {

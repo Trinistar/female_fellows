@@ -1,8 +1,9 @@
-import 'package:vs_femalefellows/models/enums.dart';
-import 'package:vs_femalefellows/models/event_materials.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'events.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class Event {
-  final EventCategory eventcategory;
   final String date;
   final String host;
   final String participants; //array
@@ -10,10 +11,19 @@ class Event {
   final String location;
   final String eventDescription;
   final String contactPerson;
-  final EventMaterial material;
+  final String material;
+  //final EventMaterial material;
+  final bool isfavorit;
+  //categorys
+  final bool? sport;
+  final bool? tandem;
+  final bool? outdoor;
 
   Event({
-    required this.eventcategory,
+    this.sport,
+    this.tandem,
+    this.outdoor,
+    required this.isfavorit,
     required this.date,
     required this.host,
     required this.participants,
@@ -23,4 +33,22 @@ class Event {
     required this.contactPerson,
     required this.material,
   });
+    factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
+  Map<String, dynamic> toJson() => _$EventToJson(this);
+
+  List<Object?>get props=>[
+    sport,
+    tandem,
+    outdoor,
+    isfavorit,
+    date,
+    host,
+    participants,
+    eventTitle,
+    location,
+    eventDescription,
+    contactPerson,
+    material,
+
+  ];
 }

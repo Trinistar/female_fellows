@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventComponents/create_event_test.dart';
 import 'package:vs_femalefellows/pages/Eventpages/all_events_page.dart';
+import 'package:vs_femalefellows/pages/Eventpages/create_event.dart';
+import 'package:vs_femalefellows/pages/Eventpages/event_authentication_entry.dart';
 import 'package:vs_femalefellows/pages/Eventpages/favorite_events.page.dart';
 import 'package:vs_femalefellows/pages/Eventpages/signedup_events_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
@@ -24,8 +28,48 @@ class _EventOverviewState extends State<EventOverview>
     _tabController = TabController(length: 3, vsync: this);
   }
 
+//DateRange Picker //
+  DateTimeRange dateRange =
+      DateTimeRange(start: DateTime.now(), end: DateTime.now());
+  Future pickDateRange() async {
+    DateTimeRange? newDateRange = await showDateRangePicker(
+        context: context,
+        initialDateRange: dateRange,
+        firstDate: DateTime.now(),
+        lastDate: DateTime(2025));
+    if (newDateRange == null) return;
+    setState(() {
+      dateRange = newDateRange;
+    });
+  }
+
+  Future<Position> _getCurrentLocation() async {
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled');
+    }
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissonns are denied');
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permisson are permantly denied, we cannot request Location');
+    }
+    return await Geolocator.getCurrentPosition();
+  }
+
+  String locationmessage = 'Current Location';
+  late String lat;
+  late String long;
+
   @override
   Widget build(BuildContext context) {
+    final start = dateRange.start;
+    final end = dateRange.end;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
         statusBarColor: Color.fromRGBO(241, 80, 60, 1),
@@ -59,6 +103,28 @@ class _EventOverviewState extends State<EventOverview>
                     fit: BoxFit.cover,
                   ),
                 ),
+
+                ///
+                //////
+                ///////////
+                /////////////////
+                //TODO only for Event creating//
+                FloatingActionButton(
+                 heroTag: TestEvent,
+                             onPressed: () {
+                               Navigator.of(context).push(
+                                   MaterialPageRoute(builder: (context) => TestEvent()));
+                             },
+                             backgroundColor: Colors.white,
+                             mini: true,
+                             child: Icon(Icons.add),
+                           ),
+           
+                //TODO only for Event creating//
+                /////////////////
+                ///////////
+                //////
+                ///
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,31 +159,55 @@ class _EventOverviewState extends State<EventOverview>
             child: Row(
               children: [
                 TextButton.icon(
-                  onPressed: null,
+                  onPressed: () {
+                    _getCurrentLocation().then((value) {
+                      lat = '${value.latitude}';
+                      long = '${value.longitude}';
+                      setState(() {
+                        locationmessage = '$lat,$long';
+                      });
+                    });
+                  },
                   icon: Icon(
                     Icons.location_on_outlined,
                     color: Theme.of(context).colorScheme.primary,
                     size: 35,
                   ),
-                  label: Text(
-                    'Dein Standort',
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontSize: 20),
+                  label: Column(
+                    children: [
+                      Text(
+                        'Dein Standort',
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: 20),
+                      ),
+                      Text(
+                        locationmessage,
+                        style: TextStyle(fontSize: 12),
+                      )
+                    ],
                   ),
                 ),
                 TextButton.icon(
-                  onPressed: null,
+                  onPressed: pickDateRange,
                   icon: Icon(
                     Icons.date_range,
                     color: Theme.of(context).colorScheme.primary,
                     size: 30,
                   ),
-                  label: Text(
-                    'Datum wählen',
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontSize: 20),
+                  label: Column(
+                    children: [
+                      Text(
+                        'Datum wählen',
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: 20),
+                      ),
+                      Text(
+                        '${start.day}.${start.month} bis ${end.day}.${end.month}',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ],
                   ),
                 )
               ],

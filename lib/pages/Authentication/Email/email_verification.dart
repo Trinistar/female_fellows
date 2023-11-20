@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vs_femalefellows/components/login_button.dart';
+import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 
 class EmailCheck extends StatefulWidget {
@@ -64,7 +64,7 @@ final user = FirebaseAuth.instance.currentUser!;
                           ),
                           child: Text('Herzlichen Glückwunsch,\n${user.email!}\nbist jetzt ein\nFemale Fellows Mitglied.'),
                         ),
-                        LoginButton(onTap: () {
+                        FFButton(onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => Home(),
                     ));
