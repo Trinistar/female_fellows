@@ -48,7 +48,8 @@ class HomePageTitle extends StatelessWidget {
                       CircleAvatar(
                         backgroundImage: AssetImage('lib/images/Avatar.png'),
                         radius: 25,
-                        backgroundColor: Theme.of(context).colorScheme.secondary,
+                        backgroundColor:
+                            Theme.of(context).colorScheme.secondary,
                       ),
                     ],
                   );

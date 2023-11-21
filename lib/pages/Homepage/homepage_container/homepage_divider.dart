@@ -16,6 +16,14 @@ class DividerBouthCorner extends StatelessWidget {
           width: 1000,
           height: 100,
         ),
+            Positioned(
+              left: 365,
+              child: Container(
+                color: color1,
+                width: 50,
+                height: 50,
+              ),
+            ),
         Container(
           decoration: BoxDecoration(
               color: color2,

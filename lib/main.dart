@@ -56,6 +56,13 @@ class MyApp extends StatelessWidget {
             tertiary: Color.fromRGBO(106, 104, 206, 1),
           ),
           textTheme: TextTheme(
+            
+            titleSmall: TextStyle(
+              color: Color.fromRGBO(59, 57, 102, 1),
+            ),
+            titleLarge: TextStyle(
+              color: Color.fromRGBO(59, 57, 102, 1),
+            ),
             bodyLarge: TextStyle(
               color: Color.fromRGBO(59, 57, 102, 1),
             ),

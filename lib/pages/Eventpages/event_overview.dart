@@ -5,7 +5,6 @@ import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.d
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/create_event_test.dart';
 import 'package:vs_femalefellows/pages/Eventpages/all_events_page.dart';
 import 'package:vs_femalefellows/pages/Eventpages/create_event.dart';
-import 'package:vs_femalefellows/pages/Eventpages/event_authentication_entry.dart';
 import 'package:vs_femalefellows/pages/Eventpages/favorite_events.page.dart';
 import 'package:vs_femalefellows/pages/Eventpages/signedup_events_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
