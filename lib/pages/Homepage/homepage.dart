@@ -79,6 +79,109 @@ class _HomeState extends State<Home> {
         Container(
           height: 350,
           width: 1000,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 40),
+                child: Text(
+                  'Neuigkeiten',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40),
+                child: Divider(
+                  color: Theme.of(context).colorScheme.primary,
+                  thickness: 5,
+                  endIndent: 320,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              /////////////
+              /////////
+              //////
+              ///
+              SizedBox(
+                height: 200,
+              ), //TODO content ersetzen
+              /////////////
+              /////////
+              //////
+              ///
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 60),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: BorderRadius.circular(60)),
+                      child: Icon(
+                        Icons.facebook,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: BorderRadius.circular(60)),
+                      child: Icon(
+                        Icons.facebook,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: BorderRadius.circular(60)),
+                      child: Icon(
+                        Icons.facebook,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: BorderRadius.circular(60)),
+                      child: Icon(
+                        Icons.facebook,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: BorderRadius.circular(60)),
+                      child: Icon(
+                        Icons.facebook,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
         DividerBouthCorner(
             color1: Theme.of(context).colorScheme.secondary,
@@ -94,7 +197,7 @@ class _HomeState extends State<Home> {
                 child: Image.asset('lib/images/Vector.png'),
               ),
               Padding(
-                padding: const EdgeInsets.only(left:130,top: 30),
+                padding: const EdgeInsets.only(left: 130, top: 30),
                 child: Text(
                   AppLocalizations.of(context)!.onboardingPageOneTitle,
                   style: TextStyle(

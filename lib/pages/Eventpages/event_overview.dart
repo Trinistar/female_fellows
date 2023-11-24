@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventComponents/create_event_test.dart';
 import 'package:vs_femalefellows/pages/Eventpages/all_events_page.dart';
 import 'package:vs_femalefellows/pages/Eventpages/create_event.dart';
 import 'package:vs_femalefellows/pages/Eventpages/favorite_events.page.dart';
@@ -109,10 +108,10 @@ class _EventOverviewState extends State<EventOverview>
                 /////////////////
                 //TODO only for Event creating//
                 FloatingActionButton(
-                 heroTag: TestEvent,
+                 heroTag: CreateEvent,
                              onPressed: () {
                                Navigator.of(context).push(
-                                   MaterialPageRoute(builder: (context) => TestEvent()));
+                                   MaterialPageRoute(builder: (context) => CreateEvent()));
                              },
                              backgroundColor: Colors.white,
                              mini: true,

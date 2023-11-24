@@ -8,6 +8,7 @@ sealed class EventState extends Equatable {
 }
 
 final class EventInitial extends EventState {}
+
 class FormEvent extends EventState{}
 
 class CreateSuccess extends EventState{

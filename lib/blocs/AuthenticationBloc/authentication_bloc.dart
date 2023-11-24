@@ -14,7 +14,7 @@ part 'authentication_state.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  AuthenticationBloc({required AuthRepository authenticationRepository})
+  AuthenticationBloc({required AuthRepository authenticationRepository })
       : _authenticationProvider = authenticationRepository,
         super(
           authenticationRepository.currentUser != null

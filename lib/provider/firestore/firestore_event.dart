@@ -7,8 +7,8 @@ import '../../models/events.dart';
 class FirestorEventRepository {
   Future<void> updateEvent(
   Event eventdata, {
-    required String userID,
+required eventtitle
   }) async {
-    return FirestoreRepository().firestoreInstance.collection('event').doc(userID).set(eventdata.toJson(), SetOptions(merge: true));
+    return FirestoreRepository().firestoreInstance.collection('event').doc().set(eventdata.toJson(), SetOptions(merge: true));
   }
 }

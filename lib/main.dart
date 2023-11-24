@@ -4,12 +4,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
+import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
 
 import 'provider/firebase_options.dart';
 
 final AuthRepository authenticationRepository = AuthRepository();
+final FirestorEventRepository firestoreEventRepository = FirestorEventRepository();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +33,8 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => AuthenticationBloc(authenticationRepository: authenticationRepository),
           lazy: false,
         ),
+        BlocProvider(create: (BuildContext context)=> EventBloc(firestoreEventRepository)),
+   
         /* RepositoryProvider(
           create: (context) => AuthRepository(),
           child: LoginPage(),

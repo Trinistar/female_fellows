@@ -7,6 +7,7 @@ sealed class EventEvent extends Equatable {
   List<Object> get props => [];
 }
 
+
 class NewEvent extends EventEvent{
   final String date;
   final String host;
