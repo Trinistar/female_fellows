@@ -12,13 +12,20 @@ class Controller {
   static final placeController = TextEditingController();
   static final phonenumberController = TextEditingController();
   static final searchbarController = TextEditingController();
+  
   //controller event
  static final dateController = TextEditingController();
  static final hostController = TextEditingController();
 static final eventTitleController = TextEditingController();
 static final contactPersonController = TextEditingController();
-static final materialController = TextEditingController();
 static final descriptionController = TextEditingController();
+//Events Materials
+static final planerController= TextEditingController();
+static final bookController = TextEditingController();
+static final foodController = TextEditingController();
+static final informationController = TextEditingController();
+static final clothesController = TextEditingController();
+
 //controller Event Authentication
 static final languageController = TextEditingController();
 static final childNameController = TextEditingController();

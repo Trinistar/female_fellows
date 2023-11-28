@@ -18,7 +18,9 @@ Event _$EventFromJson(Map<String, dynamic> json) => Event(
       location: json['location'] as String,
       eventDescription: json['eventDescription'] as String,
       contactPerson: json['contactPerson'] as String,
-      material: json['material'] as String,
+      material: json['material'] == null
+          ? null
+          : EventMaterials.fromJson(json['material'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
@@ -29,7 +31,7 @@ Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
       'location': instance.location,
       'eventDescription': instance.eventDescription,
       'contactPerson': instance.contactPerson,
-      'material': instance.material,
+      'material': instance.material?.toJson(),
       'isfavorit': instance.isfavorit,
       'sport': instance.sport,
       'tandem': instance.tandem,

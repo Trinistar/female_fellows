@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vs_femalefellows/models/materials.dart';
 
 part 'events.g.dart';
 
@@ -11,7 +12,7 @@ class Event {
   final String location;
   final String eventDescription;
   final String contactPerson;
-  final String material;
+  final  EventMaterials? material;
   //final EventMaterial material;
   final bool isfavorit;
   //categorys

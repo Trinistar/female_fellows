@@ -15,7 +15,6 @@ class NewEvent extends EventEvent{
   final String eventTitle;
   final String eventDescription;
   final String contactPerson;
-  final String material;
   //categorys
   final bool? sport;
   final bool? tandem;
@@ -29,6 +28,5 @@ class NewEvent extends EventEvent{
     required this.eventTitle,
     required this.eventDescription,
     required this.contactPerson,
-    required this.material,
   });
 }

@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/models/materials.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
 
@@ -21,7 +22,14 @@ class EventBloc extends Bloc<EventEvent, EventState> {
           location: '',
           eventDescription: Controller.descriptionController.text,
           contactPerson: Controller.contactPersonController.text,
-          material: Controller.materialController.text,
+         material: EventMaterials(
+          planer: Controller.placeController.text,
+          book:  Controller.bookController.text,
+          food: Controller.foodController.text,
+          information: Controller.informationController.text,
+          clothes:  Controller.clothesController.text,
+
+         )
         );
 
         if (eventdata !=null) {
