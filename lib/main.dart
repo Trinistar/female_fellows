@@ -12,7 +12,7 @@ import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
 import 'provider/firebase_options.dart';
 
 final AuthRepository authenticationRepository = AuthRepository();
-final FirestorEventRepository firestoreEventRepository = FirestorEventRepository();
+final FirestoreEventRepository firestoreEventRepository = FirestoreEventRepository();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

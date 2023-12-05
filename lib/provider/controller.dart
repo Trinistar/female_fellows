@@ -19,6 +19,7 @@ class Controller {
 static final eventTitleController = TextEditingController();
 static final contactPersonController = TextEditingController();
 static final descriptionController = TextEditingController();
+static final locationController = TextEditingController();
 //Events Materials
 static final planerController= TextEditingController();
 static final bookController = TextEditingController();

@@ -7,11 +7,10 @@ sealed class EventEvent extends Equatable {
   List<Object> get props => [];
 }
 
-
-class NewEvent extends EventEvent{
+class NewEvent extends EventEvent {
   final String date;
   final String host;
-//array
+  final String location;
   final String eventTitle;
   final String eventDescription;
   final String contactPerson;
@@ -19,7 +18,14 @@ class NewEvent extends EventEvent{
   final bool? sport;
   final bool? tandem;
   final bool? outdoor;
+  //materials
+  final String? planer;
+  final String? book;
+  final String? food;
+  final String? information;
+  final String? clothes;
   NewEvent({
+    required this.location,
     this.sport,
     this.tandem,
     this.outdoor,
@@ -28,5 +34,10 @@ class NewEvent extends EventEvent{
     required this.eventTitle,
     required this.eventDescription,
     required this.contactPerson,
+    this.planer,
+    this.book,
+    this.food,
+    this.information,
+    this.clothes,
   });
 }

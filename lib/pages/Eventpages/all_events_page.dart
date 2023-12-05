@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/event_ListTile.dart';
-import 'package:vs_femalefellows/pages/Eventpages/event_authentication_entry.dart';
+import 'package:vs_femalefellows/pages/Eventpages/event_detail_page.dart';
+import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
 
 class AllEvents extends StatefulWidget {
   const AllEvents({super.key});
@@ -12,11 +15,23 @@ class AllEvents extends StatefulWidget {
 class _AllEventsState extends State<AllEvents> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap:  () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => Evententry()));
+    return BlocBuilder<AllEventsStore, List<Event>>(
+      builder: (context, state) {
+        return ListView(
+          children: state
+              .map((e) => GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => DetailEvent(
+                              eventState: e,
+                            )));
                   },
-      child: EventListTile());
+                  child: EventListTile(
+                    event: e,
+                  )))
+              .toList(),
+        );
+      },
+    );
   }
 }

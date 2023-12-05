@@ -14,7 +14,8 @@ class EventMaterials {
     this.clothes = '',
   });
 
-  factory EventMaterials.fromJson(Map<String, dynamic> json) => _$EventMaterialsFromJson(json);
+  factory EventMaterials.fromJson(Map<String, dynamic> json) =>
+      _$EventMaterialsFromJson(json);
   Map<String, dynamic> toJson() => _$EventMaterialsToJson(this);
 
   @JsonKey(defaultValue: '')
@@ -23,8 +24,8 @@ class EventMaterials {
   final String book;
   @JsonKey(defaultValue: '')
   final String food;
-    @JsonKey(defaultValue: '')
+  @JsonKey(defaultValue: '')
   final String information;
-    @JsonKey(defaultValue: '')
+  @JsonKey(defaultValue: '')
   final String clothes;
 }

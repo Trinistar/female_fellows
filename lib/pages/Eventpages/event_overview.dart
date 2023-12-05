@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.dart';
 import 'package:vs_femalefellows/pages/Eventpages/all_events_page.dart';
@@ -7,6 +8,7 @@ import 'package:vs_femalefellows/pages/Eventpages/create_event.dart';
 import 'package:vs_femalefellows/pages/Eventpages/favorite_events.page.dart';
 import 'package:vs_femalefellows/pages/Eventpages/signedup_events_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
 
 class EventOverview extends StatefulWidget {
   const EventOverview({
@@ -108,16 +110,16 @@ class _EventOverviewState extends State<EventOverview>
                 /////////////////
                 //TODO only for Event creating//
                 FloatingActionButton(
-                 heroTag: CreateEvent,
-                             onPressed: () {
-                               Navigator.of(context).push(
-                                   MaterialPageRoute(builder: (context) => CreateEvent()));
-                             },
-                             backgroundColor: Colors.white,
-                             mini: true,
-                             child: Icon(Icons.add),
-                           ),
-           
+                  heroTag: CreateEvent,
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => CreateEvent()));
+                  },
+                  backgroundColor: Colors.white,
+                  mini: true,
+                  child: Icon(Icons.add),
+                ),
+
                 //TODO only for Event creating//
                 /////////////////
                 ///////////
@@ -266,16 +268,28 @@ class _EventOverviewState extends State<EventOverview>
               ],
             ),
           ),
-          Container(
-            width: double.maxFinite,
-            height: 150,
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                AllEvents(),
-                SingedUpEvents(),
-                FavoritEvents(),
-              ],
+          MultiBlocProvider(
+           providers: [
+             BlocProvider<AllEventsStore>(
+          create: (BuildContext context) => AllEventsStore(),               
+        ),
+                BlocProvider<SubscribedEventsStore>(
+          create: (BuildContext context) => SubscribedEventsStore(),               
+        ),        BlocProvider<FavoriteEventStore>(
+          create: (BuildContext context) => FavoriteEventStore(),               
+        ),
+           ],
+            child: Container(
+              width: double.maxFinite,
+              height: 400,
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  AllEvents(),
+                  SingedUpEvents(),
+                  FavoritEvents(),
+                ],
+              ),
             ),
           ),
 

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
+import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/participants_image_row.dart';
+import 'package:vs_femalefellows/pages/Eventpages/event_authentication_entry.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 
 class DetailEvent extends StatefulWidget {
-  const DetailEvent({super.key});
+  const DetailEvent({super.key, required this.eventState});
+  final Event eventState;
 
   @override
   State<DetailEvent> createState() => _DetailEventState();
@@ -49,21 +53,29 @@ class _DetailEventState extends State<DetailEvent> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    Container(
+                      width: 1000,
+                      height: 30,
+                      child:  Stack(
                       children: [
                         Text(
-                          'Sprachecafé:\nArabisch/Deutsch',
+                         widget.eventState.eventTitle,
                           style: TextStyle(fontSize: 20),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 120),
-                          child: Icon(
-                            Icons.favorite_border,
-                            size: 35,
+                       
+                        Positioned(
+                          top: -10,
+                          right: 10,
+                          child: IconButton(
+                            onPressed: null,
+                            icon: Icon (Icons.favorite_border),
+                            iconSize: 35,
                           ),
                         )
                       ],
+                    ), 
                     ),
+                  
                     Divider(
                       thickness: 5,
                       color: Theme.of(context).colorScheme.primary,
@@ -81,7 +93,7 @@ class _DetailEventState extends State<DetailEvent> {
                     ListTile(
                         leading: Icon(Icons.calendar_today),
                         title: Text(
-                          'Jeden Mittwoch\n18:30-21:00Uhr',
+                        widget.eventState.date,
                           style: TextStyle(
                             fontSize: 15,
                           ),
@@ -89,7 +101,7 @@ class _DetailEventState extends State<DetailEvent> {
                     ListTile(
                         leading: Icon(Icons.person_outline),
                         title: Text(
-                          'Female Fellows e.V.',
+                         widget.eventState.host,
                           style: TextStyle(
                             fontSize: 15,
                           ),
@@ -97,7 +109,7 @@ class _DetailEventState extends State<DetailEvent> {
                     ListTile(
                       leading: Icon(Icons.location_on_outlined),
                       title: Text(
-                        'Stuttgart',
+                     widget.eventState.location,
                         style: TextStyle(fontSize: 15),
                       ),
                       subtitle: Text(
@@ -111,7 +123,7 @@ class _DetailEventState extends State<DetailEvent> {
                         cacheHeight: 25,
                       ),
                       title: Text(
-                        'Miriam Müller',
+                        widget.eventState.contactPerson,
                         style: TextStyle(
                           fontSize: 15,
                         ),
@@ -128,7 +140,12 @@ class _DetailEventState extends State<DetailEvent> {
               SizedBox(
                 height: 20,
               ),
-              FFButton(onTap: null, text: 'Jetzt anmelden'),
+              FFButton(
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Evententry()));
+                  },
+                  text: 'Jetzt anmelden'),
               SizedBox(
                 height: 30,
               ),
@@ -154,8 +171,8 @@ class _DetailEventState extends State<DetailEvent> {
                       height: 150,
                       width: 350,
                       child: Text(
-                        'Unser "Sprachcafé"ist ein informelles und ein-ladendes Event, das den interkulturellen Austausch fördert. Hier kommen Menschen unterschiedlicher Hintergründe und Muttersprachen zusammen, um in entspannter Atmosphäre miteinander ins Gespräch zu kommen. Das "Sprachcafé" bietet eine ideale Gelegenheit, neue Sprachen zu lernen, kulturelle Einblicke zu gewinnen und neue Freundschaften zu schließen. Egal, ob Sie eine neue Sprache erlernen, Ihre Sprachkenntnisse vertiefen oder einfach interessante Gespräche führen möchten – das "Sprachcafé" ist der richtige Ort dafür.',
-                        style: TextStyle(fontSize: 15),
+                        widget.eventState.eventDescription,
+                       style: TextStyle(fontSize: 15),
                       ),
                     ),
                     SizedBox(
@@ -247,7 +264,7 @@ class _DetailEventState extends State<DetailEvent> {
                           cacheHeight: 45,
                         ),
                         title: Text('Notizbuch & Stifte'),
-                        subtitle: Text('Der Text soll aus der Datenbank'),
+                        subtitle: Text(widget.eventState.material!.planer),
                       ),
                       ListTile(
                         isThreeLine: true,
@@ -256,7 +273,7 @@ class _DetailEventState extends State<DetailEvent> {
                           cacheHeight: 45,
                         ),
                         title: Text('Wörterbuch'),
-                        subtitle: Text('Der Text soll aus der Datenbank'),
+                        subtitle: Text(widget.eventState.material!.book),
                       ),
                       ListTile(
                         isThreeLine: true,
@@ -265,7 +282,7 @@ class _DetailEventState extends State<DetailEvent> {
                           cacheHeight: 45,
                         ),
                         title: Text('Kulinarische Köstlichkeiten'),
-                        subtitle: Text('Der Text soll aus der Datenbank'),
+                        subtitle: Text(widget.eventState.material!.food),
                       ),
                       ListTile(
                         isThreeLine: true,
@@ -274,16 +291,16 @@ class _DetailEventState extends State<DetailEvent> {
                           cacheHeight: 45,
                         ),
                         title: Text('Kulturelle Informationen'),
-                        subtitle: Text('Der Text soll aus der Datenbank'),
+                        subtitle: Text(widget.eventState.material!.information),
                       ),
-                            ListTile(
+                      ListTile(
                         isThreeLine: true,
                         leading: Image.asset(
                           'lib/images/globe.png',
                           cacheHeight: 45,
                         ),
                         title: Text('Kleidung'),
-                        subtitle: Text('Der Text soll aus der Datenbank'),
+                        subtitle: Text(widget.eventState.material!.clothes),
                       ),
                       SizedBox(
                         height: 20,

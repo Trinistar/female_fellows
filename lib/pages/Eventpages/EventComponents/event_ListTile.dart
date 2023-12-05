@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
 
 class EventListTile extends StatelessWidget {
-  const EventListTile({super.key});
-
+  EventListTile({super.key, required this.event});
+  final Event event;
+  final FirestoreEventRepository repo = FirestoreEventRepository();
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 20, top: 30,bottom: 30),
+          padding: const EdgeInsets.only(left: 20, top: 30, bottom: 30),
           child: SizedBox(
             height: 80,
             width: 320,
@@ -17,10 +20,9 @@ class EventListTile extends StatelessWidget {
                   'lib/images/partner1.png',
                   fit: BoxFit.fill,
                   width: 80,
-        
                 ),
                 title: Text(
-                  'Sprachcafé: Arrabisch/Deutsch',
+                  event.eventTitle,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 subtitle: Column(
@@ -32,7 +34,7 @@ class EventListTile extends StatelessWidget {
                           size: 20,
                         ),
                         Text(
-                          'Datum',
+                          event.date,
                           style: TextStyle(fontSize: 13),
                         ),
                       ],
@@ -44,7 +46,7 @@ class EventListTile extends StatelessWidget {
                           size: 20,
                         ),
                         Text(
-                          'Veranstalter',
+                          event.host,
                           style: TextStyle(fontSize: 13),
                         ),
                       ],
@@ -56,7 +58,7 @@ class EventListTile extends StatelessWidget {
                           size: 20,
                         ),
                         Text(
-                          'Location',
+                          event.location,
                           style: TextStyle(fontSize: 13),
                         ),
                       ],
