@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventComponents/event_ListTile.dart';
-import 'package:vs_femalefellows/pages/Eventpages/event_detail_page.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventOverview/event_ListTile.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_detail_page.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
 
-class AllEvents extends StatefulWidget {
-  const AllEvents({super.key});
+class SingedUpEvents extends StatefulWidget {
+  const SingedUpEvents({super.key});
 
   @override
-  State<AllEvents> createState() => _AllEventsState();
+  State<SingedUpEvents> createState() => _SingedUpEventsState();
 }
 
-class _AllEventsState extends State<AllEvents> {
+class _SingedUpEventsState extends State<SingedUpEvents> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AllEventsStore, List<Event>>(
+    return BlocBuilder<SubscribedEventsStore, List<Event>>(
       builder: (context, state) {
         return ListView(
           children: state

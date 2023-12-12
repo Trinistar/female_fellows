@@ -5,7 +5,7 @@ import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.dart';
-import 'package:vs_femalefellows/pages/Eventpages/event_detail_page.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_detail_page.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
@@ -33,8 +33,10 @@ class _CreateEventState extends State<CreateEvent> {
           body: BlocConsumer<EventBloc, EventState>(
             listener: (context, state) {
               if (state is CreateSuccess) {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => DetailEvent(eventState: state.eventdata,)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => DetailEvent(
+                          eventState: state.eventdata,
+                        )));
               }
               if (state is EventFailure) {
                 SnackBar(
@@ -44,7 +46,6 @@ class _CreateEventState extends State<CreateEvent> {
             },
             builder: (context, state) {
               return ListView(children: [
-                // BackButton(style: ButtonStyle(alignment: Alignment.bottomLeft,),),
                 Container(
                   decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.secondary,
@@ -55,6 +56,7 @@ class _CreateEventState extends State<CreateEvent> {
                   child: Stack(
                     clipBehavior: Clip.none,
                     children: [
+                      BackButton(),
                       Positioned(
                         right: 0,
                         bottom: 0,
@@ -105,6 +107,7 @@ class _CreateEventState extends State<CreateEvent> {
                 SizedBox(
                   height: 20,
                 ),
+                // *************************************  //EVENT DATA //**************************************/
                 Container(
                   width: 1000,
                   height: 350,
@@ -157,10 +160,12 @@ class _CreateEventState extends State<CreateEvent> {
                 DividerBouthCorner(
                     color1: Theme.of(context).colorScheme.tertiary,
                     color2: Colors.white),
+
+                // *************************************  //EVENT ORGA //**************************************/
                 Container(
                   color: Theme.of(context).colorScheme.tertiary,
                   width: 1000,
-                  height: 480,
+                  height: 650,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -234,6 +239,38 @@ class _CreateEventState extends State<CreateEvent> {
                           obscureText: false,
                           onChange: null,
                           validator: null),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40),
+                        child: Text(
+                          'Event Email',
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                      ),
+                      TextBar(
+                          controller: Controller.eventEmailController,
+                          hintText: 'Event Email',
+                          obscureText: false,
+                          onChange: null,
+                          validator: null),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40),
+                        child: Text(
+                          'Event PhoneNumber',
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                      ),
+                      TextBar(
+                          controller: Controller.eventPhoneNumberController,
+                          hintText: 'Event PhoneNumber',
+                          obscureText: false,
+                          onChange: null,
+                          validator: null),
                       Image.asset('lib/images/handleft.png')
                     ],
                   ),
@@ -241,6 +278,7 @@ class _CreateEventState extends State<CreateEvent> {
                 DividerBouthCorner(
                     color1: Theme.of(context).colorScheme.secondary,
                     color2: Theme.of(context).colorScheme.tertiary),
+                // *************************************  //EVENT DESCRIPTION //**************************************/
                 Container(
                   color: Theme.of(context).colorScheme.secondary,
                   height: 350,
@@ -294,6 +332,7 @@ class _CreateEventState extends State<CreateEvent> {
                 DividerBouthCorner(
                     color1: Colors.white,
                     color2: Theme.of(context).colorScheme.secondary),
+                // *************************************  //EVENT CATEGORYS //**************************************/
                 Container(
                   width: 1000,
                   color: Colors.white,
@@ -344,6 +383,7 @@ class _CreateEventState extends State<CreateEvent> {
                 DividerBouthCorner(
                     color1: Theme.of(context).colorScheme.surfaceVariant,
                     color2: Colors.white),
+                // *************************************  //EVENT MATERIALS //**************************************/
                 Container(
                   width: 1000,
                   color: Theme.of(context).colorScheme.surfaceVariant,
@@ -446,6 +486,9 @@ class _CreateEventState extends State<CreateEvent> {
                       text: 'Create Event',
                       onTap: () {
                         context.read<EventBloc>().add(NewEvent(
+                              eventEmail: Controller.eventEmailController.text,
+                              evntPhoneNumber:
+                                  Controller.eventPhoneNumberController.text,
                               date: Controller.dateController.text,
                               eventDescription:
                                   Controller.descriptionController.text,

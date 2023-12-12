@@ -7,6 +7,8 @@ part of 'events.dart';
 // **************************************************************************
 
 Event _$EventFromJson(Map<String, dynamic> json) => Event(
+      eventEmail: json['eventEmail'] as String,
+      eventPhoneNumber: json['eventPhoneNumber'] as String,
       sport: json['sport'] as bool?,
       tandem: json['tandem'] as bool?,
       outdoor: json['outdoor'] as bool?,
@@ -31,6 +33,8 @@ Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
       'location': instance.location,
       'eventDescription': instance.eventDescription,
       'contactPerson': instance.contactPerson,
+      'eventEmail': instance.eventEmail,
+      'eventPhoneNumber': instance.eventPhoneNumber,
       'material': instance.material?.toJson(),
       'isfavorit': instance.isfavorit,
       'sport': instance.sport,

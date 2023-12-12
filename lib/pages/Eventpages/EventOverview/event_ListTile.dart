@@ -2,12 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
 
-class EventListTile extends StatelessWidget {
+class EventListTile extends StatefulWidget {
   EventListTile({super.key, required this.event});
   final Event event;
+ 
+
+  @override
+  State<EventListTile> createState() => _EventListTileState();
+}
+
+
+class _EventListTileState extends State<EventListTile> {
   final FirestoreEventRepository repo = FirestoreEventRepository();
+ 
+
   @override
   Widget build(BuildContext context) {
+        print(widget.event.eventTitle);
     return Row(
       children: [
         Padding(
@@ -22,7 +33,7 @@ class EventListTile extends StatelessWidget {
                   width: 80,
                 ),
                 title: Text(
-                  event.eventTitle,
+                  widget.event.eventTitle,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 subtitle: Column(
@@ -34,7 +45,7 @@ class EventListTile extends StatelessWidget {
                           size: 20,
                         ),
                         Text(
-                          event.date,
+                          widget.event.date,
                           style: TextStyle(fontSize: 13),
                         ),
                       ],
@@ -46,7 +57,7 @@ class EventListTile extends StatelessWidget {
                           size: 20,
                         ),
                         Text(
-                          event.host,
+                          widget.event.host,
                           style: TextStyle(fontSize: 13),
                         ),
                       ],
@@ -58,7 +69,7 @@ class EventListTile extends StatelessWidget {
                           size: 20,
                         ),
                         Text(
-                          event.location,
+                          widget.event.location,
                           style: TextStyle(fontSize: 13),
                         ),
                       ],

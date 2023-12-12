@@ -3,10 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.dart';
-import 'package:vs_femalefellows/pages/Eventpages/all_events_page.dart';
-import 'package:vs_femalefellows/pages/Eventpages/create_event.dart';
-import 'package:vs_femalefellows/pages/Eventpages/favorite_events.page.dart';
-import 'package:vs_femalefellows/pages/Eventpages/signedup_events_page.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventOverview/all_events_page.dart';
+import 'package:vs_femalefellows/pages/Eventpages/CreateEvent/create_event.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_not_authenticated.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventOverview/favorite_events.page.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventOverview/signedup_events_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
 
@@ -119,6 +120,21 @@ class _EventOverviewState extends State<EventOverview>
                   mini: true,
                   child: Icon(Icons.add),
                 ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 50),
+                          child: FloatingActionButton(
+                                          heroTag: EventNotAuthenticatedState,
+                                          onPressed: () {
+                                            Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
+                                          },
+                                          backgroundColor: Colors.black,
+                                          mini: true,
+                                          child: Icon(Icons.add),
+                                        ),
+                        ),
+                
+
 
                 //TODO only for Event creating//
                 /////////////////

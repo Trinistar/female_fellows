@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
-
+import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_authentication_success.dart';
 
 class EventPictureAuthentication extends StatefulWidget {
-  const EventPictureAuthentication({super.key});
+  const EventPictureAuthentication({super.key,required this.event});
+  final Event event;
 
   @override
   State<EventPictureAuthentication> createState() =>
       _EventPictureAuthenticationState();
 }
+
 
 bool _pictures = false;
 String? _question;
@@ -94,7 +97,10 @@ class _EventPictureAuthenticationState
                     SizedBox(
                       height: 15,
                     ),
-                    FFButton(onTap: null, text: 'Verbindlich anmelden')
+                    FFButton(onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EventSuccess(event:widget.event)));
+
+                    }, text: 'Verbindlich anmelden')
                   ],
                 ),
               )

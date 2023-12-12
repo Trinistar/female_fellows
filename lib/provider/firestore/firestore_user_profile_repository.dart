@@ -7,6 +7,8 @@ class FirestoreUserProfileRepository {
     FFUser userProfile, {
     required String userID,
   }) async {
+    
     return FirestoreRepository().firestoreInstance.collection('user').doc(userID).set(userProfile.toJson(), SetOptions(merge: true));
   }
 }
+

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:vs_femalefellows/pages/Eventpages/event_authentication_kids.dart';
-import 'package:vs_femalefellows/pages/Eventpages/event_authentication_pictures.dart';
-import 'package:vs_femalefellows/pages/Eventpages/event_authentication_translation.dart';
+import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_authentication_kids.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_authentication_pictures.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_authentication_translation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Evententry extends StatefulWidget {
-  const Evententry({super.key});
-
+  const Evententry({super.key, required this.event});
+final Event event;
   @override
   State<Evententry> createState() => _EvententryState();
 }
@@ -36,10 +37,15 @@ class _EvententryState extends State<Evententry> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 60, top: 25),
-                    child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                        height: 80, alignment: Alignment(0, -0.8)),
+                  Stack(
+                    children: [
+                      Positioned(top: 30, child: BackButton()),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 60, top: 25),
+                        child: Image.asset('lib/images/FF-Logo_blau-1.png',
+                            height: 80, alignment: Alignment(0, -0.8)),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -68,7 +74,7 @@ class _EvententryState extends State<Evententry> {
                 children: [
                   EventTranslationAuthentication(),
                   EventKidsAuthentication(),
-                  EventPictureAuthentication(),
+                  EventPictureAuthentication(event: widget.event),
                 ],
               ),
             ),

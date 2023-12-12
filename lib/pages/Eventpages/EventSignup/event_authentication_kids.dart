@@ -6,13 +6,14 @@ class EventKidsAuthentication extends StatefulWidget {
   const EventKidsAuthentication({super.key});
 
   @override
-  State<EventKidsAuthentication> createState() => _EventKidsAuthenticationState();
-  
+  State<EventKidsAuthentication> createState() =>
+      _EventKidsAuthenticationState();
 }
+
 bool _kids = false;
 String? question;
+
 class _EventKidsAuthenticationState extends State<EventKidsAuthentication> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,23 +84,25 @@ class _EventKidsAuthenticationState extends State<EventKidsAuthentication> {
                             _kids = false;
                           });
                         }),
-                        SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     _kids
                         ? Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(left: 40),
-                                child: Text('Name des Kindes',
-                                 
+                                child: Text(
+                                  'Name des Kindes',
                                   style: TextStyle(
                                     fontSize: 15,
                                   ),
                                 ),
                               ),
                               TextBar(
-                                controller:Controller.childNameController,
+                                controller: Controller.childNameController,
                                 hintText: 'Name',
                                 obscureText: false,
                                 onChange: null,

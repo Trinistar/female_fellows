@@ -20,6 +20,7 @@ class FFUser {
   final Address? address;
   final LocalOrNewcomer? localOrNewcomer;
   final Socialmedia? socialmedia;
+  final List<String> favorites = List.empty(growable: true);
 
   FFUser({
     this.lastname,
@@ -39,6 +40,7 @@ class FFUser {
   Map<String, dynamic> toJson() => _$FFUserToJson(this);
 
   List<Object?> get props => [
+    favorites,
         email,
         firstname,
         lastname,

@@ -12,7 +12,9 @@ class Event {
   final String location;
   final String eventDescription;
   final String contactPerson;
-  final  EventMaterials? material;
+  final String eventEmail;
+  final String eventPhoneNumber;
+  final EventMaterials? material;
   //final EventMaterial material;
   final bool isfavorit;
   //categorys
@@ -21,6 +23,8 @@ class Event {
   final bool? outdoor;
 
   Event({
+    required this.eventEmail,
+   required this.eventPhoneNumber,
     this.sport,
     this.tandem,
     this.outdoor,
@@ -34,22 +38,21 @@ class Event {
     required this.contactPerson,
     required this.material,
   });
-    factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
+  factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
   Map<String, dynamic> toJson() => _$EventToJson(this);
 
-  List<Object?>get props=>[
-    sport,
-    tandem,
-    outdoor,
-    isfavorit,
-    date,
-    host,
-    participants,
-    eventTitle,
-    location,
-    eventDescription,
-    contactPerson,
-    material,
-
-  ];
+  List<Object?> get props => [
+        sport,
+        tandem,
+        outdoor,
+        isfavorit,
+        date,
+        host,
+        participants,
+        eventTitle,
+        location,
+        eventDescription,
+        contactPerson,
+        material,
+      ];
 }

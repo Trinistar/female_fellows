@@ -14,6 +14,9 @@ class NewEvent extends EventEvent {
   final String eventTitle;
   final String eventDescription;
   final String contactPerson;
+  final String eventEmail;
+  final String evntPhoneNumber;
+
   //categorys
   final bool? sport;
   final bool? tandem;
@@ -25,6 +28,8 @@ class NewEvent extends EventEvent {
   final String? information;
   final String? clothes;
   NewEvent({
+    required this.evntPhoneNumber,
+    required this.eventEmail,
     required this.location,
     this.sport,
     this.tandem,

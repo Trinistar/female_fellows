@@ -15,6 +15,8 @@ class EventBloc extends Bloc<EventEvent, EventState> {
     on<NewEvent>((event, emit) async {
       try {
         Event eventdata = Event(
+            eventPhoneNumber: Controller.eventPhoneNumberController.text,
+            eventEmail: Controller.eventEmailController.text,
             isfavorit: false,
             date: Controller.dateController.text,
             host: Controller.hostController.text,
