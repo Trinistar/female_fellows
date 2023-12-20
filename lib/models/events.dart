@@ -18,6 +18,7 @@ class Event {
   //final EventMaterial material;
   final bool isfavorit;
   //categorys
+  
   final bool? sport;
   final bool? tandem;
   final bool? outdoor;

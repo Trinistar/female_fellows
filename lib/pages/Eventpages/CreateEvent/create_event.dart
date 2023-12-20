@@ -5,6 +5,7 @@ import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.dart';
+import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_Categorys.dart';
 import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_detail_page.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
@@ -335,49 +336,78 @@ class _CreateEventState extends State<CreateEvent> {
                 // *************************************  //EVENT CATEGORYS //**************************************/
                 Container(
                   width: 1000,
-                  color: Colors.white,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text(
-                          'Categorys:',
-                          style: TextStyle(fontSize: 20),
+                  height: 400,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ListTile(
+                          leading: Image.asset(
+                            'lib/images/category.png',
+                            cacheHeight: 30,
+                          ),
+                          title: Text('Kategorien'),
                         ),
-                      ),
-                      CheckboxListTile(
-                          controlAffinity: ListTileControlAffinity.leading,
-                          contentPadding: EdgeInsets.only(left: 40),
-                          title: Text('Sport'),
-                          value: _sport,
-                          onChanged: (value) {
-                            setState(() {
-                              _sport = value ?? false;
-                            });
-                          }),
-                      CheckboxListTile(
-                          controlAffinity: ListTileControlAffinity.leading,
-                          contentPadding: EdgeInsets.only(left: 40),
-                          title: Text('Tandem'),
-                          value: _tandem,
-                          onChanged: (value) {
-                            setState(() {
-                              _tandem = value ?? false;
-                            });
-                          }),
-                      CheckboxListTile(
-                          controlAffinity: ListTileControlAffinity.leading,
-                          contentPadding: EdgeInsets.only(left: 40),
-                          title: Text('Outdoor'),
-                          value: _outdoor,
-                          onChanged: (value) {
-                            setState(() {
-                              _outdoor = value ?? false;
-                            });
-                          }),
-                    ],
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          children: [
+                            Wrap(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  width: 150,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary),
+                                      borderRadius: BorderRadius.circular(60)),
+                                  child: Text('Sprache'),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  width: 150,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary),
+                                      borderRadius: BorderRadius.circular(60)),
+                                  child: Text('Frauengesundheit'),
+                                  
+                                ),
+                                    FilterChip(
+                          label: Text('Sport'),
+                          onSelected: (isSelected){},
+                      
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              width: 150,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      width: 2,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primary),
+                                  borderRadius: BorderRadius.circular(60)),
+                              child: Text('Frauengesundheit'),
+                            ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 DividerBouthCorner(
@@ -497,9 +527,6 @@ class _CreateEventState extends State<CreateEvent> {
                               contactPerson:
                                   Controller.contactPersonController.text,
                               location: Controller.locationController.text,
-                              sport: _sport,
-                              outdoor: _outdoor,
-                              tandem: _tandem,
                               planer: Controller.planerController.text,
                               book: Controller.bookController.text,
                               food: Controller.foodController.text,
