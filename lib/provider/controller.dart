@@ -24,7 +24,6 @@ class Controller {
   static final eventPhoneNumberController = TextEditingController();
 //Events Materials
   static final planerController = TextEditingController();
-  static final bookController = TextEditingController();
   static final foodController = TextEditingController();
   static final informationController = TextEditingController();
   static final clothesController = TextEditingController();

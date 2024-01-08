@@ -8,7 +8,7 @@ sealed class EventEvent extends Equatable {
 }
 
 class NewEvent extends EventEvent {
-  final String date;
+  final Timestamp date;
   final String host;
   final String location;
   final String eventTitle;

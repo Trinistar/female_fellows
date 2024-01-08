@@ -1,3 +1,4 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
@@ -45,7 +46,7 @@ class _EventListTileState extends State<EventListTile> {
                           size: 20,
                         ),
                         Text(
-                          widget.event.date,
+                          widget.event.date.toString(),
                           style: TextStyle(fontSize: 13),
                         ),
                       ],

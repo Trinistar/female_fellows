@@ -30,48 +30,42 @@ class EventMaterials extends StatelessWidget {
                         isThreeLine: true,
                         leading: Image.asset(
                           'lib/images/notebook.png',
-                          cacheHeight: 45,
+                          cacheHeight: 35,
                         ),
                         title: Text('Notizbuch & Stifte'),
                         subtitle: Text(eventState.material!.planer),
                       ),
-                      ListTile(
-                        isThreeLine: true,
-                        leading: Image.asset(
-                          'lib/images/book.png',
-                          cacheHeight: 45,
-                        ),
-                        title: Text('Wörterbuch'),
-                        subtitle: Text(eventState.material!.book),
-                      ),
+                    
                       ListTile(
                         isThreeLine: true,
                         leading: Image.asset(
                           'lib/images/food.png',
-                          cacheHeight: 45,
+                          cacheHeight: 35,
                         ),
                         title: Text('Kulinarische Köstlichkeiten'),
                         subtitle: Text(eventState.material!.food),
                       ),
-                      ListTile(
+                           ListTile(
                         isThreeLine: true,
                         leading: Image.asset(
-                          'lib/images/globe.png',
-                          cacheHeight: 45,
-                        ),
-                        title: Text('Kulturelle Informationen'),
-                        subtitle: Text(eventState.material!.information),
-                      ),
-                      ListTile(
-                        isThreeLine: true,
-                        leading: Image.asset(
-                          'lib/images/globe.png',
-                          cacheHeight: 45,
+                          'lib/images/Shirt.png',
+                          cacheHeight: 35,
                         ),
                         title: Text('Kleidung'),
                         subtitle: Text(eventState.material!.clothes),
                       ),
-                      SizedBox(
+                      ListTile(
+                        isThreeLine: true,
+                        leading: Image.asset(
+                          'lib/images/Star.png',
+                          cacheHeight: 35,
+                        ),
+                        title: Text('Kulturelle Informationen'),
+                        subtitle: Text(eventState.material!.information),
+                      ),
+                 
+                      Container(
+                        color: Theme.of(context).colorScheme.surfaceVariant,
                         height: 20,
                       ),
                     ],

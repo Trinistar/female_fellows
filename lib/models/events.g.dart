@@ -13,7 +13,7 @@ Event _$EventFromJson(Map<String, dynamic> json) => Event(
       tandem: json['tandem'] as bool?,
       outdoor: json['outdoor'] as bool?,
       isfavorit: json['isfavorit'] as bool,
-      date: json['date'] as String,
+      date: const TimestampConverter().fromJson(json['date']),
       host: json['host'] as String,
       participants: json['participants'] as String,
       eventTitle: json['eventTitle'] as String,
@@ -26,7 +26,7 @@ Event _$EventFromJson(Map<String, dynamic> json) => Event(
     );
 
 Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
-      'date': instance.date,
+      'date': const TimestampConverter().toJson(instance.date),
       'host': instance.host,
       'participants': instance.participants,
       'eventTitle': instance.eventTitle,

@@ -8,7 +8,6 @@ part 'materials.g.dart';
 class EventMaterials {
   const EventMaterials({
     this.planer = '',
-    this.book = '',
     this.food = '',
     this.information = '',
     this.clothes = '',
@@ -20,8 +19,6 @@ class EventMaterials {
 
   @JsonKey(defaultValue: '')
   final String planer;
-  @JsonKey(defaultValue: '')
-  final String book;
   @JsonKey(defaultValue: '')
   final String food;
   @JsonKey(defaultValue: '')

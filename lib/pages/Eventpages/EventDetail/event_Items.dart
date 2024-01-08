@@ -18,7 +18,7 @@ class EventItems extends StatelessWidget {
                     ListTile(
                         leading: Icon(Icons.calendar_today),
                         title: Text(
-                        eventState.date,
+                        eventState.date.toString(),
                           style: TextStyle(
                             fontSize: 15,
                           ),

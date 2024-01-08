@@ -54,7 +54,7 @@ class _EventSuccessState extends State<EventSuccess> {
                         color: Colors.white,
                       ),
                       title: Text(
-                        widget.event.date,
+                        widget.event.date.toString(),
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.white,

@@ -18,7 +18,7 @@ class EventBloc extends Bloc<EventEvent, EventState> {
             eventPhoneNumber: Controller.eventPhoneNumberController.text,
             eventEmail: Controller.eventEmailController.text,
             isfavorit: false,
-            date: Controller.dateController.text,
+           date:event.date,
             host: Controller.hostController.text,
             participants: '',
             eventTitle: Controller.eventTitleController.text,
@@ -27,7 +27,6 @@ class EventBloc extends Bloc<EventEvent, EventState> {
             contactPerson: Controller.contactPersonController.text,
             material: EventMaterials(
               planer: Controller.planerController.text,
-              book: Controller.bookController.text,
               food: Controller.foodController.text,
               information: Controller.informationController.text,
               clothes: Controller.clothesController.text,

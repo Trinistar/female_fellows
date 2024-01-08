@@ -1,11 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:vs_femalefellows/models/materials.dart';
 
 part 'events.g.dart';
 
+class TimestampConverter implements JsonConverter<Timestamp, dynamic> {
+  const TimestampConverter();
+
+  @override
+  Timestamp fromJson(dynamic json) => json as Timestamp;
+
+  @override
+  dynamic toJson(Timestamp object) => object;
+}
+
 @JsonSerializable(explicitToJson: true)
+@TimestampConverter()
 class Event {
-  final String date;
+  final Timestamp date;
   final String host;
   final String participants; //array
   final String eventTitle;
@@ -15,9 +27,7 @@ class Event {
   final String eventEmail;
   final String eventPhoneNumber;
   final EventMaterials? material;
-  //final EventMaterial material;
   final bool isfavorit;
-  //categorys
   
   final bool? sport;
   final bool? tandem;
@@ -25,7 +35,7 @@ class Event {
 
   Event({
     required this.eventEmail,
-   required this.eventPhoneNumber,
+    required this.eventPhoneNumber,
     this.sport,
     this.tandem,
     this.outdoor,
@@ -39,21 +49,26 @@ class Event {
     required this.contactPerson,
     required this.material,
   });
+
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
   Map<String, dynamic> toJson() => _$EventToJson(this);
 
-  List<Object?> get props => [
-        sport,
-        tandem,
-        outdoor,
-        isfavorit,
-        date,
-        host,
-        participants,
-        eventTitle,
-        location,
-        eventDescription,
-        contactPerson,
-        material,
-      ];
+/*   Map<String, dynamic> toJson() {
+    return {
+      'date': date,
+      'host': host,
+      'participants': participants,
+      'eventTitle': eventTitle,
+      'location': location,
+      'eventDescription': eventDescription,
+      'contactPerson': contactPerson,
+      'eventEmail': eventEmail,
+      'eventPhoneNumber': eventPhoneNumber,
+      'material': material?.toJson(),
+      'isfavorit': isfavorit,
+      'sport': sport,
+      'tandem': tandem,
+      'outdoor': outdoor,
+    };
+  } */
 }
