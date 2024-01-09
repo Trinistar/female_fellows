@@ -32,6 +32,7 @@ class Event {
   final bool? sport;
   final bool? tandem;
   final bool? outdoor;
+  String? eventId;
 
   Event({
     required this.eventEmail,
@@ -48,27 +49,9 @@ class Event {
     required this.eventDescription,
     required this.contactPerson,
     required this.material,
+    this.eventId,
   });
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
   Map<String, dynamic> toJson() => _$EventToJson(this);
-
-/*   Map<String, dynamic> toJson() {
-    return {
-      'date': date,
-      'host': host,
-      'participants': participants,
-      'eventTitle': eventTitle,
-      'location': location,
-      'eventDescription': eventDescription,
-      'contactPerson': contactPerson,
-      'eventEmail': eventEmail,
-      'eventPhoneNumber': eventPhoneNumber,
-      'material': material?.toJson(),
-      'isfavorit': isfavorit,
-      'sport': sport,
-      'tandem': tandem,
-      'outdoor': outdoor,
-    };
-  } */
 }

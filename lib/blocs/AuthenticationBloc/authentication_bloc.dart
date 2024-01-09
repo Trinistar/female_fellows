@@ -38,7 +38,10 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
 
     if (event.user != null) {
       final IdTokenResult tokenResult = await event.user!.getIdTokenResult();
-      emit(AuthenticatedUser(user: event.user, tokenResult: tokenResult));
+
+      await emit.onEach(_firestoreUserProfileRepository.loadUserProfile(event.user!.uid), onData: (FFUser? userProfile) async {
+        emit(AuthenticatedUser(userProfile: userProfile, user: event.user, tokenResult: tokenResult));
+      });
     } else {
       emit(UnauthenticatedUser());
     }
@@ -46,7 +49,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
 
   Future<void> _onUpdateUserProfile(UpdateUserProfileEvent event, Emitter<AuthenticationState> emit) async {
     try {
-      await _firestoreUserProfileRepository.updateUserProfile(event.user, userID: event.userId);
+      await _firestoreUserProfileRepository.updateUserProfile(event.userProfile, userID: event.userId);
     } catch (_) {}
   }
 

@@ -25,10 +25,10 @@ class SignOutEvent extends AuthenticationEvent {
 }
 
 class UpdateUserProfileEvent extends AuthenticationEvent {
-  UpdateUserProfileEvent(this.userId, {required this.user});
+  UpdateUserProfileEvent(this.userId, {required this.userProfile});
 
   final String userId;
-  final FFUser user;
+  final FFUser userProfile;
 }
 
 class InputChanged extends AuthenticationEvent {

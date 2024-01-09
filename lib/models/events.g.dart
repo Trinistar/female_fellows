@@ -23,6 +23,7 @@ Event _$EventFromJson(Map<String, dynamic> json) => Event(
       material: json['material'] == null
           ? null
           : EventMaterials.fromJson(json['material'] as Map<String, dynamic>),
+      eventId: json['eventId'] as String?,
     );
 
 Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
@@ -40,4 +41,5 @@ Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
       'sport': instance.sport,
       'tandem': instance.tandem,
       'outdoor': instance.outdoor,
+      'eventId': instance.eventId,
     };

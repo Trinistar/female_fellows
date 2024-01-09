@@ -3,8 +3,6 @@ import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/notifications.dart';
 
-
-
 part 'user_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
@@ -20,9 +18,10 @@ class FFUser {
   final Address? address;
   final LocalOrNewcomer? localOrNewcomer;
   final Socialmedia? socialmedia;
-  final List<String> favorites = List.empty(growable: true);
+  List<String> favorites;
 
   FFUser({
+    this.favorites = const[],
     this.lastname,
     this.profilPicture,
     this.birthday,
@@ -40,7 +39,7 @@ class FFUser {
   Map<String, dynamic> toJson() => _$FFUserToJson(this);
 
   List<Object?> get props => [
-    favorites,
+        favorites,
         email,
         firstname,
         lastname,

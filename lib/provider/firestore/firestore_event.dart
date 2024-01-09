@@ -47,7 +47,9 @@ class AllEventsStore extends Cubit<List<Event>> {
       for (var change in snapshot.docChanges) {
         switch (change.type) {
           case DocumentChangeType.added:
-            tmp.add(Event.fromJson(change.doc.data()!));
+            final Event event = Event.fromJson(change.doc.data()!);
+            tmp.add(event);
+            event.eventId = change.doc.id;
             break;
           case DocumentChangeType.modified:
             Event modiefiedEvent = Event.fromJson(change.doc.data()!);

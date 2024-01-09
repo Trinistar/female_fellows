@@ -7,6 +7,10 @@ part of 'user_model.dart';
 // **************************************************************************
 
 FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
+      favorites: (json['favorites'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
       lastname: json['lastname'] as String?,
       profilPicture: json['profilPicture'] as String?,
       birthday: json['birthday'] as String?,
@@ -39,6 +43,7 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'address': instance.address?.toJson(),
       'localOrNewcomer': _$LocalOrNewcomerEnumMap[instance.localOrNewcomer],
       'socialmedia': _$SocialmediaEnumMap[instance.socialmedia],
+      'favorites': instance.favorites,
     };
 
 const _$LocalOrNewcomerEnumMap = {

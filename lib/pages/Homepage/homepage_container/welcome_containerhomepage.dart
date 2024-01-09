@@ -33,7 +33,7 @@ class HomePageTitle extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Hallo ${state.user!.email!},',
+                            'Hallo ${state.userProfile != null ? state.userProfile!.firstname : ''},',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 30,

@@ -1,9 +1,11 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/german_locale.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
 
 class EventListTile extends StatefulWidget {
@@ -82,23 +84,49 @@ class _EventListTileState extends State<EventListTile> {
             ),
           ),
         ),
-        GestureDetector(
-          onTap: () => null,
-          child: Icon(Icons.favorite_outline),
-        )
+        BlocBuilder<AuthenticationBloc, AuthenticationState>(
+          builder: (context, state) {
+            if (state is AuthenticatedUser) {
+              return _favoriteIcon(state.userProfile!, widget.event.eventId!);
+            } else {
+              return SizedBox.shrink();
+            }
+          },
+        ),
       ],
     );
   }
-  
 
-  void _updateFavorites() {
-    BlocBuilder<AuthenticationBloc, AuthenticationState>(
-      builder: (context, state) {
-        if (state is AuthenticatedUser) {
-          //context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(state.user!.uid, user: user));
-        }
-        return Container();
+  Widget _favoriteIcon(FFUser userProfile, String eventId) {
+    return IconButton(
+      onPressed: () {
+        _updateFavorites(userProfile, eventId);
       },
+      icon: (userProfile.favorites.contains(eventId))
+          ? Icon(
+              Icons.favorite,
+            )
+          : Icon(
+              Icons.favorite_outline,
+            ),
     );
+  }
+
+  void _updateFavorites(FFUser userProfile, String eventId) async {
+    List<String> favorites = <String>[];
+    favorites = userProfile.favorites.toList();
+    if (userProfile.favorites.contains(eventId)) {
+      favorites.remove(eventId);
+    } else {
+      favorites.add(eventId);
+    }
+    userProfile.favorites = favorites;
+    setState(() {});
+    HapticFeedback.heavyImpact();
+
+    if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
+          context.read<AuthenticationBloc>().add(UpdateUserProfileEvent((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid, userProfile: userProfile));
+
+    }
   }
 }

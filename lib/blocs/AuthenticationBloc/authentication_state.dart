@@ -26,12 +26,26 @@ class UnauthenticatedUser extends AuthenticationState {}
 
 class AuthenticatedUser extends AuthenticationState {
   AuthenticatedUser({
+    this.userProfile,
     required this.user,
     this.tokenResult,
   });
 
   final User? user;
   final IdTokenResult? tokenResult;
+  final FFUser? userProfile;
+
+  AuthenticatedUser copyWith({
+    User? user,
+    IdTokenResult? tokenResult,
+    FFUser? userProfile,
+  }) {
+    return AuthenticatedUser(
+      userProfile: userProfile ?? this.userProfile,
+      user: user ?? this.user,
+      tokenResult: tokenResult ?? this.tokenResult,
+    );
+  }
 }
 
 
