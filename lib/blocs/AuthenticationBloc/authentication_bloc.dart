@@ -12,45 +12,45 @@ import 'package:vs_femalefellows/models/user_model.dart';
 part 'authentication_event.dart';
 part 'authentication_state.dart';
 
-class AuthenticationBloc
-    extends Bloc<AuthenticationEvent, AuthenticationState> {
-  AuthenticationBloc({required AuthRepository authenticationRepository })
+class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
+  AuthenticationBloc({required AuthRepository authenticationRepository})
       : _authenticationProvider = authenticationRepository,
         super(
-          authenticationRepository.currentUser != null
-              ? AuthenticatedUser(user: authenticationRepository.currentUser)
-              : UnauthenticatedUser(),
+          authenticationRepository.currentUser != null ? AuthenticatedUser(user: authenticationRepository.currentUser) : UnauthenticatedUser(),
         ) {
     on<Signup>(_onSignUp);
     on<AuthenticationUserChangedEvent>(_onAuthenticationUserChanged);
     on<SignOutEvent>(_onSignOutEvent);
+    on<UpdateUserProfileEvent>(_onUpdateUserProfile);
 
-    _userSubscription = _authenticationProvider.user
-        .listen((User? user) => add(AuthenticationUserChangedEvent(user)));
+    _userSubscription = _authenticationProvider.user.listen((User? user) => add(AuthenticationUserChangedEvent(user)));
   }
   final AuthRepository _authpage = AuthRepository();
 
-  final FirestoreUserProfileRepository _firestoreUserProfileRepository =
-      FirestoreUserProfileRepository();
+  final FirestoreUserProfileRepository _firestoreUserProfileRepository = FirestoreUserProfileRepository();
 
   StreamSubscription<User?>? _userSubscription;
 
   final AuthRepository _authenticationProvider;
 
-  Future<void> _onAuthenticationUserChanged(
-      AuthenticationUserChangedEvent event,
-      Emitter<AuthenticationState> emit) async {
+  Future<void> _onAuthenticationUserChanged(AuthenticationUserChangedEvent event, Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
 
     if (event.user != null) {
-      emit(AuthenticatedUser(user: event.user));
+      final IdTokenResult tokenResult = await event.user!.getIdTokenResult();
+      emit(AuthenticatedUser(user: event.user, tokenResult: tokenResult));
     } else {
       emit(UnauthenticatedUser());
     }
   }
 
-  Future<void> _onSignUp(
-      Signup event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onUpdateUserProfile(UpdateUserProfileEvent event, Emitter<AuthenticationState> emit) async {
+    try {
+      await _firestoreUserProfileRepository.updateUserProfile(event.user, userID: event.userId);
+    } catch (_) {}
+  }
+
+  Future<void> _onSignUp(Signup event, Emitter<AuthenticationState> emit) async {
     emit(FormSignup());
     try {
       FFUser userdata = FFUser(
@@ -58,12 +58,9 @@ class AuthenticationBloc
         lastname: Controller.lastnameController.text,
         profilPicture: Controller.profilpictureController.text,
         birthday: Controller.birthdayController.text,
-        newsletter:event.newsletter,
+        newsletter: event.newsletter,
         //Adress//
-        address: Address(
-            street: Controller.streetnameController.text,
-            zipCode: Controller.zipCodeController.text,
-            city: Controller.placeController.text),
+        address: Address(street: Controller.streetnameController.text, zipCode: Controller.zipCodeController.text, city: Controller.placeController.text),
         //Notification
         notification: Notifications(
           phonenumber: Controller.phonenumberController.text,
@@ -77,12 +74,10 @@ class AuthenticationBloc
         socialmedia: event.socialmedia,
       );
 
-      final User? currentuser =
-          await _authpage.signUp(email: event.email, password: event.password);
+      final User? currentuser = await _authpage.signUp(email: event.email, password: event.password);
       if (currentuser != null) {
         userdata.email = currentuser.email;
-        await _firestoreUserProfileRepository.updateUserProfile(userdata,
-            userID: currentuser.uid);
+        await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
         emit(SignUpSuccess(currentuser: currentuser, userdata: userdata));
       } else {
         emit(SignUpFailure());
@@ -92,8 +87,7 @@ class AuthenticationBloc
     }
   }
 
-  Future<void> _onSignOutEvent(
-      SignOutEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onSignOutEvent(SignOutEvent event, Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     try {
       _authenticationProvider.logOut();

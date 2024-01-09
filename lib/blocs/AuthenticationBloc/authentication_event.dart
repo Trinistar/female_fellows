@@ -24,6 +24,12 @@ class SignOutEvent extends AuthenticationEvent {
   List<Object> get props => <Object>[];
 }
 
+class UpdateUserProfileEvent extends AuthenticationEvent {
+  UpdateUserProfileEvent(this.userId, {required this.user});
+
+  final String userId;
+  final FFUser user;
+}
 
 class InputChanged extends AuthenticationEvent {
   final String? firstname;
@@ -84,7 +90,7 @@ class Signup extends AuthenticationEvent {
     this.call,
     this.contactemail,
     required this.phonenumber,
-    
+
     //Enum LocalOrNot
     required this.localOrNewcomer,
     //Enum Socialmedia

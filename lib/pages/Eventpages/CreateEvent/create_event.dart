@@ -52,10 +52,17 @@ class _CreateEventState extends State<CreateEvent> {
           body: BlocConsumer<EventBloc, EventState>(
             listener: (context, state) {
               if (state is CreateSuccess) {
-                Navigator.of(context).push(MaterialPageRoute(
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    backgroundColor: Colors.green,
+                    content: Text('Event wurde erfolgreich erstellt'),
+                  ),
+                );
+                Navigator.of(context).pop();
+                /* Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => DetailEvent(
                           eventState: state.eventdata,
-                        )));
+                        ))); */
               }
               if (state is EventFailure) {
                 SnackBar(
@@ -66,9 +73,7 @@ class _CreateEventState extends State<CreateEvent> {
             builder: (context, state) {
               return ListView(children: [
                 HeaderEvent(),
-                Artbar(
-                    colorleft: Theme.of(context).colorScheme.secondary,
-                    colorright: Colors.white),
+                Artbar(colorleft: Theme.of(context).colorScheme.secondary, colorright: Colors.white),
                 Container(
                   color: Colors.white,
                   height: 20,
@@ -88,12 +93,7 @@ class _CreateEventState extends State<CreateEvent> {
                           padding: const EdgeInsets.only(left: 40),
                           child: Text('Event Title'),
                         ),
-                        TextBar(
-                            controller: Controller.eventTitleController,
-                            hintText: 'Title',
-                            obscureText: false,
-                            onChange: null,
-                            validator: null),
+                        TextBar(controller: Controller.eventTitleController, hintText: 'Title', obscureText: false, onChange: null, validator: null),
                         Container(
                           color: Colors.white,
                           height: 20,
@@ -128,40 +128,25 @@ class _CreateEventState extends State<CreateEvent> {
                           padding: const EdgeInsets.only(left: 40),
                           child: Text('Event Location'),
                         ),
-                        TextBar(
-                            controller: Controller.locationController,
-                            hintText: 'Location',
-                            obscureText: false,
-                            onChange: null,
-                            validator: null),
+                        TextBar(controller: Controller.locationController, hintText: 'Location', obscureText: false, onChange: null, validator: null),
                       ],
                     ),
                   ),
                 ),
-                DividerBouthCorner(
-                    color1: Theme.of(context).colorScheme.tertiary,
-                    color2: Colors.white),
+                DividerBouthCorner(color1: Theme.of(context).colorScheme.tertiary, color2: Colors.white),
 
                 // *************************************  //EVENT ORGA //**************************************/
                 OrgaEvent(),
-                DividerBouthCorner(
-                    color1: Theme.of(context).colorScheme.secondary,
-                    color2: Theme.of(context).colorScheme.tertiary),
+                DividerBouthCorner(color1: Theme.of(context).colorScheme.secondary, color2: Theme.of(context).colorScheme.tertiary),
                 // *************************************  //EVENT DESCRIPTION //**************************************/
                 DescriptionEvent(),
-                DividerBouthCorner(
-                    color1: Colors.white,
-                    color2: Theme.of(context).colorScheme.secondary),
+                DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.secondary),
                 // *************************************  //EVENT CATEGORYS //**************************************/
                 EventCategory(),
-                DividerBouthCorner(
-                    color1: Theme.of(context).colorScheme.surfaceVariant,
-                    color2: Colors.white),
+                DividerBouthCorner(color1: Theme.of(context).colorScheme.surfaceVariant, color2: Colors.white),
                 // *************************************  //EVENT MATERIALS //**************************************/
                 EventMaterial(),
-                DividerBouthCorner(
-                    color1: Colors.white,
-                    color2: Theme.of(context).colorScheme.surfaceVariant),
+                DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.surfaceVariant),
                 Container(
                   color: Colors.white,
                   height: 20,
@@ -173,20 +158,16 @@ class _CreateEventState extends State<CreateEvent> {
                       onTap: () {
                         context.read<EventBloc>().add(NewEvent(
                               eventEmail: Controller.eventEmailController.text,
-                              evntPhoneNumber:
-                                  Controller.eventPhoneNumberController.text,
-                              date:Timestamp.fromDate(_dateTime),
-                              eventDescription:
-                                  Controller.descriptionController.text,
+                              evntPhoneNumber: Controller.eventPhoneNumberController.text,
+                              date: Timestamp.fromDate(_dateTime),
+                              eventDescription: Controller.descriptionController.text,
                               host: Controller.hostController.text,
                               eventTitle: Controller.eventTitleController.text,
-                              contactPerson:
-                                  Controller.contactPersonController.text,
+                              contactPerson: Controller.contactPersonController.text,
                               location: Controller.locationController.text,
                               planer: Controller.planerController.text,
                               food: Controller.foodController.text,
-                              information:
-                                  Controller.informationController.text,
+                              information: Controller.informationController.text,
                               clothes: Controller.clothesController.text,
                             ));
                       },

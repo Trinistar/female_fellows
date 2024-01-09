@@ -25,9 +25,13 @@ class AuthenticationLoading extends AuthenticationState {}
 class UnauthenticatedUser extends AuthenticationState {}
 
 class AuthenticatedUser extends AuthenticationState {
-  AuthenticatedUser({required this.user});
+  AuthenticatedUser({
+    required this.user,
+    this.tokenResult,
+  });
 
   final User? user;
+  final IdTokenResult? tokenResult;
 }
 
 
