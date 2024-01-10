@@ -46,7 +46,7 @@ class _EventListTileState extends State<EventListTile> {
                           size: 20,
                         ),
                         Text(
-                          widget.event.date.toString(),
+                       '${ widget.event.date.toDate().day}.${ widget.event.date.toDate().month}.${ widget.event.date.toDate().year}',
                           style: TextStyle(fontSize: 13),
                         ),
                       ],
@@ -70,7 +70,7 @@ class _EventListTileState extends State<EventListTile> {
                           size: 20,
                         ),
                         Text(
-                          widget.event.location,
+                           '${widget.event.location.street},${widget.event.location.city}',
                           style: TextStyle(fontSize: 13),
                         ),
                       ],
