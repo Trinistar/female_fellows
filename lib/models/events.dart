@@ -30,6 +30,7 @@ class Event {
   final String eventPhoneNumber;
   final EventMaterials? material;
   final bool? isfavorit;
+  String? eventId;
 
   Event({
     required this.whatsAppLink,
