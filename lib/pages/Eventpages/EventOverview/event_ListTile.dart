@@ -23,76 +23,64 @@ class _EventListTileState extends State<EventListTile> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Flexible(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 20, top: 30, bottom: 30),
-            child: SizedBox(
-              height: 80,
-              width: 320,
-              child: ListTile(
-                  leading: Image.asset(
-                    'lib/images/partner1.png',
-                    fit: BoxFit.fill,
-                    width: 80,
-                  ),
-                  title: Text(
-                    widget.event.eventTitle,
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.calendar_month_outlined,
-                            size: 20,
-                          ),
-                          Flexible(
-                            child: Text(
-                              formatDate(widget.event.date.toDate(), <String>[d, '. ', MM, ' ', yyyy], locale: GermanLocale()),
-                              style: TextStyle(fontSize: 13),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.person_2_outlined,
-                            size: 20,
-                          ),
-                          Text(
-                            widget.event.host,
-                            style: TextStyle(fontSize: 13),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.location_on_outlined,
-                            size: 20,
-                          ),
-                          Text(
-                            widget.event.location,
-                            style: TextStyle(fontSize: 13),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )),
-            ),
+        Padding(
+          padding: const EdgeInsets.only(left: 20, top: 30, bottom: 30),
+          child: SizedBox(
+            height: 80,
+            width: 320,
+            child: ListTile(
+                leading: Image.asset(
+                  'lib/images/partner1.png',
+                  fit: BoxFit.fill,
+                  width: 80,
+                ),
+                title: Text(
+                  widget.event.eventTitle,
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                subtitle: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.calendar_month_outlined,
+                          size: 20,
+                        ),
+                        Text(
+                       '${ widget.event.date.toDate().day}.${ widget.event.date.toDate().month}.${ widget.event.date.toDate().year}',
+                          style: TextStyle(fontSize: 13),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.person_2_outlined,
+                          size: 20,
+                        ),
+                        Text(
+                          widget.event.host,
+                          style: TextStyle(fontSize: 13),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.location_on_outlined,
+                          size: 20,
+                        ),
+                        Text(
+                           '${widget.event.location.street},${widget.event.location.city}',
+                          style: TextStyle(fontSize: 13),
+                        ),
+                      ],
+                    ),
+                  ],
+                )),
           ),
         ),
-        BlocBuilder<AuthenticationBloc, AuthenticationState>(
-          builder: (context, state) {
-            if (state is AuthenticatedUser) {
-              return _favoriteIcon(state.userProfile!, widget.event.eventId!);
-            } else {
-              return SizedBox.shrink();
-            }
-          },
-        ),
+        Icon(Icons.favorite_outline)
       ],
     );
   }

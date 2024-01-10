@@ -22,6 +22,7 @@ class Controller {
   static final locationController = TextEditingController();
   static final eventEmailController = TextEditingController();
   static final eventPhoneNumberController = TextEditingController();
+  static final whatsAppLinkController = TextEditingController();
 //Events Materials
   static final planerController = TextEditingController();
   static final foodController = TextEditingController();

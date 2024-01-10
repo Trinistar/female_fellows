@@ -19,6 +19,7 @@ class CreateSuccess extends EventState {
 }
 
 class EventFailure extends EventState {}
+class UpdateEventFailure extends EventState{}
 
 class EventStore extends EventState {
   final List<Event> events;

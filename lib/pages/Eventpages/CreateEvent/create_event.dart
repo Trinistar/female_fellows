@@ -5,6 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
+import 'package:vs_femalefellows/models/address.dart';
+import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/models/materials.dart';
 import 'package:vs_femalefellows/pages/Eventpages/CreateEvent/create_event_category.dart';
 import 'package:vs_femalefellows/pages/Eventpages/CreateEvent/create_event_description.dart';
 import 'package:vs_femalefellows/pages/Eventpages/CreateEvent/create_event_header.dart';
@@ -82,7 +85,7 @@ class _CreateEventState extends State<CreateEvent> {
                 Container(
                   color: Colors.white,
                   width: 1000,
-                  height: 350,
+                  height: 550,
                   child: Padding(
                     padding: const EdgeInsets.all(10),
                     child: Column(
@@ -104,20 +107,20 @@ class _CreateEventState extends State<CreateEvent> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 40),
-                          child: Text(
-                            formatDate(
-                              _dateTime,
-                              <String>[d, '. ', MM, ' ', yyyy],
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 120),
                           child: OutlinedButton(
                             onPressed: () {
                               _showdatePicker();
                             },
                             child: const Text('Open Date Picker'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40),
+                          child: Text(
+                            formatDate(
+                              _dateTime,
+                              <String>[d, '. ', MM, ' ', yyyy],
+                            ),
                           ),
                         ),
                         Container(
@@ -126,9 +129,63 @@ class _CreateEventState extends State<CreateEvent> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 40),
-                          child: Text('Event Location'),
+                          child: Text('Straße'),
                         ),
-                        TextBar(controller: Controller.locationController, hintText: 'Location', obscureText: false, onChange: null, validator: null),
+                        TextBar(
+                            controller: Controller.streetnameController,
+                            hintText: 'Straße',
+                            obscureText: false,
+                            onChange: null,
+                            validator: null),
+                        Container(
+                          color: Colors.white,
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40),
+                          child: Text('Ort'),
+                        ),
+                        TextBar(
+                            controller: Controller.placeController,
+                            hintText: 'Ort',
+                            obscureText: false,
+                            onChange: null,
+                            validator: null),
+                        Container(
+                          color: Colors.white,
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40),
+                          child: Text('Postleitzahl'),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
+                          child: TextFormField(
+                            controller: Controller.zipCodeController,
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black87),
+                                // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  width: 2,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              fillColor: Theme.of(context).colorScheme.surface,
+                              filled: true,
+                              hintText: 'Postleitzahl',
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -157,19 +214,31 @@ class _CreateEventState extends State<CreateEvent> {
                       text: 'Create Event',
                       onTap: () {
                         context.read<EventBloc>().add(NewEvent(
+                                newEvent: Event(
+                              whatsAppLink:
+                                  Controller.whatsAppLinkController.text,
                               eventEmail: Controller.eventEmailController.text,
-                              evntPhoneNumber: Controller.eventPhoneNumberController.text,
+                              eventPhoneNumber:
+                                  Controller.eventPhoneNumberController.text,
                               date: Timestamp.fromDate(_dateTime),
-                              eventDescription: Controller.descriptionController.text,
+                              eventDescription:
+                                  Controller.descriptionController.text,
                               host: Controller.hostController.text,
                               eventTitle: Controller.eventTitleController.text,
-                              contactPerson: Controller.contactPersonController.text,
-                              location: Controller.locationController.text,
-                              planer: Controller.planerController.text,
-                              food: Controller.foodController.text,
-                              information: Controller.informationController.text,
-                              clothes: Controller.clothesController.text,
-                            ));
+                              contactPerson:
+                                  Controller.contactPersonController.text,
+                              location: Address(
+                                  street: Controller.streetnameController.text,
+                                  city: Controller.placeController.text,
+                                  zipCode: Controller.zipCodeController.text),
+                              material: EventMaterials(
+                                planer: Controller.planerController.text,
+                                food: Controller.foodController.text,
+                                information:
+                                    Controller.informationController.text,
+                                clothes: Controller.clothesController.text,
+                              ),
+                            )));
                       },
                     );
                   },
