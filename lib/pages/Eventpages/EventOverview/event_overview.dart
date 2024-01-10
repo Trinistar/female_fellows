@@ -255,7 +255,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
               height: 40,
             ),
             /*********************************************************************************************************/
-            Container(
+            SizedBox(
               child: TabBar(
                 controller: _tabController,
                 tabs: [
@@ -280,10 +280,10 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                   create: (BuildContext context) => SubscribedEventsStore(),
                 ),
                 BlocProvider<FavoriteEventStore>(
-                  create: (BuildContext context) => FavoriteEventStore(),
+                  create: (BuildContext context) => FavoriteEventStore((BlocProvider.of<AuthenticationBloc>(context))),
                 ),
               ],
-              child: Container(
+              child: SizedBox(
                 width: double.maxFinite,
                 height: 400,
                 child: TabBarView(
