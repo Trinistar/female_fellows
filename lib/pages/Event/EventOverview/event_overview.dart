@@ -272,32 +272,47 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                     ],
                   ),
                 ),
-                MultiBlocProvider(
+                SizedBox(
+                  width: double.maxFinite,
+                  height: 700,
+                  child: TabBarView(
+                    controller: _tabController,
+                    children: [
+                      AllEvents(),
+                      SingedUpEvents(),
+                      FavoritEvents(),
+                    ],
+                  ),
+                ),
+                /* MultiBlocProvider(
                   providers: [
-                    BlocProvider<AllEventsStore>(
+                    /* BlocProvider<AllEventsStore>(
                       create: (BuildContext context) => AllEventsStore(),
-                    ),
-                    BlocProvider<SubscribedEventsStore>(
-                      create: (BuildContext context) => SubscribedEventsStore(),
-                    ),
+                    ), */
+                    /* BlocProvider<SubscribedEventsStore>(
+                      lazy: false,
+                      create: (BuildContext context) => SubscribedEventsStore(BlocProvider.of<AuthenticationBloc>(context)),
+                    ), */
                     /* BlocProvider<FavoriteEventStore>(
                       lazy: false,
                       create: (BuildContext context) => FavoriteEventStore(BlocProvider.of<AuthenticationBloc>(context)),
                     ), */
                   ],
-                  child: SizedBox(
-                    width: double.maxFinite,
-                    height: 400,
-                    child: TabBarView(
-                      controller: _tabController,
-                      children: [
-                        AllEvents(),
-                        SingedUpEvents(),
-                        FavoritEvents(),
-                      ],
+                  child: Expanded(
+                    child: SizedBox(
+                      width: double.maxFinite,
+                      height: 400,
+                      child: TabBarView(
+                        controller: _tabController,
+                        children: [
+                          AllEvents(),
+                          SingedUpEvents(),
+                          FavoritEvents(),
+                        ],
+                      ),
                     ),
                   ),
-                ),
+                ), */
 
                 /*********************************************************************************************************/
                 SizedBox(

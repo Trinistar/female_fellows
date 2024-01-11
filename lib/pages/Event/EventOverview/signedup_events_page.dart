@@ -17,20 +17,22 @@ class _SingedUpEventsState extends State<SingedUpEvents> {
   Widget build(BuildContext context) {
     return BlocBuilder<SubscribedEventsStore, List<Event>>(
       builder: (context, state) {
-        return ListView(
+        return ListView.builder(
           physics: NeverScrollableScrollPhysics(),
-          children: state
-              .map((e) => GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => DetailEvent(
-                              eventState: e,
-                            )));
-                  },
-                  child: EventListTile(
-                    event: e,
-                  )))
-              .toList(),
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => DetailEvent(
+                          eventState: state[index],
+                        )));
+              },
+              child: EventListTile(
+                event: state[index],
+              ),
+            );
+          },
+          itemCount: state.length,
         );
       },
     );

@@ -25,9 +25,9 @@ class FirestoreEventRepository {
     return db.collection('event').snapshots();
   }
 
-  Stream<List<Event>> getEventsById(List<String> favorites) {
-    if (favorites.isEmpty) return Stream.empty();
-    return db.collection('event').where(FieldPath.documentId, whereIn: favorites).snapshots().map(
+  Stream<List<Event>> getEventsById(List<String> eventIds) {
+    if (eventIds.isEmpty) return Stream.empty();
+    return db.collection('event').where(FieldPath.documentId, whereIn: eventIds).snapshots().map(
       ((QuerySnapshot<Map<String, dynamic>> snapshot) {
         if (snapshot.docs.isNotEmpty) {
           List<Event> tmp = [];
@@ -97,12 +97,29 @@ class AllEventsStore extends Cubit<List<Event>> {
 }
 
 class SubscribedEventsStore extends Cubit<List<Event>> {
-  final FirebaseFirestore db;
-  SubscribedEventsStore()
-      : db = FirestoreRepository().firestoreInstance,
-        super(List.empty(growable: true)) {
-    db.collection('event').snapshots().listen(eventListener);
+  SubscribedEventsStore(this._authBloc)
+      : _db = FirestoreRepository().firestoreInstance,
+        super(List.empty(growable: false)) {
+    _authBlocStreamSub = _authBloc.stream.listen((AuthenticationState authState) {
+      if (authState is AuthenticatedUser) {
+        if (authState.userProfile!.participatingEvents.isEmpty) {
+          return;
+        }
+        _eventRepo.getEventsById(authState.userProfile!.participatingEvents).listen((event) { 
+          emit(event);
+        });
+        //_db.collection('event').where(FieldPath.documentId, whereIn: authState.userProfile!.participatingEvents).get();
+      }
+    });
   }
+
+  final FirestoreEventRepository _eventRepo = FirestoreEventRepository();
+
+  final FirebaseFirestore _db;
+
+  final AuthenticationBloc _authBloc;
+
+  StreamSubscription<dynamic>? _authBlocStreamSub;
 
   void eventListener(QuerySnapshot<Map<String, dynamic>> snapshot) {
     if (snapshot.docs.isNotEmpty) {
@@ -110,11 +127,14 @@ class SubscribedEventsStore extends Cubit<List<Event>> {
       for (var change in snapshot.docChanges) {
         switch (change.type) {
           case DocumentChangeType.added:
-            tmp.add(Event.fromJson(change.doc.data()!));
+            final Event event = Event.fromJson(change.doc.data()!);
+            tmp.add(event);
+            event.eventId = change.doc.id;
             break;
           case DocumentChangeType.modified:
             Event modiefiedEvent = Event.fromJson(change.doc.data()!);
             int index = tmp.indexWhere((e) => e.eventTitle == modiefiedEvent.eventTitle);
+            modiefiedEvent.eventId = change.doc.id;
             if (index > -1) {
               tmp[index] = modiefiedEvent;
             }
@@ -122,6 +142,7 @@ class SubscribedEventsStore extends Cubit<List<Event>> {
           case DocumentChangeType.removed:
             Event deletedEvent = Event.fromJson(change.doc.data()!);
             int index = tmp.indexWhere((e) => e.eventTitle == deletedEvent.eventTitle);
+            deletedEvent.eventId = change.doc.id;
             if (index > -1) {
               tmp.removeAt(index);
             }
@@ -130,6 +151,12 @@ class SubscribedEventsStore extends Cubit<List<Event>> {
       }
       emit(tmp);
     }
+  }
+
+  @override
+  Future<void> close() {
+    _authBlocStreamSub?.cancel();
+    return super.close();
   }
 }
 

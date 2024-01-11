@@ -43,7 +43,13 @@ class MyApp extends StatelessWidget {
           lazy: false,
           create: (BuildContext context) => FavoriteEventStore(BlocProvider.of<AuthenticationBloc>(context)),
         ),
-
+        BlocProvider<SubscribedEventsStore>(
+          lazy: false,
+          create: (BuildContext context) => SubscribedEventsStore(BlocProvider.of<AuthenticationBloc>(context)),
+        ),
+        BlocProvider<AllEventsStore>(
+          create: (BuildContext context) => AllEventsStore(),
+        ),
         /* RepositoryProvider(
           create: (context) => AuthRepository(),
           child: LoginPage(),
