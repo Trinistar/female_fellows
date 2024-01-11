@@ -4,9 +4,11 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
+import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/notifications.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_user_profile_repository.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 part 'authentication_event.dart';
@@ -22,12 +24,15 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     on<AuthenticationUserChangedEvent>(_onAuthenticationUserChanged);
     on<SignOutEvent>(_onSignOutEvent);
     on<UpdateUserProfileEvent>(_onUpdateUserProfile);
+    on<SetEventParticipationEvent>(_onSetEventParticipationEvent);
 
     _userSubscription = _authenticationProvider.user.listen((User? user) => add(AuthenticationUserChangedEvent(user)));
   }
   final AuthRepository _authpage = AuthRepository();
 
   final FirestoreUserProfileRepository _firestoreUserProfileRepository = FirestoreUserProfileRepository();
+
+  final FirestoreEventRepository _firestoreEventRepository = FirestoreEventRepository();
 
   StreamSubscription<User?>? _userSubscription;
 
@@ -87,6 +92,13 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       }
     } catch (e) {
       emit(SignUpFailure());
+    }
+  }
+
+  Future<void> _onSetEventParticipationEvent(SetEventParticipationEvent event, Emitter<AuthenticationState> emit) async {
+    try {
+      await _firestoreEventRepository.setEventParticipation(event.userId, event.eventId, event.eventParticipant);
+    } catch (_) {
     }
   }
 

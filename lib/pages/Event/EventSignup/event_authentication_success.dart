@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventComponents/participants_rowWhite.dart';
+import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
+import 'package:vs_femalefellows/pages/Event/EventComponents/participants_rowWhite.dart';
 
 class EventSuccess extends StatefulWidget {
   const EventSuccess({super.key, required this.event});

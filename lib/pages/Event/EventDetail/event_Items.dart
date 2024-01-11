@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventComponents/participants_image_row.dart';
+import 'package:vs_femalefellows/pages/Event/EventComponents/participants_image_row.dart';
 
 class EventItems extends StatelessWidget {
   const EventItems({super.key});

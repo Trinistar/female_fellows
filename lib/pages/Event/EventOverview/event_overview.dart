@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/favorites/favorites_bloc.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventOverview/all_events_page.dart';
-import 'package:vs_femalefellows/pages/Eventpages/CreateEvent/create_event.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_not_authenticated.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventOverview/favorite_events.page.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventOverview/signedup_events_page.dart';
+import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
+import 'package:vs_femalefellows/pages/Event/EventOverview/all_events_page.dart';
+import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
+import 'package:vs_femalefellows/pages/Event/EventOverview/favorite_events.page.dart';
+import 'package:vs_femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
 

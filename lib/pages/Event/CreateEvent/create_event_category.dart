@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/pages/Eventpages/CreateEvent/event_category_items.dart';
+import 'package:vs_femalefellows/pages/Event/CreateEvent/event_category_items.dart';
 
 class EventCategory extends StatelessWidget {
   const EventCategory({super.key});

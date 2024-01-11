@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
+import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_authentication_success.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_success.dart';
 
 class EventPictureAuthentication extends StatefulWidget {
-  const EventPictureAuthentication({super.key,required this.event});
+  const EventPictureAuthentication({super.key, required this.event});
   final Event event;
 
   @override
-  State<EventPictureAuthentication> createState() =>
-      _EventPictureAuthenticationState();
+  State<EventPictureAuthentication> createState() => _EventPictureAuthenticationState();
 }
-
 
 bool _pictures = false;
 String? _question;
 
-class _EventPictureAuthenticationState
-    extends State<EventPictureAuthentication> {
+class _EventPictureAuthenticationState extends State<EventPictureAuthentication> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +44,7 @@ class _EventPictureAuthenticationState
               ),
               Center(
                 child: CircleAvatar(
-                  backgroundImage:
-                      AssetImage('lib/images/fotoeinwilligung.png'),
+                  backgroundImage: AssetImage('lib/images/fotoeinwilligung.png'),
                   radius: 100,
                   backgroundColor: Theme.of(context).colorScheme.secondary,
                 ),
@@ -97,10 +96,17 @@ class _EventPictureAuthenticationState
                     SizedBox(
                       height: 15,
                     ),
-                    FFButton(onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EventSuccess(event:widget.event)));
-
-                    }, text: 'Verbindlich anmelden')
+                    FFButton(
+                      onTap: () {
+                        if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
+                          final String userId = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid;
+                          final EventParticipant eventParticipant = EventParticipant(participating: true, userId: userId, interpreter: Interpreter(needed: true, language: 'English'), childCare: ChildCare(needed: false, childName: null), mediaConsent: true);
+                          context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.event.eventId!, userId: userId, eventParticipant: eventParticipant));
+                        }
+                        //Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventSuccess(event: widget.event)));
+                      },
+                      text: 'Verbindlich anmelden',
+                    ),
                   ],
                 ),
               )

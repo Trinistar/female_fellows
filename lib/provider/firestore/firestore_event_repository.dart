@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_repository.dart';
 
 import '../../models/events.dart';
@@ -42,6 +43,10 @@ class FirestoreEventRepository {
         }
       }),
     );
+  }
+
+  Future<void> setEventParticipation(String? userId, String? eventId, EventParticipant data) {
+    return db.collection('event').doc(eventId).collection('participants').doc(userId).set(data.toJson(), SetOptions(merge: true));
   }
 }
 

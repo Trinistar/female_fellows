@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_authentication_kids.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_authentication_pictures.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_authentication_translation.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_kids.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_pictures.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Evententry extends StatefulWidget {

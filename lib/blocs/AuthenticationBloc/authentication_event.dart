@@ -24,6 +24,21 @@ class SignOutEvent extends AuthenticationEvent {
   List<Object> get props => <Object>[];
 }
 
+class SetEventParticipationEvent extends AuthenticationEvent {
+  SetEventParticipationEvent({
+    required this.eventId,
+    required this.userId,
+    required this.eventParticipant,
+  });
+
+  final String eventId;
+  final String userId;
+  final EventParticipant eventParticipant;
+
+  @override
+  List<Object> get props => <Object>[];
+}
+
 class UpdateUserProfileEvent extends AuthenticationEvent {
   UpdateUserProfileEvent(this.userId, {required this.userProfile});
 

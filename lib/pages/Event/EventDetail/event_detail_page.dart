@@ -3,16 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventComponents/color_artbar.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventComponents/favoritIcon.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_Categorys.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_Description.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_Items.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_Materials.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_Pictures.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_data_creator.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventSignup/event_authentication_entry.dart';
-import 'package:vs_femalefellows/pages/Eventpages/UpdateEvent/event_update.dart';
+import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
+import 'package:vs_femalefellows/pages/Event/EventComponents/favoritIcon.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_Categorys.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_Description.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_Items.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_Materials.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_Pictures.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_data_creator.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_entry.dart';
+import 'package:vs_femalefellows/pages/Event/UpdateEvent/event_update.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 
 class DetailEvent extends StatefulWidget {

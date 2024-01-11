@@ -9,9 +9,9 @@ import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/materials.dart';
-import 'package:vs_femalefellows/pages/Eventpages/UpdateEvent/update_description.dart';
-import 'package:vs_femalefellows/pages/Eventpages/UpdateEvent/update_event_item.dart';
-import 'package:vs_femalefellows/pages/Eventpages/UpdateEvent/update_materials.dart';
+import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_description.dart';
+import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_event_item.dart';
+import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_materials.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class UpdateEvent extends StatefulWidget {

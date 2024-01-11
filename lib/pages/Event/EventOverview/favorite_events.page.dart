@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/favorites/favorites_bloc.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventDetail/event_detail_page.dart';
-import 'package:vs_femalefellows/pages/Eventpages/EventOverview/event_ListTile.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_detail_page.dart';
+import 'package:vs_femalefellows/pages/Event/EventOverview/event_ListTile.dart';
 
 class FavoritEvents extends StatefulWidget {
   const FavoritEvents({super.key});
@@ -18,6 +18,7 @@ class _FavoritEventsState extends State<FavoritEvents> {
       builder: (context, state) {
         if (state is FavoritesLoaded) {
           return ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
