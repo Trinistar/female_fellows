@@ -29,11 +29,13 @@ class SetEventParticipationEvent extends AuthenticationEvent {
     required this.eventId,
     required this.userId,
     required this.eventParticipant,
+    required this.userData,
   });
 
   final String eventId;
   final String userId;
   final EventParticipant eventParticipant;
+  final FFUser userData;
 
   @override
   List<Object> get props => <Object>[];

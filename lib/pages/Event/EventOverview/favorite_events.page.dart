@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vs_femalefellows/blocs/favorites/favorites_bloc.dart';
+import 'package:vs_femalefellows/blocs/FavoritesBloc/favorites_bloc.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_detail_page.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/event_ListTile.dart';
 

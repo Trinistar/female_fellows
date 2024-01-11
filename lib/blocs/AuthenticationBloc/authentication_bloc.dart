@@ -98,8 +98,18 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   Future<void> _onSetEventParticipationEvent(SetEventParticipationEvent event, Emitter<AuthenticationState> emit) async {
     try {
       await _firestoreEventRepository.setEventParticipation(event.userId, event.eventId, event.eventParticipant);
-    } catch (_) {
-    }
+
+      final FFUser userProfile = event.userData;
+      List<String> partEvents = userProfile.participatingEvents;
+
+      if (event.eventParticipant.participating) {
+        partEvents.add(event.eventId);
+      } else {
+        partEvents.remove(event.eventId);
+      }
+      userProfile.participatingEvents = partEvents;
+      await _firestoreUserProfileRepository.updateUserProfile(userProfile, userID: event.userId);
+    } catch (_) {}
   }
 
   Future<void> _onSignOutEvent(SignOutEvent event, Emitter<AuthenticationState> emit) async {

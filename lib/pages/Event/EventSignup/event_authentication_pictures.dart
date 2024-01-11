@@ -4,6 +4,7 @@ import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.da
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_success.dart';
 
 class EventPictureAuthentication extends StatefulWidget {
@@ -100,8 +101,10 @@ class _EventPictureAuthenticationState extends State<EventPictureAuthentication>
                       onTap: () {
                         if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
                           final String userId = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid;
+                          final FFUser data = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
+
                           final EventParticipant eventParticipant = EventParticipant(participating: true, userId: userId, interpreter: Interpreter(needed: true, language: 'English'), childCare: ChildCare(needed: false, childName: null), mediaConsent: true);
-                          context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.event.eventId!, userId: userId, eventParticipant: eventParticipant));
+                          context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.event.eventId!, userId: userId, eventParticipant: eventParticipant, userData: data));
                         }
                         //Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventSuccess(event: widget.event)));
                       },

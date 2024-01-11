@@ -19,9 +19,11 @@ class FFUser {
   final LocalOrNewcomer? localOrNewcomer;
   final Socialmedia? socialmedia;
   List<String> favorites;
+  List<String> participatingEvents;
 
   FFUser({
     this.favorites = const[],
+    this.participatingEvents = const[],
     this.lastname,
     this.profilPicture,
     this.birthday,

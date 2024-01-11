@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
-import 'package:vs_femalefellows/blocs/favorites/favorites_bloc.dart';
+import 'package:vs_femalefellows/blocs/FavoritesBloc/favorites_bloc.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';

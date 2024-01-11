@@ -11,6 +11,10 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
               ?.map((e) => e as String)
               .toList() ??
           const [],
+      participatingEvents: (json['participatingEvents'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
       lastname: json['lastname'] as String?,
       profilPicture: json['profilPicture'] as String?,
       birthday: json['birthday'] as String?,
@@ -44,6 +48,7 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'localOrNewcomer': _$LocalOrNewcomerEnumMap[instance.localOrNewcomer],
       'socialmedia': _$SocialmediaEnumMap[instance.socialmedia],
       'favorites': instance.favorites,
+      'participatingEvents': instance.participatingEvents,
     };
 
 const _$LocalOrNewcomerEnumMap = {
