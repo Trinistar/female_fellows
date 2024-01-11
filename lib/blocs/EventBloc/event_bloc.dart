@@ -5,7 +5,7 @@ import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/materials.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
+import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
 
 part 'event_event.dart';
 part 'event_state.dart';

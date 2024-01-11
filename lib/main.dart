@@ -5,9 +5,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
+import 'package:vs_femalefellows/blocs/favorites/favorites_bloc.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_event.dart';
+import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
 
 import 'provider/firebase_options.dart';
 
@@ -33,8 +34,16 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => AuthenticationBloc(authenticationRepository: authenticationRepository),
           lazy: false,
         ),
-        BlocProvider(create: (BuildContext context)=> EventBloc(firestoreEventRepository)),
-   
+        BlocProvider(create: (BuildContext context) => EventBloc(firestoreEventRepository)),
+        BlocProvider<FavoritesBloc>(
+          create: (BuildContext context) => FavoritesBloc(BlocProvider.of<AuthenticationBloc>(context)),
+          lazy: false,
+        ),
+        BlocProvider<FavoriteEventStore>(
+          lazy: false,
+          create: (BuildContext context) => FavoriteEventStore(BlocProvider.of<AuthenticationBloc>(context)),
+        ),
+
         /* RepositoryProvider(
           create: (context) => AuthRepository(),
           child: LoginPage(),
@@ -61,7 +70,6 @@ class MyApp extends StatelessWidget {
             tertiary: Color.fromRGBO(106, 104, 206, 1),
           ),
           textTheme: TextTheme(
-            
             titleSmall: TextStyle(
               color: Color.fromRGBO(59, 57, 102, 1),
             ),

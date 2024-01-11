@@ -21,7 +21,27 @@ class FirestoreEventRepository {
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> getEvents() {
-    return db.collection('event').limit(5).snapshots();
+    return db.collection('event').snapshots();
+  }
+
+  Stream<List<Event>> getEventsById(List<String> favorites) {
+    if (favorites.isEmpty) return Stream.empty();
+    return db.collection('event').where(FieldPath.documentId, whereIn: favorites).snapshots().map(
+      ((QuerySnapshot<Map<String, dynamic>> snapshot) {
+        if (snapshot.docs.isNotEmpty) {
+          List<Event> tmp = [];
+
+          for (var change in snapshot.docChanges) {
+            final Event event = Event.fromJson(change.doc.data()!);
+            event.eventId = change.doc.id;
+            tmp.add(event);
+          }
+          return tmp;
+        } else {
+          return [];
+        }
+      }),
+    );
   }
 }
 
@@ -35,7 +55,7 @@ class AllEventsStore extends Cubit<List<Event>> {
   AllEventsStore()
       : db = FirestoreRepository().firestoreInstance,
         super(List.empty(growable: true)) {
-    db.collection('event').limit(5).snapshots().listen(eventListener);
+    db.collection('event').snapshots().listen(eventListener);
   }
 
   void eventListener(QuerySnapshot<Map<String, dynamic>> snapshot) {
@@ -51,6 +71,7 @@ class AllEventsStore extends Cubit<List<Event>> {
           case DocumentChangeType.modified:
             Event modiefiedEvent = Event.fromJson(change.doc.data()!);
             int index = tmp.indexWhere((e) => e.eventTitle == modiefiedEvent.eventTitle);
+            modiefiedEvent.eventId = change.doc.id;
             if (index > -1) {
               tmp[index] = modiefiedEvent;
             }
@@ -58,6 +79,7 @@ class AllEventsStore extends Cubit<List<Event>> {
           case DocumentChangeType.removed:
             Event deletedEvent = Event.fromJson(change.doc.data()!);
             int index = tmp.indexWhere((e) => e.eventTitle == deletedEvent.eventTitle);
+            deletedEvent.eventId = change.doc.id;
             if (index > -1) {
               tmp.removeAt(index);
             }
@@ -74,7 +96,7 @@ class SubscribedEventsStore extends Cubit<List<Event>> {
   SubscribedEventsStore()
       : db = FirestoreRepository().firestoreInstance,
         super(List.empty(growable: true)) {
-    db.collection('event').limit(5).snapshots().listen(eventListener);
+    db.collection('event').snapshots().listen(eventListener);
   }
 
   void eventListener(QuerySnapshot<Map<String, dynamic>> snapshot) {
@@ -141,6 +163,7 @@ class FavoriteEventStore extends Cubit<List<Event>> {
           case DocumentChangeType.modified:
             Event modiefiedEvent = Event.fromJson(change.doc.data()!);
             int index = tmp.indexWhere((e) => e.eventTitle == modiefiedEvent.eventTitle);
+            modiefiedEvent.eventId = change.doc.id;
             if (index > -1) {
               tmp2[index] = modiefiedEvent;
             }
@@ -148,6 +171,7 @@ class FavoriteEventStore extends Cubit<List<Event>> {
           case DocumentChangeType.removed:
             Event deletedEvent = Event.fromJson(change.doc.data()!);
             int index = tmp.indexWhere((e) => e.eventTitle == deletedEvent.eventTitle);
+            deletedEvent.eventId = change.doc.id;
             if (index > -1) {
               tmp2.removeAt(index);
             }
@@ -155,7 +179,6 @@ class FavoriteEventStore extends Cubit<List<Event>> {
         }
       }
       tmp = List<Event>.from([...state, ...tmp2], growable: false);
-      print(tmp.length);
       emit(tmp);
     }
   }
