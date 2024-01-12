@@ -1,6 +1,9 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/models/german_locale.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/participants_rowWhite.dart';
 
@@ -22,10 +25,7 @@ class _EventSuccessState extends State<EventSuccess> {
           backgroundColor: Theme.of(context).colorScheme.primary,
           body: ListView(children: [
             Container(
-              decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.secondary,
-                  borderRadius:
-                      BorderRadius.only(bottomRight: Radius.circular(60))),
+              decoration: BoxDecoration(color: Theme.of(context).colorScheme.secondary, borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))),
               height: 215,
               width: 1000,
               child: Stack(
@@ -35,13 +35,10 @@ class _EventSuccessState extends State<EventSuccess> {
                     'lib/images/Mask group2.png',
                     fit: BoxFit.cover,
                   ),
-                  BackButton(),
                 ],
               ),
             ),
-            Artbar(
-                colorleft: Theme.of(context).colorScheme.secondary,
-                colorright: Theme.of(context).colorScheme.primary),
+            Artbar(colorleft: Theme.of(context).colorScheme.secondary, colorright: Theme.of(context).colorScheme.primary),
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Column(
@@ -54,7 +51,7 @@ class _EventSuccessState extends State<EventSuccess> {
                         color: Colors.white,
                       ),
                       title: Text(
-                        widget.event.date.toString(),
+                        formatDate(widget.event.date.toDate(), <String>[d, '. ', MM, ' ', yyyy], locale: GermanLocale()),
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.white,
@@ -77,19 +74,24 @@ class _EventSuccessState extends State<EventSuccess> {
                       Icons.location_on_outlined,
                       color: Colors.white,
                     ),
-                    title: Text(
-                     '',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
-                    ),
-                    subtitle: Text(
-                      'Adresse',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.white,
-                      ),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.event.location.street,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          '${widget.event.location.zipCode} ${widget.event.location.city}',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   ListTile(
@@ -112,7 +114,7 @@ class _EventSuccessState extends State<EventSuccess> {
                       ),
                     ),
                   ),
-                        ListTile(
+                  ListTile(
                       leading: Icon(
                         Icons.email,
                         color: Colors.white,
@@ -124,7 +126,7 @@ class _EventSuccessState extends State<EventSuccess> {
                           color: Colors.white,
                         ),
                       )),
-                            ListTile(
+                  ListTile(
                       leading: Icon(
                         Icons.phone_outlined,
                         color: Colors.white,
@@ -137,6 +139,23 @@ class _EventSuccessState extends State<EventSuccess> {
                         ),
                       )),
                   ParticipantsImageRowWhite(),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Center(
+                      child: Text(
+                        'Zum WhatsApp Chat',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  FFButton(
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                    },
+                    text: 'Zurück zu den Events',
+                  ),
                 ],
               ),
             ),

@@ -15,6 +15,7 @@ import 'package:vs_femalefellows/pages/Event/EventDetail/event_Materials.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_Pictures.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_data_creator.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_entry.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/event_update.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/widgets/favorites_icon_widget.dart';
@@ -140,7 +141,7 @@ class _DetailEventState extends State<DetailEvent> {
                 } else if (state is UnauthenticatedUser) {
                   return FFButton(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
                     },
                     text: 'Verbindlich anmelden',
                   );
