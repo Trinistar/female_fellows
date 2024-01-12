@@ -14,6 +14,7 @@ import 'package:vs_femalefellows/pages/Event/EventDetail/event_data_creator.dart
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_entry.dart';
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/event_update.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
+import 'package:vs_femalefellows/widgets/favorites_icon_widget.dart';
 
 class DetailEvent extends StatefulWidget {
   const DetailEvent({super.key, required this.eventState});
@@ -78,6 +79,7 @@ class _DetailEventState extends State<DetailEvent> {
                         width: 1000,
                         height: 30,
                         child: Stack(
+                          clipBehavior: Clip.none,
                           children: [
                             Text(
                               widget.eventState.eventTitle,
@@ -86,7 +88,7 @@ class _DetailEventState extends State<DetailEvent> {
                             Positioned(
                               top: -10,
                               right: 10,
-                              child: FavoritIcon(),
+                              child: FavoritesIconWidget(event: widget.eventState,),
                             )
                           ],
                         ),
