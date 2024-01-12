@@ -114,7 +114,7 @@ class _DetailEventState extends State<DetailEvent> {
                 ],
               ),
             ),
-            EventItems(),
+            EventItems(event: widget.eventState,),
             SizedBox(
               height: 20,
             ),

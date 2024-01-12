@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/participants_image_row.dart';
 
 class EventItems extends StatelessWidget {
-  const EventItems({super.key});
+  const EventItems({super.key, required this.event});
+
+  final Event event;
 
   @override
   Widget build(BuildContext context) {
@@ -67,20 +70,23 @@ class EventItems extends StatelessWidget {
               style: TextStyle(fontSize: 12),
             ),
           ),
-          ListTile(
-            leading: SvgPicture.asset(
-              'lib/images/chat.svg',
-              height: 20,
-            ),
-            title: Text(
-              eventState.whatsAppLink,
-              style: TextStyle(
-                fontSize: 15,
+          GestureDetector(
+            onTap: () => launchUrl(Uri.parse(event.whatsAppLink)),
+            child: ListTile(
+              leading: SvgPicture.asset(
+                'lib/images/chat.svg',
+                height: 20,
               ),
-            ),
-            subtitle: Text(
-              'WhatsApp Gruppenlink',
-              style: TextStyle(fontSize: 12),
+              title: Text(
+                eventState.whatsAppLink,
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+              subtitle: Text(
+                'WhatsApp Gruppenlink',
+                style: TextStyle(fontSize: 12),
+              ),
             ),
           ),
           SizedBox(height:10,),

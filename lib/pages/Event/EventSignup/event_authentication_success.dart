@@ -1,6 +1,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/german_locale.dart';
@@ -140,11 +141,20 @@ class _EventSuccessState extends State<EventSuccess> {
                       )),
                   ParticipantsImageRowWhite(),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
+                    padding: const EdgeInsets.only(top: 30.0, bottom: 10),
                     child: Center(
-                      child: Text(
-                        'Zum WhatsApp Chat',
-                        style: TextStyle(color: Colors.white),
+                      child: GestureDetector(
+                        child: Text(
+                          'Zum Event Chat',
+                          style: TextStyle(
+                            color: Colors.white,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.white,
+                          ),
+                        ),
+                        onTap: () {
+                          launchUrl(Uri.parse(widget.event.whatsAppLink));
+                        },
                       ),
                     ),
                   ),
