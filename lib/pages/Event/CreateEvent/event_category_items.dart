@@ -1,71 +1,55 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vs_femalefellows/blocs/CategoriesCubit/categories_cubit.dart';
+import 'package:vs_femalefellows/models/category.dart';
 
-enum CategoryFilter {
-  sport,
-  bildung,
-  sprache,
-  frauengesundheit,
-  tandemgeeignet,
-  computer,
-  inforveranstaltung,
-  kinder,
-  musik,
-  kunst,
-  kinderfreundlich,
-  schwanderschaft,
-  beratung,
-  schule,
-  selbststaendigkeit
-}
+enum CategoryFilter { sport, bildung, sprache, frauengesundheit, tandemgeeignet, computer, inforveranstaltung, kinder, musik, kunst, kinderfreundlich, schwanderschaft, beratung, schule, selbststaendigkeit }
 
-class CategoryItem extends StatefulWidget {
-  const CategoryItem({super.key});
+class CategoryItems extends StatefulWidget {
+  const CategoryItems({super.key});
 
   @override
-  State<CategoryItem> createState() => _CategoryItemState();
+  State<CategoryItems> createState() => _CategoryItemsState();
 }
 
-class _CategoryItemState extends State<CategoryItem> {
-  Set<CategoryFilter> filters = <CategoryFilter>{};
+class _CategoryItemsState extends State<CategoryItems> {
+  Set<Category> filters = <Category>{};
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Wrap(
-            spacing: 5.0,
-            children: CategoryFilter.values.map((CategoryFilter category) {
-              return FilterChip(
-                shape: CupertinoTheme.of(context).brightness == Brightness.dark
-                    ? null
-                    : RoundedRectangleBorder(
-                        side: const BorderSide(width: 0.5, color: Colors.grey),
-                        borderRadius: BorderRadius.circular(45)),
-                backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
-                selectedColor: Theme.of(context).colorScheme.primary,
-                label: Text(
-                  category.name,
-                  style: TextStyle(
-                    color: filters.contains(category) ? Colors.white : null,
+    return BlocBuilder<CategoryCubit, List<Category>>(
+      builder: (context, state) {
+        return Column(
+          children: [
+            Wrap(
+              spacing: 5.0,
+              children: state.map((Category category) {
+                return FilterChip(
+                  shape: CupertinoTheme.of(context).brightness == Brightness.dark ? null : RoundedRectangleBorder(side: const BorderSide(width: 0.5, color: Colors.grey), borderRadius: BorderRadius.circular(45)),
+                  backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+                  selectedColor: Theme.of(context).colorScheme.primary,
+                  label: Text(
+                    category.translation.de,
+                    style: TextStyle(
+                      color: filters.contains(category) ? Colors.white : null,
+                    ),
                   ),
-                ),
-                selected: filters.contains(category),
-                onSelected: (bool selected) {
-                  setState(() {
-                    if (selected) {
-                      filters.add(category);
-                    } else {
-                      filters.remove(category);
-                    }
-                  });
-                },
-              );
-            }).toList(),
-          ),
-        ],
-      ),
+                  selected: filters.contains(category),
+                  onSelected: (bool selected) {
+                    setState(() {
+                      if (selected) {
+                        filters.add(category);
+                      } else {
+                        filters.remove(category);
+                      }
+                    });
+                  },
+                );
+              }).toList(),
+            ),
+          ],
+        );
+      },
     );
   }
 }

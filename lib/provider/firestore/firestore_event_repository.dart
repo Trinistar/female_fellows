@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/models/category.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_repository.dart';
 
@@ -47,6 +48,16 @@ class FirestoreEventRepository {
 
   Future<void> setEventParticipation(String? userId, String? eventId, EventParticipant data) {
     return db.collection('event').doc(eventId).collection('participants').doc(userId).set(data.toJson(), SetOptions(merge: true));
+  }
+
+  Future<List<Category>> getCategories() async {
+    final List<Category> categories = [];
+    var cats = await db.collection('category').get();
+    if (cats.docs.isEmpty) return [];
+    for (var cat in cats.docs) {
+      categories.add(Category.fromJson(cat.data()));
+    }
+    return categories;
   }
 }
 
@@ -105,10 +116,9 @@ class SubscribedEventsStore extends Cubit<List<Event>> {
         if (authState.userProfile!.participatingEvents.isEmpty) {
           return;
         }
-        _eventRepo.getEventsById(authState.userProfile!.participatingEvents).listen((event) { 
+        _eventRepo.getEventsById(authState.userProfile!.participatingEvents).listen((event) {
           emit(event);
         });
-        //_db.collection('event').where(FieldPath.documentId, whereIn: authState.userProfile!.participatingEvents).get();
       }
     });
   }
