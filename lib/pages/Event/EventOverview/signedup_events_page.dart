@@ -17,6 +17,16 @@ class _SingedUpEventsState extends State<SingedUpEvents> {
   Widget build(BuildContext context) {
     return BlocBuilder<SubscribedEventsStore, List<Event>>(
       builder: (context, state) {
+        if (state.isEmpty) {
+          return Padding(
+            padding: const EdgeInsets.only(top: 50.0),
+            child: Text(
+              'Du hast dich noch für keine Events angemeldet',
+              style: TextStyle(fontStyle: FontStyle.italic),
+              textAlign: TextAlign.center,
+            ),
+          );
+        }
         return ListView.builder(
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {

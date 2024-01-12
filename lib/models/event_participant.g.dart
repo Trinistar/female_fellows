@@ -10,18 +10,21 @@ EventParticipant _$EventParticipantFromJson(Map<String, dynamic> json) =>
     EventParticipant(
       participating: json['participating'] as bool,
       userId: json['userId'] as String,
-      interpreter:
-          Interpreter.fromJson(json['interpreter'] as Map<String, dynamic>),
-      childCare: ChildCare.fromJson(json['childCare'] as Map<String, dynamic>),
-      mediaConsent: json['mediaConsent'] as bool,
+      interpreter: json['interpreter'] == null
+          ? null
+          : Interpreter.fromJson(json['interpreter'] as Map<String, dynamic>),
+      childCare: json['childCare'] == null
+          ? null
+          : ChildCare.fromJson(json['childCare'] as Map<String, dynamic>),
+      mediaConsent: json['mediaConsent'] as bool?,
     );
 
 Map<String, dynamic> _$EventParticipantToJson(EventParticipant instance) =>
     <String, dynamic>{
       'participating': instance.participating,
       'userId': instance.userId,
-      'interpreter': instance.interpreter.toJson(),
-      'childCare': instance.childCare.toJson(),
+      'interpreter': instance.interpreter?.toJson(),
+      'childCare': instance.childCare?.toJson(),
       'mediaConsent': instance.mediaConsent,
     };
 

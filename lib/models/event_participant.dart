@@ -9,16 +9,16 @@ class EventParticipant {
   EventParticipant({
     required this.participating,
     required this.userId,
-    required this.interpreter,
-    required this.childCare,
-    required this.mediaConsent,
+    this.interpreter,
+    this.childCare,
+    this.mediaConsent,
   });
 
   final bool participating;
   final String userId;
-  final Interpreter interpreter;
-  final ChildCare childCare;
-  final bool mediaConsent;
+  final Interpreter? interpreter;
+  final ChildCare? childCare;
+  final bool? mediaConsent;
 
   factory EventParticipant.fromJson(Map<String, dynamic> json) => _$EventParticipantFromJson(json);
   Map<String, dynamic> toJson() => _$EventParticipantToJson(this);

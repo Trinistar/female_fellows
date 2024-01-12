@@ -17,6 +17,16 @@ class _FavoritEventsState extends State<FavoritEvents> {
     return BlocBuilder<FavoritesBloc, FavoritesState>(
       builder: (context, state) {
         if (state is FavoritesLoaded) {
+          if (state.favorites.isEmpty) {
+            return Padding(
+              padding: const EdgeInsets.only(top: 50.0),
+              child: Text(
+                'Du hast noch keine Events favorisiert',
+                style: TextStyle(fontStyle: FontStyle.italic),
+                textAlign: TextAlign.center,
+              ),
+            );
+          }
           return ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
@@ -35,7 +45,14 @@ class _FavoritEventsState extends State<FavoritEvents> {
             itemCount: state.favorites.length,
           );
         } else {
-          return SizedBox.shrink();
+          return Padding(
+            padding: const EdgeInsets.only(top: 50.0),
+            child: Text(
+              'Du hast noch keine Events favorisiert',
+              style: TextStyle(fontStyle: FontStyle.italic),
+              textAlign: TextAlign.center,
+            ),
+          );
         }
       },
     );

@@ -37,7 +37,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
 
     return emit.onEach(_firestoreEventRepo.getEventsById(event.profile.favorites), onData: (List<Event> favs) async {
       emit(FavoritesLoaded(favs));
-    });
+    }).onError((error, stackTrace) => emit(FavoritesNotLoaded()));
   }
 
   @override

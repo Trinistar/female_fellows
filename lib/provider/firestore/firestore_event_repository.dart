@@ -27,7 +27,8 @@ class FirestoreEventRepository {
   }
 
   Stream<List<Event>> getEventsById(List<String> eventIds) {
-    if (eventIds.isEmpty) return Stream.empty();
+    const String error = 'noElements';
+    if (eventIds.isEmpty) return Stream.error(error);
     return db.collection('event').where(FieldPath.documentId, whereIn: eventIds).snapshots().map(
       ((QuerySnapshot<Map<String, dynamic>> snapshot) {
         if (snapshot.docs.isNotEmpty) {

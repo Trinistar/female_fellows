@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
+import 'package:vs_femalefellows/helper_functions.dart';
+import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_Categorys.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_Description.dart';
@@ -35,17 +39,25 @@ class _DetailEventState extends State<DetailEvent> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           actions: [
-            IconButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => UpdateEvent(
-                      eventState: widget.eventState,
-                    ),
-                  ),
-                );
+            BlocBuilder<AuthenticationBloc, AuthenticationState>(
+              builder: (context, state) {
+                if (state is AuthenticatedUser && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
+                  return IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => UpdateEvent(
+                            eventState: widget.eventState,
+                          ),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.edit),
+                  );
+                } else {
+                  return SizedBox.shrink();
+                }
               },
-              icon: Icon(Icons.edit),
             ),
           ],
         ),
@@ -105,11 +117,38 @@ class _DetailEventState extends State<DetailEvent> {
             SizedBox(
               height: 20,
             ),
-            FFButton(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Evententry(event: widget.eventState)));
-                },
-                text: 'Jetzt anmelden'),
+            BlocBuilder<AuthenticationBloc, AuthenticationState>(
+              builder: (context, state) {
+                if (state is AuthenticatedUser) {
+                  if (state.userProfile!.participatingEvents.contains(widget.eventState.eventId)) {
+                    return FFButton(
+                      onTap: () {
+                        final EventParticipant eventParticipant = EventParticipant(participating: false, userId: state.user!.uid);
+                        context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.eventState.eventId!, userId: state.user!.uid, eventParticipant: eventParticipant, userData: state.userProfile!));
+                      },
+                      text: 'Anmeldung zurückziehen',
+                      color: Colors.red,
+                    );
+                  } else {
+                    return FFButton(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => Evententry(event: widget.eventState)));
+                      },
+                      text: 'Verbindlich anmelden',
+                    );
+                  }
+                } else if (state is UnauthenticatedUser) {
+                  return FFButton(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
+                    text: 'Verbindlich anmelden',
+                  );
+                } else {
+                  return SizedBox.shrink();
+                }
+              },
+            ),
             SizedBox(
               height: 30,
             ),
