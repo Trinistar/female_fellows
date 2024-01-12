@@ -32,22 +32,17 @@ class _UpdateEventState extends State<UpdateEvent> {
         child: RepositoryProvider<Event>(
           create: (context) => widget.eventState,
           child: Scaffold(
+            extendBody: true,
+            extendBodyBehindAppBar: true,
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              title: Text(
+                'Bearbeite das Event',
+              ),
+            ),
             backgroundColor: Colors.white,
             body: ListView(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        BackButton(),
-                        Center(
-                            child: Text(
-                          'Bearbeite das Event',
-                          style: TextStyle(fontSize: 25),
-                        )),
-                      ]),
-                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20, left: 20),
                   child: Column(
@@ -100,32 +95,19 @@ class _UpdateEventState extends State<UpdateEvent> {
                         onTap: () {
                           context.read<EventBloc>().add(EventUpdate(
                               updateEvent: Event(
-                                  whatsAppLink:
-                                      Controller.whatsAppLinkController.text,
-                                  eventEmail:
-                                      Controller.eventEmailController.text,
-                                  eventPhoneNumber: Controller
-                                      .eventPhoneNumberController.text,
-                                  date: Timestamp
-                                      .now(), // falsches Datum !!!!!!!!
-                                  eventDescription:
-                                      Controller.descriptionController.text,
+                                  whatsAppLink: Controller.whatsAppLinkController.text,
+                                  eventEmail: Controller.eventEmailController.text,
+                                  eventPhoneNumber: Controller.eventPhoneNumberController.text,
+                                  date: Timestamp.now(), // falsches Datum !!!!!!!!
+                                  eventDescription: Controller.descriptionController.text,
                                   host: Controller.hostController.text,
-                                  eventTitle:
-                                      Controller.eventTitleController.text,
-                                  contactPerson:
-                                      Controller.contactPersonController.text,
-                                  location: Address(
-                                      street:
-                                          Controller.streetnameController.text,
-                                      city: Controller.placeController.text,
-                                      zipCode:
-                                          Controller.zipCodeController.text),
+                                  eventTitle: Controller.eventTitleController.text,
+                                  contactPerson: Controller.contactPersonController.text,
+                                  location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
                                   material: EventMaterials(
                                     planer: Controller.planerController.text,
                                     food: Controller.foodController.text,
-                                    information:
-                                        Controller.informationController.text,
+                                    information: Controller.informationController.text,
                                     clothes: Controller.clothesController.text,
                                   ))));
                         },

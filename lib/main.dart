@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -72,6 +73,12 @@ class MyApp extends StatelessWidget {
           Locale('de'), // Deutsch
         ],
         theme: ThemeData(
+          /* appBarTheme: AppBarTheme(
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+              statusBarBrightness: Brightness.light
+            )
+          ), */
           colorScheme: ColorScheme.fromSeed(
             seedColor: Color.fromRGBO(27, 25, 86, 27),
             primary: Color.fromRGBO(27, 25, 86, 27),

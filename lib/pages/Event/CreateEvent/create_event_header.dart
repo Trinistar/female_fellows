@@ -15,7 +15,6 @@ class HeaderEvent extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          BackButton(),
           Positioned(
             right: 0,
             bottom: 0,

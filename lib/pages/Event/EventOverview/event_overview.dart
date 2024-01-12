@@ -65,25 +65,25 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
     final start = dateRange.start;
     final end = dateRange.end;
     return Scaffold(
-      floatingActionButton: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-        builder: (context, state) {
-          if (state is AuthenticatedUser && state.tokenResult != null && state.tokenResult!.claims != null && state.tokenResult!.claims!.containsKey('role') && state.tokenResult!.claims!.containsValue('ADMIN')) {
-            return FloatingActionButton(
-              heroTag: CreateEvent,
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateEvent()));
-              },
-              foregroundColor: Colors.white,
-              backgroundColor: Theme.of(context).colorScheme.tertiary,
-              mini: true,
-              child: Icon(Icons.add),
-            );
-          } else {
-            return SizedBox.shrink();
-          }
-        },
-      ),
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        floatingActionButton: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+          builder: (context, state) {
+            if (state is AuthenticatedUser && state.tokenResult != null && state.tokenResult!.claims != null && state.tokenResult!.claims!.containsKey('role') && state.tokenResult!.claims!.containsValue('ADMIN')) {
+              return FloatingActionButton(
+                heroTag: CreateEvent,
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateEvent()));
+                },
+                foregroundColor: Colors.white,
+                backgroundColor: Theme.of(context).colorScheme.tertiary,
+                mini: true,
+                child: Icon(Icons.add),
+              );
+            } else {
+              return SizedBox.shrink();
+            }
+          },
+        ),
+        body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
           statusBarColor: Color.fromRGBO(241, 80, 60, 1),
         ),
@@ -127,7 +127,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                               child: Icon(Icons.add),
                             ),
                           ), */
-
+        
                       //TODO only for Event creating//
                       /////////////////
                       ///////////
@@ -313,7 +313,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                     ),
                   ),
                 ), */
-
+        
                 /*********************************************************************************************************/
                 SizedBox(
                   height: 20,
