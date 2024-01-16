@@ -111,7 +111,7 @@ class AllEventsStore extends Cubit<List<Event>> {
 class SubscribedEventsStore extends Cubit<List<Event>> {
   SubscribedEventsStore(this._authBloc)
       : _db = FirestoreRepository().firestoreInstance,
-        super(List.empty(growable: false)) {
+        super(List.empty(growable: true)) {
     _authBlocStreamSub = _authBloc.stream.listen((AuthenticationState authState) {
       if (authState is AuthenticatedUser) {
         if (authState.userProfile!.participatingEvents.isEmpty) {
@@ -120,6 +120,8 @@ class SubscribedEventsStore extends Cubit<List<Event>> {
         _eventRepo.getEventsById(authState.userProfile!.participatingEvents).listen((event) {
           emit(event);
         });
+      } else {
+        emit([]);
       }
     });
   }
@@ -174,7 +176,7 @@ class SubscribedEventsStore extends Cubit<List<Event>> {
 class FavoriteEventStore extends Cubit<List<Event>> {
   FavoriteEventStore(this._authBloc)
       : _db = FirestoreRepository().firestoreInstance,
-        super(List.empty(growable: false)) {
+        super(List.empty(growable: true)) {
     _authBlocStreamSub = _authBloc.stream.listen((AuthenticationState authState) {
       if (authState is AuthenticatedUser) {
         if (authState.userProfile!.favorites.isEmpty) {
@@ -221,7 +223,7 @@ class FavoriteEventStore extends Cubit<List<Event>> {
             break;
         }
       }
-      tmp = List<Event>.from([...state, ...tmp2], growable: false);
+      tmp = List<Event>.from([...state, ...tmp2], growable: true);
       emit(tmp);
     }
   }

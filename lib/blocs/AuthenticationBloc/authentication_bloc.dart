@@ -59,9 +59,13 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   }
 
   Future<void> _onSignUp(Signup event, Emitter<AuthenticationState> emit) async {
-    emit(FormSignup());
+    //emit(FormSignup());
+    emit(AuthenticationLoading());
+
     try {
       FFUser userdata = FFUser(
+        favorites: List.empty(growable: true),
+        participatingEvents: List.empty(growable: true),
         firstname: Controller.firstnameController.text,
         lastname: Controller.lastnameController.text,
         profilPicture: Controller.profilpictureController.text,
@@ -85,13 +89,14 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       final User? currentuser = await _authpage.signUp(email: event.email, password: event.password);
       if (currentuser != null) {
         userdata.email = currentuser.email;
+        final IdTokenResult tokenResult = await currentuser.getIdTokenResult();
         await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
-        emit(SignUpSuccess(currentuser: currentuser, userdata: userdata));
+        emit(AuthenticatedUser(user: currentuser, userProfile: userdata, tokenResult: tokenResult));
       } else {
-        emit(SignUpFailure());
+        emit(UnauthenticatedUser());
       }
     } catch (e) {
-      emit(SignUpFailure());
+      emit(UnauthenticatedUser());
     }
   }
 

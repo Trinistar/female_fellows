@@ -42,7 +42,8 @@ class FavoritesIconWidget extends StatelessWidget {
   }
 
   void _updateFavorites(FFUser userProfile, String eventId, BuildContext context) async {
-    List<String> favorites = userProfile.favorites;
+    List<String> favorites = List.empty(growable: true);
+    favorites.addAll(userProfile.favorites);
     if (favorites.contains(eventId)) {
       favorites.remove(eventId);
     } else {

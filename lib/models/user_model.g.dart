@@ -10,11 +10,11 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
       favorites: (json['favorites'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          const [],
+          [],
       participatingEvents: (json['participatingEvents'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          const [],
+          [],
       lastname: json['lastname'] as String?,
       profilPicture: json['profilPicture'] as String?,
       birthday: json['birthday'] as String?,

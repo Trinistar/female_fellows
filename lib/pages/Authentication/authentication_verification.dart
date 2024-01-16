@@ -39,13 +39,17 @@ class _AuthVerficationState extends State<AuthVerfication> {
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: BlocConsumer<AuthenticationBloc, AuthenticationState>(
         listener: (context, state) {
-          if (state is SignUpSuccess) {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Navigation()));
+          if (state is AuthenticatedUser) {
+            Navigator.of(context).pop();
+            /* Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Navigation())); */
           }
-          if (state is SignUpFailure) {
-            SnackBar(
-              content: Text('Failure'),
+          if (state is UnauthenticatedUser) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: Colors.red,
+                content: Text('Da ist etwas schief gelaufen'),
+              ),
             );
           }
         },

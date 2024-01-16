@@ -18,7 +18,9 @@ class FFUser {
   final Address? address;
   final LocalOrNewcomer? localOrNewcomer;
   final Socialmedia? socialmedia;
+  @JsonKey(defaultValue: [])
   List<String> favorites;
+  @JsonKey(defaultValue: [])
   List<String> participatingEvents;
 
   FFUser({
