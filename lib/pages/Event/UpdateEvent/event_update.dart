@@ -60,7 +60,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                             disabledBorder: InputBorder.none,
                             focusedBorder: InputBorder.none,
                             fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: widget.eventState.whatsAppLink,
+                            hintText: widget.eventState.eventTitle,
                           ),
                         ),
                         subtitle: Text(
@@ -123,6 +123,9 @@ class _UpdateEventState extends State<UpdateEvent> {
                                         Controller.informationController.text,
                                     clothes: Controller.clothesController.text,
                                   ))));
+                          if (state is UpdateEventSuccess) {
+                          Controller.clearControllers();
+                          }
                           Navigator.of(context).pop();
                         },
                         text: 'Update Event');

@@ -32,4 +32,32 @@ class Controller {
 //controller Event Authentication
   static final languageController = TextEditingController();
   static final childNameController = TextEditingController();
+
+  static void clearControllers() {
+    emailController.clear();
+    passwordController.clear();
+    firstnameController.clear();
+    lastnameController.clear();
+    phonenumberController.clear();
+    birthdayController.clear();
+
+    //event
+    whatsAppLinkController.clear();
+    eventEmailController.clear();
+    eventPhoneNumberController.clear();
+    descriptionController.clear();
+    hostController.clear();
+    eventTitleController.clear();
+    contactPersonController.clear();
+    //location
+    streetnameController.clear();
+    placeController.clear();
+    zipCodeController.clear();
+    //materials
+    planerController.clear();
+    foodController.clear();
+    informationController.clear();
+    clothesController.clear();
+    //profil
+  }
 }
