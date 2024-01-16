@@ -112,7 +112,7 @@ class _DetailEventState extends State<DetailEvent> {
                         clipBehavior: Clip.none,
                         children: [
                           Text(
-                            widget.eventState.eventTitle,
+                            widget.eventState.title,
                             style: TextStyle(fontSize: 20),
                           ),
                           Positioned(
@@ -143,7 +143,7 @@ class _DetailEventState extends State<DetailEvent> {
                 builder: (context, state) {
                   if (state is AuthenticatedUser) {
                     if (state.userProfile!.participatingEvents
-                        .contains(widget.eventState.eventId)) {
+                        .contains(widget.eventState.id)) {
                       return FFButton(
                         onTap: () {
                           final EventParticipant eventParticipant =
@@ -152,7 +152,7 @@ class _DetailEventState extends State<DetailEvent> {
                                   userId: state.user!.uid);
                           context.read<AuthenticationBloc>().add(
                               SetEventParticipationEvent(
-                                  eventId: widget.eventState.eventId!,
+                                  eventId: widget.eventState.id!,
                                   userId: state.user!.uid,
                                   eventParticipant: eventParticipant,
                                   userData: state.userProfile!));

@@ -85,7 +85,7 @@ class EventItems extends StatelessWidget {
             builder: (context, state) {
               if (state is AuthenticatedUser &&
                   state.userProfile!.participatingEvents
-                      .contains(eventState.eventId)) {
+                      .contains(eventState.id)) {
                 return GestureDetector(
                   onTap: () => launchUrl(Uri.parse(event.whatsAppLink)),
                   child: ListTile(

@@ -205,12 +205,12 @@ class _CreateEventState extends State<CreateEvent> {
                       context.read<EventBloc>().add(NewEvent(
                               newEvent: Event(
                             whatsAppLink: Controller.whatsAppLinkController.text,
-                            eventEmail: Controller.eventEmailController.text,
-                            eventPhoneNumber: Controller.eventPhoneNumberController.text,
+                            email: Controller.eventEmailController.text,
+                            phoneNumber: Controller.eventPhoneNumberController.text,
                             date: Timestamp.fromDate(_dateTime),
-                            eventDescription: Controller.descriptionController.text,
+                            description: Controller.descriptionController.text,
                             host: Controller.hostController.text,
-                            eventTitle: Controller.eventTitleController.text,
+                            title: Controller.eventTitleController.text,
                             contactPerson: Controller.contactPersonController.text,
                             location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
                             material: EventMaterials(

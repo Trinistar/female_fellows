@@ -30,7 +30,7 @@ class EventDescription extends StatelessWidget {
                       height: 150,
                       width: 350,
                       child: Text(
-                        event.eventDescription,
+                        event.description,
                        style: TextStyle(fontSize: 15),
                       ),
                     ),

@@ -36,7 +36,26 @@ class FirestoreEventRepository {
 
           for (var change in snapshot.docChanges) {
             final Event event = Event.fromJson(change.doc.data()!);
-            event.eventId = change.doc.id;
+            event.id = change.doc.id;
+            tmp.add(event);
+          }
+          return tmp;
+        } else {
+          return [];
+        }
+      }),
+    );
+  }
+
+  Stream<List<Event>> getAllEvents() {
+    return db.collection('event').snapshots().map(
+      ((QuerySnapshot<Map<String, dynamic>> snapshot) {
+        if (snapshot.docs.isNotEmpty) {
+          List<Event> tmp = [];
+
+          for (var change in snapshot.docChanges) {
+            final Event event = Event.fromJson(change.doc.data()!);
+            event.id = change.doc.id;
             tmp.add(event);
           }
           return tmp;
@@ -83,20 +102,20 @@ class AllEventsStore extends Cubit<List<Event>> {
           case DocumentChangeType.added:
             final Event event = Event.fromJson(change.doc.data()!);
             tmp.add(event);
-            event.eventId = change.doc.id;
+            event.id = change.doc.id;
             break;
           case DocumentChangeType.modified:
             Event modiefiedEvent = Event.fromJson(change.doc.data()!);
-            int index = tmp.indexWhere((e) => e.eventTitle == modiefiedEvent.eventTitle);
-            modiefiedEvent.eventId = change.doc.id;
+            int index = tmp.indexWhere((e) => e.title == modiefiedEvent.title);
+            modiefiedEvent.id = change.doc.id;
             if (index > -1) {
               tmp[index] = modiefiedEvent;
             }
             break;
           case DocumentChangeType.removed:
             Event deletedEvent = Event.fromJson(change.doc.data()!);
-            int index = tmp.indexWhere((e) => e.eventTitle == deletedEvent.eventTitle);
-            deletedEvent.eventId = change.doc.id;
+            int index = tmp.indexWhere((e) => e.title == deletedEvent.title);
+            deletedEvent.id = change.doc.id;
             if (index > -1) {
               tmp.removeAt(index);
             }
@@ -142,20 +161,20 @@ class SubscribedEventsStore extends Cubit<List<Event>> {
           case DocumentChangeType.added:
             final Event event = Event.fromJson(change.doc.data()!);
             tmp.add(event);
-            event.eventId = change.doc.id;
+            event.id = change.doc.id;
             break;
           case DocumentChangeType.modified:
             Event modiefiedEvent = Event.fromJson(change.doc.data()!);
-            int index = tmp.indexWhere((e) => e.eventTitle == modiefiedEvent.eventTitle);
-            modiefiedEvent.eventId = change.doc.id;
+            int index = tmp.indexWhere((e) => e.title == modiefiedEvent.title);
+            modiefiedEvent.id = change.doc.id;
             if (index > -1) {
               tmp[index] = modiefiedEvent;
             }
             break;
           case DocumentChangeType.removed:
             Event deletedEvent = Event.fromJson(change.doc.data()!);
-            int index = tmp.indexWhere((e) => e.eventTitle == deletedEvent.eventTitle);
-            deletedEvent.eventId = change.doc.id;
+            int index = tmp.indexWhere((e) => e.title == deletedEvent.title);
+            deletedEvent.id = change.doc.id;
             if (index > -1) {
               tmp.removeAt(index);
             }
@@ -203,20 +222,20 @@ class FavoriteEventStore extends Cubit<List<Event>> {
           case DocumentChangeType.added:
             final Event event = Event.fromJson(change.doc.data()!);
             tmp2.add(event);
-            event.eventId = change.doc.id;
+            event.id = change.doc.id;
             break;
           case DocumentChangeType.modified:
             Event modiefiedEvent = Event.fromJson(change.doc.data()!);
-            int index = tmp.indexWhere((e) => e.eventTitle == modiefiedEvent.eventTitle);
-            modiefiedEvent.eventId = change.doc.id;
+            int index = tmp.indexWhere((e) => e.title == modiefiedEvent.title);
+            modiefiedEvent.id = change.doc.id;
             if (index > -1) {
               tmp2[index] = modiefiedEvent;
             }
             break;
           case DocumentChangeType.removed:
             Event deletedEvent = Event.fromJson(change.doc.data()!);
-            int index = tmp.indexWhere((e) => e.eventTitle == deletedEvent.eventTitle);
-            deletedEvent.eventId = change.doc.id;
+            int index = tmp.indexWhere((e) => e.title == deletedEvent.title);
+            deletedEvent.id = change.doc.id;
             if (index > -1) {
               tmp2.removeAt(index);
             }

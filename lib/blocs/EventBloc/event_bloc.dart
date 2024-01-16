@@ -17,16 +17,16 @@ class EventBloc extends Bloc<EventEvent, EventState> {
       try {
         Event eventdata = Event(
             whatsAppLink: Controller.whatsAppLinkController.text,
-            eventPhoneNumber: Controller.eventPhoneNumberController.text,
-            eventEmail: Controller.eventEmailController.text,
+            phoneNumber: Controller.eventPhoneNumberController.text,
+            email: Controller.eventEmailController.text,
             date: event.newEvent.date,
             host: Controller.hostController.text,
-            eventTitle: Controller.eventTitleController.text,
+            title: Controller.eventTitleController.text,
             location: Address(
                 street: Controller.streetnameController.text,
                 city: Controller.placeController.text,
                 zipCode: Controller.zipCodeController.text),
-            eventDescription: Controller.descriptionController.text,
+            description: Controller.descriptionController.text,
             contactPerson: Controller.contactPersonController.text,
             material: EventMaterials(
               planer: Controller.planerController.text,
@@ -45,16 +45,16 @@ class EventBloc extends Bloc<EventEvent, EventState> {
       try {
         Event eventdata = Event(
             whatsAppLink: Controller.whatsAppLinkController.text,
-            eventPhoneNumber: Controller.eventPhoneNumberController.text,
-            eventEmail: Controller.eventEmailController.text,
+            phoneNumber: Controller.eventPhoneNumberController.text,
+            email: Controller.eventEmailController.text,
             date: event.updateEvent.date,
             host: Controller.hostController.text,
-            eventTitle: Controller.eventTitleController.text,
+            title: Controller.eventTitleController.text,
             location: Address(
                 street: Controller.streetnameController.text,
                 city: Controller.placeController.text,
                 zipCode: Controller.zipCodeController.text),
-            eventDescription: Controller.descriptionController.text,
+            description: Controller.descriptionController.text,
             contactPerson: Controller.contactPersonController.text,
             material: EventMaterials(
               planer: Controller.planerController.text,

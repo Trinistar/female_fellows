@@ -49,10 +49,9 @@ dev_dependencies:
 
 
 flutter:
-
+  generate: true
 
   uses-material-design: true
-  generate: true
 
  
   assets:

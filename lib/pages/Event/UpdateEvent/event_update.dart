@@ -97,16 +97,16 @@ class _UpdateEventState extends State<UpdateEvent> {
                               updateEvent: Event(
                                   whatsAppLink:
                                       Controller.whatsAppLinkController.text,
-                                  eventEmail:
+                                  email:
                                       Controller.eventEmailController.text,
-                                  eventPhoneNumber: Controller
+                                  phoneNumber: Controller
                                       .eventPhoneNumberController.text,
                                   date: Timestamp
                                       .now(), // falsches Datum !!!!!!!!
-                                  eventDescription:
+                                  description:
                                       Controller.descriptionController.text,
                                   host: Controller.hostController.text,
-                                  eventTitle:
+                                  title:
                                       Controller.eventTitleController.text,
                                   contactPerson:
                                       Controller.contactPersonController.text,
