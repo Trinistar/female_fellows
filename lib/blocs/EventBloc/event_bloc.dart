@@ -62,6 +62,9 @@ class EventBloc extends Bloc<EventEvent, EventState> {
               information: Controller.informationController.text,
               clothes: Controller.clothesController.text,
             ));
+            
+            await firestoreEventRepository.updateEvent(eventdata);
+            emit (UpdateEventSuccess());
       } catch (e) {
         emit(UpdateEventFailure());
       }

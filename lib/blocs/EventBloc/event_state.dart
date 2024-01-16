@@ -18,6 +18,8 @@ class CreateSuccess extends EventState {
   CreateSuccess({required this.eventdata, required this.eventRef});
 }
 
+class UpdateEventSuccess extends EventState{}
+
 class EventFailure extends EventState {}
 class UpdateEventFailure extends EventState{}
 
