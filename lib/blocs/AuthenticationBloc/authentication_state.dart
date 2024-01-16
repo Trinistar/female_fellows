@@ -16,6 +16,7 @@ class SignUpSuccess extends AuthenticationState {
 }
 
 class SignUpFailure extends AuthenticationState {}
+class SignOutSuccess extends AuthenticationState{}
 
 class AuthenticationLoading extends AuthenticationState {}
 

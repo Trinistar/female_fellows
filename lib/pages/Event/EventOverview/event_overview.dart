@@ -10,7 +10,7 @@ import 'package:vs_femalefellows/pages/Event/EventOverview/all_events_page.dart'
 import 'package:vs_femalefellows/pages/Event/EventOverview/favorite_events.page.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
+
 
 class EventOverview extends StatefulWidget {
   const EventOverview({
