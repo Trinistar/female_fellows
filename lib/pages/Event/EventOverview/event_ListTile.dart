@@ -1,5 +1,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/german_locale.dart';
 import 'package:vs_femalefellows/widgets/favorites_icon_widget.dart';
@@ -39,7 +41,9 @@ class EventListTile extends StatelessWidget {
                           ),
                           Flexible(
                             child: Text(
-                              formatDate(event.date.toDate(), <String>[d, '. ', MM, ' ', yyyy], locale: GermanLocale()),
+                              formatDate(event.date.toDate(),
+                                  <String>[d, '. ', MM, ' ', yyyy],
+                                  locale: GermanLocale()),
                               style: TextStyle(fontSize: 13),
                             ),
                           ),
@@ -63,10 +67,19 @@ class EventListTile extends StatelessWidget {
                             Icons.location_on_outlined,
                             size: 20,
                           ),
-                          Text(
+                          BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                            builder: (context, state) {
+                              if (state is AuthenticatedUser) {
+                                return  Text(
                             event.location.street,
                             style: TextStyle(fontSize: 13),
+                          );
+                              } else {
+                                return SizedBox.shrink();
+                              }
+                            },
                           ),
+                         
                         ],
                       ),
                     ],

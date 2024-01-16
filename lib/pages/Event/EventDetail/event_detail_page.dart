@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
@@ -42,7 +43,8 @@ class _DetailEventState extends State<DetailEvent> {
           actions: [
             BlocBuilder<AuthenticationBloc, AuthenticationState>(
               builder: (context, state) {
-                if (state is AuthenticatedUser && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
+                if (state is AuthenticatedUser &&
+                    HelperFunctions.isAdmin(state.tokenResult!.claims)) {
                   return IconButton(
                     onPressed: () {
                       Navigator.of(context).push(
@@ -62,111 +64,153 @@ class _DetailEventState extends State<DetailEvent> {
             ),
           ],
         ),
-        body: ListView(
-          padding: EdgeInsets.only(top: 0),
-          children: [
-            Container(
-              decoration: BoxDecoration(color: Theme.of(context).colorScheme.secondary, borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))),
-              height: 215,
-              width: 1000,
-              child: Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Image.asset(
-                    'lib/images/Mask group2.png',
-                    fit: BoxFit.cover,
-                  ),
-                ],
-              ),
-            ),
-            Artbar(colorleft: Theme.of(context).colorScheme.secondary, colorright: Colors.white),
-            Padding(
-              padding: const EdgeInsets.only(left: 40),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 1000,
-                    height: 30,
-                    child: Stack(
-                      clipBehavior: Clip.none,
-                      children: [
-                        Text(
-                          widget.eventState.eventTitle,
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        Positioned(
-                          top: -10,
-                          right: 10,
-                          child: FavoritesIconWidget(
-                            event: widget.eventState,
-                          ),
-                        )
-                      ],
+        body: BlocListener<EventBloc, EventState>(
+          listener: (context, state) {
+            if (state is UpdateEventSuccess) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: Colors.green,
+                  content: Text(
+                      'Event erfolgreich bearbeitet'),
+                ),
+              );
+            }
+          },
+          child: ListView(
+            padding: EdgeInsets.only(top: 0),
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.secondary,
+                    borderRadius:
+                        BorderRadius.only(bottomRight: Radius.circular(60))),
+                height: 215,
+                width: 1000,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Image.asset(
+                      'lib/images/Mask group2.png',
+                      fit: BoxFit.cover,
                     ),
-                  ),
-                  Divider(
-                    thickness: 5,
-                    color: Theme.of(context).colorScheme.primary,
-                    endIndent: 330,
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            EventItems(event: widget.eventState,),
-            SizedBox(
-              height: 20,
-            ),
-            BlocBuilder<AuthenticationBloc, AuthenticationState>(
-              builder: (context, state) {
-                if (state is AuthenticatedUser) {
-                  if (state.userProfile!.participatingEvents.contains(widget.eventState.eventId)) {
+              Artbar(
+                  colorleft: Theme.of(context).colorScheme.secondary,
+                  colorright: Colors.white),
+              Padding(
+                padding: const EdgeInsets.only(left: 40),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 1000,
+                      height: 30,
+                      child: Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          Text(
+                            widget.eventState.eventTitle,
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          Positioned(
+                            top: -10,
+                            right: 10,
+                            child: FavoritesIconWidget(
+                              event: widget.eventState,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Divider(
+                      thickness: 5,
+                      color: Theme.of(context).colorScheme.primary,
+                      endIndent: 330,
+                    ),
+                  ],
+                ),
+              ),
+              EventItems(
+                event: widget.eventState,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                builder: (context, state) {
+                  if (state is AuthenticatedUser) {
+                    if (state.userProfile!.participatingEvents
+                        .contains(widget.eventState.eventId)) {
+                      return FFButton(
+                        onTap: () {
+                          final EventParticipant eventParticipant =
+                              EventParticipant(
+                                  participating: false,
+                                  userId: state.user!.uid);
+                          context.read<AuthenticationBloc>().add(
+                              SetEventParticipationEvent(
+                                  eventId: widget.eventState.eventId!,
+                                  userId: state.user!.uid,
+                                  eventParticipant: eventParticipant,
+                                  userData: state.userProfile!));
+                        },
+                        text: 'Anmeldung zurückziehen',
+                        color: Colors.red,
+                      );
+                    } else {
+                      return FFButton(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  Evententry(event: widget.eventState)));
+                        },
+                        text: 'Verbindlich anmelden',
+                      );
+                    }
+                  } else if (state is UnauthenticatedUser) {
                     return FFButton(
                       onTap: () {
-                        final EventParticipant eventParticipant = EventParticipant(participating: false, userId: state.user!.uid);
-                        context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.eventState.eventId!, userId: state.user!.uid, eventParticipant: eventParticipant, userData: state.userProfile!));
-                      },
-                      text: 'Anmeldung zurückziehen',
-                      color: Colors.red,
-                    );
-                  } else {
-                    return FFButton(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => Evententry(event: widget.eventState)));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                EventNotAuthenticatedState()));
                       },
                       text: 'Verbindlich anmelden',
                     );
+                  } else {
+                    return SizedBox.shrink();
                   }
-                } else if (state is UnauthenticatedUser) {
-                  return FFButton(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
-                    },
-                    text: 'Verbindlich anmelden',
-                  );
-                } else {
-                  return SizedBox.shrink();
-                }
-              },
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            EventDescription(),
-            EventCategorys(),
-            EventImages(),
-            DividerBouthCorner(
-              color1: Theme.of(context).colorScheme.surfaceVariant,
-              color2: Colors.white,
-            ),
-            EventMaterials(),
-            ParticipantsData(),
-            Container(
-              height: 30,
-              color: Theme.of(context).colorScheme.surfaceVariant,
-            )
-          ],
+                },
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              EventDescription(),
+              EventCategorys(),
+              EventImages(),
+              DividerBouthCorner(
+                color1: Theme.of(context).colorScheme.surfaceVariant,
+                color2: Colors.white,
+              ),
+              EventMaterials(),
+              BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                builder: (context, state) {
+                  if (state is AuthenticatedUser &&
+                      HelperFunctions.isAdmin(state.tokenResult!.claims)) {
+                    return ParticipantsData();
+                  } else {
+                    return SizedBox.shrink();
+                  }
+                },
+              ),
+              Container(
+                height: 30,
+                color: Theme.of(context).colorScheme.surfaceVariant,
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -95,21 +95,35 @@ class _UpdateEventState extends State<UpdateEvent> {
                         onTap: () {
                           context.read<EventBloc>().add(EventUpdate(
                               updateEvent: Event(
-                                  whatsAppLink: Controller.whatsAppLinkController.text,
-                                  eventEmail: Controller.eventEmailController.text,
-                                  eventPhoneNumber: Controller.eventPhoneNumberController.text,
-                                  date: Timestamp.now(), // falsches Datum !!!!!!!!
-                                  eventDescription: Controller.descriptionController.text,
+                                  whatsAppLink:
+                                      Controller.whatsAppLinkController.text,
+                                  eventEmail:
+                                      Controller.eventEmailController.text,
+                                  eventPhoneNumber: Controller
+                                      .eventPhoneNumberController.text,
+                                  date: Timestamp
+                                      .now(), // falsches Datum !!!!!!!!
+                                  eventDescription:
+                                      Controller.descriptionController.text,
                                   host: Controller.hostController.text,
-                                  eventTitle: Controller.eventTitleController.text,
-                                  contactPerson: Controller.contactPersonController.text,
-                                  location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
+                                  eventTitle:
+                                      Controller.eventTitleController.text,
+                                  contactPerson:
+                                      Controller.contactPersonController.text,
+                                  location: Address(
+                                      street:
+                                          Controller.streetnameController.text,
+                                      city: Controller.placeController.text,
+                                      zipCode:
+                                          Controller.zipCodeController.text),
                                   material: EventMaterials(
                                     planer: Controller.planerController.text,
                                     food: Controller.foodController.text,
-                                    information: Controller.informationController.text,
+                                    information:
+                                        Controller.informationController.text,
                                     clothes: Controller.clothesController.text,
                                   ))));
+                          Navigator.of(context).pop();
                         },
                         text: 'Update Event');
                   },

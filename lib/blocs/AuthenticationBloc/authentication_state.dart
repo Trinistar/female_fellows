@@ -2,7 +2,6 @@ part of 'authentication_bloc.dart';
 
 sealed class AuthenticationState {
   const AuthenticationState();
-
 }
 
 final class AuthenticationInitial extends AuthenticationState {}
