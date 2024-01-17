@@ -103,8 +103,7 @@ class _AuthLoginPageState extends State<LoginPage> {
 
                           //username Textfield
                           Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 42),
+                            padding: const EdgeInsets.symmetric(horizontal: 42),
                             child: Row(
                               children: [
                                 Text(
@@ -147,8 +146,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                           ),
                           SizedBox(height: 25),
                           Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 42),
+                            padding: const EdgeInsets.symmetric(horizontal: 42),
                             child: Row(
                               children: [
                                 Text(
@@ -198,8 +196,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                                       enabledBorder: OutlineInputBorder(
                                         borderSide:
                                             BorderSide(color: Colors.black87),
-                                        borderRadius:
-                                            BorderRadius.circular(10),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -208,12 +205,10 @@ class _AuthLoginPageState extends State<LoginPage> {
                                               .primary,
                                           width: 2,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(10),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      fillColor: Theme.of(context)
-                                          .colorScheme
-                                          .surface,
+                                      fillColor:
+                                          Theme.of(context).colorScheme.surface,
                                       filled: true,
                                       hintText: 'Password',
                                       suffixIcon: IconButton(
@@ -245,8 +240,8 @@ class _AuthLoginPageState extends State<LoginPage> {
                                   if (_formKey.currentState!.validate()) {
                                     context.read<LoginBloc>().add(
                                         LoginSubmitted(
-                                            email: Controller
-                                                .emailController.text,
+                                            email:
+                                                Controller.emailController.text,
                                             password: Controller
                                                 .passwordController.text));
                                   }
@@ -259,24 +254,41 @@ class _AuthLoginPageState extends State<LoginPage> {
                           ),
                           Center(
                               child: Text(
-                                AppLocalizations.of(context)!.signinTextup,
+                            AppLocalizations.of(context)!.signinTextup,
+                            style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary),
+                          )),
+                          Center(
+                            child: GestureDetector(
+                              onTap: () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => OnboardingPage())),
+                              child: Text(
+                                AppLocalizations.of(context)!.signinTextdown,
                                 style: TextStyle(
                                     color:
-                                        Theme.of(context).colorScheme.primary),
-                              )),
-                          Center(
-                              child: GestureDetector(
-                            onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (context) => OnboardingPage())),
-                            child: Text(
-                              AppLocalizations.of(context)!.signinTextdown,
-                              style: TextStyle(
-                                  color:
-                                      Theme.of(context).colorScheme.primary,
-                                  decoration: TextDecoration.underline),
+                                        Theme.of(context).colorScheme.primary,
+                                    decoration: TextDecoration.underline),
+                              ),
                             ),
-                          )),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Center(
+                            child: GestureDetector(
+                              onTap: () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => Navigation())),
+                              child: Text(
+                                'Weiter ohne Anmeldung',
+                                style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    decoration: TextDecoration.underline),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),

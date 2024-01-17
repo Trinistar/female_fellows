@@ -77,7 +77,9 @@ class _CreateEventState extends State<CreateEvent> {
             padding: EdgeInsets.only(top: 0),
             children: [
               HeaderEvent(),
-              Artbar(colorleft: Theme.of(context).colorScheme.secondary, colorright: Colors.white),
+              Artbar(
+                  colorleft: Theme.of(context).colorScheme.secondary,
+                  colorright: Colors.white),
               Container(
                 color: Colors.white,
                 height: 20,
@@ -97,7 +99,12 @@ class _CreateEventState extends State<CreateEvent> {
                         padding: const EdgeInsets.only(left: 40),
                         child: Text('Event Title'),
                       ),
-                      TextBar(controller: Controller.eventTitleController, hintText: 'Title', obscureText: false, onChange: null, validator: null),
+                      TextBar(
+                          controller: Controller.eventTitleController,
+                          hintText: 'Title',
+                          obscureText: false,
+                          onChange: null,
+                          validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
@@ -132,7 +139,12 @@ class _CreateEventState extends State<CreateEvent> {
                         padding: const EdgeInsets.only(left: 40),
                         child: Text('Straße'),
                       ),
-                      TextBar(controller: Controller.streetnameController, hintText: 'Straße', obscureText: false, onChange: null, validator: null),
+                      TextBar(
+                          controller: Controller.streetnameController,
+                          hintText: 'Straße',
+                          obscureText: false,
+                          onChange: null,
+                          validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
@@ -141,7 +153,12 @@ class _CreateEventState extends State<CreateEvent> {
                         padding: const EdgeInsets.only(left: 40),
                         child: Text('Ort'),
                       ),
-                      TextBar(controller: Controller.placeController, hintText: 'Ort', obscureText: false, onChange: null, validator: null),
+                      TextBar(
+                          controller: Controller.placeController,
+                          hintText: 'Ort',
+                          obscureText: false,
+                          onChange: null,
+                          validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
@@ -155,7 +172,9 @@ class _CreateEventState extends State<CreateEvent> {
                         child: TextFormField(
                           controller: Controller.zipCodeController,
                           keyboardType: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.black87),
@@ -179,20 +198,30 @@ class _CreateEventState extends State<CreateEvent> {
                   ),
                 ),
               ),
-              DividerBouthCorner(color1: Theme.of(context).colorScheme.tertiary, color2: Colors.white),
+              DividerBouthCorner(
+                  color1: Theme.of(context).colorScheme.tertiary,
+                  color2: Colors.white),
 
               // *************************************  //EVENT ORGA //**************************************/
               OrgaEvent(),
-              DividerBouthCorner(color1: Theme.of(context).colorScheme.secondary, color2: Theme.of(context).colorScheme.tertiary),
+              DividerBouthCorner(
+                  color1: Theme.of(context).colorScheme.secondary,
+                  color2: Theme.of(context).colorScheme.tertiary),
               // *************************************  //EVENT DESCRIPTION //**************************************/
               DescriptionEvent(),
-              DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.secondary),
+              DividerBouthCorner(
+                  color1: Colors.white,
+                  color2: Theme.of(context).colorScheme.secondary),
               // *************************************  //EVENT CATEGORYS //**************************************/
               EventCategory(),
-              DividerBouthCorner(color1: Theme.of(context).colorScheme.surfaceVariant, color2: Colors.white),
+              DividerBouthCorner(
+                  color1: Theme.of(context).colorScheme.surfaceVariant,
+                  color2: Colors.white),
               // *************************************  //EVENT MATERIALS //**************************************/
               EventMaterial(),
-              DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.surfaceVariant),
+              DividerBouthCorner(
+                  color1: Colors.white,
+                  color2: Theme.of(context).colorScheme.surfaceVariant),
               Container(
                 color: Colors.white,
                 height: 20,
@@ -216,7 +245,8 @@ class _CreateEventState extends State<CreateEvent> {
                             material: EventMaterials(
                               planer: Controller.planerController.text,
                               food: Controller.foodController.text,
-                              information: Controller.informationController.text,
+                              information:
+                                  Controller.informationController.text,
                               clothes: Controller.clothesController.text,
                             ),
                           )));

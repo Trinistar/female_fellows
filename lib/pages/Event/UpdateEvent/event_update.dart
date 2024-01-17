@@ -56,7 +56,7 @@ class UpdateEvent extends StatelessWidget {
                             disabledBorder: InputBorder.none,
                             focusedBorder: InputBorder.none,
                             fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: eventState.whatsAppLink,
+                            hintText: eventState.eventTitle,
                           ),
                         ),
                         subtitle: Text(

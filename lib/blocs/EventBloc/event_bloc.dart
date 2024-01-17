@@ -46,6 +46,7 @@ class EventBloc extends Bloc<EventEvent, EventState> {
         ),
       );
       emit(CreateSuccess(eventdata: eventdata, eventRef: await firestoreEventRepository.createEvent(eventdata)));
+      Controller.clearControllers();
     } catch (e) {
       emit(EventFailure());
     }
@@ -74,6 +75,7 @@ class EventBloc extends Bloc<EventEvent, EventState> {
 
       await firestoreEventRepository.updateEvent(eventdata);
       //emit(UpdateEventSuccess());
+      Controller.clearControllers();
     } catch (e) {
       emit(UpdateEventFailure());
     }

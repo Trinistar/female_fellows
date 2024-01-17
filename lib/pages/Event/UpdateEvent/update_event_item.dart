@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,6 +45,7 @@ class UpdateEventItemState extends State<UpdateEventItem> {
                 _showdatePicker();
               },
               child: Text(
+                // ignore: unnecessary_null_comparison
                 dateTime != null
                     ? '${dateTime.day}.${dateTime.month}.${dateTime.year}'
                     : '${eventState.date.toDate().day}.${eventState.date.toDate().month}.${eventState.date.toDate().year}',
@@ -78,7 +78,7 @@ class UpdateEventItemState extends State<UpdateEventItem> {
           ListTile(
             leading: Icon(Icons.location_on_outlined),
             title: TextFormField(
-              controller: Controller.locationController,
+              controller: Controller.streetnameController,
               decoration: InputDecoration(
                 disabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
@@ -94,7 +94,7 @@ class UpdateEventItemState extends State<UpdateEventItem> {
               ListTile(
             leading: Icon(Icons.location_on_outlined),
             title: TextFormField(
-              controller: Controller.locationController,
+              controller: Controller.placeController,
               decoration: InputDecoration(
                 disabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
@@ -110,7 +110,7 @@ class UpdateEventItemState extends State<UpdateEventItem> {
               ListTile(
             leading: Icon(Icons.location_on_outlined),
             title: TextFormField(
-              controller: Controller.locationController,
+              controller: Controller.zipCodeController,
               decoration: InputDecoration(
                 disabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
