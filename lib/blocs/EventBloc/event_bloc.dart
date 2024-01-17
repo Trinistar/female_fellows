@@ -29,6 +29,7 @@ class EventBloc extends Bloc<EventEvent, EventState> {
   Future<void> _onNewEvent(NewEvent event, Emitter<EventState> emit) async {
     try {
       Event eventdata = Event(
+        categories: event.newEvent.categories,
         whatsAppLink: Controller.whatsAppLinkController.text,
         phoneNumber: Controller.eventPhoneNumberController.text,
         email: Controller.eventEmailController.text,
@@ -45,7 +46,8 @@ class EventBloc extends Bloc<EventEvent, EventState> {
           clothes: Controller.clothesController.text,
         ),
       );
-      emit(CreateSuccess(eventdata: eventdata, eventRef: await firestoreEventRepository.createEvent(eventdata)));
+      var ref = await firestoreEventRepository.createEvent(eventdata);
+      emit(CreateSuccess(eventdata: eventdata, eventRef: ref));
       Controller.clearControllers();
     } catch (e) {
       emit(EventFailure());
@@ -55,6 +57,7 @@ class EventBloc extends Bloc<EventEvent, EventState> {
   Future<void> _onEventUpdate(EventUpdate event, Emitter<EventState> emit) async {
     try {
       Event eventdata = Event(
+        categories: event.updateEvent.categories,
         id: event.updateEvent.id,
         whatsAppLink: Controller.whatsAppLinkController.text,
         phoneNumber: Controller.eventPhoneNumberController.text,

@@ -14,7 +14,7 @@ Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
 
 Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
       'id': instance.id,
-      'translation': instance.translation,
+      'translation': instance.translation.toJson(),
     };
 
 Translation _$TranslationFromJson(Map<String, dynamic> json) => Translation(

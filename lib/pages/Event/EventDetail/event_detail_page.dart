@@ -181,7 +181,7 @@ class _DetailEventState extends State<DetailEvent> {
           height: 30,
         ),
         EventDescription(event: eventState),
-        EventCategorys(),
+        EventCategorys(cats: eventState.categories!),
         EventImages(),
         DividerBouthCorner(
           color1: Theme.of(context).colorScheme.surfaceVariant,

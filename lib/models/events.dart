@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:vs_femalefellows/models/address.dart';
+import 'package:vs_femalefellows/models/category.dart';
 import 'package:vs_femalefellows/models/materials.dart';
 
 part 'events.g.dart';
@@ -31,8 +32,10 @@ class Event {
   final EventMaterials? material;
   final bool? isfavorit;
   String? id;
+  final List<Category>? categories;
 
   Event({
+    this.categories,
     required this.whatsAppLink,
     required this.email,
     required this.phoneNumber,

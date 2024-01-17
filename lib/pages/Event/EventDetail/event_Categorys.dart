@@ -1,13 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vs_femalefellows/models/category.dart';
 
-class EventCategorys extends StatefulWidget {
-  const EventCategorys({super.key});
+class EventCategorys extends StatelessWidget {
+  const EventCategorys({super.key, required this.cats});
 
-  @override
-  State<EventCategorys> createState() => _EventCategoryState();
-}
+  final List<Category> cats;
 
-class _EventCategoryState extends State<EventCategorys> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,15 +25,25 @@ class _EventCategoryState extends State<EventCategorys> {
           SizedBox(
             height: 20,
           ),
-          Container(
-            alignment: Alignment.center,
-            width: 150,
-            height: 30,
-            decoration: BoxDecoration(
-                border: Border.all(
-                    width: 2, color: Theme.of(context).colorScheme.primary),
-                borderRadius: BorderRadius.circular(60)),
-            child: Text('Sprache'),
+          Column(
+            children: [
+              Wrap(
+                spacing: 5.0,
+                children: cats.map((Category category) {
+                  return FilterChip(
+                    shape: CupertinoTheme.of(context).brightness == Brightness.dark ? null : RoundedRectangleBorder(side: const BorderSide(width: 0.5, color: Colors.grey), borderRadius: BorderRadius.circular(45)),
+                    backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+                    selectedColor: Theme.of(context).colorScheme.primary,
+                    label: Text(
+                      category.translation.de,
+                    ),
+                    onSelected:(value) {
+                      
+                    },
+                  );
+                }).toList(),
+              ),
+            ],
           ),
           SizedBox(
             height: 50,

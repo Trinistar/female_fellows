@@ -7,7 +7,9 @@ import 'package:vs_femalefellows/models/category.dart';
 enum CategoryFilter { sport, bildung, sprache, frauengesundheit, tandemgeeignet, computer, inforveranstaltung, kinder, musik, kunst, kinderfreundlich, schwanderschaft, beratung, schule, selbststaendigkeit }
 
 class CategoryItems extends StatefulWidget {
-  const CategoryItems({super.key});
+  const CategoryItems({super.key, this.selectedCategories});
+
+  final void Function(List<Category> categories)? selectedCategories;
 
   @override
   State<CategoryItems> createState() => _CategoryItemsState();
@@ -42,6 +44,11 @@ class _CategoryItemsState extends State<CategoryItems> {
                       } else {
                         filters.remove(category);
                       }
+                      /* final List<int> cats = [];
+                      for (final Category cat in filters) {
+                        cats.add(cat.id);
+                      } */
+                      widget.selectedCategories!(filters.toList());
                     });
                   },
                 );

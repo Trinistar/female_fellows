@@ -56,7 +56,7 @@ class UpdateEvent extends StatelessWidget {
                             disabledBorder: InputBorder.none,
                             focusedBorder: InputBorder.none,
                             fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: eventState.eventTitle,
+                            hintText: eventState.title,
                           ),
                         ),
                         subtitle: Text(
@@ -90,6 +90,7 @@ class UpdateEvent extends StatelessWidget {
                       context.read<EventBloc>().add(
                             EventUpdate(
                               updateEvent: Event(
+                                categories: [],
                                 id: eventState.id,
                                 whatsAppLink: Controller.whatsAppLinkController.text,
                                 email: Controller.eventEmailController.text,

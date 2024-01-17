@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'category.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 @immutable
 class Category {
   Category({
