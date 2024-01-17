@@ -44,7 +44,6 @@ class _DetailEventState extends State<DetailEvent> {
       },
       builder: (context, state) {
         if (state is EventLoaded) {
-          print(state.event.title);
           return _scaffold(context, state.event);
         } else {
           return SizedBox.shrink();
