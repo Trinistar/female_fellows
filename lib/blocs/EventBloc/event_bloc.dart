@@ -16,27 +16,23 @@ class EventBloc extends Bloc<EventEvent, EventState> {
     on<NewEvent>((event, emit) async {
       try {
         Event eventdata = Event(
-            whatsAppLink: Controller.whatsAppLinkController.text,
-            phoneNumber: Controller.eventPhoneNumberController.text,
-            email: Controller.eventEmailController.text,
-            date: event.newEvent.date,
-            host: Controller.hostController.text,
-            title: Controller.eventTitleController.text,
-            location: Address(
-                street: Controller.streetnameController.text,
-                city: Controller.placeController.text,
-                zipCode: Controller.zipCodeController.text),
-            description: Controller.descriptionController.text,
-            contactPerson: Controller.contactPersonController.text,
-            material: EventMaterials(
-              planer: Controller.planerController.text,
-              food: Controller.foodController.text,
-              information: Controller.informationController.text,
-              clothes: Controller.clothesController.text,
-            ));
-        emit(CreateSuccess(
-            eventdata: eventdata,
-            eventRef: await firestoreEventRepository.createEvent(eventdata)));
+          whatsAppLink: Controller.whatsAppLinkController.text,
+          phoneNumber: Controller.eventPhoneNumberController.text,
+          email: Controller.eventEmailController.text,
+          date: event.newEvent.date,
+          host: Controller.hostController.text,
+          title: Controller.eventTitleController.text,
+          location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
+          description: Controller.descriptionController.text,
+          contactPerson: Controller.contactPersonController.text,
+          material: EventMaterials(
+            planer: Controller.planerController.text,
+            food: Controller.foodController.text,
+            information: Controller.informationController.text,
+            clothes: Controller.clothesController.text,
+          ),
+        );
+        emit(CreateSuccess(eventdata: eventdata, eventRef: await firestoreEventRepository.createEvent(eventdata)));
       } catch (e) {
         emit(EventFailure());
       }
@@ -44,27 +40,26 @@ class EventBloc extends Bloc<EventEvent, EventState> {
     on<EventUpdate>((event, emit) async {
       try {
         Event eventdata = Event(
-            whatsAppLink: Controller.whatsAppLinkController.text,
-            phoneNumber: Controller.eventPhoneNumberController.text,
-            email: Controller.eventEmailController.text,
-            date: event.updateEvent.date,
-            host: Controller.hostController.text,
-            title: Controller.eventTitleController.text,
-            location: Address(
-                street: Controller.streetnameController.text,
-                city: Controller.placeController.text,
-                zipCode: Controller.zipCodeController.text),
-            description: Controller.descriptionController.text,
-            contactPerson: Controller.contactPersonController.text,
-            material: EventMaterials(
-              planer: Controller.planerController.text,
-              food: Controller.foodController.text,
-              information: Controller.informationController.text,
-              clothes: Controller.clothesController.text,
-            ));
-            
-            await firestoreEventRepository.updateEvent(eventdata);
-            emit (UpdateEventSuccess());
+          id: event.updateEvent.id,
+          whatsAppLink: Controller.whatsAppLinkController.text,
+          phoneNumber: Controller.eventPhoneNumberController.text,
+          email: Controller.eventEmailController.text,
+          date: event.updateEvent.date,
+          host: Controller.hostController.text,
+          title: Controller.eventTitleController.text,
+          location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
+          description: Controller.descriptionController.text,
+          contactPerson: Controller.contactPersonController.text,
+          material: EventMaterials(
+            planer: Controller.planerController.text,
+            food: Controller.foodController.text,
+            information: Controller.informationController.text,
+            clothes: Controller.clothesController.text,
+          ),
+        );
+
+        await firestoreEventRepository.updateEvent(eventdata);
+        emit(UpdateEventSuccess());
       } catch (e) {
         emit(UpdateEventFailure());
       }

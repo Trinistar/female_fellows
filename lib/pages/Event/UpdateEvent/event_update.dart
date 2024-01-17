@@ -93,36 +93,28 @@ class _UpdateEventState extends State<UpdateEvent> {
                   builder: (context, state) {
                     return FFButton(
                         onTap: () {
-                          context.read<EventBloc>().add(EventUpdate(
-                              updateEvent: Event(
-                                  whatsAppLink:
-                                      Controller.whatsAppLinkController.text,
-                                  email:
-                                      Controller.eventEmailController.text,
-                                  phoneNumber: Controller
-                                      .eventPhoneNumberController.text,
-                                  date: Timestamp
-                                      .now(), // falsches Datum !!!!!!!!
-                                  description:
-                                      Controller.descriptionController.text,
-                                  host: Controller.hostController.text,
-                                  title:
-                                      Controller.eventTitleController.text,
-                                  contactPerson:
-                                      Controller.contactPersonController.text,
-                                  location: Address(
-                                      street:
-                                          Controller.streetnameController.text,
-                                      city: Controller.placeController.text,
-                                      zipCode:
-                                          Controller.zipCodeController.text),
-                                  material: EventMaterials(
-                                    planer: Controller.planerController.text,
-                                    food: Controller.foodController.text,
-                                    information:
-                                        Controller.informationController.text,
-                                    clothes: Controller.clothesController.text,
-                                  ))));
+                          context.read<EventBloc>().add(
+                                EventUpdate(
+                                  updateEvent: Event(
+                                    id: widget.eventState.id,
+                                    whatsAppLink: Controller.whatsAppLinkController.text,
+                                    email: Controller.eventEmailController.text,
+                                    phoneNumber: Controller.eventPhoneNumberController.text,
+                                    date: Timestamp.now(), // falsches Datum !!!!!!!!
+                                    description: Controller.descriptionController.text,
+                                    host: Controller.hostController.text,
+                                    title: Controller.eventTitleController.text,
+                                    contactPerson: Controller.contactPersonController.text,
+                                    location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
+                                    material: EventMaterials(
+                                      planer: Controller.planerController.text,
+                                      food: Controller.foodController.text,
+                                      information: Controller.informationController.text,
+                                      clothes: Controller.clothesController.text,
+                                    ),
+                                  ),
+                                ),
+                              );
                           Navigator.of(context).pop();
                         },
                         text: 'Update Event');
