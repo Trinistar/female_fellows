@@ -39,7 +39,7 @@ class UpdateDesciption extends StatelessWidget {
                                   focusedBorder: InputBorder.none,
                                   fillColor:
                                       Theme.of(context).colorScheme.surface,
-                                  hintText: event.eventDescription,
+                                  hintText: event.description,
                                 ),
                               ),
                     ),

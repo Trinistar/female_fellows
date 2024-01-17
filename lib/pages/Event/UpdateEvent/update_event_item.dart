@@ -157,7 +157,7 @@ class UpdateEventItemState extends State<UpdateEventItem> {
                 disabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
                 fillColor: Theme.of(context).colorScheme.surface,
-                hintText: eventState.eventPhoneNumber,
+                hintText: eventState.phoneNumber,
               ),
             ),
             subtitle: Text(

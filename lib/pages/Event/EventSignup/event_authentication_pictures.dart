@@ -100,7 +100,7 @@ class _EventPictureAuthenticationState extends State<EventPictureAuthentication>
 
                       final EventParticipant eventParticipant =
                           EventParticipant(participating: true, userId: userId, interpreter: Interpreter(needed: true, language: 'English'), childCare: ChildCare(needed: false, childName: null), mediaConsent: true);
-                      context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.event.eventId!, userId: userId, eventParticipant: eventParticipant, userData: data));
+                      context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.event.id!, userId: userId, eventParticipant: eventParticipant, userData: data));
                     }
                     //Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventSuccess(event: widget.event)));
                   },

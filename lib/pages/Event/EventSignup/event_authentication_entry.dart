@@ -28,7 +28,7 @@ class _EvententryState extends State<Evententry> {
       ),
       child: BlocListener<AuthenticationBloc, AuthenticationState>(
         listener: (context, state) {
-          if (state is AuthenticatedUser && state.userProfile!.participatingEvents.contains(widget.event.eventId)) {
+          if (state is AuthenticatedUser && state.userProfile!.participatingEvents.contains(widget.event.id)) {
             Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventSuccess(event: widget.event)));
 
             ScaffoldMessenger.of(context).showSnackBar(

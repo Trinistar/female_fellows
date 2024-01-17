@@ -22,30 +22,30 @@ class Event {
   final Timestamp date;
   final String host;
   final String? participants; //array
-  final String eventTitle;
+  final String title;
   final Address location;
-  final String eventDescription;
+  final String description;
   final String contactPerson;
-  final String eventEmail;
-  final String eventPhoneNumber;
+  final String email;
+  final String phoneNumber;
   final EventMaterials? material;
   final bool? isfavorit;
-  String? eventId;
+  String? id;
 
   Event({
     required this.whatsAppLink,
-    required this.eventEmail,
-    required this.eventPhoneNumber,
+    required this.email,
+    required this.phoneNumber,
     this.isfavorit,
     required this.date,
     required this.host,
     this.participants,
-    required this.eventTitle,
+    required this.title,
     required this.location,
-    required this.eventDescription,
+    required this.description,
     required this.contactPerson,
     required this.material,
-    this.eventId,
+    this.id,
   });
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);

@@ -8,20 +8,20 @@ part of 'events.dart';
 
 Event _$EventFromJson(Map<String, dynamic> json) => Event(
       whatsAppLink: json['whatsAppLink'] as String,
-      eventEmail: json['eventEmail'] as String,
-      eventPhoneNumber: json['eventPhoneNumber'] as String,
+      email: json['email'] as String,
+      phoneNumber: json['phoneNumber'] as String,
       isfavorit: json['isfavorit'] as bool?,
       date: const TimestampConverter().fromJson(json['date']),
       host: json['host'] as String,
       participants: json['participants'] as String?,
-      eventTitle: json['eventTitle'] as String,
+      title: json['title'] as String,
       location: Address.fromJson(json['location'] as Map<String, dynamic>),
-      eventDescription: json['eventDescription'] as String,
+      description: json['description'] as String,
       contactPerson: json['contactPerson'] as String,
       material: json['material'] == null
           ? null
           : EventMaterials.fromJson(json['material'] as Map<String, dynamic>),
-      eventId: json['eventId'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
@@ -29,13 +29,13 @@ Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
       'date': const TimestampConverter().toJson(instance.date),
       'host': instance.host,
       'participants': instance.participants,
-      'eventTitle': instance.eventTitle,
+      'title': instance.title,
       'location': instance.location.toJson(),
-      'eventDescription': instance.eventDescription,
+      'description': instance.description,
       'contactPerson': instance.contactPerson,
-      'eventEmail': instance.eventEmail,
-      'eventPhoneNumber': instance.eventPhoneNumber,
+      'email': instance.email,
+      'phoneNumber': instance.phoneNumber,
       'material': instance.material?.toJson(),
       'isfavorit': instance.isfavorit,
-      'eventId': instance.eventId,
+      'id': instance.id,
     };

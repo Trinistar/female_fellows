@@ -121,7 +121,7 @@ class _EventSuccessState extends State<EventSuccess> {
                         color: Colors.white,
                       ),
                       title: Text(
-                        widget.event.eventEmail,
+                        widget.event.email,
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.white,
@@ -133,7 +133,7 @@ class _EventSuccessState extends State<EventSuccess> {
                         color: Colors.white,
                       ),
                       title: Text(
-                        widget.event.eventPhoneNumber,
+                        widget.event.phoneNumber,
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.white,

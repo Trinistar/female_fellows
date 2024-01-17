@@ -28,7 +28,7 @@ class EventListTile extends StatelessWidget {
                     width: 80,
                   ),
                   title: Text(
-                    event.eventTitle,
+                    event.title,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Column(

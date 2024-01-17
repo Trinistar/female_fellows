@@ -233,22 +233,15 @@ class _CreateEventState extends State<CreateEvent> {
                     onTap: () {
                       context.read<EventBloc>().add(NewEvent(
                               newEvent: Event(
-                            whatsAppLink:
-                                Controller.whatsAppLinkController.text,
-                            eventEmail: Controller.eventEmailController.text,
-                            eventPhoneNumber:
-                                Controller.eventPhoneNumberController.text,
+                            whatsAppLink: Controller.whatsAppLinkController.text,
+                            email: Controller.eventEmailController.text,
+                            phoneNumber: Controller.eventPhoneNumberController.text,
                             date: Timestamp.fromDate(_dateTime),
-                            eventDescription:
-                                Controller.descriptionController.text,
+                            eventDescription: Controller.descriptionController.text,
                             host: Controller.hostController.text,
                             eventTitle: Controller.eventTitleController.text,
-                            contactPerson:
-                                Controller.contactPersonController.text,
-                            location: Address(
-                                street: Controller.streetnameController.text,
-                                city: Controller.placeController.text,
-                                zipCode: Controller.zipCodeController.text),
+                            contactPerson: Controller.contactPersonController.text,
+                            location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
                             material: EventMaterials(
                               planer: Controller.planerController.text,
                               food: Controller.foodController.text,

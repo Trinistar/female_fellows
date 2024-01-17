@@ -18,12 +18,12 @@ class FavoritesIconWidget extends StatelessWidget {
     return BlocBuilder<AuthenticationBloc, AuthenticationState>(
       builder: (BuildContext context, AuthenticationState state) {
         if (state is AuthenticatedUser) {
-          if (state.userProfile != null && event.eventId != null) {
+          if (state.userProfile != null && event.id != null) {
             return IconButton(
               onPressed: () async {
-                _updateFavorites(state.userProfile!, event.eventId!, context);
+                _updateFavorites(state.userProfile!, event.id!, context);
               },
-              icon: (state.userProfile!.favorites.contains(event.eventId))
+              icon: (state.userProfile!.favorites.contains(event.id))
                   ? Icon(
                       Icons.favorite,
                     )
@@ -42,7 +42,8 @@ class FavoritesIconWidget extends StatelessWidget {
   }
 
   void _updateFavorites(FFUser userProfile, String eventId, BuildContext context) async {
-    List<String> favorites = userProfile.favorites;
+    List<String> favorites = List.empty(growable: true);
+    favorites.addAll(userProfile.favorites);
     if (favorites.contains(eventId)) {
       favorites.remove(eventId);
     } else {
