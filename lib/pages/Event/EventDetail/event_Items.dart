@@ -7,13 +7,12 @@ import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/participants_image_row.dart';
 
 class EventItems extends StatelessWidget {
-  const EventItems({super.key, required this.event});
+  const EventItems({super.key, required this.eventState});
 
-  final Event event;
+  final Event eventState;
 
   @override
   Widget build(BuildContext context) {
-    var eventState = context.read<Event>();
     return Padding(
       padding: const EdgeInsets.only(left: 20),
       child: Column(
@@ -87,7 +86,7 @@ class EventItems extends StatelessWidget {
                   state.userProfile!.participatingEvents
                       .contains(eventState.id)) {
                 return GestureDetector(
-                  onTap: () => launchUrl(Uri.parse(event.whatsAppLink)),
+                  onTap: () => launchUrl(Uri.parse(eventState.whatsAppLink)),
                   child: ListTile(
                     leading: SvgPicture.asset(
                       'lib/images/chat.svg',

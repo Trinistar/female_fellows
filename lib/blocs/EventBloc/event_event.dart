@@ -6,17 +6,25 @@ sealed class EventEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
-class EventUpdate extends EventEvent{
-  final Event updateEvent;
+
+class EventUpdate extends EventEvent {
   EventUpdate({required this.updateEvent});
+
+  final Event updateEvent;
 }
 
 class NewEvent extends EventEvent {
-  final Event newEvent;
-
-  //materials
-
   NewEvent({
     required this.newEvent,
   });
+
+  final Event newEvent;
+
+  //materials
+}
+
+class LoadEvent extends EventEvent {
+  LoadEvent({required this.eventId});
+
+  final String eventId;
 }

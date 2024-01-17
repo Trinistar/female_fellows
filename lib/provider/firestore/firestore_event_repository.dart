@@ -27,6 +27,17 @@ class FirestoreEventRepository {
     return db.collection('event').snapshots();
   }
 
+  Stream<Event?> getEvent(String eventId) {
+    return db.collection('event').doc(eventId).snapshots().map((DocumentSnapshot<Object> snapshot) {
+      if (!snapshot.exists) return null;
+
+      final Event event = Event.fromJson(snapshot.data()! as Map<String, dynamic>);
+
+      event.id = snapshot.id;
+      return event;
+    });
+  }
+
   Stream<List<Event>> getEventsById(List<String> eventIds) {
     const String error = 'noElements';
     if (eventIds.isEmpty) return Stream.error(error);
@@ -97,8 +108,13 @@ class AllEventsStore extends Cubit<List<Event>> {
 
   void eventListener(QuerySnapshot<Map<String, dynamic>> snapshot) {
     if (snapshot.docs.isNotEmpty) {
-      List<Event> tmp = [...state];
-      for (var change in snapshot.docChanges) {
+      List<Event> tmp = [];
+      for (var doc in snapshot.docs) {
+        final Event event = Event.fromJson(doc.data());
+        event.id = doc.id;
+        tmp.add(event);
+      }
+      /* for (var change in snapshot.docChanges) {
         switch (change.type) {
           case DocumentChangeType.added:
             final Event event = Event.fromJson(change.doc.data()!);
@@ -122,7 +138,7 @@ class AllEventsStore extends Cubit<List<Event>> {
             }
             break;
         }
-      }
+      } */
       emit(tmp);
     }
   }

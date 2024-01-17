@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/models/events.dart';
 
 class EventMaterials extends StatelessWidget {
   const EventMaterials({
-    super.key,
+    super.key, required this.eventState,
   });
+
+  final Event eventState;
 
   @override
   Widget build(BuildContext context) {
-    var eventState = context.read<Event>();
     return Container(
       width: 1000,
       color: Theme.of(context).colorScheme.surfaceVariant,

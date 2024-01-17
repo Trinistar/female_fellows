@@ -1,10 +1,7 @@
 part of 'event_bloc.dart';
 
-sealed class EventState extends Equatable {
+sealed class EventState {
   const EventState();
-
-  @override
-  List<Object> get props => [];
 }
 
 final class EventInitial extends EventState {}
@@ -18,13 +15,23 @@ class CreateSuccess extends EventState {
   CreateSuccess({required this.eventdata, required this.eventRef});
 }
 
-class UpdateEventSuccess extends EventState{}
+class UpdateEventSuccess extends EventState {}
 
 class EventFailure extends EventState {}
-class UpdateEventFailure extends EventState{}
+
+class UpdateEventFailure extends EventState {}
 
 class EventStore extends EventState {
   final List<Event> events;
 
   EventStore({required this.events});
 }
+
+class EventLoaded extends EventState {
+  EventLoaded({required this.event});
+
+  final Event event;
+}
+
+class EventNotLoaded extends EventState {}
+

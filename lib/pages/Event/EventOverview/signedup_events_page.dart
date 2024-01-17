@@ -32,10 +32,13 @@ class _SingedUpEventsState extends State<SingedUpEvents> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
+                Navigator.of(context).push(
+                  MaterialPageRoute(
                     builder: (context) => DetailEvent(
-                          eventState: state[index],
-                        )));
+                      eventId: state[index].id!,
+                    ),
+                  ),
+                );
               },
               child: EventListTile(
                 event: state[index],
