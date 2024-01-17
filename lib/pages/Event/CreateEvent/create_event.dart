@@ -237,9 +237,9 @@ class _CreateEventState extends State<CreateEvent> {
                             email: Controller.eventEmailController.text,
                             phoneNumber: Controller.eventPhoneNumberController.text,
                             date: Timestamp.fromDate(_dateTime),
-                            eventDescription: Controller.descriptionController.text,
+                            description: Controller.descriptionController.text,
                             host: Controller.hostController.text,
-                            eventTitle: Controller.eventTitleController.text,
+                            title: Controller.eventTitleController.text,
                             contactPerson: Controller.contactPersonController.text,
                             location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
                             material: EventMaterials(

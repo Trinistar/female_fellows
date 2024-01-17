@@ -60,7 +60,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                             disabledBorder: InputBorder.none,
                             focusedBorder: InputBorder.none,
                             fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: widget.eventState.eventTitle,
+                            hintText: widget.eventState.title,
                           ),
                         ),
                         subtitle: Text(
