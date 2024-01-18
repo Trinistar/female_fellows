@@ -22,7 +22,7 @@ class EventItems extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.calendar_today),
             title: Text(
-              '${eventState.date.toDate().day}.${eventState.date.toDate().month}.${eventState.date.toDate().year}',
+              '${eventState.dates!.created!.toDate().day}.${eventState.dates!.created!.toDate().month}.${eventState.dates!.created!.toDate().year}',
               style: TextStyle(
                 fontSize: 15,
               ),

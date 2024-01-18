@@ -14,10 +14,31 @@ import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_event_item.dart'
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_materials.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
-class UpdateEvent extends StatelessWidget {
+class UpdateEvent extends StatefulWidget {
   const UpdateEvent({super.key, required this.eventState});
 
   final Event eventState;
+
+  @override
+  State<UpdateEvent> createState() => _UpdateEventState();
+}
+
+class _UpdateEventState extends State<UpdateEvent> {
+  Timestamp _newDate = Timestamp.now();
+
+  void _getEventDate(Timestamp date) {
+    _newDate = date;
+  }
+
+  @override
+  void initState() {
+    _setInputFields(widget.eventState);
+    super.initState();
+  }
+
+  void _setInputFields(Event eventState) {
+    Controller.eventTitleController.text = eventState.title;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +47,7 @@ class UpdateEvent extends StatelessWidget {
           statusBarColor: Colors.white,
         ),
         child: RepositoryProvider<Event>(
-          create: (context) => eventState,
+          create: (context) => widget.eventState,
           child: Scaffold(
             extendBody: true,
             extendBodyBehindAppBar: true,
@@ -56,7 +77,7 @@ class UpdateEvent extends StatelessWidget {
                             disabledBorder: InputBorder.none,
                             focusedBorder: InputBorder.none,
                             fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: eventState.title,
+                            hintText: widget.eventState.title,
                           ),
                         ),
                         subtitle: Text(
@@ -70,18 +91,18 @@ class UpdateEvent extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                UpdateEventItem(),
+                UpdateEventDate(eventState: widget.eventState, newEventDate: _getEventDate),
                 SizedBox(
                   height: 20,
                 ),
                 SizedBox(
                   height: 30,
                 ),
-                UpdateDesciption(),
+                UpdateDesciption(event: widget.eventState),
                 SizedBox(
                   height: 30,
                 ),
-                UpdateMaterials(),
+                UpdateMaterials(event: widget.eventState),
                 SizedBox(
                   height: 30,
                 ),
@@ -91,11 +112,11 @@ class UpdateEvent extends StatelessWidget {
                             EventUpdate(
                               updateEvent: Event(
                                 categories: [],
-                                id: eventState.id,
+                                id: widget.eventState.id,
                                 whatsAppLink: Controller.whatsAppLinkController.text,
                                 email: Controller.eventEmailController.text,
                                 phoneNumber: Controller.eventPhoneNumberController.text,
-                                date: Timestamp.now(), // falsches Datum !!!!!!!!
+                                dates: EventDates(updated: Timestamp.fromDate(DateTime.now()), eventDate: _newDate),
                                 description: Controller.descriptionController.text,
                                 host: Controller.hostController.text,
                                 title: Controller.eventTitleController.text,

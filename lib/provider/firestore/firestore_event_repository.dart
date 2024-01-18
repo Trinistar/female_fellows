@@ -19,7 +19,7 @@ class FirestoreEventRepository {
 
   Future<void>? updateEvent(Event eventdata) {
     if (eventdata.id == null || eventdata.id!.isEmpty) return null;
-    return db.collection('event').doc(eventdata.id).update(eventdata.toJson());
+    return db.collection('event').doc(eventdata.id).set(eventdata.toJson(), SetOptions(merge: true));
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> getEvents() {

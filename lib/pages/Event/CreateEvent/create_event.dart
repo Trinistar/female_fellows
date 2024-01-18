@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +10,6 @@ import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/category.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/materials.dart';
-import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event_category.dart';
 import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event_description.dart';
 import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event_header.dart';
 import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event_material.dart';
@@ -38,23 +35,23 @@ class _CreateEventState extends State<CreateEvent> {
     _catIds = catIds;
   }
 
+  void _showdatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1940),
+      lastDate: DateTime(3000),
+    ).then((value) {
+      setState(() {
+        if (value != null) {
+          _dateTime = value;
+        }
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    void _showdatePicker() {
-      showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(1940),
-        lastDate: DateTime(3000),
-      ).then((value) {
-        setState(() {
-          if (value != null) {
-            _dateTime = value;
-          }
-        });
-      });
-    }
-
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
@@ -243,7 +240,7 @@ class _CreateEventState extends State<CreateEvent> {
                                 whatsAppLink: Controller.whatsAppLinkController.text,
                                 email: Controller.eventEmailController.text,
                                 phoneNumber: Controller.eventPhoneNumberController.text,
-                                date: Timestamp.fromDate(_dateTime),
+                                dates: EventDates(created: Timestamp.now(), eventDate: Timestamp.fromDate(_dateTime)),
                                 description: Controller.descriptionController.text,
                                 host: Controller.hostController.text,
                                 title: Controller.eventTitleController.text,

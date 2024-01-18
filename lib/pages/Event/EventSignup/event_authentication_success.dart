@@ -52,7 +52,7 @@ class _EventSuccessState extends State<EventSuccess> {
                         color: Colors.white,
                       ),
                       title: Text(
-                        formatDate(widget.event.date.toDate(), <String>[d, '. ', MM, ' ', yyyy], locale: GermanLocale()),
+                        formatDate(widget.event.dates!.created!.toDate(), <String>[d, '. ', MM, ' ', yyyy], locale: GermanLocale()),
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.white,

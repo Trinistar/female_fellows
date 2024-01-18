@@ -41,7 +41,7 @@ class EventListTile extends StatelessWidget {
                           ),
                           Flexible(
                             child: Text(
-                              formatDate(event.date.toDate(),
+                              formatDate(event.dates!.created!.toDate(),
                                   <String>[d, '. ', MM, ' ', yyyy],
                                   locale: GermanLocale()),
                               style: TextStyle(fontSize: 13),
