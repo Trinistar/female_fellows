@@ -22,15 +22,22 @@ class _EvententryState extends State<Evententry> {
   PageController _controller = PageController();
   bool _onLastPage = false;
   Interpreter? _interpreter;
+  ChildCare? _childCare;
+  bool _consent = false;
 
   void _getTranslator(Interpreter interpreter) => _interpreter = interpreter;
+
+  void _getChildCare(ChildCare childCare) => _childCare = childCare;
+
+  void _getMediaConsent(bool consent) => _consent = consent;
+
 
   void _sendRequest() {
     if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
       final String userId = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid;
       final FFUser data = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
 
-      final EventParticipant eventParticipant = EventParticipant(participating: true, userId: userId, interpreter: _interpreter, childCare: ChildCare(needed: false, childName: null), mediaConsent: true);
+      final EventParticipant eventParticipant = EventParticipant(participating: true, userId: userId, interpreter: _interpreter, childCare: _childCare, mediaConsent: _consent);
       context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.event.id!, userId: userId, eventParticipant: eventParticipant, userData: data));
     }
   }
@@ -87,8 +94,8 @@ class _EvententryState extends State<Evententry> {
                   },
                   children: [
                     EventTranslationAuthentication(needsTranslator: _getTranslator),
-                    EventKidsAuthentication(),
-                    EventPictureAuthentication(event: widget.event, sendRequest: _sendRequest),
+                    EventChildCareAuthentication(needsChildCare: _getChildCare),
+                    EventPictureAuthentication(event: widget.event, sendRequest: _sendRequest, mediaConsent: _getMediaConsent),
                   ],
                 ),
               ),

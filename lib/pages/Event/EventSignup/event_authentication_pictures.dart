@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
-import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
 
 class EventPictureAuthentication extends StatefulWidget {
-  const EventPictureAuthentication({super.key, required this.event, this.sendRequest});
+  const EventPictureAuthentication({super.key, required this.event, this.sendRequest, this.mediaConsent});
 
   final Event event;
   final void Function()? sendRequest;
+  final void Function(bool)? mediaConsent;
 
   @override
   State<EventPictureAuthentication> createState() => _EventPictureAuthenticationState();
 }
 
 class _EventPictureAuthenticationState extends State<EventPictureAuthentication> {
-  bool _pictures = false;
-  String? _question;
+  late RadioChoices _choices;
+
+  @override
+  void initState() {
+    _choices = RadioChoices.nein;
+    widget.mediaConsent!(false);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,12 +71,12 @@ class _EventPictureAuthenticationState extends State<EventPictureAuthentication>
                       'Ich bin damit einverstanden, dass Female Fellows e.V.\n(nachfolgend bezeichnet als "Verein")\nFilmaufnahmen/Fotos von mir zum Zwecke der\nPresse- und Öffentlichkeitsarbeit des Fundraisings\ndes Marketings der internen Verwendung von\nWerbemaßnahmen und eventuellen\nSpendeaktionen verabeiter und veröffentlicht\n werden dürfen. Ebenfalls bin ich einverstanden, dass\nmeine Daten zum Zwecke der Vereinsorganisation\ngespeichert werden. Ebenefalls bin ich einverstanden,\ndass meine Daten zum Zwecke der\nVereinsorganisation gespeichert werden.',
                       style: TextStyle(fontSize: 10),
                     ),
-                    value: "Ja",
-                    groupValue: _question,
+                    value: RadioChoices.ja,
+                    groupValue: _choices,
                     onChanged: (answer) {
                       setState(() {
-                        _question = answer;
-                        _pictures = true;
+                        _choices = answer!;
+                        widget.mediaConsent!(true);
                       });
                     }),
                 RadioListTile(
@@ -83,12 +87,12 @@ class _EventPictureAuthenticationState extends State<EventPictureAuthentication>
                         fontSize: 15,
                       ),
                     ),
-                    value: "Nein",
-                    groupValue: _question,
+                    value: RadioChoices.nein,
+                    groupValue: _choices,
                     onChanged: (answer) {
                       setState(() {
-                        _question = answer;
-                        _pictures = false;
+                        _choices = answer!;
+                        widget.mediaConsent!(false);
                       });
                     }),
                 SizedBox(
