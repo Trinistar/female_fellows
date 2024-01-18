@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_kids.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_pictures.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_success.dart';
@@ -19,6 +21,19 @@ class Evententry extends StatefulWidget {
 class _EvententryState extends State<Evententry> {
   PageController _controller = PageController();
   bool _onLastPage = false;
+  Interpreter? _interpreter;
+
+  void _getTranslator(Interpreter interpreter) => _interpreter = interpreter;
+
+  void _sendRequest() {
+    if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
+      final String userId = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid;
+      final FFUser data = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
+
+      final EventParticipant eventParticipant = EventParticipant(participating: true, userId: userId, interpreter: _interpreter, childCare: ChildCare(needed: false, childName: null), mediaConsent: true);
+      context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.event.id!, userId: userId, eventParticipant: eventParticipant, userData: data));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +86,9 @@ class _EvententryState extends State<Evententry> {
                     });
                   },
                   children: [
-                    EventTranslationAuthentication(),
+                    EventTranslationAuthentication(needsTranslator: _getTranslator),
                     EventKidsAuthentication(),
-                    EventPictureAuthentication(event: widget.event),
+                    EventPictureAuthentication(event: widget.event, sendRequest: _sendRequest),
                   ],
                 ),
               ),

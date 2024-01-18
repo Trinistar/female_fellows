@@ -29,7 +29,6 @@ class DetailEvent extends StatefulWidget {
 }
 
 class _DetailEventState extends State<DetailEvent> {
-
   @override
   void initState() {
     BlocProvider.of<EventBloc>(context).add(LoadEvent(eventId: widget.eventId));
@@ -151,8 +150,9 @@ class _DetailEventState extends State<DetailEvent> {
               if (state.userProfile!.participatingEvents.contains(eventState.id)) {
                 return FFButton(
                   onTap: () {
-                    final EventParticipant eventParticipant = EventParticipant(participating: false, userId: state.user!.uid);
-                    context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: eventState.id!, userId: state.user!.uid, eventParticipant: eventParticipant, userData: state.userProfile!));
+                    final Map<String, dynamic> map = <String, dynamic>{};
+                    map['participating'] = false;
+                    context.read<AuthenticationBloc>().add(RevokeEventParticipationEvent(userId: state.user!.uid, eventId: widget.eventId, userData: state.userProfile!, participation: map));
                   },
                   text: 'Anmeldung zurückziehen',
                   color: Colors.red,

@@ -41,6 +41,23 @@ class SetEventParticipationEvent extends AuthenticationEvent {
   List<Object> get props => <Object>[];
 }
 
+class RevokeEventParticipationEvent extends AuthenticationEvent {
+  RevokeEventParticipationEvent({
+    required this.eventId,
+    required this.userId,
+    required this.participation,
+    required this.userData,
+  });
+
+  final String eventId;
+  final String userId;
+  final Map<String, dynamic> participation;
+  final FFUser userData;
+
+  @override
+  List<Object> get props => <Object>[];
+}
+
 class UpdateUserProfileEvent extends AuthenticationEvent {
   UpdateUserProfileEvent(this.userId, {required this.userProfile});
 

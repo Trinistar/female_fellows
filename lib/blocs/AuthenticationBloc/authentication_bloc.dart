@@ -25,6 +25,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     on<SignOutEvent>(_onSignOutEvent);
     on<UpdateUserProfileEvent>(_onUpdateUserProfile);
     on<SetEventParticipationEvent>(_onSetEventParticipationEvent);
+    on<RevokeEventParticipationEvent>(_onRevokeEventParticipationEvent);
 
     _userSubscription = _authenticationProvider.user.listen((User? user) => add(AuthenticationUserChangedEvent(user)));
   }
@@ -112,6 +113,20 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       } else {
         partEvents.remove(event.eventId);
       }
+      userProfile.participatingEvents = partEvents;
+      await _firestoreUserProfileRepository.updateUserProfile(userProfile, userID: event.userId);
+    } catch (_) {}
+  }
+
+  Future<void> _onRevokeEventParticipationEvent(RevokeEventParticipationEvent event, Emitter<AuthenticationState> emit) async {
+    try {
+      await _firestoreEventRepository.revokeEventParticipation(event.userId, event.eventId, event.participation);
+
+      final FFUser userProfile = event.userData;
+      List<String> partEvents = userProfile.participatingEvents;
+
+      partEvents.remove(event.eventId);
+
       userProfile.participatingEvents = partEvents;
       await _firestoreUserProfileRepository.updateUserProfile(userProfile, userID: event.userId);
     } catch (_) {}

@@ -81,6 +81,10 @@ class FirestoreEventRepository {
     return db.collection('event').doc(eventId).collection('participants').doc(userId).set(data.toJson(), SetOptions(merge: true));
   }
 
+  Future<void> revokeEventParticipation(String? userId, String? eventId, Map<String, dynamic> data) {
+    return db.collection('event').doc(eventId).collection('participants').doc(userId).set(data, SetOptions(merge: true));
+  }
+
   Future<List<Category>> getCategories() async {
     final List<Category> categories = [];
     var cats = await db.collection('category').get();

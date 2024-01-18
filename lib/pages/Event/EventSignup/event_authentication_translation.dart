@@ -1,51 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/components/text_bar.dart';
-import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:language_picker/languages.dart';
+import 'package:vs_femalefellows/models/event_participant.dart';
+
+enum RadioChoices { ja, nein }
 
 class EventTranslationAuthentication extends StatefulWidget {
-  const EventTranslationAuthentication({super.key});
+  const EventTranslationAuthentication({super.key, this.needsTranslator});
+
+  final void Function(Interpreter)? needsTranslator;
 
   @override
   State<EventTranslationAuthentication> createState() => _EventTranslationAuthenticationState();
 }
 
-bool _language = false;
-String? question;
-
 class _EventTranslationAuthenticationState extends State<EventTranslationAuthentication> {
+  RadioChoices _choices = RadioChoices.nein;
+  late Language _lang;
+
+  @override
+  void initState() {
+    _lang = Languages.german;
+    widget.needsTranslator!(Interpreter(needed: false, language: ''));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 50),
-            child: Text(
-              'Brauchst du eine\nDolmecherin beim\nEvent?',
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: ListView(
+          children: [
+            Text(
+              'Brauchst du eine Dolmetcherin beim Event?',
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Center(
-            child: CircleAvatar(
-              backgroundImage: AssetImage('lib/images/dolmetcher.png'),
-              radius: 100,
-              backgroundColor: Theme.of(context).colorScheme.secondary,
+            SizedBox(
+              height: 10,
             ),
-          ),
-          SizedBox(
-            height: 50,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Column(
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('lib/images/dolmetcher.png'),
+                radius: 100,
+                backgroundColor: Theme.of(context).colorScheme.secondary,
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Column(
               children: [
                 RadioListTile(
                     dense: true,
@@ -55,12 +63,12 @@ class _EventTranslationAuthenticationState extends State<EventTranslationAuthent
                         fontSize: 15,
                       ),
                     ),
-                    value: "Ja",
-                    groupValue: question,
+                    value: RadioChoices.ja,
+                    groupValue: _choices,
                     onChanged: (answer) {
                       setState(() {
-                        question = answer;
-                        _language = true;
+                        _choices = answer!;
+                        widget.needsTranslator!(Interpreter(needed: true, language: _lang.name));
                       });
                     }),
                 RadioListTile(
@@ -71,45 +79,47 @@ class _EventTranslationAuthenticationState extends State<EventTranslationAuthent
                         fontSize: 15,
                       ),
                     ),
-                    value: "Nein",
-                    groupValue: question,
+                    value: RadioChoices.nein,
+                    groupValue: _choices,
                     onChanged: (answer) {
                       setState(() {
-                        question = answer;
-                        _language = false;
+                        _choices = answer!;
+                        widget.needsTranslator!(Interpreter(needed: false, language: ''));
                       });
                     }),
                 SizedBox(
                   height: 15,
                 ),
-                _language
+                _choices == RadioChoices.ja
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 40),
-                            child: Text(
-                              'Sprache',
-                              style: TextStyle(
-                                fontSize: 15,
-                              ),
+                          Text(
+                            'Sprache',
+                            style: TextStyle(
+                              fontSize: 15,
                             ),
                           ),
-                          TextBar(
-                            controller: Controller.languageController,
-                            hintText: 'englisch',
-                            obscureText: false,
-                            onChange: null,
-                            validator: null,
+                          DropdownMenu<Language>(
+                            initialSelection: Languages.german,
+                            dropdownMenuEntries: Languages.defaultLanguages.map((Language lang) {
+                              return DropdownMenuEntry<Language>(value: lang, label: lang.name);
+                            }).toList(),
+                            onSelected: (value) {
+                              setState(() {
+                                _lang = value!;
+                                widget.needsTranslator!(Interpreter(needed: true, language: _lang.name));
+                              });
+                            },
                           ),
                         ],
                       )
                     : Container(),
               ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

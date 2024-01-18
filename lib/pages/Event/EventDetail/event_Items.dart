@@ -51,7 +51,7 @@ class EventItems extends StatelessWidget {
                 return ListTile(
                   leading: Icon(Icons.location_on_outlined),
                   title: Text(
-                    '${eventState.location.street},${eventState.location.city}',
+                    '${eventState.location.street}, ${eventState.location.zipCode} ${eventState.location.city}',
                     style: TextStyle(fontSize: 15),
                   ),
                   subtitle: Text(

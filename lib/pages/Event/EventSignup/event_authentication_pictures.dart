@@ -7,17 +7,19 @@ import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 
 class EventPictureAuthentication extends StatefulWidget {
-  const EventPictureAuthentication({super.key, required this.event});
+  const EventPictureAuthentication({super.key, required this.event, this.sendRequest});
+
   final Event event;
+  final void Function()? sendRequest;
 
   @override
   State<EventPictureAuthentication> createState() => _EventPictureAuthenticationState();
 }
 
-bool _pictures = false;
-String? _question;
-
 class _EventPictureAuthenticationState extends State<EventPictureAuthentication> {
+  bool _pictures = false;
+  String? _question;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,15 +96,7 @@ class _EventPictureAuthenticationState extends State<EventPictureAuthentication>
                 ),
                 FFButton(
                   onTap: () {
-                    if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
-                      final String userId = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid;
-                      final FFUser data = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
-
-                      final EventParticipant eventParticipant =
-                          EventParticipant(participating: true, userId: userId, interpreter: Interpreter(needed: true, language: 'English'), childCare: ChildCare(needed: false, childName: null), mediaConsent: true);
-                      context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.event.id!, userId: userId, eventParticipant: eventParticipant, userData: data));
-                    }
-                    //Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventSuccess(event: widget.event)));
+                    widget.sendRequest!();
                   },
                   text: 'Verbindlich anmelden',
                 ),
