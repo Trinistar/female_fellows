@@ -29,9 +29,9 @@ class CreateEvent extends StatefulWidget {
 class _CreateEventState extends State<CreateEvent> {
   DateTime _dateTime = DateTime.now();
 
-  List<Category> _catIds = [];
+  List<int> _catIds = [];
 
-  void _getCatIds(List<Category> catIds) {
+  void _getCatIds(List<int> catIds) {
     _catIds = catIds;
   }
 
@@ -48,6 +48,12 @@ class _CreateEventState extends State<CreateEvent> {
         }
       });
     });
+  }
+
+  @override
+  void initState() {
+    Controller.clearControllers();
+    super.initState();
   }
 
   @override

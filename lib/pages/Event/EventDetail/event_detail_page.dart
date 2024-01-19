@@ -4,14 +4,13 @@ import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.da
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
-import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
-import 'package:vs_femalefellows/pages/Event/EventDetail/event_Categorys.dart';
-import 'package:vs_femalefellows/pages/Event/EventDetail/event_Description.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_categorys.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_description.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_Items.dart';
-import 'package:vs_femalefellows/pages/Event/EventDetail/event_Materials.dart';
-import 'package:vs_femalefellows/pages/Event/EventDetail/event_Pictures.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_materials.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_pictures.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_data_creator.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_entry.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
@@ -181,7 +180,7 @@ class _DetailEventState extends State<DetailEvent> {
           height: 30,
         ),
         EventDescription(event: eventState),
-        EventCategorys(cats: eventState.categories!),
+        EventCategorys(selectedCats: eventState.categories!),
         EventImages(),
         DividerBouthCorner(
           color1: Theme.of(context).colorScheme.surfaceVariant,

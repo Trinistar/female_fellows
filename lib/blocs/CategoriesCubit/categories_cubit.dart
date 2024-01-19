@@ -6,10 +6,10 @@ import 'package:vs_femalefellows/provider/firestore/firestore_repository.dart';
 
 part 'categories_state.dart';
 
-class CategoryCubit extends Cubit<List<Category>> {
+class CategoryCubit extends Cubit<CategoriesState> {
   CategoryCubit()
       : db = FirestoreRepository().firestoreInstance,
-        super(List.empty(growable: true)) {
+        super(CategoriesInitial()) {
     getCats();
   }
 
@@ -20,9 +20,9 @@ class CategoryCubit extends Cubit<List<Category>> {
   Future<void> getCats() async {
     try {
       final List<Category> cats = await _eventRepository.getCategories();
-      emit(cats);
+      emit(CategoriesLoaded(cats: cats));
     } catch (e) {
-      emit([]);
+      emit(CategoriesNotLoaded());
     }
   }
 }

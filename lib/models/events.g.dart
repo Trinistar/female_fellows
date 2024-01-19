@@ -10,9 +10,8 @@ Event _$EventFromJson(Map<String, dynamic> json) => Event(
       dates: json['dates'] == null
           ? null
           : EventDates.fromJson(json['dates'] as Map<String, dynamic>),
-      categories: (json['categories'] as List<dynamic>?)
-          ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      categories:
+          (json['categories'] as List<dynamic>?)?.map((e) => e as int).toList(),
       whatsAppLink: json['whatsAppLink'] as String,
       email: json['email'] as String,
       phoneNumber: json['phoneNumber'] as String,
@@ -42,7 +41,7 @@ Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
       'material': instance.material?.toJson(),
       'isfavorit': instance.isfavorit,
       'id': instance.id,
-      'categories': instance.categories?.map((e) => e.toJson()).toList(),
+      'categories': instance.categories,
       'dates': instance.dates?.toJson(),
     };
 

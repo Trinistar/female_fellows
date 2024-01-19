@@ -7,8 +7,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/address.dart';
+import 'package:vs_femalefellows/models/category.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/materials.dart';
+import 'package:vs_femalefellows/pages/Event/CreateEvent/event_category_items.dart';
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_description.dart';
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_event_item.dart';
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_materials.dart';
@@ -25,6 +27,11 @@ class UpdateEvent extends StatefulWidget {
 
 class _UpdateEventState extends State<UpdateEvent> {
   Timestamp _newDate = Timestamp.now();
+  List<int> _catIds = [];
+
+  void _getCatIds(List<int> catIds) {
+    _catIds = catIds;
+  }
 
   void _getEventDate(Timestamp date) {
     _newDate = date;
@@ -102,6 +109,30 @@ class _UpdateEventState extends State<UpdateEvent> {
                 SizedBox(
                   height: 30,
                 ),
+                Container(
+                color: Colors.white,
+                width: 1000,
+                height: 500,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: ListView(
+                    physics: NeverScrollableScrollPhysics(),
+                    children: [
+                      ListTile(
+                        leading: Image.asset(
+                          'lib/images/category.png',
+                          cacheHeight: 30,
+                        ),
+                        title: Text('Kategorien'),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      CategoryItems(selectedCategories: _getCatIds, editingEvent: true, event: widget.eventState),
+                    ],
+                  ),
+                ),
+              ),
                 UpdateMaterials(event: widget.eventState),
                 SizedBox(
                   height: 30,
@@ -111,7 +142,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                       context.read<EventBloc>().add(
                             EventUpdate(
                               updateEvent: Event(
-                                categories: [],
+                                categories: _catIds,
                                 id: widget.eventState.id,
                                 whatsAppLink: Controller.whatsAppLinkController.text,
                                 email: Controller.eventEmailController.text,

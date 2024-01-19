@@ -32,7 +32,7 @@ class Event {
   final EventMaterials? material;
   final bool? isfavorit;
   String? id;
-  final List<Category>? categories;
+  final List<int>? categories;
   final EventDates? dates;
 
   Event({
