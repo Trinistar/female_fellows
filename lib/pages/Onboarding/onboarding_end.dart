@@ -26,7 +26,7 @@ class Page5 extends StatelessWidget {
                 FFButton(
                       onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => Authentry(),
+                      builder: (context) => RegistrationEntry(),
                     ));
                   },
                     text: AppLocalizations.of(context)!.buttonRegistration,
@@ -40,7 +40,7 @@ class Page5 extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return Navigation();
+                          return TabBarNavigation();
                         },
                       ),
                     );

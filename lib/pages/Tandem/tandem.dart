@@ -21,7 +21,6 @@ class Tandementry extends StatelessWidget {
           color: Colors.white, //change your color here
         ),
         backgroundColor: Theme.of(context).colorScheme.tertiary,
-        leading: BackButton(),
       ),
       body: ListView(
         children: [

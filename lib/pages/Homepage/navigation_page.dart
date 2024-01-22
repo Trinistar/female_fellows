@@ -5,14 +5,14 @@ import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 import 'package:vs_femalefellows/pages/Profil/profil.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 
-class Navigation extends StatefulWidget {
-  Navigation({super.key});
+class TabBarNavigation extends StatefulWidget {
+  TabBarNavigation({super.key});
 
   @override
-  State<Navigation> createState() => _HomepageState();
+  State<TabBarNavigation> createState() => _HomepageState();
 }
 
-class _HomepageState extends State<Navigation> {
+class _HomepageState extends State<TabBarNavigation> {
   int _currentIndex = 2;
 
   void _navigation(int index) {

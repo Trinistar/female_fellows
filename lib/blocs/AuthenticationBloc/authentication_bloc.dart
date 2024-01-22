@@ -136,7 +136,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     emit(AuthenticationLoading());
     try {
       _authenticationProvider.logOut();
-      emit(SignOutSuccess());
+      emit(UnauthenticatedUser());
     } catch (error) {
       //emit(state.copyWith(errorCode: AuthenticationErrorCode.SIGN_OUT_FAILED, error: error.toString()) as AuthenticationState);
       //emit(const UnauthenticatedUser());

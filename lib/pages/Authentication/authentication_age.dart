@@ -36,78 +36,74 @@ class _AuthAgeState extends State<AuthAge> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 50),
-              child: Text(
-                  AppLocalizations.of(context)!.authenticationAge,
-                style: TextStyle(
-                  color:  Theme.of(context).colorScheme.primary,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 50),
+            child: Text(
+                AppLocalizations.of(context)!.authenticationAge,
+              style: TextStyle(
+                color:  Theme.of(context).colorScheme.primary,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
-              height: 60,
-            ),
-            Center(
-              child: MaterialButton(
-                onPressed: _showdatePicker,
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('lib/images/Birthday.png'),
-                  radius: 100,
-                  backgroundColor:  Theme.of(context).colorScheme.secondary,
-                ),
+          ),
+          SizedBox(
+            height: 60,
+          ),
+          Center(
+            child: MaterialButton(
+              onPressed: _showdatePicker,
+              child: CircleAvatar(
+                backgroundImage: AssetImage('lib/images/Birthday.png'),
+                radius: 100,
+                backgroundColor:  Theme.of(context).colorScheme.secondary,
               ),
             ),
-            SizedBox(
-              height: 5,
-            ),
-            Center(
-              child: Text(
-                  AppLocalizations.of(context)!.authenticationAgeImage,
-                style: TextStyle(
-                  color: Color.fromRGBO(27, 25, 86, 1),
-                  fontSize: 20,
-                ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Center(
+            child: Text(
+                AppLocalizations.of(context)!.authenticationAgeImage,
+              style: TextStyle(
+                color: Color.fromRGBO(27, 25, 86, 1),
+                fontSize: 20,
               ),
             ),
-            SizedBox(
-              height: 50,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 40, bottom: 5),
-                  child: Text(
-                      AppLocalizations.of(context)!.authenticationAgeBirthday,
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 40, bottom: 5),
+                child: Text(
+                    AppLocalizations.of(context)!.authenticationAgeBirthday,
+                  style: TextStyle(
+                    fontSize: 20,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 40, bottom: 5),
-                  child: Text(
-                    formatDate(
-                      _dateTime,
-                      <String>[d, '. ', MM, ' ', yyyy],
-                    ),
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40, bottom: 5),
+                child: Text(
+                  formatDate(
+                    _dateTime,
+                    <String>[d, '. ', MM, ' ', yyyy],
+                  ),
+                  style: TextStyle(
+                    fontSize: 20,
                   ),
                 ),
-              ],
-            )
-          ],
-        ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }

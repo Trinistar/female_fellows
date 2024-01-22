@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-typedef bool hasConfessed(bool newValue);
 typedef void BoolCallback(bool id);
-typedef bool wantsNewsletter(bool newsletter);
 
 class AuthSafety extends StatefulWidget {
   AuthSafety(
@@ -31,94 +29,88 @@ class _AuthSafetyState extends State<AuthSafety> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 50),
-                child: Text(
-                  AppLocalizations.of(context)!.authenticationSafetyTitle,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 50),
+            child: Text(
+              AppLocalizations.of(context)!.authenticationSafetyTitle,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
               ),
-              SizedBox(
-                height: 40,
-              ),
-              Center(
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('lib/images/Anmelden.png'),
-                  radius: 100,
-                  backgroundColor: Theme.of(context).colorScheme.secondary,
-                ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30),
-                child: SizedBox(
-                  width: 350,
-                  child: CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      dense: true,
-                      title: Text(
-                        AppLocalizations.of(context)!.authenticationNewsletter,
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
-                      value: _checkNewsletter,
-                      onChanged: (newsletter) {
-                        setState(() {
-                          _checkNewsletter = newsletter ?? false;
-                          widget.wantsNewsletter!(_checkNewsletter);
-                        });
-                      }),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30),
-                child: SizedBox(
-                  width: 350,
-                  child: CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      dense: true,
-                      title: GestureDetector(
-                        onTap: () =>
-                            Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Tandementry(),
-                        )),
-                        child: Text(
-                          AppLocalizations.of(context)!.authenticationAGBS,
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                        ),
-                      ),
-                      value: _question2,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _question2 = newValue ?? false;
-                          widget.hasConfessed!(_question2);
-                        });
-                      }),
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+          SizedBox(
+            height: 40,
+          ),
+          Center(
+            child: CircleAvatar(
+              backgroundImage: AssetImage('lib/images/Anmelden.png'),
+              radius: 100,
+              backgroundColor: Theme.of(context).colorScheme.secondary,
+            ),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: SizedBox(
+              width: 350,
+              child: CheckboxListTile(
+                  controlAffinity: ListTileControlAffinity.leading,
+                  dense: true,
+                  title: Text(
+                    AppLocalizations.of(context)!.authenticationNewsletter,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
+                  value: _checkNewsletter,
+                  onChanged: (newsletter) {
+                    setState(() {
+                      _checkNewsletter = newsletter ?? false;
+                      widget.wantsNewsletter!(_checkNewsletter);
+                    });
+                  }),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: SizedBox(
+              width: 350,
+              child: CheckboxListTile(
+                  controlAffinity: ListTileControlAffinity.leading,
+                  dense: true,
+                  title: GestureDetector(
+                    onTap: () =>
+                        Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => Tandementry(),
+                    )),
+                    child: Text(
+                      AppLocalizations.of(context)!.authenticationAGBS,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
+                  ),
+                  value: _question2,
+                  onChanged: (newValue) {
+                    setState(() {
+                      _question2 = newValue ?? false;
+                      widget.hasConfessed!(_question2);
+                    });
+                  }),
+            ),
+          ),
+        ],
       ),
     );
   }

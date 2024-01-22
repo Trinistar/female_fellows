@@ -13,6 +13,7 @@ class _ProfilOverviewState extends State<ProfilOverview> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       children: [
         Padding(
@@ -120,8 +121,9 @@ class _ProfilOverviewState extends State<ProfilOverview> {
                   ),
                 ),
               ),
-            
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               FFButton(onTap: null, text: 'Profil vervollständigen')
             ],
           ),

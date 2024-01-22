@@ -103,7 +103,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Circular',
         ),
         debugShowCheckedModeBanner: false,
-        home: Navigation(),
+        home: TabBarNavigation(),
       ),
     );
   }
