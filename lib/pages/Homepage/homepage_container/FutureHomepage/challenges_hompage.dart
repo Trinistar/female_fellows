@@ -45,10 +45,10 @@ class Challenges extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  CarousItem(),
-                  CarousItem(),
-                  CarousItem(),
-                  CarousItem(),
+                  CarouselItem(),
+                  CarouselItem(),
+                  CarouselItem(),
+                  CarouselItem(),
                 ],
               ),
             ),
