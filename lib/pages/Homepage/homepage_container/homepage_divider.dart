@@ -17,7 +17,7 @@ class DividerBouthCorner extends StatelessWidget {
           height: 100,
         ),
             Positioned(
-              left: 365,
+              right: 0,
               child: Container(
                 color: color1,
                 width: 50,
@@ -29,7 +29,6 @@ class DividerBouthCorner extends StatelessWidget {
               color: color2,
               borderRadius:
                   BorderRadius.only(bottomRight: Radius.circular(60))),
-          width: 410,
           height: 50,
         ),
         Positioned(

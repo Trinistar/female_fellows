@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CarouselItem extends StatelessWidget {
-  CarouselItem({super.key});
+class TandemItem extends StatelessWidget {
+  const TandemItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class CarouselItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  '& Lisa',
+                  'Deutsch lernen',
                   style: TextStyle(fontSize: 13),
                   textAlign: TextAlign.center,
                 ),
