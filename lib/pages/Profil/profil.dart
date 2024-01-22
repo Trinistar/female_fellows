@@ -48,7 +48,7 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
                 actions: [
                   BlocBuilder<AuthenticationBloc, AuthenticationState>(
                     builder: (context, state) {
-                      if (state is AuthenticatedUser && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
+                      if (state is AuthenticatedUser) {
                         return IconButton(
                           onPressed: () {
                             Navigator.of(context).push(
