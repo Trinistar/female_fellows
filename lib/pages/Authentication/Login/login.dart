@@ -270,9 +270,9 @@ class _AuthLoginPageState extends State<LoginPage> {
               );
             },
             listener: (BuildContext context, LoginState state) {
-              if (state is SubmissionSuccess) {
+              /* if (state is SubmissionSuccess) {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabBarNavigation()));
-              }
+              } */
               if (state is SubmissionFailure) {
                 SnackBar(
                   content: Text('Failure'),

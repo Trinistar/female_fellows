@@ -8,16 +8,16 @@ part of 'notifications.dart';
 
 Notifications _$NotificationsFromJson(Map<String, dynamic> json) =>
     Notifications(
-      contactwhatsapp: json['contactwhatsapp'] as bool? ?? false,
-      contactcall: json['contactcall'] as bool? ?? false,
+      contactViaWhatsApp: json['contactViaWhatsApp'] as bool? ?? false,
+      contactViaPhone: json['contactViaPhone'] as bool? ?? false,
       phonenumber: json['phonenumber'] as String? ?? '',
-      contactemail: json['contactemail'] as bool? ?? false,
+      contactViaEmail: json['contactViaEmail'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$NotificationsToJson(Notifications instance) =>
     <String, dynamic>{
-      'contactwhatsapp': instance.contactwhatsapp,
+      'contactViaWhatsApp': instance.contactViaWhatsApp,
       'phonenumber': instance.phonenumber,
-      'contactcall': instance.contactcall,
-      'contactemail': instance.contactemail,
+      'contactViaPhone': instance.contactViaPhone,
+      'contactViaEmail': instance.contactViaEmail,
     };

@@ -80,9 +80,10 @@ class _AuthAdressState extends State<AuthAdress> {
               ),
               Row(
                 children: [
-                  Expanded(
+                  Flexible(
+                    flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 40.0, right: 55),
+                      padding: const EdgeInsets.only(left: 40.0),
                       child: TextField(
                         controller: Controller.zipCodeController,
                         decoration: InputDecoration(
@@ -106,8 +107,9 @@ class _AuthAdressState extends State<AuthAdress> {
                     ),
                   ),
                   Expanded(
+                    flex: 2,
                     child: Padding(
-                      padding: const EdgeInsets.only(right: 10.0),
+                      padding: const EdgeInsets.only(right: 10.0, left: 10),
                       child: TextField(
                         controller: Controller.placeController,
                         decoration: InputDecoration(

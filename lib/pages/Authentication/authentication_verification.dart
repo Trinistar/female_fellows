@@ -1,18 +1,29 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
+import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
+import 'package:vs_femalefellows/models/notifications.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class AuthVerfication extends StatefulWidget {
-  const AuthVerfication({super.key, required this.userchoice, required this.mediachoice, required this.wantsNewsletter});
+  const AuthVerfication({
+    super.key,
+    required this.userchoice,
+    required this.mediachoice,
+    required this.wantsNewsletter,
+    required this.birthday,
+  });
 
   final LocalOrNewcomer userchoice;
   final Socialmedia mediachoice;
   final bool wantsNewsletter;
+  final Timestamp birthday;
 
   @override
   State<AuthVerfication> createState() => _AuthVerficationState();
@@ -37,7 +48,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
       body: BlocConsumer<AuthenticationBloc, AuthenticationState>(
         listener: (context, state) {
           if (state is AuthenticatedUser) {
-            Navigator.of(context).pop();
+            Navigator.of(context).maybePop();
             /* Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => Navigation())); */
           }
@@ -119,7 +130,8 @@ class _AuthVerficationState extends State<AuthVerfication> {
                           validator: null,
                           obscureText: false,
                           /////////BlocState/////
-                          onChange: (value) => context.read<AuthenticationBloc>().add(InputChanged(email: value)),
+                          onChange: (e) {},
+                          //onChange: (value) => context.read<AuthenticationBloc>().add(InputChanged(email: value)),
                           /////////BlocState/////
                         );
                       },
@@ -148,7 +160,8 @@ class _AuthVerficationState extends State<AuthVerfication> {
                           return TextFormField(
                             /////////BlocState/////
                             validator: null,
-                            onChanged: (value) => context.read<AuthenticationBloc>().add(InputChanged(password: value)),
+                            onChanged: (_) => '',
+                            //onChanged: (value) => context.read<AuthenticationBloc>().add(InputChanged(password: value)),
                             /////////BlocState/////
                             controller: Controller.passwordController,
                             obscureText: !_isPasswordVisible,
@@ -191,30 +204,32 @@ class _AuthVerficationState extends State<AuthVerfication> {
                           text: AppLocalizations.of(context)!.authenticationTitle,
                           onTap: () {
                             if (_formKey.currentState!.validate()) {
+                              final FFUser profile = FFUser(
+                                email: Controller.emailController.text,
+                                lastname: Controller.lastnameController.text,
+                                profilPicture: Controller.profilpictureController.text,
+                                birthday: widget.birthday,
+                                newsletter: widget.wantsNewsletter,
+                                firstname: Controller.firstnameController.text,
+                                address: Address(
+                                  street: Controller.streetnameController.text,
+                                  zipCode: Controller.zipCodeController.text,
+                                  city: Controller.placeController.text,
+                                ),
+                                notification: Notifications(
+                                  contactViaEmail: false,
+                                  contactViaWhatsApp: false,
+                                  contactViaPhone: false,
+                                  phonenumber: Controller.phonenumberController.text,
+                                ),
+                                localOrNewcomer: widget.userchoice,
+                                socialMedia: widget.mediachoice,
+                              );
                               context.read<AuthenticationBloc>().add(
-                                    Signup(
-                                      //User//
-                                      password: Controller.passwordController.text,
+                                    RegisterWithMailEvent(
                                       email: Controller.emailController.text,
-                                      //FFUser//
-                                      lastname: Controller.lastnameController.text,
-                                      profilPicture: Controller.profilpictureController.text,
-                                      birthday: Controller.birthdayController.text,
-                                      newsletter: widget.wantsNewsletter,
-                                      firstname: Controller.firstnameController.text,
-                                      //Adress//
-                                      streetname: Controller.streetnameController.text,
-                                      zipCode: Controller.zipCodeController.text,
-                                      place: Controller.placeController.text,
-                                      //Notifications//
-                                      contactemail: false,
-                                      whatsapp: false,
-                                      call: false,
-                                      phonenumber: Controller.phonenumberController.text,
-                                      //Enum LocalOrNot
-                                      localOrNewcomer: widget.userchoice,
-                                      //Enum Socialmedia
-                                      socialmedia: widget.mediachoice,
+                                      password: Controller.passwordController.text,
+                                      profile: profile,
                                     ),
                                   );
                             }

@@ -17,36 +17,35 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
           [],
       lastname: json['lastname'] as String?,
       profilPicture: json['profilPicture'] as String?,
-      birthday: json['birthday'] as String?,
+      birthday:
+          HelperFunctions.dateTimeFromTimestamp(json['birthday'] as Timestamp?),
       notification: json['notification'] == null
           ? null
           : Notifications.fromJson(
               json['notification'] as Map<String, dynamic>),
       email: json['email'] as String?,
       newsletter: json['newsletter'] as bool?,
-      password: json['password'] as String?,
       firstname: json['firstname'] as String?,
       localOrNewcomer: $enumDecodeNullable(
           _$LocalOrNewcomerEnumMap, json['localOrNewcomer']),
       address: json['address'] == null
           ? null
           : Address.fromJson(json['address'] as Map<String, dynamic>),
-      socialmedia:
-          $enumDecodeNullable(_$SocialmediaEnumMap, json['socialmedia']),
+      socialMedia:
+          $enumDecodeNullable(_$SocialmediaEnumMap, json['socialMedia']),
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'firstname': instance.firstname,
       'lastname': instance.lastname,
       'profilPicture': instance.profilPicture,
-      'birthday': instance.birthday,
+      'birthday': HelperFunctions.dateTimeAsIs(instance.birthday),
       'notification': instance.notification?.toJson(),
       'email': instance.email,
       'newsletter': instance.newsletter,
-      'password': instance.password,
       'address': instance.address?.toJson(),
       'localOrNewcomer': _$LocalOrNewcomerEnumMap[instance.localOrNewcomer],
-      'socialmedia': _$SocialmediaEnumMap[instance.socialmedia],
+      'socialMedia': _$SocialmediaEnumMap[instance.socialMedia],
       'favorites': instance.favorites,
       'participatingEvents': instance.participatingEvents,
     };

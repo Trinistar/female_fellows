@@ -1,19 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthAge extends StatefulWidget {
-  const AuthAge({super.key});
+  const AuthAge({super.key, required this.birthday});
+
+  final void Function(Timestamp)? birthday;
 
   @override
   State<AuthAge> createState() => _AuthAgeState();
 }
 
 class _AuthAgeState extends State<AuthAge> {
-  //namecontroller
   final nameController = TextEditingController();
 
-  //print the choosen date
   DateTime _dateTime = DateTime.now();
 
   //show DateTimePicker method
@@ -27,6 +28,7 @@ class _AuthAgeState extends State<AuthAge> {
       setState(() {
         if (value != null) {
           _dateTime = value;
+          widget.birthday!(Timestamp.fromDate(value));
         }
       });
     });
@@ -41,9 +43,9 @@ class _AuthAgeState extends State<AuthAge> {
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-                AppLocalizations.of(context)!.authenticationAge,
+              AppLocalizations.of(context)!.authenticationAge,
               style: TextStyle(
-                color:  Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.primary,
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
@@ -58,7 +60,7 @@ class _AuthAgeState extends State<AuthAge> {
               child: CircleAvatar(
                 backgroundImage: AssetImage('lib/images/Birthday.png'),
                 radius: 100,
-                backgroundColor:  Theme.of(context).colorScheme.secondary,
+                backgroundColor: Theme.of(context).colorScheme.secondary,
               ),
             ),
           ),
@@ -67,7 +69,7 @@ class _AuthAgeState extends State<AuthAge> {
           ),
           Center(
             child: Text(
-                AppLocalizations.of(context)!.authenticationAgeImage,
+              AppLocalizations.of(context)!.authenticationAgeImage,
               style: TextStyle(
                 color: Color.fromRGBO(27, 25, 86, 1),
                 fontSize: 20,
@@ -83,7 +85,7 @@ class _AuthAgeState extends State<AuthAge> {
               Padding(
                 padding: const EdgeInsets.only(left: 40, bottom: 5),
                 child: Text(
-                    AppLocalizations.of(context)!.authenticationAgeBirthday,
+                  AppLocalizations.of(context)!.authenticationAgeBirthday,
                   style: TextStyle(
                     fontSize: 20,
                   ),

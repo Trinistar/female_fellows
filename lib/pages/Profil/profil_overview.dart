@@ -1,3 +1,4 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
@@ -91,7 +92,10 @@ class _ProfilOverviewState extends State<ProfilOverview> {
                   size: 20,
                 ),
                 title: Text(
-                  widget.userstate.birthday ?? '',
+                  formatDate(
+                    widget.userstate.birthday!.toDate(),
+                    <String>[d, '. ', MM, ' ', yyyy],
+                  ),
                   style: TextStyle(
                     fontSize: 15,
                   ),

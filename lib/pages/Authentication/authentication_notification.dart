@@ -111,11 +111,12 @@ class _AuthNotificationState extends State<AuthNotification> {
                           controller: Controller.phonenumberController,
                           hintText: '+49 123 456',
                           obscureText: false,
-                          onChange: (value) => context
+                          onChange: () => null,
+                          /* onChange: (value) => context
                               .read<AuthenticationBloc>()
                               .add(InputChanged(
                                 phonenumber: value,
-                              )),
+                              )), */
                           validator: null,
                         );
                       },

@@ -7,22 +7,22 @@ part 'notifications.g.dart';
 @immutable
 class  Notifications {
   const Notifications({
-    this.contactwhatsapp = false,
-    this.contactcall =false,
+    this.contactViaWhatsApp = false,
+    this.contactViaPhone =false,
     this.phonenumber = '',
-    this.contactemail= false,
+    this.contactViaEmail= false,
   });
   factory Notifications.fromJson(Map<String,dynamic> json)=>_$NotificationsFromJson(json);
   Map<String, dynamic> toJson()=> _$NotificationsToJson(this);
 
 @JsonKey(defaultValue:false)
-final bool contactwhatsapp;
+final bool contactViaWhatsApp;
 @JsonKey(defaultValue:'')
 final String phonenumber ;
 @JsonKey(defaultValue:false)
-final bool contactcall;
+final bool contactViaPhone;
 @JsonKey(defaultValue:false)
-final bool contactemail;
+final bool contactViaEmail;
 
   
 }

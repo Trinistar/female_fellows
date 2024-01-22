@@ -81,77 +81,12 @@ class InputChanged extends AuthenticationEvent {
   });
 }
 
-class Signup extends AuthenticationEvent {
-  //User//
-  final String email;
-  final String password;
-  //FFUser//
-  final String firstname;
-  final String lastname;
-  final String profilPicture;
-  final String birthday;
-  final bool? newsletter;
-  //Adress//
-  final String streetname;
-  final String zipCode;
-  final String place;
-  //Notifications//
-  final bool? whatsapp;
-  final bool? call;
-  final bool? contactemail;
-  final String phonenumber;
-  //Enum LocalOrNot
-  final LocalOrNewcomer localOrNewcomer;
-  //Enum Socialmedia;
-  final Socialmedia? socialmedia;
-
-  Signup({
-    //User//
-    required this.password,
-    required this.email,
-    //FFUser//
-    required this.firstname,
-    required this.lastname,
-    required this.profilPicture,
-    required this.birthday,
-    this.newsletter,
-    //Adress//
-    required this.streetname,
-    required this.zipCode,
-    required this.place,
-    //Notfications//
-    this.whatsapp,
-    this.call,
-    this.contactemail,
-    required this.phonenumber,
-
-    //Enum LocalOrNot
-    required this.localOrNewcomer,
-    //Enum Socialmedia
-    this.socialmedia,
-  });
-}
-
-class SignInWithMailEvent extends AuthenticationEvent {
-  const SignInWithMailEvent({required this.email, required this.password});
-
-  final String email;
-  final String password;
-
-  @override
-  String toString() {
-    return 'LogInWithMailEvent { email: $email }';
-  }
-
-  @override
-  List<Object> get props => <Object>[email, password];
-}
-
 class RegisterWithMailEvent extends AuthenticationEvent {
-  const RegisterWithMailEvent({required this.email, required this.password});
+  const RegisterWithMailEvent({required this.email, required this.password, required this.profile,});
 
   final String email;
   final String password;
+  final FFUser profile;
 
   @override
   String toString() {
@@ -159,5 +94,5 @@ class RegisterWithMailEvent extends AuthenticationEvent {
   }
 
   @override
-  List<Object> get props => <Object>[email, password];
+  List<Object> get props => <Object>[email, password, profile];
 }

@@ -116,10 +116,11 @@ class _AuthWhoState extends State<AuthWho> {
                     controller: Controller.firstnameController,
                     hintText: 'Lisa',
                     obscureText: false,
-                    onChange: (value) =>
+                    onChange: (_) {},
+                    /* onChange: (value) =>
                         context.read<AuthenticationBloc>().add(InputChanged(
                               firstname: value,
-                            )),
+                            )), */
                     validator:null,
                   );
                 },

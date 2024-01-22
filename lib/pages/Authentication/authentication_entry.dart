@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -30,6 +31,7 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
   LocalOrNewcomer _userchoice = LocalOrNewcomer.newcomer;
   Socialmedia _mediachoice = Socialmedia.facebook;
   final int _pageCount = 7;
+  Timestamp _birthday = Timestamp.now();
 
   void _choiceForContact(
     bool valuecall,
@@ -81,6 +83,12 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
     });
   }
 
+  void _getBirthday(Timestamp birthday) {
+    setState(() {
+      _birthday = birthday;
+    });
+  }
+
   void _handlePageChange() {
     if (_controller.page!.toInt() == _pageCount - 1) {
       _accepted ? _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn) : null;
@@ -128,14 +136,10 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
                     hasChosen: _hasChosen,
                     onSettingsChanged: updateId,
                   ),
-                  AuthAge(),
+                  AuthAge(birthday: _getBirthday),
                   AuthAdress(),
-                  AuthSocialmedia(
-                    hasMediaChosen: _mediaChosen,
-                  ),
-                  AuthNotification(
-                    choiceContact: _choiceForContact,
-                  ),
+                  AuthSocialmedia(hasMediaChosen: _mediaChosen),
+                  AuthNotification(choiceContact: _choiceForContact),
                   AuthSafety(
                     wantsNewsletter: _checkNewsletter,
                     hasConfessed: _hasUserConfessed,
@@ -143,6 +147,7 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
                   ),
                   if (_accepted)
                     AuthVerfication(
+                      birthday: _birthday,
                       userchoice: _userchoice,
                       mediachoice: _mediachoice,
                       wantsNewsletter: _choiceNewsletter,
