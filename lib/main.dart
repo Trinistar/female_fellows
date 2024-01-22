@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -8,7 +7,9 @@ import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.da
 import 'package:vs_femalefellows/blocs/CategoriesCubit/categories_cubit.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/blocs/FavoritesBloc/favorites_bloc.dart';
+import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
+import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
 
@@ -56,6 +57,10 @@ class MyApp extends StatelessWidget {
           lazy: false,
           create: (BuildContext context) => CategoryCubit(),
         ),
+        BlocProvider<OnboardingBloc>(
+          lazy: false,
+          create: (BuildContext context) => OnboardingBloc(BlocProvider.of<AuthenticationBloc>(context))..add(CheckOnboardingEvent()),
+        ),
         /* RepositoryProvider(
           create: (context) => AuthRepository(),
           child: LoginPage(),
@@ -80,14 +85,13 @@ class MyApp extends StatelessWidget {
             )
           ), */
           colorScheme: ColorScheme.fromSeed(
-            seedColor: Color.fromRGBO(27, 25, 86, 27),
-            primary: Color.fromRGBO(27, 25, 86, 27),
-            secondary: Color.fromRGBO(252, 208, 220, 1),
-            surface: Color.fromRGBO(242, 242, 242, 1),
-            surfaceVariant: Color.fromRGBO(236, 240, 243, 1),
-            tertiary: Color.fromRGBO(106, 104, 206, 1),
-            onTertiary: Color.fromRGBO(241, 80, 60, 1)
-          ),
+              seedColor: Color.fromRGBO(27, 25, 86, 27),
+              primary: Color.fromRGBO(27, 25, 86, 27),
+              secondary: Color.fromRGBO(252, 208, 220, 1),
+              surface: Color.fromRGBO(242, 242, 242, 1),
+              surfaceVariant: Color.fromRGBO(236, 240, 243, 1),
+              tertiary: Color.fromRGBO(106, 104, 206, 1),
+              onTertiary: Color.fromRGBO(241, 80, 60, 1)),
           textTheme: TextTheme(
             titleSmall: TextStyle(
               color: Color.fromRGBO(59, 57, 102, 1),
@@ -103,7 +107,15 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Circular',
         ),
         debugShowCheckedModeBanner: false,
-        home: TabBarNavigation(),
+        home: BlocBuilder<OnboardingBloc, OnboardingState>(
+          builder: (context, state) {
+            if (state is IsOnboardingState) {
+              return OnboardingPage();
+            } else {
+              return TabBarNavigation();
+            }
+          },
+        ),
       ),
     );
   }

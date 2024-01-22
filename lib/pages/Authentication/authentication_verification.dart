@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/notifications.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class AuthVerfication extends StatefulWidget {
@@ -18,12 +20,14 @@ class AuthVerfication extends StatefulWidget {
     required this.mediachoice,
     required this.wantsNewsletter,
     required this.birthday,
+    this.isFromOnboarding = false,
   });
 
   final LocalOrNewcomer userchoice;
   final Socialmedia mediachoice;
   final bool wantsNewsletter;
   final Timestamp birthday;
+  final bool isFromOnboarding;
 
   @override
   State<AuthVerfication> createState() => _AuthVerficationState();
@@ -48,9 +52,19 @@ class _AuthVerficationState extends State<AuthVerfication> {
       body: BlocConsumer<AuthenticationBloc, AuthenticationState>(
         listener: (context, state) {
           if (state is AuthenticatedUser) {
-            Navigator.of(context).maybePop();
-            /* Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Navigation())); */
+            if (widget.isFromOnboarding) {
+              BlocProvider.of<OnboardingBloc>(context).add(OnboardingDoneEvent());
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return TabBarNavigation();
+                  },
+                ),
+              );
+            } else {
+              Navigator.of(context).maybePop();
+            }
           }
           if (state is UnauthenticatedUser) {
             ScaffoldMessenger.of(context).showSnackBar(

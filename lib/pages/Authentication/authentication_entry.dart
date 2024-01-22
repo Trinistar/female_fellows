@@ -14,7 +14,9 @@ import 'package:vs_femalefellows/pages/Authentication/authentication_verificatio
 import 'package:vs_femalefellows/pages/Authentication/authentication_who.dart';
 
 class RegistrationEntry extends StatefulWidget {
-  const RegistrationEntry({super.key});
+  const RegistrationEntry({super.key, this.isFromOnboarding = false});
+
+  final bool isFromOnboarding;
 
   @override
   State<RegistrationEntry> createState() => _RegistrationEntryState();
@@ -151,6 +153,7 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
                       userchoice: _userchoice,
                       mediachoice: _mediachoice,
                       wantsNewsletter: _choiceNewsletter,
+                      isFromOnboarding: widget.isFromOnboarding,
                     )
                 ],
               ),

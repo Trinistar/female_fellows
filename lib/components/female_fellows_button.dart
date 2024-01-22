@@ -18,7 +18,7 @@ class FFButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(20),
-        margin: const EdgeInsets.symmetric(horizontal: 60),
+        margin: const EdgeInsets.symmetric(horizontal: 30),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
           color: color ?? Theme.of(context).colorScheme.primary,

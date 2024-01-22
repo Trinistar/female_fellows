@@ -19,8 +19,8 @@ class _EventPictureAuthenticationState extends State<EventPictureAuthentication>
 
   @override
   void initState() {
-    _choices = RadioChoices.nein;
-    widget.mediaConsent!(false);
+    _choices = RadioChoices.ja;
+    widget.mediaConsent!(true);
     super.initState();
   }
 

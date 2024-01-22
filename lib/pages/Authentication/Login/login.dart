@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
@@ -9,7 +8,6 @@ import 'package:vs_femalefellows/blocs/LoginBloc/login_state.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
-import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -101,12 +99,12 @@ class _AuthLoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-    
+
                           SizedBox(
                             height: 40,
                           ),
                           SizedBox(height: 25),
-    
+
                           //username Textfield
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 42),
@@ -130,7 +128,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                               return TextBar(
                                 controller: Controller.emailController,
                                 hintText: 'frau@example.com',
-    
+
                                 validator: (value) {
                                   print(value);
                                   if (state is LoginValidation) {
@@ -138,7 +136,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                                     print(state.isValidEmail);
                                   }
                                 },
-    
+
                                 obscureText: false,
                                 /////////BlocState/////
                                 onChange: (value) => context.read<LoginBloc>().add(LoginEmailChanged(email: value)),
@@ -170,7 +168,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                             ),
                           ),
                           SizedBox(height: 10),
-    
+
                           //User passwordfield
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -270,9 +268,15 @@ class _AuthLoginPageState extends State<LoginPage> {
               );
             },
             listener: (BuildContext context, LoginState state) {
-              /* if (state is SubmissionSuccess) {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabBarNavigation()));
-              } */
+              if (state is SubmissionSuccess) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    backgroundColor: Colors.green,
+                    content: Text('Du hast dich erfolgreich angemeldet'),
+                  ),
+                );
+                //Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabBarNavigation()));
+              }
               if (state is SubmissionFailure) {
                 SnackBar(
                   content: Text('Failure'),

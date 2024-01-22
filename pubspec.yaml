@@ -31,6 +31,7 @@ dependencies:
   url_launcher: ^6.2.1
   flutter_svg: ^2.0.9
   language_picker: ^0.4.3
+  shared_preferences: ^2.2.2
   
   
 

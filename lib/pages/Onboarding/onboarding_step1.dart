@@ -57,7 +57,7 @@ class Page1 extends StatelessWidget {
               child: FFButton(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => RegistrationEntry(),
+                      builder: (context) => RegistrationEntry(isFromOnboarding: true),
                     ));
                   },
                   text: AppLocalizations.of(context)!.buttonRegistration,
