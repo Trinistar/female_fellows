@@ -7,8 +7,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/address.dart';
+import 'package:vs_femalefellows/models/category.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/materials.dart';
+import 'package:vs_femalefellows/pages/Event/CreateEvent/event_category_items.dart';
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_description.dart';
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_event_item.dart';
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_materials.dart';
@@ -16,6 +18,7 @@ import 'package:vs_femalefellows/provider/controller.dart';
 
 class UpdateEvent extends StatefulWidget {
   const UpdateEvent({super.key, required this.eventState});
+
   final Event eventState;
 
   @override
@@ -23,6 +26,27 @@ class UpdateEvent extends StatefulWidget {
 }
 
 class _UpdateEventState extends State<UpdateEvent> {
+  Timestamp _newDate = Timestamp.now();
+  List<int> _catIds = [];
+
+  void _getCatIds(List<int> catIds) {
+    _catIds = catIds;
+  }
+
+  void _getEventDate(Timestamp date) {
+    _newDate = date;
+  }
+
+  @override
+  void initState() {
+    _setInputFields(widget.eventState);
+    super.initState();
+  }
+
+  void _setInputFields(Event eventState) {
+    Controller.eventTitleController.text = eventState.title;
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -74,52 +98,73 @@ class _UpdateEventState extends State<UpdateEvent> {
                 SizedBox(
                   height: 10,
                 ),
-                UpdateEventItem(),
+                UpdateEventDate(eventState: widget.eventState, newEventDate: _getEventDate),
                 SizedBox(
                   height: 20,
                 ),
                 SizedBox(
                   height: 30,
                 ),
-                UpdateDesciption(),
+                UpdateDesciption(event: widget.eventState),
                 SizedBox(
                   height: 30,
                 ),
-                UpdateMaterials(),
+                Container(
+                color: Colors.white,
+                width: 1000,
+                height: 500,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: ListView(
+                    physics: NeverScrollableScrollPhysics(),
+                    children: [
+                      ListTile(
+                        leading: Image.asset(
+                          'lib/images/category.png',
+                          cacheHeight: 30,
+                        ),
+                        title: Text('Kategorien'),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      CategoryItems(selectedCategories: _getCatIds, editingEvent: true, event: widget.eventState),
+                    ],
+                  ),
+                ),
+              ),
+                UpdateMaterials(event: widget.eventState),
                 SizedBox(
                   height: 30,
                 ),
-                BlocBuilder<EventBloc, EventState>(
-                  builder: (context, state) {
-                    return FFButton(
-                        onTap: () {
-                          context.read<EventBloc>().add(
-                                EventUpdate(
-                                  updateEvent: Event(
-                                    id: widget.eventState.id,
-                                    whatsAppLink: Controller.whatsAppLinkController.text,
-                                    email: Controller.eventEmailController.text,
-                                    phoneNumber: Controller.eventPhoneNumberController.text,
-                                    date: Timestamp.now(), // falsches Datum !!!!!!!!
-                                    description: Controller.descriptionController.text,
-                                    host: Controller.hostController.text,
-                                    title: Controller.eventTitleController.text,
-                                    contactPerson: Controller.contactPersonController.text,
-                                    location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
-                                    material: EventMaterials(
-                                      planer: Controller.planerController.text,
-                                      food: Controller.foodController.text,
-                                      information: Controller.informationController.text,
-                                      clothes: Controller.clothesController.text,
-                                    ),
-                                  ),
+                FFButton(
+                    onTap: () {
+                      context.read<EventBloc>().add(
+                            EventUpdate(
+                              updateEvent: Event(
+                                categories: _catIds,
+                                id: widget.eventState.id,
+                                whatsAppLink: Controller.whatsAppLinkController.text,
+                                email: Controller.eventEmailController.text,
+                                phoneNumber: Controller.eventPhoneNumberController.text,
+                                dates: EventDates(updated: Timestamp.fromDate(DateTime.now()), eventDate: _newDate),
+                                description: Controller.descriptionController.text,
+                                host: Controller.hostController.text,
+                                title: Controller.eventTitleController.text,
+                                contactPerson: Controller.contactPersonController.text,
+                                location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
+                                material: EventMaterials(
+                                  planer: Controller.planerController.text,
+                                  food: Controller.foodController.text,
+                                  information: Controller.informationController.text,
+                                  clothes: Controller.clothesController.text,
                                 ),
-                              );
-                          Navigator.of(context).pop();
-                        },
-                        text: 'Update Event');
-                  },
-                ),
+                              ),
+                            ),
+                          );
+                      Navigator.of(context).pop();
+                    },
+                    text: 'Update Event'),
                 SizedBox(
                   height: 30,
                 ),

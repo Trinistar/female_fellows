@@ -41,9 +41,7 @@ class EventListTile extends StatelessWidget {
                           ),
                           Flexible(
                             child: Text(
-                              formatDate(event.date.toDate(),
-                                  <String>[d, '. ', MM, ' ', yyyy],
-                                  locale: GermanLocale()),
+                              formatDate(event.dates!.created!.toDate(), <String>[d, '. ', MM, ' ', yyyy], locale: GermanLocale()),
                               style: TextStyle(fontSize: 13),
                             ),
                           ),
@@ -61,26 +59,38 @@ class EventListTile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.location_on_outlined,
-                            size: 20,
-                          ),
-                          BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                            builder: (context, state) {
-                              if (state is AuthenticatedUser) {
-                                return  Text(
-                            event.location.street,
-                            style: TextStyle(fontSize: 13),
-                          );
-                              } else {
-                                return SizedBox.shrink();
-                              }
-                            },
-                          ),
-                         
-                        ],
+                      BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                        builder: (context, state) {
+                          if (state is AuthenticatedUser) {
+                            return Row(
+                              children: [
+                                Icon(
+                                  Icons.location_on_outlined,
+                                  size: 20,
+                                ),
+                                Text(
+                                  '${event.location.street}\n${event.location.zipCode}, ${event.location.city}',
+                                  style: TextStyle(fontSize: 13),
+                                ),
+                              ],
+                            );
+                          } else if (state is UnauthenticatedUser) {
+                            return Row(
+                              children: [
+                                Icon(
+                                  Icons.location_on_outlined,
+                                  size: 20,
+                                ),
+                                Text(
+                                  event.location.city,
+                                  style: TextStyle(fontSize: 13),
+                                ),
+                              ],
+                            );
+                          } else {
+                            return SizedBox.shrink();
+                          }
+                        },
                       ),
                     ],
                   )),

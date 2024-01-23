@@ -19,11 +19,22 @@ class FirestoreEventRepository {
 
   Future<void>? updateEvent(Event eventdata) {
     if (eventdata.id == null || eventdata.id!.isEmpty) return null;
-    return db.collection('event').doc(eventdata.id).update(eventdata.toJson());
+    return db.collection('event').doc(eventdata.id).set(eventdata.toJson(), SetOptions(merge: true));
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> getEvents() {
     return db.collection('event').snapshots();
+  }
+
+  Stream<Event?> getEvent(String eventId) {
+    return db.collection('event').doc(eventId).snapshots().map((DocumentSnapshot<Object> snapshot) {
+      if (!snapshot.exists) return null;
+
+      final Event event = Event.fromJson(snapshot.data()! as Map<String, dynamic>);
+
+      event.id = snapshot.id;
+      return event;
+    });
   }
 
   Stream<List<Event>> getEventsById(List<String> eventIds) {
@@ -70,6 +81,10 @@ class FirestoreEventRepository {
     return db.collection('event').doc(eventId).collection('participants').doc(userId).set(data.toJson(), SetOptions(merge: true));
   }
 
+  Future<void> revokeEventParticipation(String? userId, String? eventId, Map<String, dynamic> data) {
+    return db.collection('event').doc(eventId).collection('participants').doc(userId).set(data, SetOptions(merge: true));
+  }
+
   Future<List<Category>> getCategories() async {
     final List<Category> categories = [];
     var cats = await db.collection('category').get();
@@ -96,8 +111,13 @@ class AllEventsStore extends Cubit<List<Event>> {
 
   void eventListener(QuerySnapshot<Map<String, dynamic>> snapshot) {
     if (snapshot.docs.isNotEmpty) {
-      List<Event> tmp = [...state];
-      for (var change in snapshot.docChanges) {
+      List<Event> tmp = [];
+      for (var doc in snapshot.docs) {
+        final Event event = Event.fromJson(doc.data());
+        event.id = doc.id;
+        tmp.add(event);
+      }
+      /* for (var change in snapshot.docChanges) {
         switch (change.type) {
           case DocumentChangeType.added:
             final Event event = Event.fromJson(change.doc.data()!);
@@ -121,7 +141,7 @@ class AllEventsStore extends Cubit<List<Event>> {
             }
             break;
         }
-      }
+      } */
       emit(tmp);
     }
   }

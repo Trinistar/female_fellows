@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
-import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
 
 class EventPictureAuthentication extends StatefulWidget {
-  const EventPictureAuthentication({super.key, required this.event});
+  const EventPictureAuthentication({super.key, required this.event, this.sendRequest, this.mediaConsent});
+
   final Event event;
+  final void Function()? sendRequest;
+  final void Function(bool)? mediaConsent;
 
   @override
   State<EventPictureAuthentication> createState() => _EventPictureAuthenticationState();
 }
 
-bool _pictures = false;
-String? _question;
-
 class _EventPictureAuthenticationState extends State<EventPictureAuthentication> {
+  late RadioChoices _choices;
+
+  @override
+  void initState() {
+    _choices = RadioChoices.ja;
+    widget.mediaConsent!(true);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,12 +71,12 @@ class _EventPictureAuthenticationState extends State<EventPictureAuthentication>
                       'Ich bin damit einverstanden, dass Female Fellows e.V.\n(nachfolgend bezeichnet als "Verein")\nFilmaufnahmen/Fotos von mir zum Zwecke der\nPresse- und Öffentlichkeitsarbeit des Fundraisings\ndes Marketings der internen Verwendung von\nWerbemaßnahmen und eventuellen\nSpendeaktionen verabeiter und veröffentlicht\n werden dürfen. Ebenfalls bin ich einverstanden, dass\nmeine Daten zum Zwecke der Vereinsorganisation\ngespeichert werden. Ebenefalls bin ich einverstanden,\ndass meine Daten zum Zwecke der\nVereinsorganisation gespeichert werden.',
                       style: TextStyle(fontSize: 10),
                     ),
-                    value: "Ja",
-                    groupValue: _question,
+                    value: RadioChoices.ja,
+                    groupValue: _choices,
                     onChanged: (answer) {
                       setState(() {
-                        _question = answer;
-                        _pictures = true;
+                        _choices = answer!;
+                        widget.mediaConsent!(true);
                       });
                     }),
                 RadioListTile(
@@ -81,12 +87,12 @@ class _EventPictureAuthenticationState extends State<EventPictureAuthentication>
                         fontSize: 15,
                       ),
                     ),
-                    value: "Nein",
-                    groupValue: _question,
+                    value: RadioChoices.nein,
+                    groupValue: _choices,
                     onChanged: (answer) {
                       setState(() {
-                        _question = answer;
-                        _pictures = false;
+                        _choices = answer!;
+                        widget.mediaConsent!(false);
                       });
                     }),
                 SizedBox(
@@ -94,15 +100,7 @@ class _EventPictureAuthenticationState extends State<EventPictureAuthentication>
                 ),
                 FFButton(
                   onTap: () {
-                    if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
-                      final String userId = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid;
-                      final FFUser data = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
-
-                      final EventParticipant eventParticipant =
-                          EventParticipant(participating: true, userId: userId, interpreter: Interpreter(needed: true, language: 'English'), childCare: ChildCare(needed: false, childName: null), mediaConsent: true);
-                      context.read<AuthenticationBloc>().add(SetEventParticipationEvent(eventId: widget.event.id!, userId: userId, eventParticipant: eventParticipant, userData: data));
-                    }
-                    //Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventSuccess(event: widget.event)));
+                    widget.sendRequest!();
                   },
                   text: 'Verbindlich anmelden',
                 ),

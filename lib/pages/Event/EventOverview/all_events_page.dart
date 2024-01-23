@@ -17,6 +17,16 @@ class _AllEventsState extends State<AllEvents> {
   Widget build(BuildContext context) {
     return BlocBuilder<AllEventsStore, List<Event>>(
       builder: (context, state) {
+        if (state.isEmpty) {
+          return Padding(
+              padding: const EdgeInsets.only(top: 50.0),
+              child: Text(
+                'Keine Events vorhanden',
+                style: TextStyle(fontStyle: FontStyle.italic),
+                textAlign: TextAlign.center,
+              ),
+            ); 
+        }
         return ListView.builder(
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
@@ -25,7 +35,7 @@ class _AllEventsState extends State<AllEvents> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => DetailEvent(
-                      eventState: state[index],
+                      eventId: state[index].id!,
                     ),
                   ),
                 );

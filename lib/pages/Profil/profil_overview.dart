@@ -1,3 +1,4 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
@@ -13,6 +14,7 @@ class _ProfilOverviewState extends State<ProfilOverview> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       children: [
         Padding(
@@ -90,7 +92,10 @@ class _ProfilOverviewState extends State<ProfilOverview> {
                   size: 20,
                 ),
                 title: Text(
-                  widget.userstate.birthday ?? '',
+                  formatDate(
+                    widget.userstate.birthday!.toDate(),
+                    <String>[d, '. ', MM, ' ', yyyy],
+                  ),
                   style: TextStyle(
                     fontSize: 15,
                   ),
@@ -120,8 +125,9 @@ class _ProfilOverviewState extends State<ProfilOverview> {
                   ),
                 ),
               ),
-            
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               FFButton(onTap: null, text: 'Profil vervollständigen')
             ],
           ),

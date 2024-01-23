@@ -20,6 +20,9 @@ class SignOutSuccess extends AuthenticationState{}
 
 class AuthenticationLoading extends AuthenticationState {}
 
+class AuthenticationLoadingFromLogin extends AuthenticationState {}
+
+
 class UnauthenticatedUser extends AuthenticationState {}
 
 class AuthenticatedUser extends AuthenticationState {

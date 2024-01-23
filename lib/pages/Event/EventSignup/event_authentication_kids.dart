@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
+import 'package:vs_femalefellows/models/event_participant.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
-class EventKidsAuthentication extends StatefulWidget {
-  const EventKidsAuthentication({super.key});
+class EventChildCareAuthentication extends StatefulWidget {
+  const EventChildCareAuthentication({super.key, this.needsChildCare});
+
+  final void Function(ChildCare)? needsChildCare;
 
   @override
-  State<EventKidsAuthentication> createState() =>
-      _EventKidsAuthenticationState();
+  State<EventChildCareAuthentication> createState() => _EventChildCareAuthenticationState();
 }
 
-bool _kids = false;
-String? question;
+class _EventChildCareAuthenticationState extends State<EventChildCareAuthentication> {
+  RadioChoices _choices = RadioChoices.nein;
 
-class _EventKidsAuthenticationState extends State<EventKidsAuthentication> {
+  @override
+  void initState() {
+    widget.needsChildCare!(ChildCare(needed: false, childName: ''));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,12 +64,12 @@ class _EventKidsAuthenticationState extends State<EventKidsAuthentication> {
                         fontSize: 15,
                       ),
                     ),
-                    value: "Ja",
-                    groupValue: question,
+                    value: RadioChoices.ja,
+                    groupValue: _choices,
                     onChanged: (answer) {
                       setState(() {
-                        question = answer;
-                        _kids = true;
+                        _choices = answer!;
+                        widget.needsChildCare!(ChildCare(needed: true, childName: Controller.childNameController.text));
                       });
                     }),
                 RadioListTile(
@@ -72,18 +80,18 @@ class _EventKidsAuthenticationState extends State<EventKidsAuthentication> {
                         fontSize: 15,
                       ),
                     ),
-                    value: "Nein",
-                    groupValue: question,
+                    value: RadioChoices.nein,
+                    groupValue: _choices,
                     onChanged: (answer) {
                       setState(() {
-                        question = answer;
-                        _kids = false;
+                        _choices = answer!;
+                        widget.needsChildCare!(ChildCare(needed: false, childName: ''));
                       });
                     }),
                 SizedBox(
                   height: 15,
                 ),
-                _kids
+                _choices == RadioChoices.ja
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,7 +109,7 @@ class _EventKidsAuthenticationState extends State<EventKidsAuthentication> {
                             controller: Controller.childNameController,
                             hintText: 'Name',
                             obscureText: false,
-                            onChange: null,
+                            onChange: (String text) => widget.needsChildCare!(ChildCare(needed: true, childName: text)),
                             validator: null,
                           ),
                         ],

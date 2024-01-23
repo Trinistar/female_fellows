@@ -7,13 +7,12 @@ import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/participants_image_row.dart';
 
 class EventItems extends StatelessWidget {
-  const EventItems({super.key, required this.event});
+  const EventItems({super.key, required this.eventState});
 
-  final Event event;
+  final Event eventState;
 
   @override
   Widget build(BuildContext context) {
-    var eventState = context.read<Event>();
     return Padding(
       padding: const EdgeInsets.only(left: 20),
       child: Column(
@@ -23,7 +22,7 @@ class EventItems extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.calendar_today),
             title: Text(
-              '${eventState.date.toDate().day}.${eventState.date.toDate().month}.${eventState.date.toDate().year}',
+              '${eventState.dates!.created!.toDate().day}.${eventState.dates!.created!.toDate().month}.${eventState.dates!.created!.toDate().year}',
               style: TextStyle(
                 fontSize: 15,
               ),
@@ -52,7 +51,7 @@ class EventItems extends StatelessWidget {
                 return ListTile(
                   leading: Icon(Icons.location_on_outlined),
                   title: Text(
-                    '${eventState.location.street},${eventState.location.city}',
+                    '${eventState.location.street}, ${eventState.location.zipCode} ${eventState.location.city}',
                     style: TextStyle(fontSize: 15),
                   ),
                   subtitle: Text(
@@ -87,7 +86,7 @@ class EventItems extends StatelessWidget {
                   state.userProfile!.participatingEvents
                       .contains(eventState.id)) {
                 return GestureDetector(
-                  onTap: () => launchUrl(Uri.parse(event.whatsAppLink)),
+                  onTap: () => launchUrl(Uri.parse(eventState.whatsAppLink)),
                   child: ListTile(
                     leading: SvgPicture.asset(
                       'lib/images/chat.svg',

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
+import 'package:vs_femalefellows/pages/ToolBarNavigation/navigation_page.dart';
 
 class Page5 extends StatelessWidget {
   const Page5({super.key});
@@ -24,23 +26,24 @@ class Page5 extends StatelessWidget {
             Column(
               children: [
                 FFButton(
-                      onTap: () {
+                  onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => Authentry(),
+                      builder: (context) => RegistrationEntry(isFromOnboarding: true),
                     ));
                   },
-                    text: AppLocalizations.of(context)!.buttonRegistration,
-                    ),
+                  text: AppLocalizations.of(context)!.buttonRegistration,
+                ),
                 SizedBox(
                   height: 20,
                 ),
                 GestureDetector(
                   onTap: () {
+                    BlocProvider.of<OnboardingBloc>(context).add(OnboardingDoneEvent());
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return Navigation();
+                          return TabBarNavigation();
                         },
                       ),
                     );
@@ -51,16 +54,14 @@ class Page5 extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(
-                          color:  Theme.of(context).colorScheme.primary,
+                          color: Theme.of(context).colorScheme.primary,
                           width: 2.0,
                         ),
                         color: Colors.transparent),
                     child: Center(
                         child: Text(
-                     AppLocalizations.of(context)!.startnow,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18),
+                      AppLocalizations.of(context)!.startnow,
+                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     )),
                   ),
                 ),

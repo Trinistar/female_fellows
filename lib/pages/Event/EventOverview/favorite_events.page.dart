@@ -32,10 +32,13 @@ class _FavoritEventsState extends State<FavoritEvents> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
                       builder: (context) => DetailEvent(
-                            eventState: state.favorites[index],
-                          )));
+                        eventId: state.favorites[index].id!,
+                      ),
+                    ),
+                  );
                 },
                 child: EventListTile(
                   event: state.favorites[index],

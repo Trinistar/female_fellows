@@ -1,16 +1,14 @@
 import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:vs_femalefellows/models/address.dart';
-import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
-import 'package:vs_femalefellows/models/notifications.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
-import 'package:vs_femalefellows/provider/controller.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_user_profile_repository.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
+
 part 'authentication_event.dart';
 part 'authentication_state.dart';
 
@@ -20,11 +18,12 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
         super(
           authenticationRepository.currentUser != null ? AuthenticatedUser(user: authenticationRepository.currentUser!) : UnauthenticatedUser(),
         ) {
-    on<Signup>(_onSignUp);
+    on<RegisterWithMailEvent>(_onRegisterWithMailEvent);
     on<AuthenticationUserChangedEvent>(_onAuthenticationUserChanged);
     on<SignOutEvent>(_onSignOutEvent);
     on<UpdateUserProfileEvent>(_onUpdateUserProfile);
     on<SetEventParticipationEvent>(_onSetEventParticipationEvent);
+    on<RevokeEventParticipationEvent>(_onRevokeEventParticipationEvent);
 
     _userSubscription = _authenticationProvider.user.listen((User? user) => add(AuthenticationUserChangedEvent(user)));
   }
@@ -58,33 +57,12 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     } catch (_) {}
   }
 
-  Future<void> _onSignUp(Signup event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onRegisterWithMailEvent(RegisterWithMailEvent event, Emitter<AuthenticationState> emit) async {
     //emit(FormSignup());
     emit(AuthenticationLoading());
 
     try {
-      FFUser userdata = FFUser(
-        favorites: List.empty(growable: true),
-        participatingEvents: List.empty(growable: true),
-        firstname: Controller.firstnameController.text,
-        lastname: Controller.lastnameController.text,
-        profilPicture: Controller.profilpictureController.text,
-        birthday: Controller.birthdayController.text,
-        newsletter: event.newsletter,
-        //Adress//
-        address: Address(street: Controller.streetnameController.text, zipCode: Controller.zipCodeController.text, city: Controller.placeController.text),
-        //Notification
-        notification: Notifications(
-          phonenumber: Controller.phonenumberController.text,
-          contactemail: false,
-          contactcall: false,
-          contactwhatsapp: false,
-        ),
-        //Enum LocalOrNot
-        localOrNewcomer: event.localOrNewcomer,
-        //Enum Socailmedia
-        socialmedia: event.socialmedia,
-      );
+      FFUser userdata = event.profile;
 
       final User? currentuser = await _authpage.signUp(email: event.email, password: event.password);
       if (currentuser != null) {
@@ -117,11 +95,25 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     } catch (_) {}
   }
 
+  Future<void> _onRevokeEventParticipationEvent(RevokeEventParticipationEvent event, Emitter<AuthenticationState> emit) async {
+    try {
+      await _firestoreEventRepository.revokeEventParticipation(event.userId, event.eventId, event.participation);
+
+      final FFUser userProfile = event.userData;
+      List<String> partEvents = userProfile.participatingEvents;
+
+      partEvents.remove(event.eventId);
+
+      userProfile.participatingEvents = partEvents;
+      await _firestoreUserProfileRepository.updateUserProfile(userProfile, userID: event.userId);
+    } catch (_) {}
+  }
+
   Future<void> _onSignOutEvent(SignOutEvent event, Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     try {
       _authenticationProvider.logOut();
-      emit(SignOutSuccess());
+      emit(UnauthenticatedUser());
     } catch (error) {
       //emit(state.copyWith(errorCode: AuthenticationErrorCode.SIGN_OUT_FAILED, error: error.toString()) as AuthenticationState);
       //emit(const UnauthenticatedUser());

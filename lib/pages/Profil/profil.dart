@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_header.dart';
@@ -48,8 +47,7 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
                 actions: [
                   BlocBuilder<AuthenticationBloc, AuthenticationState>(
                     builder: (context, state) {
-                      if (state is AuthenticatedUser &&
-                          HelperFunctions.isAdmin(state.tokenResult!.claims)) {
+                      if (state is AuthenticatedUser) {
                         return IconButton(
                           onPressed: () {
                             Navigator.of(context).push(
@@ -70,9 +68,7 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
                     builder: (context, state) {
                       if (state is AuthenticatedUser) {
                         return IconButton(
-                          onPressed: () => context
-                              .read<AuthenticationBloc>()
-                              .add(SignOutEvent()),
+                          onPressed: () => context.read<AuthenticationBloc>().add(SignOutEvent()),
                           icon: Icon(Icons.logout),
                           color: Colors.white,
                         );
@@ -100,17 +96,13 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 25),
-                          child: DividerBouthCorner(
-                              color1: Colors.white,
-                              color2: Theme.of(context).colorScheme.primary),
+                          child: DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.primary),
                         ),
                         Center(
                           child: CircleAvatar(
-                            backgroundImage:
-                                AssetImage('lib/images/Avatar.png'),
+                            backgroundImage: AssetImage('lib/images/Avatar.png'),
                             radius: 75,
-                            backgroundColor:
-                                Theme.of(context).colorScheme.secondary,
+                            backgroundColor: Theme.of(context).colorScheme.secondary,
                           ),
                         ),
                       ],
@@ -142,8 +134,7 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
                   SizedBox(
                     width: double.maxFinite,
                     height: 400,
-                    child:
-                        TabBarView(controller: _profilTabController, children: [
+                    child: TabBarView(controller: _profilTabController, children: [
                       ProfilOverview(
                         userstate: state.userProfile!,
                       ),
@@ -157,20 +148,7 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
               ),
             );
           } else if (state is UnauthenticatedUser) {
-            return Center(
-              child: MaterialButton(
-                color: Colors.black,
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => LoginPage(),
-                  ),
-                ),
-                child: Text(
-                  'Bitte einloggen',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            );
+            return LoginPage();
           }
           return Container();
         },

@@ -1,16 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/models/enums.dart';
+import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_entry.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_carousel.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_comments.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_faqs.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_header.dart';
-import 'package:vs_femalefellows/pages/Tandem/tandem_steps.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_steps.dart';
 
-class Tandementry extends StatelessWidget {
+class Tandementry extends StatefulWidget {
   const Tandementry({super.key});
 
+  @override
+  State<Tandementry> createState() => _TandementryState();
+}
+
+class _TandementryState extends State<Tandementry> {
+  bool showSteps =false;
+  void  toggleSteps(){
+    setState(() {
+      showSteps = !showSteps;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +32,11 @@ class Tandementry extends StatelessWidget {
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
+        
         iconTheme: IconThemeData(
           color: Colors.white, //change your color here
         ),
         backgroundColor: Theme.of(context).colorScheme.tertiary,
-        leading: BackButton(),
       ),
       body: ListView(
         children: [
@@ -41,7 +55,10 @@ class Tandementry extends StatelessWidget {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          'Als Local beim Tandem-Projekt mitmachen',
+                          state.userProfile?.localOrNewcomer ==
+                                  LocalOrNewcomer.local
+                              ? 'Als Local beim Tandem-Projekt mitmachen'
+                              : 'Als Newcomerin beim Tandem-Projekt mitmachen',
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
@@ -57,7 +74,10 @@ class Tandementry extends StatelessWidget {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          'Du wohnst schon länger in Deutschland und möchtest dich für ein gutes Zusammenleben ALLER stark machen, und bist an einem kulturellen',
+                          state.userProfile?.localOrNewcomer ==
+                                  LocalOrNewcomer.local
+                              ? 'Du wohnst schon länger in Deutschland und möchtest dich für ein gutes Zusammenleben ALLER stark machen, und bist an einem kulturellen'
+                              : 'Du bist entweder neu in Deutschland oder wohnst schon länger in Deutschland? Du wünschst dir eine Freundin zum Austauschen oder Kontakt zu Frauen,',
                           style: TextStyle(fontSize: 15),
                         ),
                       ),
@@ -65,37 +85,6 @@ class Tandementry extends StatelessWidget {
                   ),
                 );
                 //Newcomer
-              } else if (state is AuthenticatedUser) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        width: 350,
-                        child: Text(
-                          'Als Newcomerin beim Tandem-Projekt mitmachen',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                      Divider(
-                        thickness: 3,
-                        indent: 20,
-                        endIndent: 310,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        width: 350,
-                        child: Text(
-                          'Du bist entweder neu in Deutschland oder wohnst schon länger in Deutschland? Du wünschst dir eine Freundin zum Austauschen oder Kontakt zu Frauen,',
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ),
-                    ],
-                  ),
-                );
                 //Unauthenticated
               } else {
                 return Padding(
@@ -165,9 +154,10 @@ class Tandementry extends StatelessWidget {
                     ),
                     IconButton(
                         alignment: Alignment.centerRight,
-                        onPressed: null,
+                        onPressed: toggleSteps,
                         icon: Icon(
-                          Icons.keyboard_arrow_down,
+                          showSteps ?
+                          Icons.keyboard_arrow_up: Icons.keyboard_arrow_down,
                           size: 40,
                           color: Theme.of(context).colorScheme.primary,
                         )),
@@ -185,12 +175,13 @@ class Tandementry extends StatelessWidget {
               ],
             ),
           ),
+          if(showSteps)
           TandemSteps(),
           SizedBox(
             height: 20,
           ),
           GestureDetector(
-            onTap: null,
+            onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TandemAuthentication()));},
             child: Container(
               padding: EdgeInsets.all(25),
               margin: const EdgeInsets.symmetric(horizontal: 50),
