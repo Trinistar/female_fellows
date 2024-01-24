@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_about_you.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_languages.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_matching.dart';
 
 class TandemAuthentication extends StatefulWidget {
   const TandemAuthentication({super.key});
@@ -82,7 +83,13 @@ class _TandemAuthenticationState extends State<TandemAuthentication> {
                     count: 2,
                   ),
                 ),
-                MaterialButton(
+               _onLastPage ? MaterialButton(
+                  disabledTextColor: Colors.grey,
+                  onPressed: () {
+               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TandemMatching()));
+                  },
+                  child: Text('Next'),
+                ): MaterialButton(
                   disabledTextColor: Colors.grey,
                   onPressed: () {
                     _controller.nextPage(
