@@ -1,16 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/all_events_page.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/favorite_events.page.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
-
 
 class EventOverview extends StatefulWidget {
   const EventOverview({
@@ -173,6 +175,12 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                         setState(() {
                           locationmessage = '$lat,$long';
                         });
+                        if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
+                          final FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
+                          context
+                              .read<AuthenticationBloc>()
+                              .add(UpdateUserProfileEvent((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid, latitude: value.latitude, longitude: value.longitude, userProfile: profile));
+                        }
                       });
                     },
                     icon: Icon(
@@ -181,36 +189,52 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                       size: 35,
                     ),
                     label: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Dein Standort',
                           style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
                         ),
-                        Text(
-                          locationmessage,
-                          style: TextStyle(fontSize: 12),
+                        BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                          builder: (context, state) {
+                            if (state is AuthenticatedUser) {
+
+                              return Text(
+                                state.userProfile!.location != null ? state.userProfile!.location!.name : locationmessage,
+                                style: TextStyle(fontSize: 12),
+                              );
+                            } else {
+                              return Text(
+                                locationmessage,
+                                style: TextStyle(fontSize: 12),
+                              );
+                            }
+                          },
                         )
                       ],
                     ),
                   ),
-                  TextButton.icon(
-                    onPressed: pickDateRange,
-                    icon: Icon(
-                      Icons.date_range,
-                      color: Theme.of(context).colorScheme.primary,
-                      size: 30,
-                    ),
-                    label: Column(
-                      children: [
-                        Text(
-                          'Datum wählen',
-                          style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
-                        ),
-                        Text(
-                          '${start.day}.${start.month} bis ${end.day}.${end.month}',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ],
+                  Flexible(
+                    child: TextButton.icon(
+                      onPressed: pickDateRange,
+                      icon: Icon(
+                        Icons.date_range,
+                        color: Theme.of(context).colorScheme.primary,
+                        size: 30,
+                      ),
+                      label: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Datum wählen',
+                            style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
+                          ),
+                          Text(
+                            '${start.day}.${start.month} bis ${end.day}.${end.month}',
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],

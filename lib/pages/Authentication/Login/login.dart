@@ -130,10 +130,8 @@ class _AuthLoginPageState extends State<LoginPage> {
                                 hintText: 'frau@example.com',
 
                                 validator: (value) {
-                                  print(value);
                                   if (state is LoginValidation) {
                                     state.isValidEmail ? null : 'Email is to short';
-                                    print(state.isValidEmail);
                                   }
                                 },
 

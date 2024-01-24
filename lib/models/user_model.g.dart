@@ -7,6 +7,7 @@ part of 'user_model.dart';
 // **************************************************************************
 
 FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
+      id: json['id'] as String?,
       favorites: (json['favorites'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -33,6 +34,9 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
           : Address.fromJson(json['address'] as Map<String, dynamic>),
       socialMedia:
           $enumDecodeNullable(_$SocialmediaEnumMap, json['socialMedia']),
+      location: json['location'] == null
+          ? null
+          : UserLocation.fromJson(json['location'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
@@ -48,6 +52,8 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'socialMedia': _$SocialmediaEnumMap[instance.socialMedia],
       'favorites': instance.favorites,
       'participatingEvents': instance.participatingEvents,
+      'id': instance.id,
+      'location': instance.location?.toJson(),
     };
 
 const _$LocalOrNewcomerEnumMap = {

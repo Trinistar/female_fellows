@@ -20,4 +20,27 @@ class FirestoreUserProfileRepository {
       }
     });
   }
+
+  Stream<List<FFUser>> getAllTandems(String localOrNewcomer) {
+    return FirestoreRepository().firestoreInstance
+    .collection('user')
+    .where('localOrNewcomer', isEqualTo: localOrNewcomer)
+    .snapshots()
+    .map(
+      ((QuerySnapshot<Map<String, dynamic>> snapshot) {
+        if (snapshot.docs.isNotEmpty) {
+          List<FFUser> tmp = [];
+
+          for (var change in snapshot.docChanges) {
+            final FFUser user = FFUser.fromJson(change.doc.data()!);
+            user.id = change.doc.id;
+            tmp.add(user);
+          }
+          return tmp;
+        } else {
+          return [];
+        }
+      }),
+    );
+  }
 }

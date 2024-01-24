@@ -2,18 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-<!-- Google Sign-in Section -->
-<key>CFBundleURLTypes</key>
-<array>
-	<dict>
-		<key>CFBundleTypeRole</key>
-		<string>Editor</string>
-		<key>CFBundleURLSchemes</key>
-		<array>
-			<string>com.googleusercontent.apps.897188779737-cpfeeij1inqcmbegthpn4rpcfbgg6680</string>
-		</array>
-	</dict>
-</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Dies erlaubt uns, dir in der Nähe befindliche Events anzuzeigen</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Dies erlaubt uns, dir in der Nähe befindliche Events anzuzeigen</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.897188779737-cpfeeij1inqcmbegthpn4rpcfbgg6680</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

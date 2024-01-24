@@ -8,15 +8,18 @@ import 'package:vs_femalefellows/blocs/CategoriesCubit/categories_cubit.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/blocs/FavoritesBloc/favorites_bloc.dart';
 import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
+import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
 import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
+import 'package:vs_femalefellows/provider/firestore/firestore_user_profile_repository.dart';
 
 import 'provider/firebase_options.dart';
 
 final AuthRepository authenticationRepository = AuthRepository();
 final FirestoreEventRepository firestoreEventRepository = FirestoreEventRepository();
+final FirestoreUserProfileRepository firestoreUserprofileRepository = FirestoreUserProfileRepository();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,7 +62,11 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<OnboardingBloc>(
           lazy: false,
-          create: (BuildContext context) => OnboardingBloc(BlocProvider.of<AuthenticationBloc>(context))..add(CheckOnboardingEvent()),
+          create: (BuildContext context) => OnboardingBloc(),
+        ),
+        BlocProvider<TandemBloc>(
+          create: (BuildContext context) => TandemBloc(firestoreUserprofileRepository, BlocProvider.of<AuthenticationBloc>(context)),
+          lazy: false,
         ),
         /* RepositoryProvider(
           create: (context) => AuthRepository(),

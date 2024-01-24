@@ -10,12 +10,13 @@ part 'event_event.dart';
 part 'event_state.dart';
 
 class EventBloc extends Bloc<EventEvent, EventState> {
-  final FirestoreEventRepository firestoreEventRepository;
   EventBloc(this.firestoreEventRepository) : super(EventInitial()) {
     on<NewEvent>(_onNewEvent);
     on<EventUpdate>(_onEventUpdate);
     on<LoadEvent>(_onLoadEvent);
   }
+
+  final FirestoreEventRepository firestoreEventRepository;
 
   Future<void> _onLoadEvent(LoadEvent event, Emitter<EventState> emit) async {
     return emit.onEach(firestoreEventRepository.getEvent(event.eventId), onData: (Event? event) async {

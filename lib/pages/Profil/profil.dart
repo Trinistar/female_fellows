@@ -46,38 +46,22 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
                 ),
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 actions: [
-                  BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                    builder: (context, state) {
-                      if (state is AuthenticatedUser) {
-                        return IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => Profil(),
-                              ),
-                            );
-                          },
-                          icon: Icon(Icons.edit),
-                          color: Colors.white,
-                        );
-                      } else {
-                        return SizedBox.shrink();
-                      }
+                  IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => Profil(),
+                        ),
+                      );
                     },
+                    icon: Icon(Icons.edit),
+                    color: Colors.white,
                   ),
-                  BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                    builder: (context, state) {
-                      if (state is AuthenticatedUser) {
-                        return IconButton(
-                          onPressed: () => context.read<AuthenticationBloc>().add(SignOutEvent()),
-                          icon: Icon(Icons.logout),
-                          color: Colors.white,
-                        );
-                      } else {
-                        return SizedBox.shrink();
-                      }
-                    },
-                  )
+                  IconButton(
+                    onPressed: () => context.read<AuthenticationBloc>().add(SignOutEvent()),
+                    icon: Icon(Icons.logout),
+                    color: Colors.white,
+                  ),
                 ],
               ),
               body: ListView(

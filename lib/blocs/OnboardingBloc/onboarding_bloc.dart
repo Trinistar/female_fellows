@@ -9,7 +9,7 @@ part 'onboarding_event.dart';
 part 'onboarding_state.dart';
 
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
-  OnboardingBloc(this._authBloc) : super(OnboardingInitial()) {
+  OnboardingBloc() : super(OnboardingInitial()) {
     on<CheckOnboardingEvent>(_onCheckOnboardingEvent);
     on<OnboardingDoneEvent>(_onOnboardingDoneEvent);
 
@@ -21,8 +21,6 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
       }
     }); */
   }
-
-  final AuthenticationBloc _authBloc;
 
   StreamSubscription<dynamic>? _authBlocSubscription;
 
