@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_success.dart';
 
 class TandemUserCard extends StatefulWidget {
   const TandemUserCard({super.key});
@@ -77,7 +78,7 @@ class _TandemUserCardState extends State<TandemUserCard> {
                                   height: 50,
                                 ),
                                 GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TandemSuccess()));},
                                   child: Container(
                                     padding: EdgeInsets.all(25),
                                     decoration: BoxDecoration(
