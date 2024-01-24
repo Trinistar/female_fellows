@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
@@ -68,6 +66,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
     final start = dateRange.start;
     final end = dateRange.end;
     return Scaffold(
+      backgroundColor: Colors.white,
       floatingActionButton: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
           if (state is AuthenticatedUser && state.tokenResult != null && state.tokenResult!.claims != null && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
@@ -198,7 +197,6 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                         BlocBuilder<AuthenticationBloc, AuthenticationState>(
                           builder: (context, state) {
                             if (state is AuthenticatedUser) {
-
                               return Text(
                                 state.userProfile!.location != null ? state.userProfile!.location!.name : locationmessage,
                                 style: TextStyle(fontSize: 12),
@@ -247,30 +245,35 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Row(
                 children: [
-                  SizedBox(
-                    width: 270,
-                    child: SearchBar(
-                      hintText: 'Suche nach',
-                      controller: Controller.searchbarController,
-                      onTap: null,
-                      leading: Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: const Icon(
-                          Icons.search,
-                          size: 30,
+                  Expanded(
+                    flex: 5,
+                    child: SizedBox(
+                      child: SearchBar(
+                        hintText: 'Suche nach',
+                        controller: Controller.searchbarController,
+                        onTap: null,
+                        leading: Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: const Icon(
+                            Icons.search,
+                            size: 30,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: IconButton(
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: IconButton(
                         onPressed: null,
                         icon: Icon(
                           Icons.filter_alt,
                           size: 35,
                           color: Theme.of(context).colorScheme.primary,
-                        )),
+                        ),
+                      ),
+                    ),
                   )
                 ],
               ),
