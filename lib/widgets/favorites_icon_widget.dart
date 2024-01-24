@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
 
 class FavoritesIconWidget extends StatelessWidget {
   FavoritesIconWidget({
@@ -35,7 +36,12 @@ class FavoritesIconWidget extends StatelessWidget {
             return SizedBox.shrink();
           }
         } else {
-          return SizedBox.shrink();
+          return IconButton(
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage())),
+            icon: Icon(
+              Icons.favorite_outline,
+            ),
+          );
         }
       },
     );

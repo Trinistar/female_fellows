@@ -57,7 +57,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
     return await Geolocator.getCurrentPosition();
   }
 
-  String locationmessage = 'Current Location';
+  String locationmessage = 'Ort angeben';
   late String lat;
   late String long;
 

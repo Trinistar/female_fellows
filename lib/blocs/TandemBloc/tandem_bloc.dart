@@ -14,6 +14,8 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
   TandemBloc(this.firestoreUserprofileRepository, this._authBloc) : super(TandemInitial()) {
     on<LoadAllTandemLocalsEvent>(_onLoadAllTandemLocalsEvent);
     on<LoadAllTandemNewcomersEvent>(_onLoadAllTandemNewcomersEvent);
+    on<UnloadAllTandemsEvent>((UnloadAllTandemsEvent event, Emitter<TandemState> emit) => emit(TandemsNotLoaded()));
+
 
     _authBlocStreamSub = _authBloc.stream.listen((AuthenticationState state) {
       if (state is AuthenticatedUser) {

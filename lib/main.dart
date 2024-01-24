@@ -54,6 +54,7 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => SubscribedEventsStore(BlocProvider.of<AuthenticationBloc>(context)),
         ),
         BlocProvider<AllEventsStore>(
+          lazy: false,
           create: (BuildContext context) => AllEventsStore(),
         ),
         BlocProvider<CategoryCubit>(
