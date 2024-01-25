@@ -107,7 +107,7 @@ class _TandemUserCardState extends State<TandemUserCard> {
                           borderRadius: BorderRadius.only(
                               topRight: Radius.circular(60),
                               topLeft: Radius.circular(60)),
-                          color: Theme.of(context).colorScheme.primary,
+                          color: Theme.of(context).colorScheme.surface,
                         ),
                       ),
                       Padding(

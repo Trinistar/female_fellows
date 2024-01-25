@@ -94,8 +94,8 @@ class MyApp extends StatelessWidget {
             )
           ), */
           colorScheme: ColorScheme.fromSeed(
-              seedColor: Color.fromRGBO(27, 25, 68, 27),
-              primary: Color.fromRGBO(27, 25, 68, 27),
+              seedColor: Color.fromRGBO(27, 25, 68, 1),
+              primary: Color.fromRGBO(27, 25, 68, 1),
               secondary: Color.fromRGBO(252, 208, 220, 1),
               surface: Color.fromRGBO(242, 242, 242, 1),
               surfaceVariant: Color.fromRGBO(236, 240, 243, 1),
