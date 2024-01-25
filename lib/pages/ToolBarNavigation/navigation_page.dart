@@ -30,10 +30,18 @@ class _HomepageState extends State<TabBarNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      extendBody: true,
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 0,
+      ),
       //Pages
       body: _pages[_currentIndex],
-    
+
       //Navigationbar
       bottomNavigationBar: Container(
         decoration: BoxDecoration(

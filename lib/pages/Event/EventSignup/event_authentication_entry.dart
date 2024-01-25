@@ -63,6 +63,7 @@ class _EvententryState extends State<Evententry> {
         },
         child: Scaffold(
           appBar: AppBar(
+             toolbarHeight: 70,
             title: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
           ),
           resizeToAvoidBottomInset: false,
@@ -122,7 +123,7 @@ class _EvententryState extends State<Evententry> {
                       count: 3,
                     ),
                     _onLastPage
-                        ? Container()
+                        ? Container(width: 85,)
                         : MaterialButton(
                             disabledTextColor: Colors.grey,
                             onPressed: () {

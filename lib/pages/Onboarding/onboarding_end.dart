@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
-import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/pages/ToolBarNavigation/navigation_page.dart';
 
 class Page5 extends StatelessWidget {
   const Page5({super.key});

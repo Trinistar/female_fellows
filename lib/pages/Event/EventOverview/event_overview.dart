@@ -66,7 +66,17 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
     final start = dateRange.start;
     final end = dateRange.end;
     return Scaffold(
+       extendBody: true,
+      extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
+      appBar: AppBar(
+
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+        backgroundColor: Theme.of(context).colorScheme.onTertiary,
+        toolbarHeight: 0,
+      ),
       floatingActionButton: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
           if (state is AuthenticatedUser && state.tokenResult != null && state.tokenResult!.claims != null && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
@@ -84,49 +94,46 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
             return SizedBox.shrink();
           }
         },
+        
       ),
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle(
-          statusBarColor: Color.fromRGBO(241, 80, 60, 1),
-        ),
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            Container(
-              decoration: BoxDecoration(color: Color.fromRGBO(241, 80, 60, 1), borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))),
-              height: 215,
-              width: 1000,
-              child: Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Positioned(
-                    right: 0,
-                    bottom: 0,
-                    child: Container(
-                      height: 26,
-                      width: 40,
-                      decoration: BoxDecoration(color: Colors.white),
-                    ),
+      body: ListView(
+        shrinkWrap: true,
+        children: [
+          Container(
+            decoration: BoxDecoration(color: Color.fromRGBO(241, 80, 60, 1), borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))),
+            height: 215,
+            width: 1000,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: Container(
+                    height: 26,
+                    width: 40,
+                    decoration: BoxDecoration(color: Colors.white),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 35),
-                    child: Image.asset(
-                      'lib/images/Mask group.png',
-                      fit: BoxFit.cover,
-                    ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 35),
+                  child: Image.asset(
+                    'lib/images/Mask group.png',
+                    fit: BoxFit.cover,
                   ),
-                  /* Padding(
-                            padding: const EdgeInsets.only(left: 50),
-                            child: FloatingActionButton(
-                              heroTag: EventNotAuthenticatedState,
-                              onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
-                              },
-                              backgroundColor: Colors.black,
-                              mini: true,
-                              child: Icon(Icons.add),
-                            ),
-                          ), */
+                ),
+                /* Padding(
+                          padding: const EdgeInsets.only(left: 50),
+                          child: FloatingActionButton(
+                            heroTag: EventNotAuthenticatedState,
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
+                            },
+                            backgroundColor: Colors.black,
+                            mini: true,
+                            child: Icon(Icons.add),
+                          ),
+                        ), */
 
                   //TODO only for Event creating//
                   /////////////////
@@ -340,56 +347,55 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                   ),
                 ), */
 
-            /*********************************************************************************************************/
-            SizedBox(
-              height: 20,
-            ),
-            TextButton(
-                onPressed: null,
-                child: Text(
-                  'Mehr Events anzeigen',
-                  style: TextStyle(color: Colors.black, fontSize: 17),
-                )),
-            SizedBox(
-              height: 20,
-            ),
-            Artbar(colorleft: Colors.white, colorright: Theme.of(context).colorScheme.primary),
-            Container(
-              width: 700,
-              height: 350,
-              color: Theme.of(context).colorScheme.primary,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 40),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Events vorschlagen',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
-                    Divider(
-                      endIndent: 320,
-                      thickness: 4,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      'Du kannst dein eigenes Events organisieren oder\nEvents von anderen Organisationen vorschlagen.',
-                      style: TextStyle(fontSize: 13, color: Colors.white),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Image(image: AssetImage('lib/images/idea.png')),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Image(image: AssetImage('lib/images/share.png')),
-                  ],
-                ),
+          /*********************************************************************************************************/
+          SizedBox(
+            height: 20,
+          ),
+          TextButton(
+              onPressed: null,
+              child: Text(
+                'Mehr Events anzeigen',
+                style: TextStyle(color: Colors.black, fontSize: 17),
+              )),
+          SizedBox(
+            height: 20,
+          ),
+          Artbar(colorleft: Colors.white, colorright: Theme.of(context).colorScheme.primary),
+          Container(
+            width: 700,
+            height: 350,
+            color: Theme.of(context).colorScheme.primary,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 40),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Events vorschlagen',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                  Divider(
+                    endIndent: 320,
+                    thickness: 4,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    'Du kannst dein eigenes Events organisieren oder\nEvents von anderen Organisationen vorschlagen.',
+                    style: TextStyle(fontSize: 13, color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Image(image: AssetImage('lib/images/idea.png')),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Image(image: AssetImage('lib/images/share.png')),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

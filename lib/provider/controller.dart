@@ -33,6 +33,9 @@ class Controller {
   static final languageController = TextEditingController();
   static final childNameController = TextEditingController();
 
+//controller Tandem
+static final aboutYouController= TextEditingController();
+
   static void clearControllers() {
     emailController.clear();
     passwordController.clear();
@@ -58,6 +61,7 @@ class Controller {
     foodController.clear();
     informationController.clear();
     clothesController.clear();
-    //profil
+    //Tandem
+    aboutYouController.clear();
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_header.dart';

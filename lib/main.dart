@@ -9,7 +9,7 @@ import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/blocs/FavoritesBloc/favorites_bloc.dart';
 import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
-import 'package:vs_femalefellows/pages/Homepage/navigation_page.dart';
+import 'package:vs_femalefellows/pages/ToolBarNavigation/navigation_page.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
@@ -37,21 +37,27 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthenticationBloc>(
-          create: (BuildContext context) => AuthenticationBloc(authenticationRepository: authenticationRepository),
+          create: (BuildContext context) => AuthenticationBloc(
+              authenticationRepository: authenticationRepository),
           lazy: false,
         ),
-        BlocProvider(create: (BuildContext context) => EventBloc(firestoreEventRepository)),
+        BlocProvider(
+            create: (BuildContext context) =>
+                EventBloc(firestoreEventRepository)),
         BlocProvider<FavoritesBloc>(
-          create: (BuildContext context) => FavoritesBloc(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) =>
+              FavoritesBloc(BlocProvider.of<AuthenticationBloc>(context)),
           lazy: false,
         ),
         BlocProvider<FavoriteEventStore>(
           lazy: false,
-          create: (BuildContext context) => FavoriteEventStore(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) =>
+              FavoriteEventStore(BlocProvider.of<AuthenticationBloc>(context)),
         ),
         BlocProvider<SubscribedEventsStore>(
           lazy: false,
-          create: (BuildContext context) => SubscribedEventsStore(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) => SubscribedEventsStore(
+              BlocProvider.of<AuthenticationBloc>(context)),
         ),
         BlocProvider<AllEventsStore>(
           lazy: false,
@@ -93,8 +99,8 @@ class MyApp extends StatelessWidget {
             )
           ), */
           colorScheme: ColorScheme.fromSeed(
-              seedColor: Color.fromRGBO(27, 25, 86, 27),
-              primary: Color.fromRGBO(27, 25, 86, 27),
+              seedColor: Color.fromRGBO(27, 25, 68, 1),
+              primary: Color.fromRGBO(27, 25, 68, 1),
               secondary: Color.fromRGBO(252, 208, 220, 1),
               surface: Color.fromRGBO(242, 242, 242, 1),
               surfaceVariant: Color.fromRGBO(236, 240, 243, 1),
