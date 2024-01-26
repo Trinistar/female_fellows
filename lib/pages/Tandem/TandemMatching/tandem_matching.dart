@@ -52,13 +52,13 @@ class _TandemMatchingState extends State<TandemMatching> {
   ListView _tandemsList(BuildContext context, List<FFUser> tandems) {
     return ListView(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CircleAvatar(
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CircleAvatar(
                 radius: 30,
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 child: SvgPicture.asset(
@@ -67,23 +67,32 @@ class _TandemMatchingState extends State<TandemMatching> {
                   height: 50,
                 ),
               ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
                 'Deine Tandem-Matches',
                 style: TextStyle(fontSize: 25, color: Colors.white),
               ),
-              Divider(
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Divider(
                 thickness: 5,
                 indent: 0,
                 endIndent: 250,
                 color: Colors.white,
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
                 children: [
                   Icon(
                     Icons.location_on_outlined,
@@ -116,46 +125,56 @@ class _TandemMatchingState extends State<TandemMatching> {
                   )
                 ],
               ),
-              SizedBox(
-                height: 5,
-              ),
-              Divider(
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Divider(
                 thickness: 5,
                 indent: 0,
                 endIndent: 0,
                 color: Colors.white,
               ),
-              SizedBox(
-                height: 20,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 650,
+              child: PageView.builder(
+                controller: _pageController,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return TandemUserCard(user: tandems[index]);
+                },
+                itemCount: tandems.length,
               ),
-              SizedBox(
-                height: 650,
-                child: PageView.builder(
-                  controller: _pageController,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    return TandemUserCard(user: tandems[index]);
-                  },
-                  itemCount: tandems.length,
-                ),
-              ),
-              Text(
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
                 'Von diesen Matching-Vorschägen kannst du dir eine passende Tandem-Partnerinnen aussuchen und anfragen. Die Matches basieren auf eurem Wohnort und Alter. Wähle den Vorschlag aus, der am besten zu dir passt, und lasst eure gemeinsame Reise beginnen!',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Text('Denk daran, du hast 24 Stunden Zeit, um dich für einen Vorschlag zu entscheiden, bevor du die Antwort deiner Tandem-Partnerin erhälst. Viel Spaß beim Kennenlernen und Entdecken neuer Freundschaften!',
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                  'Denk daran, du hast 24 Stunden Zeit, um dich für einen Vorschlag zu entscheiden, bevor du die Antwort deiner Tandem-Partnerin erhälst. Viel Spaß beim Kennenlernen und Entdecken neuer Freundschaften!',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
                   )),
-              SizedBox(
-                height: 50,
-              ),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+          ],
         ),
       ],
     );
