@@ -19,8 +19,7 @@ class _TandemAuthenticationState extends State<TandemAuthentication> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
-        title: Image.asset('lib/images/FF-Logo_blau-1.png',
-            height: 80, alignment: Alignment(0, -0.8)),
+        title: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
       ),
       resizeToAvoidBottomInset: false,
       backgroundColor: Theme.of(context).colorScheme.surface,
@@ -68,9 +67,7 @@ class _TandemAuthenticationState extends State<TandemAuthentication> {
                           if (_controller.page == 0) {
                             Navigator.pop(context);
                           } else {
-                            _controller.previousPage(
-                                duration: Duration(microseconds: 500),
-                                curve: Curves.easeIn);
+                            _controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                           }
                         },
                         child: Text('Back'))
@@ -83,21 +80,21 @@ class _TandemAuthenticationState extends State<TandemAuthentication> {
                     count: 2,
                   ),
                 ),
-               _onLastPage ? MaterialButton(
-                  disabledTextColor: Colors.grey,
-                  onPressed: () {
-               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TandemMatching()));
-                  },
-                  child: Text('Next'),
-                ): MaterialButton(
-                  disabledTextColor: Colors.grey,
-                  onPressed: () {
-                    _controller.nextPage(
-                        duration: Duration(microseconds: 500),
-                        curve: Curves.easeIn);
-                  },
-                  child: Text('Next'),
-                ),
+                _onLastPage
+                    ? MaterialButton(
+                        disabledTextColor: Colors.grey,
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => TandemMatching()));
+                        },
+                        child: Text('Next'),
+                      )
+                    : MaterialButton(
+                        disabledTextColor: Colors.grey,
+                        onPressed: () {
+                          _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
+                        },
+                        child: Text('Next'),
+                      ),
               ],
             ),
           ),

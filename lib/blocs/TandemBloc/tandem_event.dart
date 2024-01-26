@@ -7,9 +7,12 @@ sealed class TandemEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadAllTandemNewcomersEvent extends TandemEvent {}
+class LoadAllTandemNewcomersEvent extends TandemEvent {
+  LoadAllTandemNewcomersEvent();
+}
 
-class LoadAllTandemLocalsEvent extends TandemEvent {}
+class LoadAllTandemLocalsEvent extends TandemEvent {
+  LoadAllTandemLocalsEvent();
+}
 
 class UnloadAllTandemsEvent extends TandemEvent {}
-

@@ -37,6 +37,7 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
       location: json['location'] == null
           ? null
           : UserLocation.fromJson(json['location'] as Map<String, dynamic>),
+      aboutMe: json['aboutMe'] as String?,
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
@@ -54,6 +55,7 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'participatingEvents': instance.participatingEvents,
       'id': instance.id,
       'location': instance.location?.toJson(),
+      'aboutMe': instance.aboutMe,
     };
 
 const _$LocalOrNewcomerEnumMap = {

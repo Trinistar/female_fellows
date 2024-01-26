@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/enums.dart';
+import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_entry.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_carousel.dart';
@@ -18,12 +19,13 @@ class Tandementry extends StatefulWidget {
 }
 
 class _TandementryState extends State<Tandementry> {
-  bool showSteps =false;
-  void  toggleSteps(){
+  bool showSteps = false;
+  void toggleSteps() {
     setState(() {
       showSteps = !showSteps;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +33,6 @@ class _TandementryState extends State<Tandementry> {
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
-        
         iconTheme: IconThemeData(
           color: Colors.white, //change your color here
         ),
@@ -40,9 +41,7 @@ class _TandementryState extends State<Tandementry> {
       body: ListView(
         children: [
           TandemHeader(),
-          DividerBouthCorner(
-              color1: Colors.white,
-              color2: Theme.of(context).colorScheme.tertiary),
+          DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.tertiary),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) {
               //Local
@@ -54,10 +53,7 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          state.userProfile?.localOrNewcomer ==
-                                  LocalOrNewcomer.local
-                              ? 'Als Local beim Tandem-Projekt mitmachen'
-                              : 'Als Newcomerin beim Tandem-Projekt mitmachen',
+                          state.userProfile?.localOrNewcomer == LocalOrNewcomer.local ? 'Als Local beim Tandem-Projekt mitmachen' : 'Als Newcomerin beim Tandem-Projekt mitmachen',
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
@@ -73,8 +69,7 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          state.userProfile?.localOrNewcomer ==
-                                  LocalOrNewcomer.local
+                          state.userProfile?.localOrNewcomer == LocalOrNewcomer.local
                               ? 'Du wohnst schon länger in Deutschland und möchtest dich für ein gutes Zusammenleben ALLER stark machen, und bist an einem kulturellen'
                               : 'Du bist entweder neu in Deutschland oder wohnst schon länger in Deutschland? Du wünschst dir eine Freundin zum Austauschen oder Kontakt zu Frauen,',
                           style: TextStyle(fontSize: 15),
@@ -155,8 +150,7 @@ class _TandementryState extends State<Tandementry> {
                         alignment: Alignment.centerRight,
                         onPressed: toggleSteps,
                         icon: Icon(
-                          showSteps ?
-                          Icons.keyboard_arrow_up: Icons.keyboard_arrow_down,
+                          showSteps ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
                           size: 40,
                           color: Theme.of(context).colorScheme.primary,
                         )),
@@ -174,33 +168,56 @@ class _TandementryState extends State<Tandementry> {
               ],
             ),
           ),
-          if(showSteps)
-          TandemSteps(),
+          if (showSteps) TandemSteps(),
           SizedBox(
             height: 20,
           ),
-          GestureDetector(
-            onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TandemAuthentication()));},
-            child: Container(
-              padding: EdgeInsets.all(25),
-              margin: const EdgeInsets.symmetric(horizontal: 50),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              child: Center(
-                  child: Text(
-                'Jetzt mit Tandem matchen',
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
-              )),
-            ),
+          BlocBuilder<AuthenticationBloc, AuthenticationState>(
+            builder: (context, state) {
+              if (state is AuthenticatedUser) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => TandemAuthentication()));
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(25),
+                    margin: const EdgeInsets.symmetric(horizontal: 50),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Jetzt mit Tandem matchen',
+                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                  ),
+                );
+              } else {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(25),
+                    margin: const EdgeInsets.symmetric(horizontal: 50),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Jetzt mit Tandem matchen',
+                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                    ),
+                  ),
+                );
+              }
+            },
           ),
-          DividerBouthCorner(
-              color1: Theme.of(context).colorScheme.surface,
-              color2: Colors.white),
+          DividerBouthCorner(color1: Theme.of(context).colorScheme.surface, color2: Colors.white),
           Container(
             color: Theme.of(context).colorScheme.surface,
             child: Padding(
@@ -235,9 +252,7 @@ class _TandementryState extends State<Tandementry> {
               ),
             ),
           ),
-          DividerBouthCorner(
-              color1: Theme.of(context).colorScheme.tertiary,
-              color2: Theme.of(context).colorScheme.surface),
+          DividerBouthCorner(color1: Theme.of(context).colorScheme.tertiary, color2: Theme.of(context).colorScheme.surface),
           TandemComments(),
           DividerBouthCorner(
             color1: Colors.white,
@@ -278,11 +293,7 @@ class _TandementryState extends State<Tandementry> {
             height: 50,
           ),
           Container(
-            decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surface,
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(60),
-                    topLeft: Radius.circular(60))),
+            decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: BorderRadius.only(topRight: Radius.circular(60), topLeft: Radius.circular(60))),
             height: 50,
           ),
           FAQs(),

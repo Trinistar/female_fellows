@@ -43,7 +43,7 @@ class _TandemUserCardState extends State<TandemUserCard> {
                             size: 30,
                           ),
                           Text(
-                            'Stuttgart-Mitte',
+                            widget.user.location != null ? widget.user.location!.name : '',
                             style: TextStyle(fontSize: 15),
                           )
                         ],

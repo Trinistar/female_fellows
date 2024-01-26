@@ -26,6 +26,7 @@ class FFUser {
   List<String> participatingEvents;
   String? id;
   UserLocation? location;
+  String? aboutMe;
   
 
   FFUser({
@@ -43,6 +44,7 @@ class FFUser {
     this.address,
     this.socialMedia,
     this.location,
+    this.aboutMe,
   });
 
   factory FFUser.fromJson(Map<String, dynamic> json) => _$FFUserFromJson(json);
@@ -62,6 +64,7 @@ class FFUser {
         address,
         localOrNewcomer,
         socialMedia,
+        aboutMe,
       ];
 }
 

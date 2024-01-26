@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
+import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_userCard.dart';
 
@@ -14,6 +16,9 @@ class TandemMatching extends StatefulWidget {
 
 class _TandemMatchingState extends State<TandemMatching> {
   PageController? _pageController;
+  late String _lat;
+  late String _long;
+  String locationmessage = 'Ort angeben';
 
   @override
   void initState() {
@@ -28,8 +33,15 @@ class _TandemMatchingState extends State<TandemMatching> {
       extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: AppBar(
-        toolbarHeight: 40,
-        leading: BackButton(),
+        title: CircleAvatar(
+          radius: 30,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          child: SvgPicture.asset(
+            'lib/images/tandem-matching.svg',
+            width: 50,
+            height: 50,
+          ),
+        ),
         iconTheme: IconThemeData(
           color: Colors.white, //change your color here
         ),
@@ -57,22 +69,7 @@ class _TandemMatchingState extends State<TandemMatching> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: CircleAvatar(
-                radius: 30,
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                child: SvgPicture.asset(
-                  'lib/images/tandem-matching.svg',
-                  width: 50,
-                  height: 50,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: Text(
                 'Deine Tandem-Matches',
                 style: TextStyle(fontSize: 25, color: Colors.white),
@@ -94,33 +91,70 @@ class _TandemMatchingState extends State<TandemMatching> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  Icon(
-                    Icons.location_on_outlined,
-                    size: 35,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 240,
-                    child: Row(
+                  TextButton.icon(
+                    onPressed: () {
+                      HelperFunctions.getCurrentLocation().then((value) {
+                        _lat = '${value.latitude}';
+                        _long = '${value.longitude}';
+                        setState(() {
+                          locationmessage = '$_lat,$_long';
+                        });
+                        if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
+                          final FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
+                          context
+                              .read<AuthenticationBloc>()
+                              .add(UpdateUserProfileEvent((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid, latitude: value.latitude, longitude: value.longitude, userProfile: profile));
+                        }
+                      });
+                    },
+                    icon: Icon(
+                      Icons.location_on_outlined,
+                      color: Colors.white,
+                      size: 35,
+                    ),
+                    label: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Stuttgart',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                          'Dein Standort',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
                         ),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Colors.white,
+                        BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                          builder: (context, state) {
+                            if (state is AuthenticatedUser) {
+                              return Text(
+                                state.userProfile!.location != null ? state.userProfile!.location!.name : locationmessage,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                ),
+                              );
+                            } else {
+                              return Text(
+                                locationmessage,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                ),
+                              );
+                            }
+                          },
                         )
                       ],
                     ),
                   ),
-                  IconButton(
-                    alignment: Alignment.bottomRight,
-                    onPressed: null,
-                    icon: Icon(
-                      Icons.filter_alt,
-                      size: 35,
-                      color: Colors.white,
+                  Expanded(
+                    child: IconButton(
+                      alignment: Alignment.bottomRight,
+                      onPressed: null,
+                      icon: Icon(
+                        Icons.filter_alt,
+                        size: 35,
+                        color: Colors.white,
+                      ),
                     ),
                   )
                 ],

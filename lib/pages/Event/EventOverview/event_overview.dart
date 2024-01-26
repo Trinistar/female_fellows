@@ -29,7 +29,6 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
     _tabController = TabController(length: 3, vsync: this);
   }
 
-//DateRange Picker //
   DateTimeRange dateRange = DateTimeRange(start: DateTime.now(), end: DateTime.now());
   Future pickDateRange() async {
     DateTimeRange? newDateRange = await showDateRangePicker(context: context, initialDateRange: dateRange, firstDate: DateTime.now(), lastDate: DateTime(2025));
@@ -39,27 +38,9 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
     });
   }
 
-  Future<Position> _getCurrentLocation() async {
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return Future.error('Location services are disabled');
-    }
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error('Location permissonns are denied');
-      }
-    }
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error('Location permisson are permantly denied, we cannot request Location');
-    }
-    return await Geolocator.getCurrentPosition();
-  }
-
   String locationmessage = 'Ort angeben';
-  late String lat;
-  late String long;
+  late String _lat;
+  late String _long;
 
   @override
   Widget build(BuildContext context) {
@@ -134,12 +115,6 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                             child: Icon(Icons.add),
                           ),
                         ), */
-
-                  //TODO only for Event creating//
-                  /////////////////
-                  ///////////
-                  //////
-                  ///
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,11 +150,11 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                 children: [
                   TextButton.icon(
                     onPressed: () {
-                      _getCurrentLocation().then((value) {
-                        lat = '${value.latitude}';
-                        long = '${value.longitude}';
+                      HelperFunctions.getCurrentLocation().then((value) {
+                        _lat = '${value.latitude}';
+                        _long = '${value.longitude}';
                         setState(() {
-                          locationmessage = '$lat,$long';
+                          locationmessage = '$_lat,$_long';
                         });
                         if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
                           final FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
