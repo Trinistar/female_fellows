@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_entry.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_matching.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_carousel.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_comments.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_faqs.dart';
@@ -28,11 +30,32 @@ class _TandementryState extends State<Tandementry> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<TandemOnboardingBloc, TandemOnboardingState>(
+      builder: (context, state) {
+        if (state is IsTandemOnboardingState) {
+          return _tandemOnboarding(context);
+        } else {
+          return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+            builder: (context, state) {
+              if (state is AuthenticatedUser) {
+                return TandemMatching();
+              } else {
+                return _tandemOnboarding(context);
+              }
+            },
+          );
+        }
+      },
+    );
+  }
+
+  Scaffold _tandemOnboarding(BuildContext context) {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         iconTheme: IconThemeData(
           color: Colors.white, //change your color here
         ),
@@ -177,7 +200,7 @@ class _TandementryState extends State<Tandementry> {
               if (state is AuthenticatedUser) {
                 return GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => TandemAuthentication()));
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TandemAuthentication()));
                   },
                   child: Container(
                     padding: EdgeInsets.all(25),

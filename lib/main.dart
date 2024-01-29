@@ -9,6 +9,7 @@ import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/blocs/FavoritesBloc/favorites_bloc.dart';
 import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
+import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
 import 'package:vs_femalefellows/pages/ToolBarNavigation/navigation_page.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
@@ -69,7 +70,11 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<OnboardingBloc>(
           lazy: false,
-          create: (BuildContext context) => OnboardingBloc(),
+          create: (BuildContext context) => OnboardingBloc(BlocProvider.of<AuthenticationBloc>(context)),
+        ),
+        BlocProvider<TandemOnboardingBloc>(
+          lazy: false,
+          create: (BuildContext context) => TandemOnboardingBloc(BlocProvider.of<AuthenticationBloc>(context)),
         ),
         BlocProvider<TandemBloc>(
           create: (BuildContext context) => TandemBloc(firestoreUserprofileRepository, BlocProvider.of<AuthenticationBloc>(context)),

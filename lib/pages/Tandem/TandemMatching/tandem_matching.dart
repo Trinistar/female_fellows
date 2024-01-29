@@ -33,6 +33,16 @@ class _TandemMatchingState extends State<TandemMatching> {
       extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: AppBar(
+        /* actions: [
+          IconButton(
+            onPressed: () => Navigator.of(context).pop(),
+            icon: const Icon(
+              Icons.cancel_rounded,
+              size: 34,
+            ),
+          ),
+        ], */
+        automaticallyImplyLeading: false,
         title: CircleAvatar(
           radius: 30,
           backgroundColor: Theme.of(context).colorScheme.primary,
