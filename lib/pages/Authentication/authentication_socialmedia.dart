@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 
 
@@ -39,9 +40,10 @@ class _AuthSocialmediaState extends State<AuthSocialmedia> {
           ),
           Center(
             child: CircleAvatar(
-              backgroundImage: AssetImage('lib/images/Notification.png'),
+      
               radius: 100,
-              backgroundColor: Theme.of(context).colorScheme.secondary,
+              backgroundColor: Colors.transparent,
+              child: SvgPicture.asset('lib/images/aufmerksamkeit.svg'),
             ),
           ),
           SizedBox(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class TandemAboutYou extends StatelessWidget {
@@ -22,9 +23,10 @@ class TandemAboutYou extends StatelessWidget {
         ),
         Center(
           child: CircleAvatar(
-            backgroundImage: AssetImage('lib/images/dolmetcher.png'),
+           
             radius: 100,
-            backgroundColor: Theme.of(context).colorScheme.secondary,
+            backgroundColor: Colors.transparent,
+            child: SvgPicture.asset('lib/images/Überdich.svg'),
           ),
         ),
         SizedBox(

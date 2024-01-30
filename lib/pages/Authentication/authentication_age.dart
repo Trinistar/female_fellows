@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 
 class AuthAge extends StatefulWidget {
   const AuthAge({super.key, required this.birthday});
@@ -58,9 +59,9 @@ class _AuthAgeState extends State<AuthAge> {
             child: MaterialButton(
               onPressed: _showdatePicker,
               child: CircleAvatar(
-                backgroundImage: AssetImage('lib/images/Birthday.png'),
                 radius: 100,
-                backgroundColor: Theme.of(context).colorScheme.secondary,
+                backgroundColor: Colors.transparent,
+                child: SvgPicture.asset('lib/images/geburtstag.svg'),
               ),
             ),
           ),

@@ -20,12 +20,21 @@ class _HomepageState extends State<TabBarNavigation> {
     });
   }
 
-  final List<Widget> _pages = [
-    Tandementry(),
-    EventOverview(),
-    Home(),
-    Profil(),
-  ];
+  @override
+  void initState() {
+    _pages = [
+      Tandementry(),
+      EventOverview(),
+      Home(
+        pagechange: _navigation,
+      ),
+      Profil(),
+    ];
+
+    super.initState();
+  }
+
+  List<Widget> _pages = [];
 
   @override
   Widget build(BuildContext context) {

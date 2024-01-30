@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TandemItem extends StatelessWidget {
-  const TandemItem({super.key});
+class TandemItemStory2 extends StatelessWidget {
+  const TandemItemStory2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class TandemItem extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(40)),
-          color:  Theme.of(context).colorScheme.secondary,
+          color:  Theme.of(context).colorScheme.primary,
         ),
         height: 160,
         child: ClipRRect(
@@ -22,13 +22,13 @@ class TandemItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  'Deutsch lernen',
-                  style: TextStyle(fontSize: 13),
+                  'Anna & Semhar',
+                  style: TextStyle(fontSize: 13,color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
               ),
               Image(
-                image: AssetImage('lib/images/partner1.png'),
+                image: AssetImage('lib/images/partner2.png'),
                 fit: BoxFit.cover,
               ),
             ],

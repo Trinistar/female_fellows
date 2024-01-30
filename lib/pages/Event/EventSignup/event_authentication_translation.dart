@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:language_picker/languages.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
 
@@ -10,10 +11,12 @@ class EventTranslationAuthentication extends StatefulWidget {
   final void Function(Interpreter)? needsTranslator;
 
   @override
-  State<EventTranslationAuthentication> createState() => _EventTranslationAuthenticationState();
+  State<EventTranslationAuthentication> createState() =>
+      _EventTranslationAuthenticationState();
 }
 
-class _EventTranslationAuthenticationState extends State<EventTranslationAuthentication> {
+class _EventTranslationAuthenticationState
+    extends State<EventTranslationAuthentication> {
   RadioChoices _choices = RadioChoices.nein;
   late Language _lang;
 
@@ -45,9 +48,9 @@ class _EventTranslationAuthenticationState extends State<EventTranslationAuthent
             ),
             Center(
               child: CircleAvatar(
-                backgroundImage: AssetImage('lib/images/dolmetcher.png'),
                 radius: 100,
-                backgroundColor: Theme.of(context).colorScheme.secondary,
+                backgroundColor: Colors.transparent,
+                child: SvgPicture.asset('lib/images/dolmetcher.svg'),
               ),
             ),
             SizedBox(
@@ -68,7 +71,8 @@ class _EventTranslationAuthenticationState extends State<EventTranslationAuthent
                     onChanged: (answer) {
                       setState(() {
                         _choices = answer!;
-                        widget.needsTranslator!(Interpreter(needed: true, language: _lang.name));
+                        widget.needsTranslator!(
+                            Interpreter(needed: true, language: _lang.name));
                       });
                     }),
                 RadioListTile(
@@ -84,7 +88,8 @@ class _EventTranslationAuthenticationState extends State<EventTranslationAuthent
                     onChanged: (answer) {
                       setState(() {
                         _choices = answer!;
-                        widget.needsTranslator!(Interpreter(needed: false, language: ''));
+                        widget.needsTranslator!(
+                            Interpreter(needed: false, language: ''));
                       });
                     }),
                 SizedBox(
@@ -103,13 +108,16 @@ class _EventTranslationAuthenticationState extends State<EventTranslationAuthent
                           ),
                           DropdownMenu<Language>(
                             initialSelection: Languages.german,
-                            dropdownMenuEntries: Languages.defaultLanguages.map((Language lang) {
-                              return DropdownMenuEntry<Language>(value: lang, label: lang.name);
+                            dropdownMenuEntries:
+                                Languages.defaultLanguages.map((Language lang) {
+                              return DropdownMenuEntry<Language>(
+                                  value: lang, label: lang.name);
                             }).toList(),
                             onSelected: (value) {
                               setState(() {
                                 _lang = value!;
-                                widget.needsTranslator!(Interpreter(needed: true, language: _lang.name));
+                                widget.needsTranslator!(Interpreter(
+                                    needed: true, language: _lang.name));
                               });
                             },
                           ),

@@ -4,8 +4,9 @@ import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.da
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_activitys.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_entry.dart';
-import 'package:vs_femalefellows/pages/Tandem/tandem_carousel.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_carousel.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_comments.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_faqs.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_header.dart';
@@ -31,15 +32,18 @@ class _TandementryState extends State<Tandementry> {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
+      
       backgroundColor: Colors.white,
       appBar: AppBar(
+        toolbarHeight: 0,
         iconTheme: IconThemeData(
-          color: Colors.white, //change your color here
+          color: Colors.white, 
         ),
         backgroundColor: Theme.of(context).colorScheme.tertiary,
       ),
       body: ListView(
         children: [
+     
           TandemHeader(),
           DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.tertiary),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -244,7 +248,7 @@ class _TandementryState extends State<Tandementry> {
                   SizedBox(
                     height: 20,
                   ),
-                  TandemCarousel(),
+                  ActivitysCarousel(),
                   SizedBox(
                     height: 20,
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -47,9 +48,10 @@ class _AuthSafetyState extends State<AuthSafety> {
           ),
           Center(
             child: CircleAvatar(
-              backgroundImage: AssetImage('lib/images/Anmelden.png'),
+            
               radius: 100,
-              backgroundColor: Theme.of(context).colorScheme.secondary,
+              backgroundColor: Colors.transparent,
+              child: SvgPicture.asset('lib/images/datenschutz.svg'),
             ),
           ),
           SizedBox(

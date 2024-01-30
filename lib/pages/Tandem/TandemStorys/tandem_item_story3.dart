@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CarouselItem extends StatelessWidget {
-  CarouselItem({super.key});
+class TandemItemStory3 extends StatelessWidget {
+  const TandemItemStory3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class CarouselItem extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(40)),
-          color:  Theme.of(context).colorScheme.secondary,
+          color:  Theme.of(context).colorScheme.tertiary,
         ),
         height: 160,
         child: ClipRRect(
@@ -22,13 +22,13 @@ class CarouselItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  '',
-                  style: TextStyle(fontSize: 13),
+                  'Felicia & Sina',
+                  style: TextStyle(fontSize: 13,color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
               ),
               Image(
-                image: AssetImage('lib/images/partner1.png'),
+                image: AssetImage('lib/images/partner2.png'),
                 fit: BoxFit.cover,
               ),
             ],
