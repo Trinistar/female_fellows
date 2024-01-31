@@ -67,7 +67,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       if (event.latitude != null && event.longitude != null) {
         final String address = await _getCityStringFromCoords(GeoPoint(event.latitude!, event.longitude!));
         final GeoFirePoint geoFirePoint = GeoFirePoint(GeoPoint(event.latitude!, event.longitude!));
-        final UserLocation location = UserLocation(geo: Geo(geohash: geoFirePoint.geohash, geopoint: GeoPoint(event.latitude!, event.longitude!)), name: address, isVisible: true);
+        final UserLocation location = UserLocation(data: GeoData(geohash: geoFirePoint.geohash, location: GeoPoint(event.latitude!, event.longitude!)), name: address, isVisible: true);
         updated.location = location;
       }
 

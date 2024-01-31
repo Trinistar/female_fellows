@@ -30,7 +30,6 @@ class _HomepageState extends State<TabBarNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         iconTheme: IconThemeData(
