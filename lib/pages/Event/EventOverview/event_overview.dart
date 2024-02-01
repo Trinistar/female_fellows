@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
@@ -63,10 +61,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
           if (state is AuthenticatedUser && state.tokenResult != null && state.tokenResult!.claims != null && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
             return FloatingActionButton(
               heroTag: CreateEvent,
-              onPressed: () {
-                //Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateEvent()));
-                context.go('/events/createEvent');
-              },
+              onPressed: () => context.go('/events/createEvent'),
               foregroundColor: Colors.white,
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               mini: true,

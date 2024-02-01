@@ -51,7 +51,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 20.0),
                 child: FFButton(
-                  onTap: () => context.go('/loginPage'),
+                  onTap: () => context.push('/loginPage'),
                   text: 'Kostenlos Mitglied werden',
                 ),
               )

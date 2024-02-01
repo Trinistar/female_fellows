@@ -61,7 +61,7 @@ class _DetailEventState extends State<DetailEvent> {
             builder: (context, state) {
               if (state is AuthenticatedUser && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
                 return IconButton(
-                  onPressed: () => context.go('/detailEvent/:id/updateEvent', extra: event),
+                  onPressed: () => context.go('/events/detailEvent/${widget.eventId}/updateEvent', extra: event),
                   icon: Icon(Icons.edit),
                 );
               } else {
@@ -149,16 +149,13 @@ class _DetailEventState extends State<DetailEvent> {
                 );
               } else {
                 return FFButton(
-                  onTap: () => context.go('/detailEvent/:id/eventOnboarding', extra: eventState),
+                  onTap: () => context.go('/events/detailEvent/${widget.eventId}/eventOnboarding', extra: eventState),
                   text: 'Verbindlich anmelden',
                 );
               }
             } else if (state is UnauthenticatedUser) {
               return FFButton(
-                onTap: () {
-                  context.go('/detailEvent/:id/eventNotAuthenticated', extra: eventState);
-                  //Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
-                },
+                onTap: () => context.go('/events/detailEvent/${widget.eventId}/eventNotAuthenticated', extra: eventState),
                 text: 'Verbindlich anmelden',
               );
             } else {

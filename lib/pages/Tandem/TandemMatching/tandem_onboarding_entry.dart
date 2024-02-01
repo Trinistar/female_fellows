@@ -9,14 +9,14 @@ import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_languages.da
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_matching.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
-class TandemAuthentication extends StatefulWidget {
-  const TandemAuthentication({super.key});
+class TandemOnboardingEntry extends StatefulWidget {
+  const TandemOnboardingEntry({super.key});
 
   @override
-  State<TandemAuthentication> createState() => _TandemAuthenticationState();
+  State<TandemOnboardingEntry> createState() => _TandemOnboardingEntryState();
 }
 
-class _TandemAuthenticationState extends State<TandemAuthentication> {
+class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
   PageController _controller = PageController();
   bool _onLastPage = false;
   @override

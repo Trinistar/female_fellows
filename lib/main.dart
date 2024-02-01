@@ -24,7 +24,7 @@ import 'package:vs_femalefellows/pages/Event/UpdateEvent/event_update.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/pages/Profil/profil.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_entry.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_onboarding_entry.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 import 'package:vs_femalefellows/pages/ToolBarNavigation/navigation_page.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
@@ -38,7 +38,10 @@ final FirestoreEventRepository firestoreEventRepository = FirestoreEventReposito
 final FirestoreUserProfileRepository firestoreUserprofileRepository = FirestoreUserProfileRepository();
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
-final _sectionNavigatorKey = GlobalKey<NavigatorState>();
+final _tandemTabNavigatorKey = GlobalKey<NavigatorState>();
+final _eventTabNavigatorKey = GlobalKey<NavigatorState>();
+final _homeTabNavigatorKey = GlobalKey<NavigatorState>();
+final _profileTabNavigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -82,6 +85,12 @@ final GoRouter _router = GoRouter(
         ),
       ],
     ),
+    GoRoute(
+      path: '/eventNotAuthenticated',
+      builder: (BuildContext context, GoRouterState state) {
+        return EventNotAuthenticatedState();
+      },
+    ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         // Return the widget that implements the custom shell (e.g a BottomNavigationBar).
@@ -98,6 +107,7 @@ final GoRouter _router = GoRouter(
       },
       branches: [
         StatefulShellBranch(
+          navigatorKey: _tandemTabNavigatorKey,
           routes: <RouteBase>[
             GoRoute(
               path: '/tandem',
@@ -107,7 +117,14 @@ final GoRouter _router = GoRouter(
                   path: 'tandemOnboarding',
                   parentNavigatorKey: _rootNavigatorKey,
                   builder: (BuildContext context, GoRouterState state) {
-                    return const TandemAuthentication();
+                    return const TandemOnboardingEntry();
+                  },
+                ),
+                GoRoute(
+                  path: 'eventNotAuthenticated',
+                  parentNavigatorKey: _rootNavigatorKey,
+                  builder: (BuildContext context, GoRouterState state) {
+                    return EventNotAuthenticatedState();
                   },
                 ),
               ],
@@ -115,7 +132,7 @@ final GoRouter _router = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          navigatorKey: _sectionNavigatorKey,
+          navigatorKey: _eventTabNavigatorKey,
           // Add this branch routes
           // each routes with its sub routes if available e.g feed/uuid/details
           routes: <RouteBase>[
@@ -127,6 +144,29 @@ final GoRouter _router = GoRouter(
                   path: 'detailEvent/:id',
                   parentNavigatorKey: _rootNavigatorKey,
                   builder: (BuildContext context, GoRouterState state) => DetailEvent(eventId: state.pathParameters['id']!),
+                  routes: [
+                    GoRoute(
+                      path: 'eventNotAuthenticated',
+                      parentNavigatorKey: _rootNavigatorKey,
+                      builder: (BuildContext context, GoRouterState state) {
+                        return EventNotAuthenticatedState();
+                      },
+                    ),
+                    GoRoute(
+                      path: 'eventOnboarding',
+                      parentNavigatorKey: _rootNavigatorKey,
+                      builder: (BuildContext context, GoRouterState state) {
+                        return Evententry(event: state.extra as Event);
+                      },
+                    ),
+                    GoRoute(
+                      path: 'updateEvent',
+                      parentNavigatorKey: _rootNavigatorKey,
+                      builder: (BuildContext context, GoRouterState state) {
+                        return UpdateEvent(eventState: state.extra as Event);
+                      },
+                    ),
+                  ],
                 ),
                 GoRoute(
                   path: 'createEvent',
@@ -138,6 +178,7 @@ final GoRouter _router = GoRouter(
           ],
         ),
         StatefulShellBranch(
+          navigatorKey: _homeTabNavigatorKey,
           routes: <RouteBase>[
             GoRoute(
               path: '/home',
@@ -146,6 +187,7 @@ final GoRouter _router = GoRouter(
           ],
         ),
         StatefulShellBranch(
+          navigatorKey: _profileTabNavigatorKey,
           routes: <RouteBase>[
             GoRoute(
               path: '/profile',

@@ -217,7 +217,7 @@ class _TandementryState extends State<Tandementry> {
                 );
               } else {
                 return GestureDetector(
-                  onTap: () => context.go('/eventNotAuthenticated'),
+                  onTap: () => context.go('/tandem/eventNotAuthenticated'),
                   child: Container(
                     padding: EdgeInsets.all(25),
                     margin: const EdgeInsets.symmetric(horizontal: 50),
