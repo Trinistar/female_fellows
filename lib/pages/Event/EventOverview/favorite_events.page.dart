@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/FavoritesBloc/favorites_bloc.dart';
-import 'package:vs_femalefellows/pages/Event/EventDetail/event_detail_page.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/event_ListTile.dart';
 
 class FavoritEvents extends StatefulWidget {
@@ -31,15 +31,7 @@ class _FavoritEventsState extends State<FavoritEvents> {
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => DetailEvent(
-                        eventId: state.favorites[index].id!,
-                      ),
-                    ),
-                  );
-                },
+                onTap: () => context.go('/events/detailEvent/${state.favorites[index].id!}'),
                 child: EventListTile(
                   event: state.favorites[index],
                 ),

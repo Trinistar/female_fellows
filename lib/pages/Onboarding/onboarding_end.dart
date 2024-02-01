@@ -39,14 +39,14 @@ class Page5 extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     BlocProvider.of<OnboardingBloc>(context).add(OnboardingDoneEvent());
-                    Navigator.push(
+                    /* Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
                           return TabBarNavigation();
                         },
                       ),
-                    );
+                    ); */
                   },
                   child: Container(
                     padding: EdgeInsets.all(20),

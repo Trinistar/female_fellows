@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
-import 'package:vs_femalefellows/pages/Event/EventDetail/event_categorys.dart';
-import 'package:vs_femalefellows/pages/Event/EventDetail/event_description.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_Items.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_categorys.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_data_creator.dart';
+import 'package:vs_femalefellows/pages/Event/EventDetail/event_description.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_materials.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_pictures.dart';
-import 'package:vs_femalefellows/pages/Event/EventDetail/event_data_creator.dart';
-import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_entry.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
-import 'package:vs_femalefellows/pages/Event/UpdateEvent/event_update.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/widgets/favorites_icon_widget.dart';
 
@@ -62,15 +61,7 @@ class _DetailEventState extends State<DetailEvent> {
             builder: (context, state) {
               if (state is AuthenticatedUser && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
                 return IconButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => UpdateEvent(
-                          eventState: event,
-                        ),
-                      ),
-                    );
-                  },
+                  onPressed: () => context.go('/detailEvent/:id/updateEvent', extra: event),
                   icon: Icon(Icons.edit),
                 );
               } else {
@@ -158,16 +149,15 @@ class _DetailEventState extends State<DetailEvent> {
                 );
               } else {
                 return FFButton(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Evententry(event: eventState)));
-                  },
+                  onTap: () => context.go('/detailEvent/:id/eventOnboarding', extra: eventState),
                   text: 'Verbindlich anmelden',
                 );
               }
             } else if (state is UnauthenticatedUser) {
               return FFButton(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
+                  context.go('/detailEvent/:id/eventNotAuthenticated', extra: eventState);
+                  //Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
                 },
                 text: 'Verbindlich anmelden',
               );

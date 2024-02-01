@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/event_overview.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 import 'package:vs_femalefellows/pages/Profil/profil.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 
-class TabBarNavigation extends StatefulWidget {
-  TabBarNavigation({super.key});
+class TabBarNavigation extends StatelessWidget {
+  const TabBarNavigation({super.key, required this.navigationShell});
 
-  @override
-  State<TabBarNavigation> createState() => _HomepageState();
-}
-
-class _HomepageState extends State<TabBarNavigation> {
-  int _currentIndex = 2;
+  final StatefulNavigationShell navigationShell;
 
   void _navigation(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
+    navigationShell.goBranch(
+      index,
+      // A common pattern when using bottom navigation bars is to support
+      // navigating to the initial location when tapping the item that is
+      // already active. This example demonstrates how to support this behavior,
+      // using the initialLocation parameter of goBranch.
+      initialLocation: index == navigationShell.currentIndex,
+    );
   }
 
-  final List<Widget> _pages = [
+  /* final List<Widget> _pages = [
     Tandementry(),
     EventOverview(),
     Home(),
-    Profil(),
-  ];
+    Profile(),
+  ]; */
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class _HomepageState extends State<TabBarNavigation> {
         toolbarHeight: 0,
       ),
       //Pages
-      body: _pages[_currentIndex],
+      body: navigationShell,
 
       //Navigationbar
       bottomNavigationBar: Container(
@@ -50,7 +51,7 @@ class _HomepageState extends State<TabBarNavigation> {
           ),
         ),
         child: BottomNavigationBar(
-          currentIndex: _currentIndex,
+          currentIndex: navigationShell.currentIndex,
           onTap: _navigation,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Theme.of(context).colorScheme.secondary,

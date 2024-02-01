@@ -54,14 +54,14 @@ class _AuthVerficationState extends State<AuthVerfication> {
           if (state is AuthenticatedUser) {
             if (widget.isFromOnboarding) {
               BlocProvider.of<OnboardingBloc>(context).add(OnboardingDoneEvent());
-              Navigator.push(
+              /* Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
                     return TabBarNavigation();
                   },
                 ),
-              );
+              ); */
             } else {
               Navigator.of(context).maybePop();
             }

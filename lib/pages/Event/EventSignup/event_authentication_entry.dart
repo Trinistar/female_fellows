@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
@@ -51,7 +52,8 @@ class _EvententryState extends State<Evententry> {
       child: BlocListener<AuthenticationBloc, AuthenticationState>(
         listener: (context, state) {
           if (state is AuthenticatedUser && state.userProfile!.participatingEvents.contains(widget.event.id)) {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventSuccess(event: widget.event)));
+            context.go('/eventRegisterSuccess', extra: widget.event);
+            //Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventSuccess(event: widget.event)));
 
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

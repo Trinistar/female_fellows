@@ -7,14 +7,14 @@ import 'package:vs_femalefellows/pages/Profil/profil_header.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_overview.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_progress.dart';
 
-class Profil extends StatefulWidget {
-  const Profil({super.key});
+class Profile extends StatefulWidget {
+  const Profile({super.key});
 
   @override
-  State<Profil> createState() => _ProfilState();
+  State<Profile> createState() => _ProfileState();
 }
 
-class _ProfilState extends State<Profil> with TickerProviderStateMixin {
+class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   late TabController _profilTabController;
   @override
   void initState() {
@@ -49,7 +49,7 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => Profil(),
+                          builder: (context) => Profile(),
                         ),
                       );
                     },

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/LoginBloc/login_bloc.dart';
 import 'package:vs_femalefellows/blocs/LoginBloc/login_event.dart';
@@ -40,9 +41,7 @@ class _AuthLoginPageState extends State<LoginPage> {
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: BlocListener<AuthenticationBloc, AuthenticationState>(
         listener: (context, state) {
-          if (state is AuthenticatedUser) {
-            Navigator.of(context).pop();
-          }
+          if (state is AuthenticatedUser) context.go('/detailEvent/:id');
         },
         child: BlocProvider(
           create: (context) => LoginBloc(),
@@ -239,7 +238,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                           )),
                           Center(
                             child: GestureDetector(
-                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => RegistrationEntry())),
+                              onTap: () => context.push('/loginPage/registrationPage'),
                               child: Text(
                                 AppLocalizations.of(context)!.signinTextdown,
                                 style: TextStyle(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline),

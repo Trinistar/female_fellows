@@ -1,6 +1,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/events.dart';
@@ -159,11 +160,7 @@ class _EventSuccessState extends State<EventSuccess> {
                     ),
                   ),
                   FFButton(
-                    onTap: () {
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                    },
+                    onTap: () => context.pop(),
                     text: 'Zurück zu den Events',
                   ),
                 ],
