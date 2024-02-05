@@ -83,7 +83,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
                     )
                   : Container(
-                      color: Colors.transparent,
+                      color: Colors.white,
                       height: 60,
                       width: 1000,
                       child: Row(

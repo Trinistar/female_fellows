@@ -50,32 +50,22 @@ class _AuthLoginPageState extends State<LoginPage> {
               if (state is FormSubmitting) {
                 return Center(child: CircularProgressIndicator());
               }
-              return ListView(
-                children: [
-                  Container(
-                    height: 150,
-                    width: 1000,
-                    color: Theme.of(context).colorScheme.surface,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 60, top: 25),
-                          child: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
-                        ),
-                      ],
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: ListView(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 25),
+                      child: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
                     ),
-                  ),
-                  SingleChildScrollView(
-                    child: Form(
-                      key: _formKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 50),
-                            child: Text(
+                    SingleChildScrollView(
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
                               AppLocalizations.of(context)!.loginPageTitle,
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
@@ -83,13 +73,10 @@ class _AuthLoginPageState extends State<LoginPage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 50),
-                            child: Text(
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
                               AppLocalizations.of(context)!.loginPageBody,
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
@@ -97,17 +84,8 @@ class _AuthLoginPageState extends State<LoginPage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ),
-
-                          SizedBox(
-                            height: 40,
-                          ),
-                          SizedBox(height: 25),
-
-                          //username Textfield
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 42),
-                            child: Row(
+                            SizedBox(height: 25),
+                            Row(
                               children: [
                                 Text(
                                   AppLocalizations.of(context)!.email,
@@ -120,148 +98,128 @@ class _AuthLoginPageState extends State<LoginPage> {
                                 )
                               ],
                             ),
-                          ),
-                          SizedBox(height: 10),
-                          BlocBuilder<LoginBloc, LoginState>(
-                            builder: (context, state) {
-                              return TextBar(
-                                controller: Controller.emailController,
-                                hintText: 'frau@example.com',
-
-                                validator: (value) {
-                                  if (state is LoginValidation) {
-                                    state.isValidEmail ? null : 'Email is to short';
-                                  }
-                                },
-
-                                obscureText: false,
-                                /////////BlocState/////
-                                onChange: (value) => context.read<LoginBloc>().add(LoginEmailChanged(email: value)),
-                                /////////BlocState/////
-                              );
-                            },
-                          ),
-                          SizedBox(height: 25),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 42),
-                            child: Row(
+                            SizedBox(height: 10),
+                            BlocBuilder<LoginBloc, LoginState>(
+                              builder: (context, state) {
+                                return TextBar(
+                                  controller: Controller.emailController,
+                                  hintText: 'frau@example.com',
+                                  validator: (value) {
+                                    if (state is LoginValidation) {
+                                      state.isValidEmail ? null : 'Email is too short';
+                                    }
+                                  },
+                                  obscureText: false,
+                                  onChange: (value) => context.read<LoginBloc>().add(LoginEmailChanged(email: value)),
+                                );
+                              },
+                            ),
+                            SizedBox(height: 25),
+                            Row(
                               children: [
                                 Text(
                                   AppLocalizations.of(context)!.password,
                                   style: TextStyle(
                                     fontSize: 18,
                                   ),
-                                ), /* 
-                                                SizedBox(
-                                                  width: 120,
-                                                ),
-                                                Text(
-                                                  'Forgot Password?',
-                                                  style: TextStyle(
-                                                    color: Colors.grey.shade700,
-                                                  ),
-                                                ), */
+                                ),
                               ],
                             ),
-                          ),
-                          SizedBox(height: 10),
-
-                          //User passwordfield
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                            child: BlocBuilder<LoginBloc, LoginState>(
+                            SizedBox(height: 10),
+                            BlocBuilder<LoginBloc, LoginState>(
                               builder: (context, state) {
                                 return TextFormField(
-                                  /////////BlocState/////
                                   validator: (value) {
                                     if (state is LoginValidation) {
-                                      state.isValidPassword ? null : 'Password is to short';
+                                      state.isValidPassword ? null : 'Password is too short';
                                     }
                                     return null;
                                   },
                                   onChanged: (value) => context.read<LoginBloc>().add(LoginPasswordChanged(password: value)),
-                                  /////////BlocState/////
                                   controller: Controller.passwordController,
                                   obscureText: !isPasswordVisible,
                                   decoration: InputDecoration(
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.black87),
-                                        borderRadius: BorderRadius.circular(10),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.black87),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Theme.of(context).colorScheme.primary,
+                                        width: 2,
                                       ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Theme.of(context).colorScheme.primary,
-                                          width: 2,
-                                        ),
-                                        borderRadius: BorderRadius.circular(10),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    fillColor: Theme.of(context).colorScheme.surface,
+                                    filled: true,
+                                    hintText: 'Password',
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                                        color: Colors.grey,
                                       ),
-                                      fillColor: Theme.of(context).colorScheme.surface,
-                                      filled: true,
-                                      hintText: 'Password',
-                                      suffixIcon: IconButton(
-                                        icon: Icon(
-                                          isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                                          color: Colors.grey,
-                                        ),
-                                        onPressed: () {
-                                          setState(() {
+                                      onPressed: () {
+                                        setState(
+                                          () {
                                             isPasswordVisible = !isPasswordVisible;
-                                          });
-                                        },
-                                      )),
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ),
                                 );
                               },
                             ),
-                          ),
-                          SizedBox(
-                            height: 100,
-                          ),
-                          BlocBuilder<LoginBloc, LoginState>(
-                            builder: (context, state) {
-                              return FFButton(
-                                text: AppLocalizations.of(context)!.signin,
-                                onTap: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    context.read<LoginBloc>().add(LoginSubmitted(email: Controller.emailController.text, password: Controller.passwordController.text));
-                                  }
-                                },
-                              );
-                            },
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Center(
-                              child: Text(
-                            AppLocalizations.of(context)!.signinTextup,
-                            style: TextStyle(color: Theme.of(context).colorScheme.primary),
-                          )),
-                          Center(
-                            child: GestureDetector(
-                              onTap: () => context.push('/registrationPage'),
-                              child: Text(
-                                AppLocalizations.of(context)!.signinTextdown,
-                                style: TextStyle(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline),
+                            SizedBox(
+                              height: 45,
+                            ),
+                            BlocBuilder<LoginBloc, LoginState>(
+                              builder: (context, state) {
+                                return FFButton(
+                                  text: AppLocalizations.of(context)!.signin,
+                                  onTap: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      context.read<LoginBloc>().add(LoginSubmitted(email: Controller.emailController.text, password: Controller.passwordController.text));
+                                    }
+                                  },
+                                );
+                              },
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Center(
+                                child: Text(
+                              AppLocalizations.of(context)!.signinTextup,
+                              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                            )),
+                            Center(
+                              child: GestureDetector(
+                                onTap: () => context.push('/registrationPage'),
+                                child: Text(
+                                  AppLocalizations.of(context)!.signinTextdown,
+                                  style: TextStyle(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline),
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          /* Center(
-                            child: GestureDetector(
-                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabBarNavigation())),
-                              child: Text(
-                                'Weiter ohne Anmeldung',
-                                style: TextStyle(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline),
-                              ),
+                            SizedBox(
+                              height: 15,
                             ),
-                          ), */
-                        ],
+                            /* Center(
+                              child: GestureDetector(
+                                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabBarNavigation())),
+                                child: Text(
+                                  'Weiter ohne Anmeldung',
+                                  style: TextStyle(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline),
+                                ),
+                              ),
+                            ), */
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               );
             },
             listener: (BuildContext context, LoginState state) {
