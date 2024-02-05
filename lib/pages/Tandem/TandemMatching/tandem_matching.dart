@@ -21,10 +21,11 @@ class _TandemMatchingState extends State<TandemMatching> {
   late String _lat;
   late String _long;
   String locationmessage = 'Ort angeben';
-  TandemTypeFilter _tandemTypeFilter = TandemTypeFilter.all;
+  late TandemTypeFilter _tandemTypeFilter;
 
   @override
   void initState() {
+    _tandemTypeFilter = TandemTypeFilter.all;
     _pageController = PageController(viewportFraction: 0.9);
     if (context.read<AuthenticationBloc>().state is AuthenticatedUser && (context.read<AuthenticationBloc>().state as AuthenticatedUser).userProfile!.tandemTypeFilter != null) {
       _tandemTypeFilter = (context.read<AuthenticationBloc>().state as AuthenticatedUser).userProfile!.tandemTypeFilter!;
@@ -194,7 +195,7 @@ class _TandemMatchingState extends State<TandemMatching> {
               padding: const EdgeInsets.only(bottom: 20.0),
               child: Center(
                 child: CustomSlidingSegmentedControl<TandemTypeFilter>(
-                  initialValue: TandemTypeFilter.all,
+                  initialValue: _tandemTypeFilter,
                   decoration: BoxDecoration(
                     border: Border.all(width: 2, color: Colors.white),
                     color: Colors.transparent,
@@ -228,40 +229,6 @@ class _TandemMatchingState extends State<TandemMatching> {
                 ),
               ),
             ),
-            /* Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: Center(
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 2, color: Colors.white),
-                    borderRadius: BorderRadius.circular(45),
-                  ),
-                  child: CupertinoSlidingSegmentedControl(
-                    groupValue: _tandemTypeFilter,
-                    children: <TandemTypeFilter, Widget>{
-                      TandemTypeFilter.all: Text(
-                        'Egal',
-                        style: _tandemTypeFilter == TandemTypeFilter.all ? null : TextStyle(color: Colors.white),
-                      ),
-                      TandemTypeFilter.nearby: Text(
-                        'In der Nähe',
-                        style: _tandemTypeFilter == TandemTypeFilter.all ? TextStyle(color: Colors.white) : null,
-                      ),
-                    },
-                    onValueChanged: (TandemTypeFilter? value) {
-                      setState(() {
-                        _tandemTypeFilter = value!;
-                        if (context.read<AuthenticationBloc>().state is AuthenticatedUser) {
-                          var user = context.read<AuthenticationBloc>().state as AuthenticatedUser;
-                          user.userProfile!.tandemTypeFilter = _tandemTypeFilter;
-                          (context.read<AuthenticationBloc>()..add(UpdateUserProfileEvent(user.user!.uid, userProfile: user.userProfile!)));
-                        }
-                      });
-                    },
-                  ),
-                ),
-              ),
-            ), */
             SizedBox(
               height: 650,
               child: tandems.isNotEmpty

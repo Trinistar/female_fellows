@@ -30,61 +30,59 @@ class TandemUserCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(
-                        height: 170,
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.location_on_outlined,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: Text(
-                              user.location != null ? user.location!.name! : '',
-                              style: TextStyle(fontSize: 15),
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              height: 220,
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(CupertinoIcons.chat_bubble),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: SizedBox(
-                              width: 200,
-                              child: Text(
-                                'Arabisch (Muttersprache), Deutsch (sehr gut), Englisch (sehr gut)',
-                                style: TextStyle(fontSize: 15),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.location_on_outlined,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text(
+                                    user.location != null ? user.location!.name! : '',
+                                    style: TextStyle(fontSize: 15),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(CupertinoIcons.chat_bubble),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: SizedBox(
+                                    width: 200,
+                                    child: Text(
+                                      'Arabisch (Muttersprache), Deutsch (sehr gut), Englisch (sehr gut)',
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: SizedBox(
+                                width: 250,
+                                child: Text(
+                                  user.aboutMe ?? '',
+                                  style: TextStyle(fontSize: 15),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      SizedBox(
-                        width: 250,
-                        child: Text(
-                          user.aboutMe ?? '',
-                          style: TextStyle(fontSize: 15),
+                            Text(
+                              '- ${user.firstname}, ${HelperFunctions.getAge(user.birthday!)}',
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        '- ${user.firstname}, ${HelperFunctions.getAge(user.birthday!)}',
-                          style: TextStyle(fontSize: 15),
-                      ),
-                      SizedBox(
-                        height: 50,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -111,7 +109,7 @@ class TandemUserCard extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 150,
+                height: 200,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(topRight: Radius.circular(45), topLeft: Radius.circular(45)),
                   color: Colors.white,
@@ -129,7 +127,7 @@ class TandemUserCard extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 200, top: 110),
+                padding: const EdgeInsets.only(left: 200, top: 160),
                 child: Center(
                   child: Stack(
                     alignment: AlignmentDirectional.center,
