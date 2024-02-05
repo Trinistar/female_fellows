@@ -32,6 +32,7 @@ class TandemUserCard extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             SizedBox(
@@ -72,7 +73,7 @@ class TandemUserCard extends StatelessWidget {
                               child: SizedBox(
                                 width: 250,
                                 child: Text(
-                                  user.aboutMe ?? '',
+                                  user.aboutMe != null ? '» ${user.aboutMe} «' : '',
                                   style: TextStyle(fontSize: 15),
                                 ),
                               ),
