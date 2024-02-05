@@ -47,7 +47,8 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       final IdTokenResult tokenResult = await event.user!.getIdTokenResult();
 
       await emit.onEach(_firestoreUserProfileRepository.loadUserProfile(event.user!.uid), onData: (FFUser? userProfile) async {
-        emit(AuthenticatedUser(user: event.user!, userProfile: userProfile!, tokenResult: tokenResult));
+        userProfile!.location = await _firestoreUserProfileRepository.getUserLocation(event.user!.uid);
+        emit(AuthenticatedUser(user: event.user!, userProfile: userProfile, tokenResult: tokenResult));
       });
     } else {
       emit(UnauthenticatedUser());

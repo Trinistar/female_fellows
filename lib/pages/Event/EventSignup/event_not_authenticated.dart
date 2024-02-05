@@ -10,7 +10,8 @@ class EventNotAuthenticatedState extends StatelessWidget {
     return BlocListener<AuthenticationBloc, AuthenticationState>(
       listener: (context, state) {
         if (state is AuthenticatedUser) {
-          Navigator.of(context).pop();
+          //context.go('/events');
+          context.pop();
         }
       },
       child: Scaffold(

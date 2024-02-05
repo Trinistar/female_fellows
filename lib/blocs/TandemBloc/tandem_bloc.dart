@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
@@ -11,19 +11,19 @@ part 'tandem_event.dart';
 part 'tandem_state.dart';
 
 class TandemBloc extends Bloc<TandemEvent, TandemState> {
-  TandemBloc(this.firestoreUserprofileRepository, this._authBloc) : super(TandemInitial()) {
+  TandemBloc(this._firestoreUserprofileRepository, this._authBloc) : super(TandemInitial()) {
     on<LoadAllTandemLocalsEvent>(_onLoadAllTandemLocalsEvent);
     on<LoadAllTandemNewcomersEvent>(_onLoadAllTandemNewcomersEvent);
+    on<UpdateTandemFilterEvent>(_onUpdateTandemFilterEvent);
     on<UnloadAllTandemsEvent>((UnloadAllTandemsEvent event, Emitter<TandemState> emit) => emit(TandemsNotLoaded()));
-
 
     _authBlocStreamSub = _authBloc.stream.listen((AuthenticationState state) {
       if (state is AuthenticatedUser) {
         if (state.userProfile!.localOrNewcomer == LocalOrNewcomer.local) {
-          add(LoadAllTandemNewcomersEvent());
+          add(LoadAllTandemNewcomersEvent(state.userProfile!));
         }
         if (state.userProfile!.localOrNewcomer == LocalOrNewcomer.newcomer) {
-          add(LoadAllTandemLocalsEvent());
+          add(LoadAllTandemLocalsEvent(state.userProfile!));
         }
       } else if (state is UnauthenticatedUser) {
         add(UnloadAllTandemsEvent());
@@ -35,28 +35,63 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
 
   StreamSubscription<dynamic>? _authBlocStreamSub;
 
-  final FirestoreUserProfileRepository firestoreUserprofileRepository;
+  final FirestoreUserProfileRepository _firestoreUserprofileRepository;
 
-  Future<void> _onLoadAllTandemLocalsEvent(LoadAllTandemLocalsEvent event, Emitter<TandemState> emit) async {
+  Future<void> _onUpdateTandemFilterEvent(UpdateTandemFilterEvent event, Emitter<TandemState> emit) async {
     return emit.onEach(
-      firestoreUserprofileRepository.getAllTandems('local'),
+      _firestoreUserprofileRepository.getAllTandems(event.profile.tandemTypeFilter.toString()),
       onData: (List<FFUser> tandems) async {
         if (tandems.isEmpty) emit(TandemsNotLoaded());
 
-        emit(TandemLocalsLoaded(tandems: tandems));
+        emit(TandemNewcomersLoaded(tandems: await _filterGeoTandems(event.profile, tandems)));
+      },
+    );
+  }
+
+  Future<void> _onLoadAllTandemLocalsEvent(LoadAllTandemLocalsEvent event, Emitter<TandemState> emit) async {
+    return emit.onEach(
+      _firestoreUserprofileRepository.getAllTandems('local'),
+      onData: (List<FFUser> tandems) async {
+        if (tandems.isEmpty) emit(TandemsNotLoaded());
+
+        final List<FFUser> current = await _filterGeoTandems(event.profile, tandems);
+
+        emit(TandemLocalsLoaded(tandems: current));
       },
     );
   }
 
   Future<void> _onLoadAllTandemNewcomersEvent(LoadAllTandemNewcomersEvent event, Emitter<TandemState> emit) async {
     return emit.onEach(
-      firestoreUserprofileRepository.getAllTandems('newcomer'),
+      _firestoreUserprofileRepository.getAllTandems('newcomer'),
       onData: (List<FFUser> tandems) async {
         if (tandems.isEmpty) emit(TandemsNotLoaded());
 
-        emit(TandemNewcomersLoaded(tandems: tandems));
+        emit(TandemNewcomersLoaded(tandems: await _filterGeoTandems(event.profile, tandems)));
       },
     );
+  }
+
+  Future<List<FFUser>> _filterGeoTandems(FFUser profile, List<FFUser> tandems) async {
+    List<FFUser> temp = List.empty();
+    if (profile.tandemTypeFilter == TandemTypeFilter.all) {
+      temp = List<FFUser>.from(<FFUser>[...tandems]);
+    } else {
+      final List<FFUser> geoTandems = [];
+
+      if (profile.location!.data != null) {
+        final GeoFirePoint geoFire = GeoFirePoint(profile.location!.data!.location);
+
+        for (final FFUser user in tandems) {
+          user.location = await _firestoreUserprofileRepository.getUserLocation(user.id!);
+          if (user.location != null && geoFire.distanceBetweenInKm(geopoint: user.location!.data!.location) < 20) {
+            geoTandems.add(user);
+          }
+        }
+        temp = List<FFUser>.from(<FFUser>[...geoTandems]);
+      }
+    }
+    return temp;
   }
 
   @override

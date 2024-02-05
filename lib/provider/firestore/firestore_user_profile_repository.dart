@@ -21,12 +21,18 @@ class FirestoreUserProfileRepository {
     });
   }
 
+  Future<UserLocation?> getUserLocation(String userId) async {
+    try {
+      final locationRaw = await FirestoreRepository().firestoreInstance.collection('user/$userId/data').doc('geodata').get();
+      final UserLocation location = UserLocation.fromJson(locationRaw.data()!);
+      return location;
+    } catch (e) {
+      return null;
+    }
+  }
+
   Stream<List<FFUser>> getAllTandems(String localOrNewcomer) {
-    return FirestoreRepository().firestoreInstance
-    .collection('user')
-    .where('localOrNewcomer', isEqualTo: localOrNewcomer)
-    .snapshots()
-    .map(
+    return FirestoreRepository().firestoreInstance.collection('user').where('localOrNewcomer', isEqualTo: localOrNewcomer).snapshots().map(
       ((QuerySnapshot<Map<String, dynamic>> snapshot) {
         if (snapshot.docs.isNotEmpty) {
           List<FFUser> tmp = [];

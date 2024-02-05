@@ -1,18 +1,25 @@
 part of 'tandem_bloc.dart';
 
-sealed class TandemEvent extends Equatable {
+sealed class TandemEvent {
   const TandemEvent();
-
-  @override
-  List<Object> get props => [];
 }
 
 class LoadAllTandemNewcomersEvent extends TandemEvent {
-  LoadAllTandemNewcomersEvent();
+  LoadAllTandemNewcomersEvent(this.profile);
+
+  final FFUser profile;
 }
 
 class LoadAllTandemLocalsEvent extends TandemEvent {
-  LoadAllTandemLocalsEvent();
+  LoadAllTandemLocalsEvent(this.profile);
+
+  final FFUser profile;
+}
+
+class UpdateTandemFilterEvent extends TandemEvent {
+  UpdateTandemFilterEvent(this.profile);
+
+  final FFUser profile;
 }
 
 class UnloadAllTandemsEvent extends TandemEvent {}

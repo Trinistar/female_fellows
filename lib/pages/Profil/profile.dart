@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
+import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_header.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_overview.dart';
@@ -26,11 +26,11 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return BlocListener<AuthenticationBloc, AuthenticationState>(
       listener: (context, state) {
-        if (state is SignOutSuccess) {
+        /* if (state is SignOutSuccess) {
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => LoginPage()),
           );
-        }
+        } */
       },
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {

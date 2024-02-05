@@ -16,5 +16,9 @@ enum Categorys{
   sport,
   tandem,
   outdoor,
-  
+}
+
+enum TandemTypeFilter {
+  all,
+  nearby,
 }

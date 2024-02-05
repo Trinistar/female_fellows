@@ -175,7 +175,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                         builder: (context, state) {
                           if (state is AuthenticatedUser) {
                             return Text(
-                              state.userProfile!.location != null ? state.userProfile!.location!.name : locationmessage,
+                              state.userProfile!.location != null ? state.userProfile!.location!.name! : locationmessage,
                               style: TextStyle(fontSize: 12),
                             );
                           } else {

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/address.dart';
@@ -162,7 +163,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                               ),
                             ),
                           );
-                      Navigator.of(context).pop();
+                      context.pop();
                     },
                     text: 'Update Event'),
                 SizedBox(

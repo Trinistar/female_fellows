@@ -52,7 +52,7 @@ class _EvententryState extends State<Evententry> {
       child: BlocListener<AuthenticationBloc, AuthenticationState>(
         listener: (context, state) {
           if (state is AuthenticatedUser && state.userProfile!.participatingEvents.contains(widget.event.id)) {
-            context.go('/eventRegisterSuccess', extra: widget.event);
+            context.go('/events/detailEvent/${widget.event.id}/eventOnboarding/eventRegisterSuccess', extra: widget.event);
             //Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventSuccess(event: widget.event)));
 
             ScaffoldMessenger.of(context).showSnackBar(
@@ -65,7 +65,6 @@ class _EvententryState extends State<Evententry> {
         },
         child: Scaffold(
           appBar: AppBar(
-             toolbarHeight: 70,
             title: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
           ),
           resizeToAvoidBottomInset: false,

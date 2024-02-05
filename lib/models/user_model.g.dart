@@ -38,6 +38,8 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
           ? null
           : UserLocation.fromJson(json['location'] as Map<String, dynamic>),
       aboutMe: json['aboutMe'] as String?,
+      tandemTypeFilter: $enumDecodeNullable(
+          _$TandemTypeFilterEnumMap, json['tandemTypeFilter']),
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
@@ -56,6 +58,7 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'id': instance.id,
       'location': instance.location?.toJson(),
       'aboutMe': instance.aboutMe,
+      'tandemTypeFilter': _$TandemTypeFilterEnumMap[instance.tandemTypeFilter],
     };
 
 const _$LocalOrNewcomerEnumMap = {
@@ -70,4 +73,9 @@ const _$SocialmediaEnumMap = {
   Socialmedia.newspaper: 'newspaper',
   Socialmedia.friends: 'friends',
   Socialmedia.everythingelse: 'everythingelse',
+};
+
+const _$TandemTypeFilterEnumMap = {
+  TandemTypeFilter.all: 'all',
+  TandemTypeFilter.nearby: 'nearby',
 };

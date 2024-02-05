@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/event_overview.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
-import 'package:vs_femalefellows/pages/Profil/profil.dart';
+import 'package:vs_femalefellows/pages/Profil/profile.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 
 class TabBarNavigation extends StatelessWidget {

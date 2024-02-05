@@ -12,7 +12,7 @@ import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
 import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
+import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
 import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_detail_page.dart';
@@ -23,7 +23,7 @@ import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/event_update.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
-import 'package:vs_femalefellows/pages/Profil/profil.dart';
+import 'package:vs_femalefellows/pages/Profil/profile.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_onboarding_entry.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 import 'package:vs_femalefellows/pages/ToolBarNavigation/navigation_page.dart';
@@ -71,6 +71,13 @@ final GoRouter _router = GoRouter(
   initialLocation: '/home',
   routes: <RouteBase>[
     GoRoute(
+      redirect: (context, state) {
+        if (context.read<AuthenticationBloc>().state is! AuthenticatedUser) {
+          return '/loginPage';
+        } else {
+          return null;
+        }
+      },
       path: '/loginPage',
       parentNavigatorKey: _rootNavigatorKey,
       builder: (BuildContext context, GoRouterState state) {
@@ -84,6 +91,13 @@ final GoRouter _router = GoRouter(
           },
         ),
       ],
+    ),
+    GoRoute(
+      path: '/registrationPage',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const RegistrationEntry();
+      },
     ),
     GoRoute(
       path: '/eventNotAuthenticated',
@@ -146,6 +160,13 @@ final GoRouter _router = GoRouter(
                   builder: (BuildContext context, GoRouterState state) => DetailEvent(eventId: state.pathParameters['id']!),
                   routes: [
                     GoRoute(
+                      redirect: (context, state) {
+                        if (context.read<AuthenticationBloc>().state is AuthenticatedUser) {
+                          return 'detailEvent/:id';
+                        } else {
+                          return null;
+                        }
+                      },
                       path: 'eventNotAuthenticated',
                       parentNavigatorKey: _rootNavigatorKey,
                       builder: (BuildContext context, GoRouterState state) {
@@ -158,6 +179,15 @@ final GoRouter _router = GoRouter(
                       builder: (BuildContext context, GoRouterState state) {
                         return Evententry(event: state.extra as Event);
                       },
+                      routes: [
+                        GoRoute(
+                          path: 'eventRegisterSuccess',
+                          parentNavigatorKey: _rootNavigatorKey,
+                          builder: (BuildContext context, GoRouterState state) {
+                            return EventSuccess(event: state.extra as Event);
+                          },
+                        ),
+                      ],
                     ),
                     GoRoute(
                       path: 'updateEvent',
@@ -190,6 +220,13 @@ final GoRouter _router = GoRouter(
           navigatorKey: _profileTabNavigatorKey,
           routes: <RouteBase>[
             GoRoute(
+              /* redirect: (context, state) {
+                if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
+                  return '/profile';
+                } else {
+                  return null;
+                }
+              }, */
               path: '/profile',
               builder: (BuildContext context, GoRouterState state) => const Profile(),
               routes: [
@@ -200,46 +237,6 @@ final GoRouter _router = GoRouter(
                     return const RegistrationEntry();
                   },
                 ),
-              ],
-            ),
-          ],
-        )
-        /* GoRoute(
-      path: '/',
-      builder: (BuildContext context, GoRouterState state) {
-        return TabBarNavigation();
-      },
-      routes: <RouteBase>[
-        GoRoute(
-          path: 'tandemOnboarding',
-          builder: (BuildContext context, GoRouterState state) {
-            return const TandemAuthentication();
-          },
-        ),
-        GoRoute(
-          path: 'detailEvent/:id',
-          builder: (BuildContext context, GoRouterState state) {
-            return DetailEvent(eventId: state.pathParameters['id']!);
-          },
-          routes: [
-            GoRoute(
-              path: 'updateEvent',
-              builder: (BuildContext context, GoRouterState state) {
-                return UpdateEvent(eventState: state.extra as Event);
-              },
-            ),
-            GoRoute(
-              path: 'eventOnboarding',
-              builder: (BuildContext context, GoRouterState state) {
-                return Evententry(event: state.extra as Event);
-              },
-            ),
-            GoRoute(
-              path: 'eventNotAuthenticated',
-              builder: (BuildContext context, GoRouterState state) {
-                return EventNotAuthenticatedState();
-              },
-              routes: [
                 GoRoute(
                   path: 'loginPage',
                   builder: (BuildContext context, GoRouterState state) {
@@ -250,34 +247,6 @@ final GoRouter _router = GoRouter(
             ),
           ],
         ),
-        GoRoute(
-          path: 'loginPage',
-          builder: (BuildContext context, GoRouterState state) {
-            return const LoginPage();
-          },
-        ),
-        GoRoute(
-          path: 'eventRegisterSuccess',
-          builder: (BuildContext context, GoRouterState state) {
-            return EventSuccess(event: state.extra as Event);
-          },
-        ),
-        GoRoute(
-          path: 'eventNotAuthenticated',
-          builder: (BuildContext context, GoRouterState state) {
-            return EventNotAuthenticatedState();
-          },
-          routes: [
-            GoRoute(
-              path: 'loginPage',
-              builder: (BuildContext context, GoRouterState state) {
-                return const LoginPage();
-              },
-            ),
-          ],
-        ),
-      ],
-    ), */
       ],
     ),
   ],

@@ -43,7 +43,7 @@ class _TandemUserCardState extends State<TandemUserCard> {
                             size: 30,
                           ),
                           Text(
-                            widget.user.location != null ? widget.user.location!.name : '',
+                            widget.user.location != null ? widget.user.location!.name! : '',
                             style: TextStyle(fontSize: 15),
                           )
                         ],
@@ -75,7 +75,7 @@ class _TandemUserCardState extends State<TandemUserCard> {
                       SizedBox(
                         width: 250,
                         child: Text(
-                          '» Ich bin aus Syrien und habe Interesse an kulturellem Austausch und beruflicher Orientierung in Deutschland.«',
+                          widget.user.aboutMe ?? '',
                           style: TextStyle(fontSize: 15),
                         ),
                       ),

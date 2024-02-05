@@ -27,7 +27,7 @@ class FFUser {
   String? id;
   UserLocation? location;
   String? aboutMe;
-  
+  TandemTypeFilter? tandemTypeFilter;
 
   FFUser({
     this.id,
@@ -45,6 +45,7 @@ class FFUser {
     this.socialMedia,
     this.location,
     this.aboutMe,
+    this.tandemTypeFilter,
   });
 
   factory FFUser.fromJson(Map<String, dynamic> json) => _$FFUserFromJson(json);
@@ -77,20 +78,19 @@ class UserLocation {
   });
 
   factory UserLocation.fromJson(Map<String, dynamic> json) => UserLocation(
-        data: GeoData.fromJson(json['geo'] as Map<String, dynamic>),
+        data: GeoData.fromJson((json['data'] ?? <String, dynamic>{}) as Map<String, dynamic>),
         name: json['name'] as String,
         isVisible: (json['isVisible'] ?? false) as bool,
       );
 
-  factory UserLocation.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) =>
-      UserLocation.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
+  factory UserLocation.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) => UserLocation.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
 
-  final GeoData data;
-  final String name;
-  final bool isVisible;
+  final GeoData? data;
+  final String? name;
+  final bool? isVisible;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'geo': data.toJson(),
+        'data': data?.toJson(),
         'name': name,
         'isVisible': isVisible,
       };
@@ -104,8 +104,8 @@ class GeoData {
   });
 
   factory GeoData.fromJson(Map<String, dynamic> json) => GeoData(
-        geohash: json['geohash'] as String,
-        location: json['geopoint'] as GeoPoint,
+        geohash: (json['geohash'] ?? '') as String,
+        location: (json['location'] ?? GeoPoint(0, 0)) as GeoPoint,
       );
 
   final String geohash;
