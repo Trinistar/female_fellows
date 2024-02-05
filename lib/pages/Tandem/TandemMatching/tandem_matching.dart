@@ -1,5 +1,4 @@
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -42,15 +41,6 @@ class _TandemMatchingState extends State<TandemMatching> {
           extendBodyBehindAppBar: true,
           backgroundColor: Theme.of(context).colorScheme.primary,
           appBar: AppBar(
-            /* actions: [
-              IconButton(
-                onPressed: () => Navigator.of(context).pop(),
-                icon: const Icon(
-                  Icons.cancel_rounded,
-                  size: 34,
-                ),
-              ),
-            ], */
             automaticallyImplyLeading: false,
             title: CircleAvatar(
               radius: 30,
@@ -203,7 +193,8 @@ class _TandemMatchingState extends State<TandemMatching> {
             Padding(
               padding: const EdgeInsets.only(bottom: 20.0),
               child: Center(
-                child: CustomSlidingSegmentedControl(
+                child: CustomSlidingSegmentedControl<TandemTypeFilter>(
+                  initialValue: TandemTypeFilter.all,
                   decoration: BoxDecoration(
                     border: Border.all(width: 2, color: Colors.white),
                     color: Colors.transparent,
@@ -273,14 +264,20 @@ class _TandemMatchingState extends State<TandemMatching> {
             ), */
             SizedBox(
               height: 650,
-              child: PageView.builder(
-                controller: _pageController,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return TandemUserCard(user: tandems[index]);
-                },
-                itemCount: tandems.length,
-              ),
+              child: tandems.isNotEmpty
+                  ? PageView.builder(
+                      controller: _pageController,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, int index) {
+                        return TandemUserCard(user: tandems[index]);
+                      },
+                      itemCount: tandems.length,
+                    )
+                  : Text(
+                    'Leider konnten wir keine Tandems in deiner Nähe (20km Umkreis) finden',
+                    style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
+                    textAlign: TextAlign.center,
+                  ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),

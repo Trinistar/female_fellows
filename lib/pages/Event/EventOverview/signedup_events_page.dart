@@ -5,14 +5,7 @@ import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/event_ListTile.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
 
-class SingedUpEvents extends StatefulWidget {
-  const SingedUpEvents({super.key});
-
-  @override
-  State<SingedUpEvents> createState() => _SingedUpEventsState();
-}
-
-class _SingedUpEventsState extends State<SingedUpEvents> {
+class SingedUpEvents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SubscribedEventsStore, List<Event>>(

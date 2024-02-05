@@ -84,7 +84,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                         ),
                         Center(
                           child: CircleAvatar(
-                            backgroundImage: AssetImage('lib/images/Avatar.png'),
+                            backgroundImage: NetworkImage(state.userProfile!.profilPicture != null ? state.userProfile!.profilPicture! : ''),
                             radius: 75,
                             backgroundColor: Theme.of(context).colorScheme.secondary,
                           ),

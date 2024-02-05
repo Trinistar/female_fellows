@@ -74,8 +74,8 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
 
   Future<List<FFUser>> _filterGeoTandems(FFUser profile, List<FFUser> tandems) async {
     List<FFUser> temp = List.empty();
-    if (profile.tandemTypeFilter == TandemTypeFilter.all) {
-      temp = List<FFUser>.from(<FFUser>[...tandems]);
+    if (profile.tandemTypeFilter == TandemTypeFilter.all || profile.tandemTypeFilter == null) {
+      return tandems;
     } else {
       final List<FFUser> geoTandems = [];
 

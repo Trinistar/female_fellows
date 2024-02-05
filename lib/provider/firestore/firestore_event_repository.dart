@@ -45,9 +45,9 @@ class FirestoreEventRepository {
         if (snapshot.docs.isNotEmpty) {
           List<Event> tmp = [];
 
-          for (var change in snapshot.docChanges) {
-            final Event event = Event.fromJson(change.doc.data()!);
-            event.id = change.doc.id;
+          for (var change in snapshot.docs) {
+            final Event event = Event.fromJson(change.data());
+            event.id = change.id;
             tmp.add(event);
           }
           return tmp;
