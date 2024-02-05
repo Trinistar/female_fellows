@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_about_us.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/welcome_containerhomepage.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/FutureHomepage/image_button.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_team_foederin.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage_container/FutureHomepage/image_button.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_about_us.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_team_foederin.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage_container/welcome_containerhomepage.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_item_story1.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_item_story2.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_item_story3.dart';
 //import 'package:vs_femalefellows/pages/Homepage/homepage_container/foerderin_homepage.dart';
 //import 'package:vs_femalefellows/pages/Homepage/homepage_container/challenges_hompage.dart';
 //import 'package:vs_femalefellows/pages/Homepage/homepage_container/end_homepage.dart';
@@ -16,7 +18,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //import 'package:vs_femalefellows/pages/Homepage/homepage_container/interrest_themshomepage.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({super.key, this.pagechange});
+  final void Function(int)? pagechange;
 
   @override
   State<Home> createState() => _HomeState();
@@ -26,18 +29,16 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          extendBody: true,
+      extendBody: true,
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
-
         iconTheme: IconThemeData(
           color: Colors.white, //change your color here
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
         toolbarHeight: 10,
       ),
-
       body: ListView(
         shrinkWrap: true,
         children: [
@@ -60,24 +61,21 @@ class _HomeState extends State<Home> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  CarouselItem(),
-                  CarouselItem(),
-                  CarouselItem(),
-                  CarouselItem(),
-                  CarouselItem(),
-                  CarouselItem(),
-                  CarouselItem(),
-                  CarouselItem(),
+                  TandemItemStory1(),
+                  TandemItemStory2(),
+                  TandemItemStory3(),
                 ],
               ),
             ),
           ),
-          ImageButton(),
+          ImageButton(pagechange: widget.pagechange,),
           DividerBouthCorner(
               color1: Theme.of(context).colorScheme.surfaceVariant,
               color2: Colors.white),
-    
-          EventCarousel(),
+
+          EventCarousel(
+            pagechange: widget.pagechange,
+          ),
           DividerBouthCorner(
               color1: Colors.white,
               color2: Theme.of(context).colorScheme.surfaceVariant),
@@ -227,8 +225,8 @@ class _HomeState extends State<Home> {
               ],
             ),
           )
-    
-    /*         DividerCornerLeft(
+
+          /*         DividerCornerLeft(
             color1: Theme.of(context).colorScheme.surfaceVariant,
             color2: Theme.of(context).colorScheme.primary,
           ),

@@ -11,11 +11,11 @@ class TandemHeader extends StatelessWidget {
         Stack(
           children: [
             Container(
-              height: 150,
+              height: 200,
               width: double.maxFinite,
               color: Theme.of(context).colorScheme.tertiary,
               child: Padding(
-                padding: const EdgeInsets.only(right: 10),
+                padding: const EdgeInsets.only(right: 10,top: 50),
                 child: SvgPicture.asset(
                   'lib/images/Jump.svg',
                   alignment: Alignment.bottomRight,
@@ -23,7 +23,7 @@ class TandemHeader extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 40, top: 80),
+              padding: const EdgeInsets.only(left: 40, top: 130),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,

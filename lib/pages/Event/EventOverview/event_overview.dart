@@ -51,7 +51,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
       backgroundColor: Colors.white,
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.white, //change your color here
+          color: Colors.white,
         ),
         backgroundColor: Theme.of(context).colorScheme.onTertiary,
         toolbarHeight: 0,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
@@ -10,10 +11,12 @@ class EventChildCareAuthentication extends StatefulWidget {
   final void Function(ChildCare)? needsChildCare;
 
   @override
-  State<EventChildCareAuthentication> createState() => _EventChildCareAuthenticationState();
+  State<EventChildCareAuthentication> createState() =>
+      _EventChildCareAuthenticationState();
 }
 
-class _EventChildCareAuthenticationState extends State<EventChildCareAuthentication> {
+class _EventChildCareAuthenticationState
+    extends State<EventChildCareAuthentication> {
   RadioChoices _choices = RadioChoices.nein;
 
   @override
@@ -44,9 +47,9 @@ class _EventChildCareAuthenticationState extends State<EventChildCareAuthenticat
           ),
           Center(
             child: CircleAvatar(
-              backgroundImage: AssetImage('lib/images/kinder.png'),
               radius: 100,
-              backgroundColor: Theme.of(context).colorScheme.secondary,
+              backgroundColor: Colors.transparent,
+              child: SvgPicture.asset('lib/images/kinderbetreuung.svg'),
             ),
           ),
           SizedBox(
@@ -69,7 +72,9 @@ class _EventChildCareAuthenticationState extends State<EventChildCareAuthenticat
                     onChanged: (answer) {
                       setState(() {
                         _choices = answer!;
-                        widget.needsChildCare!(ChildCare(needed: true, childName: Controller.childNameController.text));
+                        widget.needsChildCare!(ChildCare(
+                            needed: true,
+                            childName: Controller.childNameController.text));
                       });
                     }),
                 RadioListTile(
@@ -85,7 +90,8 @@ class _EventChildCareAuthenticationState extends State<EventChildCareAuthenticat
                     onChanged: (answer) {
                       setState(() {
                         _choices = answer!;
-                        widget.needsChildCare!(ChildCare(needed: false, childName: ''));
+                        widget.needsChildCare!(
+                            ChildCare(needed: false, childName: ''));
                       });
                     }),
                 SizedBox(
@@ -109,7 +115,8 @@ class _EventChildCareAuthenticationState extends State<EventChildCareAuthenticat
                             controller: Controller.childNameController,
                             hintText: 'Name',
                             obscureText: false,
-                            onChange: (String text) => widget.needsChildCare!(ChildCare(needed: true, childName: text)),
+                            onChange: (String text) => widget.needsChildCare!(
+                                ChildCare(needed: true, childName: text)),
                             validator: null,
                           ),
                         ],

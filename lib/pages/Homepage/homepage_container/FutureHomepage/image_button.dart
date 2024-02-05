@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
-
 
 class ImageButton extends StatelessWidget {
-  const ImageButton({super.key});
+  const ImageButton({super.key, this.pagechange});
+  final void Function(int)? pagechange;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +14,7 @@ class ImageButton extends StatelessWidget {
             const EdgeInsets.only(top: 20, left: 45, right: 45, bottom: 10),
         child: GestureDetector(
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => Tandementry(),
-            ));
+            pagechange!(0);
           },
           child: Container(
             decoration: BoxDecoration(

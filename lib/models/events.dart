@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/address.dart';
-import 'package:vs_femalefellows/models/category.dart';
 import 'package:vs_femalefellows/models/materials.dart';
 
 part 'events.g.dart';

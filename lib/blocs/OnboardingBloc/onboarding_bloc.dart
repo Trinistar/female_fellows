@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 
 part 'onboarding_event.dart';
 part 'onboarding_state.dart';

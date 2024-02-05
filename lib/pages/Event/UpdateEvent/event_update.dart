@@ -8,7 +8,6 @@ import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/address.dart';
-import 'package:vs_femalefellows/models/category.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/materials.dart';
 import 'package:vs_femalefellows/pages/Event/CreateEvent/event_category_items.dart';

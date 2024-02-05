@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
 
 class EventPictureAuthentication extends StatefulWidget {
-  const EventPictureAuthentication({super.key, required this.event, this.sendRequest, this.mediaConsent});
+  const EventPictureAuthentication(
+      {super.key, required this.event, this.sendRequest, this.mediaConsent});
 
   final Event event;
   final void Function()? sendRequest;
   final void Function(bool)? mediaConsent;
 
   @override
-  State<EventPictureAuthentication> createState() => _EventPictureAuthenticationState();
+  State<EventPictureAuthentication> createState() =>
+      _EventPictureAuthenticationState();
 }
 
-class _EventPictureAuthenticationState extends State<EventPictureAuthentication> {
+class _EventPictureAuthenticationState
+    extends State<EventPictureAuthentication> {
   late RadioChoices _choices;
 
   @override
@@ -46,9 +50,9 @@ class _EventPictureAuthenticationState extends State<EventPictureAuthentication>
           ),
           Center(
             child: CircleAvatar(
-              backgroundImage: AssetImage('lib/images/fotoeinwilligung.png'),
               radius: 50,
-              backgroundColor: Theme.of(context).colorScheme.secondary,
+              backgroundColor: Colors.transparent,
+              child: SvgPicture.asset('lib/images/fotoeinwilligung.svg'),
             ),
           ),
           SizedBox(

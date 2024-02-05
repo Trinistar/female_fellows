@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class TandemAboutYou extends StatelessWidget {

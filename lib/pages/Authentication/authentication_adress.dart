@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
@@ -38,9 +39,9 @@ class _AuthAdressState extends State<AuthAdress> {
           ),
           Center(
             child: CircleAvatar(
-              backgroundImage: AssetImage('lib/images/Location.png'),
               radius: 100,
-              backgroundColor: Theme.of(context).colorScheme.secondary,
+              backgroundColor: Colors.transparent,
+              child: SvgPicture.asset('lib/images/wohnort.svg'),
             ),
           ),
           SizedBox(

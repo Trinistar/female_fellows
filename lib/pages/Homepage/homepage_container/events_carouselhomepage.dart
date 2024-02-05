@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/pages/Event/EventOverview/event_overview.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
 
 class EventCarousel extends StatelessWidget {
-  const EventCarousel({super.key});
-
+  const EventCarousel({super.key, this.pagechange});
+  final void Function(int)? pagechange;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +16,9 @@ class EventCarousel extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 10, ),
+              padding: const EdgeInsets.only(
+                left: 10,
+              ),
               child: Text(
                 'Schau bei unseren Events vorbei',
                 style: TextStyle(fontSize: 20),
@@ -29,7 +30,9 @@ class EventCarousel extends StatelessWidget {
               endIndent: 320,
               indent: 15,
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             SizedBox(
               height: 150,
               width: 1000,
@@ -46,8 +49,9 @@ class EventCarousel extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 10, top: 20),
               child: GestureDetector(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) =>EventOverview() ),);
+                onTap: () {
+                  pagechange!(1);
+                  //  Navigator.push(context, MaterialPageRoute(builder: (context) =>EventOverview() ),);
                 },
                 child: Text(
                   'Zu allen Events',
