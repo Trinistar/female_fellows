@@ -53,7 +53,8 @@ class _AuthVerficationState extends State<AuthVerfication> {
         listener: (context, state) {
           if (state is AuthenticatedUser) {
             if (widget.isFromOnboarding) {
-              BlocProvider.of<OnboardingBloc>(context).add(OnboardingDoneEvent());
+              BlocProvider.of<OnboardingBloc>(context)
+                  .add(OnboardingDoneEvent());
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -104,7 +105,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                     Padding(
                       padding: const EdgeInsets.only(left: 50),
                       child: Text(
-                        'Gib deine E-Mail-Adresse und ein Passwort an',
+                        AppLocalizations.of(context)!.verficationBody,
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.primary,
                           fontSize: 15,
@@ -169,7 +170,8 @@ class _AuthVerficationState extends State<AuthVerfication> {
                     //User passwordfield
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                      child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                      child:
+                          BlocBuilder<AuthenticationBloc, AuthenticationState>(
                         builder: (context, state) {
                           return TextFormField(
                             /////////BlocState/////
@@ -186,17 +188,21 @@ class _AuthVerficationState extends State<AuthVerfication> {
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.primary,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     width: 2,
                                   ),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                fillColor: Theme.of(context).colorScheme.surface,
+                                fillColor:
+                                    Theme.of(context).colorScheme.surface,
                                 filled: true,
                                 hintText: 'Password',
                                 suffixIcon: IconButton(
                                   icon: Icon(
-                                    _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                                    _isPasswordVisible
+                                        ? Icons.visibility
+                                        : Icons.visibility_off,
                                     color: Colors.grey,
                                   ),
                                   onPressed: () {
@@ -215,13 +221,15 @@ class _AuthVerficationState extends State<AuthVerfication> {
                     BlocBuilder<AuthenticationBloc, AuthenticationState>(
                       builder: (context, state) {
                         return FFButton(
-                          text: AppLocalizations.of(context)!.authenticationTitle,
+                          text:
+                              AppLocalizations.of(context)!.authenticationTitle,
                           onTap: () {
                             if (_formKey.currentState!.validate()) {
                               final FFUser profile = FFUser(
                                 email: Controller.emailController.text,
                                 lastname: Controller.lastnameController.text,
-                                profilPicture: Controller.profilpictureController.text,
+                                profilPicture:
+                                    Controller.profilpictureController.text,
                                 birthday: widget.birthday,
                                 newsletter: widget.wantsNewsletter,
                                 firstname: Controller.firstnameController.text,
@@ -234,7 +242,8 @@ class _AuthVerficationState extends State<AuthVerfication> {
                                   contactViaEmail: false,
                                   contactViaWhatsApp: false,
                                   contactViaPhone: false,
-                                  phonenumber: Controller.phonenumberController.text,
+                                  phonenumber:
+                                      Controller.phonenumberController.text,
                                 ),
                                 localOrNewcomer: widget.userchoice,
                                 socialMedia: widget.mediachoice,
@@ -242,7 +251,8 @@ class _AuthVerficationState extends State<AuthVerfication> {
                               context.read<AuthenticationBloc>().add(
                                     RegisterWithMailEvent(
                                       email: Controller.emailController.text,
-                                      password: Controller.passwordController.text,
+                                      password:
+                                          Controller.passwordController.text,
                                       profile: profile,
                                     ),
                                   );
@@ -253,20 +263,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                     ),
                     SizedBox(
                       height: 30,
-                    ),
-                    /* Center(
-                        child: Text(
-                      AppLocalizations.of(context)!.loginTextup,
-                      style: TextStyle(color: Theme.of(context).colorScheme.primary),
-                    )),
-                    Center(
-                        child: GestureDetector(
-                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage())),
-                      child: Text(
-                        AppLocalizations.of(context)!.loginTextdown,
-                        style: TextStyle(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline),
-                      ),
-                    )), */
+                    )
                   ],
                 ),
               ),

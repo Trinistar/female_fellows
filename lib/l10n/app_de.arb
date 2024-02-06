@@ -24,6 +24,7 @@
     "loginPageBody": "Logge dich mit deiner Email\nund deinem Passwort ein",
     "verificationTitle": "Verifizierung",
     "verficationBody": "Gib hier deine Email\nund dein Passwort an",
+
     "authenticationAge": "Wie alt bist du?",
     "authenticationAgeImage": "Klick auf das Bild",
     "authenticationAgeBirthday": "Dein Geburtstag:",
@@ -57,5 +58,26 @@
     "authenticationNewcomerTitle": "Ich bin Newcomer",
     "authenticationNewcomer": "Du wünschst dir mehr Kontakt zu Frauen,\ndie sich gut in Deutschland auskennen?",
     "authenticationLocalTitle": "Ich bin Local",
-    "authenticationLocal": "Du sucht einen kulturellen Austausch und\nmöchtest dich für ein gutes Zusammenleben stark\nmachen?"
+    "authenticationLocal": "Du sucht einen kulturellen Austausch und\nmöchtest dich für ein gutes Zusammenleben stark\nmachen?",
+
+    "homeWelcomeTextOne": "Hallo",
+    "homeWelcomeTextTwo": "Schön, dass du dabei bist!",
+    "homeInfo": "Entdecke Events, finde dein \nperfekte Tandem-Partnerin\nund lass dich von unseren \nTandem-Stories inspirieren.",
+    "homeTandemstoriesTitle": "Tandemstories",
+    "homeTandemstoryOneSubTitle": "Erfahrungsbericht von Lisa",
+    "homeTandemstoryOneBodyOne": "Ein Tandem mit einer Frau, die aus einem anderen Land stammt, zu haben ist eine bereichernde Erfahrung, die ich nicht mehr missen möchte.Makai hatte zunächst vor allem zum Deutschlernen eine hier beheimatete Frau gesucht. Doch auch das gemeinsame Lernen war meistens schon davon begleitet, dass wir gemeinsam Chai getrunken, etwas gegessen, uns ausgetauscht und viel gemeinsam gelacht haben. Ich finde die Zeit, dass man in Form von interessanten Einblicken, neuen Kontakten und einem ganz praktischen kulturellen Lernen tausendmal zurückbekommt.",
+    "homeTandemstoryOneBodyTwo": "Es war ein Kennenlernen für uns beide: Nicht nur ich habe Makai Deutsch und etwas über das Leben hier beigebracht– ich konnte von ihr und ihrer Familie auch total viel über Afghanistan, die Lebensweise dort und auch über die Bedingungen für Geflüchtete hier in Deutschland lernen. Ich finde es total wichtig, als Frau andere Frauen darin zu bestärken, alle Möglichkeiten, die wir haben, für sich zu nutzen. Gemeinsam haben wir auch viele Freizeitaktivitäten in Stuttgart unternommen, waren schwimmen, im Park oder der Bücherei. Da konnte ich meine Stadt selbst nochmal mit ganz anderen Augen kennenlernen und zeigen, was ich hier schätze. Der Verein bietet auch mega schöne und vielseitige Aktivitäten für die ganze Gemeinschaft an, in der man eine interessante Zeit mit anderen Frauen verbringen kann.Ich kann nur jede interessierte Frau ermutigen, selbst auch diese sinnvolle Chance zu nutzen und andere Frauen zu unterstützen!",
+    "homeTandemTeaser": "Finde deine perfekte \nTandem-Partnerin ",
+    "homeEventsTeaserTitle": "Schau bei unseren Events vorbei.",
+    
+
+
+
+
+
+
+
+
+
+
 }

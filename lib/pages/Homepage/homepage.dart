@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              'Tandem-Erfolgsstories',
+              AppLocalizations.of(context).homeTandemstoriesTitle,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
           ),

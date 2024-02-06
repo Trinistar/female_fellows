@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
 
 class EventCarousel extends StatelessWidget {
@@ -20,7 +21,7 @@ class EventCarousel extends StatelessWidget {
                 left: 10,
               ),
               child: Text(
-                'Schau bei unseren Events vorbei',
+                AppLocalizations.of(context).homeEventsTeaserTitle,
                 style: TextStyle(fontSize: 20),
               ),
             ),
@@ -51,7 +52,6 @@ class EventCarousel extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   pagechange!(1);
-                  //  Navigator.push(context, MaterialPageRoute(builder: (context) =>EventOverview() ),);
                 },
                 child: Text(
                   'Zu allen Events',

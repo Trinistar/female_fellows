@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class ImageButton extends StatelessWidget {
   const ImageButton({super.key, this.pagechange});
@@ -25,7 +27,7 @@ class ImageButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  'Finde deine perfekte\nTandem-Partnerin',
+                  AppLocalizations.of(context).homeTandemTeaser,
                   style: TextStyle(fontSize: 20, color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
