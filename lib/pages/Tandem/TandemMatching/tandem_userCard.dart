@@ -114,7 +114,7 @@ class TandemUserCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(topRight: Radius.circular(45), topLeft: Radius.circular(45)),
                   color: Colors.white,
-                  image: user.profilPicture!.isNotEmpty
+                  image: user.profilPicture != null && user.profilPicture!.isNotEmpty
                       ? DecorationImage(
                           image: NetworkImage(user.profilPicture != null ? user.profilPicture! : ''),
                           fit: BoxFit.cover,
