@@ -1,21 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_about_you.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_languages.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_matching.dart';
+import 'package:vs_femalefellows/provider/controller.dart';
 
-class TandemAuthentication extends StatefulWidget {
-  const TandemAuthentication({super.key});
+class TandemOnboardingEntry extends StatefulWidget {
+  const TandemOnboardingEntry({super.key});
 
   @override
-  State<TandemAuthentication> createState() => _TandemAuthenticationState();
+  State<TandemOnboardingEntry> createState() => _TandemOnboardingEntryState();
 }
 
-class _TandemAuthenticationState extends State<TandemAuthentication> {
+class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
   PageController _controller = PageController();
   bool _onLastPage = false;
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+      builder: (context, state) {
+        if (state is AuthenticatedUser) {
+          return _tandemOnboarding(context, state.userProfile!);
+        } else {
+          return SizedBox.shrink();
+        }
+      },
+    );
+  }
+
+  Scaffold _tandemOnboarding(BuildContext context, FFUser profile) {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
@@ -84,9 +101,14 @@ class _TandemAuthenticationState extends State<TandemAuthentication> {
                     ? MaterialButton(
                         disabledTextColor: Colors.grey,
                         onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => TandemMatching()));
+                          final FFUser updatedUserProfile = profile;
+                          updatedUserProfile.aboutMe = Controller.aboutYouController.text;
+                          context.read<AuthenticationBloc>().add(UpdateUserProfileEvent((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid, userProfile: profile));
+                          context.read<TandemOnboardingBloc>().add(TandemOnboardingDoneEvent());
+
+                          Navigator.of(context).maybePop();
                         },
-                        child: Text('Next'),
+                        child: Text('Zum Tandem'),
                       )
                     : MaterialButton(
                         disabledTextColor: Colors.grey,

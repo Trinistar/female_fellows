@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/pages/Authentication/Email/email_verification.dart';
-import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
+import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 
 
 

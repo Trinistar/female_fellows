@@ -1,10 +1,7 @@
 part of 'tandem_bloc.dart';
 
-sealed class TandemState extends Equatable {
+sealed class TandemState {
   const TandemState();
-
-  @override
-  List<Object> get props => [];
 }
 
 final class TandemInitial extends TandemState {}

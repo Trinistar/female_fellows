@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 typedef void BoolCallback(bool id);
@@ -91,10 +91,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                   controlAffinity: ListTileControlAffinity.leading,
                   dense: true,
                   title: GestureDetector(
-                    onTap: () =>
-                        Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => Tandementry(),
-                    )),
+                    onTap: () => launchUrl(Uri.parse('https://femalefellows.com/')),
                     child: Text(
                       AppLocalizations.of(context)!.authenticationAGBS,
                       style: TextStyle(

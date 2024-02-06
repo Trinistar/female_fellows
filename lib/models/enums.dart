@@ -30,3 +30,8 @@ enum FAQ {
   question9,
   question10,
 }
+
+enum TandemTypeFilter {
+  all,
+  nearby,
+}

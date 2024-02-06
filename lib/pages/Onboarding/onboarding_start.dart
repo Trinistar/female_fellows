@@ -27,41 +27,39 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(statusBarColor:   Theme.of(context).colorScheme.secondary,),
+      value: SystemUiOverlayStyle(
+        statusBarColor: Theme.of(context).colorScheme.secondary,
+      ),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor:  Theme.of(context).colorScheme.secondary,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         body: Stack(
           children: [
             //Logo
             Container(
               height: 100,
               width: 1000,
-              color:  Theme.of(context).colorScheme.secondary,
+              color: Theme.of(context).colorScheme.secondary,
               child: Padding(
                 padding: const EdgeInsets.only(left: 10, top: 25),
-                child: Image.asset('lib/images/FF-Logo_blau-1.png',
-                    alignment: Alignment(0, -0.8)),
+                child: Image.asset('lib/images/FF-Logo_blau-1.png', alignment: Alignment(0, -0.8)),
               ),
             ),
-    
-        
-             PageView(
-                controller: _controller,
-                onPageChanged: (index) {
-                  setState(() {
-                    onLastPage = (index == 4);
-                  });
-                },
-                children: [
-                  // Pages Onboarding
-                  Page1(),
-                  Page2(),
-                  Page3(),
-                  Page4(),
-                  Page5(),
-                ],
-              
+            PageView(
+              controller: _controller,
+              onPageChanged: (index) {
+                setState(() {
+                  onLastPage = (index == 4);
+                });
+              },
+              children: [
+                // Pages Onboarding
+                Page1(),
+                Page2(),
+                Page3(),
+                Page4(),
+                Page5(),
+              ],
             ),
             //dot indicator
             Positioned(
@@ -85,7 +83,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
                     )
                   : Container(
-                      color: Colors.transparent,
+                      color: Colors.white,
                       height: 60,
                       width: 1000,
                       child: Row(
@@ -104,9 +102,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              _controller.nextPage(
-                                  duration: Duration(microseconds: 500),
-                                  curve: Curves.easeIn);
+                              _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                             },
                             child: Row(
                               children: [

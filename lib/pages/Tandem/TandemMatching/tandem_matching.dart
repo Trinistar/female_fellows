@@ -1,9 +1,11 @@
+import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
+import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_userCard.dart';
 
@@ -19,45 +21,55 @@ class _TandemMatchingState extends State<TandemMatching> {
   late String _lat;
   late String _long;
   String locationmessage = 'Ort angeben';
+  late TandemTypeFilter _tandemTypeFilter;
 
   @override
   void initState() {
+    _tandemTypeFilter = TandemTypeFilter.all;
     _pageController = PageController(viewportFraction: 0.9);
+    if (context.read<AuthenticationBloc>().state is AuthenticatedUser && (context.read<AuthenticationBloc>().state as AuthenticatedUser).userProfile!.tandemTypeFilter != null) {
+      _tandemTypeFilter = (context.read<AuthenticationBloc>().state as AuthenticatedUser).userProfile!.tandemTypeFilter!;
+    }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      extendBodyBehindAppBar: true,
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      appBar: AppBar(
-        title: CircleAvatar(
-          radius: 30,
+    return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+      builder: (context, state) {
+        return Scaffold(
+          extendBody: true,
+          extendBodyBehindAppBar: true,
           backgroundColor: Theme.of(context).colorScheme.primary,
-          child: SvgPicture.asset(
-            'lib/images/tandem-matching.svg',
-            width: 50,
-            height: 50,
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: CircleAvatar(
+              radius: 30,
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              child: SvgPicture.asset(
+                'lib/images/tandem-matching.svg',
+                width: 50,
+                height: 50,
+              ),
+            ),
+            iconTheme: IconThemeData(
+              color: Colors.white, //change your color here
+            ),
+            backgroundColor: Theme.of(context).colorScheme.primary,
           ),
-        ),
-        iconTheme: IconThemeData(
-          color: Colors.white, //change your color here
-        ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-      ),
-      body: BlocBuilder<TandemBloc, TandemState>(
-        builder: (context, state) {
-          if (state is TandemLocalsLoaded) {
-            return _tandemsList(context, state.tandems);
-          } else if (state is TandemNewcomersLoaded) {
-            return _tandemsList(context, state.tandems);
-          } else {
-            return SizedBox.shrink();
-          }
-        },
-      ),
+          body: BlocBuilder<TandemBloc, TandemState>(
+            builder: (context, state) {
+              if (state is TandemLocalsLoaded) {
+                return _tandemsList(context, state.tandems);
+              } else if (state is TandemNewcomersLoaded) {
+                return _tandemsList(context, state.tandems);
+              } else {
+                return SizedBox.shrink();
+              }
+            },
+          ),
+        );
+      },
     );
   }
 
@@ -126,7 +138,7 @@ class _TandemMatchingState extends State<TandemMatching> {
                           builder: (context, state) {
                             if (state is AuthenticatedUser) {
                               return Text(
-                                state.userProfile!.location != null ? state.userProfile!.location!.name : locationmessage,
+                                state.userProfile!.location != null ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}' : locationmessage,
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.white,
@@ -172,19 +184,67 @@ class _TandemMatchingState extends State<TandemMatching> {
                 color: Colors.white,
               ),
             ),
-            SizedBox(
-              height: 20,
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                'Möchtest du ein Tandem-Partnerin in deiner Nähe oder ist dir egal wo dein Tandem wohnt ?',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: Center(
+                child: CustomSlidingSegmentedControl<TandemTypeFilter>(
+                  initialValue: _tandemTypeFilter,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Colors.white),
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.circular(45),
+                  ),
+                  thumbDecoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Colors.white),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(45),
+                  ),
+                  children: <TandemTypeFilter, Widget>{
+                    TandemTypeFilter.all: Text(
+                      'Egal',
+                      style: _tandemTypeFilter == TandemTypeFilter.all ? null : TextStyle(color: Colors.white),
+                    ),
+                    TandemTypeFilter.nearby: Text(
+                      'In der Nähe',
+                      style: _tandemTypeFilter == TandemTypeFilter.all ? TextStyle(color: Colors.white) : null,
+                    ),
+                  },
+                  onValueChanged: (TandemTypeFilter? value) {
+                    setState(() {
+                      _tandemTypeFilter = value!;
+                      if (context.read<AuthenticationBloc>().state is AuthenticatedUser) {
+                        var user = context.read<AuthenticationBloc>().state as AuthenticatedUser;
+                        user.userProfile!.tandemTypeFilter = _tandemTypeFilter;
+                        (context.read<AuthenticationBloc>()..add(UpdateUserProfileEvent(user.user!.uid, userProfile: user.userProfile!)));
+                      }
+                    });
+                  },
+                ),
+              ),
             ),
             SizedBox(
               height: 650,
-              child: PageView.builder(
-                controller: _pageController,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return TandemUserCard(user: tandems[index]);
-                },
-                itemCount: tandems.length,
-              ),
+              child: tandems.isNotEmpty
+                  ? PageView.builder(
+                      controller: _pageController,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, int index) {
+                        return TandemUserCard(user: tandems[index]);
+                      },
+                      itemCount: tandems.length,
+                    )
+                  : Text(
+                    'Leider konnten wir keine Tandems in deiner Nähe (20km Umkreis) finden',
+                    style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
+                    textAlign: TextAlign.center,
+                  ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),

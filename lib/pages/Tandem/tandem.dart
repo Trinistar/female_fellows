@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_matching.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_activitys.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_entry.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_steps.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_carousel.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_comments.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_faqs.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_header.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_steps.dart';
 
 class Tandementry extends StatefulWidget {
   const Tandementry({super.key});
@@ -29,13 +31,33 @@ class _TandementryState extends State<Tandementry> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<TandemOnboardingBloc, TandemOnboardingState>(
+      builder: (context, state) {
+        if (state is IsTandemOnboardingState) {
+          return _tandemOnboarding(context);
+        } else {
+          return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+            builder: (context, state) {
+              if (state is AuthenticatedUser) {
+                return TandemMatching();
+              } else {
+                return _tandemOnboarding(context);
+              }
+            },
+          );
+        }
+      },
+    );
+  }
+
+  Scaffold _tandemOnboarding(BuildContext context) {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
       
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 0,
+        automaticallyImplyLeading: false,
         iconTheme: IconThemeData(
           color: Colors.white, 
         ),
@@ -180,9 +202,7 @@ class _TandementryState extends State<Tandementry> {
             builder: (context, state) {
               if (state is AuthenticatedUser) {
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => TandemAuthentication()));
-                  },
+                  onTap: () => context.go('/tandem/tandemOnboarding'),
                   child: Container(
                     padding: EdgeInsets.all(25),
                     margin: const EdgeInsets.symmetric(horizontal: 50),
@@ -200,9 +220,7 @@ class _TandementryState extends State<Tandementry> {
                 );
               } else {
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
-                  },
+                  onTap: () => context.go('/tandem/eventNotAuthenticated'),
                   child: Container(
                     padding: EdgeInsets.all(25),
                     margin: const EdgeInsets.symmetric(horizontal: 50),

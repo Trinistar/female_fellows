@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
+import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_header.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_overview.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_progress.dart';
 
-class Profil extends StatefulWidget {
-  const Profil({super.key});
+class Profile extends StatefulWidget {
+  const Profile({super.key});
 
   @override
-  State<Profil> createState() => _ProfilState();
+  State<Profile> createState() => _ProfileState();
 }
 
-class _ProfilState extends State<Profil> with TickerProviderStateMixin {
+class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   late TabController _profilTabController;
   @override
   void initState() {
@@ -26,11 +26,11 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return BlocListener<AuthenticationBloc, AuthenticationState>(
       listener: (context, state) {
-        if (state is SignOutSuccess) {
+        /* if (state is SignOutSuccess) {
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => LoginPage()),
           );
-        }
+        } */
       },
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
@@ -49,7 +49,7 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => Profil(),
+                          builder: (context) => Profile(),
                         ),
                       );
                     },
@@ -84,7 +84,7 @@ class _ProfilState extends State<Profil> with TickerProviderStateMixin {
                         ),
                         Center(
                           child: CircleAvatar(
-                            backgroundImage: AssetImage('lib/images/Avatar.png'),
+                            backgroundImage: NetworkImage(state.userProfile!.profilPicture != null ? state.userProfile!.profilPicture! : ''),
                             radius: 75,
                             backgroundColor: Theme.of(context).colorScheme.secondary,
                           ),

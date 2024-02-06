@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
@@ -46,11 +46,10 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
     final start = dateRange.start;
     final end = dateRange.end;
     return Scaffold(
-       extendBody: true,
+      extendBody: true,
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
-
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
@@ -62,9 +61,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
           if (state is AuthenticatedUser && state.tokenResult != null && state.tokenResult!.claims != null && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
             return FloatingActionButton(
               heroTag: CreateEvent,
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateEvent()));
-              },
+              onPressed: () => context.go('/events/createEvent'),
               foregroundColor: Colors.white,
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               mini: true,
@@ -74,7 +71,6 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
             return SizedBox.shrink();
           }
         },
-        
       ),
       body: ListView(
         shrinkWrap: true,
@@ -114,184 +110,184 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                             child: Icon(Icons.add),
                           ),
                         ), */
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 130,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text(
-                          'Events',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 30,
-                          ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 130,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 40),
+                      child: Text(
+                        'Events',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
                         ),
                       ),
-                      Divider(
-                        thickness: 5,
-                        indent: 40,
-                        endIndent: 310,
-                        color: Colors.white,
+                    ),
+                    Divider(
+                      thickness: 5,
+                      indent: 40,
+                      endIndent: 310,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Artbar(colorleft: Colors.red, colorright: Colors.white),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: Row(
+              children: [
+                TextButton.icon(
+                  onPressed: () {
+                    HelperFunctions.getCurrentLocation().then((value) {
+                      _lat = '${value.latitude}';
+                      _long = '${value.longitude}';
+                      setState(() {
+                        locationmessage = '$_lat,$_long';
+                      });
+                      if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
+                        final FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
+                        context
+                            .read<AuthenticationBloc>()
+                            .add(UpdateUserProfileEvent((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid, latitude: value.latitude, longitude: value.longitude, userProfile: profile));
+                      }
+                    });
+                  },
+                  icon: Icon(
+                    Icons.location_on_outlined,
+                    color: Theme.of(context).colorScheme.primary,
+                    size: 35,
+                  ),
+                  label: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Dein Standort',
+                        style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
                       ),
+                      BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                        builder: (context, state) {
+                          if (state is AuthenticatedUser) {
+                            return Text(
+                              state.userProfile!.location != null ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}' : locationmessage,
+                              style: TextStyle(fontSize: 12),
+                            );
+                          } else {
+                            return Text(
+                              locationmessage,
+                              style: TextStyle(fontSize: 12),
+                            );
+                          }
+                        },
+                      )
                     ],
                   ),
-                ],
-              ),
-            ),
-            Artbar(colorleft: Colors.red, colorright: Colors.white),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: Row(
-                children: [
-                  TextButton.icon(
-                    onPressed: () {
-                      HelperFunctions.getCurrentLocation().then((value) {
-                        _lat = '${value.latitude}';
-                        _long = '${value.longitude}';
-                        setState(() {
-                          locationmessage = '$_lat,$_long';
-                        });
-                        if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
-                          final FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
-                          context
-                              .read<AuthenticationBloc>()
-                              .add(UpdateUserProfileEvent((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid, latitude: value.latitude, longitude: value.longitude, userProfile: profile));
-                        }
-                      });
-                    },
+                ),
+                Flexible(
+                  child: TextButton.icon(
+                    onPressed: pickDateRange,
                     icon: Icon(
-                      Icons.location_on_outlined,
+                      Icons.date_range,
                       color: Theme.of(context).colorScheme.primary,
-                      size: 35,
+                      size: 30,
                     ),
                     label: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Dein Standort',
+                          'Datum wählen',
                           style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
                         ),
-                        BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                          builder: (context, state) {
-                            if (state is AuthenticatedUser) {
-                              return Text(
-                                state.userProfile!.location != null ? state.userProfile!.location!.name : locationmessage,
-                                style: TextStyle(fontSize: 12),
-                              );
-                            } else {
-                              return Text(
-                                locationmessage,
-                                style: TextStyle(fontSize: 12),
-                              );
-                            }
-                          },
-                        )
+                        Text(
+                          '${start.day}.${start.month} bis ${end.day}.${end.month}',
+                          style: TextStyle(fontSize: 12),
+                        ),
                       ],
                     ),
                   ),
-                  Flexible(
-                    child: TextButton.icon(
-                      onPressed: pickDateRange,
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 5,
+                  child: SizedBox(
+                    child: SearchBar(
+                      hintText: 'Suche nach',
+                      controller: Controller.searchbarController,
+                      onTap: null,
+                      leading: Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: const Icon(
+                          Icons.search,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: IconButton(
+                      onPressed: null,
                       icon: Icon(
-                        Icons.date_range,
+                        Icons.filter_alt,
+                        size: 35,
                         color: Theme.of(context).colorScheme.primary,
-                        size: 30,
-                      ),
-                      label: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Datum wählen',
-                            style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
-                          ),
-                          Text(
-                            '${start.day}.${start.month} bis ${end.day}.${end.month}',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 5,
-                    child: SizedBox(
-                      child: SearchBar(
-                        hintText: 'Suche nach',
-                        controller: Controller.searchbarController,
-                        onTap: null,
-                        leading: Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: const Icon(
-                            Icons.search,
-                            size: 30,
-                          ),
-                        ),
                       ),
                     ),
                   ),
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: IconButton(
-                        onPressed: null,
-                        icon: Icon(
-                          Icons.filter_alt,
-                          size: 35,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
-            SizedBox(
-              height: 40,
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          /*********************************************************************************************************/
+          SizedBox(
+            child: TabBar(
+              controller: _tabController,
+              tabs: [
+                Tab(
+                  text: 'Alle',
+                ),
+                Tab(
+                  text: 'Angemeldet',
+                ),
+                Tab(
+                  text: 'Favoriten',
+                ),
+              ],
             ),
-            /*********************************************************************************************************/
-            SizedBox(
-              child: TabBar(
-                controller: _tabController,
-                tabs: [
-                  Tab(
-                    text: 'Alle',
-                  ),
-                  Tab(
-                    text: 'Angemeldet',
-                  ),
-                  Tab(
-                    text: 'Favoriten',
-                  ),
-                ],
-              ),
+          ),
+          SizedBox(
+            width: double.maxFinite,
+            height: 700,
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                AllEvents(),
+                SingedUpEvents(),
+                FavoritEvents(),
+              ],
             ),
-            SizedBox(
-              width: double.maxFinite,
-              height: 700,
-              child: TabBarView(
-                controller: _tabController,
-                children: [
-                  AllEvents(),
-                  SingedUpEvents(),
-                  FavoritEvents(),
-                ],
-              ),
-            ),
-            /* MultiBlocProvider(
+          ),
+          /* MultiBlocProvider(
                   providers: [
                     /* BlocProvider<AllEventsStore>(
                       create: (BuildContext context) => AllEventsStore(),

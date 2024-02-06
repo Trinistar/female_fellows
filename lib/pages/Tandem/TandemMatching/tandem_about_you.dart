@@ -7,62 +7,65 @@ class TandemAboutYou extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40),
-      child: ListView(children: [
-        Text(
-          'Erzähl uns etwas\nüber dich?',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Center(
-          child: CircleAvatar(
-           
-            radius: 100,
-            backgroundColor: Colors.transparent,
-            child: SvgPicture.asset('lib/images/Überdich.svg'),
-          ),
-        ),
-        SizedBox(
-          height: 50,
-        ),
-        TextField(
-          maxLength: 250,
-          maxLines: 7,
-          controller: Controller.aboutYouController,
-          decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black87),
-              // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 40),
+        child: ListView(
+          children: [
+            Text(
+              'Erzähl uns etwas\nüber dich?',
+              style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
-                width: 2,
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
               ),
-              borderRadius: BorderRadius.circular(10),
             ),
-            fillColor: Theme.of(context).colorScheme.surface,
-            filled: true,
-            hintText:
-                'z.B. Ich bin aus Syrien und habe Interesse an kulturellem Austausch und beruflicher Orientierung in Deutschland.',
-          ),
+            SizedBox(
+              height: 10,
+            ),
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('lib/images/dolmetcher.png'),
+                radius: 100,
+                backgroundColor: Theme.of(context).colorScheme.secondary,
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            TextField(
+              maxLength: 250,
+              maxLines: 7,
+              controller: Controller.aboutYouController,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black87),
+                  // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.primary,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                fillColor: Theme.of(context).colorScheme.surface,
+                filled: true,
+                hintText: 'z.B. Ich bin aus Syrien und habe Interesse an kulturellem Austausch und beruflicher Orientierung in Deutschland.',
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              '*Um dich mit deiner perfekten Tandem-Partnerin zu matchen, müssen wir ein bisschen mehr über dich erfahren.',
+              style: TextStyle(fontSize: 12),
+            ),
+          ],
         ),
-        SizedBox(
-          height: 20,
-        ),
-        Text(
-          '*Um dich mit deiner perfekten Tandem-Partnerin zu matchen, müssen wir ein bisschen mehr über dich erfahren.',
-          style: TextStyle(fontSize: 12),
-        ),
-      ]),
+      ),
     );
   }
 }

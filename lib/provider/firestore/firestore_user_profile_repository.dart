@@ -21,12 +21,37 @@ class FirestoreUserProfileRepository {
     });
   }
 
+  Stream<UserLocation?> loadUserProfileLocationData(String userId) {
+    return FirestoreRepository().firestoreInstance.collection('user/$userId/data').doc('geodata').snapshots().map((DocumentSnapshot<Object> snapshot) {
+      if (snapshot.exists) {
+        final UserLocation userLocation = UserLocation.fromJson(snapshot.data()! as Map<String, dynamic>);
+        return userLocation;
+      } else {
+        return null;
+      }
+    });
+  }
+
+  Future<UserLocation?> getUserLocation(String userId) async {
+    try {
+      final locationRaw = await FirestoreRepository().firestoreInstance.collection('user/$userId/data').doc('geodata').get();
+      final UserLocation location = UserLocation.fromJson(locationRaw.data()!);
+      return location;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<void> setUserLocation(String userId, UserLocation location) async {
+    try {
+      await FirestoreRepository().firestoreInstance.collection('user/$userId/data').doc('geodata').set(location.toJson(), SetOptions(merge: true));
+    } catch (e) {
+      print(e);
+    }
+  }
+
   Stream<List<FFUser>> getAllTandems(String localOrNewcomer) {
-    return FirestoreRepository().firestoreInstance
-    .collection('user')
-    .where('localOrNewcomer', isEqualTo: localOrNewcomer)
-    .snapshots()
-    .map(
+    return FirestoreRepository().firestoreInstance.collection('user').where('localOrNewcomer', isEqualTo: localOrNewcomer).snapshots().map(
       ((QuerySnapshot<Map<String, dynamic>> snapshot) {
         if (snapshot.docs.isNotEmpty) {
           List<FFUser> tmp = [];

@@ -87,7 +87,7 @@ class _HomeState extends State<Home> {
           DividerBouthCorner(
               color1: Colors.white,
               color2: Theme.of(context).colorScheme.surfaceVariant),
-          Container(
+          SizedBox(
             height: 350,
             width: 1000,
             child: Column(

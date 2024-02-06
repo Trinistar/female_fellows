@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
-import 'package:vs_femalefellows/pages/Authentication/Login/login.dart';
 
 class EventNotAuthenticatedState extends StatelessWidget {
   @override
@@ -10,7 +10,8 @@ class EventNotAuthenticatedState extends StatelessWidget {
     return BlocListener<AuthenticationBloc, AuthenticationState>(
       listener: (context, state) {
         if (state is AuthenticatedUser) {
-          Navigator.of(context).pop();
+          //context.go('/events');
+          context.pop();
         }
       },
       child: Scaffold(
@@ -51,9 +52,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 20.0),
                 child: FFButton(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
-                  },
+                  onTap: () => context.push('/loginPage'),
                   text: 'Kostenlos Mitglied werden',
                 ),
               )

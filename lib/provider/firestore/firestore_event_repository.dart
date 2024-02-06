@@ -45,9 +45,9 @@ class FirestoreEventRepository {
         if (snapshot.docs.isNotEmpty) {
           List<Event> tmp = [];
 
-          for (var change in snapshot.docChanges) {
-            final Event event = Event.fromJson(change.doc.data()!);
-            event.id = change.doc.id;
+          for (var change in snapshot.docs) {
+            final Event event = Event.fromJson(change.data());
+            event.id = change.id;
             tmp.add(event);
           }
           return tmp;
@@ -150,7 +150,7 @@ class AllEventsStore extends Cubit<List<Event>> {
 class SubscribedEventsStore extends Cubit<List<Event>> {
   SubscribedEventsStore(this._authBloc)
       : _db = FirestoreRepository().firestoreInstance,
-        super(List.empty(growable: true)) {
+        super(List.empty(growable: false)) {
     _authBlocStreamSub = _authBloc.stream.listen((AuthenticationState authState) {
       if (authState is AuthenticatedUser) {
         if (authState.userProfile!.participatingEvents.isEmpty) {

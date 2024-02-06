@@ -17,7 +17,7 @@ class FFUser {
   final Notifications? notification;
   String? email;
   final bool? newsletter;
-  final Address? address;
+  Address? address;
   final LocalOrNewcomer? localOrNewcomer;
   final Socialmedia? socialMedia;
   @JsonKey(defaultValue: [])
@@ -27,7 +27,7 @@ class FFUser {
   String? id;
   UserLocation? location;
   String? aboutMe;
-  
+  TandemTypeFilter? tandemTypeFilter;
 
   FFUser({
     this.id,
@@ -45,6 +45,7 @@ class FFUser {
     this.socialMedia,
     this.location,
     this.aboutMe,
+    this.tandemTypeFilter,
   });
 
   factory FFUser.fromJson(Map<String, dynamic> json) => _$FFUserFromJson(json);
@@ -71,48 +72,47 @@ class FFUser {
 /// An entity of Cloud Firestore location document.
 class UserLocation {
   UserLocation({
-    required this.geo,
+    required this.data,
     required this.name,
     required this.isVisible,
   });
 
   factory UserLocation.fromJson(Map<String, dynamic> json) => UserLocation(
-        geo: Geo.fromJson(json['geo'] as Map<String, dynamic>),
+        data: GeoData.fromJson((json['data'] ?? <String, dynamic>{}) as Map<String, dynamic>),
         name: json['name'] as String,
         isVisible: (json['isVisible'] ?? false) as bool,
       );
 
-  factory UserLocation.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) =>
-      UserLocation.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
+  factory UserLocation.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) => UserLocation.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
 
-  final Geo geo;
-  final String name;
-  final bool isVisible;
+  final GeoData? data;
+  final String? name;
+  final bool? isVisible;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'geo': geo.toJson(),
+        'data': data?.toJson(),
         'name': name,
         'isVisible': isVisible,
       };
 }
 
 /// An entity of `geo` field of Cloud Firestore location document.
-class Geo {
-  Geo({
+class GeoData {
+  GeoData({
     required this.geohash,
-    required this.geopoint,
+    required this.location,
   });
 
-  factory Geo.fromJson(Map<String, dynamic> json) => Geo(
-        geohash: json['geohash'] as String,
-        geopoint: json['geopoint'] as GeoPoint,
+  factory GeoData.fromJson(Map<String, dynamic> json) => GeoData(
+        geohash: (json['geohash'] ?? '') as String,
+        location: (json['location'] ?? GeoPoint(0, 0)) as GeoPoint,
       );
 
   final String geohash;
-  final GeoPoint geopoint;
+  final GeoPoint location;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'geohash': geohash,
-        'geopoint': geopoint,
+        'location': location,
       };
 }
