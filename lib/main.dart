@@ -9,6 +9,7 @@ import 'package:vs_femalefellows/blocs/CategoriesCubit/categories_cubit.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/blocs/FavoritesBloc/favorites_bloc.dart';
 import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
+import 'package:vs_femalefellows/blocs/SignedupEvent/signedup_event_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
 import 'package:vs_femalefellows/models/events.dart';
@@ -268,14 +269,18 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => FavoritesBloc(BlocProvider.of<AuthenticationBloc>(context)),
           lazy: false,
         ),
-        BlocProvider<FavoriteEventStore>(
+        /* BlocProvider<FavoriteEventStore>(
           lazy: false,
           create: (BuildContext context) => FavoriteEventStore(BlocProvider.of<AuthenticationBloc>(context)),
+        ), */
+        BlocProvider<SignedupEventsBloc>(
+          lazy: false,
+          create: (BuildContext context) => SignedupEventsBloc(BlocProvider.of<AuthenticationBloc>(context)),
         ),
-        BlocProvider<SubscribedEventsStore>(
+        /* BlocProvider<SubscribedEventsStore>(
           lazy: false,
           create: (BuildContext context) => SubscribedEventsStore(BlocProvider.of<AuthenticationBloc>(context)),
-        ),
+        ), */
         BlocProvider<AllEventsStore>(
           lazy: false,
           create: (BuildContext context) => AllEventsStore(),

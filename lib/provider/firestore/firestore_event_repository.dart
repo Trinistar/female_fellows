@@ -150,7 +150,7 @@ class AllEventsStore extends Cubit<List<Event>> {
 class SubscribedEventsStore extends Cubit<List<Event>> {
   SubscribedEventsStore(this._authBloc)
       : _db = FirestoreRepository().firestoreInstance,
-        super(List.empty(growable: true)) {
+        super(List.empty(growable: false)) {
     _authBlocStreamSub = _authBloc.stream.listen((AuthenticationState authState) {
       if (authState is AuthenticatedUser) {
         if (authState.userProfile!.participatingEvents.isEmpty) {
