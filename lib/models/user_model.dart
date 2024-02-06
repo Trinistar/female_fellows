@@ -17,7 +17,7 @@ class FFUser {
   final Notifications? notification;
   String? email;
   final bool? newsletter;
-  final Address? address;
+  Address? address;
   final LocalOrNewcomer? localOrNewcomer;
   final Socialmedia? socialMedia;
   @JsonKey(defaultValue: [])

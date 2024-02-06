@@ -42,6 +42,14 @@ class FirestoreUserProfileRepository {
     }
   }
 
+  Future<void> setUserLocation(String userId, UserLocation location) async {
+    try {
+      await FirestoreRepository().firestoreInstance.collection('user/$userId/data').doc('geodata').set(location.toJson(), SetOptions(merge: true));
+    } catch (e) {
+      print(e);
+    }
+  }
+
   Stream<List<FFUser>> getAllTandems(String localOrNewcomer) {
     return FirestoreRepository().firestoreInstance.collection('user').where('localOrNewcomer', isEqualTo: localOrNewcomer).snapshots().map(
       ((QuerySnapshot<Map<String, dynamic>> snapshot) {

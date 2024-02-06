@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
@@ -64,10 +65,15 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     }
   }
 
-  Future<String> _getCityStringFromCoords(GeoPoint coords) async {
+  Future<Address> _getCityStringFromCoords(GeoPoint coords) async {
     final List<Placemark> placemarks = await placemarkFromCoordinates(coords.latitude, coords.longitude, localeIdentifier: 'de_de');
-    final String? address = (placemarks.first.subLocality != null && placemarks.first.subLocality!.isNotEmpty) ? '${placemarks.first.subLocality}, ${placemarks.first.locality}' : placemarks.first.locality;
-    return address ?? '';
+    final Address address = Address(
+      city: placemarks.first.locality!,
+      street: placemarks.first.street!,
+      zipCode: placemarks.first.postalCode!,
+    );
+    //final String? address = (placemarks.first.subLocality != null && placemarks.first.subLocality!.isNotEmpty) ? '${placemarks.first.subLocality}, ${placemarks.first.locality}' : placemarks.first.locality;
+    return address;
   }
 
   Future<void> _onUpdateUserProfile(UpdateUserProfileEvent event, Emitter<AuthenticationState> emit) async {
@@ -75,10 +81,11 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       final FFUser updated = event.userProfile;
 
       if (event.latitude != null && event.longitude != null) {
-        final String address = await _getCityStringFromCoords(GeoPoint(event.latitude!, event.longitude!));
-        final GeoFirePoint geoFirePoint = GeoFirePoint(GeoPoint(event.latitude!, event.longitude!));
-        final UserLocation location = UserLocation(data: GeoData(geohash: geoFirePoint.geohash, location: GeoPoint(event.latitude!, event.longitude!)), name: address, isVisible: true);
-        updated.location = location;
+        final Address address = await _getCityStringFromCoords(GeoPoint(event.latitude!, event.longitude!));
+        //final GeoFirePoint geoFirePoint = GeoFirePoint(GeoPoint(event.latitude!, event.longitude!));
+        //final UserLocation location = UserLocation(data: GeoData(geohash: geoFirePoint.geohash, location: GeoPoint(event.latitude!, event.longitude!)), name: address, isVisible: true);
+        //await _firestoreUserProfileRepository.setUserLocation(event.userId, location);
+        updated.address = address;
       }
 
       await _firestoreUserProfileRepository.updateUserProfile(updated, userID: event.userId);

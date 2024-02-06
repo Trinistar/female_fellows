@@ -138,7 +138,7 @@ class _TandemMatchingState extends State<TandemMatching> {
                           builder: (context, state) {
                             if (state is AuthenticatedUser) {
                               return Text(
-                                state.userProfile!.location != null ? state.userProfile!.location!.name! : locationmessage,
+                                state.userProfile!.location != null ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}' : locationmessage,
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.white,
