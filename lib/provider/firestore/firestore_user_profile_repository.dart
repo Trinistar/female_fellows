@@ -21,6 +21,17 @@ class FirestoreUserProfileRepository {
     });
   }
 
+  Stream<UserLocation?> loadUserProfileLocationData(String userId) {
+    return FirestoreRepository().firestoreInstance.collection('user/$userId/data').doc('geodata').snapshots().map((DocumentSnapshot<Object> snapshot) {
+      if (snapshot.exists) {
+        final UserLocation userLocation = UserLocation.fromJson(snapshot.data()! as Map<String, dynamic>);
+        return userLocation;
+      } else {
+        return null;
+      }
+    });
+  }
+
   Future<UserLocation?> getUserLocation(String userId) async {
     try {
       final locationRaw = await FirestoreRepository().firestoreInstance.collection('user/$userId/data').doc('geodata').get();

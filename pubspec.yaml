@@ -37,7 +37,7 @@ dependencies:
   youtube_player_flutter: ^8.1.2
   go_router: ^13.1.0
   custom_sliding_segmented_control: ^1.8.1
-  
+  rxdart: ^0.27.7
 
 
 dev_dependencies:

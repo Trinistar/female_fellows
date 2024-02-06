@@ -6,6 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
@@ -46,10 +47,18 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     if (event.user != null) {
       final IdTokenResult tokenResult = await event.user!.getIdTokenResult();
 
-      await emit.onEach(_firestoreUserProfileRepository.loadUserProfile(event.user!.uid), onData: (FFUser? userProfile) async {
-        userProfile!.location = await _firestoreUserProfileRepository.getUserLocation(event.user!.uid);
-        emit(AuthenticatedUser(user: event.user!, userProfile: userProfile, tokenResult: tokenResult));
-      });
+      await emit.onEach(
+        CombineLatestStream.list(<Stream>[_firestoreUserProfileRepository.loadUserProfile(event.user!.uid), _firestoreUserProfileRepository.loadUserProfileLocationData(event.user!.uid)]),
+        onData: (List<dynamic> streams) async {
+          UserLocation location = UserLocation(data: GeoData(geohash: '', location: GeoPoint(0, 0)), name: '', isVisible: true);
+          final FFUser profile = streams[0];
+          if (streams[1] != null) {
+            location = streams[1];
+          }
+          profile.location = location;
+          emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: tokenResult));
+        },
+      );
     } else {
       emit(UnauthenticatedUser());
     }
