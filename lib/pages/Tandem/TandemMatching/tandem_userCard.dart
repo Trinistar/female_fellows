@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_success.dart';
@@ -146,14 +145,15 @@ class TandemUserCard extends StatelessWidget {
                         height: 60,
                         child: CircularProgressIndicator(
                           backgroundColor: Colors.white,
-                          value: 1.0,
+                          value: user.tandemMatch,
                           strokeWidth: 4,
                           valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondary),
                         ),
                       ),
                       Text(
-                        '100%',
+                        '${(user.tandemMatch! * 100).toInt()}%\nMatch',
                         style: TextStyle(color: Colors.white),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),

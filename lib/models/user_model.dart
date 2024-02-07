@@ -28,6 +28,8 @@ class FFUser {
   UserLocation? location;
   String? aboutMe;
   TandemTypeFilter? tandemTypeFilter;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  double? tandemMatch;
 
   FFUser({
     this.id,
@@ -46,6 +48,7 @@ class FFUser {
     this.location,
     this.aboutMe,
     this.tandemTypeFilter,
+    this.tandemMatch = 0.0,
   });
 
   factory FFUser.fromJson(Map<String, dynamic> json) => _$FFUserFromJson(json);
