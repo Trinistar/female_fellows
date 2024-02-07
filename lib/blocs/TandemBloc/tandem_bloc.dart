@@ -38,6 +38,8 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
 
   final FirestoreUserProfileRepository _firestoreUserprofileRepository;
 
+  final int _matchingFactor = 4;
+
   Future<void> _onUpdateTandemFilterEvent(UpdateTandemFilterEvent event, Emitter<TandemState> emit) async {
     return emit.onEach(
       _firestoreUserprofileRepository.getAllTandems(event.profile.tandemTypeFilter.toString()),
@@ -96,7 +98,7 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
             final double distanceBetween = ownGeoFire.distanceBetweenInKm(geopoint: user.location!.data!.location);
             if (distanceBetween < 20) {
               geoTandems.add(user);
-              locationDistance = 1 / distanceBetween / 2;
+              locationDistance = 1 / distanceBetween * _matchingFactor / 2;
             }
           }
           user.tandemMatch = (locationDistance.abs() + _getMatchByAge(profile, user)).clamp(0, 1);
@@ -114,7 +116,7 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
     if (tandem.birthday != null && profile.birthday != null) {
       final DateTime ownBirthday = profile.birthday!.toDate();
       final Duration difference = ownBirthday.difference(tandem.birthday!.toDate());
-      ageDistance = 1 / (difference.inDays / 365);
+      ageDistance = 1 / (difference.inDays / 365).abs() * _matchingFactor;
     }
     if (profile.tandemTypeFilter == TandemTypeFilter.all) {
       return ageDistance.abs().clamp(0, 1);
