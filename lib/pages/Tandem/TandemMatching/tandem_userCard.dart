@@ -45,7 +45,7 @@ class TandemUserCard extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 8.0),
                                   child: Text(
-                                    user.location != null ? user.location!.name! : '',
+                                    user.location != null ? user.location!.name! : 'Keine Angabe',
                                     style: TextStyle(fontSize: 15),
                                   ),
                                 )
@@ -59,10 +59,18 @@ class TandemUserCard extends StatelessWidget {
                                   padding: const EdgeInsets.only(left: 8.0),
                                   child: SizedBox(
                                     width: 200,
-                                    child: Text(
-                                      'Arabisch (Muttersprache), Deutsch (sehr gut), Englisch (sehr gut)',
-                                      style: TextStyle(fontSize: 15),
-                                    ),
+                                    child: user.languages?.main != null
+                                        ? Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text('- ${user.languages!.main!.name} (Muttersprache)', style: TextStyle(fontSize: 15)),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: user.languages!.additional!.map((e) => Text('- ${e.name}', style: TextStyle(fontSize: 15))).toList(),
+                                              )
+                                            ],
+                                          )
+                                        : Text('Keine Angaben'),
                                   ),
                                 ),
                               ],
