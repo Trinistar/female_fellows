@@ -40,6 +40,9 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
       aboutMe: json['aboutMe'] as String?,
       tandemTypeFilter: $enumDecodeNullable(
           _$TandemTypeFilterEnumMap, json['tandemTypeFilter']),
+      languages: json['languages'] == null
+          ? null
+          : UserLanguages.fromJson(json['languages'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
@@ -59,6 +62,7 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'location': instance.location?.toJson(),
       'aboutMe': instance.aboutMe,
       'tandemTypeFilter': _$TandemTypeFilterEnumMap[instance.tandemTypeFilter],
+      'languages': instance.languages?.toJson(),
     };
 
 const _$LocalOrNewcomerEnumMap = {
@@ -79,3 +83,30 @@ const _$TandemTypeFilterEnumMap = {
   TandemTypeFilter.all: 'all',
   TandemTypeFilter.nearby: 'nearby',
 };
+
+UserLanguages _$UserLanguagesFromJson(Map<String, dynamic> json) =>
+    UserLanguages(
+      main: json['main'] == null
+          ? null
+          : FFLanguage.fromJson(json['main'] as Map<String, dynamic>),
+      additional: (json['additional'] as List<dynamic>?)
+          ?.map((e) => FFLanguage.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$UserLanguagesToJson(UserLanguages instance) =>
+    <String, dynamic>{
+      'main': instance.main?.toJson(),
+      'additional': instance.additional?.map((e) => e.toJson()).toList(),
+    };
+
+FFLanguage _$FFLanguageFromJson(Map<String, dynamic> json) => FFLanguage(
+      json['isoCode'] as String,
+      json['name'] as String,
+    );
+
+Map<String, dynamic> _$FFLanguageToJson(FFLanguage instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'isoCode': instance.isoCode,
+    };

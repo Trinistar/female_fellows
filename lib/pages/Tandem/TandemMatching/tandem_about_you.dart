@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
-class TandemAboutYou extends StatelessWidget {
+class TandemAboutYou extends StatefulWidget {
   const TandemAboutYou({super.key});
+
+  @override
+  State<TandemAboutYou> createState() => _TandemAboutYouState();
+}
+
+class _TandemAboutYouState extends State<TandemAboutYou> {
+
+  @override
+  void initState() {
+    if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
+      Controller.aboutYouController.text = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile?.aboutMe ?? '';
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

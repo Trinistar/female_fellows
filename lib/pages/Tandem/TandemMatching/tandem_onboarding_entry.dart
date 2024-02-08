@@ -6,7 +6,6 @@ import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bl
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_about_you.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_languages.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_matching.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class TandemOnboardingEntry extends StatefulWidget {
@@ -19,6 +18,9 @@ class TandemOnboardingEntry extends StatefulWidget {
 class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
   PageController _controller = PageController();
   bool _onLastPage = false;
+  UserLanguages _userLanguages = UserLanguages(main: FFLanguage('de', 'German'), additional: []);
+  void _getUserLanguages(UserLanguages languages) => _userLanguages = languages;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -65,7 +67,7 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
               },
               children: [
                 TandemAboutYou(),
-                TandemLanguages(),
+                TandemLanguages(userLanguages: _getUserLanguages),
               ],
             ),
           ),
@@ -103,6 +105,7 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
                         onPressed: () {
                           final FFUser updatedUserProfile = profile;
                           updatedUserProfile.aboutMe = Controller.aboutYouController.text;
+                          updatedUserProfile.languages = _userLanguages;
                           context.read<AuthenticationBloc>().add(UpdateUserProfileEvent((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid, userProfile: profile));
                           context.read<TandemOnboardingBloc>().add(TandemOnboardingDoneEvent());
 

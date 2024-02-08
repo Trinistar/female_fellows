@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:language_picker/languages.dart';
+
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
@@ -30,6 +32,7 @@ class FFUser {
   TandemTypeFilter? tandemTypeFilter;
   @JsonKey(includeFromJson: false, includeToJson: false)
   double? tandemMatch;
+  UserLanguages? languages;
 
   FFUser({
     this.id,
@@ -49,6 +52,7 @@ class FFUser {
     this.aboutMe,
     this.tandemTypeFilter,
     this.tandemMatch = 0.0,
+    this.languages,
   });
 
   factory FFUser.fromJson(Map<String, dynamic> json) => _$FFUserFromJson(json);
@@ -70,6 +74,28 @@ class FFUser {
         socialMedia,
         aboutMe,
       ];
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserLanguages {
+  UserLanguages({
+    required this.main,
+    required this.additional,
+  });
+
+  FFLanguage? main;
+  List<FFLanguage>? additional;
+
+  factory UserLanguages.fromJson(Map<String, dynamic> json) => _$UserLanguagesFromJson(json);
+  Map<String, dynamic> toJson() => _$UserLanguagesToJson(this);
+}
+
+@JsonSerializable()
+class FFLanguage extends Language {
+  FFLanguage(super.isoCode, super.name);
+
+  factory FFLanguage.fromJson(Map<String, dynamic> json) => _$FFLanguageFromJson(json);
+  Map<String, dynamic> toJson() => _$FFLanguageToJson(this);
 }
 
 /// An entity of Cloud Firestore location document.
