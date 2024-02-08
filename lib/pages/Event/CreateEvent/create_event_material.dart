@@ -11,7 +11,7 @@ class EventMaterial extends StatelessWidget {
       width: 1000,
       color: Theme.of(context).colorScheme.surfaceVariant,
       child: Padding(
-        padding: const EdgeInsets.only(left: 40),
+        padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -23,13 +23,14 @@ class EventMaterial extends StatelessWidget {
             Divider(
               color: Theme.of(context).colorScheme.primary,
               thickness: 5,
-              endIndent: 320,
+              endIndent: 220,
             ),
             Container(
               color: Theme.of(context).colorScheme.surfaceVariant,
               height: 20,
             ),
             ListTile(
+              contentPadding: EdgeInsets.all(0),
               isThreeLine: true,
               leading: SvgPicture.asset(
                 'lib/images/notebook.svg',
@@ -42,6 +43,7 @@ class EventMaterial extends StatelessWidget {
               ),
             ),
             ListTile(
+              contentPadding: EdgeInsets.all(0),
               isThreeLine: true,
               leading: SvgPicture.asset(
                 'lib/images/food.svg',
@@ -54,6 +56,7 @@ class EventMaterial extends StatelessWidget {
               ),
             ),
             ListTile(
+              contentPadding: EdgeInsets.all(0),
               isThreeLine: true,
               leading: Image.asset(
                 'lib/images/Shirt.png',
@@ -67,6 +70,7 @@ class EventMaterial extends StatelessWidget {
               ),
             ),
             ListTile(
+              contentPadding: EdgeInsets.all(0),
               isThreeLine: true,
               leading: Image.asset(
                 'lib/images/Star.png',

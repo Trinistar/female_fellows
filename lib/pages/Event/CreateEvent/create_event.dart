@@ -98,28 +98,21 @@ class _CreateEventState extends State<CreateEvent> {
               Container(
                 color: Colors.white,
                 width: 1000,
-                height: 550,
+                height: 600,
                 child: Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(40),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text('Event Title'),
-                      ),
+                      Text('Event Title'),
                       TextBar(controller: Controller.eventTitleController, hintText: 'Title', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text('Event Datum'),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
+                      Text('Event Datum'),
+                      Center(
                         child: OutlinedButton(
                           onPressed: () {
                             _showdatePicker();
@@ -127,8 +120,7 @@ class _CreateEventState extends State<CreateEvent> {
                           child: const Text('Open Date Picker'),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
+                      Center(
                         child: Text(
                           formatDate(
                             _dateTime,
@@ -140,51 +132,39 @@ class _CreateEventState extends State<CreateEvent> {
                         color: Colors.white,
                         height: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text('Straße'),
-                      ),
+                      Text('Straße'),
                       TextBar(controller: Controller.streetnameController, hintText: 'Straße', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text('Ort'),
-                      ),
+                      Text('Ort'),
                       TextBar(controller: Controller.placeController, hintText: 'Ort', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text('Postleitzahl'),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40),
-                        child: TextFormField(
-                          controller: Controller.zipCodeController,
-                          keyboardType: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
-                          decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
-                              // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Theme.of(context).colorScheme.primary,
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            fillColor: Theme.of(context).colorScheme.surface,
-                            filled: true,
-                            hintText: 'Postleitzahl',
+                      Text('Postleitzahl'),
+                      TextFormField(
+                        controller: Controller.zipCodeController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black87),
+                            // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
+                            borderRadius: BorderRadius.circular(10),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Theme.of(context).colorScheme.primary,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          fillColor: Theme.of(context).colorScheme.surface,
+                          filled: true,
+                          hintText: 'Postleitzahl',
                         ),
                       ),
                     ],
@@ -206,7 +186,7 @@ class _CreateEventState extends State<CreateEvent> {
                 width: 1000,
                 height: 500,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: ListView(
                     physics: NeverScrollableScrollPhysics(),
                     children: [
