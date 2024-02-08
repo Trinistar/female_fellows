@@ -16,13 +16,9 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
-  //keep track of pages
   PageController _controller = PageController();
 
-  int currentPage = 0;
-
-  //keep track of last page
-  bool onLastPage = false;
+  int _currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +45,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               controller: _controller,
               onPageChanged: (index) {
                 setState(() {
-                  onLastPage = (index == 4);
+                  _currentPage = index;
                 });
               },
               children: [
@@ -66,7 +62,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               bottom: 0.0,
               left: 0.0,
               right: 0.0,
-              child: onLastPage
+              child: _currentPage == 4
                   ? Container(
                       height: 60,
                       width: 1000,
@@ -89,21 +85,24 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
+                          _currentPage != 0 ?
                           GestureDetector(
-                              onTap: () {
-                                _controller.jumpToPage(5);
-                              },
-                              child: Text(
-                                AppLocalizations.of(context)!.skip,
-                              )),
+                            onTap: () => _controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.easeIn),
+                            child: Row(
+                              children: [
+                                Icon(Icons.arrow_back),
+                                Text(
+                                  'Zurück',
+                                ),
+                              ],
+                            ),
+                          ) : SizedBox.shrink(),
                           SmoothPageIndicator(
                             controller: _controller,
                             count: 4,
                           ),
                           GestureDetector(
-                            onTap: () {
-                              _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
-                            },
+                            onTap: () => _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn),
                             child: Row(
                               children: [
                                 Text(
