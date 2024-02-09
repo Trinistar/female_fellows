@@ -41,7 +41,7 @@ class _TandemAboutYouState extends State<TandemAboutYou> {
             ),
             Center(
               child: CircleAvatar(
-                backgroundImage: AssetImage('lib/images/dolmetcher.png'),
+                backgroundImage: AssetImage('lib/images/dolmetcher.svg'),
                 radius: 100,
                 backgroundColor: Theme.of(context).colorScheme.secondary,
               ),

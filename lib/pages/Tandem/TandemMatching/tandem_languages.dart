@@ -65,7 +65,7 @@ class _TandemLanguagesState extends State<TandemLanguages> {
           ),
           Center(
             child: CircleAvatar(
-              backgroundImage: AssetImage('lib/images/dolmetcher.png'),
+              backgroundImage: AssetImage('lib/images/dolmetcher.svg'),
               radius: 100,
               backgroundColor: Theme.of(context).colorScheme.secondary,
             ),
@@ -116,7 +116,7 @@ class _TandemLanguagesState extends State<TandemLanguages> {
           ),
           DropdownMenu<Language>(
             width: 300,
-            initialSelection: _selectedLanguages.first,
+            initialSelection: _selectedLanguages.isNotEmpty ? _selectedLanguages.first : Languages.german,
             dropdownMenuEntries: Languages.defaultLanguages.map((Language lang) {
               return DropdownMenuEntry<Language>(
                 value: lang,
