@@ -26,6 +26,7 @@ import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/pages/Profil/profile.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_onboarding_entry.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_success.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 import 'package:vs_femalefellows/pages/ToolBarNavigation/navigation_page.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
@@ -140,6 +141,13 @@ final GoRouter _router = GoRouter(
                   parentNavigatorKey: _rootNavigatorKey,
                   builder: (BuildContext context, GoRouterState state) {
                     return EventNotAuthenticatedState();
+                  },
+                ),
+                GoRoute(
+                  path: 'tandemSuccess',
+                  parentNavigatorKey: _rootNavigatorKey,
+                  builder: (BuildContext context, GoRouterState state) {
+                    return TandemSuccess();
                   },
                 ),
               ],

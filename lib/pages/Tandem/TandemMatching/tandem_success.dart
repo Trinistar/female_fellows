@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 
 class TandemSuccess extends StatelessWidget {
@@ -23,16 +24,18 @@ class TandemSuccess extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 10),
-              child: Center(child: SvgPicture.asset('lib/images/Jump.svg',width: 250,)),
+              child: Center(
+                  child: SvgPicture.asset(
+                'lib/images/Jump.svg',
+                width: 250,
+              )),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 200),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(60),
-                      topRight: Radius.circular(60)),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60), topRight: Radius.circular(60)),
                   color: Theme.of(context).colorScheme.primary,
                 ),
                 child: Padding(
@@ -53,10 +56,7 @@ class TandemSuccess extends StatelessWidget {
                       child: Text(
                         'Bitte habe etwas Geduld',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
                       ),
                     ),
                     SizedBox(
@@ -71,12 +71,10 @@ class TandemSuccess extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Tandementry()));
+                        context.pop();
                       },
                       child: Container(
                         padding: EdgeInsets.all(25),
-                     
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
                           color: Colors.white,
@@ -84,14 +82,13 @@ class TandemSuccess extends StatelessWidget {
                         child: Center(
                             child: Text(
                           'Jetzt mit Tandem matchen',
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
+                          style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
                         )),
                       ),
                     ),
-                    SizedBox(height: 50,),
+                    SizedBox(
+                      height: 50,
+                    ),
                   ]),
                 ),
               ),

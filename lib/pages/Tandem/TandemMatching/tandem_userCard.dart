@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_success.dart';
@@ -93,9 +94,7 @@ class TandemUserCard extends StatelessWidget {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => TandemSuccess()));
-                        },
+                        onTap: () => context.go('/tandem/tandemSuccess'),
                         child: Container(
                           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                           decoration: BoxDecoration(
