@@ -45,12 +45,17 @@ class HomePageTitle extends StatelessWidget {
                           ),
                         ],
                       ),
-                      CircleAvatar(
-                        backgroundImage: NetworkImage(state.userProfile!.profilPicture != null ? state.userProfile!.profilPicture! : ''),
-                        radius: 25,
-                        backgroundColor:
-                            Theme.of(context).colorScheme.secondary,
-                      ),
+                      (state.userProfile!.profilPicture != null && state.userProfile!.profilPicture!.isNotEmpty)
+                          ? CircleAvatar(
+                              backgroundImage: NetworkImage(state.userProfile!.profilPicture!),
+                              radius: 25,
+                              backgroundColor: Theme.of(context).colorScheme.secondary,
+                            )
+                          : CircleAvatar(
+                              backgroundImage: AssetImage('lib/images/ImageIcon.png'),
+                              radius: 25,
+                              backgroundColor: Theme.of(context).colorScheme.secondary,
+                            ),
                     ],
                   );
                 } else if (state is UnauthenticatedUser) {

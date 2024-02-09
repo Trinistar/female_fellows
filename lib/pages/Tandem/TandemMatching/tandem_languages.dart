@@ -20,8 +20,8 @@ class TandemLanguages extends StatefulWidget {
 class _TandemLanguagesState extends State<TandemLanguages> {
   List<Language> _selectedLanguages = [];
   List<FFLanguage> _ffLanguages = [];
-  late Language _selectedLanguage;
-  late Language _lang;
+  Language _selectedLanguage = Languages.german;
+  Language _lang = Languages.german;
 
   @override
   void initState() {
@@ -31,7 +31,7 @@ class _TandemLanguagesState extends State<TandemLanguages> {
         final FFLanguage lang = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile?.languages?.main ?? FFLanguage('de', 'German');
         _lang = Language(lang.isoCode, lang.name);
         final List<FFLanguage> additional = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile?.languages?.additional ?? [];
-        _ffLanguages = additional;
+        _ffLanguages.addAll(additional);
         for (final FFLanguage lang in additional) {
           _selectedLanguages.add(Language(lang.isoCode, lang.name));
         }
