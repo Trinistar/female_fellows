@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/SignedupEvent/signedup_event_bloc.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/event_ListTile.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SingedUpEvents extends StatelessWidget {
   @override
@@ -14,7 +15,7 @@ class SingedUpEvents extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.only(top: 50.0),
               child: Text(
-                'Du hast dich noch für keine Events angemeldet',
+                AppLocalizations.of(context)!.eventsPageEventState,
                 style: TextStyle(fontStyle: FontStyle.italic),
                 textAlign: TextAlign.center,
               ),
@@ -24,7 +25,8 @@ class SingedUpEvents extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () => context.go('/events/detailEvent/${state.favorites[index].id!}'),
+                onTap: () => context
+                    .go('/events/detailEvent/${state.favorites[index].id!}'),
                 child: EventListTile(
                   event: state.favorites[index],
                 ),
@@ -36,7 +38,7 @@ class SingedUpEvents extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(top: 50.0),
             child: Text(
-              'Du hast dich noch für keine Events angemeldet',
+              AppLocalizations.of(context)!.eventsPageEventState,
               style: TextStyle(fontStyle: FontStyle.italic),
               textAlign: TextAlign.center,
             ),

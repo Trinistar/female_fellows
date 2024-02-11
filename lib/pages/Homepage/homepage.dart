@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              AppLocalizations.of(context).homeTandemstoriesTitle,
+              AppLocalizations.of(context)!.homeTandemstoriesTitle,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
           ),
@@ -97,7 +97,7 @@ class _HomeState extends State<Home> {
                 Padding(
                   padding: const EdgeInsets.only(left: 40),
                   child: Text(
-                    'Neuigkeiten',
+                    AppLocalizations.of(context)!.homeNewsTitle,
                     style: TextStyle(fontSize: 20),
                   ),
                 ),

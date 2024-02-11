@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Mission extends StatelessWidget {
   const Mission({super.key});
@@ -35,7 +37,7 @@ class Mission extends StatelessWidget {
                             }),
                       ),
                       Text(
-                        'Unsere Mission',
+                        AppLocalizations.of(context)!.homeVereinInfoOneTitle,
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                       Divider(
@@ -50,8 +52,8 @@ class Mission extends StatelessWidget {
                           height: 420,
                           width: 320,
                           child: Text(
-                            'Der Verein Female Fellows e.V. setzt sich aktuell insbesondere für die Stärkung von Frauen mit Flucht- und Migrationserfahrung ein. Unter dem Motto „Hinter jeder starken Frau stehen starke Frauen“ möchten wir zum Fempowerment und damit zu einer Gesellschaft beitragen, die ihre Vielfalt lebt und in der alle gleichberechtigt mitgestalten. Die ehrenamtlich vermittelten Tandem-Projekte in Stuttgart, Bietigheim-Bissingen und Tübingen zeichnen sich daher neben sprachlicher und alltäglicher Unterstützung vor allem durch Events und Unternehmungen jeglicher Art aus – denn Begegnungen sind der Schlüssel für einen inspirierenden, helfenden, offenen und horizonterweiternden Umgang miteinander.',
-                            style: TextStyle(color: Colors.white),
+                           AppLocalizations.of(context)!.homeVereinInfoOneBody,
+                           style: TextStyle(color: Colors.white),
                           ),
                         ),
                       ),

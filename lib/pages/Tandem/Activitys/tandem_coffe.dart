@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TandemCoffe extends StatefulWidget {
   const TandemCoffe({super.key});
@@ -38,7 +39,7 @@ class _TandemCoffeState extends State<TandemCoffe> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Ins Café gehen',
+                    AppLocalizations.of(context)!.tandemActivityOneTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -51,7 +52,7 @@ class _TandemCoffeState extends State<TandemCoffe> {
                       height: 10,
                     ),
                     Text(
-                      'Viele unserer Tandems gehen sehr gerne in Cafés zum quatschen, Deutsch lernen oder einfach um sich auszutauschen.Hier findest du eine kleine Liste mit coolen Cafés:',
+                      AppLocalizations.of(context)!.tandemActivityOneBody,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
@@ -105,7 +106,7 @@ class _TandemCoffeState extends State<TandemCoffe> {
                   height: 50,
                 ),
                 Text(
-                  'Nach Standort suchen',
+                AppLocalizations.of(context)!.eventsPageGetLocation,
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
                 Divider(

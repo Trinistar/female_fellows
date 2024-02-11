@@ -4,6 +4,8 @@ import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class EventChildCareAuthentication extends StatefulWidget {
   const EventChildCareAuthentication({super.key, this.needsChildCare});
@@ -34,7 +36,7 @@ class _EventChildCareAuthenticationState
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-              'Brauchst du eine\nKinderbetreuung?',
+              AppLocalizations.of(context)!.eventRegistrationTwoTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -62,7 +64,7 @@ class _EventChildCareAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      'Ja',
+                      AppLocalizations.of(context)!.eventRegistrationTwoFilterTwo,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -80,7 +82,7 @@ class _EventChildCareAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      'Nein',
+                      AppLocalizations.of(context)!.eventRegistrationTwoFilterOne,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -105,7 +107,7 @@ class _EventChildCareAuthenticationState
                           Padding(
                             padding: const EdgeInsets.only(left: 40),
                             child: Text(
-                              'Name des Kindes',
+                              AppLocalizations.of(context)!.eventRegistrationTwoFieldTwo,
                               style: TextStyle(
                                 fontSize: 15,
                               ),
@@ -113,7 +115,7 @@ class _EventChildCareAuthenticationState
                           ),
                           TextBar(
                             controller: Controller.childNameController,
-                            hintText: 'Name',
+                            hintText: AppLocalizations.of(context)!.eventRegistrationTwoFieldTwo1,
                             obscureText: false,
                             onChange: (String text) => widget.needsChildCare!(
                                 ChildCare(needed: true, childName: text)),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class UpdateDesciption extends StatefulWidget {
   const UpdateDesciption({super.key, required this.event});
@@ -31,7 +33,7 @@ class _UpdateDesciptionState extends State<UpdateDesciption> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            'Über das Event',
+            AppLocalizations.of(context)!.eventOneTitleOne,
             style: TextStyle(fontSize: 20),
           ),
           Divider(

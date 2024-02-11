@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EventImages extends StatelessWidget {
   const EventImages({super.key});
@@ -12,7 +13,7 @@ class EventImages extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Bilder von den letzten Events',
+            AppLocalizations.of(context)!.eventOneTitleThree,
             style: TextStyle(fontSize: 20),
           ),
           Divider(

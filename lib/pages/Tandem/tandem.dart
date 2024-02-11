@@ -13,6 +13,9 @@ import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_carousel.dart'
 import 'package:vs_femalefellows/pages/Tandem/tandem_comments.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_faqs.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_header.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
 
 class Tandementry extends StatefulWidget {
   const Tandementry({super.key});
@@ -79,7 +82,7 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          state.userProfile?.localOrNewcomer == LocalOrNewcomer.local ? 'Als Local beim Tandem-Projekt mitmachen' : 'Als Newcomerin beim Tandem-Projekt mitmachen',
+                          state.userProfile?.localOrNewcomer == LocalOrNewcomer.local ? AppLocalizations.of(context)!.tandemMatchLocal : AppLocalizations.of(context)!.tandemMatchNewcomer,
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
@@ -96,8 +99,8 @@ class _TandementryState extends State<Tandementry> {
                         width: 350,
                         child: Text(
                           state.userProfile?.localOrNewcomer == LocalOrNewcomer.local
-                              ? 'Du wohnst schon länger in Deutschland und möchtest dich für ein gutes Zusammenleben ALLER stark machen, und bist an einem kulturellen'
-                              : 'Du bist entweder neu in Deutschland oder wohnst schon länger in Deutschland? Du wünschst dir eine Freundin zum Austauschen oder Kontakt zu Frauen,',
+                              ? AppLocalizations.of(context)!.tandemThirdStepBody
+                              : AppLocalizations.of(context)!.tandemThirdStepBody2,
                           style: TextStyle(fontSize: 15),
                         ),
                       ),
@@ -114,7 +117,7 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          'Als Local oder Newcomerin beim Tandem-Projekt mitmachen',
+                          AppLocalizations.of(context)!.tandemLocalOrNewcomer,
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
@@ -130,7 +133,7 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          'Das Female Fellows Tandemprojekt verbindet Frauen mit und ohne Flucht- und Migrationserfahrung. ',
+                          AppLocalizations.of(context)!.tandemSlogan,
                           style: TextStyle(fontSize: 15),
                         ),
                       ),
@@ -143,7 +146,7 @@ class _TandementryState extends State<Tandementry> {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              'Mehr erfahren',
+              AppLocalizations.of(context)!.getMore,
               style: TextStyle(fontSize: 12, color: Colors.amber[900]),
             ),
           ),
@@ -166,7 +169,7 @@ class _TandementryState extends State<Tandementry> {
                 Row(
                   children: [
                     Text(
-                      'Wie funktioniert´s',
+                      AppLocalizations.of(context)!.tandemHowDoesItWork,
                       style: TextStyle(fontSize: 20),
                     ),
                     SizedBox(
@@ -212,7 +215,7 @@ class _TandementryState extends State<Tandementry> {
                     ),
                     child: Center(
                       child: Text(
-                        'Jetzt mit Tandem matchen',
+                        AppLocalizations.of(context)!.tandemMatchNow,
                         style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     ),
@@ -230,7 +233,7 @@ class _TandementryState extends State<Tandementry> {
                     ),
                     child: Center(
                       child: Text(
-                        'Jetzt mit Tandem matchen',
+                        AppLocalizations.of(context)!.tandemMatchNow,
                         style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     ),
@@ -251,7 +254,7 @@ class _TandementryState extends State<Tandementry> {
                   SizedBox(
                     width: 350,
                     child: Text(
-                      'Was kann man als Tandem gemeinsam unternehmen? ',
+                      AppLocalizations.of(context)!.tandemActivitiesTitle,
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -289,7 +292,7 @@ class _TandementryState extends State<Tandementry> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Tandem-Stories',
+                    AppLocalizations.of(context)!.tandemStorys,
                     style: TextStyle(
                       fontSize: 20,
                     ),

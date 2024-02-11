@@ -16,6 +16,8 @@ import 'package:vs_femalefellows/pages/Event/EventDetail/event_pictures.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/widgets/favorites_icon_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class DetailEvent extends StatefulWidget {
   DetailEvent({super.key, required this.eventId});
@@ -144,19 +146,19 @@ class _DetailEventState extends State<DetailEvent> {
                     map['participating'] = false;
                     context.read<AuthenticationBloc>().add(RevokeEventParticipationEvent(userId: state.user!.uid, eventId: widget.eventId, userData: state.userProfile!, participation: map));
                   },
-                  text: 'Anmeldung zurückziehen',
+                  text: AppLocalizations.of(context)!.eventButtonSignout,
                   color: Colors.red,
                 );
               } else {
                 return FFButton(
                   onTap: () => context.go('/events/detailEvent/${widget.eventId}/eventOnboarding', extra: eventState),
-                  text: 'Verbindlich anmelden',
+                  text: AppLocalizations.of(context)!.eventButtonSignout ,
                 );
               }
             } else if (state is UnauthenticatedUser) {
               return FFButton(
                 onTap: () => context.go('/events/detailEvent/${widget.eventId}/eventNotAuthenticated', extra: eventState),
-                text: 'Verbindlich anmelden',
+                text: AppLocalizations.of(context)!.eventButtonSignin,
               );
             } else {
               return SizedBox.shrink();

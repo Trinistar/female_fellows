@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_coffe.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class ActivityCofe extends StatelessWidget {
   const ActivityCofe({super.key});
@@ -28,7 +30,7 @@ class ActivityCofe extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
-                    'Ins Café gehen',
+                    AppLocalizations.of(context)!.tandemActivityOneTitle,
                     style: TextStyle(fontSize: 13),
                     textAlign: TextAlign.center,
                   ),

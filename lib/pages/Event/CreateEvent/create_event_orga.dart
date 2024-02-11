@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class OrgaEvent extends StatelessWidget {
   const OrgaEvent({super.key});
@@ -35,7 +37,7 @@ class OrgaEvent extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'Orga des Events',
+                          AppLocalizations.of(context)!.createEventOrga,
                           style: TextStyle(fontSize: 20, color: Colors.white),
                         ),
                       ],
@@ -60,13 +62,13 @@ class OrgaEvent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              'Veranstalter',
+              AppLocalizations.of(context)!.createEventsHost,
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
           TextBar(
               controller: Controller.hostController,
-              hintText: 'Host',
+              hintText: AppLocalizations.of(context)!.createEventsHost,
               obscureText: false,
               onChange: null,
               validator: null),
@@ -77,13 +79,13 @@ class OrgaEvent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              'Kontaktperson',
+              AppLocalizations.of(context)!.createEventsContactPerson,
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
           TextBar(
               controller: Controller.contactPersonController,
-              hintText: 'Kontaktperson',
+              hintText:    AppLocalizations.of(context)!.createEventsContactPerson,
               obscureText: false,
               onChange: null,
               validator: null),
@@ -94,13 +96,13 @@ class OrgaEvent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              'Eventemail',
+              AppLocalizations.of(context)!.createEventMail,
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
           TextBar(
               controller: Controller.eventEmailController,
-              hintText: 'Eventemail',
+              hintText:               AppLocalizations.of(context)!.createEventMail,
               obscureText: false,
               onChange: null,
               validator: null),
@@ -111,7 +113,7 @@ class OrgaEvent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              'Eventhandynummer',
+              AppLocalizations.of(context)!.createEventHandy,
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
@@ -138,7 +140,7 @@ class OrgaEvent extends StatelessWidget {
                 ),
                 fillColor: Theme.of(context).colorScheme.surface,
                 filled: true,
-                hintText: 'Eventhandynummer',
+                hintText:  AppLocalizations.of(context)!.createEventHandy,
               ),
             ),
           ),
@@ -149,13 +151,13 @@ class OrgaEvent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              'Event WhatsApp Gruppen Link',
+              AppLocalizations.of(context)!.createEventWhatsApp,
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
           TextBar(
             controller: Controller.whatsAppLinkController,
-            hintText: 'WhatsApp Gruppen Link',
+            hintText:   AppLocalizations.of(context)!.createEventWhatsApp,
             obscureText: false,
             onChange: null,
             validator: (value) {

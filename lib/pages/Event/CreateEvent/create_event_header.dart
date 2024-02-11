@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class HeaderEvent extends StatelessWidget {
   const HeaderEvent({super.key});
@@ -41,7 +43,7 @@ class HeaderEvent extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 40),
                 child: Text(
-                  'Create Events',
+                  AppLocalizations.of(context)!.createEventsTitle,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,

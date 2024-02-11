@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ThirdStep extends StatefulWidget {
   const ThirdStep({super.key});
@@ -54,7 +55,7 @@ class _ThirdStepState extends State<ThirdStep> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '3 | Das Kennenlernen',
+                  AppLocalizations.of(context)!.tandemThirdStep,
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 ),
                 Divider(
@@ -67,14 +68,14 @@ class _ThirdStepState extends State<ThirdStep> {
                   height: 10,
                 ),
                 Text(
-                  'Du wohnst schon länger in Deutschland und möchtest dich für ein gutes Zusammenleben ALLER stark machen, und bist an einem kulturellen Austausch interessiert? Dann bist du genau richtig für unser Tandem-Projekt. Wir suchen eine passende Tandem-Partnerin für dich, die deinen kulturellen Horizont erweitern wird und sich im Gegenzug über deine Unterstützung freut. In zusätzlichen monatlichen Gruppenveranstaltungen kannst du dich mit anderen Tandems austauschen und an spannenden Events teilnehmen.',
+                  AppLocalizations.of(context)!.tandemThirdStepBody,
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 SizedBox(
                   height: 100,
                 ),
                 Text(
-                  'Als Newcomerin mitmachen ',
+                  AppLocalizations.of(context)!.tandemThirdStepNewcomer,
                   style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
                 Divider(
@@ -87,14 +88,14 @@ class _ThirdStepState extends State<ThirdStep> {
                   height: 10,
                 ),
                 Text(
-                  'Du bist entweder neu in Deutschland oder wohnst schon länger in Deutschland? Du wünschst dir eine Freundin zum Austauschen oder Kontakt zu Frauen, die sich gut in Deutschland und in deiner Umgebung auskennen? Dann bist du genau richtig bei uns! Wir suchen eine passende Tandem-Partnerin für dich, die dir hilft, dich in Deutschland wohlzufühlen. In zusätzlichen monatlichen Gruppenveranstaltungen kannst du dich mit anderen Tandems austauschen und an spannenden Events teilnehmen.',
+                  AppLocalizations.of(context)!.tandemThirdStepBody2,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(
                   height: 100,
                 ),
                 Text(
-                  'Als Local mitmachen:',
+                  AppLocalizations.of(context)!.tandemThirdStepLocal,
                   style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
                 Divider(
@@ -107,7 +108,7 @@ class _ThirdStepState extends State<ThirdStep> {
                   height: 10,
                 ),
                 Text(
-                  'Du wohnst schon länger in Deutschland und möchtest dich für ein gutes Zusammenleben ALLER stark machen, und bist an einem kulturellen Austausch interessiert? Dann bist du genau richtig für unser Tandem-Projekt. Wir suchen eine passende Tandem-Partnerin für dich, die deinen kulturellen Horizont erweitern wird und sich im Gegenzug über deine Unterstützung freut. In zusätzlichen monatlichen Gruppenveranstaltungen kannst du dich mit anderen Tandems austauschen und an spannenden Events teilnehmen.',
+           AppLocalizations.of(context)!.tandemThirdStepBody,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 )
               ],
@@ -118,7 +119,7 @@ class _ThirdStepState extends State<ThirdStep> {
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: YoutubePlayer(controller: _controller,
                   
-            onReady: () => debugPrint('Ready'),
+            onReady: () => debugPrint(AppLocalizations.of(context)!.tandemReady),
             showVideoProgressIndicator: true,),
           ),
           SizedBox(
@@ -138,7 +139,7 @@ class _ThirdStepState extends State<ThirdStep> {
               ),
               child: Center(
                   child: Text(
-                'Jetzt mit Tandem matchen',
+                AppLocalizations.of(context)!.tandemMatchingAngefragtButtonMatching,
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               )),

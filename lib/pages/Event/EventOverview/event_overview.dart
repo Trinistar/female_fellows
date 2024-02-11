@@ -10,6 +10,8 @@ import 'package:vs_femalefellows/pages/Event/EventOverview/all_events_page.dart'
 import 'package:vs_femalefellows/pages/Event/EventOverview/favorite_events.page.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class EventOverview extends StatefulWidget {
   const EventOverview({
@@ -168,7 +170,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Dein Standort',
+                        AppLocalizations.of(context)!.eventsPageGetLocation,
                         style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
                       ),
                       BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -201,7 +203,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Datum wählen',
+                          AppLocalizations.of(context)!.eventsPageAllFilter,
                           style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
                         ),
                         Text(
@@ -226,7 +228,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                   flex: 5,
                   child: SizedBox(
                     child: SearchBar(
-                      hintText: 'Suche nach',
+                      hintText: AppLocalizations.of(context)!.eventsPageAllSearchFieldPlaceholder,
                       controller: Controller.searchbarController,
                       onTap: null,
                       leading: Padding(
@@ -264,13 +266,13 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
               controller: _tabController,
               tabs: [
                 Tab(
-                  text: 'Alle',
+                  text: AppLocalizations.of(context)!.eventsPageAllDefaultSection,
                 ),
                 Tab(
-                  text: 'Angemeldet',
+                  text: AppLocalizations.of(context)!.eventsPageAllSectionTwo,
                 ),
                 Tab(
-                  text: 'Favoriten',
+                  text: AppLocalizations.of(context)!.eventsPageAllSectionThree,
                 ),
               ],
             ),
@@ -324,7 +326,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
           TextButton(
               onPressed: null,
               child: Text(
-                'Mehr Events anzeigen',
+                AppLocalizations.of(context)!.eventsPageAllButtonOne,
                 style: TextStyle(color: Colors.black, fontSize: 17),
               )),
           SizedBox(
@@ -341,7 +343,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Events vorschlagen',
+                    AppLocalizations.of(context)!.eventsPageAllTitle,
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                   Divider(
@@ -350,7 +352,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                     color: Colors.white,
                   ),
                   Text(
-                    'Du kannst dein eigenes Events organisieren oder\nEvents von anderen Organisationen vorschlagen.',
+                   AppLocalizations.of(context)!.eventsPageAllSubtitle ,
                     style: TextStyle(fontSize: 13, color: Colors.white),
                   ),
                   SizedBox(

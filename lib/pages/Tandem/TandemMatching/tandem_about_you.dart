@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TandemAboutYou extends StatelessWidget {
   const TandemAboutYou({super.key});
@@ -14,7 +15,7 @@ class TandemAboutYou extends StatelessWidget {
         child: ListView(
           children: [
             Text(
-              'Erzähl uns etwas\nüber dich?',
+              AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayOneTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -53,14 +54,14 @@ class TandemAboutYou extends StatelessWidget {
                 ),
                 fillColor: Theme.of(context).colorScheme.surface,
                 filled: true,
-                hintText: 'z.B. Ich bin aus Syrien und habe Interesse an kulturellem Austausch und beruflicher Orientierung in Deutschland.',
+                hintText:AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayOneFieldPlaceholder,
               ),
             ),
             SizedBox(
               height: 20,
             ),
             Text(
-              '*Um dich mit deiner perfekten Tandem-Partnerin zu matchen, müssen wir ein bisschen mehr über dich erfahren.',
+              AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayOneFieldPlaceholder2,
               style: TextStyle(fontSize: 12),
             ),
           ],

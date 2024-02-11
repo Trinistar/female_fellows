@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TandemSuccess extends StatelessWidget {
   const TandemSuccess({super.key});
@@ -23,7 +24,11 @@ class TandemSuccess extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 10),
-              child: Center(child: SvgPicture.asset('lib/images/Jump.svg',width: 250,)),
+              child: Center(
+                  child: SvgPicture.asset(
+                'lib/images/Jump.svg',
+                width: 250,
+              )),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 200),
@@ -51,7 +56,7 @@ class TandemSuccess extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        'Bitte habe etwas Geduld',
+                        AppLocalizations.of(context)!.tandemMatchingAngefragtTitle,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.white,
@@ -63,7 +68,7 @@ class TandemSuccess extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      'Es kann bis zu 24 Stunden dauern, dass dem Match zugestimmt wird. Du wirst per E-Mail und in der App eine Nachricht bekommen, ob die Matching-Anfrage zustande gekommen ist. Falls es nicht geklappt hat bekommst du deine drei neuen best Matches vorgeschlagen.',
+                      AppLocalizations.of(context)!.tandemMatchingAngefragtBody,
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
                     SizedBox(
@@ -76,14 +81,13 @@ class TandemSuccess extends StatelessWidget {
                       },
                       child: Container(
                         padding: EdgeInsets.all(25),
-                     
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
                           color: Colors.white,
                         ),
                         child: Center(
                             child: Text(
-                          'Jetzt mit Tandem matchen',
+                          AppLocalizations.of(context)!.tandemMatchingAngefragtButtonMatching,
                           style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -91,7 +95,9 @@ class TandemSuccess extends StatelessWidget {
                         )),
                       ),
                     ),
-                    SizedBox(height: 50,),
+                    SizedBox(
+                      height: 50,
+                    ),
                   ]),
                 ),
               ),

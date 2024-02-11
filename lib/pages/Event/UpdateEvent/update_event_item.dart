@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class UpdateEventDate extends StatefulWidget {
   const UpdateEventDate({super.key, required this.eventState, this.newEventDate});
@@ -73,7 +75,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              'Datum des Events',
+              AppLocalizations.of(context)!.createEventDate2,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -89,7 +91,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              'Veranstalter',
+              AppLocalizations.of(context)!.createEventsHost,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -105,7 +107,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              'Straße',
+              AppLocalizations.of(context)!.createEventStreet,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -116,7 +118,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               decoration: InputDecoration(disabledBorder: InputBorder.none, focusedBorder: InputBorder.none, fillColor: Theme.of(context).colorScheme.surface, hintText: widget.eventState.location.city),
             ),
             subtitle: Text(
-              'Ort',
+              AppLocalizations.of(context)!.createEventPlace,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -132,7 +134,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              'Postleitzahl',
+              AppLocalizations.of(context)!.createEventZipCode,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -151,7 +153,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              'Ansprechpartnerin',
+              AppLocalizations.of(context)!.eventOneRegisteredPerson,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -172,7 +174,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              'Handynummer ',
+              AppLocalizations.of(context)!.authenticationHandy,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -191,7 +193,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              'WhatsApp Gruppenlink',
+              AppLocalizations.of(context)!.updateEventWhatsApp,
               style: TextStyle(fontSize: 12),
             ),
           ),

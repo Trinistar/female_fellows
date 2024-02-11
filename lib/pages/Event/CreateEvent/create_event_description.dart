@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class DescriptionEvent extends StatelessWidget {
   const DescriptionEvent({super.key});
@@ -21,7 +23,7 @@ class DescriptionEvent extends StatelessWidget {
               child: Image.asset('lib/images/Vector.png'),
             ),
             Text(
-              'Event Beschreibung',
+              AppLocalizations.of(context)!.createEventsDescription,
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
             Divider(

@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_success.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TandemUserCard extends StatelessWidget {
   const TandemUserCard({super.key, required this.user});
@@ -97,7 +98,7 @@ class TandemUserCard extends StatelessWidget {
                           ),
                           child: Center(
                               child: Text(
-                            'Als Tandem-Partnerin anfragen',
+                            AppLocalizations.of(context)!.tandemMatchingAngefragtButton2,
                             style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
                           )),
                         ),

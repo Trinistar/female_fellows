@@ -34,14 +34,14 @@ class HomePageTitle extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${AppLocalizations.of(context).homeWelcomeTextOne} ${state.userProfile != null ? state.userProfile!.firstname : ''}',
+                            '${AppLocalizations.of(context)!.homeWelcomeTextOne} ${state.userProfile != null ? state.userProfile!.firstname : ''}',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 30,
                             ),
                           ),
                           Text(
-                             AppLocalizations.of(context).homeWelcomeTextTwo,
+                             AppLocalizations.of(context)!.homeWelcomeTextTwo,
                             style: TextStyle(fontSize: 20, color: Colors.white),
                           ),
                         ],
@@ -144,7 +144,7 @@ class HomePageTitle extends StatelessWidget {
             top: 300,
             left: 40,
             child: Text(
-              AppLocalizations.of(context).homeInfo,
+              AppLocalizations.of(context)!.homeInfo,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
           ),

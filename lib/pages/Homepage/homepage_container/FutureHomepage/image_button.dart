@@ -27,7 +27,7 @@ class ImageButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  AppLocalizations.of(context).homeTandemTeaser,
+                  AppLocalizations.of(context)!.homeTandemTeaser,
                   style: TextStyle(fontSize: 20, color: Colors.white),
                   textAlign: TextAlign.center,
                 ),

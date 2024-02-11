@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_fempowerment.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_kooperations_partner.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_unsere_mission.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class AboutUs extends StatelessWidget {
   const AboutUs({super.key});
@@ -19,7 +21,7 @@ class AboutUs extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Über den Verein',
+               AppLocalizations.of(context)!.homeVereinInfoTitle,
                 style: TextStyle(fontSize: 20),
               ),
               Divider(
@@ -51,7 +53,7 @@ class AboutUs extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20)),
                             child: Image.asset('lib/images/unsereMission.png')),
                         Text(
-                          'Unsere Mission',
+                          AppLocalizations.of(context)!.homeVereinInfoOneTitle,
                           style: TextStyle(fontSize: 20),
                         ),
                         Icon(
@@ -123,7 +125,7 @@ class AboutUs extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20)),
                             child: Image.asset('lib/images/kooperation.png')),
                         Text(
-                          'Kooperationsparnter',
+                         AppLocalizations.of(context)!.homeVereinInfoThreeTitle,
                           style: TextStyle(fontSize: 20),
                         ),
                         Icon(

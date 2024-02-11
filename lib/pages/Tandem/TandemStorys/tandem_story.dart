@@ -41,7 +41,7 @@ class TandemStory extends StatelessWidget {
                               height: 50,
                             ),
                             Text(
-                              AppLocalizations.of(context)
+                              AppLocalizations.of(context)!
                                   .homeTandemstoryOneSubTitle,
                               style: TextStyle(
                                   color: Theme.of(context).colorScheme.tertiary,
@@ -64,7 +64,7 @@ class TandemStory extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                               AppLocalizations.of(context).homeTandemstoryOneBodyOne,
+                               AppLocalizations.of(context)!.homeTandemstoryOneBodyOne,
                                style: TextStyle(fontSize: 15),
                             ),
                             SizedBox(
@@ -122,7 +122,7 @@ class TandemStory extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                              AppLocalizations.of(context).homeTandemstoryOneBodyTwo,
+                              AppLocalizations.of(context)!.homeTandemstoryOneBodyTwo,
                               style: TextStyle(fontSize: 15),
                         ),
                         SizedBox(height: 100),

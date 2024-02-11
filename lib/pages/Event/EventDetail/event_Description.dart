@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/models/events.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class EventDescription extends StatelessWidget {
   const EventDescription({
@@ -18,7 +20,7 @@ class EventDescription extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            'Über das Event',
+            AppLocalizations.of(context)!.eventOneTitleOne,
             style: TextStyle(fontSize: 20),
           ),
           Divider(

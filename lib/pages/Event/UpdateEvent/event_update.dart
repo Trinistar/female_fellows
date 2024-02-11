@@ -15,6 +15,8 @@ import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_description.dart
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_event_item.dart';
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/update_materials.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class UpdateEvent extends StatefulWidget {
   const UpdateEvent({super.key, required this.eventState});
@@ -61,7 +63,7 @@ class _UpdateEventState extends State<UpdateEvent> {
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               title: Text(
-                'Bearbeite das Event',
+              AppLocalizations.of(context)!.updateEventTitle,
               ),
             ),
             backgroundColor: Colors.white,
@@ -88,7 +90,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                           ),
                         ),
                         subtitle: Text(
-                          'Event Title',
+                          AppLocalizations.of(context)!.createEventTitle,
                           style: TextStyle(fontSize: 12),
                         ),
                       ),
@@ -123,7 +125,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                           'lib/images/category.png',
                           cacheHeight: 30,
                         ),
-                        title: Text('Kategorien'),
+                        title: Text(AppLocalizations.of(context)!.eventOneTitleTwo),
                       ),
                       SizedBox(
                         height: 20,
@@ -164,7 +166,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                           );
                       context.pop();
                     },
-                    text: 'Update Event'),
+                    text: AppLocalizations.of(context)!.updateEventButton),
                 SizedBox(
                   height: 30,
                 ),

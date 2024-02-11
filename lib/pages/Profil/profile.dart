@@ -6,6 +6,8 @@ import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divi
 import 'package:vs_femalefellows/pages/Profil/profil_header.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_overview.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_progress.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -108,10 +110,10 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   SizedBox(
                     child: TabBar(controller: _profilTabController, tabs: [
                       Tab(
-                        text: 'Übersicht',
+                        text: AppLocalizations.of(context)!.profilOverview,
                       ),
                       Tab(
-                        text: 'Fortschritt',
+                        text: AppLocalizations.of(context)!.profilProgress,
                       )
                     ]),
                   ),

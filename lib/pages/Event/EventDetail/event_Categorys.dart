@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/CategoriesCubit/categories_cubit.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/models/category.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class EventCategorys extends StatelessWidget {
   EventCategorys({super.key, required this.selectedCats});
@@ -39,7 +41,7 @@ class EventCategorys extends StatelessWidget {
                     'lib/images/category.png',
                     cacheHeight: 30,
                   ),
-                  title: Text('Kategorien'),
+                  title: Text(AppLocalizations.of(context)!.eventOneTitleTwo),
                 ),
                 SizedBox(
                   height: 20,

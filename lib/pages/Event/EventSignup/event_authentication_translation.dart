@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:language_picker/languages.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 enum RadioChoices { ja, nein }
 
@@ -36,7 +38,7 @@ class _EventTranslationAuthenticationState
         child: ListView(
           children: [
             Text(
-              'Brauchst du eine Dolmetcherin beim Event?',
+              AppLocalizations.of(context)!.eventRegistrationOneTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -61,7 +63,7 @@ class _EventTranslationAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      'Ja',
+                      AppLocalizations.of(context)!.eventRegistrationTwoFilterTwo,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -78,7 +80,7 @@ class _EventTranslationAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      'Nein',
+                      AppLocalizations.of(context)!.eventRegistrationTwoFilterOne,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -101,7 +103,7 @@ class _EventTranslationAuthenticationState
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Sprache',
+                            AppLocalizations.of(context)!.eventRegistrationOneFilterThree,
                             style: TextStyle(
                               fontSize: 15,
                             ),

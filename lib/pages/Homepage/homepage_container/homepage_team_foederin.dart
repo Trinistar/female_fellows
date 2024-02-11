@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TeamFoerderin extends StatefulWidget {
   const TeamFoerderin({super.key});
@@ -41,7 +43,7 @@ class _TeamFoerderinState extends State<TeamFoerderin> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20, left: 70),
                     child: Text(
-                      'Werde Teil unseres\nbunten Teams',
+                      AppLocalizations.of(context)!.homeLinkOneTitle,
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
@@ -72,7 +74,7 @@ class _TeamFoerderinState extends State<TeamFoerderin> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20, left: 70),
                     child: Text(
-                      'Förder*in werden',
+                      AppLocalizations.of(context)!.homeLinkTwoTitle,
                       style: TextStyle(fontSize: 20),
                     ),
                   ),

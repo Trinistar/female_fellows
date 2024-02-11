@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_first_step.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_second_step.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_third_step.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TandemSteps extends StatelessWidget {
   const TandemSteps({super.key});
@@ -26,7 +28,7 @@ class TandemSteps extends StatelessWidget {
               padding: const EdgeInsets.only(top: 5),
               child: ListTile(
                 leading: SvgPicture.asset('lib/images/mitglied-werden.svg'),
-                title: Text('1 | Werde Mietglied in unserem Verein'),
+                title: Text(AppLocalizations.of(context)!.tandemFirstStep),
                 trailing: IconButton(onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Firststep()));}, icon: Icon(Icons.add)),
               ),
             ),
@@ -50,7 +52,7 @@ class TandemSteps extends StatelessWidget {
               padding: const EdgeInsets.only(top: 5),
               child: ListTile(
                 leading: SvgPicture.asset('lib/images/tandem-matching.svg'),
-                title: Text('2 | Der Tandem-Matching-Prozess'),
+                title: Text(AppLocalizations.of(context)!.tandemSecondStepnoslash),
                 trailing: IconButton(onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SecondStep()));}, icon: Icon(Icons.add)),
               ),
             ),
@@ -74,7 +76,7 @@ class TandemSteps extends StatelessWidget {
               padding: const EdgeInsets.only(top: 5),
               child: ListTile(
                 leading: SvgPicture.asset('lib/images/kennen-lernen.svg'),
-                title: Text('3 | Das Kennenlernen'),
+                title: Text(AppLocalizations.of(context)!.tandemThirdStep),
                 trailing: IconButton(onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ThirdStep()));}, icon: Icon(Icons.add)),
               ),
             ),

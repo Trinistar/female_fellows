@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Kooperation extends StatelessWidget {
   const Kooperation({super.key});
@@ -38,7 +40,7 @@ class Kooperation extends StatelessWidget {
                           }),
                     ),
                     Text(
-                      'Kooperationspartner',
+                      AppLocalizations.of(context)!.homeVereinInfoThreeTitle,
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                     Divider(
@@ -54,7 +56,7 @@ class Kooperation extends StatelessWidget {
                         height: 300,
                         width: 320,
                         child: Text(
-                          'Vielen Dank! Wir möchten uns bei allen Ehrenamtlichen und fleißigen Helfer*innen für ihre Zeit, Geduld und ihre Begeisterung bedanken. Ein großer Dank gilt auch allen unseren Spender*innen und Unterstützer*innen, die an uns glauben und das Projekt so mittragen. Auch unseren vielen Teilnehmer*innen möchten wir herzlich für ihr Vertrauen, ihre Offenheit und ihre Lebensfreude danken! Ohne euch alle wäre das Projekt nur eine fixe Idee geblieben!',
+                          AppLocalizations.of(context)!.homeVereinInfoThreeBody,
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
@@ -70,7 +72,7 @@ class Kooperation extends StatelessWidget {
                         ),
                         child: Center(
                             child: Text(
-                          'Zu den Kooperationspartnern',
+                          AppLocalizations.of(context)!.homeVereinInfoThreeButton,
                           style: const TextStyle(
                               
                               fontWeight: FontWeight.bold,

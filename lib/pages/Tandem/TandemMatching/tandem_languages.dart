@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:language_picker/languages.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TandemLanguages extends StatefulWidget {
   const TandemLanguages({
@@ -30,7 +32,7 @@ class _TandemLanguagesState extends State<TandemLanguages> {
       child: ListView(
         children: [
           Text(
-            'Welche Sprachen sprichst du?',
+            AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayTitle,
             style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
               fontSize: 28,
@@ -51,7 +53,7 @@ class _TandemLanguagesState extends State<TandemLanguages> {
             height: 50,
           ),
           Text(
-            'Muttersprache',
+            AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayFilterOneTitle,
             style: TextStyle(
               fontSize: 18,
             ),
@@ -89,7 +91,7 @@ class _TandemLanguagesState extends State<TandemLanguages> {
             height: 30,
           ),
           Text(
-            'Andere Sprachen',
+            AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayFilterThreePlaceholder,
             style: TextStyle(
               fontSize: 15,
             ),
