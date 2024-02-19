@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vs_femalefellows/pages/Event/EventOverview/event_overview.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
-import 'package:vs_femalefellows/pages/Profil/profile.dart';
-import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 
 class TabBarNavigation extends StatelessWidget {
   const TabBarNavigation({super.key, required this.navigationShell});
@@ -59,20 +56,35 @@ class TabBarNavigation extends StatelessWidget {
           iconSize: 30,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.people_outline),
+              activeIcon: SvgPicture.asset('lib/images/tandem-active.svg',height: 30,),
+              icon: SvgPicture.asset('lib/images/tandem.svg',height: 30,),
               label: "Tandem",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.event),
+              activeIcon: SvgPicture.asset('lib/images/events-active.svg',height:30,),
+              icon: SvgPicture.asset('lib/images/events.svg',height: 30,),
               label: "Event",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
+              activeIcon: SvgPicture.asset(
+                'lib/images/home-active.svg',
+                height: 50,
+              ),
+              icon: SvgPicture.asset(
+                'lib/images/home.svg',
+                height: 50,
+              ),
               label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
+              activeIcon: SvgPicture.asset('lib/images/profil-active.svg',height: 30,),
+              icon: SvgPicture.asset('lib/images/profil.svg',height: 30,),
               label: "Profil",
+            ),
+            BottomNavigationBarItem(
+              activeIcon: SvgPicture.asset('lib/images/community.svg',height: 30,),
+              icon: SvgPicture.asset('lib/images/community.svg',height: 30,),
+              label:"Chat"
             )
           ],
         ),

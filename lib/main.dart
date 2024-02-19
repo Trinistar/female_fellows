@@ -15,6 +15,7 @@ import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bl
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
+import 'package:vs_femalefellows/pages/Chat/chatentry.dart';
 import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_detail_page.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/event_overview.dart';
@@ -43,6 +44,7 @@ final _tandemTabNavigatorKey = GlobalKey<NavigatorState>();
 final _eventTabNavigatorKey = GlobalKey<NavigatorState>();
 final _homeTabNavigatorKey = GlobalKey<NavigatorState>();
 final _profileTabNavigatorKey = GlobalKey<NavigatorState>();
+final _chatTabNavigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -106,6 +108,7 @@ final GoRouter _router = GoRouter(
         return EventNotAuthenticatedState();
       },
     ),
+
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         // Return the widget that implements the custom shell (e.g a BottomNavigationBar).
@@ -214,6 +217,15 @@ final GoRouter _router = GoRouter(
             GoRoute(
               path: '/home',
               builder: (BuildContext context, GoRouterState state) => const Home(),
+            ),
+          ],
+        ),
+             StatefulShellBranch(
+          navigatorKey: _chatTabNavigatorKey,
+          routes: <RouteBase>[
+            GoRoute(
+              path: '/chat',
+              builder: (BuildContext context, GoRouterState state) => const ChatEntry(),
             ),
           ],
         ),

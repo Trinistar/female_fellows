@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_story.dart';
 
 class TandemItemStory1 extends StatelessWidget {
@@ -10,7 +11,7 @@ class TandemItemStory1 extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: GestureDetector(
         onTap: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> TandemStory()),);
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> TandemStory1()),);
         },
         child: Container(
           alignment: Alignment.bottomCenter,
@@ -21,22 +22,9 @@ class TandemItemStory1 extends StatelessWidget {
           height: 160,
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(40)),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Text(
-                    'Makai & Lisa',
-                    style: TextStyle(fontSize: 13),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Image(
-                  image: AssetImage('lib/images/partner1.png'),
-                  fit: BoxFit.cover,
-                ),
-              ],
+            child: SvgPicture.asset(
+            'lib/images/makai-lisa.svg',
+              fit: BoxFit.cover,
             ),
           ),
         ),

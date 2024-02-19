@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class TandemItemStory3 extends StatelessWidget {
   const TandemItemStory3({super.key});
@@ -16,23 +17,12 @@ class TandemItemStory3 extends StatelessWidget {
         height: 160,
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(40)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Text(
-                  'Felicia & Sina',
-                  style: TextStyle(fontSize: 13,color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              Image(
-                image: AssetImage('lib/images/partner2.png'),
+          child: 
+              SvgPicture.asset(
+                ('lib/images/yasna-franziska.svg'),
                 fit: BoxFit.cover,
               ),
-            ],
-          ),
+          
         ),
       ),
     );

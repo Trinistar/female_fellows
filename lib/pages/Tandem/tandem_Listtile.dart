@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+
 class TandemFAQListTileWidget extends StatefulWidget {
   const TandemFAQListTileWidget({
     super.key,
     required this.faqTitle,
+    required this.faqAnswers
   });
   final String faqTitle;
+  final String faqAnswers;
 
   @override
   State<TandemFAQListTileWidget> createState() => _TandemListTileState();
@@ -41,6 +44,19 @@ class _TandemListTileState extends State<TandemFAQListTileWidget> {
           endIndent: 20,
           color: Theme.of(context).colorScheme.primary,
         ),
+        if(_toogle) Column(
+      children: [
+        ListTile(
+          title: Text(widget.faqAnswers),
+        ),
+        Divider(
+          thickness: 3,
+          indent: 0,
+          endIndent: 20,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+      ],
+    ),
       ],
     );
   }

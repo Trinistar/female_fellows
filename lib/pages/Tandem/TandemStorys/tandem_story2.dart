@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TandemStory1 extends StatelessWidget {
-  const TandemStory1({super.key});
+class TandemStory2 extends StatelessWidget {
+  const TandemStory2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +40,7 @@ class TandemStory1 extends StatelessWidget {
                               height: 50,
                             ),
                             Text(
-                              AppLocalizations.of(context)!
-                                  .homeTandemstoryOneSubTitle,
+                              AppLocalizations.of(context)!.tandemStory2Title,
                               style: TextStyle(
                                   color: Theme.of(context).colorScheme.tertiary,
                                   fontSize: 15),
@@ -51,7 +49,7 @@ class TandemStory1 extends StatelessWidget {
                               height: 5,
                             ),
                             Text(
-                              'Makai & Lisa',
+                              'Yasna & Franziska',
                               style: TextStyle(fontSize: 25),
                             ),
                             Divider(
@@ -64,71 +62,33 @@ class TandemStory1 extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                               AppLocalizations.of(context)!.homeTandemstoryOneBodyOne,
-                               style: TextStyle(fontSize: 15),
+                              AppLocalizations.of(context)!
+                                  .tandemStory2Body,
+                              style: TextStyle(fontSize: 15),
+                            ),
+                              SizedBox(
+                              height: 20,
+                            ),
+                               Text(
+                              AppLocalizations.of(context)!
+                                  .tandemStory2Body1,
+                              style: TextStyle(fontSize: 15),
                             ),
                             SizedBox(
                               height: 20,
                             ),
+                               Text(
+                              AppLocalizations.of(context)!
+                                  .tandemStory2Body2,
+                              style: TextStyle(fontSize: 15),
+                            ),
+
                           ],
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 200,
-                    width: 1000,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        Container(
-                          width: 250,
-                          decoration: BoxDecoration(
-                              color: Colors.amber,
-                              borderRadius: BorderRadius.circular(60)),
-                          child: SvgPicture.asset(
-                            'lib/images/cafe.svg',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Container(
-                          width: 300,
-                          decoration: BoxDecoration(
-                              color: Colors.green,
-                              borderRadius: BorderRadius.circular(60)),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Container(
-                          width: 300,
-                          decoration: BoxDecoration(
-                              color: Colors.pink,
-                              borderRadius: BorderRadius.circular(60)),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                              AppLocalizations.of(context)!.homeTandemstoryOneBodyTwo,
-                              style: TextStyle(fontSize: 15),
-                        ),
-                        SizedBox(height: 100),
-                      ],
-                    ),
-                  )
+                  SizedBox(height: 100)
                 ],
               ),
               BackButton(
