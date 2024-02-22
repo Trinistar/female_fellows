@@ -44,6 +44,12 @@ class _TandementryState extends State<Tandementry> {
             return BlocBuilder<AuthenticationBloc, AuthenticationState>(
               builder: (context, state) {
                 if (state is AuthenticatedUser) {
+                  final bool tandemRequestExists =
+                      state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty || state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty;
+
+                  if (tandemRequestExists) {
+                    return _tandemOnboarding(context);
+                  }
                   return TandemMatching();
                 } else {
                   return _tandemOnboarding(context);
@@ -205,23 +211,65 @@ class _TandementryState extends State<Tandementry> {
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) {
               if (state is AuthenticatedUser) {
-                return GestureDetector(
-                  onTap: () => widget.isInfo ? context.pop() : context.go('/tandem/tandemOnboarding'),
-                  child: Container(
-                    padding: EdgeInsets.all(25),
-                    margin: const EdgeInsets.symmetric(horizontal: 50),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Theme.of(context).colorScheme.primary,
+                final bool tandemRequestExists =
+                    state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty || state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty;
+                if (tandemRequestExists) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Row(
+                      children: [
+                        Center(
+                          child: Stack(
+                            alignment: AlignmentDirectional.center,
+                            children: <Widget>[
+                              SizedBox(
+                                width: 60,
+                                height: 60,
+                                child: CircularProgressIndicator(
+                                  value: 1,
+                                  strokeWidth: 6,
+                                  valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondary),
+                                ),
+                              ),
+                              Text(
+                                '24h',
+                                style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              'Dein Tandem-Match wird angefragt',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                    child: Center(
-                      child: Text(
-                        'Jetzt mit Tandem matchen',
-                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                  );
+                } else {
+                  return GestureDetector(
+                    onTap: () => widget.isInfo ? context.pop() : context.go('/tandem/tandemOnboarding'),
+                    child: Container(
+                      padding: EdgeInsets.all(25),
+                      margin: const EdgeInsets.symmetric(horizontal: 50),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Jetzt mit Tandem matchen',
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                        ),
                       ),
                     ),
-                  ),
-                );
+                  );
+                }
               } else {
                 return GestureDetector(
                   onTap: () => context.go('/tandem/eventNotAuthenticated'),
