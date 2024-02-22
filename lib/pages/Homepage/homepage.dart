@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/FutureHomepage/image_button.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_about_us.dart';
@@ -26,6 +28,16 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+final facebookUrl = Uri.parse(' https://www.facebook.com/FemaleFellows');
+final linkedUrl = Uri.parse('https://www.linkedin.com/company/10924303/admin/feed/posts/');
+final instaUrl = Uri.parse(' https://www.instagram.com/femalefellows/?hl=de');
+final youtubeUrl = Uri.parse('https://www.youtube.com/channel/UC0qt11OqFnAzPI_IGHnR_2w');
+final twitterUrl = Uri.parse('https://twitter.com/femalefellows');
+
+
+final teamUrl = Uri.parse(
+    'https://docs.google.com/forms/d/e/1FAIpQLScsSvgohEYh_PUv9cYMipqOmomXqrqlDnMECPglzP-r3_7_eQ/viewform');
+
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
@@ -37,7 +49,7 @@ class _HomeState extends State<Home> {
         iconTheme: IconThemeData(
           color: Colors.white, //change your color here
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.tertiary,
         toolbarHeight: 10,
       ),
       body: ListView(
@@ -91,7 +103,6 @@ class _HomeState extends State<Home> {
               color1: Colors.white,
               color2: Theme.of(context).colorScheme.surfaceVariant),
           SizedBox(
-            height: 350,
             width: 1000,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -100,7 +111,7 @@ class _HomeState extends State<Home> {
                 Padding(
                   padding: const EdgeInsets.only(left: 40),
                   child: Text(
-                    AppLocalizations.of(context)!.homeNewsTitle,
+                    'Socialmedia',
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -115,17 +126,6 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   height: 20,
                 ),
-                /////////////
-                /////////
-                //////
-                ///
-                SizedBox(
-                  height: 200,
-                ), //TODO content ersetzen
-                /////////////
-                /////////
-                //////
-                ///
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 60),
                   child: Row(
@@ -137,11 +137,14 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.primary,
                             borderRadius: BorderRadius.circular(60)),
-                        child: Icon(
-                          Icons.facebook,
-                          color: Colors.white,
-                          size: 30,
-                        ),
+                        child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                launchUrl(facebookUrl,
+                                    mode: LaunchMode.externalApplication);
+                              });
+                            },
+                            child: Image.asset('lib/images/facebook.png')),
                       ),
                       Container(
                         height: 40,
@@ -149,11 +152,14 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.primary,
                             borderRadius: BorderRadius.circular(60)),
-                        child: Icon(
-                          Icons.facebook,
-                          color: Colors.white,
-                          size: 30,
-                        ),
+                        child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                launchUrl(linkedUrl,
+                                    mode: LaunchMode.externalApplication);
+                              });
+                            },
+                            child: Image.asset('lib/images/linkedin.png')),
                       ),
                       Container(
                         height: 40,
@@ -161,11 +167,14 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.primary,
                             borderRadius: BorderRadius.circular(60)),
-                        child: Icon(
-                          Icons.facebook,
-                          color: Colors.white,
-                          size: 30,
-                        ),
+                        child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                launchUrl(instaUrl,
+                                    mode: LaunchMode.externalApplication);
+                              });
+                            },
+                            child: Image.asset('lib/images/instagram.png')),
                       ),
                       Container(
                         height: 40,
@@ -173,11 +182,14 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.primary,
                             borderRadius: BorderRadius.circular(60)),
-                        child: Icon(
-                          Icons.facebook,
-                          color: Colors.white,
-                          size: 30,
-                        ),
+                        child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                launchUrl(youtubeUrl,
+                                    mode: LaunchMode.externalApplication);
+                              });
+                            },
+                            child: Image.asset('lib/images/youtube.png')),
                       ),
                       Container(
                         height: 40,
@@ -185,11 +197,14 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.primary,
                             borderRadius: BorderRadius.circular(60)),
-                        child: Icon(
-                          Icons.facebook,
-                          color: Colors.white,
-                          size: 30,
-                        ),
+                        child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                launchUrl(twitterUrl,
+                                    mode: LaunchMode.externalApplication);
+                              });
+                            },
+                            child: Image.asset('lib/images/twitter.png')),
                       )
                     ],
                   ),

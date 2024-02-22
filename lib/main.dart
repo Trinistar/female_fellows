@@ -13,6 +13,7 @@ import 'package:vs_femalefellows/blocs/SignedupEvent/signedup_event_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
 import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/pages/AfterTandem/matched_tandem.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
 import 'package:vs_femalefellows/pages/Chat/chatentry.dart';
@@ -36,8 +37,10 @@ import 'package:vs_femalefellows/provider/firestore/firestore_user_profile_repos
 import 'provider/firebase_options.dart';
 
 final AuthRepository authenticationRepository = AuthRepository();
-final FirestoreEventRepository firestoreEventRepository = FirestoreEventRepository();
-final FirestoreUserProfileRepository firestoreUserprofileRepository = FirestoreUserProfileRepository();
+final FirestoreEventRepository firestoreEventRepository =
+    FirestoreEventRepository();
+final FirestoreUserProfileRepository firestoreUserprofileRepository =
+    FirestoreUserProfileRepository();
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _tandemTabNavigatorKey = GlobalKey<NavigatorState>();
@@ -108,7 +111,6 @@ final GoRouter _router = GoRouter(
         return EventNotAuthenticatedState();
       },
     ),
-
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         // Return the widget that implements the custom shell (e.g a BottomNavigationBar).
@@ -129,7 +131,8 @@ final GoRouter _router = GoRouter(
           routes: <RouteBase>[
             GoRoute(
               path: '/tandem',
-              builder: (BuildContext context, GoRouterState state) => const Tandementry(),
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Tandementry(),
               routes: [
                 GoRoute(
                   path: 'tandemOnboarding',
@@ -156,16 +159,19 @@ final GoRouter _router = GoRouter(
           routes: <RouteBase>[
             GoRoute(
               path: '/events',
-              builder: (BuildContext context, GoRouterState state) => const EventOverview(),
+              builder: (BuildContext context, GoRouterState state) =>
+                  const EventOverview(),
               routes: <RouteBase>[
                 GoRoute(
                   path: 'detailEvent/:id',
                   parentNavigatorKey: _rootNavigatorKey,
-                  builder: (BuildContext context, GoRouterState state) => DetailEvent(eventId: state.pathParameters['id']!),
+                  builder: (BuildContext context, GoRouterState state) =>
+                      DetailEvent(eventId: state.pathParameters['id']!),
                   routes: [
                     GoRoute(
                       redirect: (context, state) {
-                        if (context.read<AuthenticationBloc>().state is AuthenticatedUser) {
+                        if (context.read<AuthenticationBloc>().state
+                            is AuthenticatedUser) {
                           return 'detailEvent/:id';
                         } else {
                           return null;
@@ -205,7 +211,8 @@ final GoRouter _router = GoRouter(
                 GoRoute(
                   path: 'createEvent',
                   parentNavigatorKey: _rootNavigatorKey,
-                  builder: (BuildContext context, GoRouterState state) => CreateEvent(),
+                  builder: (BuildContext context, GoRouterState state) =>
+                      CreateEvent(),
                 ),
               ],
             ),
@@ -216,16 +223,8 @@ final GoRouter _router = GoRouter(
           routes: <RouteBase>[
             GoRoute(
               path: '/home',
-              builder: (BuildContext context, GoRouterState state) => const Home(),
-            ),
-          ],
-        ),
-             StatefulShellBranch(
-          navigatorKey: _chatTabNavigatorKey,
-          routes: <RouteBase>[
-            GoRoute(
-              path: '/chat',
-              builder: (BuildContext context, GoRouterState state) => const ChatEntry(),
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Home(),
             ),
           ],
         ),
@@ -241,7 +240,8 @@ final GoRouter _router = GoRouter(
                 }
               }, */
               path: '/profile',
-              builder: (BuildContext context, GoRouterState state) => const Profile(),
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Profile(),
               routes: [
                 GoRoute(
                   path: 'registrationPage',
@@ -260,6 +260,18 @@ final GoRouter _router = GoRouter(
             ),
           ],
         ),
+       
+        StatefulShellBranch(
+          navigatorKey: _chatTabNavigatorKey,
+          routes: <RouteBase>[
+            GoRoute(
+              path: '/chat',
+              builder: (BuildContext context, GoRouterState state) =>
+     ///********************************* CHANGE ROUTE TO CHATENTRY  **************************************************************///
+                  const AfterTandem(),
+            ),
+          ],
+        ),
       ],
     ),
   ],
@@ -273,12 +285,16 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthenticationBloc>(
-          create: (BuildContext context) => AuthenticationBloc(authenticationRepository: authenticationRepository),
+          create: (BuildContext context) => AuthenticationBloc(
+              authenticationRepository: authenticationRepository),
           lazy: false,
         ),
-        BlocProvider(create: (BuildContext context) => EventBloc(firestoreEventRepository)),
+        BlocProvider(
+            create: (BuildContext context) =>
+                EventBloc(firestoreEventRepository)),
         BlocProvider<FavoritesBloc>(
-          create: (BuildContext context) => FavoritesBloc(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) =>
+              FavoritesBloc(BlocProvider.of<AuthenticationBloc>(context)),
           lazy: false,
         ),
         /* BlocProvider<FavoriteEventStore>(
@@ -287,7 +303,8 @@ class MyApp extends StatelessWidget {
         ), */
         BlocProvider<SignedupEventsBloc>(
           lazy: false,
-          create: (BuildContext context) => SignedupEventsBloc(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) =>
+              SignedupEventsBloc(BlocProvider.of<AuthenticationBloc>(context)),
         ),
         /* BlocProvider<SubscribedEventsStore>(
           lazy: false,
@@ -303,14 +320,18 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<OnboardingBloc>(
           lazy: false,
-          create: (BuildContext context) => OnboardingBloc(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) =>
+              OnboardingBloc(BlocProvider.of<AuthenticationBloc>(context)),
         ),
         BlocProvider<TandemOnboardingBloc>(
           lazy: false,
-          create: (BuildContext context) => TandemOnboardingBloc(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) => TandemOnboardingBloc(
+              BlocProvider.of<AuthenticationBloc>(context)),
         ),
         BlocProvider<TandemBloc>(
-          create: (BuildContext context) => TandemBloc(firestoreUserprofileRepository, BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) => TandemBloc(
+              firestoreUserprofileRepository,
+              BlocProvider.of<AuthenticationBloc>(context)),
           lazy: false,
         ),
         /* RepositoryProvider(

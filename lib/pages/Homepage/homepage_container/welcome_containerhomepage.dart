@@ -18,7 +18,7 @@ class HomePageTitle extends StatelessWidget {
             height: 380,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(bottomRight: Radius.circular(60)),
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).colorScheme.tertiary,
             ),
           ),
           Padding(
@@ -70,7 +70,7 @@ class HomePageTitle extends StatelessWidget {
           ),
           Positioned(
             top: 160,
-            left: 200,
+            left: 230,
             child: Image.asset('lib/images/handright.png'),
           ),
           //pink Container with text

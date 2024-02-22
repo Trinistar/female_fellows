@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/blocs/CategoriesCubit/categories_cubit.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/models/category.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 
 class EventCategorys extends StatelessWidget {
   EventCategorys({super.key, required this.selectedCats});
@@ -20,7 +20,9 @@ class EventCategorys extends StatelessWidget {
   Widget build(BuildContext context) {
     if (_once) {
       if (BlocProvider.of<CategoryCubit>(context).state is CategoriesLoaded) {
-        _allCats.addAll((BlocProvider.of<CategoryCubit>(context).state as CategoriesLoaded).cats);
+        _allCats.addAll(
+            (BlocProvider.of<CategoryCubit>(context).state as CategoriesLoaded)
+                .cats);
       }
       for (final int cat in selectedCats) {
         _selectedCats.addAll(_allCats.where((element) => element.id == cat));
@@ -37,9 +39,8 @@ class EventCategorys extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ListTile(
-                  leading: Image.asset(
-                    'lib/images/category.png',
-                    cacheHeight: 30,
+                  leading: SvgPicture.asset(
+                    'lib/images/category.svg',
                   ),
                   title: Text(AppLocalizations.of(context)!.eventOneTitleTwo),
                 ),
@@ -52,8 +53,15 @@ class EventCategorys extends StatelessWidget {
                       spacing: 5.0,
                       children: _selectedCats.map((Category category) {
                         return FilterChip(
-                          shape: CupertinoTheme.of(context).brightness == Brightness.dark ? null : RoundedRectangleBorder(side: const BorderSide(width: 0.5, color: Colors.grey), borderRadius: BorderRadius.circular(45)),
-                          backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+                          shape: CupertinoTheme.of(context).brightness ==
+                                  Brightness.dark
+                              ? null
+                              : RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                      width: 0.5, color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(45)),
+                          backgroundColor:
+                              Theme.of(context).colorScheme.surfaceVariant,
                           selectedColor: Theme.of(context).colorScheme.primary,
                           label: Text(
                             category.translation.de,

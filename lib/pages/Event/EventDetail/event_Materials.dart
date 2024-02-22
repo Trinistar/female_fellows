@@ -49,18 +49,18 @@ class EventMaterials extends StatelessWidget {
             ),
             ListTile(
               isThreeLine: true,
-              leading: Image.asset(
-                'lib/images/Shirt.png',
-                cacheHeight: 35,
+              leading: SvgPicture.asset(
+                'lib/images/kleidung.svg',
+                
               ),
               title: Text(AppLocalizations.of(context)!.eventOneSubtitleThree),
               subtitle: Text(eventState.material!.clothes),
             ),
             ListTile(
               isThreeLine: true,
-              leading: Image.asset(
-                'lib/images/Star.png',
-                cacheHeight: 35,
+              leading: SvgPicture.asset(
+                'lib/images/sonstiges.svg',
+                
               ),
               title: Text(AppLocalizations.of(context)!.eventOneSubtitleFour),
               subtitle: Text(eventState.material!.information),

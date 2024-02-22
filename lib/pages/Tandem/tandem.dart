@@ -60,6 +60,7 @@ class _TandementryState extends State<Tandementry> {
       
       backgroundColor: Colors.white,
       appBar: AppBar(
+        toolbarHeight: 0,
         automaticallyImplyLeading: false,
         iconTheme: IconThemeData(
           color: Colors.white, 
