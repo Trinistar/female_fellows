@@ -44,8 +44,8 @@ class _TandementryState extends State<Tandementry> {
             return BlocBuilder<AuthenticationBloc, AuthenticationState>(
               builder: (context, state) {
                 if (state is AuthenticatedUser) {
-                  final bool tandemRequestExists =
-                      state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty || state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty;
+                  final bool tandemRequestExists = (state.userProfile!.tandemMatches != null && state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id) &&
+                      ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
 
                   if (tandemRequestExists) {
                     return _tandemOnboarding(context);
@@ -211,8 +211,8 @@ class _TandementryState extends State<Tandementry> {
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) {
               if (state is AuthenticatedUser) {
-                final bool tandemRequestExists =
-                    state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty || state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty;
+                final bool tandemRequestExists = (state.userProfile!.tandemMatches != null && state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id) &&
+                    ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
                 if (tandemRequestExists) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40),
