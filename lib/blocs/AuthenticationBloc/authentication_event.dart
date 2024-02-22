@@ -58,6 +58,19 @@ class RevokeEventParticipationEvent extends AuthenticationEvent {
   List<Object> get props => <Object>[];
 }
 
+class SetTandemMatchEvent extends AuthenticationEvent {
+  SetTandemMatchEvent({
+    required this.tandemMatch,
+    required this.profile,
+  });
+
+  final TandemMatch tandemMatch;
+  final FFUser profile;
+
+  @override
+  List<Object> get props => <Object>[];
+}
+
 class UpdateUserProfileEvent extends AuthenticationEvent {
   UpdateUserProfileEvent(this.userId, {this.latitude, this.longitude, required this.userProfile});
 
@@ -84,7 +97,11 @@ class InputChanged extends AuthenticationEvent {
 }
 
 class RegisterWithMailEvent extends AuthenticationEvent {
-  const RegisterWithMailEvent({required this.email, required this.password, required this.profile,});
+  const RegisterWithMailEvent({
+    required this.email,
+    required this.password,
+    required this.profile,
+  });
 
   final String email;
   final String password;

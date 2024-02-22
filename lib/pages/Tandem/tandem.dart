@@ -15,7 +15,9 @@ import 'package:vs_femalefellows/pages/Tandem/tandem_faqs.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_header.dart';
 
 class Tandementry extends StatefulWidget {
-  const Tandementry({super.key});
+  const Tandementry({super.key, this.isInfo = false});
+
+  final bool isInfo;
 
   @override
   State<Tandementry> createState() => _TandementryState();
@@ -31,41 +33,43 @@ class _TandementryState extends State<Tandementry> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TandemOnboardingBloc, TandemOnboardingState>(
-      builder: (context, state) {
-        if (state is IsTandemOnboardingState) {
-          return _tandemOnboarding(context);
-        } else {
-          return BlocBuilder<AuthenticationBloc, AuthenticationState>(
-            builder: (context, state) {
-              if (state is AuthenticatedUser) {
-                return TandemMatching();
-              } else {
-                return _tandemOnboarding(context);
-              }
-            },
-          );
-        }
-      },
-    );
+    if (widget.isInfo) {
+      return _tandemOnboarding(context);
+    } else {
+      return BlocBuilder<TandemOnboardingBloc, TandemOnboardingState>(
+        builder: (context, state) {
+          if (state is IsTandemOnboardingState) {
+            return _tandemOnboarding(context);
+          } else {
+            return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+              builder: (context, state) {
+                if (state is AuthenticatedUser) {
+                  return TandemMatching();
+                } else {
+                  return _tandemOnboarding(context);
+                }
+              },
+            );
+          }
+        },
+      );
+    }
   }
 
   Scaffold _tandemOnboarding(BuildContext context) {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
-      
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         iconTheme: IconThemeData(
-          color: Colors.white, 
+          color: Colors.white,
         ),
         backgroundColor: Theme.of(context).colorScheme.tertiary,
       ),
       body: ListView(
         children: [
-     
           TandemHeader(),
           DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.tertiary),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -202,7 +206,7 @@ class _TandementryState extends State<Tandementry> {
             builder: (context, state) {
               if (state is AuthenticatedUser) {
                 return GestureDetector(
-                  onTap: () => context.go('/tandem/tandemOnboarding'),
+                  onTap: () => widget.isInfo ? context.pop() : context.go('/tandem/tandemOnboarding'),
                   child: Container(
                     padding: EdgeInsets.all(25),
                     margin: const EdgeInsets.symmetric(horizontal: 50),

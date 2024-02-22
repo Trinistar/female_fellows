@@ -8,10 +8,13 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:vs_femalefellows/models/address.dart';
+import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
+import 'package:vs_femalefellows/models/tandem_match.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
+import 'package:vs_femalefellows/provider/firestore/firestore_tandem_repository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_user_profile_repository.dart';
 
 part 'authentication_event.dart';
@@ -29,14 +32,15 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     on<UpdateUserProfileEvent>(_onUpdateUserProfile);
     on<SetEventParticipationEvent>(_onSetEventParticipationEvent);
     on<RevokeEventParticipationEvent>(_onRevokeEventParticipationEvent);
+    on<SetTandemMatchEvent>(_onSetTandemMatchEvent);
 
     _userSubscription = _authenticationProvider.user.listen((User? user) => add(AuthenticationUserChangedEvent(user)));
   }
   final AuthRepository _authpage = AuthRepository();
-
   final FirestoreUserProfileRepository _firestoreUserProfileRepository = FirestoreUserProfileRepository();
-
   final FirestoreEventRepository _firestoreEventRepository = FirestoreEventRepository();
+  final FirestoreTandemRepository _firestoreTandemRepository = FirestoreTandemRepository();
+
 
   StreamSubscription<User?>? _userSubscription;
 
@@ -56,6 +60,9 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
           if (streams[1] != null) {
             location = streams[1];
           }
+          _firestoreUserProfileRepository.loadTandemMatches(event.user!.uid, profile.localOrNewcomer!).listen((event) {
+            profile.tandemMatches = event;
+          });
           profile.location = location;
           emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: tokenResult));
         },
@@ -111,6 +118,12 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     } catch (e) {
       emit(UnauthenticatedUser());
     }
+  }
+
+  Future<void> _onSetTandemMatchEvent(SetTandemMatchEvent event, Emitter<AuthenticationState> emit) async {
+    try {
+      await _firestoreTandemRepository.setTandemMatch(event.tandemMatch, event.profile.localOrNewcomer!);
+    } catch (_) {}
   }
 
   Future<void> _onSetEventParticipationEvent(SetEventParticipationEvent event, Emitter<AuthenticationState> emit) async {

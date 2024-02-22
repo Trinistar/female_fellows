@@ -150,6 +150,13 @@ final GoRouter _router = GoRouter(
                     return TandemSuccess();
                   },
                 ),
+                GoRoute(
+                  path: 'tandemInfo',
+                  parentNavigatorKey: _rootNavigatorKey,
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const Tandementry(isInfo: true);
+                  },
+                ),
               ],
             ),
           ],

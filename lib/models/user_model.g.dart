@@ -43,6 +43,10 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
       languages: json['languages'] == null
           ? null
           : UserLanguages.fromJson(json['languages'] as Map<String, dynamic>),
+      localMatch: json['localMatch'] as String?,
+      newcomerMatches: (json['newcomerMatches'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
@@ -63,6 +67,8 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'aboutMe': instance.aboutMe,
       'tandemTypeFilter': _$TandemTypeFilterEnumMap[instance.tandemTypeFilter],
       'languages': instance.languages?.toJson(),
+      'localMatch': instance.localMatch,
+      'newcomerMatches': instance.newcomerMatches,
     };
 
 const _$LocalOrNewcomerEnumMap = {

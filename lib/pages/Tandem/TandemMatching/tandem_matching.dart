@@ -2,6 +2,7 @@ import 'package:custom_sliding_segmented_control/custom_sliding_segmented_contro
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
@@ -56,6 +57,19 @@ class _TandemMatchingState extends State<TandemMatching> {
               color: Colors.white, //change your color here
             ),
             backgroundColor: Theme.of(context).colorScheme.primary,
+            actions: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: () => context.go('/tandem/tandemInfo'),
+                  child: SvgPicture.asset(
+                    'lib/images/info-icon.svg',
+                    width: 50,
+                    height: 50,
+                  ),
+                ),
+              )
+            ],
           ),
           body: BlocBuilder<TandemBloc, TandemState>(
             builder: (context, state) {
@@ -241,10 +255,10 @@ class _TandemMatchingState extends State<TandemMatching> {
                       itemCount: tandems.length,
                     )
                   : Text(
-                    'Leider konnten wir keine Tandems in deiner Nähe (20km Umkreis) finden',
-                    style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
-                    textAlign: TextAlign.center,
-                  ),
+                      'Leider konnten wir keine Tandems in deiner Nähe (20km Umkreis) finden',
+                      style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
+                      textAlign: TextAlign.center,
+                    ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),

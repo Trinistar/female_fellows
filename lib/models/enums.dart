@@ -35,3 +35,10 @@ enum TandemTypeFilter {
   all,
   nearby,
 }
+
+enum TandemMatchesState {
+  requested,
+  confirmed,
+  declined,
+  rerequested,
+}

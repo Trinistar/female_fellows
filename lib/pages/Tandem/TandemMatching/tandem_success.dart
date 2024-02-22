@@ -81,7 +81,7 @@ class TandemSuccess extends StatelessWidget {
                         ),
                         child: Center(
                             child: Text(
-                          'Jetzt mit Tandem matchen',
+                          'Zurück zur Tandem-Seite',
                           style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
                         )),
                       ),

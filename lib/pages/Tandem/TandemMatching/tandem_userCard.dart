@@ -1,7 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
+import 'package:vs_femalefellows/models/enums.dart';
+import 'package:vs_femalefellows/models/tandem_match.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_success.dart';
 
@@ -94,7 +99,23 @@ class TandemUserCard extends StatelessWidget {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => context.go('/tandem/tandemSuccess'),
+                        onTap: () {
+                          if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
+                            String localId = '';
+                            String newComerId = '';
+                            final profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile;
+                            if (profile!.localOrNewcomer == LocalOrNewcomer.local) {
+                              localId = profile.id!;
+                              newComerId = user.id!;
+                            } else {
+                              localId = user.id!;
+                              newComerId = profile.id!;
+                            }
+                            final TandemMatch match = TandemMatch(requested: Timestamp.now(), state: TandemMatchesState.requested, requester: profile.id!, local: localId, newcomer: newComerId);
+                            BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: match, profile: profile));
+                            context.go('/tandem/tandemSuccess');
+                          }
+                        },
                         child: Container(
                           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                           decoration: BoxDecoration(

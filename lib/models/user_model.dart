@@ -6,6 +6,7 @@ import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/notifications.dart';
+import 'package:vs_femalefellows/models/tandem_match.dart';
 
 part 'user_model.g.dart';
 
@@ -33,6 +34,10 @@ class FFUser {
   @JsonKey(includeFromJson: false, includeToJson: false)
   double? tandemMatch;
   UserLanguages? languages;
+  String? localMatch;
+  List<String>? newcomerMatches;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  List<TandemMatch>? tandemMatches;
 
   FFUser({
     this.id,
@@ -53,6 +58,9 @@ class FFUser {
     this.tandemTypeFilter,
     this.tandemMatch = 0.0,
     this.languages,
+    this.localMatch,
+    this.newcomerMatches,
+    this.tandemMatches,
   });
 
   factory FFUser.fromJson(Map<String, dynamic> json) => _$FFUserFromJson(json);

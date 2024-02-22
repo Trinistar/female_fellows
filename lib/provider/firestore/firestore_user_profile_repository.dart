@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:vs_femalefellows/models/enums.dart';
+import 'package:vs_femalefellows/models/tandem_match.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_repository.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 
@@ -14,6 +16,7 @@ class FirestoreUserProfileRepository {
     return FirestoreRepository().firestoreInstance.collection('user').doc(userID).snapshots().map((DocumentSnapshot<Object> snapshot) {
       if (snapshot.exists) {
         final FFUser userProfile = FFUser.fromJson(snapshot.data()! as Map<String, dynamic>);
+        userProfile.id = userID;
         return userProfile;
       } else {
         return null;
@@ -26,6 +29,21 @@ class FirestoreUserProfileRepository {
       if (snapshot.exists) {
         final UserLocation userLocation = UserLocation.fromJson(snapshot.data()! as Map<String, dynamic>);
         return userLocation;
+      } else {
+        return null;
+      }
+    });
+  }
+
+  Stream<List<TandemMatch>?> loadTandemMatches(String userId, LocalOrNewcomer lon) {
+    return FirestoreRepository().firestoreInstance.collection('tandemMatches').where(lon == LocalOrNewcomer.local ? 'local' : 'newcomer', isEqualTo: userId).snapshots().map((QuerySnapshot<Object> snapshot) {
+      if (snapshot.docs.isNotEmpty) {
+        final List<TandemMatch> matches = [];
+        for (final DocumentSnapshot<Object> doc in snapshot.docs) {
+          final TandemMatch match = TandemMatch.fromJson(doc.data()! as Map<String, dynamic>);
+          matches.add(match);
+        }
+        return matches;
       } else {
         return null;
       }
