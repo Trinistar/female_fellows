@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -211,11 +212,18 @@ class _TandementryState extends State<Tandementry> {
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) {
               if (state is AuthenticatedUser) {
-                final bool tandemRequestExists = (state.userProfile!.tandemMatches != null && state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id) &&
+                final DateTime currentLocalTimeMinus24 = DateTime.now();
+                bool tooLate = false;
+                Duration difference = Duration.zero;
+                if (state.userProfile!.tandemMatches != null) {
+                  difference = currentLocalTimeMinus24.difference(state.userProfile!.tandemMatches!.first.requested.toDate());
+                  tooLate = difference.inHours >= 24;
+                }
+                final bool tandemRequestExists = (state.userProfile!.tandemMatches != null && state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id && !tooLate) &&
                     ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
                 if (tandemRequestExists) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    padding: const EdgeInsets.only(left: 40, right: 40, bottom: 10),
                     child: Row(
                       children: [
                         Center(
@@ -226,13 +234,15 @@ class _TandementryState extends State<Tandementry> {
                                 width: 60,
                                 height: 60,
                                 child: CircularProgressIndicator(
-                                  value: 1,
-                                  strokeWidth: 6,
+                                  strokeCap: StrokeCap.round,
+                                  backgroundColor: Colors.grey[100],
+                                  value: (24 - difference.inHours) / 24,
+                                  strokeWidth: 8,
                                   valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondary),
                                 ),
                               ),
                               Text(
-                                '24h',
+                                '${24 - difference.inHours}h',
                                 style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
                                 textAlign: TextAlign.center,
                               ),
