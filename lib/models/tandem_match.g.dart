@@ -13,6 +13,7 @@ TandemMatch _$TandemMatchFromJson(Map<String, dynamic> json) => TandemMatch(
       requester: json['requester'] as String,
       local: json['local'] as String,
       newcomer: json['newcomer'] as String,
+      enabled: json['enabled'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$TandemMatchToJson(TandemMatch instance) =>
@@ -22,6 +23,7 @@ Map<String, dynamic> _$TandemMatchToJson(TandemMatch instance) =>
       'requester': instance.requester,
       'local': instance.local,
       'newcomer': instance.newcomer,
+      'enabled': instance.enabled,
     };
 
 const _$TandemMatchesStateEnumMap = {

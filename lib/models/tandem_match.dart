@@ -13,6 +13,7 @@ class TandemMatch {
     required this.requester,
     required this.local,
     required this.newcomer,
+    this.enabled = true,
   });
 
   factory TandemMatch.fromJson(Map<String,dynamic> json)=>_$TandemMatchFromJson(json);
@@ -24,4 +25,6 @@ class TandemMatch {
   final String requester;
   final String local;
   final String newcomer;
+  @JsonKey(defaultValue: true)
+  final bool enabled;
 }
