@@ -9,7 +9,7 @@ class FirestoreTandemRepository {
 
   Future<void> setTandemMatch(TandemMatch match, LocalOrNewcomer lon) async {
     var doc = await db.collection('tandemMatches').where(lon == LocalOrNewcomer.local ? 'local' : 'newcomer', isEqualTo: match.requester).get();
-    if (doc.docs.isEmpty) {
+    if (doc.docs.isEmpty || doc.docs.first['enabled'] == false) {
       db.collection('tandemMatches').doc().set(match.toJson());
     } else {
       print('doc exists');

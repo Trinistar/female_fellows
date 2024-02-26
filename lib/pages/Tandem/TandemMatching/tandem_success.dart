@@ -44,9 +44,28 @@ class TandemSuccess extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 40),
                       child: Center(
-                          child: CircleAvatar(
-                        minRadius: 80,
-                      )),
+                        child: Stack(
+                          alignment: AlignmentDirectional.center,
+                          children: <Widget>[
+                            SizedBox(
+                              width: 100,
+                              height: 100,
+                              child: CircularProgressIndicator(
+                                strokeCap: StrokeCap.round,
+                                backgroundColor: Colors.grey[100],
+                                value: 1,
+                                strokeWidth: 8,
+                                valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondary),
+                              ),
+                            ),
+                            Text(
+                              '24 h',
+                              style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 30,

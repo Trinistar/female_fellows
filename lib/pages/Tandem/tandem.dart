@@ -45,9 +45,19 @@ class _TandementryState extends State<Tandementry> {
             return BlocBuilder<AuthenticationBloc, AuthenticationState>(
               builder: (context, state) {
                 if (state is AuthenticatedUser) {
-                  final bool tandemRequestExists = (state.userProfile!.tandemMatches != null && state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id) &&
+                  final DateTime currentLocalTimeMinus24 = DateTime.now();
+                  bool tooLate = false;
+                  Duration difference = Duration.zero;
+                  if (state.userProfile!.tandemMatches != null) {
+                    difference = currentLocalTimeMinus24.difference(state.userProfile!.tandemMatches!.first.requested.toDate());
+                    tooLate = difference.inHours >= 24;
+                  }
+                  final bool tandemRequestExists = (state.userProfile!.tandemMatches != null &&
+                          state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id &&
+                          !tooLate &&
+                          state.userProfile!.tandemMatches!.first.state != TandemMatchesState.declined &&
+                          state.userProfile!.tandemMatches!.first.state != TandemMatchesState.confirmed) &&
                       ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
-
                   if (tandemRequestExists) {
                     return _tandemOnboarding(context);
                   }
@@ -219,7 +229,11 @@ class _TandementryState extends State<Tandementry> {
                   difference = currentLocalTimeMinus24.difference(state.userProfile!.tandemMatches!.first.requested.toDate());
                   tooLate = difference.inHours >= 24;
                 }
-                final bool tandemRequestExists = (state.userProfile!.tandemMatches != null && state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id && !tooLate) &&
+                final bool tandemRequestExists = (state.userProfile!.tandemMatches != null &&
+                        state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id &&
+                        !tooLate &&
+                        state.userProfile!.tandemMatches!.first.state != TandemMatchesState.declined &&
+                        state.userProfile!.tandemMatches!.first.state != TandemMatchesState.confirmed) &&
                     ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
                 if (tandemRequestExists) {
                   return Padding(
