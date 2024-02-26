@@ -1,4 +1,4 @@
-package com.example.vs_femalefellows
+package com.femalefellows.app
 
 import io.flutter.embedding.android.FlutterActivity
 

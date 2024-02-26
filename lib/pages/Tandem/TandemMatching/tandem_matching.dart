@@ -53,9 +53,6 @@ class _TandemMatchingState extends State<TandemMatching> {
                 height: 50,
               ),
             ),
-            iconTheme: IconThemeData(
-              color: Colors.white, //change your color here
-            ),
             backgroundColor: Theme.of(context).colorScheme.primary,
             actions: [
               Padding(

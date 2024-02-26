@@ -47,11 +47,12 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 actions: [
                   IconButton(
                     onPressed: () {
-                      Navigator.of(context).push(
+                      //TODO add profile edit screen
+                      /* Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => Profile(),
                         ),
-                      );
+                      ); */
                     },
                     icon: Icon(Icons.edit),
                     color: Colors.white,

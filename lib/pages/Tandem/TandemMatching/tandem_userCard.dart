@@ -98,36 +98,124 @@ class TandemUserCard extends StatelessWidget {
                           ],
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
-                            String localId = '';
-                            String newComerId = '';
-                            final profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile;
-                            if (profile!.localOrNewcomer == LocalOrNewcomer.local) {
-                              localId = profile.id!;
-                              newComerId = user.id!;
+                      BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                        builder: (context, state) {
+                          if (state is AuthenticatedUser) {
+                            if (state.userProfile!.tandemMatches != null && state.userProfile!.tandemMatches!.first.requester == user.id) {
+                              return Row(
+                                children: [
+                                  Flexible(
+                                    flex: 1,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(right: 2.0),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          String localId = '';
+                                          String newComerId = '';
+                                          final profile = state.userProfile;
+                                          final Map<String, dynamic> map = <String, dynamic>{};
+                                          //map['requested'] = FieldValue.serverTimestamp();
+                                          map['state'] = TandemMatchesState.declined;
+                                          //map['requester'] = user.id;
+
+                                          if (profile!.localOrNewcomer == LocalOrNewcomer.local) {
+                                            localId = profile.id!;
+                                            newComerId = user.id!;
+                                          } else {
+                                            localId = user.id!;
+                                            newComerId = profile.id!;
+                                          }
+                                          final TandemMatch match = TandemMatch(requested: Timestamp.now(), state: TandemMatchesState.declined, requester: profile.id!, local: localId, newcomer: newComerId);
+                                          BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: match, profile: profile));
+                                          context.go('/tandem/tandemSuccess');
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(45),
+                                            color: Colors.red,
+                                          ),
+                                          child: Center(
+                                              child: Text(
+                                            'Match ablehnen',
+                                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                                          )),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Flexible(
+                                    flex: 1,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 2.0),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          String localId = '';
+                                          String newComerId = '';
+                                          final profile = state.userProfile;
+                                          if (profile!.localOrNewcomer == LocalOrNewcomer.local) {
+                                            localId = profile.id!;
+                                            newComerId = user.id!;
+                                          } else {
+                                            localId = user.id!;
+                                            newComerId = profile.id!;
+                                          }
+                                          final TandemMatch match = TandemMatch(requested: Timestamp.now(), state: TandemMatchesState.confirmed, requester: profile.id!, local: localId, newcomer: newComerId);
+                                          BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: match, profile: profile));
+                                          context.go('/tandem/tandemSuccess');
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(45),
+                                            color: Colors.green,
+                                          ),
+                                          child: Center(
+                                              child: Text(
+                                            'Match bestätigen',
+                                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                                          )),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
                             } else {
-                              localId = user.id!;
-                              newComerId = profile.id!;
+                              return GestureDetector(
+                                onTap: () {
+                                  String localId = '';
+                                  String newComerId = '';
+                                  final profile = state.userProfile;
+                                  if (profile!.localOrNewcomer == LocalOrNewcomer.local) {
+                                    localId = profile.id!;
+                                    newComerId = user.id!;
+                                  } else {
+                                    localId = user.id!;
+                                    newComerId = profile.id!;
+                                  }
+                                  final TandemMatch match = TandemMatch(requested: Timestamp.now(), state: TandemMatchesState.requested, requester: profile.id!, local: localId, newcomer: newComerId);
+                                  BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: match, profile: profile));
+                                  context.go('/tandem/tandemSuccess');
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(45),
+                                    color: Theme.of(context).colorScheme.primary,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    'Als Tandem-Partnerin anfragen',
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                                  )),
+                                ),
+                              );
                             }
-                            final TandemMatch match = TandemMatch(requested: Timestamp.now(), state: TandemMatchesState.requested, requester: profile.id!, local: localId, newcomer: newComerId);
-                            BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: match, profile: profile));
-                            context.go('/tandem/tandemSuccess');
+                          } else {
+                            return SizedBox.shrink();
                           }
                         },
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(45),
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                          child: Center(
-                              child: Text(
-                            'Als Tandem-Partnerin anfragen',
-                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
-                          )),
-                        ),
                       ),
                       SizedBox(
                         height: 20,

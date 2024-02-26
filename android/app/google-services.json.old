@@ -1,24 +1,23 @@
 {
   "project_info": {
     "project_number": "897188779737",
-    "firebase_url": "https://femalefellows-11bb9-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "femalefellows-11bb9",
     "storage_bucket": "femalefellows-11bb9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:897188779737:android:6a423030ce6b41187a10c8",
+        "mobilesdk_app_id": "1:897188779737:android:028c2746f0e4f4277a10c8",
         "android_client_info": {
-          "package_name": "com.femalefellows.app"
+          "package_name": "com.example.vs_femalefellows"
         }
       },
       "oauth_client": [
         {
-          "client_id": "897188779737-59fatfjbhdflmqmilqncol03soag8672.apps.googleusercontent.com",
+          "client_id": "897188779737-8abnog7bo81j19ujh2j4oq8h8j90urpl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.femalefellows.app",
+            "package_name": "com.example.vs_femalefellows",
             "certificate_hash": "9dab39d74523924a3c8fff04c6ef0c8af088af44"
           }
         },
