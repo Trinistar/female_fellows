@@ -10,7 +10,6 @@ import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/notifications.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/pages/ToolBarNavigation/navigation_page.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class AuthVerfication extends StatefulWidget {

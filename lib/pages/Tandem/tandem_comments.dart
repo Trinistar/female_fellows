@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TandemComments extends StatelessWidget {
   const TandemComments({super.key});
@@ -30,7 +32,7 @@ class TandemComments extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '>>Ich habe immer so viele Fragen und Denis hilft mir immer.>>',
+                              AppLocalizations.of(context)!.tandemQuotesOne,
                                 style: TextStyle(color: Colors.white, fontSize: 20),
                               ),
                                 Text(
@@ -62,7 +64,7 @@ class TandemComments extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '>>Ich lerne viel über kulturelle Unterschiede.>>',
+                                AppLocalizations.of(context)!.tandemQuotesTwo,
                                 style: TextStyle(color: Colors.white, fontSize: 20),
                               ),
                                 Text(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class ProfilProgress extends StatefulWidget {
   const ProfilProgress({super.key});
@@ -39,7 +41,7 @@ class _ProfilProgressState extends State<ProfilProgress> {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Text(
-                      'Mitglied seit\nTagen',
+                      AppLocalizations.of(context)!.profilProgressMember,
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 15),
                     ),
@@ -68,7 +70,7 @@ class _ProfilProgressState extends State<ProfilProgress> {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Text(
-                      'An Events \n teilgenommen',
+                      AppLocalizations.of(context)!.profilProgressEvents,
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 15),
                     ),
@@ -120,7 +122,7 @@ class _ProfilProgressState extends State<ProfilProgress> {
             ),
             child: Center(
                 child: Text(
-              'Ehrentamtsnachweis beantragen',
+              AppLocalizations.of(context)!.profilProgressQualification,
               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
             )),
           ),

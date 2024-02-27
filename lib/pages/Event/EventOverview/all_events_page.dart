@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/event_ListTile.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class AllEvents extends StatefulWidget {
   const AllEvents({super.key});
@@ -21,7 +23,7 @@ class _AllEventsState extends State<AllEvents> {
           return Padding(
             padding: const EdgeInsets.only(top: 50.0),
             child: Text(
-              'Keine Events vorhanden',
+              AppLocalizations.of(context)!.eventsPageAllState,
               style: TextStyle(fontStyle: FontStyle.italic),
               textAlign: TextAlign.center,
             ),

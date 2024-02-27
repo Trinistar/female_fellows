@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TandemStory extends StatelessWidget {
-  const TandemStory({super.key});
+class TandemStory1 extends StatelessWidget {
+  const TandemStory1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,8 @@ class TandemStory extends StatelessWidget {
                               height: 50,
                             ),
                             Text(
-                              'Erfahrungsbericht von Lisa',
+                              AppLocalizations.of(context)!
+                                  .homeTandemstoryOneSubTitle,
                               style: TextStyle(
                                   color: Theme.of(context).colorScheme.tertiary,
                                   fontSize: 15),
@@ -62,8 +64,8 @@ class TandemStory extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              'Ein Tandem mit einer Frau, die aus einem anderen Land stammt, zu haben ist eine bereichernde Erfahrung, die ich nicht mehr missen möchte.Makai hatte zunächst vor allem zum Deutschlernen eine hier beheimatete Frau gesucht. Doch auch das gemeinsame Lernen war meistens schon davon begleitet, dass wir gemeinsam Chai getrunken, etwas gegessen, uns ausgetauscht und viel gemeinsam gelacht haben. Ich finde die Zeit, dass man in Form von interessanten Einblicken, neuen Kontakten und einem ganz praktischen kulturellen Lernen tausendmal zurückbekommt. ',
-                              style: TextStyle(fontSize: 15),
+                               AppLocalizations.of(context)!.homeTandemstoryOneBodyOne,
+                               style: TextStyle(fontSize: 15),
                             ),
                             SizedBox(
                               height: 20,
@@ -120,8 +122,8 @@ class TandemStory extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Es war ein Kennenlernen für uns beide: Nicht nur ich habe Makai Deutsch und etwas über das Leben hier beigebracht– ich konnte von ihr und ihrer Familie auch total viel über Afghanistan, die Lebensweise dort und auch über die Bedingungen für Geflüchtete hier in Deutschland lernen.Ich finde es total wichtig, als Frau andere Frauen darin zu bestärken, alle Möglichkeiten, die wir haben, für sich zu nutzen. Gemeinsam haben wir auch viele Freizeitaktivitäten in Stuttgart unternommen, waren schwimmen, im Park oder der Bücherei. Da konnte ich meine Stadt selbst nochmal mit ganz anderen Augen kennenlernen und zeigen, was ich hier schätze. Der Verein bietet auch mega schöne und vielseitige Aktivitäten für die ganze Gemeinschaft an, in der man eine interessante Zeit mit anderen Frauen verbringen kann.Ich kann nur jede interessierte Frau ermutigen, selbst auch diese sinnvolle Chance zu nutzen und andere Frauen zu unterstützen!',
-                          style: TextStyle(fontSize: 15),
+                              AppLocalizations.of(context)!.homeTandemstoryOneBodyTwo,
+                              style: TextStyle(fontSize: 15),
                         ),
                         SizedBox(height: 100),
                       ],

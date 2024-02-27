@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_Listtile.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FAQs extends StatefulWidget {
   const FAQs({super.key});
@@ -9,18 +10,46 @@ class FAQs extends StatefulWidget {
 }
 
 class _FAQsState extends State<FAQs> {
-  final List<String> _faqTitles = [
-    '1 | Was muss ich tun um ein Tandem-Partnerin (deutsche Freundin)zu bekommen?',
-    '2 | Wie geht es weiter, wenn mir eine Tandem-Partnerin vermittelt wurde?',
-    '3 | Was ist der Unterschied zwischen einer Newcomerin und Local?',
-    '4 | Mit wie viel Zeitaufwand ist eine Tandem-Partnerschaft ungefähr verbunden?',
-    '5 | Ich suche nach einer Wohnung, kann mir eine Tandem-Partnerin helfen?',
-    '6 | Ich möchte meinen Führerschein machen und dann eine Ausbildung, kann mir eine Tandem-Partnerin dabei helfen?',
-    '7 | Ich kann schlecht Deutsch und auch kein Englisch, wie kann ich mich dann mit einer Tandem-Partnerin verständigen?',
-    '8 | Mir fällt es schwer in Deutschland zurecht zu kommen (Behörden, Arzt…?), kann mir eine Tandem-Partnerin helfen?',
-    '9 | Wie kann die Tandem-Partnerin mir helfen?',
-    '10 | Meine Tandem-Partnerin meldet sich nicht mehr. Was soll ich tun?',
+  late List<String> _faqAnswers = [
+    'Auch hier ist es wichtig, dass du sowohl mit deiner Partnerin als auch mit uns darüber sprichst. Gerne kümmern wir uns darum, dass deine Partnerin wieder eine neue Tandempartnerin findet. Vielleicht hast du ja eine Freundin, die das Tandem übernehmen möchte?',
+    'Wenn deine Partnerin nicht mehr auf deine Anrufe oder Nachrichten reagiert, gib uns gerne Bescheid. Wir versuchen dann herauszufinden, was los ist und zwischen euch zu vermitteln. Manchmal liegt es am mangelnden Internet in den Unterkünften, manchmal traut sie sich nicht, das Tandem zu beenden. In jedem Fall möchten wir mit euch darüber sprechen und euch bestmöglich in eurem Tandem unterstützen.',
   ];
+
+  late List<String> _faqTitles = [
+    '5 | Meine Tandempartnerin meldet sich nicht mehr, was soll ich tun?',
+    '6 | Ich ziehe um. Was passiert mit meiner Tandempartnerschaft?',
+  ];
+
+  @override
+  void initState() {
+ /*    _faqTitles = [
+      AppLocalizations.of(context)!.tandemLocalsQuestion1,
+      AppLocalizations.of(context)!.tandemLocalsQuestion2,
+      AppLocalizations.of(context)!.tandemLocalsQuestion3,
+      AppLocalizations.of(context)!.tandemLocalsQuestion4,
+      AppLocalizations.of(context)!.tandemLocalsQuestion5,
+      AppLocalizations.of(context)!.tandemLocalsQuestion6,
+      AppLocalizations.of(context)!.tandemLocalsQuestion7,
+      AppLocalizations.of(context)!.tandemLocalsQuestion8,
+      AppLocalizations.of(context)!.tandemLocalsQuestion9,
+      AppLocalizations.of(context)!.tandemLocalsQuestion10,
+      AppLocalizations.of(context)!.tandemLocalsQuestion11,
+    ]; */
+    /*     _faqAnswers = [
+      AppLocalizations.of(context)!.tandemLocalsAnswer1,
+      AppLocalizations.of(context)!.tandemLocalsAnswer2,
+      AppLocalizations.of(context)!.tandemLocalsAnswer3,
+      AppLocalizations.of(context)!.tandemLocalsAnswer4,
+      AppLocalizations.of(context)!.tandemLocalsAnswer5,
+      AppLocalizations.of(context)!.tandemLocalsAnswer6,
+      AppLocalizations.of(context)!.tandemLocalsAnswer7,
+      AppLocalizations.of(context)!.tandemLocalsAnswer8,
+      AppLocalizations.of(context)!.tandemLocalsAnswer9,
+      AppLocalizations.of(context)!.tandemLocalsAnswer10,
+      AppLocalizations.of(context)!.tandemLocalsAnswer11,
+    ]; */
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +87,7 @@ class _FAQsState extends State<FAQs> {
                   ) {
                     return TandemFAQListTileWidget(
                       faqTitle: _faqTitles[index],
+                      faqAnswers: _faqAnswers[index],
                     );
                   },
                 ),

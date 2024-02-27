@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_coffe.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ActivityCofe extends StatelessWidget {
   const ActivityCofe({super.key});
@@ -7,8 +9,9 @@ class ActivityCofe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> TandemCoffe()));
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => TandemCoffe()));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -16,26 +19,26 @@ class ActivityCofe extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(40)),
-            color:  Theme.of(context).colorScheme.secondary,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           height: 160,
           width: 150,
           child: ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
-                    'Ins Café gehen',
+                    AppLocalizations.of(context)!.tandemActivityOneTitle,
                     style: TextStyle(fontSize: 13),
                     textAlign: TextAlign.center,
                   ),
                 ),
-                Image(
-                  image: AssetImage('lib/images/Mask group2.png'),
+                SvgPicture.asset(
+                  'lib/images/event-1.svg',
                   fit: BoxFit.cover,
+                  width: 120,
                 ),
               ],
             ),

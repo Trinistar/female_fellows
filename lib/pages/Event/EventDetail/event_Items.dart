@@ -5,6 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/participants_image_row.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class EventItems extends StatelessWidget {
   const EventItems({super.key, required this.eventState});
@@ -28,7 +30,7 @@ class EventItems extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              'Datum des Events',
+              AppLocalizations.of(context)!.createEventDate2,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -41,7 +43,7 @@ class EventItems extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              'Veranstalter',
+              AppLocalizations.of(context)!.createEventsHost,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -55,7 +57,7 @@ class EventItems extends StatelessWidget {
                     style: TextStyle(fontSize: 15),
                   ),
                   subtitle: Text(
-                    'Adresse des Events',
+                   AppLocalizations.of(context)!.eventAdress ,
                     style: TextStyle(fontSize: 12),
                   ),
                 );
@@ -65,9 +67,9 @@ class EventItems extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Image.asset(
-              'lib/images/ImageIcon.png',
-              cacheHeight: 25,
+            leading: SvgPicture.asset(
+              'lib/images/avatar-5.svg',
+              height: 25,
             ),
             title: Text(
               eventState.contactPerson,
@@ -76,7 +78,7 @@ class EventItems extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              'Ansprechpartnerin',
+             AppLocalizations.of(context)!.createEventsContactPerson2 ,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -99,7 +101,7 @@ class EventItems extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      'WhatsApp Gruppenlink',
+                      AppLocalizations.of(context)!.createEventWhatsApp2,
                       style: TextStyle(fontSize: 12),
                     ),
                   ),

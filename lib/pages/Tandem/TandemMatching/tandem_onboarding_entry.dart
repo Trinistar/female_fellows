@@ -7,6 +7,8 @@ import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_about_you.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_languages.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TandemOnboardingEntry extends StatefulWidget {
   const TandemOnboardingEntry({super.key});
@@ -49,7 +51,7 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 15, left: 40),
             child: Text(
-              'Tandem-Matching',
+              AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayTwoSubtitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 20,
@@ -89,7 +91,7 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
                             _controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                           }
                         },
-                        child: Text('Back'))
+                        child: Text(AppLocalizations.of(context)!.buttonBack))
                     : Container(
                         width: 85,
                       ),
@@ -111,14 +113,14 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
 
                           Navigator.of(context).maybePop();
                         },
-                        child: Text('Zum Tandem'),
+                        child: Text(AppLocalizations.of(context)!.tandemMatchingRouting),
                       )
                     : MaterialButton(
                         disabledTextColor: Colors.grey,
                         onPressed: () {
                           _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                         },
-                        child: Text('Next'),
+                        child: Text(AppLocalizations.of(context)!.buttonNext),
                       ),
               ],
             ),

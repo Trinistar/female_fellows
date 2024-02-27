@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vs_femalefellows/pages/Event/EventOverview/event_overview.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
-import 'package:vs_femalefellows/pages/Profil/profile.dart';
-import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 
 class TabBarNavigation extends StatelessWidget {
   const TabBarNavigation({super.key, required this.navigationShell});
@@ -44,6 +41,7 @@ class TabBarNavigation extends StatelessWidget {
 
       //Navigationbar
       bottomNavigationBar: Container(
+        height: 85,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.0),
@@ -56,23 +54,37 @@ class TabBarNavigation extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Theme.of(context).colorScheme.secondary,
           unselectedItemColor: Theme.of(context).colorScheme.primary,
-          iconSize: 30,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.people_outline),
+              activeIcon: SvgPicture.asset('lib/images/tandem-active.svg',height: 30,),
+              icon: SvgPicture.asset('lib/images/tandem.svg',height: 25,),
               label: "Tandem",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.event),
+              activeIcon: SvgPicture.asset('lib/images/events-active.svg',height:30,),
+              icon: SvgPicture.asset('lib/images/events.svg',height: 25,),
               label: "Event",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
+              activeIcon: SvgPicture.asset(
+                'lib/images/home-active.svg',
+                height: 50,
+              ),
+              icon: SvgPicture.asset(
+                'lib/images/home.svg',
+                height: 50,
+              ),
               label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
+              activeIcon: SvgPicture.asset('lib/images/profil-active.svg',height: 30,),
+              icon: SvgPicture.asset('lib/images/profil.svg',height: 25,),
               label: "Profil",
+            ),
+            BottomNavigationBarItem(
+              activeIcon: SvgPicture.asset('lib/images/community-active.svg',height: 30,),
+              icon: SvgPicture.asset('lib/images/community.svg',height: 25,),
+              label:"Chat"
             )
           ],
         ),

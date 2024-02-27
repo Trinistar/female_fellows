@@ -9,6 +9,8 @@ import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/tandem_match.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_success.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TandemUserCard extends StatelessWidget {
   const TandemUserCard({super.key, required this.user});

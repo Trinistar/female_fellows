@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class EventNotAuthenticatedState extends StatelessWidget {
   @override
@@ -29,7 +31,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
               ),
               SizedBox(
                 child: Text(
-                  'Du hast es gleich geschafft!',
+                AppLocalizations.of(context)!.eventNotMemberEventTitle,
                   style: TextStyle(
                     fontSize: 25,
                   ),
@@ -42,7 +44,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
               SizedBox(
                 width: 300,
                 child: Text(
-                  'Unsere Events sind nur für Mitglieder des Vereins zugänglich. Du bist im Moment noch kein Mitglied.',
+                  AppLocalizations.of(context)!.eventNotMemberEventBody,
                   style: TextStyle(
                     fontSize: 12,
                   ),
@@ -53,7 +55,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: FFButton(
                   onTap: () => context.push('/loginPage'),
-                  text: 'Kostenlos Mitglied werden',
+                  text: AppLocalizations.of(context)!.eventNotMemberEventButton,
                 ),
               )
             ],

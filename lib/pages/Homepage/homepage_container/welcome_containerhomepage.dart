@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePageTitle extends StatelessWidget {
   HomePageTitle({super.key});
@@ -17,7 +18,7 @@ class HomePageTitle extends StatelessWidget {
             height: 380,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(bottomRight: Radius.circular(60)),
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).colorScheme.tertiary,
             ),
           ),
           Padding(
@@ -33,14 +34,14 @@ class HomePageTitle extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Hallo ${state.userProfile != null ? state.userProfile!.firstname : ''},',
+                            '${AppLocalizations.of(context)!.homeWelcomeTextOne} ${state.userProfile != null ? state.userProfile!.firstname : ''}',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 30,
                             ),
                           ),
                           Text(
-                            'Schön, dass du dabei bist!',
+                             AppLocalizations.of(context)!.homeWelcomeTextTwo,
                             style: TextStyle(fontSize: 20, color: Colors.white),
                           ),
                         ],
@@ -74,7 +75,7 @@ class HomePageTitle extends StatelessWidget {
           ),
           Positioned(
             top: 160,
-            left: 200,
+            left: 230,
             child: Image.asset('lib/images/handright.png'),
           ),
           //pink Container with text
@@ -148,7 +149,7 @@ class HomePageTitle extends StatelessWidget {
             top: 300,
             left: 40,
             child: Text(
-              'Entdecke Events, finde dein\nperfekte Tandem-Partnerin\nund lass dich von unseren\nErfolgsgeschichten inspirieren.',
+              AppLocalizations.of(context)!.homeInfo,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
           ),

@@ -17,6 +17,8 @@ import 'package:vs_femalefellows/pages/Event/CreateEvent/event_category_items.da
 import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class CreateEvent extends StatefulWidget {
   const CreateEvent({super.key});
@@ -69,7 +71,7 @@ class _CreateEventState extends State<CreateEvent> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: Colors.green,
-                content: Text('Event wurde erfolgreich erstellt'),
+                content: Text(AppLocalizations.of(context)!.createEventSuccess),
               ),
             );
             Navigator.of(context).pop();
@@ -80,7 +82,7 @@ class _CreateEventState extends State<CreateEvent> {
           }
           if (state is EventFailure) {
             SnackBar(
-              content: Text('Failure'),
+              content: Text(AppLocalizations.of(context)!.snackbarFailure),
             );
           }
         },
@@ -105,19 +107,26 @@ class _CreateEventState extends State<CreateEvent> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Event Title'),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40),
+                        child: Text(AppLocalizations.of(context)!.createEventTitle),
+                      ),
                       TextBar(controller: Controller.eventTitleController, hintText: 'Title', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
                       ),
-                      Text('Event Datum'),
-                      Center(
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40),
+                        child: Text(AppLocalizations.of(context)!.createEventDate),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40),
                         child: OutlinedButton(
                           onPressed: () {
                             _showdatePicker();
                           },
-                          child: const Text('Open Date Picker'),
+                          child:  Text(AppLocalizations.of(context)!.createEventDatePicker,),
                         ),
                       ),
                       Center(
@@ -132,39 +141,51 @@ class _CreateEventState extends State<CreateEvent> {
                         color: Colors.white,
                         height: 20,
                       ),
-                      Text('Straße'),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40),
+                        child: Text(AppLocalizations.of(context)!.createEventStreet),
+                      ),
                       TextBar(controller: Controller.streetnameController, hintText: 'Straße', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
                       ),
-                      Text('Ort'),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40),
+                        child: Text(AppLocalizations.of(context)!.createEventPlace),
+                      ),
                       TextBar(controller: Controller.placeController, hintText: 'Ort', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
                       ),
-                      Text('Postleitzahl'),
-                      TextFormField(
-                        controller: Controller.zipCodeController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black87),
-                            // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Theme.of(context).colorScheme.primary,
-                              width: 2,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40),
+                        child: Text(AppLocalizations.of(context)!.createEventZipCode),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
+                        child: TextFormField(
+                          controller: Controller.zipCodeController,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black87),
+                              // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            fillColor: Theme.of(context).colorScheme.surface,
+                            filled: true,
+                            hintText: AppLocalizations.of(context)!.createEventZipCode,
                           ),
-                          fillColor: Theme.of(context).colorScheme.surface,
-                          filled: true,
-                          hintText: 'Postleitzahl',
                         ),
                       ),
                     ],
@@ -195,7 +216,7 @@ class _CreateEventState extends State<CreateEvent> {
                           'lib/images/category.png',
                           cacheHeight: 30,
                         ),
-                        title: Text('Kategorien'),
+                        title: Text(AppLocalizations.of(context)!.eventOneTitleTwo),
                       ),
                       SizedBox(
                         height: 20,
@@ -216,7 +237,7 @@ class _CreateEventState extends State<CreateEvent> {
               BlocBuilder<EventBloc, EventState>(
                 builder: (context, state) {
                   return FFButton(
-                    text: 'Create Event',
+                    text: AppLocalizations.of(context)!.createEventsTitle,
                     onTap: () {
                       context.read<EventBloc>().add(
                             NewEvent(

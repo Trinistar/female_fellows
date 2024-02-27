@@ -5,12 +5,16 @@ class FFButton extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.text,
-    this.color,
+   this.color,
+   this.style,
+   this. border,
   });
 
   final Function()? onTap;
   final String text;
   final Color? color;
+  final TextStyle ? style;
+  final Border? border;
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +26,12 @@ class FFButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
           color: color ?? Theme.of(context).colorScheme.primary,
+        border:border, 
         ),
         child: Center(
             child: Text(
           text,
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+          style:style ?? TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
         )),
       ),
     );

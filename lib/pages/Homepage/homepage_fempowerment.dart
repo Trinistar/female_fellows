@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class FemPower extends StatelessWidget {
   const FemPower({super.key});
@@ -53,8 +55,7 @@ class FemPower extends StatelessWidget {
                         height: 420,
                         width: 320,
                         child: Text(
-                          'Laut einer aktuellen Studie der OECD werden weibliche Geflüchtete schlechter in die deutsche Gesellschaft integriert. Grund hierfür ist die geringe Teilnahme an Integrationsangeboten und wenig Kontakt zu Einheimischen. Nur 12% der geflüchteten Frauen in Deutschland haben täglich Kontakt zu Einheimischen. Female Fellows möchte diesem Phänomen durch das Tandemprojekt entgegenwirken und einen großen ersten Schritt hin zu einem gelungenen Miteinander machen. Das Tandemprojekt ermöglicht und fördert darüber hinaus den kulturellen Austausch.Diese Frauen haben das Potenzial, die Kapazität und die Fähigkeit zum Handeln! Es geht darum, das Potenzial der Frauen zu nutzen, sie stark zu machen und zu ermutigen!',
-                        ),
+                        AppLocalizations.of(context)!.homeVereinInfoTwoBody),
                       ),
                     ),
                     Padding(

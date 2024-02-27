@@ -8,6 +8,8 @@ import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/german_locale.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
 import 'package:vs_femalefellows/pages/Event/EventComponents/participants_rowWhite.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class EventSuccess extends StatelessWidget {
   const EventSuccess({super.key, required this.event});
@@ -106,7 +108,7 @@ class EventSuccess extends StatelessWidget {
                     ),
                   ),
                   subtitle: Text(
-                    'Ansprechpartnerin',
+                    AppLocalizations.of(context)!.eventOneRegisteredPerson,
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.white,
@@ -143,7 +145,7 @@ class EventSuccess extends StatelessWidget {
                   child: Center(
                     child: GestureDetector(
                       child: Text(
-                        'Zum Event Chat',
+                        AppLocalizations.of(context)!.eventOneRegisteredButtonOne,
                         style: TextStyle(
                           color: Colors.white,
                           decoration: TextDecoration.underline,
@@ -158,7 +160,7 @@ class EventSuccess extends StatelessWidget {
                 ),
                 FFButton(
                   onTap: () => context.go('/events/detailEvent/${event.id}', extra: event),
-                  text: 'Zurück zu den Events',
+                  text: AppLocalizations.of(context)!.eventOneRegisteredButtonTwo,
                 ),
               ],
             ),

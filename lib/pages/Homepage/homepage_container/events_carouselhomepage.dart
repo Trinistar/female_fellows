@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
+import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
 
 class EventCarousel extends StatelessWidget {
   const EventCarousel({super.key, this.pagechange});
@@ -8,7 +12,6 @@ class EventCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 1000,
-      height: 300,
       color: Theme.of(context).colorScheme.surfaceVariant,
       child: Padding(
         padding: const EdgeInsets.only(left: 30),
@@ -20,7 +23,7 @@ class EventCarousel extends StatelessWidget {
                 left: 10,
               ),
               child: Text(
-                'Schau bei unseren Events vorbei',
+                AppLocalizations.of(context)!.homeEventsTeaserTitle,
                 style: TextStyle(fontSize: 20),
               ),
             ),
@@ -31,27 +34,30 @@ class EventCarousel extends StatelessWidget {
               indent: 15,
             ),
             SizedBox(
-              height: 10,
+              height: 30,
             ),
-            SizedBox(
-              height: 150,
-              width: 1000,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  CarouselItem(),
-                  CarouselItem(),
-                  CarouselItem(),
-                  CarouselItem(),
-                ],
-              ),
+            BlocBuilder<AllEventsStore, List<Event>>(
+              builder: (context, state) {
+                return SizedBox(
+                  height: 220,
+                  width: 1000,
+                  child: ListView.builder(
+                    itemCount:state.length ,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return CarouselItem(
+                        event: state [index],
+                      );
+                    },
+                  ),
+                );
+              },
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 10, top: 20),
+              padding: const EdgeInsets.only(left: 10,top: 30),
               child: GestureDetector(
                 onTap: () {
                   pagechange!(1);
-                  //  Navigator.push(context, MaterialPageRoute(builder: (context) =>EventOverview() ),);
                 },
                 child: Text(
                   'Zu allen Events',

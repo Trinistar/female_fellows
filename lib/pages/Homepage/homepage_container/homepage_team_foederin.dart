@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TeamFoerderin extends StatefulWidget {
   const TeamFoerderin({super.key});
@@ -33,19 +36,7 @@ class _TeamFoerderinState extends State<TeamFoerderin> {
                 decoration: BoxDecoration(
                     color: Color.fromRGBO(252, 196, 215, 1),
                     borderRadius: BorderRadius.circular(40)),
-                child: Stack(children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 40, top: 35),
-                    child: Image.asset('lib/images/foerderer-werden.png'),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 70),
-                    child: Text(
-                      'Werde Teil unseres\nbunten Teams',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ]),
+                child: Image.asset('lib/images/buntes-team.png'),//SvgPicture.asset('lib/images/buntes-team.svg'),
               ),
             ),
             SizedBox(
@@ -64,19 +55,7 @@ class _TeamFoerderinState extends State<TeamFoerderin> {
                 decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(40)),
-                child: Stack(children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 40, top: 35),
-                    child: Image.asset('lib/images/foerderer-werden.png'),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 70),
-                    child: Text(
-                      'Förder*in werden',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ]),
+                child: SvgPicture.asset('lib/images/foerderer-werden.svg'),
               ),
             )
           ]),

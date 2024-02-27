@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class EventPictureAuthentication extends StatefulWidget {
   const EventPictureAuthentication(
@@ -37,7 +39,7 @@ class _EventPictureAuthenticationState
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-              'Fotoeinwilligung\nbeim Event?',
+              AppLocalizations.of(context)!.eventRegistrationThreeTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -66,13 +68,13 @@ class _EventPictureAuthenticationState
                     dense: true,
                     isThreeLine: true,
                     title: Text(
-                      'Ja',
+                      AppLocalizations.of(context)!.eventRegistrationTwoFilterTwo,
                       style: TextStyle(
                         fontSize: 15,
                       ),
                     ),
                     subtitle: Text(
-                      'Ich bin damit einverstanden, dass Female Fellows e.V.\n(nachfolgend bezeichnet als "Verein")\nFilmaufnahmen/Fotos von mir zum Zwecke der\nPresse- und Öffentlichkeitsarbeit des Fundraisings\ndes Marketings der internen Verwendung von\nWerbemaßnahmen und eventuellen\nSpendeaktionen verabeiter und veröffentlicht\n werden dürfen. Ebenfalls bin ich einverstanden, dass\nmeine Daten zum Zwecke der Vereinsorganisation\ngespeichert werden. Ebenefalls bin ich einverstanden,\ndass meine Daten zum Zwecke der\nVereinsorganisation gespeichert werden.',
+                      AppLocalizations.of(context)!.eventRegistrationThreeFilterTwo,
                       style: TextStyle(fontSize: 10),
                     ),
                     value: RadioChoices.ja,
@@ -86,7 +88,7 @@ class _EventPictureAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      'Nein',
+                      AppLocalizations.of(context)!.eventRegistrationTwoFilterOne,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -106,7 +108,7 @@ class _EventPictureAuthenticationState
                   onTap: () {
                     widget.sendRequest!();
                   },
-                  text: 'Verbindlich anmelden',
+                  text: AppLocalizations.of(context)!.eventButtonSignin,
                 ),
               ],
             ),

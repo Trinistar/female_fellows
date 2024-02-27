@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class SecondStep extends StatelessWidget {
   const SecondStep({super.key});
@@ -32,7 +34,7 @@ class SecondStep extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '2 | Der Tandem-\nMatching-Prozess:',
+                  AppLocalizations.of(context)!.tandemSecondStep,
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 ),
                 Divider(
@@ -45,7 +47,7 @@ class SecondStep extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Nach deiner Registrierung erhältst du drei auf dich abgestimmte Tandem-Vorschläge. Du hast die Wahl und kannst das Tandem auswählen, das am besten zu deinen Interessen und Zielen passt. Innerhalb von 24 Stunden erhältst du eine Benachrichtigung, ob deine Tandem-Partnerin ebenfalls zustimmt. Dies ist der Moment, in dem eure Reise beginnt.',
+                  AppLocalizations.of(context)!.tandemSecondStepBody,
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )
               ],
@@ -68,7 +70,7 @@ class SecondStep extends StatelessWidget {
               ),
               child: Center(
                   child: Text(
-                'Jetzt mit Tandem matchen',
+                AppLocalizations.of(context)!.tandemMatchingAngefragtButtonMatching,
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               )),

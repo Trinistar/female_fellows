@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Firststep extends StatelessWidget {
   const Firststep({super.key});
@@ -32,7 +34,7 @@ class Firststep extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '1 | Werde Mitglied in unserem Verein',
+                  AppLocalizations.of(context)!.tandemFirstStep,
                   style: TextStyle(fontSize: 25),
                 ),
                 Divider(
@@ -45,7 +47,7 @@ class Firststep extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Deine Reise beginnt, indem du Mitglied bei uns wirst. Nur als Mitglied hast du die Möglichkeit, dich für ein Tandem-Matching zu registrieren. Das ist der erste Schritt, um Teil unserer wachsenden Community zu werden.',
+                  AppLocalizations.of(context)!.tandemFirstStepBody,
                   style: TextStyle(fontSize: 20),
                 )
               ],
@@ -65,7 +67,7 @@ class Firststep extends StatelessWidget {
               ),
               child: Center(
                   child: Text(
-                'Jetzt Mietglied werden',
+                AppLocalizations.of(context)!.tandemMemberSignin,
                 style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

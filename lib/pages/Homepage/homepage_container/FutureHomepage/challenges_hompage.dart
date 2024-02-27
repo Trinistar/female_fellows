@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_acticityItem.dart';
 
 class Challenges extends StatelessWidget {
   const Challenges({super.key});
@@ -27,7 +28,6 @@ class Challenges extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 120),
                     child: FloatingActionButton(
                       onPressed: () {},
-                      
                       mini: true,
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       child: Icon(
@@ -45,10 +45,9 @@ class Challenges extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  CarouselItem(),
-                  CarouselItem(),
-                  CarouselItem(),
-                  CarouselItem(),
+                  ActivityCofe(),
+                  ActivityCofe(),
+                  ActivityCofe(),
                 ],
               ),
             ),
