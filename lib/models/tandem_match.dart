@@ -19,12 +19,16 @@ class TandemMatch {
   factory TandemMatch.fromJson(Map<String,dynamic> json)=>_$TandemMatchFromJson(json);
   Map<String, dynamic> toJson()=> _$TandemMatchToJson(this);
 
-  @JsonKey(fromJson: HelperFunctions.dateTimeFromTimestamp, toJson: HelperFunctions.dateTimeAsIs)
+  @JsonKey(fromJson: HelperFunctions.dateTimeFromTimestamp, toJson: HelperFunctions.dateTimeAsIs, includeToJson: false)
   final Timestamp requested;
+  @JsonKey(includeToJson: false)
   final TandemMatchesState state;
+  @JsonKey(includeToJson: false)
   final String requester;
+  @JsonKey(includeToJson: false)
   final String local;
+  @JsonKey(includeToJson: false)
   final String newcomer;
-  @JsonKey(defaultValue: true)
+  @JsonKey(defaultValue: true, includeToJson: false)
   final bool enabled;
 }

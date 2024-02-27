@@ -64,7 +64,20 @@ class SetTandemMatchEvent extends AuthenticationEvent {
     required this.profile,
   });
 
-  final TandemMatch tandemMatch;
+  final Map<String, dynamic> tandemMatch;
+  final FFUser profile;
+
+  @override
+  List<Object> get props => <Object>[];
+}
+
+class UpdateTandemMatchEvent extends AuthenticationEvent {
+  UpdateTandemMatchEvent({
+    required this.update,
+    required this.profile,
+  });
+
+  final Map<String, dynamic> update;
   final FFUser profile;
 
   @override

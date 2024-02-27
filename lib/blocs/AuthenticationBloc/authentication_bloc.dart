@@ -122,7 +122,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
 
   Future<void> _onSetTandemMatchEvent(SetTandemMatchEvent event, Emitter<AuthenticationState> emit) async {
     try {
-      await _firestoreTandemRepository.setTandemMatch(event.tandemMatch, event.profile.localOrNewcomer!);
+      await _firestoreTandemRepository.setTandemMatch(event.tandemMatch, event.profile);
     } catch (_) {}
   }
 

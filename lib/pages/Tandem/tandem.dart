@@ -53,13 +53,15 @@ class _TandementryState extends State<Tandementry> {
                     tooLate = difference.inHours >= 24;
                   }
                   final bool tandemRequestExists = (state.userProfile!.tandemMatches != null &&
-                          state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id &&
                           !tooLate &&
-                          state.userProfile!.tandemMatches!.first.state != TandemMatchesState.declined &&
-                          state.userProfile!.tandemMatches!.first.state != TandemMatchesState.confirmed) &&
+                          state.userProfile!.tandemMatches!.first.state != TandemMatchesState.declined) &&
                       ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
                   if (tandemRequestExists) {
-                    return _tandemOnboarding(context);
+                    if (state.userProfile!.tandemMatches!.first.state == TandemMatchesState.confirmed) {
+                      print('JOOOO');
+                    } else {
+                      return _tandemOnboarding(context);
+                    }
                   }
                   return TandemMatching();
                 } else {
@@ -230,7 +232,6 @@ class _TandementryState extends State<Tandementry> {
                   tooLate = difference.inHours >= 24;
                 }
                 final bool tandemRequestExists = (state.userProfile!.tandemMatches != null &&
-                        state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id &&
                         !tooLate &&
                         state.userProfile!.tandemMatches!.first.state != TandemMatchesState.declined &&
                         state.userProfile!.tandemMatches!.first.state != TandemMatchesState.confirmed) &&

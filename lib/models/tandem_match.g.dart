@@ -17,14 +17,7 @@ TandemMatch _$TandemMatchFromJson(Map<String, dynamic> json) => TandemMatch(
     );
 
 Map<String, dynamic> _$TandemMatchToJson(TandemMatch instance) =>
-    <String, dynamic>{
-      'requested': HelperFunctions.dateTimeAsIs(instance.requested),
-      'state': _$TandemMatchesStateEnumMap[instance.state]!,
-      'requester': instance.requester,
-      'local': instance.local,
-      'newcomer': instance.newcomer,
-      'enabled': instance.enabled,
-    };
+    <String, dynamic>{};
 
 const _$TandemMatchesStateEnumMap = {
   TandemMatchesState.requested: 'requested',

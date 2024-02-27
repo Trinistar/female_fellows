@@ -101,7 +101,9 @@ class TandemUserCard extends StatelessWidget {
                       BlocBuilder<AuthenticationBloc, AuthenticationState>(
                         builder: (context, state) {
                           if (state is AuthenticatedUser) {
-                            if (state.userProfile!.tandemMatches != null && state.userProfile!.tandemMatches!.first.requester == user.id) {
+                            if (state.userProfile!.tandemMatches != null &&
+                                state.userProfile!.tandemMatches!.first.requester == user.id &&
+                                (state.userProfile!.tandemMatches!.first.state == TandemMatchesState.requested || state.userProfile!.tandemMatches!.first.state == TandemMatchesState.rerequested)) {
                               return Row(
                                 children: [
                                   Flexible(
@@ -110,24 +112,11 @@ class TandemUserCard extends StatelessWidget {
                                       padding: const EdgeInsets.only(right: 2.0),
                                       child: GestureDetector(
                                         onTap: () {
-                                          String localId = '';
-                                          String newComerId = '';
-                                          final profile = state.userProfile;
-                                          final Map<String, dynamic> map = <String, dynamic>{};
-                                          //map['requested'] = FieldValue.serverTimestamp();
-                                          map['state'] = TandemMatchesState.declined;
-                                          //map['requester'] = user.id;
-
-                                          if (profile!.localOrNewcomer == LocalOrNewcomer.local) {
-                                            localId = profile.id!;
-                                            newComerId = user.id!;
-                                          } else {
-                                            localId = user.id!;
-                                            newComerId = profile.id!;
-                                          }
-                                          final TandemMatch match = TandemMatch(requested: Timestamp.now(), state: TandemMatchesState.declined, requester: profile.id!, local: localId, newcomer: newComerId);
-                                          BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: match, profile: profile));
-                                          context.go('/tandem/tandemSuccess');
+                                          final Map<String, dynamic> update = {};
+                                          //update['requested'] = FieldValue.serverTimestamp();
+                                          update['state'] = 'declined';
+                                          BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: update, profile: state.userProfile!));
+                                          //context.go('/tandem/tandemSuccess');
                                         },
                                         child: Container(
                                           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -150,18 +139,10 @@ class TandemUserCard extends StatelessWidget {
                                       padding: const EdgeInsets.only(left: 2.0),
                                       child: GestureDetector(
                                         onTap: () {
-                                          String localId = '';
-                                          String newComerId = '';
-                                          final profile = state.userProfile;
-                                          if (profile!.localOrNewcomer == LocalOrNewcomer.local) {
-                                            localId = profile.id!;
-                                            newComerId = user.id!;
-                                          } else {
-                                            localId = user.id!;
-                                            newComerId = profile.id!;
-                                          }
-                                          final TandemMatch match = TandemMatch(requested: Timestamp.now(), state: TandemMatchesState.confirmed, requester: profile.id!, local: localId, newcomer: newComerId);
-                                          BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: match, profile: profile));
+                                          final Map<String, dynamic> update = {};
+                                          //update['requested'] = FieldValue.serverTimestamp();
+                                          update['state'] = 'confirmed';
+                                          BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: update, profile: state.userProfile!));
                                           context.go('/tandem/tandemSuccess');
                                         },
                                         child: Container(
@@ -194,7 +175,14 @@ class TandemUserCard extends StatelessWidget {
                                     localId = user.id!;
                                     newComerId = profile.id!;
                                   }
-                                  final TandemMatch match = TandemMatch(requested: Timestamp.now(), state: TandemMatchesState.requested, requester: profile.id!, local: localId, newcomer: newComerId);
+                                  //final TandemMatch match = TandemMatch(requested: Timestamp.now(), state: TandemMatchesState.requested, requester: profile.id!, local: localId, newcomer: newComerId);
+                                  final Map<String, dynamic> match = {};
+                                  match['requested'] = FieldValue.serverTimestamp();
+                                  match['state'] = 'requested';
+                                  match['requester'] = profile.id!;
+                                  match['local'] = localId;
+                                  match['newcomer'] = newComerId;
+
                                   BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: match, profile: profile));
                                   context.go('/tandem/tandemSuccess');
                                 },

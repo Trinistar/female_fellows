@@ -1,18 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/tandem_match.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_repository.dart';
 
 class FirestoreTandemRepository {
   final FirebaseFirestore db;
   FirestoreTandemRepository() : db = FirestoreRepository().firestoreInstance;
 
-  Future<void> setTandemMatch(TandemMatch match, LocalOrNewcomer lon) async {
-    var doc = await db.collection('tandemMatches').where(lon == LocalOrNewcomer.local ? 'local' : 'newcomer', isEqualTo: match.requester).get();
-    if (doc.docs.isEmpty || doc.docs.first['enabled'] == false) {
-      db.collection('tandemMatches').doc().set(match.toJson());
+  Future<void> setTandemMatch(Map<String, dynamic> match, FFUser user) async {
+    var doc = await db.collection('tandemMatches').where(user.localOrNewcomer == LocalOrNewcomer.local ? 'local' : 'newcomer', isEqualTo: user.id).get();
+    if (doc.docs.isEmpty) {
+      db.collection('tandemMatches').doc().set(match, SetOptions(merge: true));
     } else {
-      print('doc exists');
+      db.collection('tandemMatches').doc(doc.docs.first.id).set(match, SetOptions(merge: true));
     }
   }
 }
