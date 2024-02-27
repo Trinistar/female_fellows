@@ -67,9 +67,9 @@ class EventItems extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Image.asset(
-              'lib/images/ImageIcon.png',
-              cacheHeight: 25,
+            leading: SvgPicture.asset(
+              'lib/images/avatar-5.svg',
+              height: 25,
             ),
             title: Text(
               eventState.contactPerson,

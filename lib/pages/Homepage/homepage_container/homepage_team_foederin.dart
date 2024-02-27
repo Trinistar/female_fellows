@@ -36,7 +36,7 @@ class _TeamFoerderinState extends State<TeamFoerderin> {
                 decoration: BoxDecoration(
                     color: Color.fromRGBO(252, 196, 215, 1),
                     borderRadius: BorderRadius.circular(40)),
-                child: Image.asset('lib/images/buntes-team.png'),
+                child: Image.asset('lib/images/buntes-team.png'),//SvgPicture.asset('lib/images/buntes-team.svg'),
               ),
             ),
             SizedBox(

@@ -5,7 +5,6 @@ import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_second_step.dar
 import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_third_step.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class TandemSteps extends StatelessWidget {
   const TandemSteps({super.key});
 
@@ -27,9 +26,14 @@ class TandemSteps extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 5),
               child: ListTile(
-                leading: SvgPicture.asset('lib/images/mitglied-werden.svg'),
-                title: Text(AppLocalizations.of(context)!.tandemFirstStep),
-                trailing: IconButton(onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Firststep()));}, icon: Icon(Icons.add)),
+                leading: SvgPicture.asset('lib/images/mitglied-werden.svg',width: 120,height: 120,),
+                title: Expanded(child: Text(AppLocalizations.of(context)!.tandemFirstStep,)),
+                trailing: IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => Firststep()));
+                    },
+                    icon: Icon(Icons.add)),
               ),
             ),
           ],
@@ -51,9 +55,15 @@ class TandemSteps extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 5),
               child: ListTile(
-                leading: SvgPicture.asset('lib/images/tandem-matching.svg'),
-                title: Text(AppLocalizations.of(context)!.tandemSecondStepnoslash),
-                trailing: IconButton(onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SecondStep()));}, icon: Icon(Icons.add)),
+                leading: SvgPicture.asset('lib/images/tandem-matching.svg',width: 120,height: 120,),
+                title:
+                    Text(AppLocalizations.of(context)!.tandemSecondStepnoslash),
+                trailing: IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => SecondStep()));
+                    },
+                    icon: Icon(Icons.add)),
               ),
             ),
           ],
@@ -75,9 +85,14 @@ class TandemSteps extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 5),
               child: ListTile(
-                leading: SvgPicture.asset('lib/images/kennen-lernen.svg'),
+                leading: SvgPicture.asset('lib/images/kennen-lernen.svg',width: 140,height: 140,),
                 title: Text(AppLocalizations.of(context)!.tandemThirdStep),
-                trailing: IconButton(onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ThirdStep()));}, icon: Icon(Icons.add)),
+                trailing: IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => ThirdStep()));
+                    },
+                    icon: Icon(Icons.add)),
               ),
             ),
           ],

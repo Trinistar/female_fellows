@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 
-
-class Kooperation extends StatelessWidget {
+class Kooperation extends StatefulWidget {
   const Kooperation({super.key});
 
+  @override
+  State<Kooperation> createState() => _KooperationState();
+}
+
+final coop = Uri.parse('https://femalefellows.com/unterstuetzen/');
+
+class _KooperationState extends State<Kooperation> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -62,27 +70,34 @@ class Kooperation extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: null,
-                      child: Container(
-                        padding: EdgeInsets.all(20),
-                        margin: const EdgeInsets.only(left:40, right: 80),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white,
+                      onTap: () {
+                        setState(() {
+                          launchUrl(coop, mode: LaunchMode.externalApplication);
+                        });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, right: 60),
+                        child: Container(
+                          height: 75,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.white,
+                          ),
+                          child: Center(
+                              child: Text(
+                            AppLocalizations.of(context)!
+                                .homeVereinInfoThreeButton,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          )),
                         ),
-                        child: Center(
-                            child: Text(
-                          AppLocalizations.of(context)!.homeVereinInfoThreeButton,
-                          style: const TextStyle(
-                              
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        )),
                       ),
                     ),
                   ]),
             ),
-            SizedBox(height: 80,),
+            SizedBox(
+              height: 80,
+            ),
             Image.asset('lib/images/handshake.png')
           ],
         ),

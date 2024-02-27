@@ -15,8 +15,6 @@ import 'package:vs_femalefellows/pages/Tandem/tandem_faqs.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_header.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
-
 class Tandementry extends StatefulWidget {
   const Tandementry({super.key});
 
@@ -26,6 +24,7 @@ class Tandementry extends StatefulWidget {
 
 class _TandementryState extends State<Tandementry> {
   bool showSteps = false;
+  bool showMoreText = false;
   void toggleSteps() {
     setState(() {
       showSteps = !showSteps;
@@ -57,33 +56,39 @@ class _TandementryState extends State<Tandementry> {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
-      
       backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 0,
         automaticallyImplyLeading: false,
         iconTheme: IconThemeData(
-          color: Colors.white, 
+          color: Colors.white,
         ),
         backgroundColor: Theme.of(context).colorScheme.tertiary,
       ),
       body: ListView(
         children: [
-     
           TandemHeader(),
-          DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.tertiary),
+          DividerBouthCorner(
+              color1: Colors.white,
+              color2: Theme.of(context).colorScheme.tertiary),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) {
-              //Local
+              //Local//Newcomer
               if (state is AuthenticatedUser) {
                 return Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
                         width: 350,
                         child: Text(
-                          state.userProfile?.localOrNewcomer == LocalOrNewcomer.local ? AppLocalizations.of(context)!.tandemMatchLocal : AppLocalizations.of(context)!.tandemMatchNewcomer,
+                          state.userProfile?.localOrNewcomer ==
+                                  LocalOrNewcomer.local
+                              ? AppLocalizations.of(context)!.tandemMatchLocal
+                              : AppLocalizations.of(context)!
+                                  .tandemMatchNewcomer,
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
@@ -99,21 +104,25 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          state.userProfile?.localOrNewcomer == LocalOrNewcomer.local
-                              ? AppLocalizations.of(context)!.tandemThirdStepBody
-                              : AppLocalizations.of(context)!.tandemThirdStepBody2,
+                          state.userProfile?.localOrNewcomer ==
+                                  LocalOrNewcomer.local
+                              ? AppLocalizations.of(context)!
+                                  .tandemThirdStepBody
+                              : AppLocalizations.of(context)!
+                                  .tandemThirdStepBody2,
                           style: TextStyle(fontSize: 15),
                         ),
                       ),
                     ],
                   ),
                 );
-                //Newcomer
                 //Unauthenticated
               } else {
                 return Padding(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.only(left: 40),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
                         width: 350,
@@ -124,7 +133,6 @@ class _TandementryState extends State<Tandementry> {
                       ),
                       Divider(
                         thickness: 3,
-                        indent: 20,
                         endIndent: 310,
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -134,8 +142,24 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          AppLocalizations.of(context)!.tandemSlogan,
+                          showMoreText
+                              ? AppLocalizations.of(context)!.tandemSloganBody
+                              : AppLocalizations.of(context)!.tandemSlogan,
                           style: TextStyle(fontSize: 15),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            showMoreText = !showMoreText;
+                          });
+                        },
+                        child: Text(
+                          showMoreText
+                          ? AppLocalizations.of(context)!.getLess
+                             : AppLocalizations.of(context)!.getMore,
+                          style:
+                              TextStyle(fontSize: 12, color: Colors.amber[900]),
                         ),
                       ),
                     ],
@@ -144,13 +168,13 @@ class _TandementryState extends State<Tandementry> {
               }
             },
           ),
-          Padding(
+          /*   Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
               AppLocalizations.of(context)!.getMore,
               style: TextStyle(fontSize: 12, color: Colors.amber[900]),
             ),
-          ),
+          ), */
           SizedBox(
             height: 50,
           ),
@@ -180,7 +204,9 @@ class _TandementryState extends State<Tandementry> {
                         alignment: Alignment.centerRight,
                         onPressed: toggleSteps,
                         icon: Icon(
-                          showSteps ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                          showSteps
+                              ? Icons.keyboard_arrow_up
+                              : Icons.keyboard_arrow_down,
                           size: 40,
                           color: Theme.of(context).colorScheme.primary,
                         )),
@@ -217,7 +243,10 @@ class _TandementryState extends State<Tandementry> {
                     child: Center(
                       child: Text(
                         AppLocalizations.of(context)!.tandemMatchNow,
-                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
                       ),
                     ),
                   ),
@@ -235,7 +264,10 @@ class _TandementryState extends State<Tandementry> {
                     child: Center(
                       child: Text(
                         AppLocalizations.of(context)!.tandemMatchNow,
-                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
                       ),
                     ),
                   ),
@@ -243,7 +275,9 @@ class _TandementryState extends State<Tandementry> {
               }
             },
           ),
-          DividerBouthCorner(color1: Theme.of(context).colorScheme.surface, color2: Colors.white),
+          DividerBouthCorner(
+              color1: Theme.of(context).colorScheme.surface,
+              color2: Colors.white),
           Container(
             color: Theme.of(context).colorScheme.surface,
             child: Padding(
@@ -278,7 +312,9 @@ class _TandementryState extends State<Tandementry> {
               ),
             ),
           ),
-          DividerBouthCorner(color1: Theme.of(context).colorScheme.tertiary, color2: Theme.of(context).colorScheme.surface),
+          DividerBouthCorner(
+              color1: Theme.of(context).colorScheme.tertiary,
+              color2: Theme.of(context).colorScheme.surface),
           TandemComments(),
           DividerBouthCorner(
             color1: Colors.white,
@@ -319,7 +355,11 @@ class _TandementryState extends State<Tandementry> {
             height: 50,
           ),
           Container(
-            decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: BorderRadius.only(topRight: Radius.circular(60), topLeft: Radius.circular(60))),
+            decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surface,
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(60),
+                    topLeft: Radius.circular(60))),
             height: 50,
           ),
           FAQs(),

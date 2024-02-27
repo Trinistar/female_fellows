@@ -13,7 +13,7 @@ class ThirdStep extends StatefulWidget {
 
 class _ThirdStepState extends State<ThirdStep> {
   final videoURL =
-      "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley";
+      "https://www.youtube.com/watch?v=5C6p2DxK6S8&t=32s";
   late YoutubePlayerController _controller;
   @override
   void initState() {

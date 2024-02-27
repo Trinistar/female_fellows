@@ -87,71 +87,46 @@ class _EventOverviewState extends State<EventOverview>
       body: ListView(
         shrinkWrap: true,
         children: [
-          Container(
-            decoration: BoxDecoration(
-                color: Color.fromRGBO(241, 80, 60, 1),
-                borderRadius:
-                    BorderRadius.only(bottomRight: Radius.circular(60))),
-            height: 215,
-            width: 1000,
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Positioned(
-                  right: 0,
+          Stack(
+            children: [
+              Container(
+                height: 215,
+                width: 1000,
+                decoration: BoxDecoration(
+                    color: Color.fromRGBO(241, 80, 60, 1),
+                    borderRadius:
+                        BorderRadius.only(bottomRight: Radius.circular(60))),
+              ),
+              Positioned(
                   bottom: 0,
-                  child: Container(
-                    height: 26,
-                    width: 40,
-                    decoration: BoxDecoration(color: Colors.white),
+                  right: 0,
+                  child: Image.asset('lib/images/Mask group.png')),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 130,
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 35),
-                  child: Image.asset(
-                    'lib/images/Mask group.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                /* Padding(
-                          padding: const EdgeInsets.only(left: 50),
-                          child: FloatingActionButton(
-                            heroTag: EventNotAuthenticatedState,
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventNotAuthenticatedState()));
-                            },
-                            backgroundColor: Colors.black,
-                            mini: true,
-                            child: Icon(Icons.add),
-                          ),
-                        ), */
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 130,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40),
-                      child: Text(
-                        'Events',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                        ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Text(
+                      'Events',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
                       ),
                     ),
-                    Divider(
-                      thickness: 5,
-                      indent: 40,
-                      endIndent: 310,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                  Divider(
+                    thickness: 5,
+                    indent: 40,
+                    endIndent: 310,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ],
           ),
           Artbar(colorleft: Colors.red, colorright: Colors.white),
           Padding(
@@ -417,10 +392,13 @@ class _EventOverviewState extends State<EventOverview>
                           SizedBox(
                             width: 30,
                           ),
-                          Text(
-                            AppLocalizations.of(context)!
-                                .eventsPageAllMailtoButtonOne,
-                            textAlign: TextAlign.center,
+                          SizedBox(
+                            width: 170,
+                            child: Text(
+                              AppLocalizations.of(context)!
+                                  .eventsPageAllMailtoButtonOne,
+                              textAlign: TextAlign.center,
+                            ),
                           )
                         ],
                       ),
@@ -455,10 +433,13 @@ class _EventOverviewState extends State<EventOverview>
                           SizedBox(
                             width: 30,
                           ),
-                          Text(
-                            AppLocalizations.of(context)!
-                                .eventsPageAllMailtoButtonOne,
-                            textAlign: TextAlign.center,
+                          SizedBox(
+                            width: 170,
+                            child: Text(
+                              AppLocalizations.of(context)!
+                                  .eventsPageAllMailtoButtonOne,
+                              textAlign: TextAlign.center,
+                            ),
                           )
                         ],
                       ),
