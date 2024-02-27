@@ -40,54 +40,45 @@ class TabBarNavigation extends StatelessWidget {
       body: navigationShell,
 
       //Navigationbar
-      bottomNavigationBar: Container(
-        height: 85,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: navigationShell.currentIndex,
+        onTap: _navigation,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Theme.of(context).colorScheme.secondary,
+        unselectedItemColor: Theme.of(context).colorScheme.primary,
+        items: [
+          BottomNavigationBarItem(
+            activeIcon: SvgPicture.asset('lib/images/tandem-active.svg',height: 30,),
+            icon: SvgPicture.asset('lib/images/tandem.svg',height: 25,),
+            label: "Tandem",
           ),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: navigationShell.currentIndex,
-          onTap: _navigation,
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Theme.of(context).colorScheme.secondary,
-          unselectedItemColor: Theme.of(context).colorScheme.primary,
-          items: [
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset('lib/images/tandem-active.svg',height: 30,),
-              icon: SvgPicture.asset('lib/images/tandem.svg',height: 25,),
-              label: "Tandem",
+          BottomNavigationBarItem(
+            activeIcon: SvgPicture.asset('lib/images/events-active.svg',height:30,),
+            icon: SvgPicture.asset('lib/images/events.svg',height: 25,),
+            label: "Event",
+          ),
+          BottomNavigationBarItem(
+            activeIcon: SvgPicture.asset(
+              'lib/images/home-active.svg',
+              height: 50,
             ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset('lib/images/events-active.svg',height:30,),
-              icon: SvgPicture.asset('lib/images/events.svg',height: 25,),
-              label: "Event",
+            icon: SvgPicture.asset(
+              'lib/images/home.svg',
+              height: 50,
             ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset(
-                'lib/images/home-active.svg',
-                height: 50,
-              ),
-              icon: SvgPicture.asset(
-                'lib/images/home.svg',
-                height: 50,
-              ),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset('lib/images/profil-active.svg',height: 30,),
-              icon: SvgPicture.asset('lib/images/profil.svg',height: 25,),
-              label: "Profil",
-            ),
-            BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset('lib/images/community-active.svg',height: 30,),
-              icon: SvgPicture.asset('lib/images/community.svg',height: 25,),
-              label:"Chat"
-            )
-          ],
-        ),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            activeIcon: SvgPicture.asset('lib/images/profil-active.svg',height: 30,),
+            icon: SvgPicture.asset('lib/images/profil.svg',height: 25,),
+            label: "Profil",
+          ),
+          BottomNavigationBarItem(
+            activeIcon: SvgPicture.asset('lib/images/community-active.svg',height: 30,),
+            icon: SvgPicture.asset('lib/images/community.svg',height: 25,),
+            label:"Chat"
+          )
+        ],
       ),
     );
   }

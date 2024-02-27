@@ -24,6 +24,13 @@ class FirestoreUserProfileRepository {
     });
   }
 
+  Future<FFUser> getUserProfile(String userID) async {
+    var snap = await FirestoreRepository().firestoreInstance.collection('user').doc(userID).get();
+    final FFUser userProfile = FFUser.fromJson(snap.data()!);
+    userProfile.id = userID;
+    return userProfile;
+  }
+
   Stream<UserLocation?> loadUserProfileLocationData(String userId) {
     return FirestoreRepository().firestoreInstance.collection('user/$userId/data').doc('geodata').snapshots().map((DocumentSnapshot<Object> snapshot) {
       if (snapshot.exists) {
@@ -41,6 +48,11 @@ class FirestoreUserProfileRepository {
         final List<TandemMatch> matches = [];
         for (final DocumentSnapshot<Object> doc in snapshot.docs) {
           final TandemMatch match = TandemMatch.fromJson(doc.data()! as Map<String, dynamic>);
+          if (match.local == userId) {
+            match.otherUserId = match.newcomer;
+          } else if (match.newcomer == userId) {
+            match.otherUserId = match.local;
+          }
           matches.add(match);
         }
         return matches;

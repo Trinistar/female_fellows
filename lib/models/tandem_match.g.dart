@@ -14,6 +14,7 @@ TandemMatch _$TandemMatchFromJson(Map<String, dynamic> json) => TandemMatch(
       local: json['local'] as String,
       newcomer: json['newcomer'] as String,
       enabled: json['enabled'] as bool? ?? true,
+      otherUserId: json['otherUserId'] as String? ?? '',
     );
 
 Map<String, dynamic> _$TandemMatchToJson(TandemMatch instance) =>

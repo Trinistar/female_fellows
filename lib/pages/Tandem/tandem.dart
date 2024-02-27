@@ -1,20 +1,19 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
 import 'package:vs_femalefellows/models/enums.dart';
-import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
+import 'package:vs_femalefellows/pages/AfterTandem/matched_tandem.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_matching.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_activitys.dart';
+import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_matching.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_steps.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_carousel.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_comments.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_faqs.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem_header.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Tandementry extends StatefulWidget {
   const Tandementry({super.key, this.isInfo = false});
@@ -60,7 +59,7 @@ class _TandementryState extends State<Tandementry> {
                       ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
                   if (tandemRequestExists) {
                     if (state.userProfile!.tandemMatches!.first.state == TandemMatchesState.confirmed) {
-                      print('JOOOO');
+                      return AfterTandem();
                     } else {
                       return _tandemOnboarding(context);
                     }

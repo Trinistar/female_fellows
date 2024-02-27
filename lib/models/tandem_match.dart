@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/enums.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 
 part 'tandem_match.g.dart';
 
@@ -14,6 +15,8 @@ class TandemMatch {
     required this.local,
     required this.newcomer,
     this.enabled = true,
+    this.otherProfile,
+    this.otherUserId = '',
   });
 
   factory TandemMatch.fromJson(Map<String,dynamic> json)=>_$TandemMatchFromJson(json);
@@ -31,4 +34,8 @@ class TandemMatch {
   final String newcomer;
   @JsonKey(defaultValue: true, includeToJson: false)
   final bool enabled;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  FFUser? otherProfile;
+  @JsonKey(defaultValue: '', includeToJson: false)
+  String otherUserId;
 }

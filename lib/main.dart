@@ -163,6 +163,13 @@ final GoRouter _router = GoRouter(
                     return const Tandementry(isInfo: true);
                   },
                 ),
+                GoRoute(
+                  path: 'afterTandem',
+                  parentNavigatorKey: _rootNavigatorKey,
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const AfterTandem();
+                  },
+                ),
               ],
             ),
           ],
