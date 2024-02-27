@@ -11,18 +11,18 @@ class FAQs extends StatefulWidget {
 
 class _FAQsState extends State<FAQs> {
   late List<String> _faqAnswers = [
-    'Auch hier ist es wichtig, dass du sowohl mit deiner Partnerin als auch mit uns darüber sprichst. Gerne kümmern wir uns darum, dass deine Partnerin wieder eine neue Tandempartnerin findet. Vielleicht hast du ja eine Freundin, die das Tandem übernehmen möchte?',
+    /*    'Auch hier ist es wichtig, dass du sowohl mit deiner Partnerin als auch mit uns darüber sprichst. Gerne kümmern wir uns darum, dass deine Partnerin wieder eine neue Tandempartnerin findet. Vielleicht hast du ja eine Freundin, die das Tandem übernehmen möchte?',
     'Wenn deine Partnerin nicht mehr auf deine Anrufe oder Nachrichten reagiert, gib uns gerne Bescheid. Wir versuchen dann herauszufinden, was los ist und zwischen euch zu vermitteln. Manchmal liegt es am mangelnden Internet in den Unterkünften, manchmal traut sie sich nicht, das Tandem zu beenden. In jedem Fall möchten wir mit euch darüber sprechen und euch bestmöglich in eurem Tandem unterstützen.',
+  */
   ];
 
   late List<String> _faqTitles = [
-    '5 | Meine Tandempartnerin meldet sich nicht mehr, was soll ich tun?',
-    '6 | Ich ziehe um. Was passiert mit meiner Tandempartnerschaft?',
+    /*   '5 | Meine Tandempartnerin meldet sich nicht mehr, was soll ich tun?',
+    '6 | Ich ziehe um. Was passiert mit meiner Tandempartnerschaft?', */
   ];
-
   @override
-  void initState() {
- /*    _faqTitles = [
+  void didChangeDependencies() {
+    _faqTitles = [
       AppLocalizations.of(context)!.tandemLocalsQuestion1,
       AppLocalizations.of(context)!.tandemLocalsQuestion2,
       AppLocalizations.of(context)!.tandemLocalsQuestion3,
@@ -34,8 +34,9 @@ class _FAQsState extends State<FAQs> {
       AppLocalizations.of(context)!.tandemLocalsQuestion9,
       AppLocalizations.of(context)!.tandemLocalsQuestion10,
       AppLocalizations.of(context)!.tandemLocalsQuestion11,
-    ]; */
-    /*     _faqAnswers = [
+    ];
+
+    _faqAnswers = [
       AppLocalizations.of(context)!.tandemLocalsAnswer1,
       AppLocalizations.of(context)!.tandemLocalsAnswer2,
       AppLocalizations.of(context)!.tandemLocalsAnswer3,
@@ -47,9 +48,12 @@ class _FAQsState extends State<FAQs> {
       AppLocalizations.of(context)!.tandemLocalsAnswer9,
       AppLocalizations.of(context)!.tandemLocalsAnswer10,
       AppLocalizations.of(context)!.tandemLocalsAnswer11,
-    ]; */
-    super.initState();
+    ];
+
+    super.didChangeDependencies();
   }
+
+
 
   @override
   Widget build(BuildContext context) {

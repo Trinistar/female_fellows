@@ -4,7 +4,6 @@ import 'package:vs_femalefellows/pages/Homepage/homepage_kooperations_partner.da
 import 'package:vs_femalefellows/pages/Homepage/homepage_unsere_mission.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class AboutUs extends StatelessWidget {
   const AboutUs({super.key});
 
@@ -21,7 +20,7 @@ class AboutUs extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-               AppLocalizations.of(context)!.homeVereinInfoTitle,
+                AppLocalizations.of(context)!.homeVereinInfoTitle,
                 style: TextStyle(fontSize: 20),
               ),
               Divider(
@@ -124,9 +123,13 @@ class AboutUs extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.tertiary,
                                 borderRadius: BorderRadius.circular(20)),
                             child: Image.asset('lib/images/kooperation.png')),
-                        Text(
-                         AppLocalizations.of(context)!.homeVereinInfoThreeTitle,
-                          style: TextStyle(fontSize: 20),
+                        SizedBox(
+                          width: 150,
+                          child: Text(
+                            AppLocalizations.of(context)!
+                                .homeVereinInfoThreeTitle,
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                         Icon(
                           Icons.add,

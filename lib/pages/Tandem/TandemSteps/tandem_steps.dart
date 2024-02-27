@@ -27,7 +27,7 @@ class TandemSteps extends StatelessWidget {
               padding: const EdgeInsets.only(top: 5),
               child: ListTile(
                 leading: SvgPicture.asset('lib/images/mitglied-werden.svg',width: 120,height: 120,),
-                title: Expanded(child: Text(AppLocalizations.of(context)!.tandemFirstStep,)),
+                title: Text(AppLocalizations.of(context)!.tandemFirstStep,),
                 trailing: IconButton(
                     onPressed: () {
                       Navigator.of(context).push(

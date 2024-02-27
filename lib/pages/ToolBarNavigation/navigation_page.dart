@@ -56,13 +56,25 @@ class TabBarNavigation extends StatelessWidget {
           unselectedItemColor: Theme.of(context).colorScheme.primary,
           items: [
             BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset('lib/images/tandem-active.svg',height: 30,),
-              icon: SvgPicture.asset('lib/images/tandem.svg',height: 25,),
+              activeIcon: SvgPicture.asset(
+                'lib/images/tandem-active.svg',
+                height: 30,
+              ),
+              icon: SvgPicture.asset(
+                'lib/images/tandem.svg',
+                height: 25,
+              ),
               label: "Tandem",
             ),
             BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset('lib/images/events-active.svg',height:30,),
-              icon: SvgPicture.asset('lib/images/events.svg',height: 25,),
+              activeIcon: SvgPicture.asset(
+                'lib/images/events-active.svg',
+                height: 30,
+              ),
+              icon: SvgPicture.asset(
+                'lib/images/events.svg',
+                height: 25,
+              ),
               label: "Event",
             ),
             BottomNavigationBarItem(
@@ -77,15 +89,21 @@ class TabBarNavigation extends StatelessWidget {
               label: "Home",
             ),
             BottomNavigationBarItem(
-              activeIcon: SvgPicture.asset('lib/images/profil-active.svg',height: 30,),
-              icon: SvgPicture.asset('lib/images/profil.svg',height: 25,),
+              activeIcon: SvgPicture.asset(
+                'lib/images/profil-active.svg',
+                height: 30,
+              ),
+              icon: SvgPicture.asset(
+                'lib/images/profil.svg',
+                height: 25,
+              ),
               label: "Profil",
             ),
-            BottomNavigationBarItem(
+            /*     BottomNavigationBarItem(
               activeIcon: SvgPicture.asset('lib/images/community-active.svg',height: 30,),
               icon: SvgPicture.asset('lib/images/community.svg',height: 25,),
               label:"Chat"
-            )
+            ) */
           ],
         ),
       ),
