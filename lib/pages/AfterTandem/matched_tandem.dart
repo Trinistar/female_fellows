@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:vs_femalefellows/components/female_fellows_button.dart';
-import 'package:vs_femalefellows/pages/AfterTandem/future_components.dart';
 import 'package:vs_femalefellows/pages/AfterTandem/matched_tandemheader.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
@@ -83,33 +81,36 @@ class _AfterTandemState extends State<AfterTandem> {
               color2: Theme.of(context).colorScheme.surface),
           Container(
             color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 40),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Text(
                     AppLocalizations.of(context)!.tandemStorys,
                     style: TextStyle(
                       fontSize: 20,
                     ),
                   ),
-                  Divider(
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40.0),
+                  child: Divider(
                     thickness: 3,
                     indent: 0,
                     endIndent: 310,
                     color: Theme.of(context).colorScheme.primary,
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  TandemCarousel(),
-                  SizedBox(
-                    height: 20,
-                  ),
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TandemCarousel(),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
             ),
           ),
           SizedBox(

@@ -69,16 +69,14 @@ class _HomeState extends State<Home> {
           SizedBox(
             height: 150,
             width: 1000,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  TandemItemStory1(),
-                  TandemItemStory2(),
-                  TandemItemStory3(),
-                ],
-              ),
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              children: [
+                TandemItemStoryOne(),
+                TandemItemStoryTwo(),
+                TandemItemStoryThree(),
+              ],
             ),
           ),
           ImageButton(

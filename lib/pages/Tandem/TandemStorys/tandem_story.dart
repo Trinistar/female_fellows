@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TandemStory1 extends StatelessWidget {
-  const TandemStory1({super.key});
+class TandemStoryOne extends StatelessWidget {
+  const TandemStoryOne({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,15 +10,19 @@ class TandemStory1 extends StatelessWidget {
       extendBody: true,
       extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).colorScheme.secondary,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: ListView(
         children: [
           Stack(
             children: [
               SizedBox(
                 height: 300,
+                width: 1000,
                 child: Image.asset(
                   'lib/images/lisa-makai.jpg',
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
               ),
               Column(
@@ -133,9 +136,6 @@ class TandemStory1 extends StatelessWidget {
                     ),
                   )
                 ],
-              ),
-              BackButton(
-                color: Colors.white,
               ),
             ],
           ),

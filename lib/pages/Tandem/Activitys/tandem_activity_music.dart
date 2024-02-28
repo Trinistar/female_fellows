@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_coffe.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class ActivityMusic extends StatelessWidget {
   const ActivityMusic({super.key});
@@ -9,10 +9,7 @@ class ActivityMusic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => TandemCoffe()));
-      },
+      onTap: () => context.push('/tandemCoffee'),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Container(
@@ -22,7 +19,7 @@ class ActivityMusic extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
           ),
           height: 160,
-          width: 150,
+          width: 160,
           child: ClipRRect(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,

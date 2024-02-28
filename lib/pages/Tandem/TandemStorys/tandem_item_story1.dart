@@ -1,32 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_story.dart';
+import 'package:go_router/go_router.dart';
 
-class TandemItemStory1 extends StatelessWidget {
-  const TandemItemStory1({super.key});
+class TandemItemStoryOne extends StatelessWidget {
+  const TandemItemStoryOne({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: GestureDetector(
-        onTap: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> TandemStory1()),);
-        },
-        child: Container(
+        onTap: () => context.push('/tandemStoryOne'),
+        child: Stack(
           alignment: Alignment.bottomCenter,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-            color:  Theme.of(context).colorScheme.secondary,
-          ),
-          height: 160,
-          child: ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-            child: SvgPicture.asset(
-            'lib/images/makai-lisa.svg',
-              fit: BoxFit.cover,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+              height: 160,
+              width: 160,
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                child: Image.asset(
+                  'lib/images/lisa-makai.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          ),
+            Positioned(
+              bottom: 10,
+              child: Text(
+                'Makai & Lisa',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

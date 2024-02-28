@@ -45,9 +45,9 @@ class Challenges extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  ActivityCofe(),
-                  ActivityCofe(),
-                  ActivityCofe(),
+                  ActivityCoffee(),
+                  ActivityCoffee(),
+                  ActivityCoffee(),
                 ],
               ),
             ),

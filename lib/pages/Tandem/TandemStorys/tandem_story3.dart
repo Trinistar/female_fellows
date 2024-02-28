@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TandemStory3 extends StatelessWidget {
-  const TandemStory3({super.key});
+class TandemStoryThree extends StatelessWidget {
+  const TandemStoryThree({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +10,9 @@ class TandemStory3 extends StatelessWidget {
       extendBody: true,
       extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).colorScheme.secondary,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: ListView(
         children: [
           Stack(
@@ -20,7 +22,7 @@ class TandemStory3 extends StatelessWidget {
                 width: double.infinity,
                 child: Image.asset(
                   'lib/images/zouzan-sandra.png',
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
               ),
               Column(
@@ -144,9 +146,6 @@ class TandemStory3 extends StatelessWidget {
                     ),
                   )
                 ],
-              ),
-              BackButton(
-                color: Colors.white,
               ),
             ],
           ),

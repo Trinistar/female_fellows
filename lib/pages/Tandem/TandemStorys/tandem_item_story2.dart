@@ -1,34 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_story2.dart';
+import 'package:go_router/go_router.dart';
 
-class TandemItemStory2 extends StatelessWidget {
-  const TandemItemStory2({super.key});
+class TandemItemStoryTwo extends StatelessWidget {
+  const TandemItemStoryTwo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: GestureDetector(
-        onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => TandemStory2()),
-          );
-        },
-        child: Container(
+        onTap: () => context.push('/tandemStoryTwo'),
+        child: Stack(
           alignment: Alignment.bottomCenter,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-            color: Theme.of(context).colorScheme.primary,
-          ),
-          height: 160,
-          child: ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-            child: SvgPicture.asset(
-              ('lib/images/yasna-franziska.svg'),
-              fit: BoxFit.cover,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              height: 160,
+              width: 160,
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                child: Image.asset(
+                  'lib/images/Yasna-franziska.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          ),
+            Positioned(
+              bottom: 10,
+              child: Text(
+                'Yasna & Franziska',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

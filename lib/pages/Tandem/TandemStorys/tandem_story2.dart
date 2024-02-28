@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/svg.dart';
 
-class TandemStory2 extends StatelessWidget {
-  const TandemStory2({super.key});
+class TandemStoryTwo extends StatelessWidget {
+  const TandemStoryTwo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +10,9 @@ class TandemStory2 extends StatelessWidget {
       extendBody: true,
       extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).colorScheme.secondary,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: ListView(
         children: [
           Stack(
@@ -20,7 +22,7 @@ class TandemStory2 extends StatelessWidget {
                 width: double.maxFinite,
                 child: Image.asset(
                   'lib/images/Yasna-franziska.jpg',
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
               ),
               Column(
@@ -129,9 +131,6 @@ class TandemStory2 extends StatelessWidget {
                   ),
                   SizedBox(height: 100)
                 ],
-              ),
-              BackButton(
-                color: Colors.white,
               ),
             ],
           ),

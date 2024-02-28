@@ -11,7 +11,7 @@ class ActivityPicnic extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => TandemCoffe()));
+            .push(MaterialPageRoute(builder: (context) => TandemCoffee()));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),

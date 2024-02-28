@@ -14,7 +14,7 @@ class ActivitysCarousel extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          ActivityCofe(),
+          ActivityCoffee(),
           // ActivityPicnic(),
           ActivityMusic(),
         ],

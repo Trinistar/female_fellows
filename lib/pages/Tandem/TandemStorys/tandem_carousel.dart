@@ -12,11 +12,12 @@ class TandemCarousel extends StatelessWidget {
       height: 150,
       width: 1000,
       child: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 40),
         scrollDirection: Axis.horizontal,
         children: [
-          TandemItemStory1(),
-          TandemItemStory2(),
-          TandemItemStory3(),
+          TandemItemStoryOne(),
+          TandemItemStoryTwo(),
+          TandemItemStoryThree(),
         ],
       ),
     );

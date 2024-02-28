@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TandemCoffe extends StatefulWidget {
-  const TandemCoffe({super.key});
+class TandemCoffee extends StatefulWidget {
+  const TandemCoffee({super.key});
 
   @override
-  State<TandemCoffe> createState() => _TandemCoffeState();
+  State<TandemCoffee> createState() => _TandemCoffeeState();
 }
 
-class _TandemCoffeState extends State<TandemCoffe> {
+class _TandemCoffeeState extends State<TandemCoffee> {
   bool showSteps = false;
 
   void toggleSteps() {
