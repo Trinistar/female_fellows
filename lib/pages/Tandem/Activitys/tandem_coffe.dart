@@ -39,7 +39,7 @@ class _TandemCoffeState extends State<TandemCoffe> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                    AppLocalizations.of(context)!.tandemActivityOneTitle,
+                      AppLocalizations.of(context)!.tandemActivityOneTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -62,38 +62,37 @@ class _TandemCoffeState extends State<TandemCoffe> {
           SizedBox(
             height: 200,
             width: 1000,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                Container(
-                  width: 250,
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(60)),
-                  child: SvgPicture.asset(
-                    'lib/images/cafe.svg',
-                    fit: BoxFit.cover,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Container(
+                    width: 250,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(60)),
+                    child: Image.asset(
+                      'lib/images/sprachcafe-1.png',
+                      fit: BoxFit.contain,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(60)),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                      color: Colors.pink,
-                      borderRadius: BorderRadius.circular(60)),
-                ),
-              ],
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Container(
+                    width: 250,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(60)),
+                    child: Image.asset(
+                      'lib/images/sprachcafe-2.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                ],
+              ),
             ),
           ),
           Padding(
@@ -106,6 +105,10 @@ class _TandemCoffeState extends State<TandemCoffe> {
                   height: 50,
                 ),
                 Text(
+                  'Gemütliches Ambiente direkt in der Nähe der Haltestelle Olgaeck. Es gibt einen Außen- und Innenbereich und leckere Gerichte zum Essen. Im Babel steckt ein Stück Female Fellows Geschichte. Hier haben unsere Treffen vor und während der Gründung stattgefunden. Dieser Ort hat uns sehr inspiriert, um kreativ zu arbeiten. Er gab uns neue Energie und die Kraft, an uns zu glauben und weiterzumachen.',
+                  style: TextStyle(color: Colors.white),
+                ),
+                /*  Text(
                 AppLocalizations.of(context)!.eventsPageGetLocation,
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
@@ -352,7 +355,7 @@ class _TandemCoffeState extends State<TandemCoffe> {
                 ),
                 SizedBox(
                   height: 100,
-                ),
+                ),*/
               ],
             ),
           ),

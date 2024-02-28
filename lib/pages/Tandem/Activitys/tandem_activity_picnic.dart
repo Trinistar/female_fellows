@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_coffe.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class ActivityCofe extends StatelessWidget {
-  const ActivityCofe({super.key});
+class ActivityPicnic extends StatelessWidget {
+  const ActivityPicnic({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +18,16 @@ class ActivityCofe extends StatelessWidget {
         child: Container(
           alignment: Alignment.bottomCenter,
           decoration: BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.fill, image: AssetImage('lib/images/CafePng.png')),
             borderRadius: BorderRadius.all(Radius.circular(40)),
           ),
           height: 160,
           width: 150,
+          child: ClipRRect(
+            child: SvgPicture.asset(
+              'lib/images/picknicken.svg',
+              fit: BoxFit.fill,
+            ),
+          ),
         ),
       ),
     );

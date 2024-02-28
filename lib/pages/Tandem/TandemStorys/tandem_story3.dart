@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TandemStory1 extends StatelessWidget {
-  const TandemStory1({super.key});
+class TandemStory3 extends StatelessWidget {
+  const TandemStory3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,9 @@ class TandemStory1 extends StatelessWidget {
             children: [
               SizedBox(
                 height: 300,
+                width: double.infinity,
                 child: Image.asset(
-                  'lib/images/lisa-makai.jpg',
+                  'lib/images/zouzan-sandra.png',
                   fit: BoxFit.fill,
                 ),
               ),
@@ -54,7 +55,7 @@ class TandemStory1 extends StatelessWidget {
                               height: 5,
                             ),
                             Text(
-                              'Makai & Lisa',
+                              'Sandra & Zuosan',
                               style: TextStyle(fontSize: 25),
                             ),
                             Divider(
@@ -67,8 +68,7 @@ class TandemStory1 extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              AppLocalizations.of(context)!
-                                  .homeTandemstoryOneBodyOne,
+                              AppLocalizations.of(context)!.tandemStory3Body1,
                               style: TextStyle(fontSize: 15),
                             ),
                             SizedBox(
@@ -91,8 +91,11 @@ class TandemStory1 extends StatelessWidget {
                             width: 250,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    fit: BoxFit.fill,
-                                    image: AssetImage('lib/images/lisa.png')),
+                                  fit: BoxFit.fill,
+                                  image: AssetImage(
+                                      'lib/images/zouzan-sandra-2.png'),
+                                ),
+                                color: Colors.amber,
                                 borderRadius: BorderRadius.circular(60)),
                           ),
                           SizedBox(
@@ -104,11 +107,20 @@ class TandemStory1 extends StatelessWidget {
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
                                     image: AssetImage(
-                                        'lib/images/lisa-picknic.png')),
+                                        'lib/images/zouzan-sandra-3.png')),
                                 borderRadius: BorderRadius.circular(60)),
                           ),
                           SizedBox(
                             width: 20,
+                          ),
+                          Container(
+                            width: 250,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage(
+                                        'lib/images/zouzan-sandra-4.png')),
+                                borderRadius: BorderRadius.circular(60)),
                           ),
                         ],
                       ),
@@ -124,8 +136,7 @@ class TandemStory1 extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          AppLocalizations.of(context)!
-                              .homeTandemstoryOneBodyTwo,
+                          AppLocalizations.of(context)!.tandemStory3Body2,
                           style: TextStyle(fontSize: 15),
                         ),
                         SizedBox(height: 100),

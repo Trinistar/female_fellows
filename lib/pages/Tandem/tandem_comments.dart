@@ -36,7 +36,7 @@ class TandemComments extends StatelessWidget {
                                 style: TextStyle(color: Colors.white, fontSize: 20),
                               ),
                                 Text(
-                                '-Fabria, Stuttgart',
+                                '-Jana, Stuttgart',
                                 style: TextStyle(color: Colors.white, fontSize: 15),
                               ),
                               
@@ -50,7 +50,7 @@ class TandemComments extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       CircleAvatar(
-                        backgroundImage: AssetImage('lib/images/Avatar.png'),
+                        backgroundImage: AssetImage('lib/images/fereshte.png'),
                         radius: 50,
                         backgroundColor: Theme.of(context).colorScheme.secondary,
                       ),

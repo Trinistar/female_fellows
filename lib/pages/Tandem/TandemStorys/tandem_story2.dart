@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 
 class TandemStory2 extends StatelessWidget {
   const TandemStory2({super.key});
@@ -14,9 +15,13 @@ class TandemStory2 extends StatelessWidget {
         children: [
           Stack(
             children: [
-              Container(
+              SizedBox(
                 height: 300,
-                color: Colors.green,
+                width: double.maxFinite,
+                child: Image.asset(
+                  'lib/images/Yasna-franziska.jpg',
+                  fit: BoxFit.fill,
+                ),
               ),
               Column(
                 children: [
@@ -62,27 +67,61 @@ class TandemStory2 extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              AppLocalizations.of(context)!
-                                  .tandemStory2Body,
-                              style: TextStyle(fontSize: 15),
-                            ),
-                              SizedBox(
-                              height: 20,
-                            ),
-                               Text(
-                              AppLocalizations.of(context)!
-                                  .tandemStory2Body1,
+                              AppLocalizations.of(context)!.tandemStory2Body,
                               style: TextStyle(fontSize: 15),
                             ),
                             SizedBox(
                               height: 20,
                             ),
-                               Text(
-                              AppLocalizations.of(context)!
-                                  .tandemStory2Body2,
+                            SizedBox(
+                              height: 200,
+                              width: 1000,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  Container(
+                                    width: 250,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            fit: BoxFit.fill,
+                                            image: AssetImage(
+                                                'lib/images/Yasna-franziska-2.png')),
+                                        borderRadius:
+                                            BorderRadius.circular(60)),
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Container(
+                                    width: 250,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            fit: BoxFit.fill,
+                                            image: AssetImage(
+                                                'lib/images/Yasna-franziska-3.png')),
+                                        borderRadius:
+                                            BorderRadius.circular(60)),
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              AppLocalizations.of(context)!.tandemStory2Body1,
                               style: TextStyle(fontSize: 15),
                             ),
-
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              AppLocalizations.of(context)!.tandemStory2Body2,
+                              style: TextStyle(fontSize: 15),
+                            ),
                           ],
                         ),
                       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_acticityItem.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_activity_music.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_activity_picnic.dart';
 
 class ActivitysCarousel extends StatelessWidget {
   const ActivitysCarousel({super.key});
@@ -13,7 +15,8 @@ class ActivitysCarousel extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: [
           ActivityCofe(),
-         
+          // ActivityPicnic(),
+          ActivityMusic(),
         ],
       ),
     );

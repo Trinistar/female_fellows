@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_story.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_story2.dart';
 
 class TandemItemStory2 extends StatelessWidget {
@@ -26,7 +25,7 @@ class TandemItemStory2 extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(40)),
             child: SvgPicture.asset(
-              ('lib/images/sandra-zouzan.svg'),
+              ('lib/images/yasna-franziska.svg'),
               fit: BoxFit.cover,
             ),
           ),
