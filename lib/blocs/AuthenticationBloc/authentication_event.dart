@@ -1,27 +1,18 @@
 part of 'authentication_bloc.dart';
 
-sealed class AuthenticationEvent extends Equatable {
+sealed class AuthenticationEvent {
   const AuthenticationEvent();
-
-  @override
-  List<Object?> get props => [];
 }
 
 class AuthenticationUserChangedEvent extends AuthenticationEvent {
   const AuthenticationUserChangedEvent(this.user);
 
   final User? user;
-
-  @override
-  List<Object?> get props => <Object?>[user];
 }
 
 class SignOutEvent extends AuthenticationEvent {
   @override
   String toString() => 'LoggedOut';
-
-  @override
-  List<Object> get props => <Object>[];
 }
 
 class SetEventParticipationEvent extends AuthenticationEvent {
@@ -36,9 +27,6 @@ class SetEventParticipationEvent extends AuthenticationEvent {
   final String userId;
   final EventParticipant eventParticipant;
   final FFUser userData;
-
-  @override
-  List<Object> get props => <Object>[];
 }
 
 class RevokeEventParticipationEvent extends AuthenticationEvent {
@@ -53,22 +41,18 @@ class RevokeEventParticipationEvent extends AuthenticationEvent {
   final String userId;
   final Map<String, dynamic> participation;
   final FFUser userData;
-
-  @override
-  List<Object> get props => <Object>[];
 }
 
 class SetTandemMatchEvent extends AuthenticationEvent {
   SetTandemMatchEvent({
     required this.tandemMatch,
     required this.profile,
+    this.otherId,
   });
 
   final Map<String, dynamic> tandemMatch;
   final FFUser profile;
-
-  @override
-  List<Object> get props => <Object>[];
+  final String? otherId;
 }
 
 class UpdateTandemMatchEvent extends AuthenticationEvent {
@@ -79,9 +63,6 @@ class UpdateTandemMatchEvent extends AuthenticationEvent {
 
   final Map<String, dynamic> update;
   final FFUser profile;
-
-  @override
-  List<Object> get props => <Object>[];
 }
 
 class UpdateUserProfileEvent extends AuthenticationEvent {
@@ -124,7 +105,4 @@ class RegisterWithMailEvent extends AuthenticationEvent {
   String toString() {
     return 'RegisterWithMailEvent { email: $email }';
   }
-
-  @override
-  List<Object> get props => <Object>[email, password, profile];
 }

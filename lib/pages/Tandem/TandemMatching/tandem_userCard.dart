@@ -6,16 +6,12 @@ import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/enums.dart';
-import 'package:vs_femalefellows/models/tandem_match.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_success.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 
 class TandemUserCard extends StatelessWidget {
-  const TandemUserCard({super.key, required this.user});
+  const TandemUserCard({super.key, required this.otherUserProfile});
 
-  final FFUser user;
+  final FFUser otherUserProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +49,7 @@ class TandemUserCard extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 8.0),
                                   child: Text(
-                                    user.location != null ? user.location!.name! : 'Keine Angabe',
+                                    otherUserProfile.location != null ? otherUserProfile.location!.name! : 'Keine Angabe',
                                     style: TextStyle(fontSize: 15),
                                   ),
                                 )
@@ -67,14 +63,14 @@ class TandemUserCard extends StatelessWidget {
                                   padding: const EdgeInsets.only(left: 8.0),
                                   child: SizedBox(
                                     width: 200,
-                                    child: user.languages?.main != null
+                                    child: otherUserProfile.languages?.main != null
                                         ? Column(
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
-                                              Text('- ${user.languages!.main!.name} (Muttersprache)', style: TextStyle(fontSize: 15)),
+                                              Text('- ${otherUserProfile.languages!.main!.name} (Muttersprache)', style: TextStyle(fontSize: 15)),
                                               Column(
                                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: user.languages!.additional!.map((e) => Text('- ${e.name}', style: TextStyle(fontSize: 15))).toList(),
+                                                children: otherUserProfile.languages!.additional!.map((e) => Text('- ${e.name}', style: TextStyle(fontSize: 15))).toList(),
                                               )
                                             ],
                                           )
@@ -88,13 +84,13 @@ class TandemUserCard extends StatelessWidget {
                               child: SizedBox(
                                 width: 250,
                                 child: Text(
-                                  user.aboutMe != null ? '» ${user.aboutMe} «' : '',
+                                  otherUserProfile.aboutMe != null ? '» ${otherUserProfile.aboutMe} «' : '',
                                   style: TextStyle(fontSize: 15),
                                 ),
                               ),
                             ),
                             Text(
-                              '- ${user.firstname}, ${HelperFunctions.getAge(user.birthday!)}',
+                              '- ${otherUserProfile.firstname}, ${HelperFunctions.getAge(otherUserProfile.birthday!)}',
                               style: TextStyle(fontSize: 15),
                             ),
                           ],
@@ -104,7 +100,7 @@ class TandemUserCard extends StatelessWidget {
                         builder: (context, state) {
                           if (state is AuthenticatedUser) {
                             if (state.userProfile!.tandemMatches != null &&
-                                state.userProfile!.tandemMatches!.first.requester == user.id &&
+                                state.userProfile!.tandemMatches!.first.requester == otherUserProfile.id &&
                                 (state.userProfile!.tandemMatches!.first.state == TandemMatchesState.requested || state.userProfile!.tandemMatches!.first.state == TandemMatchesState.rerequested)) {
                               return Row(
                                 children: [
@@ -117,7 +113,7 @@ class TandemUserCard extends StatelessWidget {
                                           final Map<String, dynamic> update = {};
                                           //update['requested'] = FieldValue.serverTimestamp();
                                           update['state'] = 'declined';
-                                          BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: update, profile: state.userProfile!));
+                                          BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: update, profile: state.userProfile!, otherId: otherUserProfile.id));
                                           //context.go('/tandem/tandemSuccess');
                                         },
                                         child: Container(
@@ -144,7 +140,7 @@ class TandemUserCard extends StatelessWidget {
                                           final Map<String, dynamic> update = {};
                                           //update['requested'] = FieldValue.serverTimestamp();
                                           update['state'] = 'confirmed';
-                                          BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: update, profile: state.userProfile!));
+                                          BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: update, profile: state.userProfile!, otherId: otherUserProfile.id));
                                           context.go('/tandem/tandemSuccess');
                                         },
                                         child: Container(
@@ -172,9 +168,9 @@ class TandemUserCard extends StatelessWidget {
                                   final profile = state.userProfile;
                                   if (profile!.localOrNewcomer == LocalOrNewcomer.local) {
                                     localId = profile.id!;
-                                    newComerId = user.id!;
+                                    newComerId = otherUserProfile.id!;
                                   } else {
-                                    localId = user.id!;
+                                    localId = otherUserProfile.id!;
                                     newComerId = profile.id!;
                                   }
                                   //final TandemMatch match = TandemMatch(requested: Timestamp.now(), state: TandemMatchesState.requested, requester: profile.id!, local: localId, newcomer: newComerId);
@@ -184,8 +180,9 @@ class TandemUserCard extends StatelessWidget {
                                   match['requester'] = profile.id!;
                                   match['local'] = localId;
                                   match['newcomer'] = newComerId;
+                                  match['enabled'] = true;
 
-                                  BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: match, profile: profile));
+                                  BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: match, profile: profile, otherId: otherUserProfile.id));
                                   context.go('/tandem/tandemSuccess');
                                 },
                                 child: Container(
@@ -219,9 +216,9 @@ class TandemUserCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(topRight: Radius.circular(45), topLeft: Radius.circular(45)),
                   color: Colors.white,
-                  image: user.profilPicture != null && user.profilPicture!.isNotEmpty
+                  image: otherUserProfile.profilPicture != null && otherUserProfile.profilPicture!.isNotEmpty
                       ? DecorationImage(
-                          image: NetworkImage(user.profilPicture != null ? user.profilPicture! : ''),
+                          image: NetworkImage(otherUserProfile.profilPicture != null ? otherUserProfile.profilPicture! : ''),
                           fit: BoxFit.cover,
                           alignment: Alignment.center,
                         )
@@ -251,24 +248,65 @@ class TandemUserCard extends StatelessWidget {
                         height: 60,
                         child: CircularProgressIndicator(
                           backgroundColor: Colors.white,
-                          value: user.tandemMatch,
+                          value: otherUserProfile.tandemMatch,
                           strokeWidth: 4,
                           valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondary),
                         ),
                       ),
                       Text(
-                        '${(user.tandemMatch! * 100).toInt()}%\nMatch',
+                        '${(otherUserProfile.tandemMatch! * 100).toInt()}%\nMatch',
                         style: TextStyle(color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
                     ],
                   ),
                 ),
-              )
+              ),
+              Positioned(
+                right: 15,
+                top: 15,
+                child: IconButton(
+                  onPressed: () => _reportDialog(context),
+                  icon: Icon(Icons.report),
+                ),
+              ),
             ],
           )
         ],
       ),
+    );
+  }
+
+  Future<void> _reportDialog(BuildContext context) {
+    return showDialog<void>(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Profil melden'),
+          content: const Text('Möchten Sie dieses Profil wegen unangemessener Inhalte melden?'),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Abbrechen'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Melden'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

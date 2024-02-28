@@ -53,15 +53,13 @@ class _TandementryState extends State<Tandementry> {
                     difference = currentLocalTimeMinus24.difference(state.userProfile!.tandemMatches!.first.requested.toDate());
                     tooLate = difference.inHours >= 24;
                   }
-                  final bool tandemRequestExists = (state.userProfile!.tandemMatches != null &&
-                          !tooLate &&
-                          state.userProfile!.tandemMatches!.first.state != TandemMatchesState.declined) &&
+                  final bool tandemRequestExists = (state.userProfile!.tandemMatches != null && !tooLate && state.userProfile!.tandemMatches!.first.state != TandemMatchesState.declined) &&
                       ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
                   if (tandemRequestExists) {
                     if (state.userProfile!.tandemMatches!.first.state == TandemMatchesState.confirmed) {
                       return AfterTandem();
                     } else {
-                      return _tandemOnboarding(context);
+                      return TandemMatching();
                     }
                   }
                   return TandemMatching();
@@ -92,9 +90,7 @@ class _TandementryState extends State<Tandementry> {
       body: ListView(
         children: [
           TandemHeader(),
-          DividerBouthCorner(
-              color1: Colors.white,
-              color2: Theme.of(context).colorScheme.tertiary),
+          DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.tertiary),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) {
               //Local//Newcomer
@@ -108,11 +104,7 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          state.userProfile?.localOrNewcomer ==
-                                  LocalOrNewcomer.local
-                              ? AppLocalizations.of(context)!.tandemMatchLocal
-                              : AppLocalizations.of(context)!
-                                  .tandemMatchNewcomer,
+                          state.userProfile?.localOrNewcomer == LocalOrNewcomer.local ? AppLocalizations.of(context)!.tandemMatchLocal : AppLocalizations.of(context)!.tandemMatchNewcomer,
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
@@ -128,12 +120,7 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          state.userProfile?.localOrNewcomer ==
-                                  LocalOrNewcomer.local
-                              ? AppLocalizations.of(context)!
-                                  .tandemThirdStepBody
-                              : AppLocalizations.of(context)!
-                                  .tandemThirdStepBody2,
+                          state.userProfile?.localOrNewcomer == LocalOrNewcomer.local ? AppLocalizations.of(context)!.tandemThirdStepBody : AppLocalizations.of(context)!.tandemThirdStepBody2,
                           style: TextStyle(fontSize: 15),
                         ),
                       ),
@@ -166,9 +153,7 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          showMoreText
-                              ? AppLocalizations.of(context)!.tandemSloganBody
-                              : AppLocalizations.of(context)!.tandemSlogan,
+                          showMoreText ? AppLocalizations.of(context)!.tandemSloganBody : AppLocalizations.of(context)!.tandemSlogan,
                           style: TextStyle(fontSize: 15),
                         ),
                       ),
@@ -179,11 +164,8 @@ class _TandementryState extends State<Tandementry> {
                           });
                         },
                         child: Text(
-                          showMoreText
-                          ? AppLocalizations.of(context)!.getLess
-                             : AppLocalizations.of(context)!.getMore,
-                          style:
-                              TextStyle(fontSize: 12, color: Colors.amber[900]),
+                          showMoreText ? AppLocalizations.of(context)!.getLess : AppLocalizations.of(context)!.getMore,
+                          style: TextStyle(fontSize: 12, color: Colors.amber[900]),
                         ),
                       ),
                     ],
@@ -228,9 +210,7 @@ class _TandementryState extends State<Tandementry> {
                         alignment: Alignment.centerRight,
                         onPressed: toggleSteps,
                         icon: Icon(
-                          showSteps
-                              ? Icons.keyboard_arrow_up
-                              : Icons.keyboard_arrow_down,
+                          showSteps ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
                           size: 40,
                           color: Theme.of(context).colorScheme.primary,
                         )),
@@ -339,10 +319,7 @@ class _TandementryState extends State<Tandementry> {
                     child: Center(
                       child: Text(
                         AppLocalizations.of(context)!.tandemMatchNow,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     ),
                   ),
@@ -350,9 +327,7 @@ class _TandementryState extends State<Tandementry> {
               }
             },
           ),
-          DividerBouthCorner(
-              color1: Theme.of(context).colorScheme.surface,
-              color2: Colors.white),
+          DividerBouthCorner(color1: Theme.of(context).colorScheme.surface, color2: Colors.white),
           Container(
             color: Theme.of(context).colorScheme.surface,
             child: Padding(
@@ -387,9 +362,7 @@ class _TandementryState extends State<Tandementry> {
               ),
             ),
           ),
-          DividerBouthCorner(
-              color1: Theme.of(context).colorScheme.tertiary,
-              color2: Theme.of(context).colorScheme.surface),
+          DividerBouthCorner(color1: Theme.of(context).colorScheme.tertiary, color2: Theme.of(context).colorScheme.surface),
           TandemComments(),
           DividerBouthCorner(
             color1: Colors.white,
@@ -430,11 +403,7 @@ class _TandementryState extends State<Tandementry> {
             height: 50,
           ),
           Container(
-            decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surface,
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(60),
-                    topLeft: Radius.circular(60))),
+            decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: BorderRadius.only(topRight: Radius.circular(60), topLeft: Radius.circular(60))),
             height: 50,
           ),
           FAQs(),

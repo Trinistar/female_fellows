@@ -277,7 +277,7 @@ class _TandemMatchingState extends State<TandemMatching> {
                       controller: _pageController,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (BuildContext context, int index) {
-                        return TandemUserCard(user: tandems[index]);
+                        return TandemUserCard(otherUserProfile: tandems[index]);
                       },
                       itemCount: tandems.length,
                     )

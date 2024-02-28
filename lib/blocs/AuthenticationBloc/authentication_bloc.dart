@@ -2,14 +2,11 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:vs_femalefellows/models/address.dart';
-import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
-import 'package:vs_femalefellows/models/tandem_match.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
@@ -58,10 +55,11 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
           if (streams[1] != null) {
             location = streams[1];
           }
-          _firestoreUserProfileRepository.loadTandemMatches(event.user!.uid, profile.localOrNewcomer!).listen((event) async {
-            profile.tandemMatches = event;
+          _firestoreUserProfileRepository.loadTandemMatches(event.user!.uid, profile.localOrNewcomer!).listen((matches) async {
+            profile.tandemMatches = matches;
             if (profile.tandemMatches != null) {
               profile.tandemMatches!.first.otherProfile = await _firestoreUserProfileRepository.getUserProfile(profile.tandemMatches!.first.otherUserId);
+              emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: tokenResult));
             }
           });
 
@@ -124,7 +122,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
 
   Future<void> _onSetTandemMatchEvent(SetTandemMatchEvent event, Emitter<AuthenticationState> emit) async {
     try {
-      await _firestoreTandemRepository.setTandemMatch(event.tandemMatch, event.profile);
+      await _firestoreTandemRepository.setTandemMatch(event.tandemMatch, event.profile, event.otherId);
     } catch (_) {}
   }
 

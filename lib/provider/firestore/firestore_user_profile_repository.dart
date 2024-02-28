@@ -43,7 +43,10 @@ class FirestoreUserProfileRepository {
   }
 
   Stream<List<TandemMatch>?> loadTandemMatches(String userId, LocalOrNewcomer lon) {
-    return FirestoreRepository().firestoreInstance.collection('tandemMatches').where(lon == LocalOrNewcomer.local ? 'local' : 'newcomer', isEqualTo: userId).snapshots().map((QuerySnapshot<Object> snapshot) {
+    return FirestoreRepository().firestoreInstance.collection('tandemMatches')
+    .where(lon == LocalOrNewcomer.local ? 'local' : 'newcomer', isEqualTo: userId)
+    .where('enabled', isEqualTo: true)
+    .snapshots().map((QuerySnapshot<Object> snapshot) {
       if (snapshot.docs.isNotEmpty) {
         final List<TandemMatch> matches = [];
         for (final DocumentSnapshot<Object> doc in snapshot.docs) {
@@ -81,7 +84,9 @@ class FirestoreUserProfileRepository {
   }
 
   Stream<List<FFUser>> getAllTandems(String localOrNewcomer) {
-    return FirestoreRepository().firestoreInstance.collection('user').where('localOrNewcomer', isEqualTo: localOrNewcomer).snapshots().map(
+    return FirestoreRepository().firestoreInstance.collection('user')
+    .where('localOrNewcomer', isEqualTo: localOrNewcomer)
+    .snapshots().map(
       ((QuerySnapshot<Map<String, dynamic>> snapshot) {
         if (snapshot.docs.isNotEmpty) {
           List<FFUser> tmp = [];

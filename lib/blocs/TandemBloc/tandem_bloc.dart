@@ -78,6 +78,8 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
   Future<List<FFUser>> _filterGeoTandems(FFUser profile, List<FFUser> tandems) async {
     List<FFUser> temp = List.empty();
 
+    tandems.removeWhere((element) => element.matchConfirmed == true);
+
     if (profile.tandemTypeFilter == TandemTypeFilter.all || profile.tandemTypeFilter == null) {
       for (final FFUser user in tandems) {
         user.tandemMatch = _getMatchByAge(profile, user);

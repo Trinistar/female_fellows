@@ -38,6 +38,8 @@ class FFUser {
   List<String>? newcomerMatches;
   @JsonKey(includeFromJson: false, includeToJson: false)
   List<TandemMatch>? tandemMatches;
+  @JsonKey(defaultValue: false)
+  final bool matchConfirmed;
 
   FFUser({
     this.id,
@@ -61,6 +63,7 @@ class FFUser {
     this.localMatch,
     this.newcomerMatches,
     this.tandemMatches,
+    this.matchConfirmed = false,
   });
 
   factory FFUser.fromJson(Map<String, dynamic> json) => _$FFUserFromJson(json);

@@ -47,6 +47,7 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
       newcomerMatches: (json['newcomerMatches'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      matchConfirmed: json['matchConfirmed'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
@@ -69,6 +70,7 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'languages': instance.languages?.toJson(),
       'localMatch': instance.localMatch,
       'newcomerMatches': instance.newcomerMatches,
+      'matchConfirmed': instance.matchConfirmed,
     };
 
 const _$LocalOrNewcomerEnumMap = {

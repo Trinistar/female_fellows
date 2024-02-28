@@ -8,8 +8,12 @@ class FirestoreTandemRepository {
   final FirebaseFirestore db;
   FirestoreTandemRepository() : db = FirestoreRepository().firestoreInstance;
 
-  Future<void> setTandemMatch(Map<String, dynamic> match, FFUser user) async {
-    var doc = await db.collection('tandemMatches').where(user.localOrNewcomer == LocalOrNewcomer.local ? 'local' : 'newcomer', isEqualTo: user.id).get();
+  Future<void> setTandemMatch(Map<String, dynamic> match, FFUser profile, String? otherId) async {
+    var doc = await db
+        .collection('tandemMatches')
+        .where(profile.localOrNewcomer == LocalOrNewcomer.local ? 'local' : 'newcomer', isEqualTo: profile.id)
+        .where(profile.localOrNewcomer == LocalOrNewcomer.local ? 'newcomer' : 'local', isEqualTo: otherId)
+        .get();
     if (doc.docs.isEmpty) {
       db.collection('tandemMatches').doc().set(match, SetOptions(merge: true));
     } else {

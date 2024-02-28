@@ -18,7 +18,6 @@ import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divi
 import 'package:vs_femalefellows/widgets/favorites_icon_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class DetailEvent extends StatefulWidget {
   DetailEvent({super.key, required this.eventId});
 
@@ -59,6 +58,13 @@ class _DetailEventState extends State<DetailEvent> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              onPressed: () => _reportDialog(context),
+              icon: Icon(Icons.report),
+            ),
+          ),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) {
               if (state is AuthenticatedUser && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
@@ -74,6 +80,39 @@ class _DetailEventState extends State<DetailEvent> {
         ],
       ),
       body: _eventDetails(context, event),
+    );
+  }
+
+  Future<void> _reportDialog(BuildContext context) {
+    return showDialog<void>(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Event melden'),
+          content: const Text('Möchten Sie dieses Event wegen unangemessener Inhalte melden?'),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Abbrechen'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Melden'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -118,7 +157,7 @@ class _DetailEventState extends State<DetailEvent> {
                       child: FavoritesIconWidget(
                         event: eventState,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -152,7 +191,7 @@ class _DetailEventState extends State<DetailEvent> {
               } else {
                 return FFButton(
                   onTap: () => context.go('/events/detailEvent/${widget.eventId}/eventOnboarding', extra: eventState),
-                  text: AppLocalizations.of(context)!.eventButtonSignout ,
+                  text: AppLocalizations.of(context)!.eventButtonSignout,
                 );
               }
             } else if (state is UnauthenticatedUser) {
