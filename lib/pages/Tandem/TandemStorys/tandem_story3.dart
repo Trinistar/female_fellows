@@ -11,14 +11,16 @@ class TandemStoryThree extends StatelessWidget {
       extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).colorScheme.secondary,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.transparent,
       ),
       body: ListView(
+        padding: EdgeInsets.all(0),
         children: [
           Stack(
             children: [
               SizedBox(
-                height: 300,
+                height: 400,
                 width: double.infinity,
                 child: Image.asset(
                   'lib/images/zouzan-sandra.png',
@@ -28,7 +30,7 @@ class TandemStoryThree extends StatelessWidget {
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 250),
+                    padding: const EdgeInsets.only(top: 340),
                     child: Container(
                       width: 1000,
                       decoration: BoxDecoration(
@@ -47,11 +49,8 @@ class TandemStoryThree extends StatelessWidget {
                               height: 50,
                             ),
                             Text(
-                              AppLocalizations.of(context)!
-                                  .homeTandemstoryOneSubTitle,
-                              style: TextStyle(
-                                  color: Theme.of(context).colorScheme.tertiary,
-                                  fontSize: 15),
+                              AppLocalizations.of(context)!.homeTandemstoryOneSubTitle,
+                              style: TextStyle(color: Theme.of(context).colorScheme.tertiary, fontSize: 15),
                             ),
                             SizedBox(
                               height: 5,
@@ -94,8 +93,7 @@ class TandemStoryThree extends StatelessWidget {
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                                   fit: BoxFit.fill,
-                                  image: AssetImage(
-                                      'lib/images/zouzan-sandra-2.png'),
+                                  image: AssetImage('lib/images/zouzan-sandra-2.png'),
                                 ),
                                 color: Colors.amber,
                                 borderRadius: BorderRadius.circular(60)),
@@ -105,24 +103,14 @@ class TandemStoryThree extends StatelessWidget {
                           ),
                           Container(
                             width: 250,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.fill,
-                                    image: AssetImage(
-                                        'lib/images/zouzan-sandra-3.png')),
-                                borderRadius: BorderRadius.circular(60)),
+                            decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.fill, image: AssetImage('lib/images/zouzan-sandra-3.png')), borderRadius: BorderRadius.circular(60)),
                           ),
                           SizedBox(
                             width: 20,
                           ),
                           Container(
                             width: 250,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.fill,
-                                    image: AssetImage(
-                                        'lib/images/zouzan-sandra-4.png')),
-                                borderRadius: BorderRadius.circular(60)),
+                            decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.fill, image: AssetImage('lib/images/zouzan-sandra-4.png')), borderRadius: BorderRadius.circular(60)),
                           ),
                         ],
                       ),

@@ -11,14 +11,16 @@ class TandemStoryOne extends StatelessWidget {
       extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).colorScheme.secondary,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.transparent,
       ),
       body: ListView(
+        padding: EdgeInsets.all(0),
         children: [
           Stack(
             children: [
               SizedBox(
-                height: 300,
+                height: 400,
                 width: 1000,
                 child: Image.asset(
                   'lib/images/lisa-makai.jpg',
@@ -28,7 +30,7 @@ class TandemStoryOne extends StatelessWidget {
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 250),
+                    padding: const EdgeInsets.only(top: 340),
                     child: Container(
                       width: 1000,
                       decoration: BoxDecoration(
