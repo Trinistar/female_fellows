@@ -141,7 +141,7 @@ class TandemUserCard extends StatelessWidget {
                                           //update['requested'] = FieldValue.serverTimestamp();
                                           update['state'] = 'confirmed';
                                           BlocProvider.of<AuthenticationBloc>(context).add(SetTandemMatchEvent(tandemMatch: update, profile: state.userProfile!, otherId: otherUserProfile.id));
-                                          context.go('/tandem/tandemSuccess');
+                                          //context.go('/tandem/tandemSuccess');
                                         },
                                         child: Container(
                                           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),

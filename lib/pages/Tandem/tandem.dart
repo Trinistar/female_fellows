@@ -53,11 +53,20 @@ class _TandementryState extends State<Tandementry> {
                     difference = currentLocalTimeMinus24.difference(state.userProfile!.tandemMatches!.first.requested.toDate());
                     tooLate = difference.inHours >= 24;
                   }
+                  if (state.userProfile!.tandemMatches != null && state.userProfile!.tandemMatches!.first.state == TandemMatchesState.confirmed) {
+                    return AfterTandem();
+                  }
                   final bool tandemRequestExists = (state.userProfile!.tandemMatches != null && !tooLate && state.userProfile!.tandemMatches!.first.state != TandemMatchesState.declined) &&
                       ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
                   if (tandemRequestExists) {
                     if (state.userProfile!.tandemMatches!.first.state == TandemMatchesState.confirmed) {
                       return AfterTandem();
+                    } else if (state.userProfile!.tandemMatches!.first.state == TandemMatchesState.requested) {
+                      if (state.userProfile!.tandemMatches!.first.requester == state.userProfile!.id) {
+                        return _tandemOnboarding(context);
+                      } else {
+                        return TandemMatching();
+                      }
                     } else {
                       return TandemMatching();
                     }
@@ -232,99 +241,87 @@ class _TandementryState extends State<Tandementry> {
           SizedBox(
             height: 20,
           ),
-          BlocBuilder<AuthenticationBloc, AuthenticationState>(
-            builder: (context, state) {
-              if (state is AuthenticatedUser) {
-                final DateTime currentLocalTimeMinus24 = DateTime.now();
-                bool tooLate = false;
-                Duration difference = Duration.zero;
-                if (state.userProfile!.tandemMatches != null) {
-                  difference = currentLocalTimeMinus24.difference(state.userProfile!.tandemMatches!.first.requested.toDate());
-                  tooLate = difference.inHours >= 24;
-                }
-                final bool tandemRequestExists = (state.userProfile!.tandemMatches != null &&
-                        !tooLate &&
-                        state.userProfile!.tandemMatches!.first.state != TandemMatchesState.declined &&
-                        state.userProfile!.tandemMatches!.first.state != TandemMatchesState.confirmed) &&
-                    ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
-                if (tandemRequestExists) {
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 40, right: 40, bottom: 10),
-                    child: Row(
-                      children: [
-                        Center(
-                          child: Stack(
-                            alignment: AlignmentDirectional.center,
-                            children: <Widget>[
-                              SizedBox(
-                                width: 60,
-                                height: 60,
-                                child: CircularProgressIndicator(
-                                  strokeCap: StrokeCap.round,
-                                  backgroundColor: Colors.grey[100],
-                                  value: (24 - difference.inHours) / 24,
-                                  strokeWidth: 8,
-                                  valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondary),
+          BlocBuilder<TandemOnboardingBloc, TandemOnboardingState>(
+            builder: (context, tandemState) {
+              if (tandemState is IsTandemOnboardingState) {
+                return _tandemOnboardingButton(context);
+              }
+              return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                builder: (context, state) {
+                  if (state is AuthenticatedUser) {
+                    final DateTime currentLocalTimeMinus24 = DateTime.now();
+                    bool tooLate = false;
+                    Duration difference = Duration.zero;
+                    if (state.userProfile!.tandemMatches != null) {
+                      difference = currentLocalTimeMinus24.difference(state.userProfile!.tandemMatches!.first.requested.toDate());
+                      tooLate = difference.inHours >= 24;
+                    }
+                    final bool tandemRequestExists = (state.userProfile!.tandemMatches != null && !tooLate && state.userProfile!.tandemMatches!.first.state != TandemMatchesState.declined) &&
+                        ((state.userProfile!.localMatch != null && state.userProfile!.localMatch!.isNotEmpty) || (state.userProfile!.newcomerMatches != null && state.userProfile!.newcomerMatches!.isNotEmpty));
+                    if (tandemRequestExists) {
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 40, right: 40, bottom: 10),
+                        child: Row(
+                          children: [
+                            Center(
+                              child: Stack(
+                                alignment: AlignmentDirectional.center,
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: 60,
+                                    height: 60,
+                                    child: CircularProgressIndicator(
+                                      strokeCap: StrokeCap.round,
+                                      backgroundColor: Colors.grey[100],
+                                      value: (24 - difference.inHours) / 24,
+                                      strokeWidth: 8,
+                                      valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondary),
+                                    ),
+                                  ),
+                                  Text(
+                                    '${24 - difference.inHours}h',
+                                    style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: Text(
+                                  'Dein Tandem-Match wird angefragt',
+                                  style: TextStyle(fontSize: 20),
                                 ),
                               ),
-                              Text(
-                                '${24 - difference.inHours}h',
-                                style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
+                            )
+                          ],
+                        ),
+                      );
+                    } else {
+                      return _tandemOnboardingButton(context);
+                    }
+                  } else {
+                    return GestureDetector(
+                      onTap: () => context.go('/tandem/eventNotAuthenticated'),
+                      child: Container(
+                        padding: EdgeInsets.all(25),
+                        margin: const EdgeInsets.symmetric(horizontal: 50),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        child: Center(
+                          child: Text(
+                            AppLocalizations.of(context)!.tandemMatchNow,
+                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
                           ),
                         ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Text(
-                              'Dein Tandem-Match wird angefragt',
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  );
-                } else {
-                  return GestureDetector(
-                    onTap: () => widget.isInfo ? context.pop() : context.go('/tandem/tandemOnboarding'),
-                    child: Container(
-                      padding: EdgeInsets.all(25),
-                      margin: const EdgeInsets.symmetric(horizontal: 50),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Theme.of(context).colorScheme.primary,
                       ),
-                      child: Center(
-                        child: Text(
-                          'Jetzt mit Tandem matchen',
-                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
-                        ),
-                      ),
-                    ),
-                  );
-                }
-              } else {
-                return GestureDetector(
-                  onTap: () => context.go('/tandem/eventNotAuthenticated'),
-                  child: Container(
-                    padding: EdgeInsets.all(25),
-                    margin: const EdgeInsets.symmetric(horizontal: 50),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                    child: Center(
-                      child: Text(
-                        AppLocalizations.of(context)!.tandemMatchNow,
-                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                    ),
-                  ),
-                );
-              }
+                    );
+                  }
+                },
+              );
             },
           ),
           DividerBouthCorner(color1: Theme.of(context).colorScheme.surface, color2: Colors.white),
@@ -414,6 +411,26 @@ class _TandementryState extends State<Tandementry> {
           ),
           FAQs(),
         ],
+      ),
+    );
+  }
+
+  GestureDetector _tandemOnboardingButton(BuildContext context) {
+    return GestureDetector(
+      onTap: () => widget.isInfo ? context.pop() : context.go('/tandem/tandemOnboarding'),
+      child: Container(
+        padding: EdgeInsets.all(25),
+        margin: const EdgeInsets.symmetric(horizontal: 50),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        child: Center(
+          child: Text(
+            'Jetzt mit Tandem matchen',
+            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+          ),
+        ),
       ),
     );
   }
