@@ -371,22 +371,28 @@ class _TandementryState extends State<Tandementry> {
           Container(
             color: Colors.white,
             child: Padding(
-              padding: const EdgeInsets.only(left: 40),
+              padding: const EdgeInsets.only(left: 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    AppLocalizations.of(context)!.tandemStorys,
-                    style: TextStyle(
-                      fontSize: 20,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40.0),
+                    child: Text(
+                      AppLocalizations.of(context)!.tandemStorys,
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
                     ),
                   ),
-                  Divider(
-                    thickness: 3,
-                    indent: 0,
-                    endIndent: 310,
-                    color: Theme.of(context).colorScheme.primary,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40.0),
+                    child: Divider(
+                      thickness: 3,
+                      indent: 0,
+                      endIndent: 310,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
                   ),
                   SizedBox(
                     height: 20,

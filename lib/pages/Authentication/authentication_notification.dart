@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
 class AuthNotification extends StatefulWidget {
-  const AuthNotification({super.key,required this.choiceContact});
-  final void Function (bool ,bool ,bool)? choiceContact;
+  const AuthNotification({super.key, required this.choiceContact});
+  final void Function(bool, bool, bool)? choiceContact;
 
   @override
   State<AuthNotification> createState() => _AuthNotificationState();
 }
 
 class _AuthNotificationState extends State<AuthNotification> {
-  //namecheck
+  //TODO safe choice in DB!
   bool _whatsapp = false;
   bool _call = false;
   bool _email = false;
@@ -44,7 +41,6 @@ class _AuthNotificationState extends State<AuthNotification> {
           ),
           Center(
             child: CircleAvatar(
-           
               radius: 100,
               backgroundColor: Colors.transparent,
               child: SvgPicture.asset('lib/images/erreichbarkeit.svg'),
@@ -62,37 +58,34 @@ class _AuthNotificationState extends State<AuthNotification> {
               CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
                   contentPadding: EdgeInsets.only(left: 40),
-                  title:
-                      Text(AppLocalizations.of(context)!.authenticationCall),
+                  title: Text(AppLocalizations.of(context)!.authenticationCall),
                   value: _call,
                   onChanged: (choice) {
                     setState(() {
                       _call = choice ?? false;
-                              widget.choiceContact!(_call,_whatsapp,_email);   
+                      widget.choiceContact!(_call, _whatsapp, _email);
                     });
                   }),
               CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
                   contentPadding: EdgeInsets.only(left: 40),
-                  title: Text(
-                      AppLocalizations.of(context)!.authenticationWhatsApp),
+                  title: Text(AppLocalizations.of(context)!.authenticationWhatsApp),
                   value: _whatsapp,
                   onChanged: (choice) {
                     setState(() {
                       _whatsapp = choice ?? false;
-                           widget.choiceContact!(_call,_whatsapp,_email);
+                      widget.choiceContact!(_call, _whatsapp, _email);
                     });
                   }),
               CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
                   contentPadding: EdgeInsets.only(left: 40),
-                  title:
-                      Text(AppLocalizations.of(context)!.authenticationEmail),
+                  title: Text(AppLocalizations.of(context)!.authenticationEmail),
                   value: _email,
                   onChanged: (choice) {
                     setState(() {
                       _email = choice ?? false;
-                              widget.choiceContact!(_call,_whatsapp,_email);
+                      widget.choiceContact!(_call, _whatsapp, _email);
                     });
                   }),
               _call || _whatsapp
@@ -107,21 +100,8 @@ class _AuthNotificationState extends State<AuthNotification> {
                     )
                   : Container(),
               _call || _whatsapp
-                  ? BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                      builder: (context, state) {
-                        return TextBar(
-                          controller: Controller.phonenumberController,
-                          hintText: '+49 123 456',
-                          obscureText: false,
-                          onChange: () => null,
-                          /* onChange: (value) => context
-                              .read<AuthenticationBloc>()
-                              .add(InputChanged(
-                                phonenumber: value,
-                              )), */
-                          validator: null,
-                        );
-                      },
+                  ? TextFormField(
+                      controller: Controller.phonenumberController,
                     )
                   : Container(),
             ],

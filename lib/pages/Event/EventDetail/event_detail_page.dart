@@ -191,7 +191,7 @@ class _DetailEventState extends State<DetailEvent> {
               } else {
                 return FFButton(
                   onTap: () => context.go('/events/detailEvent/${widget.eventId}/eventOnboarding', extra: eventState),
-                  text: AppLocalizations.of(context)!.eventButtonSignout,
+                  text: AppLocalizations.of(context)!.eventButtonSignin,
                 );
               }
             } else if (state is UnauthenticatedUser) {

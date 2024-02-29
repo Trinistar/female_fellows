@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 
 
 class TextBar extends StatelessWidget {
-  final controller;
-  final String hintText;
-  final bool obscureText;
-  final onChange;
-  final validator;
-  
-
   const TextBar({
     super.key,
     required this.controller,
@@ -17,6 +10,12 @@ class TextBar extends StatelessWidget {
     required this.onChange,
     required this.validator,
   });
+
+  final controller;
+  final String hintText;
+  final bool obscureText;
+  final onChange;
+  final validator;
 
   @override
   Widget build(BuildContext context) {
