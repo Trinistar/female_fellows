@@ -33,6 +33,7 @@ class Event {
   String? id;
   final List<int>? categories;
   final EventDates? dates;
+  final String? picture;
 
   Event({
     this.dates,
@@ -49,6 +50,7 @@ class Event {
     required this.contactPerson,
     required this.material,
     this.id,
+    this.picture,
   });
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);

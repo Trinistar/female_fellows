@@ -22,11 +22,17 @@ class EventListTile extends StatelessWidget {
               height: 80,
               width: 320,
               child: ListTile(
-                  leading: Image.asset(
-                    'lib/images/partner1.png',
-                    fit: BoxFit.fill,
-                    width: 80,
-                  ),
+                  leading: (event.picture != null && event.picture!.isNotEmpty)
+                      ? Image.network(
+                          event.picture!,
+                          fit: BoxFit.contain,
+                          width: 80,
+                        )
+                      : Image.asset(
+                          'lib/images/partner1.png',
+                          fit: BoxFit.fill,
+                          width: 80,
+                        ),
                   title: Text(
                     event.title,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),

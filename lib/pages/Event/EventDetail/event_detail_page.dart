@@ -121,18 +121,27 @@ class _DetailEventState extends State<DetailEvent> {
       padding: EdgeInsets.only(top: 0),
       children: [
         Container(
-          decoration: BoxDecoration(color: Theme.of(context).colorScheme.secondary, borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))),
+          decoration: BoxDecoration(
+            image: (eventState.picture != null && eventState.picture!.isNotEmpty)
+                ? DecorationImage(
+                    image: NetworkImage(
+                      eventState.picture!,
+                    ),
+                    fit: BoxFit.cover,
+                  )
+                : DecorationImage(
+                    image: AssetImage(
+                      'lib/images/Mask group2.png',
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+            color: Theme.of(context).colorScheme.secondary,
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(60),
+            ),
+          ),
           height: 215,
           width: 1000,
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Image.asset(
-                'lib/images/Mask group2.png',
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
         ),
         Artbar(colorleft: Theme.of(context).colorScheme.secondary, colorright: Colors.white),
         Padding(
