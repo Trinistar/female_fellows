@@ -66,7 +66,7 @@ class _TandemMatchingState extends State<TandemMatching> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
-                  onTap: () => context.go('/tandem/tandemInfo'),
+                  onTap: () => context.push('/tandem/tandemInfo'),
                   child: SvgPicture.asset(
                     'lib/images/info-icon.svg',
                     width: 50,

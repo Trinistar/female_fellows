@@ -4,6 +4,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_about_you.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_languages.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
@@ -30,7 +31,7 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
         if (state is AuthenticatedUser) {
           return _tandemOnboarding(context, state.userProfile!);
         } else {
-          return SizedBox.shrink();
+          return const LoginPage();
         }
       },
     );

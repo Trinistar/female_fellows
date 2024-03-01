@@ -89,8 +89,6 @@ class _TandementryState extends State<Tandementry> {
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 0,
-        automaticallyImplyLeading: false,
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
@@ -417,7 +415,9 @@ class _TandementryState extends State<Tandementry> {
 
   GestureDetector _tandemOnboardingButton(BuildContext context) {
     return GestureDetector(
-      onTap: () => widget.isInfo ? context.pop() : context.go('/tandem/tandemOnboarding'),
+      onTap: () {
+        widget.isInfo ? context.pop() : context.go('/tandem/tandemOnboarding');
+      },
       child: Container(
         padding: EdgeInsets.all(25),
         margin: const EdgeInsets.symmetric(horizontal: 50),
