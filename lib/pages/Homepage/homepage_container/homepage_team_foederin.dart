@@ -11,9 +11,9 @@ class TeamFoerderin extends StatefulWidget {
 }
 
 final foerderinUrl = Uri.parse(
-    'Link: https://docs.google.com/forms/d/e/1FAIpQLScsSvgohEYh_PUv9cYMipqOmomXqrqlDnMECPglzP-r3_7_eQ/viewform');
-final teamUrl = Uri.parse(
     'https://docs.google.com/forms/d/e/1FAIpQLScsSvgohEYh_PUv9cYMipqOmomXqrqlDnMECPglzP-r3_7_eQ/viewform');
+final teamUrl = Uri.parse(
+   'https://femalefellows.com/team/#team-unterstuetzen/');
 
 class _TeamFoerderinState extends State<TeamFoerderin> {
   @override

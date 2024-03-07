@@ -66,12 +66,18 @@ class UpdateTandemMatchEvent extends AuthenticationEvent {
 }
 
 class UpdateUserProfileEvent extends AuthenticationEvent {
-  UpdateUserProfileEvent(this.userId, {this.latitude, this.longitude, required this.userProfile});
+  UpdateUserProfileEvent(this.userId,
+      {this.latitude, this.longitude, required this.userProfile});
 
   final String userId;
   final FFUser userProfile;
   final double? latitude;
   final double? longitude;
+}
+
+class UpdateUSerProfil extends AuthenticationEvent {
+  UpdateUSerProfil({required this.updateUser});
+  final FFUser updateUser;
 }
 
 class InputChanged extends AuthenticationEvent {

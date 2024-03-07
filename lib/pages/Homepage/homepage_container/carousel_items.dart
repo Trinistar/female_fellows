@@ -12,6 +12,7 @@ class CarouselItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 20),
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
           Column(
             children: [
@@ -36,7 +37,7 @@ class CarouselItem extends StatelessWidget {
                       height: 5,
                     ),
                     ListTile(
-                      title: Text(event.title),
+                      title: SizedBox(height: 25, child: Text(event.title)),
                       subtitle: Column(
                         children: [
                           Row(
