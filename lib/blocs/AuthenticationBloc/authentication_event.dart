@@ -59,12 +59,18 @@ class RevokeEventParticipationEvent extends AuthenticationEvent {
 }
 
 class UpdateUserProfileEvent extends AuthenticationEvent {
-  UpdateUserProfileEvent(this.userId, {this.latitude, this.longitude, required this.userProfile});
+  UpdateUserProfileEvent(this.userId,
+      {this.latitude, this.longitude, required this.userProfile});
 
   final String userId;
   final FFUser userProfile;
   final double? latitude;
   final double? longitude;
+}
+
+class UpdateUSerProfil extends AuthenticationEvent {
+  UpdateUSerProfil({required this.updateUser});
+  final FFUser updateUser;
 }
 
 class InputChanged extends AuthenticationEvent {
@@ -84,7 +90,11 @@ class InputChanged extends AuthenticationEvent {
 }
 
 class RegisterWithMailEvent extends AuthenticationEvent {
-  const RegisterWithMailEvent({required this.email, required this.password, required this.profile,});
+  const RegisterWithMailEvent({
+    required this.email,
+    required this.password,
+    required this.profile,
+  });
 
   final String email;
   final String password;

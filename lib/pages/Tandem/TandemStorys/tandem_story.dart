@@ -20,6 +20,7 @@ class TandemStory1 extends StatelessWidget {
                 child: Image.asset(
                   'lib/images/lisa-makai.jpg',
                   fit: BoxFit.fill,
+                  width: double.infinity,
                 ),
               ),
               Column(
