@@ -23,21 +23,12 @@ class TandemItemStoryThree extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(40)),
                 child: Image.asset(
-                  'lib/images/zouzan-sandra.png',
-                  fit: BoxFit.cover,
+                  'lib/images/5-sandra-zouzan.png',
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
-            Positioned(
-              bottom: 10,
-              child: Text(
-                'Zouzan & Sandra',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+          
           ],
         ),
       ),

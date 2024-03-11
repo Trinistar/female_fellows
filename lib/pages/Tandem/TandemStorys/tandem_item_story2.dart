@@ -23,18 +23,8 @@ class TandemItemStoryTwo extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(40)),
                 child: Image.asset(
-                  'lib/images/Yasna-franziska.jpg',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 10,
-              child: Text(
-                'Yasna & Franziska',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                  'lib/images/4-yasna-franziska.png',
+                  fit: BoxFit.fill,
                 ),
               ),
             ),

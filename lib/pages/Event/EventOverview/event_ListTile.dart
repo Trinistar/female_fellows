@@ -25,13 +25,14 @@ class EventListTile extends StatelessWidget {
                   leading: (event.picture != null && event.picture!.isNotEmpty)
                       ? Image.network(
                           event.picture!,
-                          fit: BoxFit.contain,
-                          width: 80,
+                          fit: BoxFit.fill,
+                          width: 100,
+                         
                         )
                       : Image.asset(
                           'lib/images/partner1.png',
                           fit: BoxFit.fill,
-                          width: 80,
+                          width: 120,
                         ),
                   title: Text(
                     event.title,

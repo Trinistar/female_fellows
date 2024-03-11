@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/pages/Profil/edit_profil.dart';
@@ -8,7 +9,6 @@ import 'package:vs_femalefellows/pages/Profil/profil_header.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_overview.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_progress.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -19,10 +19,15 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   late TabController _profilTabController;
+  LocalOrNewcomer _userchoice = LocalOrNewcomer.newcomer;
   @override
   void initState() {
     super.initState();
     _profilTabController = TabController(length: 2, vsync: this);
+  }
+
+  void _hasChosen(LocalOrNewcomer localOrNot) {
+    _userchoice = localOrNot;
   }
 
   @override
@@ -51,17 +56,21 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   IconButton(
                     onPressed: () {
                       //TODO add profile edit screen
-                      /* Navigator.of(context).push(
+                      Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => EditProfil( userstate: state.userProfile! ,),
+                          builder: (context) => EditProfil(
+                            userstate: state.userProfile!,
+                            hasChosen: _hasChosen,
+                          ),
                         ),
-                      ); */
+                      );
                     },
                     icon: Icon(Icons.edit),
                     color: Colors.white,
                   ),
                   IconButton(
-                    onPressed: () => context.read<AuthenticationBloc>().add(SignOutEvent()),
+                    onPressed: () =>
+                        context.read<AuthenticationBloc>().add(SignOutEvent()),
                     icon: Icon(Icons.logout),
                     color: Colors.white,
                   ),
@@ -84,19 +93,26 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 25),
-                          child: DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.primary),
+                          child: DividerBouthCorner(
+                              color1: Colors.white,
+                              color2: Theme.of(context).colorScheme.primary),
                         ),
                         Center(
-                          child: (state.userProfile!.profilPicture != null && state.userProfile!.profilPicture!.isNotEmpty)
+                          child: (state.userProfile!.profilPicture != null &&
+                                  state.userProfile!.profilPicture!.isNotEmpty)
                               ? CircleAvatar(
-                                  backgroundImage: NetworkImage(state.userProfile!.profilPicture!),
+                                  backgroundImage: NetworkImage(
+                                      state.userProfile!.profilPicture!),
                                   radius: 75,
-                                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.secondary,
                                 )
                               : CircleAvatar(
-                                  backgroundImage: AssetImage('lib/images/ImageIcon.png'),
+                                  backgroundImage:
+                                      AssetImage('lib/images/ImageIcon.png'),
                                   radius: 75,
-                                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.secondary,
                                 ),
                         ),
                       ],
@@ -128,7 +144,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   SizedBox(
                     width: double.maxFinite,
                     height: 400,
-                    child: TabBarView(controller: _profilTabController, children: [
+                    child:
+                        TabBarView(controller: _profilTabController, children: [
                       ProfilOverview(
                         userstate: state.userProfile!,
                       ),

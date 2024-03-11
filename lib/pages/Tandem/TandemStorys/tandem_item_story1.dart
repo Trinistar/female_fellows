@@ -23,21 +23,12 @@ class TandemItemStoryOne extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(40)),
                 child: Image.asset(
-                  'lib/images/lisa-makai.jpg',
-                  fit: BoxFit.cover,
+                  'lib/images/1-makai-lisa.png',
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
-            Positioned(
-              bottom: 10,
-              child: Text(
-                'Makai & Lisa',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+           
           ],
         ),
       ),

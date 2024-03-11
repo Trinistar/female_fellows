@@ -5,7 +5,8 @@ import 'package:vs_femalefellows/models/enums.dart';
 typedef void BoolCallback(bool id);
 
 class Authlocal extends StatefulWidget {
- Authlocal({super.key, required this.onSettingsChanged, required this.hasChosen});
+  Authlocal(
+      {super.key, required this.onSettingsChanged, required this.hasChosen});
 
   final void Function(LocalOrNewcomer)? hasChosen;
 
@@ -57,8 +58,7 @@ class _AuthlocalState extends State<Authlocal> {
                   groupValue: localOrNot,
                   dense: true,
                   title: Text(
-                    AppLocalizations.of(context)!
-                        .authenticationNewcomerTitle,
+                    AppLocalizations.of(context)!.authenticationNewcomerTitle,
                     style: TextStyle(
                       fontSize: 15,
                       color: Theme.of(context).colorScheme.primary,
@@ -70,8 +70,8 @@ class _AuthlocalState extends State<Authlocal> {
                   onChanged: (newValue) {
                     setState(() {
                       localOrNot = newValue;
-                            widget.hasChosen!(LocalOrNewcomer.newcomer);
-            
+                      widget.hasChosen!(LocalOrNewcomer.newcomer);
+
                       //widget.onSettingsChanged(_question);
                     });
                   }),
@@ -95,13 +95,13 @@ class _AuthlocalState extends State<Authlocal> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  subtitle: Text(
-                      AppLocalizations.of(context)!.authenticationLocal),
+                  subtitle:
+                      Text(AppLocalizations.of(context)!.authenticationLocal),
                   value: LocalOrNewcomer.local,
                   onChanged: (newValue) {
                     setState(() {
                       localOrNot = newValue;
-                       widget.hasChosen!(LocalOrNewcomer.local);
+                      widget.hasChosen!(LocalOrNewcomer.local);
                     });
                   }),
             ),
