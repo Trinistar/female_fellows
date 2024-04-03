@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/FutureHomepage/image_button.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
@@ -28,15 +27,13 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-final facebookUrl = Uri.parse(' https://www.facebook.com/FemaleFellows');
+final facebookUrl = Uri.parse('https://www.facebook.com/FemaleFellows');
 final linkedUrl = Uri.parse('https://www.linkedin.com/company/10924303/admin/feed/posts/');
-final instaUrl = Uri.parse(' https://www.instagram.com/femalefellows/?hl=de');
+final instaUrl = Uri.parse('https://www.instagram.com/femalefellows/?hl=de');
 final youtubeUrl = Uri.parse('https://www.youtube.com/channel/UC0qt11OqFnAzPI_IGHnR_2w');
 final twitterUrl = Uri.parse('https://twitter.com/femalefellows');
 
-
-final teamUrl = Uri.parse(
-    'https://docs.google.com/forms/d/e/1FAIpQLScsSvgohEYh_PUv9cYMipqOmomXqrqlDnMECPglzP-r3_7_eQ/viewform');
+final teamUrl = Uri.parse('https://docs.google.com/forms/d/e/1FAIpQLScsSvgohEYh_PUv9cYMipqOmomXqrqlDnMECPglzP-r3_7_eQ/viewform');
 
 class _HomeState extends State<Home> {
   @override
@@ -82,24 +79,15 @@ class _HomeState extends State<Home> {
           ImageButton(
             pagechange: widget.pagechange,
           ),
-          DividerBouthCorner(
-              color1: Theme.of(context).colorScheme.surfaceVariant,
-              color2: Colors.white),
-
+          DividerBouthCorner(color1: Theme.of(context).colorScheme.surfaceVariant, color2: Colors.white),
           EventCarousel(
             pagechange: widget.pagechange,
           ),
-          DividerBouthCorner(
-              color1: Colors.white,
-              color2: Theme.of(context).colorScheme.surfaceVariant),
+          DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.surfaceVariant),
           AboutUs(),
-          DividerBouthCorner(
-              color1: Theme.of(context).colorScheme.surfaceVariant,
-              color2: Colors.white),
+          DividerBouthCorner(color1: Theme.of(context).colorScheme.surfaceVariant, color2: Colors.white),
           TeamFoerderin(),
-          DividerBouthCorner(
-              color1: Colors.white,
-              color2: Theme.of(context).colorScheme.surfaceVariant),
+          DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.surfaceVariant),
           SizedBox(
             width: 1000,
             child: Column(
@@ -132,14 +120,11 @@ class _HomeState extends State<Home> {
                       Container(
                         height: 40,
                         width: 40,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primary,
-                            borderRadius: BorderRadius.circular(60)),
+                        decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(60)),
                         child: GestureDetector(
                             onTap: () {
                               setState(() {
-                                launchUrl(facebookUrl,
-                                    mode: LaunchMode.externalApplication);
+                                launchUrl(facebookUrl, mode: LaunchMode.externalApplication);
                               });
                             },
                             child: Image.asset('lib/images/facebook.png')),
@@ -147,14 +132,11 @@ class _HomeState extends State<Home> {
                       Container(
                         height: 40,
                         width: 40,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primary,
-                            borderRadius: BorderRadius.circular(60)),
+                        decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(60)),
                         child: GestureDetector(
                             onTap: () {
                               setState(() {
-                                launchUrl(linkedUrl,
-                                    mode: LaunchMode.externalApplication);
+                                launchUrl(linkedUrl, mode: LaunchMode.externalApplication);
                               });
                             },
                             child: Image.asset('lib/images/linkedin.png')),
@@ -162,14 +144,11 @@ class _HomeState extends State<Home> {
                       Container(
                         height: 40,
                         width: 40,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primary,
-                            borderRadius: BorderRadius.circular(60)),
+                        decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(60)),
                         child: GestureDetector(
                             onTap: () {
                               setState(() {
-                                launchUrl(instaUrl,
-                                    mode: LaunchMode.externalApplication);
+                                launchUrl(instaUrl, mode: LaunchMode.externalApplication);
                               });
                             },
                             child: Image.asset('lib/images/instagram.png')),
@@ -177,14 +156,11 @@ class _HomeState extends State<Home> {
                       Container(
                         height: 40,
                         width: 40,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primary,
-                            borderRadius: BorderRadius.circular(60)),
+                        decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(60)),
                         child: GestureDetector(
                             onTap: () {
                               setState(() {
-                                launchUrl(youtubeUrl,
-                                    mode: LaunchMode.externalApplication);
+                                launchUrl(youtubeUrl, mode: LaunchMode.externalApplication);
                               });
                             },
                             child: Image.asset('lib/images/youtube.png')),
@@ -192,14 +168,11 @@ class _HomeState extends State<Home> {
                       Container(
                         height: 40,
                         width: 40,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primary,
-                            borderRadius: BorderRadius.circular(60)),
+                        decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(60)),
                         child: GestureDetector(
                             onTap: () {
                               setState(() {
-                                launchUrl(twitterUrl,
-                                    mode: LaunchMode.externalApplication);
+                                launchUrl(twitterUrl, mode: LaunchMode.externalApplication);
                               });
                             },
                             child: Image.asset('lib/images/twitter.png')),
@@ -210,9 +183,7 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          DividerBouthCorner(
-              color1: Theme.of(context).colorScheme.secondary,
-              color2: Colors.white),
+          DividerBouthCorner(color1: Theme.of(context).colorScheme.secondary, color2: Colors.white),
           Container(
             width: 1000,
             height: 250,
