@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
@@ -56,9 +57,7 @@ class EventCarousel extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 10,top: 30),
               child: GestureDetector(
-                onTap: () {
-                  pagechange!(1);
-                },
+                onTap: () => context.go('/events'),
                 child: Text(
                   'Zu allen Events',
                   style: TextStyle(
