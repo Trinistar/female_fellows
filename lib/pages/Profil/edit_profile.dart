@@ -24,10 +24,26 @@ class _EditProfileState extends State<EditProfile> {
   LocalOrNewcomer? localOrNot;
   DateTime _dateTime = DateTime.now();
 
+  @override
+  void initState() {
+    _setInputFields(widget.userstate);
+    super.initState();
+  }
+
+  void _setInputFields(FFUser user) {
+    Controller.firstnameController.text = user.firstname!;
+    Controller.lastnameController.text = user.lastname!;
+    _dateTime = user.birthday!.toDate();
+    Controller.streetnameController.text = user.address!.street;
+    Controller.zipCodeController.text = user.address!.zipCode;
+    Controller.placeController.text = user.address!.city;
+    Controller.aboutYouController.text = user.aboutMe!;
+  }
+
   void _showdatePicker() {
     showDatePicker(
       context: context,
-      initialDate: DateTime.now(),
+      initialDate: _dateTime,
       firstDate: DateTime(1940),
       lastDate: DateTime(3000),
     ).then((value) {

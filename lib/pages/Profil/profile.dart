@@ -30,11 +30,14 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return BlocListener<AuthenticationBloc, AuthenticationState>(
       listener: (context, state) {
-        /* if (state is SignOutSuccess) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => LoginPage()),
+        if (state is AuthenticatedUser) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: Colors.green,
+              content: Text('Dein Profil wurde aktualisiert'),
+            ),
           );
-        } */
+        }
       },
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
@@ -65,8 +68,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     color: Colors.white,
                   ),
                   IconButton(
-                    onPressed: () =>
-                        context.read<AuthenticationBloc>().add(SignOutEvent()),
+                    onPressed: () => context.read<AuthenticationBloc>().add(SignOutEvent()),
                     icon: Icon(Icons.logout),
                     color: Colors.white,
                   ),
@@ -89,26 +91,19 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 25),
-                          child: DividerBouthCorner(
-                              color1: Colors.white,
-                              color2: Theme.of(context).colorScheme.primary),
+                          child: DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.primary),
                         ),
                         Center(
-                          child: (state.userProfile!.profilPicture != null &&
-                                  state.userProfile!.profilPicture!.isNotEmpty)
+                          child: (state.userProfile!.profilPicture != null && state.userProfile!.profilPicture!.isNotEmpty)
                               ? CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      state.userProfile!.profilPicture!),
+                                  backgroundImage: NetworkImage(state.userProfile!.profilPicture!),
                                   radius: 75,
-                                  backgroundColor:
-                                      Theme.of(context).colorScheme.secondary,
+                                  backgroundColor: Theme.of(context).colorScheme.secondary,
                                 )
                               : CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage('lib/images/ImageIcon.png'),
+                                  backgroundImage: AssetImage('lib/images/ImageIcon.png'),
                                   radius: 75,
-                                  backgroundColor:
-                                      Theme.of(context).colorScheme.secondary,
+                                  backgroundColor: Theme.of(context).colorScheme.secondary,
                                 ),
                         ),
                       ],
@@ -140,8 +135,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   SizedBox(
                     width: double.maxFinite,
                     height: 400,
-                    child:
-                        TabBarView(controller: _profilTabController, children: [
+                    child: TabBarView(controller: _profilTabController, children: [
                       ProfilOverview(
                         userstate: state.userProfile!,
                       ),
