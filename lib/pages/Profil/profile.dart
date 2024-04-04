@@ -23,7 +23,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _profilTabController = TabController(length: 2, vsync: this);
+    _profilTabController = TabController(length: 1, vsync: this);
   }
 
   @override
@@ -127,9 +127,9 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       Tab(
                         text: AppLocalizations.of(context)!.profilOverview,
                       ),
-                      Tab(
+                      /* Tab(
                         text: AppLocalizations.of(context)!.profilProgress,
-                      )
+                      ) */
                     ]),
                   ),
                   SizedBox(

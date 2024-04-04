@@ -17,120 +17,134 @@ class _ProfilOverviewState extends State<ProfilOverview> {
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            /*      Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.phone,
-                    size: 20,
-                  ),
-                  SizedBox(width: 20,),
-                  Text(
-                    widget.userstate.firstname ?? '',
-                    style: TextStyle(
-                      fontSize: 15,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-                   Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.phone,
-                    size: 20,
-                  ),
-                  SizedBox(width: 20,),
-                  Text(
-                    widget.userstate.firstname ?? '',
-                    style: TextStyle(
-                      fontSize: 15,
-                    ),
-                  ),
-                ],
-              ),
-            ), */
-            ListTile(
-              leading: Icon(
+        SizedBox(
+          height: 10,
+        ),
+        /*      Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(
+            children: [
+              Icon(
                 Icons.phone,
                 size: 20,
               ),
-              title: Text(
+              SizedBox(width: 20,),
+              Text(
                 widget.userstate.firstname ?? '',
                 style: TextStyle(
                   fontSize: 15,
                 ),
               ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.mail,
-                size: 20,
-              ),
-              title: Text(
-                widget.userstate.email ?? '',
-                style: TextStyle(
-                  fontSize: 15,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.cake,
-                size: 20,
-              ),
-              title: Text(
-                formatDate(
-                  widget.userstate.birthday!.toDate(),
-                  <String>[d, '. ', MM, ' ', yyyy],
-                ),
-                style: TextStyle(
-                  fontSize: 15,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.location_on_outlined,
-                size: 20,
-              ),
-              title: Text(
-                '${widget.userstate.address?.street ?? ''},\n${widget.userstate.address?.zipCode ?? ''} ${widget.userstate.address?.city ?? ''}',
-                style: TextStyle(
-                  fontSize: 15,
-                ),
-              ),
-            ),
-            widget.userstate.localOrNewcomer != null
-                ? ListTile(
-                    leading: Icon(
-                      Icons.person,
-                      size: 20,
-                    ),
-                    title: Text(
-                      widget.userstate.localOrNewcomer.toString().split('.')[1],
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  )
-                : SizedBox.shrink(),
-            SizedBox(
-              height: 20,
-            ),
-            FFButton(onTap: null, text: 'Profil vervollständigen')
-          ],
+            ],
+          ),
         ),
+               Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(
+            children: [
+              Icon(
+                Icons.phone,
+                size: 20,
+              ),
+              SizedBox(width: 20,),
+              Text(
+                widget.userstate.firstname ?? '',
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+            ],
+          ),
+        ), */
+        ListTile(
+          leading: Icon(
+            Icons.person,
+            size: 20,
+          ),
+          title: Text(
+            '${widget.userstate.firstname ?? ''} ${widget.userstate.lastname ?? ''}',
+            style: TextStyle(
+              fontSize: 15,
+            ),
+          ),
+          subtitle: Text(
+            widget.userstate.aboutMe ?? '',
+            style: TextStyle(
+              fontSize: 15,
+            ),
+          ),
+        ),
+        widget.userstate.notification != null ?
+        ListTile(
+          leading: Icon(
+            Icons.phone,
+            size: 20,
+          ),
+          title: Text(
+            widget.userstate.notification!.phonenumber,
+            style: TextStyle(
+              fontSize: 15,
+            ),
+          ),
+        ) : SizedBox.shrink(),
+        ListTile(
+          leading: Icon(
+            Icons.mail,
+            size: 20,
+          ),
+          title: Text(
+            widget.userstate.email ?? '',
+            style: TextStyle(
+              fontSize: 15,
+            ),
+          ),
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.cake,
+            size: 20,
+          ),
+          title: Text(
+            formatDate(
+              widget.userstate.birthday!.toDate(),
+              <String>[d, '. ', MM, ' ', yyyy],
+            ),
+            style: TextStyle(
+              fontSize: 15,
+            ),
+          ),
+        ),
+        widget.userstate.address != null ?
+        ListTile(
+          leading: Icon(
+            Icons.location_on_outlined,
+            size: 20,
+          ),
+          title: Text(
+            '${widget.userstate.address?.street ?? ''},\n${widget.userstate.address?.zipCode ?? ''} ${widget.userstate.address?.city ?? ''}',
+            style: TextStyle(
+              fontSize: 15,
+            ),
+          ),
+        ) : SizedBox.shrink(),
+        widget.userstate.localOrNewcomer != null
+            ? ListTile(
+                leading: Icon(
+                  Icons.person,
+                  size: 20,
+                ),
+                title: Text(
+                  widget.userstate.localOrNewcomer.toString().split('.')[1],
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              )
+            : SizedBox.shrink(),
+        SizedBox(
+          height: 20,
+        ),
+        FFButton(onTap: null, text: 'Profil vervollständigen'),
       ],
     );
   }
