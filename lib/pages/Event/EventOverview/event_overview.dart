@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
@@ -224,7 +227,8 @@ class _EventOverviewState extends State<EventOverview>
           SizedBox(
             height: 15,
           ),
-          Padding(
+          //TODO activate on later version, if implemented
+          /* Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Row(
               children: [
@@ -261,7 +265,7 @@ class _EventOverviewState extends State<EventOverview>
                 )
               ],
             ),
-          ),
+          ), */
           SizedBox(
             height: 40,
           ),
@@ -392,12 +396,15 @@ class _EventOverviewState extends State<EventOverview>
                           SizedBox(
                             width: 30,
                           ),
-                          SizedBox(
-                            width: 170,
-                            child: Text(
-                              AppLocalizations.of(context)!
-                                  .eventsPageAllMailtoButtonOne,
-                              textAlign: TextAlign.center,
+                          GestureDetector(
+                            onTap: () => _openMail('mailto:events@femalefellows.com'),
+                            child: SizedBox(
+                              width: 170,
+                              child: Text(
+                                AppLocalizations.of(context)!
+                                    .eventsPageAllMailtoButtonOne,
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                           )
                         ],
@@ -433,12 +440,15 @@ class _EventOverviewState extends State<EventOverview>
                           SizedBox(
                             width: 30,
                           ),
-                          SizedBox(
-                            width: 170,
-                            child: Text(
-                              AppLocalizations.of(context)!
-                                  .eventsPageAllMailtoButtonOne,
-                              textAlign: TextAlign.center,
+                          GestureDetector(
+                            onTap: () => _openMail('mailto:events@femalefellows.com'),
+                            child: SizedBox(
+                              width: 170,
+                              child: Text(
+                                AppLocalizations.of(context)!
+                                    .eventsPageAllMailtoButtonTwo,
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                           )
                         ],
@@ -452,5 +462,9 @@ class _EventOverviewState extends State<EventOverview>
         ],
       ),
     );
+  }
+
+  Future<dynamic> _openMail(String mail) async {
+    await launchUrl(Uri.parse(mail));
   }
 }

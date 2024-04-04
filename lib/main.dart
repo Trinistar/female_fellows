@@ -278,6 +278,13 @@ final GoRouter _router = GoRouter(
             GoRoute(
               path: '/home',
               builder: (BuildContext context, GoRouterState state) => const Home(),
+              routes: [
+                GoRoute(
+                  path: 'detailEvent/:id',
+                  parentNavigatorKey: _rootNavigatorKey,
+                  builder: (BuildContext context, GoRouterState state) => DetailEvent(eventId: state.pathParameters['id']!),
+                ),
+              ],
             ),
           ],
         ),

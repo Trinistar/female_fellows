@@ -149,7 +149,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       ProfilOverview(
                         userstate: state.userProfile!,
                       ),
-                      ProfilProgress(),
+                      //TODO activate on implementation in later version
+                      //ProfilProgress(),
                     ]),
                   ),
                   SizedBox(

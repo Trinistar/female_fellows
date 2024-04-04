@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -47,16 +48,22 @@ class HomePageTitle extends StatelessWidget {
                         ],
                       ),
                       (state.userProfile!.profilPicture != null && state.userProfile!.profilPicture!.isNotEmpty)
-                          ? CircleAvatar(
-                              backgroundImage: NetworkImage(state.userProfile!.profilPicture!),
-                              radius: 25,
-                              backgroundColor: Theme.of(context).colorScheme.secondary,
-                            )
-                          : CircleAvatar(
-                              backgroundImage: AssetImage('lib/images/ImageIcon.png'),
-                              radius: 25,
-                              backgroundColor: Theme.of(context).colorScheme.secondary,
-                            ),
+                          ? GestureDetector(
+                            onTap: () => context.go('/profile'),
+                            child: CircleAvatar(
+                                backgroundImage: NetworkImage(state.userProfile!.profilPicture!),
+                                radius: 25,
+                                backgroundColor: Theme.of(context).colorScheme.secondary,
+                              ),
+                          )
+                          : GestureDetector(
+                            onTap: () => context.go('/profile'),
+                            child: CircleAvatar(
+                                backgroundImage: AssetImage('lib/images/ImageIcon.png'),
+                                radius: 25,
+                                backgroundColor: Theme.of(context).colorScheme.secondary,
+                              ),
+                          ),
                     ],
                   );
                 } else if (state is UnauthenticatedUser) {
