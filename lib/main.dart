@@ -13,6 +13,7 @@ import 'package:vs_femalefellows/blocs/SignedupEvent/signedup_event_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
 import 'package:vs_femalefellows/models/events.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/AfterTandem/matched_tandem.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
@@ -26,6 +27,7 @@ import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/event_update.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
+import 'package:vs_femalefellows/pages/Profil/edit_profile.dart';
 import 'package:vs_femalefellows/pages/Profil/profile.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_coffe.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_onboarding_entry.dart';
@@ -313,6 +315,13 @@ final GoRouter _router = GoRouter(
                   path: 'loginPage',
                   builder: (BuildContext context, GoRouterState state) {
                     return const LoginPage();
+                  },
+                ),
+                GoRoute(
+                  path: 'editProfile',
+                  parentNavigatorKey: _rootNavigatorKey,
+                  builder: (BuildContext context, GoRouterState state) {
+                    return EditProfile(userstate: state.extra as FFUser);
                   },
                 ),
               ],

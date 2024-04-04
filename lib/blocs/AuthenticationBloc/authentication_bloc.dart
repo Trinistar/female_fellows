@@ -55,13 +55,15 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
           if (streams[1] != null) {
             location = streams[1];
           }
-          _firestoreUserProfileRepository.loadTandemMatches(event.user!.uid, profile.localOrNewcomer!).listen((matches) async {
-            profile.tandemMatches = matches;
-            if (profile.tandemMatches != null) {
-              profile.tandemMatches!.first.otherProfile = await _firestoreUserProfileRepository.getUserProfile(profile.tandemMatches!.first.otherUserId);
-              emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: tokenResult));
-            }
-          });
+          if (profile.localOrNewcomer != null) {
+            _firestoreUserProfileRepository.loadTandemMatches(event.user!.uid, profile.localOrNewcomer!).listen((matches) async {
+              profile.tandemMatches = matches;
+              if (profile.tandemMatches != null) {
+                profile.tandemMatches!.first.otherProfile = await _firestoreUserProfileRepository.getUserProfile(profile.tandemMatches!.first.otherUserId);
+                emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: tokenResult));
+              }
+            });
+          }
 
           profile.location = location;
           emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: tokenResult));

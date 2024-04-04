@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
-import 'package:vs_femalefellows/pages/Profil/edit_profil.dart';
+import 'package:vs_femalefellows/pages/Profil/edit_profile.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_header.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_overview.dart';
 import 'package:vs_femalefellows/pages/Profil/profil_progress.dart';
@@ -19,15 +20,10 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   late TabController _profilTabController;
-  LocalOrNewcomer _userchoice = LocalOrNewcomer.newcomer;
   @override
   void initState() {
     super.initState();
     _profilTabController = TabController(length: 2, vsync: this);
-  }
-
-  void _hasChosen(LocalOrNewcomer localOrNot) {
-    _userchoice = localOrNot;
   }
 
   @override
@@ -56,14 +52,14 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   IconButton(
                     onPressed: () {
                       //TODO add profile edit screen
-                      Navigator.of(context).push(
+                      context.go('/profile/editProfile', extra: state.userProfile);
+                      /* Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => EditProfil(
+                          builder: (context) => EditProfile(
                             userstate: state.userProfile!,
-                            hasChosen: _hasChosen,
                           ),
                         ),
-                      );
+                      ); */
                     },
                     icon: Icon(Icons.edit),
                     color: Colors.white,

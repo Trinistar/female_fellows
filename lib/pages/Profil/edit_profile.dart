@@ -2,30 +2,27 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_safety.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 
-class EditProfil extends StatefulWidget {
-  EditProfil({super.key, required this.userstate, required this.hasChosen});
+class EditProfile extends StatefulWidget {
+  EditProfile({super.key, required this.userstate});
   final FFUser userstate;
-  final void Function(LocalOrNewcomer)? hasChosen;
 
   @override
-  State<EditProfil> createState() => _EditProfilState();
+  State<EditProfile> createState() => _EditProfileState();
 }
 
-class _EditProfilState extends State<EditProfil> {
+class _EditProfileState extends State<EditProfile> {
   LocalOrNewcomer? localOrNot;
-  DateTime dateTime = DateTime.now();
+  DateTime _dateTime = DateTime.now();
 
   void _showdatePicker() {
     showDatePicker(
@@ -36,7 +33,7 @@ class _EditProfilState extends State<EditProfil> {
     ).then((value) {
       setState(() {
         if (value != null) {
-          dateTime = value;
+          _dateTime = value;
         }
       });
     });
@@ -114,8 +111,8 @@ class _EditProfilState extends State<EditProfil> {
                           },
                           child: Text(
                             // ignore: unnecessary_null_comparison
-                            dateTime != null
-                                ? '${dateTime.day}.${dateTime.month}.${dateTime.year}'
+                            _dateTime != null
+                                ? '${_dateTime.day}.${_dateTime.month}.${_dateTime.year}'
                                 : '${widget.userstate.birthday!.toDate().day}.${widget.userstate.birthday!.toDate().month}.${widget.userstate.birthday!.toDate().year}',
                             style: TextStyle(
                               fontSize: 15,
@@ -194,21 +191,17 @@ class _EditProfilState extends State<EditProfil> {
                               groupValue: localOrNot,
                               dense: true,
                               title: Text(
-                                AppLocalizations.of(context)!
-                                    .authenticationNewcomerTitle,
+                                AppLocalizations.of(context)!.authenticationNewcomerTitle,
                                 style: TextStyle(
                                   fontSize: 15,
                                   color: Theme.of(context).colorScheme.primary,
                                 ),
                               ),
-                              subtitle: Text(AppLocalizations.of(context)!
-                                  .authenticationNewcomer),
+                              subtitle: Text(AppLocalizations.of(context)!.authenticationNewcomer),
                               value: LocalOrNewcomer.newcomer,
                               onChanged: (newValue) {
                                 setState(() {
                                   localOrNot = newValue;
-                                  widget.hasChosen!(LocalOrNewcomer.newcomer);
-
                                   //widget.onSettingsChanged(_question);
                                 });
                               }),
@@ -223,20 +216,17 @@ class _EditProfilState extends State<EditProfil> {
                               groupValue: localOrNot,
                               dense: true,
                               title: Text(
-                                AppLocalizations.of(context)!
-                                    .authenticationLocalTitle,
+                                AppLocalizations.of(context)!.authenticationLocalTitle,
                                 style: TextStyle(
                                   fontSize: 15,
                                   color: Theme.of(context).colorScheme.primary,
                                 ),
                               ),
-                              subtitle: Text(AppLocalizations.of(context)!
-                                  .authenticationLocal),
+                              subtitle: Text(AppLocalizations.of(context)!.authenticationLocal),
                               value: LocalOrNewcomer.local,
                               onChanged: (newValue) {
                                 setState(() {
                                   localOrNot = newValue;
-                                  widget.hasChosen!(LocalOrNewcomer.local);
                                 });
                               }),
                         ),
@@ -248,18 +238,15 @@ class _EditProfilState extends State<EditProfil> {
                   height: 20,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric( horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     children: [
                       Text(
-                      'About You',
+                        'About You',
                         style: TextStyle(fontSize: 20),
                       ),
                       Container(
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.surface,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
+                        decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: BorderRadius.all(Radius.circular(20))),
                         height: 150,
                         width: 350,
                         child: TextFormField(
@@ -281,17 +268,13 @@ class _EditProfilState extends State<EditProfil> {
                 ),
                 FFButton(
                     onTap: () {
-                      context.read<AuthenticationBloc>().add(UpdateUSerProfil(
-                          updateUser: FFUser(
-                            aboutMe: Controller.aboutYouController.text,
-                              firstname: Controller.firstnameController.text,
-                              lastname: Controller.lastnameController.text,
-                              //   birthday: Timestamp.fromDate(DateTime.now()),
-                              address: Address(
-                                street: Controller.streetnameController.text,
-                                zipCode: Controller.zipCodeController.text,
-                                city: Controller.placeController.text,
-                              ))));
+                      FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
+                      profile.firstname = Controller.firstnameController.text;
+                      profile.lastname = Controller.lastnameController.text;
+                      profile.birthday = Timestamp.fromDate(_dateTime);
+                      profile.address = Address(street: Controller.streetnameController.text, zipCode: Controller.zipCodeController.text, city: Controller.placeController.text);
+                      profile.aboutMe = Controller.aboutYouController.text;
+                      context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
                       context.pop();
                     },
                     text: 'Update User'),

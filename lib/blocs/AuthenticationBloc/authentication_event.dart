@@ -75,11 +75,6 @@ class UpdateUserProfileEvent extends AuthenticationEvent {
   final double? longitude;
 }
 
-class UpdateUSerProfil extends AuthenticationEvent {
-  UpdateUSerProfil({required this.updateUser});
-  final FFUser updateUser;
-}
-
 class InputChanged extends AuthenticationEvent {
   final String? firstname;
   final String? lastname;

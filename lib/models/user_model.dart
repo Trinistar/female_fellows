@@ -12,17 +12,17 @@ part 'user_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class FFUser {
-  final String? firstname;
-  final String? lastname;
-  final String? profilPicture;
+  String? firstname;
+  String? lastname;
+  String? profilPicture;
   @JsonKey(fromJson: HelperFunctions.dateTimeFromTimestamp, toJson: HelperFunctions.dateTimeAsIs)
-  final Timestamp? birthday;
-  final Notifications? notification;
+  Timestamp? birthday;
+  Notifications? notification;
   String? email;
-  final bool? newsletter;
+  bool? newsletter;
   Address? address;
-  final LocalOrNewcomer? localOrNewcomer;
-  final Socialmedia? socialMedia;
+  LocalOrNewcomer? localOrNewcomer;
+  Socialmedia? socialMedia;
   @JsonKey(defaultValue: [])
   List<String> favorites;
   @JsonKey(defaultValue: [])
@@ -39,7 +39,7 @@ class FFUser {
   @JsonKey(includeFromJson: false, includeToJson: false)
   List<TandemMatch>? tandemMatches;
   @JsonKey(defaultValue: false)
-  final bool matchConfirmed;
+  bool matchConfirmed;
 
   FFUser({
     this.id,

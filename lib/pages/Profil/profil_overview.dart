@@ -111,18 +111,20 @@ class _ProfilOverviewState extends State<ProfilOverview> {
                 ),
               ),
             ),
-            ListTile(
-              leading: Icon(
-                Icons.person,
-                size: 20,
-              ),
-              title: Text(
-                widget.userstate.localOrNewcomer.toString().split('.')[1],
-                style: TextStyle(
-                  fontSize: 15,
-                ),
-              ),
-            ),
+            widget.userstate.localOrNewcomer != null
+                ? ListTile(
+                    leading: Icon(
+                      Icons.person,
+                      size: 20,
+                    ),
+                    title: Text(
+                      widget.userstate.localOrNewcomer.toString().split('.')[1],
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  )
+                : SizedBox.shrink(),
             SizedBox(
               height: 20,
             ),
