@@ -29,15 +29,8 @@ class _TandemMatchingState extends State<TandemMatching> {
   void initState() {
     _tandemTypeFilter = TandemTypeFilter.all;
     _pageController = PageController(viewportFraction: 0.9);
-    if (context.read<AuthenticationBloc>().state is AuthenticatedUser &&
-        (context.read<AuthenticationBloc>().state as AuthenticatedUser)
-                .userProfile!
-                .tandemTypeFilter !=
-            null) {
-      _tandemTypeFilter =
-          (context.read<AuthenticationBloc>().state as AuthenticatedUser)
-              .userProfile!
-              .tandemTypeFilter!;
+    if (context.read<AuthenticationBloc>().state is AuthenticatedUser && (context.read<AuthenticationBloc>().state as AuthenticatedUser).userProfile!.tandemTypeFilter != null) {
+      _tandemTypeFilter = (context.read<AuthenticationBloc>().state as AuthenticatedUser).userProfile!.tandemTypeFilter!;
     }
     super.initState();
   }
@@ -130,21 +123,11 @@ class _TandemMatchingState extends State<TandemMatching> {
                         setState(() {
                           locationmessage = '$_lat,$_long';
                         });
-                        if (BlocProvider.of<AuthenticationBloc>(context).state
-                            is AuthenticatedUser) {
-                          final FFUser profile =
-                              (BlocProvider.of<AuthenticationBloc>(context)
-                                      .state as AuthenticatedUser)
-                                  .userProfile!;
-                          context.read<AuthenticationBloc>().add(
-                              UpdateUserProfileEvent(
-                                  (BlocProvider.of<AuthenticationBloc>(context)
-                                          .state as AuthenticatedUser)
-                                      .user!
-                                      .uid,
-                                  latitude: value.latitude,
-                                  longitude: value.longitude,
-                                  userProfile: profile));
+                        if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
+                          final FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
+                          context
+                              .read<AuthenticationBloc>()
+                              .add(UpdateUserProfileEvent((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid, latitude: value.latitude, longitude: value.longitude, userProfile: profile));
                         }
                       });
                     },
@@ -167,9 +150,7 @@ class _TandemMatchingState extends State<TandemMatching> {
                           builder: (context, state) {
                             if (state is AuthenticatedUser) {
                               return Text(
-                                state.userProfile!.location != null
-                                    ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}'
-                                    : locationmessage,
+                                state.userProfile!.location != null ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}' : locationmessage,
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.white,
@@ -239,31 +220,21 @@ class _TandemMatchingState extends State<TandemMatching> {
                   ),
                   children: <TandemTypeFilter, Widget>{
                     TandemTypeFilter.all: Text(
-                      AppLocalizations.of(context)!
-                          .tandemMatchingOverviewFilterOptionOne,
-                      style: _tandemTypeFilter == TandemTypeFilter.all
-                          ? null
-                          : TextStyle(color: Colors.white),
+                      AppLocalizations.of(context)!.tandemMatchingOverviewFilterOptionOne,
+                      style: _tandemTypeFilter == TandemTypeFilter.all ? null : TextStyle(color: Colors.white),
                     ),
                     TandemTypeFilter.nearby: Text(
-                      AppLocalizations.of(context)!
-                          .tandemMatchingOverviewFilterOptionTwo,
-                      style: _tandemTypeFilter == TandemTypeFilter.all
-                          ? TextStyle(color: Colors.white)
-                          : null,
+                      AppLocalizations.of(context)!.tandemMatchingOverviewFilterOptionTwo,
+                      style: _tandemTypeFilter == TandemTypeFilter.all ? TextStyle(color: Colors.white) : null,
                     ),
                   },
                   onValueChanged: (TandemTypeFilter? value) {
                     setState(() {
                       _tandemTypeFilter = value!;
-                      if (context.read<AuthenticationBloc>().state
-                          is AuthenticatedUser) {
-                        var user = context.read<AuthenticationBloc>().state
-                            as AuthenticatedUser;
+                      if (context.read<AuthenticationBloc>().state is AuthenticatedUser) {
+                        var user = context.read<AuthenticationBloc>().state as AuthenticatedUser;
                         user.userProfile!.tandemTypeFilter = _tandemTypeFilter;
-                        (context.read<AuthenticationBloc>()
-                          ..add(UpdateUserProfileEvent(user.user!.uid,
-                              userProfile: user.userProfile!)));
+                        (context.read<AuthenticationBloc>()..add(UpdateUserProfileEvent(user.user!.uid, userProfile: user.userProfile!)));
                       }
                     });
                   },
@@ -283,8 +254,7 @@ class _TandemMatchingState extends State<TandemMatching> {
                     )
                   : Text(
                       AppLocalizations.of(context)!.tandemMatchingFailure,
-                      style: TextStyle(
-                          color: Colors.white, fontStyle: FontStyle.italic),
+                      style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
                       textAlign: TextAlign.center,
                     ),
             ),
@@ -300,8 +270,7 @@ class _TandemMatchingState extends State<TandemMatching> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                  AppLocalizations.of(context)!.tandemMatchingOverviewBody2,
+              child: Text(AppLocalizations.of(context)!.tandemMatchingOverviewBody2,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
