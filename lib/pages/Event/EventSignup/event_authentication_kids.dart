@@ -58,7 +58,7 @@ class _EventChildCareAuthenticationState
             height: 50,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.symmetric(horizontal:20),
             child: Column(
               children: [
                 RadioListTile(
@@ -105,7 +105,7 @@ class _EventChildCareAuthenticationState
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 40),
+                            padding: const EdgeInsets.only(left: 30),
                             child: Text(
                               AppLocalizations.of(context)!.eventRegistrationTwoFieldTwo,
                               style: TextStyle(
@@ -113,13 +113,16 @@ class _EventChildCareAuthenticationState
                               ),
                             ),
                           ),
-                          TextBar(
-                            controller: Controller.childNameController,
-                            hintText: AppLocalizations.of(context)!.eventRegistrationTwoFieldTwo1,
-                            obscureText: false,
-                            onChange: (String text) => widget.needsChildCare!(
-                                ChildCare(needed: true, childName: text)),
-                            validator: null,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: TextBar(                             
+                              controller: Controller.childNameController,
+                              hintText: AppLocalizations.of(context)!.eventRegistrationTwoFieldTwo1,
+                              obscureText: false,
+                              onChange: (String text) => widget.needsChildCare!(
+                                  ChildCare(needed: true, childName: text)),
+                              validator: null,
+                            ),
                           ),
                         ],
                       )

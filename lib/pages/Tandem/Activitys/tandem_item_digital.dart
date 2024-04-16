@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ActivityCoffee extends StatelessWidget {
-  const ActivityCoffee({super.key});
+class ItemDigital extends StatelessWidget {
+  const ItemDigital({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ActivityCoffee extends StatelessWidget {
         child: Container(
           alignment: Alignment.bottomCenter,
           decoration: BoxDecoration(
-            image: DecorationImage(fit: BoxFit.fill, image: AssetImage('lib/images/CafePng.png')),
+            image: DecorationImage(fit: BoxFit.fill, image: AssetImage('lib/images/13-digital.png')),
             borderRadius: BorderRadius.all(Radius.circular(40)),
           ),
           height: 160,

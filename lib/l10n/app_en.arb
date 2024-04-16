@@ -163,8 +163,8 @@
     "eventRegistrationTwoFilterOne": "Nein",
     "eventRegistrationTwoFilterTwo": "Ja",
     "eventRegistrationTwoFieldOne": "Anzahl der Kinder:",
-    "eventRegistrationTwoFieldTwo": "Name des Kindes",
-    "eventRegistrationTwoFieldTwo1": "Name",
+    "eventRegistrationTwoFieldTwo": "Alter des Kindes",
+    "eventRegistrationTwoFieldTwo1": "Alter",
 
     "eventRegistrationThreeSubtitle": "Event-Anmeldung",
     "eventRegistrationThreeTitle": "Fotoeinwilligung\n beim Event",
