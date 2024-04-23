@@ -7,7 +7,7 @@ class ItemGerman extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.push('/tandemCoffee'),
+      onTap: () => context.push('/tandemGerman'),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Container(

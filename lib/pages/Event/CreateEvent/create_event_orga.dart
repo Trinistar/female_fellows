@@ -4,7 +4,6 @@ import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class OrgaEvent extends StatelessWidget {
   const OrgaEvent({super.key});
 
@@ -66,12 +65,15 @@ class OrgaEvent extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
-          TextBar(
-              controller: Controller.hostController,
-              hintText: AppLocalizations.of(context)!.createEventsHost,
-              obscureText: false,
-              onChange: null,
-              validator: null),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: TextBar(
+                controller: Controller.hostController,
+                hintText: AppLocalizations.of(context)!.createEventsHost,
+                obscureText: false,
+                onChange: null,
+                validator: null),
+          ),
           Container(
             color: Theme.of(context).colorScheme.tertiary,
             height: 10,
@@ -83,12 +85,16 @@ class OrgaEvent extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
-          TextBar(
-              controller: Controller.contactPersonController,
-              hintText:    AppLocalizations.of(context)!.createEventsContactPerson,
-              obscureText: false,
-              onChange: null,
-              validator: null),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: TextBar(
+                controller: Controller.contactPersonController,
+                hintText:
+                    AppLocalizations.of(context)!.createEventsContactPerson,
+                obscureText: false,
+                onChange: null,
+                validator: null),
+          ),
           Container(
             color: Theme.of(context).colorScheme.tertiary,
             height: 20,
@@ -100,12 +106,15 @@ class OrgaEvent extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
-          TextBar(
-              controller: Controller.eventEmailController,
-              hintText:               AppLocalizations.of(context)!.createEventMail,
-              obscureText: false,
-              onChange: null,
-              validator: null),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: TextBar(
+                controller: Controller.eventEmailController,
+                hintText: AppLocalizations.of(context)!.createEventMail,
+                obscureText: false,
+                onChange: null,
+                validator: null),
+          ),
           Container(
             color: Theme.of(context).colorScheme.tertiary,
             height: 20,
@@ -140,7 +149,7 @@ class OrgaEvent extends StatelessWidget {
                 ),
                 fillColor: Theme.of(context).colorScheme.surface,
                 filled: true,
-                hintText:  AppLocalizations.of(context)!.createEventHandy,
+                hintText: AppLocalizations.of(context)!.createEventHandy,
               ),
             ),
           ),
@@ -155,17 +164,20 @@ class OrgaEvent extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
-          TextBar(
-            controller: Controller.whatsAppLinkController,
-            hintText:   AppLocalizations.of(context)!.createEventWhatsApp,
-            obscureText: false,
-            onChange: null,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: TextBar(
+              controller: Controller.whatsAppLinkController,
+              hintText: AppLocalizations.of(context)!.createEventWhatsApp,
+              obscureText: false,
+              onChange: null,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+            ),
           ),
           Image.asset('lib/images/handleft.png')
         ],
