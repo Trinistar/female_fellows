@@ -29,7 +29,19 @@ import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
 import 'package:vs_femalefellows/pages/Profil/edit_profile.dart';
 import 'package:vs_femalefellows/pages/Profil/profile.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_activ.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_art.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_cinema.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_city.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_coffe.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_cooking.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_creativ.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_digital.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_exchange.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_german.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_green.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_music.dart';
+import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_picknick.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_onboarding_entry.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_success.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_story.dart';
@@ -44,8 +56,10 @@ import 'package:vs_femalefellows/provider/firestore/firestore_user_profile_repos
 import 'provider/firebase_options.dart';
 
 final AuthRepository authenticationRepository = AuthRepository();
-final FirestoreEventRepository firestoreEventRepository = FirestoreEventRepository();
-final FirestoreUserProfileRepository firestoreUserprofileRepository = FirestoreUserProfileRepository();
+final FirestoreEventRepository firestoreEventRepository =
+    FirestoreEventRepository();
+final FirestoreUserProfileRepository firestoreUserprofileRepository =
+    FirestoreUserProfileRepository();
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _tandemTabNavigatorKey = GlobalKey<NavigatorState>();
@@ -131,6 +145,90 @@ final GoRouter _router = GoRouter(
       },
     ),
     GoRoute(
+      path: '/tandemPicknick',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemPicknick();
+      },
+    ),
+    GoRoute(
+      path: '/tandemMusic',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemMusic();
+      },
+    ),
+    GoRoute(
+      path: '/tandemCreativ',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemCreativ();
+      },
+    ),
+    GoRoute(
+      path: '/tandemGreen',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemGreen();
+      },
+    ),
+    GoRoute(
+      path: '/tandemGerman',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemGerman();
+      },
+    ),
+    GoRoute(
+      path: '/tandemCook',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemCook();
+      },
+    ),
+    GoRoute(
+      path: '/tandemExchange',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemExchange();
+      },
+    ),
+    GoRoute(
+      path: '/tandemActiv',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemActiv();
+      },
+    ),
+    GoRoute(
+      path: '/tandemCinema',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemCinema();
+      },
+    ),
+    GoRoute(
+      path: '/tandemArt',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemArt();
+      },
+    ),
+    GoRoute(
+      path: '/tandemCity',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemCity();
+      },
+    ),
+      GoRoute(
+      path: '/tandemDigital',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const TandemDigital();
+      },
+    ),
+    GoRoute(
       path: '/tandemStoryOne',
       parentNavigatorKey: _rootNavigatorKey,
       builder: (BuildContext context, GoRouterState state) {
@@ -171,7 +269,8 @@ final GoRouter _router = GoRouter(
           routes: <RouteBase>[
             GoRoute(
               path: '/tandem',
-              builder: (BuildContext context, GoRouterState state) => const Tandementry(),
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Tandementry(),
               routes: [
                 GoRoute(
                   path: 'tandemOnboarding',
@@ -219,16 +318,19 @@ final GoRouter _router = GoRouter(
           routes: <RouteBase>[
             GoRoute(
               path: '/events',
-              builder: (BuildContext context, GoRouterState state) => const EventOverview(),
+              builder: (BuildContext context, GoRouterState state) =>
+                  const EventOverview(),
               routes: <RouteBase>[
                 GoRoute(
                   path: 'detailEvent/:id',
                   parentNavigatorKey: _rootNavigatorKey,
-                  builder: (BuildContext context, GoRouterState state) => DetailEvent(eventId: state.pathParameters['id']!),
+                  builder: (BuildContext context, GoRouterState state) =>
+                      DetailEvent(eventId: state.pathParameters['id']!),
                   routes: [
                     GoRoute(
                       redirect: (context, state) {
-                        if (context.read<AuthenticationBloc>().state is AuthenticatedUser) {
+                        if (context.read<AuthenticationBloc>().state
+                            is AuthenticatedUser) {
                           return 'detailEvent/:id';
                         } else {
                           return null;
@@ -268,7 +370,8 @@ final GoRouter _router = GoRouter(
                 GoRoute(
                   path: 'createEvent',
                   parentNavigatorKey: _rootNavigatorKey,
-                  builder: (BuildContext context, GoRouterState state) => CreateEvent(),
+                  builder: (BuildContext context, GoRouterState state) =>
+                      CreateEvent(),
                 ),
               ],
             ),
@@ -279,12 +382,14 @@ final GoRouter _router = GoRouter(
           routes: <RouteBase>[
             GoRoute(
               path: '/home',
-              builder: (BuildContext context, GoRouterState state) => const Home(),
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Home(),
               routes: [
                 GoRoute(
                   path: 'detailEvent/:id',
                   parentNavigatorKey: _rootNavigatorKey,
-                  builder: (BuildContext context, GoRouterState state) => DetailEvent(eventId: state.pathParameters['id']!),
+                  builder: (BuildContext context, GoRouterState state) =>
+                      DetailEvent(eventId: state.pathParameters['id']!),
                 ),
               ],
             ),
@@ -302,7 +407,8 @@ final GoRouter _router = GoRouter(
                 }
               }, */
               path: '/profile',
-              builder: (BuildContext context, GoRouterState state) => const Profile(),
+              builder: (BuildContext context, GoRouterState state) =>
+                  const Profile(),
               routes: [
                 GoRoute(
                   path: 'registrationPage',
@@ -353,12 +459,16 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthenticationBloc>(
-          create: (BuildContext context) => AuthenticationBloc(authenticationRepository: authenticationRepository),
+          create: (BuildContext context) => AuthenticationBloc(
+              authenticationRepository: authenticationRepository),
           lazy: false,
         ),
-        BlocProvider(create: (BuildContext context) => EventBloc(firestoreEventRepository)),
+        BlocProvider(
+            create: (BuildContext context) =>
+                EventBloc(firestoreEventRepository)),
         BlocProvider<FavoritesBloc>(
-          create: (BuildContext context) => FavoritesBloc(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) =>
+              FavoritesBloc(BlocProvider.of<AuthenticationBloc>(context)),
           lazy: false,
         ),
         /* BlocProvider<FavoriteEventStore>(
@@ -367,7 +477,8 @@ class MyApp extends StatelessWidget {
         ), */
         BlocProvider<SignedupEventsBloc>(
           lazy: false,
-          create: (BuildContext context) => SignedupEventsBloc(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) =>
+              SignedupEventsBloc(BlocProvider.of<AuthenticationBloc>(context)),
         ),
         /* BlocProvider<SubscribedEventsStore>(
           lazy: false,
@@ -383,14 +494,18 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<OnboardingBloc>(
           lazy: false,
-          create: (BuildContext context) => OnboardingBloc(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) =>
+              OnboardingBloc(BlocProvider.of<AuthenticationBloc>(context)),
         ),
         BlocProvider<TandemOnboardingBloc>(
           lazy: false,
-          create: (BuildContext context) => TandemOnboardingBloc(BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) => TandemOnboardingBloc(
+              BlocProvider.of<AuthenticationBloc>(context)),
         ),
         BlocProvider<TandemBloc>(
-          create: (BuildContext context) => TandemBloc(firestoreUserprofileRepository, BlocProvider.of<AuthenticationBloc>(context)),
+          create: (BuildContext context) => TandemBloc(
+              firestoreUserprofileRepository,
+              BlocProvider.of<AuthenticationBloc>(context)),
           lazy: false,
         ),
         /* RepositoryProvider(

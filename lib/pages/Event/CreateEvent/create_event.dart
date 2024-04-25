@@ -107,10 +107,7 @@ class _CreateEventState extends State<CreateEvent> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text(AppLocalizations.of(context)!.createEventTitle),
-                      ),
+                      Text(AppLocalizations.of(context)!.createEventTitle),
                       TextBar(controller: Controller.eventTitleController, hintText: 'Title', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
@@ -141,51 +138,39 @@ class _CreateEventState extends State<CreateEvent> {
                         color: Colors.white,
                         height: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text(AppLocalizations.of(context)!.createEventStreet),
-                      ),
+                      Text(AppLocalizations.of(context)!.createEventStreet),
                       TextBar(controller: Controller.streetnameController, hintText: 'Straße', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text(AppLocalizations.of(context)!.createEventPlace),
-                      ),
+                      Text(AppLocalizations.of(context)!.createEventPlace),
                       TextBar(controller: Controller.placeController, hintText: 'Ort', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Text(AppLocalizations.of(context)!.createEventZipCode),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40),
-                        child: TextFormField(
-                          controller: Controller.zipCodeController,
-                          keyboardType: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
-                          decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
-                              // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Theme.of(context).colorScheme.primary,
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            fillColor: Theme.of(context).colorScheme.surface,
-                            filled: true,
-                            hintText: AppLocalizations.of(context)!.createEventZipCode,
+                      Text(AppLocalizations.of(context)!.createEventZipCode),
+                      TextFormField(
+                        controller: Controller.zipCodeController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black87),
+                            // borderRadius: BorderRadius.only(topLeft:Radius.circular(20),),
+                            borderRadius: BorderRadius.circular(10),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Theme.of(context).colorScheme.primary,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          fillColor: Theme.of(context).colorScheme.surface,
+                          filled: true,
+                          hintText: AppLocalizations.of(context)!.createEventZipCode,
                         ),
                       ),
                     ],
