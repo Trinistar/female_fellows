@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/materials.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
 
@@ -19,10 +20,17 @@ class EventBloc extends Bloc<EventEvent, EventState> {
   final FirestoreEventRepository firestoreEventRepository;
 
   Future<void> _onLoadEvent(LoadEvent event, Emitter<EventState> emit) async {
-    return emit.onEach(firestoreEventRepository.getEvent(event.eventId), onData: (Event? event) async {
-      if (event == null) emit(EventNotLoaded());
+    return emit.onEach(firestoreEventRepository.getEvent(event.eventId), onData: (Event? eventData) async {
+      if (eventData == null) emit(EventNotLoaded());
 
-      emit(EventLoaded(event: event!));
+      if (event.isAdmin) {
+        List<FFUser> parts = [];
+        parts = await firestoreEventRepository.getEventParticipants(event.eventId);
+        eventData!.participants.addAll(parts);
+        emit(EventLoaded(event: eventData));
+      }
+
+      emit(EventLoaded(event: eventData!));
     });
   }
 

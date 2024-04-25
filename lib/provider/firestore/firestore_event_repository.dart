@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/category.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_repository.dart';
 
 import '../../models/events.dart';
@@ -35,6 +36,20 @@ class FirestoreEventRepository {
       event.id = snapshot.id;
       return event;
     });
+  }
+
+  Future<List<FFUser>> getEventParticipants(String eventId) async {
+    final List<FFUser> participants = [];
+    var parts = await db.collection('event').doc(eventId).collection('participants').where('participating', isEqualTo: true).get();
+    if (parts.docs.isEmpty) return [];
+    for (var part in parts.docs) {
+      var usersnap = await db.collection('user').doc(part.id).get();
+      final FFUser userProfile = FFUser.fromJson(usersnap.data()!);
+      userProfile.eventParticipant = EventParticipant.fromJson(part.data());
+      userProfile.id = part.id;
+      participants.add(userProfile);
+    }
+    return participants;
   }
 
   Stream<List<Event>> getEventsById(List<String> eventIds) {

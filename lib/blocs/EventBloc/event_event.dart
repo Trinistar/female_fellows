@@ -2,7 +2,6 @@ part of 'event_bloc.dart';
 
 sealed class EventEvent {
   const EventEvent();
-
 }
 
 class EventUpdate extends EventEvent {
@@ -22,7 +21,11 @@ class NewEvent extends EventEvent {
 }
 
 class LoadEvent extends EventEvent {
-  LoadEvent({required this.eventId});
+  LoadEvent({
+    this.isAdmin = false,
+    required this.eventId,
+  });
 
   final String eventId;
+  final bool isAdmin;
 }

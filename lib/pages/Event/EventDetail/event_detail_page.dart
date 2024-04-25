@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
@@ -13,10 +14,8 @@ import 'package:vs_femalefellows/pages/Event/EventDetail/event_data_creator.dart
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_description.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_materials.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_pictures.dart';
-import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:vs_femalefellows/widgets/favorites_icon_widget.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailEvent extends StatefulWidget {
   DetailEvent({super.key, required this.eventId});
@@ -30,7 +29,11 @@ class DetailEvent extends StatefulWidget {
 class _DetailEventState extends State<DetailEvent> {
   @override
   void initState() {
-    BlocProvider.of<EventBloc>(context).add(LoadEvent(eventId: widget.eventId));
+    if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser && HelperFunctions.isAdmin((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).tokenResult!.claims)) {
+      BlocProvider.of<EventBloc>(context).add(LoadEvent(eventId: widget.eventId, isAdmin: true));
+    } else {
+      BlocProvider.of<EventBloc>(context).add(LoadEvent(eventId: widget.eventId));
+    }
     super.initState();
   }
 

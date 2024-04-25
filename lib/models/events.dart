@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/address.dart';
+import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/materials.dart';
+import 'package:vs_femalefellows/models/user_model.dart';
 
 part 'events.g.dart';
 
@@ -21,7 +23,6 @@ class TimestampConverter implements JsonConverter<Timestamp, dynamic> {
 class Event {
   final String whatsAppLink;
   final String host;
-  final String? participants; //array
   final String title;
   final Address location;
   final String description;
@@ -34,6 +35,8 @@ class Event {
   final List<int>? categories;
   final EventDates? dates;
   final String? picture;
+  @JsonKey(defaultValue: [])
+  List<FFUser> participants;
 
   Event({
     this.dates,
@@ -43,7 +46,6 @@ class Event {
     required this.phoneNumber,
     this.isfavorit,
     required this.host,
-    this.participants,
     required this.title,
     required this.location,
     required this.description,
@@ -51,6 +53,7 @@ class Event {
     required this.material,
     this.id,
     this.picture,
+    this.participants = const[],
   });
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);

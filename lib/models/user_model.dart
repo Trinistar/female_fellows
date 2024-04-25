@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:language_picker/languages.dart';
-
 import 'package:vs_femalefellows/helper_functions.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
+import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/notifications.dart';
 import 'package:vs_femalefellows/models/tandem_match.dart';
 
@@ -40,6 +40,7 @@ class FFUser {
   List<TandemMatch>? tandemMatches;
   @JsonKey(defaultValue: false)
   bool matchConfirmed;
+  EventParticipant? eventParticipant;
 
   FFUser({
     this.id,
@@ -64,6 +65,7 @@ class FFUser {
     this.newcomerMatches,
     this.tandemMatches,
     this.matchConfirmed = false,
+    this.eventParticipant,
   });
 
   factory FFUser.fromJson(Map<String, dynamic> json) => _$FFUserFromJson(json);
