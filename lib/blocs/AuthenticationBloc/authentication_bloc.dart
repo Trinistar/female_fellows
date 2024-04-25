@@ -75,7 +75,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   }
 
   Future<Address> _getCityStringFromCoords(GeoPoint coords) async {
-    final List<Placemark> placemarks = await placemarkFromCoordinates(coords.latitude, coords.longitude, localeIdentifier: 'de_de');
+    final List<Placemark> placemarks = await placemarkFromCoordinates(coords.latitude, coords.longitude);
     final Address address = Address(
       city: placemarks.first.locality!,
       street: placemarks.first.street!,
