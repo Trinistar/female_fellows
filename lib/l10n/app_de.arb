@@ -298,7 +298,6 @@
     "tandemAftermatchedCheckpoints": "Wichtige Anlaufstellen",
 
 
-
     "tandemActivitiesTitle": "Was kann man als Tandem gemeinsam unternehmen?",
     "tandemActivityOneTitle": "Ins Café gehen",
     "tandemActivityOneBody": "Viele unserer Tandems gehen sehr gerne in Cafés zum quatschen, Deutsch lernen oder einfach um sich auszutauschen.Hier findest du eine kleine Liste mit coolen Cafés:",
@@ -313,13 +312,13 @@
 
     "tandemActivityThreeTitle": "Musik machen",
     "tandemActivityThreeBody": "Du spielst ein Instrument oder kannst singen? Dann teile diese Leidenschaft mit deiner Tandem-Partnerin und/oder verbinde dich mit unseren FF-Musikerinnen.\n\n1 | Drauf los singen/spielen\nEs gibt zahlreiche Playbacks und Tutorials auf Youtube, mit denen ihr einfach mal ausprobieren könnt, was eure Stimme so hergibt und worauf ihr Lust habt. Dasselbe gilt natürlich auch für Instrumente, solltet ihr beispielsweise eine Gitarre haben. Wenn eine von euch schon ein Instrument spielen kann, könnt ihr euch auch gegenseitig Tipps zeigen, wie man es erlernt oder einfach zusammen Lieder singen oder spielen.\n",
-    "tandemActivityThreeBody2":"2 | Offene Chöre\nIhr singt gerne und möchtet ab und zu einfach mal Chorluft schnuppern? Informiert euch über die Angebote beim {Musikwerk} Stuttgart.\nDas Laboratorium in Stuttgart Ost veranstaltet regelmäßig Offenes Singen, Infos und Termine gibt’s unter.\nUnverbindlich und für jedermann/-frau: Der Ich-kann-nicht-singen-Chor.\n… ebenso eine lustige Truppe und für spontane Aktionen perfekt: {Der Kneipenchor Stuttgart}\n",
+    "tandemActivityThreeBody2":"2 | {chor}\nIhr singt gerne und möchtet ab und zu einfach mal Chorluft schnuppern? Informiert euch über die Angebote beim {musikwerk} Stuttgart.\nDas {laboratorium}in Stuttgart Ost veranstaltet regelmäßig Offenes Singen, Infos und Termine gibt’s unter.\nUnverbindlich und für jedermann/-frau: Der Ich-kann-nicht-singen-Chor.\n… ebenso eine lustige Truppe und für spontane Aktionen perfekt: {kneipchor}\n",
     "@tandemActivityThreeBody2": {
         "placeholders": {
-            "chor":{"description": "https://bw-saengerbund.de/mitteilungen/ich-kann-nicht-singen-chor-stuttgart.html)"},
-            "laboratorium":{"description": "https://laboratorium-stuttgart.de/programm/"},
-            "musikwerk":{"description": "https://musikwerk-stuttgart.de/offener-chor"},
-            "kneipchor":{"description": "https://www.facebook.com/people/Stuttgarter-Kneipenchor/100057080304413/"}
+            "chor":{"description": "Offene Chöre"},
+            "laboratorium":{"description": "Laboratorium"},
+            "musikwerk":{"description": "Musikwerk"},
+            "kneipchor":{"description": "Der Kneipenchor Stuttgart"}
         }
       },
     "tandemActivityThreeBody3":"3 | Gemeinsam Musik hören und Geschmäcke austauschen\nAn regnerischen Tagen, aber auch bei einem gemeinsamen Picknick oder Spaziergang könnt ihr statt eines Filme- oder Kochabends auch mal austauschen, welche Musik euch gefällt. Vielleicht stoßt ihr auch gemeinsam auf neue Musik, die euch beiden gefällt?\nInspiration aus dem Rückblick\nGemütliches Zusammenkommen in Bietigheim-Bissingen\nIm September 2019 organisierte die Projektkoordinatorin Masooma Torfa ein Treffen für alle Interessiert am Tandem-Projekt. Bei leckeren süßen Stückchen verzauberte Fatima uns mit ihrer tollen Stimme./nDu spielst ein Instrument oder kannst singen? Du würdest dich gerne mit anderen FF-Musikerinnen verbinden? Du möchtest weitere Ideen zum Thema Musik machen weiterempfehlen? Oder einen Musik-Workshop anbieten? Dann schreibe uns eine Mail an info@femalefellows.com mit dem Betreff „Musik machen“ ",
@@ -329,162 +328,170 @@
     "tandemActivityFourTitle": "Kreativ sein",
     "tandemActivityFourBody": "Rückblickende Events\n1 | Wachstücher selber machen\n Bei  Gruppentreffen im September 2019 haben wir Wachstücher, als nachhaltige Alternative zu Frischhaltefolie, selbst gemacht.\n2 | Stricken macht glücklich.Thaera aus Afghanistan hat gemeinsam mit ihren Töchtern unseren Stuttgarter Tandems stricken beigebracht.\n",
     "tandemActivityFourBody2":"Weitere Ideen\n1 | Karten basteln / Handlettering\nOb zu einem bestimmten Anlass oder einfach nur, um einer Person, die euch am Herzen liegt, ein paar Grüße zu überbringen: Lasst euch beispielsweise auf pinterest für Kartenmotive inspirieren oder probiert mal verschiedene Schriftarten oder Techniken des Handlettering aus.\n2 | Fotografieren\nIhr habt Interesse an schönen Motiven und/oder bearbeitet gerne Bilder? Zeigt euch gegenseitig eure Tipps und Tricks. Wenn ihr gerne draußen (in der Natur oder von einem Aussichtspunkt) fotografiert und Ideen für geeignete Spots sucht, könnt ihr euch von der Rubrik Ab ins Grüne inspirieren lassen. Die entstandenen Bilder können dann natürlich auch kreativ weiterverarbeitet werden (z.B. als Kartenmotive).\n3 | Nähen\nAus alten Handtüchern lassen sich wunderbar Kosmetiktücher herstellen! Ihr braucht dazu ein altes Handtuch, einen Stoff für die Rückseite (oft reichen auch Stoffreste, man kann auch alte Jeans oder sonstige Kleidungsstücke aus gewebtem Stoff verwenden), ein Bügeleisen, etwas Karton/dickes Papier für die Schablonen, eine Schere und eine Nähmaschine (notfalls geht es auch mit Nadel und Faden). Tipps, wie ihr vorgehen könnt, findet ihr im DIY-Video auf der rechten Seite.\n",
-    "tandemActivityFourBody3":" Weitere Tipps &amp; Inspirationen folgen...\nDu bastelst, nähst, strickst oder häkelst gerne; kurz: du bist gerne kreativ? Und würdest dich hierfür gerne mit anderen Tandems treffen? Oder sogar ein kreativen Workshop anbieten?\n\nDann schreibe uns eine Mail {info@femalefellows.com} mit dem Betreff 'Kreativ sein'",
+    "tandemActivityFourBody3":" Weitere Tipps &amp; Inspirationen folgen...\nDu bastelst, nähst, strickst oder häkelst gerne; kurz: du bist gerne kreativ? Und würdest dich hierfür gerne mit anderen Tandems treffen? Oder sogar ein kreativen Workshop anbieten?\n\nDann schreibe uns eine Mail {mail} mit dem Betreff 'Kreativ sein'",
       "@tandemActivityFourBody3":{
         "placeholders":{
-            "mail":{"description": "mailto:info@femalefellows.com"}
+            "mail":{"description": "info@femalefellows.com}"}
         }
     },
    
     "tandemActivityFiveTitle":"Ab ins Grüne",
     "tandemActivityFiveBody": "Ob zu Fuß oder mit dem Rad – deine Umgebung bietet viele tolle Spots und Ausblicke. Zeit zum Durchatmen und für gute Gespräche!",
 
-    "tandemActivityFiveBody1":"Umgebung Stuttgart:\n1 | Birkenkopf/Monte Scherbelino\nDer {Birkenkopf}ist der höchste Aussichtspunkt Stuttgarts. Wer möchte, kann ein Stück des Weges mit der Bahn oder dem Bus zurücklegen und den letzten moderaten Anstieg zu Fuß zurücklegen. Wer noch nicht genug hat: Der umliegende Wald bietet schöne Wander- und Spazierwege, die beispielsweise auch zum {Bärenschlössle}führen!\n",
+    "tandemActivityFiveBody1":"Umgebung Stuttgart:\n1 | Birkenkopf/Monte Scherbelino\nDer {birkenkopf}ist der höchste Aussichtspunkt Stuttgarts. Wer möchte, kann ein Stück des Weges mit der Bahn oder dem Bus zurücklegen und den letzten moderaten Anstieg zu Fuß zurücklegen. Wer noch nicht genug hat: Der umliegende Wald bietet schöne Wander- und Spazierwege, die beispielsweise auch zum {baerenschloss}führen!\n",
     "@tandemActivityFiveBody1":{
         "placeholders": {
-            "baerenschloss":{"description":"https://www.baerenschloessle-stuttgart.de/en"},
-            "birkenkopf":{"description": "https://www.stuttgart-tourist.de/a-birkenkopf-monte-scherbelino-stuttgart"}}
+            "baerenschloss":{"description":"Bärenschlössle"},
+            "birkenkopf":{"description": "Birkenkopf"}}
          
 
     },
    
-    "tandemActivityFiveBody2":"2 | Fernsehturm\nDer {Fernsehturm}zählt zu den Wahrzeichen Stuttgarts. Von hier aus hat man einen einzigartigen Blick über die Stadt, die Weinberge in und um Stuttgart – bei gutem Wetter sogar bis zur Alb, dem Schwarzwald und dem Odenwald! Der umliegende Wald bietet sich für längere Spaziergänge an, die nächstgelegenen U-Bahn-Haltestellen sind „Ruhbank (Fernsehturm)“ und „{Waldau}“.\n",
+    "tandemActivityFiveBody2":"2 | Fernsehturm\nDer {fernsehturm}zählt zu den Wahrzeichen Stuttgarts. Von hier aus hat man einen einzigartigen Blick über die Stadt, die Weinberge in und um Stuttgart – bei gutem Wetter sogar bis zur Alb, dem Schwarzwald und dem Odenwald! Der umliegende Wald bietet sich für längere Spaziergänge an, die nächstgelegenen U-Bahn-Haltestellen sind „Ruhbank (Fernsehturm)“ und „{waldau}“.\n",
       "@tandemActivityFiveBody2":{
        "placeholders": {
-            "fernsehturm":{"description": "https://www.fernsehturm-stuttgart.de/"},
-            "waldau":{"description": "https://www.stuttgart.de/leben/sport/sportstaetten/waldau.php"}
+            "fernsehturm":{"description": "Fernsehturm"},
+            "waldau":{"description": "Waldau"}
         }
     },
 
   
-    "tandemActivityFiveBody3":"3 | Aussichtspunkt Gaußstraße\nHier habt ihr nicht nur einen tollen weiten Blick über die Stadt, sondern seid auch ganz in der Nähe des {Kräherwaldes},in dem ihr wunderschöne Strecken zum Spazierengehen, Joggen oder Radfahren erkunden könnt.",
+    "tandemActivityFiveBody3":"3 | Aussichtspunkt Gaußstraße\nHier habt ihr nicht nur einen tollen weiten Blick über die Stadt, sondern seid auch ganz in der Nähe des {kraehenwald},in dem ihr wunderschöne Strecken zum Spazierengehen, Joggen oder Radfahren erkunden könnt.",
    "@tandemActivityFiveBody3":{
     "placeholders": {
-        "krähenwald":{"description": "https://www.google.com/maps/place/Gau%C3%9Fstra%C3%9Fe,+70193+Stuttgart/@48.778323,9.0733987,12z/data=!4m5!3m4!1s0x4799db729a22bddd:0xd740a320bbf73df2!8m2!3d48.7783195!4d9.1434365)"}
+        "kraehenwald":{"description": "Kräherwaldes"}
     }
    },
 
 
-    "tandemActivityFiveBody4":"4 | Bismarckturm\nDer {Bismarckturm}liegt im Stuttgarter Norden. Über 92 Stufen erreicht ihr eine Plattform auf dem ca. 20m hohen Turm, von der aus ihr einen tollen Rundum-Ausblick über die Stadt genießen könnt. Du hast Höhenangst oder keine Lust zum Aufstieg? Keine Sorge, bereits am Fuß des Turms hat man einen wunderbaren Panorama-Ausblick.\n",
+    "tandemActivityFiveBody4":"4 | Bismarckturm\nDer {bismarckturm}liegt im Stuttgarter Norden. Über 92 Stufen erreicht ihr eine Plattform auf dem ca. 20m hohen Turm, von der aus ihr einen tollen Rundum-Ausblick über die Stadt genießen könnt. Du hast Höhenangst oder keine Lust zum Aufstieg? Keine Sorge, bereits am Fuß des Turms hat man einen wunderbaren Panorama-Ausblick.\n",
    "@tandemActivityFiveBody4":{
     "placeholders": {
-        "bismarkturm":{"description": "https://www.stuttgart-tourist.de/a-bismarckturm-stuttgart"}
+        "bismarkturm":{"description": "Bismarckturm"}
     }
    },
 
-    "tandemActivityFiveBody5":"5 | Höhenpark Killesberg\nIm {Killesbergpark} erwarten euch wunderschön angelegte Parkflächen mit einer großen Vielfalt verschiedenster Blumen, kleiner Teiche, einem Freibad, ein paar Tieren, die man streicheln darf und sogar einem Biergarten. Auch Cafés und eine Eisdiele grenzen an den Park. Nicht verpassen solltet ihr außerdem den Killesbergturm mitten im Park, der eine Aussicht bis nach Cannstatt ermöglicht.\n",
+    "tandemActivityFiveBody5":"5 | Höhenpark Killesberg\nIm {killesbergpark} erwarten euch wunderschön angelegte Parkflächen mit einer großen Vielfalt verschiedenster Blumen, kleiner Teiche, einem Freibad, ein paar Tieren, die man streicheln darf und sogar einem Biergarten. Auch Cafés und eine Eisdiele grenzen an den Park. Nicht verpassen solltet ihr außerdem den Killesbergturm mitten im Park, der eine Aussicht bis nach Cannstatt ermöglicht.\n",
    "@tandemActivityFiveBody5":{
     "placeholders": {
-        "killesberpark":{"description": "https://www.stuttgart-tourist.de/a-hoehenpark-killesberg"}
+        "killesberpark":{"description": "Killesbergpark"}
     }
    },
 
-    "tandemActivityFiveBody6":"6 | Kriegsbergturm\nAuch hier habt ihr sowohl vom Fuß des Turms als auch von den Zinnen einen tollen Blick über Stuttgart. Der {Kriegsbergturm} lässt sich bestens in eine größere Spazierrunde einbauen, bei der ihr auch im nahegelegenen chinesischen Garten vorbeischauen könnt. stuttgart-tourist.de beschreibt den Kriegsbergturm übrigens als „kleinen Turm wie aus dem Märchen von Rapunzel“ – ein Grund mehr, ihn sich mal aus der Nähe anzusehen!\n",
+    "tandemActivityFiveBody6":"6 | Kriegsbergturm\nAuch hier habt ihr sowohl vom Fuß des Turms als auch von den Zinnen einen tollen Blick über Stuttgart. Der {kriegsbergturm} lässt sich bestens in eine größere Spazierrunde einbauen, bei der ihr auch im nahegelegenen chinesischen Garten vorbeischauen könnt. stuttgart-tourist.de beschreibt den Kriegsbergturm übrigens als „kleinen Turm wie aus dem Märchen von Rapunzel“ – ein Grund mehr, ihn sich mal aus der Nähe anzusehen!\n",
     "@tandemActivityFiveBody6":{
         "placeholders": {
-            "kriegsbergturm":{"description": "href=https://www.stuttgart-tourist.de/a-kriegsbergturm-stuttgart"}
+            "kriegsbergturm":{"description": "Kriegsbergturm"}
         }
     },
 
-    "tandemActivityFiveBody7":"7 | Chinesischer Garten\nIn der Nähe des {Kriegsbergturms} liegt der {chinesische Garten} – man schreitet durch ein kleines Tor und wird dann direkt nach Fernost versetzt. Und das mitten in Stuttgart! Der „Garten der schönen Melodie“ soll die Welt im Kleinen widerspiegeln. Es erwarten euch südchinesische Architektur, der Pavillon der vier Himmelsrichtungen und – wie dank der Kessellage oft in Stuttgart – der Blick in die Weite.\n",
+    "tandemActivityFiveBody7":"7 | Chinesischer Garten\nIn der Nähe des {kriegsbergturms} liegt der {chinesischegarten} – man schreitet durch ein kleines Tor und wird dann direkt nach Fernost versetzt. Und das mitten in Stuttgart! Der „Garten der schönen Melodie“ soll die Welt im Kleinen widerspiegeln. Es erwarten euch südchinesische Architektur, der Pavillon der vier Himmelsrichtungen und – wie dank der Kessellage oft in Stuttgart – der Blick in die Weite.\n",
    "@tandemActivityFiveBody7":{
     "placeholders": {
-        "kriegsbergturm":{"description": "https://www.stuttgart-tourist.de/a-kriegsbergturm-stuttgart"},
-        "chinesischegarten":{"description": "http://www.chinagarten-stuttgart.de/index.php?article_id=18"}
+        "kriegsbergturm":{"description": "Kriegsbergturms"},
+        "chinesischegarten":{"description": "chinesische Garten"}
     }
    },
 
     "tandemActivityFiveBody8":"8 | Bärenschlössle\nHier erwarten euch Entspannung und Natur pur: Das Bärenschlössle liegt mitten im Wald und ist von einer wunderschönen Seelandschaft umgeben. Es lässt sich wunderbar picknicken, im und um das Schlössle befinden sich aber auch ein Restaurant, ein Kiosk und viele Sitzgelegenheiten. Von hier aus kann man u.a. perfekt zum Schloss Solitude spazieren oder den umliegenden Rotwildpark erkunden.\n",
     "tandemActivityFiveBody9":"9 | Blaustrümpflerweg\nEigentlich startet der Blaustrümpflerweg am Marienplatz, man kann aber auch an anderen Stellen auf der Strecke einsteigen und nur einen Teil der insgesamt 7,5km langen Strecke zurücklegen. Man kommt an verschiedenen Aussichtspunkten und Sehenswürdigkeiten vorbei und ist trotz längerer Abschnitte in der Natur zentrumsnah und gut angebunden an den öffentlichen Nahverkehr. \n",
-    "tandemActivityFiveBody10":"10 | Mit der Zacke aus dem Kessel\nMit der {Zacke} könnt ihr vom Marienplatz aus bis nach Degerloch fahren. Dort erwarten euch eine schöne Aussicht, hübsche Villen und nach einem Fußmarsch der Fernsehturm. Von Degerloch zurück in den Kessel führt übrigens der wunderschöne Schimmelhüttenweg, der mitten durch die Weinberge führt und auf dem man durchgehend einen tollen Blick auf Stuttgart hat!Weiterer Bahn-Tipp: In Heslach befindet sich die Standseilbahn, die euch in die 1920er Jahre zurückversetzt. Von Stahlseilen getragen wird man ca. 550 Meter hoch hinauf zum Waldfriedhof gezogen.\n",
+    "tandemActivityFiveBody10":"10 | Mit der Zacke aus dem Kessel\nMit der {zacke} könnt ihr vom Marienplatz aus bis nach Degerloch fahren. Dort erwarten euch eine schöne Aussicht, hübsche Villen und nach einem Fußmarsch der Fernsehturm. Von Degerloch zurück in den Kessel führt übrigens der wunderschöne Schimmelhüttenweg, der mitten durch die Weinberge führt und auf dem man durchgehend einen tollen Blick auf Stuttgart hat!Weiterer Bahn-Tipp: In Heslach befindet sich die Standseilbahn, die euch in die 1920er Jahre zurückversetzt. Von Stahlseilen getragen wird man ca. 550 Meter hoch hinauf zum Waldfriedhof gezogen.\n",
    "@tandemActivityFiveBody10":{
     "placeholders": {
-        "zacke":{"description": "https://www.stuttgart-tourist.de/a-zahnradbahn-stuttgart"}
+        "zacke":{"description": "Zacke"}
    }
 },
-    "tandemActivityFiveBody11":"11 | Weinberge\nStuttgart ist durchzogen und umgeben von Weinbergen, die wunderschöne {Au),sblick}und Spazierstrecken bieten. Viele am Neckar gelegene Stadtteile, wie beispielsweise Unter- oder Obertürkheim auf dem Weg Richtung Esslingen oder Münster auf dem Weg Richtung Ludwigsburg, sind eingerahmt vom Weinanbau. Besonders im Herbst könnt ihr hier eine große Farbenvielfalt genießen.\n\nWeitere Tipps\n Wer gerne ein Stück rausfährt, dem könnte es außerdem hier gefallen: {Sieben-Mühlen-Tal}{Grabkapelle} in Untertürkheim, Schloss {Solitude}\n",
+    "tandemActivityFiveBody11":"11 | Weinberge\nStuttgart ist durchzogen und umgeben von Weinbergen, die wunderschöne {ausblicke} und Spazierstrecken bieten. Viele am Neckar gelegene Stadtteile, wie beispielsweise Unter- oder Obertürkheim auf dem Weg Richtung Esslingen oder Münster auf dem Weg Richtung Ludwigsburg, sind eingerahmt vom Weinanbau. Besonders im Herbst könnt ihr hier eine große Farbenvielfalt genießen.\n\nWeitere Tipps\n Wer gerne ein Stück rausfährt, dem könnte es außerdem hier gefallen: {siebenmuehlental}{grabkapelle} in Untertürkheim, Schloss {solitude}\n",
   "@tandemActivityFiveBody11":{
     "placeholders": {
-        "ausblicke":{"description": "https://www.mein-erlebnis.blog/top-10-aussichtspunkte-in-den-weinbergen/"},
-        "siebenmühlental":{"description": "https://www.leinfelden-echterdingen.de/Startseite/Stadt/Siebenmuehlental.html "},
-        "grabkapelle":{"description": "https://www.grabkapelle-rotenberg.de/start"},
-        "solitude":{"description": "https://www.schloss-solitude.de/"}
+        "ausblicke":{"description": "Ausblicke"},
+        "siebenmuehlental":{"description": "Sieben-Mühlen-Tal"},
+        "grabkapelle":{"description": "Grabkapelle"},
+        "solitude":{"description": "Solitude"}
     }
   },
 
-    "tandemActivityFiveBody12":"Umgebung Bietigheim-Bissingen \n1 | Historische Altstadt Besigheim\nVon Bietigheim führt ein schöner Rad- und Fußweg nach {Besigheim} – entlang der weitläufigen Weinberge und der Enz. In Besigheim angekommen kann man sich mit einem Eis oder kühlen Getränk und einem gemütlichen Sitzplatz an der Enz erfrischen. Kleiner Tipp: Hierfür ist es besonders schön am WeinFluss Besigheim – Enzweg, 74354 Besigheim oder auf der Enz-Terrasse am Unnamed Road, 74354 Besigheim.\n",
+    "tandemActivityFiveBody12":"Umgebung Bietigheim-Bissingen \n1 | Historische Altstadt Besigheim\nVon Bietigheim führt ein schöner Rad- und Fußweg nach {besigheim} – entlang der weitläufigen Weinberge und der Enz. In Besigheim angekommen kann man sich mit einem Eis oder kühlen Getränk und einem gemütlichen Sitzplatz an der Enz erfrischen. Kleiner Tipp: Hierfür ist es besonders schön am WeinFluss Besigheim – Enzweg, 74354 Besigheim oder auf der Enz-Terrasse am Unnamed Road, 74354 Besigheim.\n",
   "@tandemActivityFiveBody12":{
     "placeholders": {
-        "besigheim":{"description": "https://www.besigheim.de/start/gaeste/sehenswuerdigkeiten.html"}
+        "besigheim":{"description": "Besigheim"}
     }
   },
 
-    "tandemActivityFiveBody13":"Umgebung Tübingen\n1 | Wurmlinger Kapelle\nÜber den Spitzberg und mit einem wunderschönen Blick ins Hirschauer Tal gibt es einen herrlichen Wanderweg zur Wurmlinger {Kapelle}. An heißen Sommertagen kann man den schattigen und malerischen Weg durch den Wald so richtig genießen. An der Kapelle selbst gibt es eine Grillstelle, an der sich nach erfolgreicher Wanderung gut Rast machen lässt.",
+    "tandemActivityFiveBody13":"Umgebung Tübingen\n1 | Wurmlinger Kapelle\nÜber den Spitzberg und mit einem wunderschönen Blick ins Hirschauer Tal gibt es einen herrlichen Wanderweg zur Wurmlinger {kapelle}. An heißen Sommertagen kann man den schattigen und malerischen Weg durch den Wald so richtig genießen. An der Kapelle selbst gibt es eine Grillstelle, an der sich nach erfolgreicher Wanderung gut Rast machen lässt.",
     "@tandemActivityFiveBody13":{
          "placeholders": {
-           "kapella":{"description": "https://www.rottenburg.de/wurmlinger+kapelle.51309.htm"}
+           "kapelle":{"description": "Kapelle"}
     }
    },
 
-    "tandemActivityFiveBody14":"\n2 | Bad Uracher Wasserfall\nEtwas außerhalb von Tübingen, aber mit der Bahn in ca. 30 Minuten gut zu erreichen, liegt {Bad Urach}. Hier gibt es nicht nur eine Therme, sondern auch einen eindrucksvollen Wasserfall, der zu jeder Jahreszeit Leute von überall anzieht. Außer dem Wasserfall findet sich hier zudem die Burgruine Hohenurach, der Rutschenfelsen mit einem imposanten Ausblick sowie ein Fohlenhof des Gestüts Marbach.\n",
+    "tandemActivityFiveBody14":"\n2 | Bad Uracher Wasserfall\nEtwas außerhalb von Tübingen, aber mit der Bahn in ca. 30 Minuten gut zu erreichen, liegt {badurach}. Hier gibt es nicht nur eine Therme, sondern auch einen eindrucksvollen Wasserfall, der zu jeder Jahreszeit Leute von überall anzieht. Außer dem Wasserfall findet sich hier zudem die Burgruine Hohenurach, der Rutschenfelsen mit einem imposanten Ausblick sowie ein Fohlenhof des Gestüts Marbach.\n",
     "@tandemActivityFiveBody14":{
       "placeholders": {
-           "badurach":{"description": "https://www.badurach-tourismus.de/attraktion/uracher-wasserfall-bd0513a23d#/article/1b853b65-76aa-4f1e-ab57-6078712b13ad"}
+           "badurach":{"description": "Bad Urach"}
      }
     },
-    "tandemActivityFiveBody15":"Alle Spots lassen sich natürlich perfekt mit einem Picknick verbinden, es kann aber auch zusammen getanzt oder Musik gehört werden.Du hast mit deiner Tandempartnerin weitere schöne Ausflugsziele oder grüne Flecken entdeckt und möchtest diese weiterempfehlen? Schreibe uns eine Mail an {info@femalefellows.com}mit dem Betreff „Ab ins Grüne“. ",
+    "tandemActivityFiveBody15":"Alle Spots lassen sich natürlich perfekt mit einem Picknick verbinden, es kann aber auch zusammen getanzt oder Musik gehört werden.Du hast mit deiner Tandempartnerin weitere schöne Ausflugsziele oder grüne Flecken entdeckt und möchtest diese weiterempfehlen? Schreibe uns eine Mail an {mail}mit dem Betreff „Ab ins Grüne“. ",
     "@tandemActivityFiveBody15":{
         "placeholders": {
-            "mail":{"description": "mailto:info@femalefellows.com"}
+            "mail":{"description": "info@femalefellows.com"}
         }
     },
   
     "tandemActivitySixTitle": "Deutsch Lernen",
-    "tandemActivitySixBody": "Du möchtest gemeinsam mit deiner Tandempartnerin Deutsch lernen bzw. sie dabei unterstützen? Finde hier Tipps, Tricks und Materialien.\nWir arbeiten gerade an einem Konzept für einen Austausch zwischen Interessierten in kleinen Gruppen. Nähere Infos dazu folgen bald. Hier könnt ihr euch aber schon mal einen Überblick über Seiten und Apps verschaffen, mit denen ihr erste Schritte zum Thema Deutschlernen mit eurer Tandempartnerin machen könnt:\n1 | Einstufungstest:\nIhr wollt wissen, auf welchem Sprachniveau ihr aktuell seid? Checkt es hier https://learngerman.dw.com/de/placementDashboard aus.\n",
-
-    "tandemActivitySixBody2":"2 | Kostenloses Online-Material zum Üben\nDer Klett-Verlag bietet zahlreiche Materialien (Arbeitsblätter zum {Download} etc. rund um das Thema Alphabetisierung:\n Das {Online-Angebot} „Deutsch für dich vom Goethe Institut bietet Übungen für alle Sprachniveaus, eine Lernliste zum Speichern, ein Forum für den Austausch mit anderen und vieles mehr.\n Der Youtube-Kanal „Deutsch lernen mit Ida“ befasst sich mit jeder Menge unterschiedlicher Themen, die für das Deutschlernen wichtig sind. Es gibt Videos zu Grammatik, zu Vokabeln und zur deutschen Kultur:\n Wer gerne anhand von Videos lernt, findet zahlreiche Lernhilfen im {Youtube-Kanal „Hallo Deutschschule}\n Podcasts und Videomaterial, die sich besonders zum Vokabeln Lernen eignen und die für unterschiedliche Sprachniveaus aufbereitet sind, findet ihr beim „{Deutschtrainer}Eine abwechslungsreiche Alternative zum klassischen Vokabeln und Grammatik Üben findet ihr auf dieser englisch-deutschen {Websites} für Redewendungen.\nDie Website bietet außerdem Informationen zu kulturellen Fragen, zum deutschen Alphabet und zu vielen anderen Sprachen und Kulturen – Durchklicken lohnt sich also für Muttersprachler wie Deutschlernende gleichermaßen!\n",
-    "@tandemActivitySixBody2":{
-         "placeholders": {
-            "download":{"description": "https://www.klett-sprachen.de/kostenlose-materialien/fuer-erwachsene/alphabetisierung/c-1347)"},
-            "goethe":{"description": "https://www.goethe.de/prj/dfd/de/home.cfm"},
-            "youtubedeutsch":{"description": "https://www.youtube.com/channel/UC5ZnpdkQIit8TWhGVDiDnQQ"},
-            "deutschtrainer":{"description": "https://www.dw.com/de/deutsch-lernen/audiotrainer/s-3657"},
-            "deutschenglisch":{"description": "https://www.bbc.co.uk/languages/german/guide/phrases.shtml"}
-         }
-   },
-
-    "tandemActivitySixBody3":"3 | Apps\nEs gibt zahlreiche Apps zum Deutschlernen, die teilweise unterschiedliche Herangehensweisen wählen. Hier haben wir die wichtigsten für euch aufgelistet:\n„Unterwegs Deutsch lernen“ – Die kostenlose Deutschtrainer-A1-App vom {Goethe-Institut}\n {„Die Stadt der Wörter“} – A1 und A2, Goethe Institut (kostenlos)\n„ Kennen. Lernen – Interaktive Übungen zum Deutschlernen vom Goethe-Institut (kostenlos)\n„{Mein Weg nach Deutschland}“ – Kostenlose App vom Goethe-Institut für Sprachniveau A1 und B2, inkl. Deutschlandquiz.\nEine Übersicht der vhs-Lernportal-Apps findet ihr hier.\nEuer App-Store bietet außerdem Apps zu den Themen:\n„Alphabetisierung“ mit Serlo ABC\nRund ums Thema „Ankommen in Deutschland“ erhaltet ihr viele Informationen über das Bundesamt für Migration und Flüchtlinge (BAMF)\n In der App „halloDeutsch“ könnt ihr als Grundlage eure Muttersprache auswählen, die Inhalte sind anschaulich visualisiert\n",
-    "@tandemActivitySixBody3":{
+    "tandemActivitySixBody": "Du möchtest gemeinsam mit deiner Tandempartnerin Deutsch lernen bzw. sie dabei unterstützen? Finde hier Tipps, Tricks und Materialien.\nWir arbeiten gerade an einem Konzept für einen Austausch zwischen Interessierten in kleinen Gruppen. Nähere Infos dazu folgen bald. Hier könnt ihr euch aber schon mal einen Überblick über Seiten und Apps verschaffen, mit denen ihr erste Schritte zum Thema Deutschlernen mit eurer Tandempartnerin machen könnt:\n1 | Einstufungstest:\nIhr wollt wissen, auf welchem Sprachniveau ihr aktuell seid? {checkteshier} aus.\n",
+    "@tandemActivitySixBody":{
         "placeholders": {
-            "goetheapp":{"description": "https://www.goethe.de/de/spr/ueb.html"},
-            "stadtderwörter":{"description": "https://www.goethe.de/de/spr/ueb/led.html"},
-            "kennenlernen":{"description": "https://www.goethe.de/de/spr/ueb/dkl.html"},
-            "meinweg":{"description": "(a href=https://www.goethe.de/de/spr/ueb.html)"}
+            "checkteshier":{"description": "https://learngerman.dw.com/de/placementDashboard"}
         }
     },
 
-    "tandemActivitySixBody4":"4| Weitere Informationen\nIhr wollt wissen, welche Deutschkurse in eurer Nähe angeboten werden? Informiert euch hier https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php.\nDas Online-Angebot „Deutsch am Arbeitsplatz“ vom Goethe-Institut bietet zum Beispiel Quiz-Fragen und Übungen für alle Sprachniveaus rund um das Thema „{Arbeitsplatz in Deutschland}\nWeitere Infos rund um das Thema „Arbeitsplatz in Deutschland“ findet ihr hier https://femalefellows.com/deutsch-lernen/make-it-in-germany.com",
+    "tandemActivitySixBody2":"2 | Kostenloses Online-Material zum Üben\nDer Klett-Verlag bietet zahlreiche Materialien (Arbeitsblätter zum {download} etc. rund um das Thema Alphabetisierung:\n Das {goethe} „Deutsch für dich vom Goethe Institut bietet Übungen für alle Sprachniveaus, eine Lernliste zum Speichern, ein Forum für den Austausch mit anderen und vieles mehr.\n Der Youtube-Kanal „Deutsch lernen mit Ida“ befasst sich mit jeder Menge unterschiedlicher Themen, die für das Deutschlernen wichtig sind. Es gibt Videos zu Grammatik, zu Vokabeln und zur deutschen Kultur:\n Wer gerne anhand von Videos lernt, findet zahlreiche Lernhilfen im {youtubedeutsch}\n Podcasts und Videomaterial, die sich besonders zum Vokabeln Lernen eignen und die für unterschiedliche Sprachniveaus aufbereitet sind, findet ihr beim „{deutschtrainer}Eine abwechslungsreiche Alternative zum klassischen Vokabeln und Grammatik Üben findet ihr auf dieser englisch-deutschen {websites} für Redewendungen.\nDie Website bietet außerdem Informationen zu kulturellen Fragen, zum deutschen Alphabet und zu vielen anderen Sprachen und Kulturen – Durchklicken lohnt sich also für Muttersprachler wie Deutschlernende gleichermaßen!\n",
+    "@tandemActivitySixBody2":{
+         "placeholders": {
+           
+            "download":{"description": "Download"},
+            "goethe":{"description": "Online-Angebot"},
+            "youtubedeutsch":{"description": "Youtube-Kanal 'Hallo Deutschschule'"},
+            "deutschtrainer":{"description": "Deutschtrainer"},
+            "websites":{"description": "Websites"}
+         }
+   },
+
+    "tandemActivitySixBody3":"3 | Apps\nEs gibt zahlreiche Apps zum Deutschlernen, die teilweise unterschiedliche Herangehensweisen wählen. Hier haben wir die wichtigsten für euch aufgelistet:\n„Unterwegs Deutsch lernen“ – Die kostenlose Deutschtrainer-A1-App vom {goetheapp}\n {stadtderwoerter} – A1 und A2, Goethe Institut (kostenlos)\n„ {kennenlernen} – Interaktive Übungen zum Deutschlernen vom Goethe-Institut (kostenlos)\n„{meinweg}“ – Kostenlose App vom Goethe-Institut für Sprachniveau A1 und B2, inkl. Deutschlandquiz.\nEine Übersicht der vhs-Lernportal-Apps findet ihr hier.\nEuer App-Store bietet außerdem Apps zu den Themen:\n„Alphabetisierung“ mit Serlo ABC\nRund ums Thema „Ankommen in Deutschland“ erhaltet ihr viele Informationen über das Bundesamt für Migration und Flüchtlinge (BAMF)\n In der App „halloDeutsch“ könnt ihr als Grundlage eure Muttersprache auswählen, die Inhalte sind anschaulich visualisiert\n",
+    "@tandemActivitySixBody3":{
+        "placeholders": {
+            "goetheapp":{"description": "Goethe-Institut"},
+            "stadtderwoerter":{"description": "Die Stadt der Wörter"},
+            "kennenlernen":{"description": "Kennen. Lernen"},
+            "meinweg":{"description": "Mein Weg nach Deutschland"}
+        }
+    },
+
+    "tandemActivitySixBody4":"4| Weitere Informationen\nIhr wollt wissen, welche Deutschkurse in eurer Nähe angeboten werden? Informiert euch {hier}.\nDas Online-Angebot Deutsch am Arbeitsplatz vom Goethe-Institut bietet zum Beispiel Quiz-Fragen und Übungen für alle Sprachniveaus rund um das Thema {arbeitsplatzgoethe} \nWeitere Infos rund um das Thema Arbeitsplatz in Deutschland findet ihr hier {link}",
     "@tandemActivitySixBody4":{
         "placeholders": {
-            "arbeitsplatzgoethe":{"description": "(a href=https://www.goethe.de/de/spr/ueb/daa/all.html)"}
+            "link":{"description": "https://femalefellows.com/deutsch-lernen/make-it-in-germany.com"},
+            "hier":{"description": " https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php"},
+            "arbeitsplatzgoethe":{"description": "Arbeitsplatz in Deutschland"}
         }
     },
   
     "tandemActivitySevenTitle": "Gemeinsam kochen",
     "tandemActivitySevenBody":"Du würdest gerne mit deiner Tandempartnerin kochen? Lass dich hier von leckeren Rezepten inspirieren, die exklusiv von einigen Tandems erprobt wurden!\nInspiration aus dem Rückblick\nAfghanische Küche: „Bolani“ Kochabend bei Caro\n Im Oktober 2018 hatten wir einen gemütlichen Kochabend bei Caro organisiert. Unsere Mädels aus Afghanistan haben uns ihre Spezialität „Bolani“beigebracht zu kochen. Hier ist das Rezept:\n1 | Für den Teig Mehl in eine große Schüssel geben. 175 ml Wasser, 2-3 TL Salz und 1 TL Öl zugeben und verkneten, bis der Teig weich wird. Teig noch ca. 2 Minuten weiterkneten und anschließend mit einem Tuch abgedeckt ca. 1 Stunde ruhen lassen.\n2 | Für die Füllung Kartoffeln schälen, vierteln und in Salzwasser ca. 15 Minuten weich kochen.\n3 | Kartoffeln abgießen, 4 TL Öl zugeben und zerstampfen. Lauchzwiebeln und Koriander putzen, waschen und klein hacken. Beides mit den Kartoffeln mischen und mit Salz und Pfeffer würzen.\n4 | Für den Dip den Joghurt in eine Schüssel geben. Knoblauch schälen, hacken und zugeben. Mit Dill, Koriander, Salz und Pfeffer abschmecken.\n5 | Teig in 6 Stücke teilen und jeweils rund ausrollen (ca. 20 cm Durchmesser). Füllung auf je einer Teighälfte verteilen und verstreichen, dabei ca. 1 cm Rand lassen. Freie Teigseite überklappen und die Ränder fest andrücken. Bolani in einer Pfanne mit heißem Öl von jeder Seite 2-3 Minuten braten. Auf ein Stück Küchenpapier legen und abtropfen lassen. Joghurt dazu servieren.\nGuten Appetit!",
     "tandemActivitySevenBody2":"Arabische Küche: „Auzi“ Online-Kochevent mit Baraa und Thaera\n Im Februar 2021 hatten wir ein gemütliches Online-Kochevent. Baraa und ihre Mutter Thaera haben uns beigebracht, wie man das arabische Gericht „Auzi“ kocht. Hier ist das Rezept (die jeweiligen Mengen hängen von der Anzahl der Essenden ab):\n 1 | Hähnchen in gesalzenem Wasser kochen, nach dem Kochen bei 250 Grad im Backofen goldbraun backen (das Wasser, in dem das Hähnchen gekocht wurde, kann später für den Reis verwendet werden) – als vegetarische Variante kann das Hähnchen durch Tofu (z.B. Räuchertofu mit Mandel), Halloumi, Falafel o.Ä. ersetzt werden \n2| Basmatireis waschen, währenddessen Karotten schälen und in kochendem Wasser weich kochen; bei Bedarf: Erbsen kochen \n3| (Hähnchen-) Wasser zum Kochen bringen (ca. doppelte Menge wie Reis), etwas Salz, Pfeffer, Gemüsebrühe sowie etwas Öl oder Butter (ca. 2 EL) hinzugeben; den gewaschenen Reis beifügen. Nachdem der Reis aufgekocht hat, abgedeckt bei mittlerer Hitze quellen lassen\n4| Etwas Öl oder Butter in einer Pfanne erhitzen, die weichen Karotten in kleine Würfel schneiden und mit Erbsen in die Pfanne geben. Mit Salz, Pfefferminze, Pfeffer und beliebigen Gewürzen abschmecken \n5| In eine weitere Pfanne Öl geben und gut erhitzen, Erdnüsse braun anbraten, etwas später Mandeln hinzugeben und gut rühren (Achtung, kann schnell anbrennen!). Wenn die Nüsse braun angeröstet sind, ca. 2 EL Mais dazugeben\n6| Den fertigen Reis in eine Auflaufform geben, Karotten und Erbsen darauf verteilen, anschließend Mandel/Erdnuss/Mais-Mischung, darauf Hähnchen oder Fleischersatz. Mit Joghurt servieren, je nach Geschmack etwas Zimt hinzugeben.\nGuten Appetit!",
-    "tandemActivitySevenBody3":"Du hast leckere Rezepte, die du vielleicht schon mit deiner Tandempartnerin zusammen gekocht hast und/oder weiterempfehlen möchtest? Du würdest gern ein Koch-Event organisieren? Schreibe uns eine Mail an {info@femalefellows.com} mit dem Betreff „Gemeinsam kochen“.",
+    "tandemActivitySevenBody3":"Du hast leckere Rezepte, die du vielleicht schon mit deiner Tandempartnerin zusammen gekocht hast und/oder weiterempfehlen möchtest? Du würdest gern ein Koch-Event organisieren? Schreibe uns eine Mail an {mail} mit dem Betreff „Gemeinsam kochen“.",
     "@tandemActivitySevenBody3":{
         "placeholders": {
-            "mail":{"description": "mailto:info@femalefellows.com"}
+            "mail":{"description": "info@femalefellows.com"}
         }
     },
 
     "tandemActivityEightTitle": "Tandem-Austausch",
-    "tandemActivityEightBody": "Ihr interessiert euch dafür, was andere Tandems so unternehmen oder würdet einfach gerne mal einen Ausflug o.Ä. in einer größeren Gruppe machen? Dann schreibt uns eine Mail an {info@femalefellows.com} mit dem Betreff „Tandemaustausch“.\nSobald wir mehrere Interessentinnen haben, vermitteln wir euch aneinander weiter. Ihr könnt dann gemeinsam überlegen, was ihr euch von dem Austausch erhofft (neue Ideen für gemeinsame Aktivitäten, neue Leute kennenlernen, etwas unternehmen, einfach nur Spaß haben, …) – und die Erfahrungen natürlich immer gerne mit uns teilen!",
+    "tandemActivityEightBody": "Ihr interessiert euch dafür, was andere Tandems so unternehmen oder würdet einfach gerne mal einen Ausflug o.Ä. in einer größeren Gruppe machen? Dann schreibt uns eine Mail an {mail} mit dem Betreff „Tandemaustausch“.\nSobald wir mehrere Interessentinnen haben, vermitteln wir euch aneinander weiter. Ihr könnt dann gemeinsam überlegen, was ihr euch von dem Austausch erhofft (neue Ideen für gemeinsame Aktivitäten, neue Leute kennenlernen, etwas unternehmen, einfach nur Spaß haben, …) – und die Erfahrungen natürlich immer gerne mit uns teilen!",
     "@tandemActivityEightBody":{
         "placeholders": {
-            "mail":{"description": "mailto:info@femalefellows.com"}
+            "mail":{"description": "info@femalefellows.com"}
         }
     },
 
@@ -493,13 +500,13 @@
 
 
     "tandemActivityTenTitle": "Ins Kino gehen",
-    "tandemActivityTenBody":"Ihr braucht einen Plan B für schlechtes Wetter oder habt Lust, die neuesten Filme zu sehen? Hier findet ihr mehr Infos.\nDienstags ist Kinotag in den {Stuttgarter Innenstadtkinos}. Für 6 Euro könnt ihr den nächsten Blockbuster sehen.\nIm {CinemaxX} an der Liederhalle kommt ihr am KinoDIENstag für den günstigsten Preis ins Kino! Der Preis hängt davon ab, welchen Film ihr ausgewählt habt, die Angebote starten aber ab 5€ (3D-Filme sind inklusive).\nInformiert euch unter {sneak-kino.de}, welche Kinos in Stuttgart (und anderen Städten) euch günstig oder auch kostenlos ins Kino bringen.\nOlympia- und {Paradies-Lichtspiele}\nSteigstrasse 1, 74321 Bietigheim-Bissingen\nDas kleine gemütliche Kino in Bissingen ist wirklich „sehenswert“.  Es werden neben dem Mainstream-Blockbuster-Programm noch äußerst interessante Filme aus der Reihe von „Kino und Kirche“ angeboten. Zudem sind die Getränke und Snacks preiswerter als in den Großstadt-Kinos.",
+    "tandemActivityTenBody":"Ihr braucht einen Plan B für schlechtes Wetter oder habt Lust, die neuesten Filme zu sehen? Hier findet ihr mehr Infos.\nDienstags ist Kinotag in den {cinemastuttgart}. Für 6 Euro könnt ihr den nächsten Blockbuster sehen.\nIm {cinemaxX} an der Liederhalle kommt ihr am KinoDIENstag für den günstigsten Preis ins Kino! Der Preis hängt davon ab, welchen Film ihr ausgewählt habt, die Angebote starten aber ab 5€ (3D-Filme sind inklusive).\nInformiert euch unter {sneakkino}, welche Kinos in Stuttgart (und anderen Städten) euch günstig oder auch kostenlos ins Kino bringen.\nOlympia- und {paradieslichtspiele}\nSteigstrasse 1, 74321 Bietigheim-Bissingen\nDas kleine gemütliche Kino in Bissingen ist wirklich „sehenswert“.  Es werden neben dem Mainstream-Blockbuster-Programm noch äußerst interessante Filme aus der Reihe von „Kino und Kirche“ angeboten. Zudem sind die Getränke und Snacks preiswerter als in den Großstadt-Kinos.",
     "@tandemActivityTenBody":{
         "placeholders": {
-            "cinemastuttgart":{"description": "https://www.innenstadtkinos.de/"},
-            "cinemaxX":{"description": "https://www.cinemaxx.de/kinoprogramm/stuttgart-liederhalle"},
-            "sneakcinema":{"description": "https://www.sneak-kino.de/"},
-            "paradieslichtspiele":{"description": "https://www.kino-bietigheim.de/"}
+            "cinemastuttgart":{"description": "Stuttgarter Innenstadtkinos"},
+            "cinemaxX":{"description": "CinemaxX"},
+            "sneakkino":{"description": "sneak-kino.de"},
+            "paradieslichtspiele":{"description": "Paradies-Lichtspiele "}
         }
     },
 
@@ -512,10 +519,10 @@
 
     "tandemActivityThirteenTitle":"Digitale Aktivitäten",
     "tandemActivityThirteenBody":"Die Coronapandemie erlaubt nur Online-Treffen? Lass dich hier für Online-Aktivitäten inspirieren.\n1 | „Offline“-Aktivitäten ins Onlinetreffen verlagern\nEinige Aktivitäten funktionieren sowohl bei face-to-face-Treffen als auch online. Ihr könnt euch in den entsprechenden Rubriken Inspiration holen und euch dann per Videochat (WhatsApp, Skype, Zoom, …) verabreden. Es bietet sich beispielsweise an: Gemeinsam kochen, Kreativ sein (basteln, nähen, stricken, …), Deutsch lernen, Tandemaustausch, …\n2 | Spiele\nViele Spiele lassen sich auch online gut spielen. Einige Ideen, auch für größere Gruppen, findet ihr hier.Über das Whiteboard bei Zoom beispielsweise kann man gut Montagsmaler spielen.Es gibt verschiedene Websites, auf denen man online mit Freunden spielen kann. Tabu, Wer bin ich?, Pantomime, Kniffel, Quiz oder Stadt-Land-Fluss lassen sich aber auch problemlos auf analoge Weise über Videochat spielen.\n3 | Filme/Serien\nIhr könnt über eure Lieblingsfilme und -serien sprechen. Dann schaut ihr den Lieblingsfilm eurer Tandem-Partnerin an und tauscht euch anschließend darüber aus. Oder ihr verabredet euch und seht gleichzeitig etwas an, um euch anschließend auszutauschen.\n4 | Bewegung …\n… darf auch in Zeiten von social distancing nicht zu kurz kommen! Spazierengehen ist immer eine gute Lösung. Ihr könnt die frische Lust genießen, neue Parks und Wege entdecken oder euch in der Rubrik Ab ins Grüne inspirieren lassen. Draußen kann man auch gut Abstand halten und Maske tragen, um das Infektionsrisiko zu minimieren.Wenn euch gemeinsame Spaziergänge zu riskant sind, könnt ihr euch für ein gemeinsames Workout, gemeinsames Tanzen oder Yoga verabreden, indem ihr z.B. dasselbe Workout-Video macht und gleichzeitig per Videochat mit eurer Tandempartnerin verbunden seid. Oft ist man zu zweit motivierter als allein!",
-    "tandemActivityThirteenBody2":"\n5 | Mindestens so wichtig wie in ‚normalen‘ Zeiten: Austausch!\nVersucht, euch trotz der erschwerten Umstände regelmäßig auszutauschen. Zeigt einander Wertschätzung, indem ihr euch einfach zuhört und berichtet, was euch zur Zeit beschäftigt oder auch was für Ideen ihr für eure nächsten Treffen habt. Seid füreinander da und traut euch, Unsicherheiten und Schwächen zuzugeben.\nInspiration aus dem Rückblick\nFemale Fellows Online-Aktivitäten\nAlternativ könnt ihr einfach an den Online-Aktionen von Female Fellows teilnehmen. Am 13.2.2021 hatten wir beispielsweise einen wunderbaren Yoga-Kurs für Einsteiger und Interessierte mit Sonja Schmid! Am 13.2.2021 hat sie einen Anfängerinnen-Kurs mit unseren Female Fellows online durchgeführt. Wir hatten alle unglaublich viel Spaß! Es ging dabei einfach darum, ein bisschen in das Thema ‘Yoga’, ‘Sport’ und ‘Bewegung’ reinzukommen und den eigenen Körper besser kennenzulernen. Und das Beste ist: Es wird jetzt regelmäßig (Online-) Yoga mit Sonja geben – informiert euch also gerne, welche Online-Aktivitäten Female Fellows plant. \nDu hast weitere Ideen für digitale Aktivitäten und möchtest diese weiterempfehlen? Du hast mit deiner Tandem-Partnerin gute Erfahrungen mit bestimmten digitalen Aktivitäten gemacht und möchtest diese mit der Community teilen? Schreibe uns eine Mail an {info@femalefellows.com} mit dem Betreff „Digitale Aktivitäten“, in der du kurz beschreibst, worum es sich bei deiner Empfehlung genau handelt und was sie besonders macht.",
+    "tandemActivityThirteenBody2":"\n5 | Mindestens so wichtig wie in ‚normalen‘ Zeiten: Austausch!\nVersucht, euch trotz der erschwerten Umstände regelmäßig auszutauschen. Zeigt einander Wertschätzung, indem ihr euch einfach zuhört und berichtet, was euch zur Zeit beschäftigt oder auch was für Ideen ihr für eure nächsten Treffen habt. Seid füreinander da und traut euch, Unsicherheiten und Schwächen zuzugeben.\nInspiration aus dem Rückblick\nFemale Fellows Online-Aktivitäten\nAlternativ könnt ihr einfach an den Online-Aktionen von Female Fellows teilnehmen. Am 13.2.2021 hatten wir beispielsweise einen wunderbaren Yoga-Kurs für Einsteiger und Interessierte mit Sonja Schmid! Am 13.2.2021 hat sie einen Anfängerinnen-Kurs mit unseren Female Fellows online durchgeführt. Wir hatten alle unglaublich viel Spaß! Es ging dabei einfach darum, ein bisschen in das Thema ‘Yoga’, ‘Sport’ und ‘Bewegung’ reinzukommen und den eigenen Körper besser kennenzulernen. Und das Beste ist: Es wird jetzt regelmäßig (Online-) Yoga mit Sonja geben – informiert euch also gerne, welche Online-Aktivitäten Female Fellows plant. \nDu hast weitere Ideen für digitale Aktivitäten und möchtest diese weiterempfehlen? Du hast mit deiner Tandem-Partnerin gute Erfahrungen mit bestimmten digitalen Aktivitäten gemacht und möchtest diese mit der Community teilen? Schreibe uns eine Mail an {mail} mit dem Betreff „Digitale Aktivitäten“, in der du kurz beschreibst, worum es sich bei deiner Empfehlung genau handelt und was sie besonders macht.",
     "@tandemActivityThirteenBody2":{
         "placeholders": {
-            "mail":{"description": "mailto:info@femalefellows.com"}
+            "mail":{"description": "info@femalefellows.com"}
         }
     }
  
