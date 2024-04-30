@@ -38,6 +38,8 @@ dependencies:
   go_router: ^14.0.0
   custom_sliding_segmented_control: ^1.8.1
   rxdart: ^0.27.7
+  flutter_linkify: ^6.0.0
+  html: ^0.15.4
 
 
 dev_dependencies:
