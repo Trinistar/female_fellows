@@ -312,7 +312,7 @@
 
     "tandemActivityThreeTitle": "Musik machen",
     "tandemActivityThreeBody": "Du spielst ein Instrument oder kannst singen? Dann teile diese Leidenschaft mit deiner Tandem-Partnerin und/oder verbinde dich mit unseren FF-Musikerinnen.\n\n1 | Drauf los singen/spielen\nEs gibt zahlreiche Playbacks und Tutorials auf Youtube, mit denen ihr einfach mal ausprobieren könnt, was eure Stimme so hergibt und worauf ihr Lust habt. Dasselbe gilt natürlich auch für Instrumente, solltet ihr beispielsweise eine Gitarre haben. Wenn eine von euch schon ein Instrument spielen kann, könnt ihr euch auch gegenseitig Tipps zeigen, wie man es erlernt oder einfach zusammen Lieder singen oder spielen.\n",
-    "tandemActivityThreeBody2":"<p><span>2 | </span> {chor}\n<span> Ihr singt gerne und möchtet ab und zu einfach mal Chorluft schnuppern? Informiert euch über die Angebote beim </span> {musikwerk} <span> Stuttgart.\nDas </span> {laboratorium} <span> in Stuttgart Ost veranstaltet regelmäßig Offenes Singen, Infos und Termine gibt’s unter.\nUnverbindlich und für jedermann/-frau: Der Ich-kann-nicht-singen-Chor.\n… ebenso eine lustige Truppe und für spontane Aktionen perfekt: </span> {kneipchor}\n</p>",
+    "tandemActivityThreeBody2":"<span>2 | </span> {chor}\n<span> Ihr singt gerne und möchtet ab und zu einfach mal Chorluft schnuppern? Informiert euch über die Angebote beim </span> {musikwerk} <span> Stuttgart.\nDas </span> {laboratorium} <span> in Stuttgart Ost veranstaltet regelmäßig Offenes Singen, Infos und Termine gibt’s unter.\nUnverbindlich und für jedermann/-frau: Der Ich-kann-nicht-singen-Chor.\n… ebenso eine lustige Truppe und für spontane Aktionen perfekt: </span> {kneipchor}\n",
     "@tandemActivityThreeBody2": {
         "placeholders": {
             "chor":{"description": "Offene Chöre"},
@@ -338,7 +338,7 @@
     "tandemActivityFiveTitle":"Ab ins Grüne",
     "tandemActivityFiveBody": "Ob zu Fuß oder mit dem Rad – deine Umgebung bietet viele tolle Spots und Ausblicke. Zeit zum Durchatmen und für gute Gespräche!",
 
-    "tandemActivityFiveBody1":"Umgebung Stuttgart:\n1 | Birkenkopf/Monte Scherbelino\nDer {birkenkopf}ist der höchste Aussichtspunkt Stuttgarts. Wer möchte, kann ein Stück des Weges mit der Bahn oder dem Bus zurücklegen und den letzten moderaten Anstieg zu Fuß zurücklegen. Wer noch nicht genug hat: Der umliegende Wald bietet schöne Wander- und Spazierwege, die beispielsweise auch zum {baerenschloss}führen!\n",
+    "tandemActivityFiveBody1":"<span> Umgebung Stuttgart:\n1 | Birkenkopf/Monte Scherbelino\nDer </span> {birkenkopf} <span> ist der höchste Aussichtspunkt Stuttgarts. Wer möchte, kann ein Stück des Weges mit der Bahn oder dem Bus zurücklegen und den letzten moderaten Anstieg zu Fuß zurücklegen. Wer noch nicht genug hat: Der umliegende Wald bietet schöne Wander- und Spazierwege, die beispielsweise auch zum </span> {baerenschloss} <span> führen! </span>\n",
     "@tandemActivityFiveBody1":{
         "placeholders": {
             "baerenschloss":{"description":"Bärenschlössle"},
@@ -347,7 +347,7 @@
 
     },
    
-    "tandemActivityFiveBody2":"2 | Fernsehturm\nDer {fernsehturm}zählt zu den Wahrzeichen Stuttgarts. Von hier aus hat man einen einzigartigen Blick über die Stadt, die Weinberge in und um Stuttgart – bei gutem Wetter sogar bis zur Alb, dem Schwarzwald und dem Odenwald! Der umliegende Wald bietet sich für längere Spaziergänge an, die nächstgelegenen U-Bahn-Haltestellen sind „Ruhbank (Fernsehturm)“ und „{waldau}“.\n",
+    "tandemActivityFiveBody2":"<span> 2 | Fernsehturm\nDer </span> {fernsehturm} <span> zählt zu den Wahrzeichen Stuttgarts. Von hier aus hat man einen einzigartigen Blick über die Stadt, die Weinberge in und um Stuttgart – bei gutem Wetter sogar bis zur Alb, dem Schwarzwald und dem Odenwald! Der umliegende Wald bietet sich für längere Spaziergänge an, die nächstgelegenen U-Bahn-Haltestellen sind „Ruhbank (Fernsehturm)“ und </span> {waldau}.\n",
       "@tandemActivityFiveBody2":{
        "placeholders": {
             "fernsehturm":{"description": "Fernsehturm"},
@@ -356,7 +356,7 @@
     },
 
   
-    "tandemActivityFiveBody3":"3 | Aussichtspunkt Gaußstraße\nHier habt ihr nicht nur einen tollen weiten Blick über die Stadt, sondern seid auch ganz in der Nähe des {kraehenwald},in dem ihr wunderschöne Strecken zum Spazierengehen, Joggen oder Radfahren erkunden könnt.",
+    "tandemActivityFiveBody3":"<span> 3 | Aussichtspunkt Gaußstraße\nHier habt ihr nicht nur einen tollen weiten Blick über die Stadt, sondern seid auch ganz in der Nähe des </span> {kraehenwald} <span> ,in dem ihr wunderschöne Strecken zum Spazierengehen, Joggen oder Radfahren erkunden könnt. </span>",
    "@tandemActivityFiveBody3":{
     "placeholders": {
         "kraehenwald":{"description": "Kräherwaldes"}
@@ -364,28 +364,28 @@
    },
 
 
-    "tandemActivityFiveBody4":"4 | Bismarckturm\nDer {bismarckturm}liegt im Stuttgarter Norden. Über 92 Stufen erreicht ihr eine Plattform auf dem ca. 20m hohen Turm, von der aus ihr einen tollen Rundum-Ausblick über die Stadt genießen könnt. Du hast Höhenangst oder keine Lust zum Aufstieg? Keine Sorge, bereits am Fuß des Turms hat man einen wunderbaren Panorama-Ausblick.\n",
+    "tandemActivityFiveBody4":"<span> 4 | Bismarckturm\nDer </span> {bismarckturm} <span> liegt im Stuttgarter Norden. Über 92 Stufen erreicht ihr eine Plattform auf dem ca. 20m hohen Turm, von der aus ihr einen tollen Rundum-Ausblick über die Stadt genießen könnt. Du hast Höhenangst oder keine Lust zum Aufstieg? Keine Sorge, bereits am Fuß des Turms hat man einen wunderbaren Panorama-Ausblick.\n </span>",
    "@tandemActivityFiveBody4":{
     "placeholders": {
         "bismarckturm":{"description": "Bismarckturm"}
     }
    },
 
-    "tandemActivityFiveBody5":"5 | Höhenpark Killesberg\nIm {killesbergpark} erwarten euch wunderschön angelegte Parkflächen mit einer großen Vielfalt verschiedenster Blumen, kleiner Teiche, einem Freibad, ein paar Tieren, die man streicheln darf und sogar einem Biergarten. Auch Cafés und eine Eisdiele grenzen an den Park. Nicht verpassen solltet ihr außerdem den Killesbergturm mitten im Park, der eine Aussicht bis nach Cannstatt ermöglicht.\n",
+    "tandemActivityFiveBody5":"<span> 5 | Höhenpark Killesberg\nIm </span> {killesbergpark} <span> erwarten euch wunderschön angelegte Parkflächen mit einer großen Vielfalt verschiedenster Blumen, kleiner Teiche, einem Freibad, ein paar Tieren, die man streicheln darf und sogar einem Biergarten. Auch Cafés und eine Eisdiele grenzen an den Park. Nicht verpassen solltet ihr außerdem den Killesbergturm mitten im Park, der eine Aussicht bis nach Cannstatt ermöglicht.\n </span>",
    "@tandemActivityFiveBody5":{
     "placeholders": {
         "killesbergpark":{"description": "Killesbergpark"}
     }
    },
 
-    "tandemActivityFiveBody6":"6 | Kriegsbergturm\nAuch hier habt ihr sowohl vom Fuß des Turms als auch von den Zinnen einen tollen Blick über Stuttgart. Der {kriegsbergturm} lässt sich bestens in eine größere Spazierrunde einbauen, bei der ihr auch im nahegelegenen chinesischen Garten vorbeischauen könnt. stuttgart-tourist.de beschreibt den Kriegsbergturm übrigens als „kleinen Turm wie aus dem Märchen von Rapunzel“ – ein Grund mehr, ihn sich mal aus der Nähe anzusehen!\n",
+    "tandemActivityFiveBody6":"<span> 6 | Kriegsbergturm\nAuch hier habt ihr sowohl vom Fuß des Turms als auch von den Zinnen einen tollen Blick über Stuttgart. Der </span> {kriegsbergturm} <span> lässt sich bestens in eine größere Spazierrunde einbauen, bei der ihr auch im nahegelegenen chinesischen Garten vorbeischauen könnt. stuttgart-tourist.de beschreibt den Kriegsbergturm übrigens als „kleinen Turm wie aus dem Märchen von Rapunzel“ – ein Grund mehr, ihn sich mal aus der Nähe anzusehen!\n </span>",
     "@tandemActivityFiveBody6":{
         "placeholders": {
             "kriegsbergturm":{"description": "Kriegsbergturm"}
         }
     },
 
-    "tandemActivityFiveBody7":"7 | Chinesischer Garten\nIn der Nähe des {kriegsbergturm} liegt der {chinesischegarten} – man schreitet durch ein kleines Tor und wird dann direkt nach Fernost versetzt. Und das mitten in Stuttgart! Der „Garten der schönen Melodie“ soll die Welt im Kleinen widerspiegeln. Es erwarten euch südchinesische Architektur, der Pavillon der vier Himmelsrichtungen und – wie dank der Kessellage oft in Stuttgart – der Blick in die Weite.\n",
+    "tandemActivityFiveBody7":"<span> 7 | Chinesischer Garten\nIn der Nähe des </span> {kriegsbergturm} <span> liegt der </span> {chinesischegarten} <span> – man schreitet durch ein kleines Tor und wird dann direkt nach Fernost versetzt. Und das mitten in Stuttgart! Der „Garten der schönen Melodie“ soll die Welt im Kleinen widerspiegeln. Es erwarten euch südchinesische Architektur, der Pavillon der vier Himmelsrichtungen und – wie dank der Kessellage oft in Stuttgart – der Blick in die Weite.\n </span>",
    "@tandemActivityFiveBody7":{
     "placeholders": {
         "kriegsbergturm":{"description": "Kriegsbergturms"},
@@ -395,13 +395,13 @@
 
     "tandemActivityFiveBody8":"8 | Bärenschlössle\nHier erwarten euch Entspannung und Natur pur: Das Bärenschlössle liegt mitten im Wald und ist von einer wunderschönen Seelandschaft umgeben. Es lässt sich wunderbar picknicken, im und um das Schlössle befinden sich aber auch ein Restaurant, ein Kiosk und viele Sitzgelegenheiten. Von hier aus kann man u.a. perfekt zum Schloss Solitude spazieren oder den umliegenden Rotwildpark erkunden.\n",
     "tandemActivityFiveBody9":"9 | Blaustrümpflerweg\nEigentlich startet der Blaustrümpflerweg am Marienplatz, man kann aber auch an anderen Stellen auf der Strecke einsteigen und nur einen Teil der insgesamt 7,5km langen Strecke zurücklegen. Man kommt an verschiedenen Aussichtspunkten und Sehenswürdigkeiten vorbei und ist trotz längerer Abschnitte in der Natur zentrumsnah und gut angebunden an den öffentlichen Nahverkehr. \n",
-    "tandemActivityFiveBody10":"10 | Mit der Zacke aus dem Kessel\nMit der {zacke} könnt ihr vom Marienplatz aus bis nach Degerloch fahren. Dort erwarten euch eine schöne Aussicht, hübsche Villen und nach einem Fußmarsch der Fernsehturm. Von Degerloch zurück in den Kessel führt übrigens der wunderschöne Schimmelhüttenweg, der mitten durch die Weinberge führt und auf dem man durchgehend einen tollen Blick auf Stuttgart hat!Weiterer Bahn-Tipp: In Heslach befindet sich die Standseilbahn, die euch in die 1920er Jahre zurückversetzt. Von Stahlseilen getragen wird man ca. 550 Meter hoch hinauf zum Waldfriedhof gezogen.\n",
+    "tandemActivityFiveBody10":"<span> 10 | Mit der Zacke aus dem Kessel\nMit der </span> {zacke} <span> könnt ihr vom Marienplatz aus bis nach Degerloch fahren. Dort erwarten euch eine schöne Aussicht, hübsche Villen und nach einem Fußmarsch der Fernsehturm. Von Degerloch zurück in den Kessel führt übrigens der wunderschöne Schimmelhüttenweg, der mitten durch die Weinberge führt und auf dem man durchgehend einen tollen Blick auf Stuttgart hat!Weiterer Bahn-Tipp: In Heslach befindet sich die Standseilbahn, die euch in die 1920er Jahre zurückversetzt. Von Stahlseilen getragen wird man ca. 550 Meter hoch hinauf zum Waldfriedhof gezogen.\n </span>",
    "@tandemActivityFiveBody10":{
     "placeholders": {
         "zacke":{"description": "Zacke"}
    }
-},
-    "tandemActivityFiveBody11":"11 | Weinberge\nStuttgart ist durchzogen und umgeben von Weinbergen, die wunderschöne {ausblicke} und Spazierstrecken bieten. Viele am Neckar gelegene Stadtteile, wie beispielsweise Unter- oder Obertürkheim auf dem Weg Richtung Esslingen oder Münster auf dem Weg Richtung Ludwigsburg, sind eingerahmt vom Weinanbau. Besonders im Herbst könnt ihr hier eine große Farbenvielfalt genießen.\n\nWeitere Tipps\n Wer gerne ein Stück rausfährt, dem könnte es außerdem hier gefallen: {siebenmuehlental}{grabkapelle} in Untertürkheim, Schloss {solitude}\n",
+  },
+    "tandemActivityFiveBody11":"<span> 11 | Weinberge\nStuttgart ist durchzogen und umgeben von Weinbergen, die wunderschöne </span> {ausblicke} <span> und Spazierstrecken bieten. Viele am Neckar gelegene Stadtteile, wie beispielsweise Unter- oder Obertürkheim auf dem Weg Richtung Esslingen oder Münster auf dem Weg Richtung Ludwigsburg, sind eingerahmt vom Weinanbau. Besonders im Herbst könnt ihr hier eine große Farbenvielfalt genießen.\n\nWeitere Tipps\n Wer gerne ein Stück rausfährt, dem könnte es außerdem hier gefallen: </span> {siebenmuehlental} {grabkapelle} <span> in Untertürkheim, Schloss </span> {solitude}\n",
   "@tandemActivityFiveBody11":{
     "placeholders": {
         "ausblicke":{"description": "Ausblicke"},
@@ -411,21 +411,21 @@
     }
   },
 
-    "tandemActivityFiveBody12":"Umgebung Bietigheim-Bissingen \n1 | Historische Altstadt Besigheim\nVon Bietigheim führt ein schöner Rad- und Fußweg nach {besigheim} – entlang der weitläufigen Weinberge und der Enz. In Besigheim angekommen kann man sich mit einem Eis oder kühlen Getränk und einem gemütlichen Sitzplatz an der Enz erfrischen. Kleiner Tipp: Hierfür ist es besonders schön am WeinFluss Besigheim – Enzweg, 74354 Besigheim oder auf der Enz-Terrasse am Unnamed Road, 74354 Besigheim.\n",
+    "tandemActivityFiveBody12":"<span> Umgebung Bietigheim-Bissingen \n1 | Historische Altstadt Besigheim\nVon Bietigheim führt ein schöner Rad- und Fußweg nach </span> {besigheim} <span> – entlang der weitläufigen Weinberge und der Enz. In Besigheim angekommen kann man sich mit einem Eis oder kühlen Getränk und einem gemütlichen Sitzplatz an der Enz erfrischen. Kleiner Tipp: Hierfür ist es besonders schön am WeinFluss Besigheim – Enzweg, 74354 Besigheim oder auf der Enz-Terrasse am Unnamed Road, 74354 Besigheim.\n </span>",
   "@tandemActivityFiveBody12":{
     "placeholders": {
         "besigheim":{"description": "Besigheim"}
     }
   },
 
-    "tandemActivityFiveBody13":"Umgebung Tübingen\n1 | Wurmlinger Kapelle\nÜber den Spitzberg und mit einem wunderschönen Blick ins Hirschauer Tal gibt es einen herrlichen Wanderweg zur Wurmlinger {kapelle}. An heißen Sommertagen kann man den schattigen und malerischen Weg durch den Wald so richtig genießen. An der Kapelle selbst gibt es eine Grillstelle, an der sich nach erfolgreicher Wanderung gut Rast machen lässt.",
+    "tandemActivityFiveBody13":"<span> Umgebung Tübingen\n1 | Wurmlinger Kapelle\nÜber den Spitzberg und mit einem wunderschönen Blick ins Hirschauer Tal gibt es einen herrlichen Wanderweg zur Wurmlinger </span> {kapelle} <span>. An heißen Sommertagen kann man den schattigen und malerischen Weg durch den Wald so richtig genießen. An der Kapelle selbst gibt es eine Grillstelle, an der sich nach erfolgreicher Wanderung gut Rast machen lässt. </span>",
     "@tandemActivityFiveBody13":{
          "placeholders": {
            "kapelle":{"description": "Kapelle"}
     }
    },
 
-    "tandemActivityFiveBody14":"\n2 | Bad Uracher Wasserfall\nEtwas außerhalb von Tübingen, aber mit der Bahn in ca. 30 Minuten gut zu erreichen, liegt {badurach}. Hier gibt es nicht nur eine Therme, sondern auch einen eindrucksvollen Wasserfall, der zu jeder Jahreszeit Leute von überall anzieht. Außer dem Wasserfall findet sich hier zudem die Burgruine Hohenurach, der Rutschenfelsen mit einem imposanten Ausblick sowie ein Fohlenhof des Gestüts Marbach.\n",
+    "tandemActivityFiveBody14":"<span> \n2 | Bad Uracher Wasserfall\nEtwas außerhalb von Tübingen, aber mit der Bahn in ca. 30 Minuten gut zu erreichen, liegt </span> {badurach} <span> . Hier gibt es nicht nur eine Therme, sondern auch einen eindrucksvollen Wasserfall, der zu jeder Jahreszeit Leute von überall anzieht. Außer dem Wasserfall findet sich hier zudem die Burgruine Hohenurach, der Rutschenfelsen mit einem imposanten Ausblick sowie ein Fohlenhof des Gestüts Marbach.\n </span>",
     "@tandemActivityFiveBody14":{
       "placeholders": {
            "badurach":{"description": "Bad Urach"}
@@ -446,7 +446,7 @@
         }
     },
 
-    "tandemActivitySixBody2":"2 | Kostenloses Online-Material zum Üben\nDer Klett-Verlag bietet zahlreiche Materialien (Arbeitsblätter zum {download} etc. rund um das Thema Alphabetisierung:\n Das {goethe} „Deutsch für dich vom Goethe Institut bietet Übungen für alle Sprachniveaus, eine Lernliste zum Speichern, ein Forum für den Austausch mit anderen und vieles mehr.\n Der Youtube-Kanal „Deutsch lernen mit Ida“ befasst sich mit jeder Menge unterschiedlicher Themen, die für das Deutschlernen wichtig sind. Es gibt Videos zu Grammatik, zu Vokabeln und zur deutschen Kultur:\n Wer gerne anhand von Videos lernt, findet zahlreiche Lernhilfen im {youtubedeutsch}\n Podcasts und Videomaterial, die sich besonders zum Vokabeln Lernen eignen und die für unterschiedliche Sprachniveaus aufbereitet sind, findet ihr beim „{deutschtrainer}Eine abwechslungsreiche Alternative zum klassischen Vokabeln und Grammatik Üben findet ihr auf dieser englisch-deutschen {websites} für Redewendungen.\nDie Website bietet außerdem Informationen zu kulturellen Fragen, zum deutschen Alphabet und zu vielen anderen Sprachen und Kulturen – Durchklicken lohnt sich also für Muttersprachler wie Deutschlernende gleichermaßen!\n",
+    "tandemActivitySixBody2":"<span> 2 | Kostenloses Online-Material zum Üben\nDer Klett-Verlag bietet zahlreiche Materialien (Arbeitsblätter zum </span> {download} </span> etc. rund um das Thema Alphabetisierung:\n Das </span> {goethe} <span> „Deutsch für dich vom Goethe Institut bietet Übungen für alle Sprachniveaus, eine Lernliste zum Speichern, ein Forum für den Austausch mit anderen und vieles mehr.\n Der Youtube-Kanal „Deutsch lernen mit Ida“ befasst sich mit jeder Menge unterschiedlicher Themen, die für das Deutschlernen wichtig sind. Es gibt Videos zu Grammatik, zu Vokabeln und zur deutschen Kultur:\n Wer gerne anhand von Videos lernt, findet zahlreiche Lernhilfen im {youtubedeutsch}\n Podcasts und Videomaterial, die sich besonders zum Vokabeln Lernen eignen und die für unterschiedliche Sprachniveaus aufbereitet sind, findet ihr beim „{deutschtrainer}Eine abwechslungsreiche Alternative zum klassischen Vokabeln und Grammatik Üben findet ihr auf dieser englisch-deutschen </span> {websites} <span> für Redewendungen.\nDie Website bietet außerdem Informationen zu kulturellen Fragen, zum deutschen Alphabet und zu vielen anderen Sprachen und Kulturen – Durchklicken lohnt sich also für Muttersprachler wie Deutschlernende gleichermaßen!\n </span>",
     "@tandemActivitySixBody2":{
          "placeholders": {
            
@@ -458,7 +458,7 @@
          }
    },
 
-    "tandemActivitySixBody3":"3 | Apps\nEs gibt zahlreiche Apps zum Deutschlernen, die teilweise unterschiedliche Herangehensweisen wählen. Hier haben wir die wichtigsten für euch aufgelistet:\n„Unterwegs Deutsch lernen“ – Die kostenlose Deutschtrainer-A1-App vom {goetheapp}\n {stadtderwoerter} – A1 und A2, Goethe Institut (kostenlos)\n„ {kennenlernen} – Interaktive Übungen zum Deutschlernen vom Goethe-Institut (kostenlos)\n„{meinweg}“ – Kostenlose App vom Goethe-Institut für Sprachniveau A1 und B2, inkl. Deutschlandquiz.\nEine Übersicht der vhs-Lernportal-Apps findet ihr hier.\nEuer App-Store bietet außerdem Apps zu den Themen:\n„Alphabetisierung“ mit Serlo ABC\nRund ums Thema „Ankommen in Deutschland“ erhaltet ihr viele Informationen über das Bundesamt für Migration und Flüchtlinge (BAMF)\n In der App „halloDeutsch“ könnt ihr als Grundlage eure Muttersprache auswählen, die Inhalte sind anschaulich visualisiert\n",
+    "tandemActivitySixBody3":"<span> 3 | Apps\nEs gibt zahlreiche Apps zum Deutschlernen, die teilweise unterschiedliche Herangehensweisen wählen. Hier haben wir die wichtigsten für euch aufgelistet:\n„Unterwegs Deutsch lernen“ – Die kostenlose Deutschtrainer-A1-App vom </span> {goetheapp}\n {stadtderwoerter} <span> – A1 und A2, Goethe Institut (kostenlos)\n„ </span> {kennenlernen} <span> – Interaktive Übungen zum Deutschlernen vom Goethe-Institut (kostenlos)\n </span> „{meinweg}“ <span> – Kostenlose App vom Goethe-Institut für Sprachniveau A1 und B2, inkl. Deutschlandquiz.\nEine Übersicht der vhs-Lernportal-Apps findet ihr hier.\nEuer App-Store bietet außerdem Apps zu den Themen:\n„Alphabetisierung“ mit Serlo ABC\nRund ums Thema „Ankommen in Deutschland“ erhaltet ihr viele Informationen über das Bundesamt für Migration und Flüchtlinge (BAMF)\n In der App „halloDeutsch“ könnt ihr als Grundlage eure Muttersprache auswählen, die Inhalte sind anschaulich visualisiert\n </span>",
     "@tandemActivitySixBody3":{
         "placeholders": {
             "goetheapp":{"description": "Goethe-Institut"},
@@ -500,7 +500,7 @@
 
 
     "tandemActivityTenTitle": "Ins Kino gehen",
-    "tandemActivityTenBody":"Ihr braucht einen Plan B für schlechtes Wetter oder habt Lust, die neuesten Filme zu sehen? Hier findet ihr mehr Infos.\nDienstags ist Kinotag in den {cinemastuttgart}. Für 6 Euro könnt ihr den nächsten Blockbuster sehen.\nIm {cinemaxX} an der Liederhalle kommt ihr am KinoDIENstag für den günstigsten Preis ins Kino! Der Preis hängt davon ab, welchen Film ihr ausgewählt habt, die Angebote starten aber ab 5€ (3D-Filme sind inklusive).\nInformiert euch unter {sneakkino}, welche Kinos in Stuttgart (und anderen Städten) euch günstig oder auch kostenlos ins Kino bringen.\nOlympia- und {paradieslichtspiele}\nSteigstrasse 1, 74321 Bietigheim-Bissingen\nDas kleine gemütliche Kino in Bissingen ist wirklich „sehenswert“.  Es werden neben dem Mainstream-Blockbuster-Programm noch äußerst interessante Filme aus der Reihe von „Kino und Kirche“ angeboten. Zudem sind die Getränke und Snacks preiswerter als in den Großstadt-Kinos.",
+    "tandemActivityTenBody":"<span> Ihr braucht einen Plan B für schlechtes Wetter oder habt Lust, die neuesten Filme zu sehen? Hier findet ihr mehr Infos.\nDienstags ist Kinotag in den </span> {cinemastuttgart} <span> . Für 6 Euro könnt ihr den nächsten Blockbuster sehen.\nIm </span> {cinemaxX} <span> an der Liederhalle kommt ihr am KinoDIENstag für den günstigsten Preis ins Kino! Der Preis hängt davon ab, welchen Film ihr ausgewählt habt, die Angebote starten aber ab 5€ (3D-Filme sind inklusive).\nInformiert euch unter </span> {sneakkino} <span> , welche Kinos in Stuttgart (und anderen Städten) euch günstig oder auch kostenlos ins Kino bringen.\nOlympia- und </span> {paradieslichtspiele}\n <span> Steigstrasse 1, 74321 Bietigheim-Bissingen\nDas kleine gemütliche Kino in Bissingen ist wirklich „sehenswert“.  Es werden neben dem Mainstream-Blockbuster-Programm noch äußerst interessante Filme aus der Reihe von „Kino und Kirche“ angeboten. Zudem sind die Getränke und Snacks preiswerter als in den Großstadt-Kinos. </span>",
     "@tandemActivityTenBody":{
         "placeholders": {
             "cinemastuttgart":{"description": "Stuttgarter Innenstadtkinos"},

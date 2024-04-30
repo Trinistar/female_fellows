@@ -1,9 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_linkify/flutter_linkify.dart';
-import 'package:html/parser.dart';
 import 'package:html/dom.dart' as htmldoc;
+import 'package:html/parser.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vs_femalefellows/statics.dart';
 
@@ -83,9 +82,7 @@ class _TandemMusicState extends State<TandemMusic> {
                             launchUrl(Uri.parse(_links[0]));
                           },
                       ),
-                      TextSpan(
-                        text: _tandemActivityThreeBody2.getElementsByTagName('span')[1].text,
-                      ),
+                      TextSpan(text: _tandemActivityThreeBody2.getElementsByTagName('span')[1].text),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityThreeBody2.getElementsByTagName('a')[1].text,
@@ -94,9 +91,7 @@ class _TandemMusicState extends State<TandemMusic> {
                             launchUrl(Uri.parse(_links[1]));
                           },
                       ),
-                      TextSpan(
-                        text: _tandemActivityThreeBody2.getElementsByTagName('span')[2].text,
-                      ),
+                      TextSpan(text: _tandemActivityThreeBody2.getElementsByTagName('span')[2].text),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityThreeBody2.getElementsByTagName('a')[2].text,
@@ -105,9 +100,7 @@ class _TandemMusicState extends State<TandemMusic> {
                             launchUrl(Uri.parse(_links[2]));
                           },
                       ),
-                      TextSpan(
-                        text: _tandemActivityThreeBody2.getElementsByTagName('span')[3].text,
-                      ),
+                      TextSpan(text: _tandemActivityThreeBody2.getElementsByTagName('span')[3].text),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityThreeBody2.getElementsByTagName('a')[3].text,
