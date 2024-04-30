@@ -312,7 +312,7 @@
 
     "tandemActivityThreeTitle": "Musik machen",
     "tandemActivityThreeBody": "Du spielst ein Instrument oder kannst singen? Dann teile diese Leidenschaft mit deiner Tandem-Partnerin und/oder verbinde dich mit unseren FF-Musikerinnen.\n\n1 | Drauf los singen/spielen\nEs gibt zahlreiche Playbacks und Tutorials auf Youtube, mit denen ihr einfach mal ausprobieren könnt, was eure Stimme so hergibt und worauf ihr Lust habt. Dasselbe gilt natürlich auch für Instrumente, solltet ihr beispielsweise eine Gitarre haben. Wenn eine von euch schon ein Instrument spielen kann, könnt ihr euch auch gegenseitig Tipps zeigen, wie man es erlernt oder einfach zusammen Lieder singen oder spielen.\n",
-    "tandemActivityThreeBody2":"2 | {chor}\nIhr singt gerne und möchtet ab und zu einfach mal Chorluft schnuppern? Informiert euch über die Angebote beim {musikwerk} Stuttgart.\nDas {laboratorium}in Stuttgart Ost veranstaltet regelmäßig Offenes Singen, Infos und Termine gibt’s unter.\nUnverbindlich und für jedermann/-frau: Der Ich-kann-nicht-singen-Chor.\n… ebenso eine lustige Truppe und für spontane Aktionen perfekt: {kneipchor}\n",
+    "tandemActivityThreeBody2":"<p>2 | {chor}\n<span>Ihr singt gerne und möchtet ab und zu einfach mal Chorluft schnuppern? Informiert euch über die Angebote beim</span> {musikwerk} Stuttgart.\nDas {laboratorium}in Stuttgart Ost veranstaltet regelmäßig Offenes Singen, Infos und Termine gibt’s unter.\nUnverbindlich und für jedermann/-frau: Der Ich-kann-nicht-singen-Chor.\n… ebenso eine lustige Truppe und für spontane Aktionen perfekt: {kneipchor}\n</p>",
     "@tandemActivityThreeBody2": {
         "placeholders": {
             "chor":{"description": "Offene Chöre"},
@@ -331,7 +331,7 @@
     "tandemActivityFourBody3":" Weitere Tipps &amp; Inspirationen folgen...\nDu bastelst, nähst, strickst oder häkelst gerne; kurz: du bist gerne kreativ? Und würdest dich hierfür gerne mit anderen Tandems treffen? Oder sogar ein kreativen Workshop anbieten?\n\nDann schreibe uns eine Mail {mail} mit dem Betreff 'Kreativ sein'",
       "@tandemActivityFourBody3":{
         "placeholders":{
-            "mail":{"description": "info@femalefellows.com}"}
+            "mail":{"description": "info@femalefellows.com"}
         }
     },
    
@@ -367,14 +367,14 @@
     "tandemActivityFiveBody4":"4 | Bismarckturm\nDer {bismarckturm}liegt im Stuttgarter Norden. Über 92 Stufen erreicht ihr eine Plattform auf dem ca. 20m hohen Turm, von der aus ihr einen tollen Rundum-Ausblick über die Stadt genießen könnt. Du hast Höhenangst oder keine Lust zum Aufstieg? Keine Sorge, bereits am Fuß des Turms hat man einen wunderbaren Panorama-Ausblick.\n",
    "@tandemActivityFiveBody4":{
     "placeholders": {
-        "bismarkturm":{"description": "Bismarckturm"}
+        "bismarckturm":{"description": "Bismarckturm"}
     }
    },
 
     "tandemActivityFiveBody5":"5 | Höhenpark Killesberg\nIm {killesbergpark} erwarten euch wunderschön angelegte Parkflächen mit einer großen Vielfalt verschiedenster Blumen, kleiner Teiche, einem Freibad, ein paar Tieren, die man streicheln darf und sogar einem Biergarten. Auch Cafés und eine Eisdiele grenzen an den Park. Nicht verpassen solltet ihr außerdem den Killesbergturm mitten im Park, der eine Aussicht bis nach Cannstatt ermöglicht.\n",
    "@tandemActivityFiveBody5":{
     "placeholders": {
-        "killesberpark":{"description": "Killesbergpark"}
+        "killesbergpark":{"description": "Killesbergpark"}
     }
    },
 
@@ -385,7 +385,7 @@
         }
     },
 
-    "tandemActivityFiveBody7":"7 | Chinesischer Garten\nIn der Nähe des {kriegsbergturms} liegt der {chinesischegarten} – man schreitet durch ein kleines Tor und wird dann direkt nach Fernost versetzt. Und das mitten in Stuttgart! Der „Garten der schönen Melodie“ soll die Welt im Kleinen widerspiegeln. Es erwarten euch südchinesische Architektur, der Pavillon der vier Himmelsrichtungen und – wie dank der Kessellage oft in Stuttgart – der Blick in die Weite.\n",
+    "tandemActivityFiveBody7":"7 | Chinesischer Garten\nIn der Nähe des {kriegsbergturm} liegt der {chinesischegarten} – man schreitet durch ein kleines Tor und wird dann direkt nach Fernost versetzt. Und das mitten in Stuttgart! Der „Garten der schönen Melodie“ soll die Welt im Kleinen widerspiegeln. Es erwarten euch südchinesische Architektur, der Pavillon der vier Himmelsrichtungen und – wie dank der Kessellage oft in Stuttgart – der Blick in die Weite.\n",
    "@tandemActivityFiveBody7":{
     "placeholders": {
         "kriegsbergturm":{"description": "Kriegsbergturms"},
@@ -472,7 +472,7 @@
     "@tandemActivitySixBody4":{
         "placeholders": {
             "link":{"description": "https://femalefellows.com/deutsch-lernen/make-it-in-germany.com"},
-            "hier":{"description": " https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php"},
+            "hier":{"description": "https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php"},
             "arbeitsplatzgoethe":{"description": "Arbeitsplatz in Deutschland"}
         }
     },
@@ -506,7 +506,7 @@
             "cinemastuttgart":{"description": "Stuttgarter Innenstadtkinos"},
             "cinemaxX":{"description": "CinemaxX"},
             "sneakkino":{"description": "sneak-kino.de"},
-            "paradieslichtspiele":{"description": "Paradies-Lichtspiele "}
+            "paradieslichtspiele":{"description": "Paradies-Lichtspiele"}
         }
     },
 

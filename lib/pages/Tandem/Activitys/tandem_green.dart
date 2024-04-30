@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/statics.dart';
 
 class TandemGreen extends StatefulWidget {
   const TandemGreen({super.key});
@@ -52,42 +53,42 @@ class _TandemGreenState extends State<TandemGreen> {
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody2,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody2(fernsehturmWebsite, waldauWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody3,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody3(kraehenwaldWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody4,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody4(bismarckturmWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody5,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody5(killesberparkWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody6,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody6(kriegsbergturmWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody7,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody7(kriegsbergturmWebsite, chinesischegartenWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
@@ -108,42 +109,42 @@ class _TandemGreenState extends State<TandemGreen> {
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody10,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody10(zackeWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody11,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody11(ausblickeWebsite, siebenmuehlentalWebsite, grabkapelleWebsite, solitudeWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody12,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody12(besigheimWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody13,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody13(kapelleWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody14,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody14(badurachWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityFiveBody15,
+                      AppLocalizations.of(context)!.tandemActivityFiveBody15(femaleFellowsMail),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

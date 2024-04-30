@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/statics.dart';
 
 class TandemGerman extends StatefulWidget {
   const TandemGerman({super.key});
@@ -45,28 +46,28 @@ class _TandemGermanState extends State<TandemGerman> {
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivitySixBody,
+                      AppLocalizations.of(context)!.tandemActivitySixBody('<a href="https://learngerman.dw.com/de/placementDashboard">https://learngerman.dw.com/de/placementDashboard</a>'),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivitySixBody2,
+                      AppLocalizations.of(context)!.tandemActivitySixBody2(alphabetisierungDownload, goetheWebsite, youtubedeutsch, deutschtrainerWebsite, deutschenglischWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivitySixBody3,
+                      AppLocalizations.of(context)!.tandemActivitySixBody3(goetheappWebsite, stadtderwoerterWebsite, kennenlernenWebsite, meinwegWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivitySixBody4,
+                      AppLocalizations.of(context)!.tandemActivitySixBody4('<a href="https://femalefellows.com/deutsch-lernen/make-it-in-germany.com">https://femalefellows.com/deutsch-lernen/make-it-in-germany.com</a>', '<a href="https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php">https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php</a>', arbeitsplatzgoetheWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

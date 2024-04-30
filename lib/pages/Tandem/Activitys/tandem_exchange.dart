@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/statics.dart';
 
 class TandemExchange extends StatefulWidget {
   const TandemExchange({super.key});
@@ -45,7 +46,7 @@ class _TandemExchangeState extends State<TandemExchange> {
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityEightBody,
+                      AppLocalizations.of(context)!.tandemActivityEightBody(femaleFellowsMail),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

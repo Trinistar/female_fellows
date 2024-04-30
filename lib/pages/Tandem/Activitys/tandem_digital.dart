@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/statics.dart';
 
 class TandemDigital extends StatefulWidget {
   const TandemDigital({super.key});
@@ -52,7 +53,7 @@ class _TandemDigitalState extends State<TandemDigital> {
                       height: 10,
                     ),
                        Text(
-                      AppLocalizations.of(context)!.tandemActivityThirteenBody2,
+                      AppLocalizations.of(context)!.tandemActivityThirteenBody2(femaleFellowsMail),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

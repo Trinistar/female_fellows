@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:vs_femalefellows/statics.dart';
 
 class TandemCook extends StatefulWidget {
   const TandemCook({super.key});
@@ -59,7 +60,7 @@ class _TandemCookState extends State<TandemCook> {
                       height: 10,
                     ),
                      Text(
-                      AppLocalizations.of(context)!.tandemActivitySevenBody3,
+                      AppLocalizations.of(context)!.tandemActivitySevenBody3(femaleFellowsMail),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

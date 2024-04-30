@@ -25,7 +25,6 @@
     "verificationTitle": "Verification",
     "verficationBody": "Enter your email\nand password",
 
-
     "authenticationAge": "Wie alt bist du?",
     "authenticationAgeImage": "Klick auf das Bild",
     "authenticationAgeBirthday": "Dein Geburtstag:",
@@ -108,8 +107,8 @@
     "eventsPageAllSubtitle": "Du kannst dein eigenes Events organisieren oder\n Events von anderen Organisationen vorschlagen.",
     "eventsFiltersTitleFilterThree": "Kategorien",
    
-    "eventsPageAllMailtoButtonOne": "Deine Female-Fellows-Event-Idee einreichen",
-    "eventsPageAllMailtoButtonTwo": "Events von anderen Organisationen teilen",
+    "eventsPageAllMailtoButtonOne": "Deine Female-Fellows-\nEvent-Idee einreichen",
+    "eventsPageAllMailtoButtonTwo": "Events von anderen\nOrganisationen teilen",
     "eventsFiltersTitleFilterOne": "Location",
     "eventsFiltersTitleFilterTwo": "Häufigkeit der Events",
 
@@ -155,7 +154,6 @@
     "eventButtonSignout": "Anmeldung zurückziehen",
     "buttonNext": "Weiter",
     "buttonBack": "Zurück",
-
     "eventRegistrationOneTitle": "Brauchst du eine \nDolmetcherin beim Event?",
     "eventRegistrationOneFilterThree": "Sprache:",
 
@@ -183,7 +181,6 @@
     "updateEventTitle": "Bearbeite das Event",
     "updateEventButton": "Update Event",
     "updateEventWhatsApp": "WhatsApp Gruppenlink",
-    
 
 
     "tandemMatchingAnmeldungOverlayOneSubtitle": "Tandem-Matching",
@@ -259,6 +256,7 @@
     "tandemNewComerAnswer9":"Es ist überhaupt nicht schlimm, wenn ihr nach ein-zwei Treffen merkt, dass es so gar nicht passt mit euch. Wichtig ist nur, dass ihr darüber sprecht. Wenn ihr nicht miteinander darüber sprechen möchtet, wendet euch gerne an uns. Gerne übernehmen wir die Vermittlung zwischen beiden Parteien und nehmen euch wieder in die Kartei der “Tandemsuchenden” auf. Auch wenn ihr euch schon öfter getroffen habt und irgendwann keine Zeit mehr dafür habt, gebt uns Bescheid, sodass wir uns um die Partnerin kümmern können.",
    
 
+
     "tandemLocalsQuestion1": "1 | Was muss ich tun um eine Tandem-Partnerin zu bekommen?",
     "tandemLocalsQuestion2": "2 | Ein Tandemprojekt klingt recht einfach, unkompliziert und flexibel in der Zeiteinteilung. Das wäre etwas für mich, was ich auch locker neben meinem Beruf noch machen kann. Stimmt das?",
     "tandemLocalsQuestion3": "3 | Wie geht es weiter, wenn mir eine Tandem-Partnerin vermittelt wurde?",
@@ -271,7 +269,6 @@
     "tandemLocalsQuestion10": "10 | An welchen Stellen sollen in Zukunft Spendengelder investiert werden?",
     "tandemLocalsQuestion11": "11 | Ich benötige eine Spendenbescheinigung. Wo erhalte ich sie?",
 
-
     "tandemLocalsAnswer1": "Der erste Schritt ist die Anmeldung: Du kannst dich entweder in Stuttgart, Bietigheim-Bissingen oder in Tübingen anmelden. Im nächsten Schritt suchen wir nach einer passenden Tandem-Partnerin für dich. Dabei achten wir in der Regel auf ein ähnliches Alter und – wenn möglich – auf die Nähe eurer Wohnorte. Ist eine Tandem-Partnerin gefunden, nehmen wir Kontakt zu dir auf. Das Finden einer Tandem-Partnerin kann einige Zeit in Anspruch nehmen, daher ist Geduld gefragt. Wir bemühen uns natürlich, so schnell wie möglich eine passende Tandem-Partnerin für dich zu finden.",
     "tandemLocalsAnswer2": "Das hängt ein bisschen davon ab, was du mit deiner Partnerin vereinbarst. In erster Linie soll das Tandem aber Spaß machen, du sollst dich auf die Treffen freuen. Sprecht also zu Anfang ab, was ihr euch von dem Tandem erhofft und setzt euch Ziele. Unsere Empfehlung ist, einmal die Woche eine Stunde gemeinsam Zeit zu verbringen. Wenn das in deinen Zeitplan nicht passt, vereinbart andere Termine, das ist gar kein Problem, solange ihr darüber sprecht.",
     "tandemLocalsAnswer3": "Das könnt ihr gemeinsam entscheiden. Sprecht bei euren ersten Treffen darüber, was ihr euch von eurem Tandem erhofft. Sei es, die deutsche Sprache zu lernen, sich kulturell auszutauschen oder sich in der neuen Umgebung besser auszukennen. Nenne deutlich deine Wünsche, damit deine Partnerin darauf eingehen kann. Eine wichtige Frage ist auch: Was kannst du ihr zeigen? Kannst du zum Beispiel besonders gut kochen? Überlegt gemeinsam, wie ihr den Austausch gestalten möchtet – ob mit regelmäßigen Spaziergängen, beim Abendessen oder in der Bibliothek. Wichtig ist, dass es für euch beide von Anfang an klar ist. Eine erste Hilfestellung bietet euch unser Welcome KIT, das ihr erhaltet, sobald ihr gematcht wurdet. Weitere Anregungen findest Du hier auf der Website.",
@@ -283,7 +280,7 @@
     "tandemLocalsAnswer9": "Die Crowdfunding-Kampagne 2019 beispielweise hat die Finanzierung einer 25% Personalstelle für Tandem-Matcher sowie der Projektkosten in Stuttgart von Juli 2019 bis Juli 2020 ermöglicht. Mehr Infos über Kooperationspartner und Spenden sowie über deren Verwendung findest du hier.Bisherige Spenden tragen außerdem zu einem wesentlichen Teil dazu bei, dass wir bis heute insgesamt 122 Tandems (das entspricht 244 Frauen insgesamt) zusammenbringen konnten und dass immer wieder tolle Veranstaltungen organisiert und durchgeführt werden können.",
     "tandemLocalsAnswer10": "Langfristig streben wir unter anderem die Finanzierung einer Integrationsmanagementstelle in Stuttgart sowie feste Personalstellen in den Standorten Stuttgart, Bietigheim-Bissingen und Tübingen an. Darüber hinaus arbeiten wir an der Skalierung des Tandem-Projekts in Deutschland generell. Weiterhin möchten wir die Integration von Newcomern (Frauen mit Migrationshintergrund) im Orga-Team ermöglichen. Geld wird außerdem im DRC Projekt (Filmprojekt über afghanische Frauen) benötigt. Weitere Projekte wie Workshops über „Self-Reliance“ oder den „Einstieg in das Berufsleben in Deutschland“ sind ebenfalls in Planung.",
     "tandemLocalsAnswer11": "Für eine Spendenbescheinigung kontaktiere uns einfach unter: j.derbas@femalefellows.com",
-
+    
 
     "tandemStory2Title": "FREUNDSCHAFT AUF DEN ERSTEN BLICK",
     "tandemStory2Body": "Es ist ein ziemlich kalter Oktobertag als Jana und ich uns mit Yasna und Franziska treffen. Dadurch, dass es zu laut ist in dem Café, beschließen wir, für das Interview nach draußen zu gehen.\n Es ist schon ziemlich abgekühlt, doch dick eingepackt und mit Tee und heißer Schokolade machen Jana und ich uns daran, eines unserer Tandems besser kennenzulernen. \nFranziska und Yasna erzählen mir, dass ihr erstes Treffen sehr schön war. Beide gingen damals spazieren, um sich besser kennenzulernen.  \nAls ich die beiden Frauen frage, wie viel sich seit dem letzten Treffen getan hat, erzählen sie, dass sich viel getan habe. Gedanken, ob sie denn zusammenpassen würden, trotz so unterschiedlicher Kulturen, begleiteten beide.  Doch als sie sich näher kennenlernten, verflogen diese Zweifel sehr schnell. \nYasna kommt ursprünglich aus Afghanistan und ist in Deutschland mit ihrem Bruder und ihren Eltern. Ihre große Leidenschaft ist das Tanzen, welche sie auch in Stuttgart weiterverfolgt. Anfangs war sie noch sehr schüchtern und zurückhaltend aufgrund der unterschiedlichen Kultur, die Deutschland als gebürtige Afghanin bietet.",
@@ -292,7 +289,8 @@
     "tandemStory3Body1": "Zouzan und Sandra haben sich Anfang des Jahres kennengelernt. Gematched wurden die beiden bereits im März, konnten sich aufgrund des Lockdowns aber erst im Juli persönlich treffen. Ihr erstes Treffen haben sie bei einer Fahrradtour 🚲durch Bietigheim-Bissingen verbracht, um ihre Stadt 🌃 ein bisschen besser kennenzulernen. Das war eines ihrer schönsten Treffen meinen beide. Momentan sehen sie sich wegen der Corona-Krise leider nicht so häufig, aber sie chatten trotzdem regelmäßig miteinander, um in Kontakt zu bleiben.",
     "tandemStory3Body2":"Sandra erzählt uns, dass sie erst durch das Tandemprojekt erkannte, wie viele Hürden Menschen, die nach Deutschland 🇩🇪 kommen, überwinden müssen. Sie ist immer wieder davon erstaunt, wie toll Zouzan ihren Alltag in Deutschland meistert. Gerne kochen 🥘 sie auch zusammen und lernen sich und die Kultur des anderen dadurch besser kennen. Sandra sagt, dass Zouzan eine Powerfrau 🦹‍♀️sei. Zouzan lernt auch abends noch Deutsch und macht gerade ein Praktikum im Pflegeheim. Zouzan ist alleine in Deutschland und freut sich darüber, mit Sandra jemanden an ihrer Seite zu haben. Als wir beide fragen, was ihnen am meisten an ihrer Tandem-Partnerin gefällt, antwortet Zouzan, dass sie eine sehr gute Freundin dadurch gewonnen habe. Dies bejaht auch Sandra lächelnd.",
 
-    
+
+
     "tandemAftermatchedTitle": "Dein Tandem",
     "tandemAftermatchedActivitys": "Das Könnt ihr gemeinsam unternehmen",
     "tandemAftermatchedActivitys2" : "Schaut gerne vorbei",
@@ -314,7 +312,7 @@
 
     "tandemActivityThreeTitle": "Musik machen",
     "tandemActivityThreeBody": "Du spielst ein Instrument oder kannst singen? Dann teile diese Leidenschaft mit deiner Tandem-Partnerin und/oder verbinde dich mit unseren FF-Musikerinnen.\n\n1 | Drauf los singen/spielen\nEs gibt zahlreiche Playbacks und Tutorials auf Youtube, mit denen ihr einfach mal ausprobieren könnt, was eure Stimme so hergibt und worauf ihr Lust habt. Dasselbe gilt natürlich auch für Instrumente, solltet ihr beispielsweise eine Gitarre haben. Wenn eine von euch schon ein Instrument spielen kann, könnt ihr euch auch gegenseitig Tipps zeigen, wie man es erlernt oder einfach zusammen Lieder singen oder spielen.\n",
-    "tandemActivityThreeBody2":"2 | {chor}\nIhr singt gerne und möchtet ab und zu einfach mal Chorluft schnuppern? Informiert euch über die Angebote beim {musikwerk} Stuttgart.\nDas {laboratorium}in Stuttgart Ost veranstaltet regelmäßig Offenes Singen, Infos und Termine gibt’s unter.\nUnverbindlich und für jedermann/-frau: Der Ich-kann-nicht-singen-Chor.\n… ebenso eine lustige Truppe und für spontane Aktionen perfekt: {kneipchor}\n",
+    "tandemActivityThreeBody2":"<p><span>2 | </span> {chor}\n<span> Ihr singt gerne und möchtet ab und zu einfach mal Chorluft schnuppern? Informiert euch über die Angebote beim </span> {musikwerk} <span> Stuttgart.\nDas </span> {laboratorium} <span> in Stuttgart Ost veranstaltet regelmäßig Offenes Singen, Infos und Termine gibt’s unter.\nUnverbindlich und für jedermann/-frau: Der Ich-kann-nicht-singen-Chor.\n… ebenso eine lustige Truppe und für spontane Aktionen perfekt: </span> {kneipchor}\n</p>",
     "@tandemActivityThreeBody2": {
         "placeholders": {
             "chor":{"description": "Offene Chöre"},
@@ -333,7 +331,7 @@
     "tandemActivityFourBody3":" Weitere Tipps &amp; Inspirationen folgen...\nDu bastelst, nähst, strickst oder häkelst gerne; kurz: du bist gerne kreativ? Und würdest dich hierfür gerne mit anderen Tandems treffen? Oder sogar ein kreativen Workshop anbieten?\n\nDann schreibe uns eine Mail {mail} mit dem Betreff 'Kreativ sein'",
       "@tandemActivityFourBody3":{
         "placeholders":{
-            "mail":{"description": "info@femalefellows.com}"}
+            "mail":{"description": "info@femalefellows.com"}
         }
     },
    
@@ -369,14 +367,14 @@
     "tandemActivityFiveBody4":"4 | Bismarckturm\nDer {bismarckturm}liegt im Stuttgarter Norden. Über 92 Stufen erreicht ihr eine Plattform auf dem ca. 20m hohen Turm, von der aus ihr einen tollen Rundum-Ausblick über die Stadt genießen könnt. Du hast Höhenangst oder keine Lust zum Aufstieg? Keine Sorge, bereits am Fuß des Turms hat man einen wunderbaren Panorama-Ausblick.\n",
    "@tandemActivityFiveBody4":{
     "placeholders": {
-        "bismarkturm":{"description": "Bismarckturm"}
+        "bismarckturm":{"description": "Bismarckturm"}
     }
    },
 
     "tandemActivityFiveBody5":"5 | Höhenpark Killesberg\nIm {killesbergpark} erwarten euch wunderschön angelegte Parkflächen mit einer großen Vielfalt verschiedenster Blumen, kleiner Teiche, einem Freibad, ein paar Tieren, die man streicheln darf und sogar einem Biergarten. Auch Cafés und eine Eisdiele grenzen an den Park. Nicht verpassen solltet ihr außerdem den Killesbergturm mitten im Park, der eine Aussicht bis nach Cannstatt ermöglicht.\n",
    "@tandemActivityFiveBody5":{
     "placeholders": {
-        "killesberpark":{"description": "Killesbergpark"}
+        "killesbergpark":{"description": "Killesbergpark"}
     }
    },
 
@@ -387,7 +385,7 @@
         }
     },
 
-    "tandemActivityFiveBody7":"7 | Chinesischer Garten\nIn der Nähe des {kriegsbergturms} liegt der {chinesischegarten} – man schreitet durch ein kleines Tor und wird dann direkt nach Fernost versetzt. Und das mitten in Stuttgart! Der „Garten der schönen Melodie“ soll die Welt im Kleinen widerspiegeln. Es erwarten euch südchinesische Architektur, der Pavillon der vier Himmelsrichtungen und – wie dank der Kessellage oft in Stuttgart – der Blick in die Weite.\n",
+    "tandemActivityFiveBody7":"7 | Chinesischer Garten\nIn der Nähe des {kriegsbergturm} liegt der {chinesischegarten} – man schreitet durch ein kleines Tor und wird dann direkt nach Fernost versetzt. Und das mitten in Stuttgart! Der „Garten der schönen Melodie“ soll die Welt im Kleinen widerspiegeln. Es erwarten euch südchinesische Architektur, der Pavillon der vier Himmelsrichtungen und – wie dank der Kessellage oft in Stuttgart – der Blick in die Weite.\n",
    "@tandemActivityFiveBody7":{
     "placeholders": {
         "kriegsbergturm":{"description": "Kriegsbergturms"},
@@ -474,7 +472,7 @@
     "@tandemActivitySixBody4":{
         "placeholders": {
             "link":{"description": "https://femalefellows.com/deutsch-lernen/make-it-in-germany.com"},
-            "hier":{"description": " https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php"},
+            "hier":{"description": "https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php"},
             "arbeitsplatzgoethe":{"description": "Arbeitsplatz in Deutschland"}
         }
     },
@@ -508,7 +506,7 @@
             "cinemastuttgart":{"description": "Stuttgarter Innenstadtkinos"},
             "cinemaxX":{"description": "CinemaxX"},
             "sneakkino":{"description": "sneak-kino.de"},
-            "paradieslichtspiele":{"description": "Paradies-Lichtspiele "}
+            "paradieslichtspiele":{"description": "Paradies-Lichtspiele"}
         }
     },
 
