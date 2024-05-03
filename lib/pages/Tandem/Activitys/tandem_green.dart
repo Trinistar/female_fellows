@@ -25,12 +25,20 @@ class _TandemGreenState extends State<TandemGreen> {
   final List<String> _links5 = [];
   late htmldoc.Document _tandemActivityFiveBody6;
   final List<String> _links6 = [];
-    late htmldoc.Document _tandemActivityFiveBody7;
+  late htmldoc.Document _tandemActivityFiveBody7;
   final List<String> _links7 = [];
-    late htmldoc.Document _tandemActivityFiveBody10;
+  late htmldoc.Document _tandemActivityFiveBody10;
   final List<String> _links10 = [];
-    late htmldoc.Document _tandemActivityFiveBody11;
+  late htmldoc.Document _tandemActivityFiveBody11;
   final List<String> _links11 = [];
+  late htmldoc.Document _tandemActivityFiveBody12;
+  final List<String> _links12 = [];
+  late htmldoc.Document _tandemActivityFiveBody13;
+  final List<String> _links13 = [];
+  late htmldoc.Document _tandemActivityFiveBody14;
+  final List<String> _links14 = [];
+  late htmldoc.Document _tandemActivityFiveBody15;
+  final List<String> _links15 = [];
 
   @override
   void didChangeDependencies() {
@@ -103,6 +111,42 @@ class _TandemGreenState extends State<TandemGreen> {
       aTag.attributes.forEach((key, value) {
         if (key == 'href') {
           _links11.add(value);
+        }
+      });
+    }
+    _tandemActivityFiveBody12 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody12(besigheimWebsite));
+    var aTags12 = _tandemActivityFiveBody12.getElementsByTagName('a');
+    for (var aTag in aTags12) {
+      aTag.attributes.forEach((key, value) {
+        if (key == 'href') {
+          _links12.add(value);
+        }
+      });
+    }
+    _tandemActivityFiveBody13 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody13(kapelleWebsite));
+    var aTags13 = _tandemActivityFiveBody13.getElementsByTagName('a');
+    for (var aTag in aTags13) {
+      aTag.attributes.forEach((key, value) {
+        if (key == 'href') {
+          _links13.add(value);
+        }
+      });
+    }
+    _tandemActivityFiveBody14 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody14(badurachWebsite));
+    var aTags14 = _tandemActivityFiveBody14.getElementsByTagName('a');
+    for (var aTag in aTags14) {
+      aTag.attributes.forEach((key, value) {
+        if (key == 'href') {
+          _links14.add(value);
+        }
+      });
+    }
+    _tandemActivityFiveBody15 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody15(femaleFellowsMail));
+    var aTags15 = _tandemActivityFiveBody15.getElementsByTagName('a');
+    for (var aTag in aTags15) {
+      aTag.attributes.forEach((key, value) {
+        if (key == 'href') {
+          _links15.add(value);
         }
       });
     }
@@ -360,30 +404,65 @@ class _TandemGreenState extends State<TandemGreen> {
                     ],
                   ),
                 ),
-                Text(
-                  AppLocalizations.of(context)!.tandemActivityFiveBody11(ausblickeWebsite, siebenmuehlentalWebsite, grabkapelleWebsite, solitudeWebsite),
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                SizedBox(
+                  height: 10,
+                ),
+                Text.rich(
+                  TextSpan(
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    children: [
+                      TextSpan(text: _tandemActivityFiveBody12.getElementsByTagName('span').first.text),
+                      TextSpan(
+                        style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
+                        text: _tandemActivityFiveBody12.getElementsByTagName('a').first.text,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            launchUrl(Uri.parse(_links12[0]));
+                          },
+                      ),
+                      TextSpan(text: _tandemActivityFiveBody12.getElementsByTagName('span')[1].text),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                  AppLocalizations.of(context)!.tandemActivityFiveBody12(besigheimWebsite),
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                Text.rich(
+                  TextSpan(
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    children: [
+                      TextSpan(text: _tandemActivityFiveBody13.getElementsByTagName('span').first.text),
+                      TextSpan(
+                        style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
+                        text: _tandemActivityFiveBody13.getElementsByTagName('a').first.text,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            launchUrl(Uri.parse(_links13[0]));
+                          },
+                      ),
+                      TextSpan(text: _tandemActivityFiveBody13.getElementsByTagName('span')[1].text),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                  AppLocalizations.of(context)!.tandemActivityFiveBody13(kapelleWebsite),
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  AppLocalizations.of(context)!.tandemActivityFiveBody14(badurachWebsite),
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                Text.rich(
+                  TextSpan(
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    children: [
+                      TextSpan(text: _tandemActivityFiveBody14.getElementsByTagName('span').first.text),
+                      TextSpan(
+                        style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
+                        text: _tandemActivityFiveBody14.getElementsByTagName('a').first.text,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            launchUrl(Uri.parse(_links14[0]));
+                          },
+                      ),
+                      TextSpan(text: _tandemActivityFiveBody14.getElementsByTagName('span')[1].text),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 10,
