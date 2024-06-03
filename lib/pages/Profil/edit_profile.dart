@@ -1,11 +1,16 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:vs_femalefellows/blocs/ImageUploadBloc/image_upload_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
@@ -23,10 +28,15 @@ class EditProfile extends StatefulWidget {
 class _EditProfileState extends State<EditProfile> {
   LocalOrNewcomer? localOrNot;
   DateTime _dateTime = DateTime.now();
+  XFile _image = XFile('');
+  ImageProcessing _imageProcessing = ImageProcessing.none;
+  bool _wasEmpty = false;
 
   @override
   void initState() {
     _setInputFields(widget.userstate);
+    _image = XFile(widget.userstate.profilPicture != null ? widget.userstate.profilPicture! : '');
+    if (_image.path.isEmpty) _wasEmpty = true;
     super.initState();
   }
 
@@ -55,6 +65,111 @@ class _EditProfileState extends State<EditProfile> {
     });
   }
 
+  Future<void> _getImageFromGallery() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery, maxWidth: 300, maxHeight: 300);
+    if (image != null) {
+      setState(() {
+        _image = image;
+        _imageProcessing = ImageProcessing.upload;
+      });
+    }
+    if (!mounted) return;
+    Navigator.pop(context, 'Abbrechen');
+  }
+
+  Future<void> _getImageFromCamera() async {
+    final XFile? image = await ImagePicker().pickImage(source: ImageSource.camera, maxWidth: 300, maxHeight: 300);
+    if (image != null) {
+      setState(() {
+        _image = image;
+        _imageProcessing = ImageProcessing.upload;
+      });
+    }
+    if (!mounted) return;
+    Navigator.pop(context, 'Abbrechen');
+  }
+
+  void _deleteCurrentImage() {
+    setState(() {
+      _image = XFile('');
+      _imageProcessing = ImageProcessing.delete;
+      Navigator.pop(context, 'Abbrechen');
+    });
+  }
+
+  Stack _standardAvatar(BuildContext context) {
+    return Stack(
+      alignment: AlignmentDirectional.center,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: SizedBox(
+            width: 100.0,
+            height: 100.0,
+            /* decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: CupertinoTheme.of(context).brightness == Brightness.dark
+                  ? const LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: <Color>[colorBackground, colorBackground],
+                    )
+                  : null,
+              border: CupertinoTheme.of(context).brightness == Brightness.dark ? null : Border.all(color: colorTwo),
+            ), */
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: CircleAvatar(
+            backgroundImage: AssetImage('lib/images/ImageIcon.png'),
+            radius: 50,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Future<dynamic> _showChangePictureOptionsDialog(BuildContext context) {
+    return showCupertinoModalPopup(
+      context: context,
+      builder: (BuildContext context) => CupertinoActionSheet(
+        //title: Text('Profilbild ändern'),
+        actions: <Widget>[
+          ColoredBox(
+            color: Colors.white,
+            child: CupertinoActionSheetAction(
+              onPressed: _deleteCurrentImage,
+              child: Text(
+                'removeCurrentPicture',
+                style: const TextStyle(color: CupertinoColors.destructiveRed),
+              ),
+            ),
+          ),
+          ColoredBox(
+            color: Colors.white,
+            child: CupertinoActionSheetAction(
+              onPressed: _getImageFromGallery,
+              child: Text('chooseFromLibrary'),
+            ),
+          ),
+          ColoredBox(
+            color: Colors.white,
+            child: CupertinoActionSheetAction(
+              onPressed: _getImageFromCamera,
+              child: Text('takePhoto'),
+            ),
+          ),
+        ],
+        cancelButton: CupertinoActionSheetAction(
+          onPressed: () => Navigator.pop(context, 'Abbrechen'),
+          child: Text('cancel'),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -75,6 +190,53 @@ class _EditProfileState extends State<EditProfile> {
             backgroundColor: Colors.white,
             body: ListView(
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Center(
+                    child: Wrap(
+                      children: <Widget>[
+                        if (_imageProcessing != ImageProcessing.none)
+                          if (_image.path.isEmpty)
+                            _standardAvatar(context)
+                          else
+                            Container(
+                              margin: const EdgeInsets.all(12.0),
+                              width: 100.0,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: FileImage(File(_image.path)),
+                                ),
+                              ),
+                            ),
+                        if (_imageProcessing == ImageProcessing.none)
+                          if (widget.userstate.profilPicture == null || widget.userstate.profilPicture!.isEmpty)
+                            _standardAvatar(context)
+                          else
+                            Container(
+                              margin: const EdgeInsets.all(12.0),
+                              width: 100.0,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(widget.userstate.profilPicture != null ? widget.userstate.profilPicture! : ''),
+                                ),
+                              ),
+                            )
+                      ],
+                    ),
+                  ),
+                ),
+                CupertinoButton(
+                  onPressed: () async {
+                    _showChangePictureOptionsDialog(context);
+                  },
+                  child: Text('changePicture'),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20, left: 20),
                   child: Column(
@@ -290,7 +452,26 @@ class _EditProfileState extends State<EditProfile> {
                       profile.birthday = Timestamp.fromDate(_dateTime);
                       profile.address = Address(street: Controller.streetnameController.text, zipCode: Controller.zipCodeController.text, city: Controller.placeController.text);
                       profile.aboutMe = Controller.aboutYouController.text;
-                      context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
+                      switch (_imageProcessing) {
+                        case ImageProcessing.upload:
+                          BlocProvider.of<ImageUploadBloc>(context).add(UploadImageEvent(_image, widget.userstate));
+                          break;
+                        case ImageProcessing.delete:
+                          BlocProvider.of<ImageUploadBloc>(context).add(DeleteImageEvent(widget.userstate));
+
+                          if (!_wasEmpty) {
+                            BlocProvider.of<ImageUploadBloc>(context).add(DeleteImageEvent(widget.userstate));
+                          } else {
+                            context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
+                            Navigator.of(context).pop();
+                          }
+                          break;
+                        case ImageProcessing.none:
+                          context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
+                          Navigator.of(context).pop();
+                          break;
+                        default:
+                      }
                       context.pop();
                     },
                     text: 'Update User'),
@@ -302,4 +483,42 @@ class _EditProfileState extends State<EditProfile> {
           ),
         ));
   }
+
+  /* Widget _saveButton(UserProfileState state) {
+    return CupertinoButton(
+      padding: const EdgeInsets.all(10.0),
+      onPressed: () {
+        final UserProfile profile = (state as UserProfileLoaded).userProfile;
+        profile.name = _textFieldController.text.trim();
+        profile.aboutMe = _aboutMeController.text.trim();
+        profile.phone = _textFieldPhoneController.text.trim();
+        profile.public = _isPublic;
+        switch (_imageProcessing) {
+          case ImageProcessing.upload:
+            BlocProvider.of<ImageUploadBloc>(context).add(UploadImageEvent(_image, state.userProfile));
+            break;
+          case ImageProcessing.delete:
+            BlocProvider.of<ImageUploadBloc>(context).add(DeleteImageEvent(state.userProfile));
+
+            if (!_wasEmpty) {
+              BlocProvider.of<ImageUploadBloc>(context).add(DeleteImageEvent(state.userProfile));
+            } else {
+              BlocProvider.of<UserProfileBloc>(context).add(UpdateUserProfileEvent(profile, state.userID, changedFavorites: true));
+              Navigator.of(context).pop();
+            }
+            break;
+          case ImageProcessing.none:
+            if (_aboutMeController.text.isNotEmpty && _textFieldPhoneController.text.isNotEmpty && profile.picUrl.isNotEmpty) {
+              final String uId = BlocProvider.of<UserProfileBloc>(context).state is UserProfileLoaded ? (BlocProvider.of<UserProfileBloc>(context).state as UserProfileLoaded).userID : 'unauthenticated';
+            }
+
+            BlocProvider.of<UserProfileBloc>(context).add(UpdateUserProfileEvent(profile, state.userID, changedFavorites: true));
+            Navigator.of(context).pop();
+            break;
+          default:
+        }
+      },
+      child: Text(AppLocalizations.of(context)!.save),
+    );
+  } */
 }

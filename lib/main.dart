@@ -8,6 +8,7 @@ import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.da
 import 'package:vs_femalefellows/blocs/CategoriesCubit/categories_cubit.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/blocs/FavoritesBloc/favorites_bloc.dart';
+import 'package:vs_femalefellows/blocs/ImageUploadBloc/image_upload_bloc.dart';
 import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:vs_femalefellows/blocs/SignedupEvent/signedup_event_bloc.dart';
 import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
@@ -507,6 +508,9 @@ class MyApp extends StatelessWidget {
               firestoreUserprofileRepository,
               BlocProvider.of<AuthenticationBloc>(context)),
           lazy: false,
+        ),
+        BlocProvider<ImageUploadBloc>(
+          create: (BuildContext context) => ImageUploadBloc(),
         ),
         /* RepositoryProvider(
           create: (context) => AuthRepository(),

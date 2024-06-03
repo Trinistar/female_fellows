@@ -42,3 +42,14 @@ enum TandemMatchesState {
   declined,
   rerequested,
 }
+
+enum Role {
+  ADMIN,
+  USER,
+}
+
+enum ImageProcessing {
+  delete,
+  upload,
+  none,
+}

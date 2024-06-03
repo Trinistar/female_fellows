@@ -29,6 +29,7 @@ class FFUser {
   List<String> participatingEvents;
   String? id;
   UserLocation? location;
+  @JsonKey(defaultValue: '')
   String? aboutMe;
   TandemTypeFilter? tandemTypeFilter;
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -41,6 +42,7 @@ class FFUser {
   @JsonKey(defaultValue: false)
   bool matchConfirmed;
   EventParticipant? eventParticipant;
+  Role? role;
 
   FFUser({
     this.id,
@@ -66,6 +68,7 @@ class FFUser {
     this.tandemMatches,
     this.matchConfirmed = false,
     this.eventParticipant,
+    this.role = Role.USER,
   });
 
   factory FFUser.fromJson(Map<String, dynamic> json) => _$FFUserFromJson(json);

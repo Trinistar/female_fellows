@@ -37,7 +37,7 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
       location: json['location'] == null
           ? null
           : UserLocation.fromJson(json['location'] as Map<String, dynamic>),
-      aboutMe: json['aboutMe'] as String?,
+      aboutMe: json['aboutMe'] as String? ?? '',
       tandemTypeFilter: $enumDecodeNullable(
           _$TandemTypeFilterEnumMap, json['tandemTypeFilter']),
       languages: json['languages'] == null
@@ -52,6 +52,7 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
           ? null
           : EventParticipant.fromJson(
               json['eventParticipant'] as Map<String, dynamic>),
+      role: $enumDecodeNullable(_$RoleEnumMap, json['role']) ?? Role.USER,
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
@@ -76,6 +77,7 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'newcomerMatches': instance.newcomerMatches,
       'matchConfirmed': instance.matchConfirmed,
       'eventParticipant': instance.eventParticipant?.toJson(),
+      'role': _$RoleEnumMap[instance.role],
     };
 
 const _$LocalOrNewcomerEnumMap = {
@@ -95,6 +97,11 @@ const _$SocialmediaEnumMap = {
 const _$TandemTypeFilterEnumMap = {
   TandemTypeFilter.all: 'all',
   TandemTypeFilter.nearby: 'nearby',
+};
+
+const _$RoleEnumMap = {
+  Role.ADMIN: 'ADMIN',
+  Role.USER: 'USER',
 };
 
 UserLanguages _$UserLanguagesFromJson(Map<String, dynamic> json) =>
