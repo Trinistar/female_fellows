@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
@@ -12,6 +14,7 @@ import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_tandem_repository.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_user_profile_repository.dart';
+import 'package:vs_femalefellows/provider/firestore/storage_repository.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';
@@ -36,6 +39,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   final FirestoreUserProfileRepository _firestoreUserProfileRepository = FirestoreUserProfileRepository();
   final FirestoreEventRepository _firestoreEventRepository = FirestoreEventRepository();
   final FirestoreTandemRepository _firestoreTandemRepository = FirestoreTandemRepository();
+  final StorageRepository _storageRepository = StorageRepository();
 
   StreamSubscription<User?>? _userSubscription;
 
@@ -51,7 +55,12 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
         CombineLatestStream.list(<Stream>[_firestoreUserProfileRepository.loadUserProfile(event.user!.uid), _firestoreUserProfileRepository.loadUserProfileLocationData(event.user!.uid)]),
         onData: (List<dynamic> streams) async {
           UserLocation location = UserLocation(data: GeoData(geohash: '', location: GeoPoint(0, 0)), name: '', isVisible: true);
-          final FFUser profile = streams[0];
+          FFUser profile = FFUser();
+          if (streams[0] == null) {
+            emit(AuthenticationLoading());
+          }
+          profile = streams[0];
+
           if (streams[1] != null) {
             location = streams[1];
           }
@@ -112,13 +121,46 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       if (currentuser != null) {
         userdata.email = currentuser.email;
         final IdTokenResult tokenResult = await currentuser.getIdTokenResult();
-        await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
+        final UploadTask? task = await _getUploadTask(event.picture, currentuser.uid);
+
+        if (task != null) {
+          await emit.onEach(task.snapshotEvents, onData: (uploadState) async {
+            switch (uploadState.state) {
+              case TaskState.running:
+                break;
+
+              case TaskState.success:
+                final String downloadUrl = await uploadState.ref.getDownloadURL();
+                userdata.profilPicture = downloadUrl;
+                await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
+                break;
+              default:
+            }
+          });
+        } else {
+          await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
+        }
         emit(AuthenticatedUser(user: currentuser, userProfile: userdata, tokenResult: tokenResult));
       } else {
         emit(UnauthenticatedUser());
       }
     } catch (e) {
       emit(UnauthenticatedUser());
+    }
+  }
+
+  Future<UploadTask?> _getUploadTask(XFile? picture, String userId) async {
+    if (picture == null) return null;
+    try {
+      final PickedFile file = PickedFile(picture.path);
+      final UploadTask? task = await _storageRepository.uploadFile(file, userId);
+
+      if (task == null) return null;
+
+      return task;
+    } catch (e) {
+      print(e);
+      return null;
     }
   }
 

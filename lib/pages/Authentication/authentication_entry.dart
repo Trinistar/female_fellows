@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_adress.dart';
@@ -34,6 +35,7 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
   Socialmedia _mediachoice = Socialmedia.facebook;
   final int _pageCount = 7;
   Timestamp _birthday = Timestamp.now();
+  XFile _picture = XFile('');
 
   void _choiceForContact(
     bool valuecall,
@@ -91,6 +93,10 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
     });
   }
 
+  void _profilePicture(XFile picture) {
+    _picture = picture;
+  }
+
   void _handlePageChange() {
     if (_controller.page!.toInt() == _pageCount - 1) {
       _accepted ? _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn) : null;
@@ -133,7 +139,7 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
                 },
                 children: [
                   // Pages one Onboarding
-                  AuthWho(),
+                  AuthWho(picture: _profilePicture),
                   Authlocal(
                     hasChosen: _hasChosen,
                     onSettingsChanged: updateId,
@@ -154,6 +160,7 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
                       mediachoice: _mediachoice,
                       wantsNewsletter: _choiceNewsletter,
                       isFromOnboarding: widget.isFromOnboarding,
+                      picture: _picture,
                     )
                 ],
               ),

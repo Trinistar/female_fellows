@@ -66,8 +66,7 @@ class UpdateTandemMatchEvent extends AuthenticationEvent {
 }
 
 class UpdateUserProfileEvent extends AuthenticationEvent {
-  UpdateUserProfileEvent(this.userId,
-      {this.latitude, this.longitude, required this.userProfile});
+  UpdateUserProfileEvent(this.userId, {this.latitude, this.longitude, required this.userProfile});
 
   final String userId;
   final FFUser userProfile;
@@ -92,7 +91,8 @@ class InputChanged extends AuthenticationEvent {
 }
 
 class RegisterWithMailEvent extends AuthenticationEvent {
-  const RegisterWithMailEvent({
+  const RegisterWithMailEvent(
+    this.picture, {
     required this.email,
     required this.password,
     required this.profile,
@@ -101,6 +101,7 @@ class RegisterWithMailEvent extends AuthenticationEvent {
   final String email;
   final String password;
   final FFUser profile;
+  final XFile? picture;
 
   @override
   String toString() {

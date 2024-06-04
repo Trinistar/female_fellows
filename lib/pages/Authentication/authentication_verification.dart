@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
@@ -19,7 +20,7 @@ class AuthVerfication extends StatefulWidget {
     required this.mediachoice,
     required this.wantsNewsletter,
     required this.birthday,
-    this.isFromOnboarding = false,
+    this.isFromOnboarding = false, required this.picture,
   });
 
   final LocalOrNewcomer userchoice;
@@ -27,6 +28,7 @@ class AuthVerfication extends StatefulWidget {
   final bool wantsNewsletter;
   final Timestamp birthday;
   final bool isFromOnboarding;
+  final XFile picture;
 
   @override
   State<AuthVerfication> createState() => _AuthVerficationState();
@@ -204,6 +206,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                             );
                             context.read<AuthenticationBloc>().add(
                                   RegisterWithMailEvent(
+                                    widget.picture,
                                     email: Controller.emailController.text,
                                     password: Controller.passwordController.text,
                                     profile: profile,
