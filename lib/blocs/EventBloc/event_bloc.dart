@@ -6,8 +6,8 @@ import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
-import 'package:vs_femalefellows/provider/firestore/storage_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_event_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/storage_repository.dart';
 
 part 'event_event.dart';
 part 'event_state.dart';

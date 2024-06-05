@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/tandem_match.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_repository.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 
 class FirestoreUserProfileRepository {

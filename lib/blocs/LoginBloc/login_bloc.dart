@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vs_femalefellows/blocs/LoginBloc/login_event.dart';
 import 'package:vs_femalefellows/blocs/LoginBloc/login_state.dart';
-import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
+import 'package:vs_femalefellows/provider/firebase/authrepository.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthRepository _authpage = AuthRepository();

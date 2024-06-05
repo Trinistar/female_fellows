@@ -6,7 +6,7 @@ import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_user_profile_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_user_profile_repository.dart';
 
 part 'tandem_event.dart';
 part 'tandem_state.dart';

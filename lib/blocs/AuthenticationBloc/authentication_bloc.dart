@@ -10,11 +10,11 @@ import 'package:rxdart/rxdart.dart';
 import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_tandem_repository.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_user_profile_repository.dart';
-import 'package:vs_femalefellows/provider/firestore/storage_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/authrepository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_event_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_tandem_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_user_profile_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/storage_repository.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';

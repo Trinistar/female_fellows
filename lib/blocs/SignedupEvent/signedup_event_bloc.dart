@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_event_repository.dart';
 
 part 'signedup_event_event.dart';
 part 'signedup_event_state.dart';

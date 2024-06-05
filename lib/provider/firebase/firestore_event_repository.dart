@@ -6,7 +6,7 @@ import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.da
 import 'package:vs_femalefellows/models/category.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_repository.dart';
 
 import '../../models/events.dart';
 

@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:vs_femalefellows/models/category.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_event_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_repository.dart';
 
 part 'categories_state.dart';
 

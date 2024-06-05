@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -18,7 +19,6 @@ import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/pages/AfterTandem/matched_tandem.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
-import 'package:vs_femalefellows/pages/Chat/chatentry.dart';
 import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event.dart';
 import 'package:vs_femalefellows/pages/Event/EventDetail/event_detail_page.dart';
 import 'package:vs_femalefellows/pages/Event/EventOverview/event_overview.dart';
@@ -50,9 +50,10 @@ import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_story2.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_story3.dart';
 import 'package:vs_femalefellows/pages/Tandem/tandem.dart';
 import 'package:vs_femalefellows/pages/ToolBarNavigation/navigation_page.dart';
-import 'package:vs_femalefellows/provider/firestore/authrepository.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
-import 'package:vs_femalefellows/provider/firestore/firestore_user_profile_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/authrepository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_event_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/firestore_user_profile_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/messaging.dart';
 
 import 'provider/firebase_options.dart';
 
@@ -68,6 +69,21 @@ final _eventTabNavigatorKey = GlobalKey<NavigatorState>();
 final _homeTabNavigatorKey = GlobalKey<NavigatorState>();
 final _profileTabNavigatorKey = GlobalKey<NavigatorState>();
 final _chatTabNavigatorKey = GlobalKey<NavigatorState>();
+
+/// Define a top-level named handler which background/terminated messages will
+/// call.
+///
+/// To verify things are working, check out the native platform logs.
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  //await Firebase.initializeApp();
+
+  await Messaging().setupFlutterNotifications();
+
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  //print('Handling a background message ${message.messageId}');
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
