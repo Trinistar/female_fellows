@@ -5,8 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
-import 'package:vs_femalefellows/pages/Profil/profil_header.dart';
-import 'package:vs_femalefellows/pages/Profil/profil_overview.dart';
+import 'package:vs_femalefellows/pages/Profile/profil_header.dart';
+import 'package:vs_femalefellows/pages/Profile/profil_overview.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

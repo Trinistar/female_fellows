@@ -28,8 +28,8 @@ import 'package:vs_femalefellows/pages/Event/EventSignup/event_not_authenticated
 import 'package:vs_femalefellows/pages/Event/UpdateEvent/event_update.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
 import 'package:vs_femalefellows/pages/Onboarding/onboarding_start.dart';
-import 'package:vs_femalefellows/pages/Profil/edit_profile.dart';
-import 'package:vs_femalefellows/pages/Profil/profile.dart';
+import 'package:vs_femalefellows/pages/Profile/edit_profile.dart';
+import 'package:vs_femalefellows/pages/Profile/profile.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_activ.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_art.dart';
 import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_cinema.dart';
