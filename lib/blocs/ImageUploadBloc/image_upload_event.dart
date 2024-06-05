@@ -18,6 +18,17 @@ class UploadImageEvent extends ImageUploadEvent {
   List<Object> get props => <Object>[image, profile, imageUploadType];
 }
 
+class UploadEventImageEvent extends ImageUploadEvent {
+  const UploadEventImageEvent(this.image, this.event, {this.imageUploadType = ImageUploadType.profile});
+
+  final XFile image;
+  final Event event;
+  final ImageUploadType imageUploadType;
+
+  @override
+  List<Object> get props => <Object>[image, event, imageUploadType];
+}
+
 class DeleteImageEvent extends ImageUploadEvent {
   const DeleteImageEvent(this.profile);
 
@@ -27,6 +38,15 @@ class DeleteImageEvent extends ImageUploadEvent {
   List<Object> get props => <Object>[profile];
 }
 
+class DeleteEventImageEvent extends ImageUploadEvent {
+  const DeleteEventImageEvent(this.event);
+
+  final Event event;
+
+  @override
+  List<Object> get props => <Object>[event];
+}
+
 class ImageUploadedEvent extends ImageUploadEvent {
   const ImageUploadedEvent(this.downloadURL);
 
@@ -34,15 +54,6 @@ class ImageUploadedEvent extends ImageUploadEvent {
 
   @override
   List<Object> get props => <Object>[downloadURL];
-}
-
-class EventImageUploadedEvent extends ImageUploadEvent {
-  const EventImageUploadedEvent(this.image);
-
-  final XFile image;
-
-  @override
-  List<Object> get props => <Object>[image];
 }
 
 class ImageDeletedEvent extends ImageUploadEvent {

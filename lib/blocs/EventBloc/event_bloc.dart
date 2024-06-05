@@ -2,10 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/models/materials.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/controller.dart';
 import 'package:vs_femalefellows/provider/firestore/firestore_event_repository.dart';
@@ -41,26 +39,8 @@ class EventBloc extends Bloc<EventEvent, EventState> {
 
   Future<void> _onNewEvent(NewEvent event, Emitter<EventState> emit) async {
     try {
-      Event eventdata = Event(
-        categories: event.newEvent.categories,
-        whatsAppLink: Controller.whatsAppLinkController.text,
-        phoneNumber: Controller.eventPhoneNumberController.text,
-        email: Controller.eventEmailController.text,
-        dates: event.newEvent.dates,
-        host: Controller.hostController.text,
-        title: Controller.eventTitleController.text,
-        location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
-        description: Controller.descriptionController.text,
-        contactPerson: Controller.contactPersonController.text,
-        material: EventMaterials(
-          planer: Controller.planerController.text,
-          food: Controller.foodController.text,
-          information: Controller.informationController.text,
-          clothes: Controller.clothesController.text,
-        ),
-      );
-      var ref = await _firestoreEventRepository.createEvent(eventdata);
-      eventdata.id = ref.id;
+      var ref = await _firestoreEventRepository.createEvent(event.newEvent);
+      event.newEvent.id = ref.id;
       final UploadTask? task = await _getUploadTask(event.eventPicture, ref.id);
       if (task != null) {
           await emit.onEach(task.snapshotEvents, onData: (uploadState) async {
@@ -70,14 +50,14 @@ class EventBloc extends Bloc<EventEvent, EventState> {
 
               case TaskState.success:
                 final String downloadUrl = await uploadState.ref.getDownloadURL();
-                eventdata.picture = downloadUrl;        
-                await _firestoreEventRepository.updateEvent(eventdata);
+                event.newEvent.picture = downloadUrl;        
+                await _firestoreEventRepository.updateEvent(event.newEvent);
                 break;
               default:
             }
           });
         }
-      emit(CreateSuccess(eventdata: eventdata, eventRef: ref));
+      emit(CreateSuccess(eventdata: event.newEvent, eventRef: ref));
       Controller.clearControllers();
     } catch (e) {
       emit(EventFailure());
@@ -101,28 +81,7 @@ class EventBloc extends Bloc<EventEvent, EventState> {
 
   Future<void> _onEventUpdate(EventUpdate event, Emitter<EventState> emit) async {
     try {
-      Event eventdata = Event(
-        categories: event.updateEvent.categories,
-        id: event.updateEvent.id,
-        whatsAppLink: Controller.whatsAppLinkController.text,
-        phoneNumber: Controller.eventPhoneNumberController.text,
-        email: Controller.eventEmailController.text,
-        dates: event.updateEvent.dates,
-        host: Controller.hostController.text,
-        title: Controller.eventTitleController.text,
-        location: Address(street: Controller.streetnameController.text, city: Controller.placeController.text, zipCode: Controller.zipCodeController.text),
-        description: Controller.descriptionController.text,
-        contactPerson: Controller.contactPersonController.text,
-        material: EventMaterials(
-          planer: Controller.planerController.text,
-          food: Controller.foodController.text,
-          information: Controller.informationController.text,
-          clothes: Controller.clothesController.text,
-        ),
-      );
-
-      await _firestoreEventRepository.updateEvent(eventdata);
-      //emit(UpdateEventSuccess());
+      await _firestoreEventRepository.updateEvent(event.updateEvent);
       Controller.clearControllers();
     } catch (e) {
       emit(UpdateEventFailure());

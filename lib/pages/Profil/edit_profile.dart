@@ -67,7 +67,7 @@ class _EditProfileState extends State<EditProfile> {
 
   Future<void> _getImageFromGallery() async {
     final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(source: ImageSource.gallery, maxWidth: 300, maxHeight: 300);
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery, maxWidth: 2000, maxHeight: 2000);
     if (image != null) {
       setState(() {
         _image = image;
@@ -79,7 +79,7 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   Future<void> _getImageFromCamera() async {
-    final XFile? image = await ImagePicker().pickImage(source: ImageSource.camera, maxWidth: 300, maxHeight: 300);
+    final XFile? image = await ImagePicker().pickImage(source: ImageSource.camera, maxWidth: 2000, maxHeight: 2000);
     if (image != null) {
       setState(() {
         _image = image;
@@ -462,12 +462,13 @@ class _EditProfileState extends State<EditProfile> {
                             context.read<ImageUploadBloc>().add(DeleteImageEvent(widget.userstate));
                           } else {
                             context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
-                            Navigator.of(context).pop();
+                            context.pop();
                           }
                           break;
                         case ImageProcessing.none:
                           context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
-                          Navigator.of(context).pop();
+                          context.pop();
+
                           break;
                         default:
                       }

@@ -57,7 +57,7 @@ class _AuthWhoState extends State<AuthWho> {
 
   Future<void> _getImageFromGallery() async {
     final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(source: ImageSource.gallery, maxWidth: 800, maxHeight: 800);
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery, maxWidth: 2000, maxHeight: 2000);
     if (image != null) {
       setState(() {
         _image = image;
@@ -70,7 +70,7 @@ class _AuthWhoState extends State<AuthWho> {
   }
 
   Future<void> _getImageFromCamera() async {
-    final XFile? image = await ImagePicker().pickImage(source: ImageSource.camera, maxWidth: 800, maxHeight: 800);
+    final XFile? image = await ImagePicker().pickImage(source: ImageSource.camera, maxWidth: 2000, maxHeight: 2000);
     if (image != null) {
       setState(() {
         _image = image;
