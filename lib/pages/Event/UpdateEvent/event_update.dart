@@ -203,7 +203,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                                   shape: BoxShape.rectangle,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: FileImage(File(_image.path)),
+                                    image: NetworkImage(widget.eventState.picture!),
                                   ),
                                 ),
                               ),
