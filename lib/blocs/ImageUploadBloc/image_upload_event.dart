@@ -8,13 +8,14 @@ sealed class ImageUploadEvent extends Equatable {
 }
 
 class UploadImageEvent extends ImageUploadEvent {
-  const UploadImageEvent(this.image, this.profile);
+  const UploadImageEvent(this.image, this.profile, {this.imageUploadType = ImageUploadType.profile});
 
   final XFile image;
   final FFUser profile;
+  final ImageUploadType imageUploadType;
 
   @override
-  List<Object> get props => <Object>[image, profile];
+  List<Object> get props => <Object>[image, profile, imageUploadType];
 }
 
 class DeleteImageEvent extends ImageUploadEvent {
@@ -33,6 +34,15 @@ class ImageUploadedEvent extends ImageUploadEvent {
 
   @override
   List<Object> get props => <Object>[downloadURL];
+}
+
+class EventImageUploadedEvent extends ImageUploadEvent {
+  const EventImageUploadedEvent(this.image);
+
+  final XFile image;
+
+  @override
+  List<Object> get props => <Object>[image];
 }
 
 class ImageDeletedEvent extends ImageUploadEvent {

@@ -53,3 +53,8 @@ enum ImageProcessing {
   upload,
   none,
 }
+
+enum ImageUploadType {
+  profile,
+  event
+}

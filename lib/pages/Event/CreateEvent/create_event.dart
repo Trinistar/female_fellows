@@ -1,12 +1,17 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:date_format/date_format.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:vs_femalefellows/components/female_fellows_button.dart';
 import 'package:vs_femalefellows/components/text_bar.dart';
 import 'package:vs_femalefellows/models/address.dart';
+import 'package:vs_femalefellows/models/enums.dart';
 import 'package:vs_femalefellows/models/events.dart';
 import 'package:vs_femalefellows/models/materials.dart';
 import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event_description.dart';
@@ -19,7 +24,6 @@ import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divi
 import 'package:vs_femalefellows/provider/controller.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class CreateEvent extends StatefulWidget {
   const CreateEvent({super.key});
 
@@ -29,7 +33,9 @@ class CreateEvent extends StatefulWidget {
 
 class _CreateEventState extends State<CreateEvent> {
   DateTime _dateTime = DateTime.now();
-
+  XFile _image = XFile('');
+  ImageProcessing _imageProcessing = ImageProcessing.none;
+  bool _wasEmpty = false;
   List<int> _catIds = [];
 
   void _getCatIds(List<int> catIds) {
@@ -49,6 +55,94 @@ class _CreateEventState extends State<CreateEvent> {
         }
       });
     });
+  }
+
+  Future<void> _getImageFromGallery() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery, maxWidth: 300, maxHeight: 300);
+    if (image != null) {
+      setState(() {
+        _image = image;
+        _imageProcessing = ImageProcessing.upload;
+      });
+    }
+    if (!mounted) return;
+    Navigator.pop(context, 'Abbrechen');
+  }
+
+  Future<void> _getImageFromCamera() async {
+    final XFile? image = await ImagePicker().pickImage(source: ImageSource.camera, maxWidth: 300, maxHeight: 300);
+    if (image != null) {
+      setState(() {
+        _image = image;
+        _imageProcessing = ImageProcessing.upload;
+      });
+    }
+    if (!mounted) return;
+    Navigator.pop(context, 'Abbrechen');
+  }
+
+  void _deleteCurrentImage() {
+    setState(() {
+      _image = XFile('');
+      _imageProcessing = ImageProcessing.delete;
+      Navigator.pop(context, 'Abbrechen');
+    });
+  }
+
+  Widget _standardAvatar(BuildContext context) {
+    return Container(
+      width: 500.0,
+      height: 150.0,
+      decoration: BoxDecoration(
+        border: Border.all(),
+        borderRadius: BorderRadius.circular(10),
+        shape: BoxShape.rectangle,
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage('lib/images/event-1.png'),
+        ),
+      ),
+    );
+  }
+
+  Future<dynamic> _showChangePictureOptionsDialog(BuildContext context) {
+    return showCupertinoModalPopup(
+      context: context,
+      builder: (BuildContext context) => CupertinoActionSheet(
+        //title: Text('Profilbild ändern'),
+        actions: <Widget>[
+          ColoredBox(
+            color: Colors.white,
+            child: CupertinoActionSheetAction(
+              onPressed: _deleteCurrentImage,
+              child: Text(
+                'removeCurrentPicture',
+                style: const TextStyle(color: CupertinoColors.destructiveRed),
+              ),
+            ),
+          ),
+          ColoredBox(
+            color: Colors.white,
+            child: CupertinoActionSheetAction(
+              onPressed: _getImageFromGallery,
+              child: Text('chooseFromLibrary'),
+            ),
+          ),
+          ColoredBox(
+            color: Colors.white,
+            child: CupertinoActionSheetAction(
+              onPressed: _getImageFromCamera,
+              child: Text('takePhoto'),
+            ),
+          ),
+        ],
+        cancelButton: CupertinoActionSheetAction(
+          onPressed: () => Navigator.pop(context, 'Abbrechen'),
+          child: Text('cancel'),
+        ),
+      ),
+    );
   }
 
   @override
@@ -100,7 +194,7 @@ class _CreateEventState extends State<CreateEvent> {
               Container(
                 color: Colors.white,
                 width: 1000,
-                height: 600,
+                height: 800,
                 child: Padding(
                   padding: const EdgeInsets.all(40),
                   child: Column(
@@ -113,6 +207,60 @@ class _CreateEventState extends State<CreateEvent> {
                         color: Colors.white,
                         height: 20,
                       ),
+                      GestureDetector(
+                        onTap: () => _showChangePictureOptionsDialog(context),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Center(
+                            child: Wrap(
+                              children: <Widget>[
+                                if (_imageProcessing != ImageProcessing.none)
+                                  if (_image.path.isEmpty)
+                                    _standardAvatar(context)
+                                  else
+                                    Container(
+                                      width: 500.0,
+                                      height: 150.0,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(),
+                                        borderRadius: BorderRadius.circular(10),
+                                        shape: BoxShape.rectangle,
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: FileImage(File(_image.path)),
+                                        ),
+                                      ),
+                                    ),
+                                if (_imageProcessing == ImageProcessing.none)
+                                  if (_image.path.isEmpty)
+                                    _standardAvatar(context)
+                                  else
+                                    Container(
+                                      width: 500.0,
+                                      height: 150.0,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(),
+                                        borderRadius: BorderRadius.circular(10),
+                                        shape: BoxShape.rectangle,
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: FileImage(File(_image.path)),
+                                        ),
+                                      ),
+                                    ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: CupertinoButton(
+                          onPressed: () async {
+                            _showChangePictureOptionsDialog(context);
+                          },
+                          child: Text('changePicture'),
+                        ),
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(left: 40),
                         child: Text(AppLocalizations.of(context)!.createEventDate),
@@ -123,7 +271,9 @@ class _CreateEventState extends State<CreateEvent> {
                           onPressed: () {
                             _showdatePicker();
                           },
-                          child:  Text(AppLocalizations.of(context)!.createEventDatePicker,),
+                          child: Text(
+                            AppLocalizations.of(context)!.createEventDatePicker,
+                          ),
                         ),
                       ),
                       Center(
@@ -226,6 +376,7 @@ class _CreateEventState extends State<CreateEvent> {
                     onTap: () {
                       context.read<EventBloc>().add(
                             NewEvent(
+                              _image,
                               newEvent: Event(
                                 categories: _catIds,
                                 whatsAppLink: Controller.whatsAppLinkController.text,

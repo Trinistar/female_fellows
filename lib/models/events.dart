@@ -34,7 +34,7 @@ class Event {
   String? id;
   final List<int>? categories;
   final EventDates? dates;
-  final String? picture;
+  String? picture;
   @JsonKey(defaultValue: [])
   List<FFUser> participants;
 

@@ -11,11 +11,13 @@ class EventUpdate extends EventEvent {
 }
 
 class NewEvent extends EventEvent {
-  NewEvent({
+  NewEvent(
+    this.eventPicture, {
     required this.newEvent,
   });
 
   final Event newEvent;
+  final XFile eventPicture;
 
   //materials
 }

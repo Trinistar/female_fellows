@@ -454,13 +454,12 @@ class _EditProfileState extends State<EditProfile> {
                       profile.aboutMe = Controller.aboutYouController.text;
                       switch (_imageProcessing) {
                         case ImageProcessing.upload:
-                          BlocProvider.of<ImageUploadBloc>(context).add(UploadImageEvent(_image, widget.userstate));
+                          context.read<ImageUploadBloc>().add(UploadImageEvent(_image, widget.userstate));
                           break;
                         case ImageProcessing.delete:
-                          BlocProvider.of<ImageUploadBloc>(context).add(DeleteImageEvent(widget.userstate));
-
+                          context.read<ImageUploadBloc>().add(DeleteImageEvent(widget.userstate));
                           if (!_wasEmpty) {
-                            BlocProvider.of<ImageUploadBloc>(context).add(DeleteImageEvent(widget.userstate));
+                            context.read<ImageUploadBloc>().add(DeleteImageEvent(widget.userstate));
                           } else {
                             context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
                             Navigator.of(context).pop();
@@ -483,42 +482,4 @@ class _EditProfileState extends State<EditProfile> {
           ),
         ));
   }
-
-  /* Widget _saveButton(UserProfileState state) {
-    return CupertinoButton(
-      padding: const EdgeInsets.all(10.0),
-      onPressed: () {
-        final UserProfile profile = (state as UserProfileLoaded).userProfile;
-        profile.name = _textFieldController.text.trim();
-        profile.aboutMe = _aboutMeController.text.trim();
-        profile.phone = _textFieldPhoneController.text.trim();
-        profile.public = _isPublic;
-        switch (_imageProcessing) {
-          case ImageProcessing.upload:
-            BlocProvider.of<ImageUploadBloc>(context).add(UploadImageEvent(_image, state.userProfile));
-            break;
-          case ImageProcessing.delete:
-            BlocProvider.of<ImageUploadBloc>(context).add(DeleteImageEvent(state.userProfile));
-
-            if (!_wasEmpty) {
-              BlocProvider.of<ImageUploadBloc>(context).add(DeleteImageEvent(state.userProfile));
-            } else {
-              BlocProvider.of<UserProfileBloc>(context).add(UpdateUserProfileEvent(profile, state.userID, changedFavorites: true));
-              Navigator.of(context).pop();
-            }
-            break;
-          case ImageProcessing.none:
-            if (_aboutMeController.text.isNotEmpty && _textFieldPhoneController.text.isNotEmpty && profile.picUrl.isNotEmpty) {
-              final String uId = BlocProvider.of<UserProfileBloc>(context).state is UserProfileLoaded ? (BlocProvider.of<UserProfileBloc>(context).state as UserProfileLoaded).userID : 'unauthenticated';
-            }
-
-            BlocProvider.of<UserProfileBloc>(context).add(UpdateUserProfileEvent(profile, state.userID, changedFavorites: true));
-            Navigator.of(context).pop();
-            break;
-          default:
-        }
-      },
-      child: Text(AppLocalizations.of(context)!.save),
-    );
-  } */
 }
