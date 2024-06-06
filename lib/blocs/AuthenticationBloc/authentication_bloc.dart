@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:geocoding/geocoding.dart';
@@ -11,9 +12,11 @@ import 'package:vs_femalefellows/models/address.dart';
 import 'package:vs_femalefellows/models/event_participant.dart';
 import 'package:vs_femalefellows/models/user_model.dart';
 import 'package:vs_femalefellows/provider/firebase/authrepository.dart';
+import 'package:vs_femalefellows/provider/firebase/cloud_functions.dart';
 import 'package:vs_femalefellows/provider/firebase/firestore_event_repository.dart';
 import 'package:vs_femalefellows/provider/firebase/firestore_tandem_repository.dart';
 import 'package:vs_femalefellows/provider/firebase/firestore_user_profile_repository.dart';
+import 'package:vs_femalefellows/provider/firebase/messaging.dart';
 import 'package:vs_femalefellows/provider/firebase/storage_repository.dart';
 
 part 'authentication_event.dart';
@@ -204,6 +207,12 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   Future<void> _onSignOutEvent(SignOutEvent event, Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     try {
+      final String? token = await Messaging().firebaseMessaging.getToken();
+
+      if (token == null) return;
+      CloudFunctions().firebaseFunctions.httpsCallable('removeFcmToken').call(<String, dynamic>{
+        'token': token,
+      });
       _authenticationProvider.logOut();
       emit(UnauthenticatedUser());
     } catch (error) {

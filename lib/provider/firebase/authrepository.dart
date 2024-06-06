@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:vs_femalefellows/provider/firebase/messaging.dart';
 
 enum AuthStatus { unkown, authenticated, unauthenticated }
 
@@ -62,6 +63,7 @@ class AuthRepository implements Exception {
     return _firebaseAuth.authStateChanges().map((User? firebaseUser) {
       currentUser = firebaseUser;
       if (firebaseUser != null) {
+        _activatePushNotification();
         return firebaseUser;
       } else {
         return null;
@@ -79,6 +81,10 @@ class AuthRepository implements Exception {
     return Future.wait(<Future<void>>[
       _firebaseAuth.signOut(),
     ]);
+  }
+
+  Future<void> _activatePushNotification() async {
+    Messaging().requestPermission();
   }
 
   void dispose() => _controller.close();

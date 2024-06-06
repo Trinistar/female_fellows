@@ -88,10 +88,20 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // Set the background messaging handler early on, as a named top-level function
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  /// Update the iOS foreground notification presentation options to allow
+  /// heads up notifications.
+  await Messaging().firebaseMessaging.setForegroundNotificationPresentationOptions(
+    alert: true,
+    badge: true,
+    sound: true,
+  );
   runApp(const MyApp());
 }
 
-final GoRoute _loginTree = GoRoute(
+/* final GoRoute _loginTree = GoRoute(
   path: 'loginPage',
   parentNavigatorKey: _rootNavigatorKey,
   builder: (BuildContext context, GoRouterState state) {
@@ -105,7 +115,7 @@ final GoRoute _loginTree = GoRoute(
       },
     ),
   ],
-);
+); */
 
 /// The route configuration.
 final GoRouter _router = GoRouter(

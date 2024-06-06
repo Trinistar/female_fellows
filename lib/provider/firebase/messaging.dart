@@ -88,7 +88,7 @@ class Messaging {
     if (token == null) return;
 
     try {
-      cloudfunctions.firebaseFunctions.httpsCallable('sendPushToken').call(<String, dynamic>{
+      cloudfunctions.firebaseFunctions.httpsCallable('sendFcmToken').call(<String, dynamic>{
         'token': token,
       });
     } catch (_) {}
