@@ -1,6 +1,10 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vs_femalefellows/data/constants.dart';
+import 'package:vs_femalefellows/main.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/FutureHomepage/image_button.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
 import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_about_us.dart';
@@ -10,6 +14,7 @@ import 'package:vs_femalefellows/pages/Homepage/homepage_container/welcome_conta
 import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_item_story1.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_item_story2.dart';
 import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_item_story3.dart';
+import 'package:vs_femalefellows/provider/firebase/messaging.dart';
 
 //import 'package:vs_femalefellows/pages/Homepage/homepage_container/foerderin_homepage.dart';
 //import 'package:vs_femalefellows/pages/Homepage/homepage_container/challenges_hompage.dart';
@@ -36,6 +41,69 @@ final twitterUrl = Uri.parse('https://twitter.com/femalefellows');
 final teamUrl = Uri.parse('https://docs.google.com/forms/d/e/1FAIpQLScsSvgohEYh_PUv9cYMipqOmomXqrqlDnMECPglzP-r3_7_eQ/viewform');
 
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+
+    //_initDynamicLinks();
+
+    // App opened from terminated state
+    Messaging().firebaseMessaging.getInitialMessage().then(
+      (RemoteMessage? message) {
+        if (message == null) return;
+
+        _handlePushMessages(message);
+      },
+    );
+
+    // App active in foreground
+    Messaging().onMessage.listen(
+      (RemoteMessage message) {
+        final RemoteNotification? notification = message.notification;
+        final AndroidNotification? android = message.notification?.android;
+
+        if (notification != null && android != null) {
+          Messaging().flutterLocalNotificationsPlugin.show(
+            notification.hashCode,
+            notification.title,
+            notification.body,
+            const NotificationDetails(
+              android: AndroidNotificationDetails(
+                androidLocalNotificationChannelId,
+                androidLocalNotificationChannelName,
+                channelDescription: androidLocalNotificationChannelDescription,
+                /* importance: Importance.max,
+                priority: Priority.high, */
+                // TODO add a proper drawable resource to android, for now using
+                //      one that already exists in example app.
+                icon: '@drawable/ic_notification_icon',
+              ),
+            ),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: Colors.green,
+              content: Column(
+                children: [
+                  Text(notification.title!),
+                  Text(notification.body!),
+                ],
+              ),
+              action: SnackBarAction(label: 'Anzeigen', onPressed: () => _handlePushMessages(message)),
+            ),
+          );
+        }
+      },
+    );
+
+    // App opened from background
+    Messaging().onMessageOpenedApp.listen(
+      (RemoteMessage message) {
+        _handlePushMessages(message);
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -248,3 +316,5 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+void _handlePushMessages(RemoteMessage message) {}

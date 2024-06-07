@@ -209,13 +209,15 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     try {
       final String? token = await Messaging().firebaseMessaging.getToken();
 
-      if (token == null) return;
-      CloudFunctions().firebaseFunctions.httpsCallable('removeFcmToken').call(<String, dynamic>{
-        'token': token,
-      });
+      if (token != null) {
+        CloudFunctions().firebaseFunctions.httpsCallable('removeFcmToken').call(<String, dynamic>{
+          'token': token,
+        });
+      }
       _authenticationProvider.logOut();
       emit(UnauthenticatedUser());
     } catch (error) {
+      print(error);
       //emit(state.copyWith(errorCode: AuthenticationErrorCode.SIGN_OUT_FAILED, error: error.toString()) as AuthenticationState);
       //emit(const UnauthenticatedUser());
     }

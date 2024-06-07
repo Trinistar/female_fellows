@@ -25,6 +25,9 @@ class Messaging {
 
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
+
   Future<NotificationSettings> getNotificationSettings() async {
     final NotificationSettings settings = await firebaseMessaging.getNotificationSettings();
     return settings;
@@ -42,7 +45,6 @@ class Messaging {
       importance: Importance.max,
     );
 
-    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
     /// Create an Android Notification Channel.
     ///
@@ -90,7 +92,7 @@ class Messaging {
     try {
       cloudfunctions.firebaseFunctions.httpsCallable('sendFcmToken').call(<String, dynamic>{
         'token': token,
-      });
+      }).then((onValue) => print((onValue.data as Map<String, dynamic>)['result']));
     } catch (_) {}
   }
 }
