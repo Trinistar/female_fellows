@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:vs_femalefellows/pages/AfterTandem/matched_tandemheader.dart';
-import 'package:vs_femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
-import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_activitys.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_carousel.dart';
+import 'package:femalefellows/pages/AfterTandem/matched_tandemheader.dart';
+import 'package:femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
+import 'package:femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
+import 'package:femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
+import 'package:femalefellows/pages/Tandem/Activitys/tandem_activitys.dart';
+import 'package:femalefellows/pages/Tandem/TandemStorys/tandem_carousel.dart';
 
 class AfterTandem extends StatefulWidget {
   const AfterTandem({super.key});

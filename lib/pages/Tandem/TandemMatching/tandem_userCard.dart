@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/helper_functions.dart';
-import 'package:vs_femalefellows/models/enums.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/helper_functions.dart';
+import 'package:femalefellows/models/enums.dart';
+import 'package:femalefellows/models/user_model.dart';
 
 class TandemUserCard extends StatelessWidget {
   const TandemUserCard({super.key, required this.otherUserProfile});

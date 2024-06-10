@@ -1,7 +1,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/components/female_fellows_button.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:femalefellows/components/female_fellows_button.dart';
+import 'package:femalefellows/models/user_model.dart';
 
 class ProfilOverview extends StatefulWidget {
   const ProfilOverview({super.key, required this.userstate});

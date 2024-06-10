@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:language_picker/languages.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/models/user_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 

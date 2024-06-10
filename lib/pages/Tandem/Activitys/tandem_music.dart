@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:html/dom.dart' as htmldoc;
 import 'package:html/parser.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:vs_femalefellows/statics.dart';
+import 'package:femalefellows/statics.dart';
 
 class TandemMusic extends StatefulWidget {
   const TandemMusic({super.key});

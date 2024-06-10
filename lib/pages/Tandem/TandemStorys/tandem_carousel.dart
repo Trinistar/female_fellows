@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_item_story1.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_item_story2.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemStorys/tandem_item_story3.dart';
+import 'package:femalefellows/pages/Tandem/TandemStorys/tandem_item_story1.dart';
+import 'package:femalefellows/pages/Tandem/TandemStorys/tandem_item_story2.dart';
+import 'package:femalefellows/pages/Tandem/TandemStorys/tandem_item_story3.dart';
 
 class TandemCarousel extends StatelessWidget {
   const TandemCarousel({super.key});

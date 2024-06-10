@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:femalefellows/blocs/EventBloc/event_bloc.dart';
+import 'package:femalefellows/models/user_model.dart';
 
 class ParticipantsData extends StatelessWidget {
   const ParticipantsData({super.key});

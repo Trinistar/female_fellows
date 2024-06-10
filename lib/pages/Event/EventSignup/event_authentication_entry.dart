@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/models/event_participant.dart';
-import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_kids.dart';
-import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_pictures.dart';
-import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_success.dart';
-import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/models/event_participant.dart';
+import 'package:femalefellows/models/events.dart';
+import 'package:femalefellows/models/user_model.dart';
+import 'package:femalefellows/pages/Event/EventSignup/event_authentication_kids.dart';
+import 'package:femalefellows/pages/Event/EventSignup/event_authentication_pictures.dart';
+import 'package:femalefellows/pages/Event/EventSignup/event_authentication_success.dart';
+import 'package:femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 

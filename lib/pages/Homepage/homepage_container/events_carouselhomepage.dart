@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
-import 'package:vs_femalefellows/provider/firebase/firestore_event_repository.dart';
+import 'package:femalefellows/models/events.dart';
+import 'package:femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
+import 'package:femalefellows/provider/firebase/firestore_event_repository.dart';
 
 class EventCarousel extends StatelessWidget {
   const EventCarousel({super.key, this.pagechange});

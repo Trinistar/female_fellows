@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/models/category.dart';
-import 'package:vs_femalefellows/models/event_participant.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/provider/firebase/firestore_repository.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/models/category.dart';
+import 'package:femalefellows/models/event_participant.dart';
+import 'package:femalefellows/models/user_model.dart';
+import 'package:femalefellows/provider/firebase/firestore_repository.dart';
 
 import '../../models/events.dart';
 

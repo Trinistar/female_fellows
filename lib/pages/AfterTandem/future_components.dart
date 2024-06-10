@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/components/female_fellows_button.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
+import 'package:femalefellows/components/female_fellows_button.dart';
+import 'package:femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FutureComponents extends StatelessWidget {

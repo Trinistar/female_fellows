@@ -1,8 +1,8 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/widgets/favorites_icon_widget.dart';
+import 'package:femalefellows/models/events.dart';
+import 'package:femalefellows/widgets/favorites_icon_widget.dart';
 
 class CarouselItem extends StatelessWidget {
   CarouselItem({super.key, required this.event});

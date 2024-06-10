@@ -1,8 +1,8 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vs_femalefellows/data/constants.dart';
-import 'package:vs_femalefellows/provider/firebase/cloud_functions.dart';
+import 'package:femalefellows/data/constants.dart';
+import 'package:femalefellows/provider/firebase/cloud_functions.dart';
 
 class Messaging {
   factory Messaging() {

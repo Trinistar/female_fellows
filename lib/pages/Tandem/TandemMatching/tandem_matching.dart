@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/blocs/TandemBloc/tandem_bloc.dart';
-import 'package:vs_femalefellows/helper_functions.dart';
-import 'package:vs_femalefellows/models/enums.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemMatching/tandem_userCard.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/blocs/TandemBloc/tandem_bloc.dart';
+import 'package:femalefellows/helper_functions.dart';
+import 'package:femalefellows/models/enums.dart';
+import 'package:femalefellows/models/user_model.dart';
+import 'package:femalefellows/pages/Tandem/TandemMatching/tandem_userCard.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TandemMatching extends StatefulWidget {

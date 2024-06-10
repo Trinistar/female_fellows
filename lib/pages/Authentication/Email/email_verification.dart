@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vs_femalefellows/components/female_fellows_button.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage.dart';
+import 'package:femalefellows/components/female_fellows_button.dart';
+import 'package:femalefellows/pages/Homepage/homepage.dart';
 
 class EmailCheck extends StatefulWidget {
   const EmailCheck({super.key});

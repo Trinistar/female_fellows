@@ -5,15 +5,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/helper_functions.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/pages/Event/CreateEvent/create_event.dart';
-import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
-import 'package:vs_femalefellows/pages/Event/EventOverview/all_events_page.dart';
-import 'package:vs_femalefellows/pages/Event/EventOverview/favorite_events.page.dart';
-import 'package:vs_femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
-import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/helper_functions.dart';
+import 'package:femalefellows/models/user_model.dart';
+import 'package:femalefellows/pages/Event/CreateEvent/create_event.dart';
+import 'package:femalefellows/pages/Event/EventComponents/color_artbar.dart';
+import 'package:femalefellows/pages/Event/EventOverview/all_events_page.dart';
+import 'package:femalefellows/pages/Event/EventOverview/favorite_events.page.dart';
+import 'package:femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
+import 'package:femalefellows/provider/controller.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EventOverview extends StatefulWidget {

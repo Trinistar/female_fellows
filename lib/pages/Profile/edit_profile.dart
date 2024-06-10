@@ -9,13 +9,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/blocs/ImageUploadBloc/image_upload_bloc.dart';
-import 'package:vs_femalefellows/components/female_fellows_button.dart';
-import 'package:vs_femalefellows/models/address.dart';
-import 'package:vs_femalefellows/models/enums.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/blocs/ImageUploadBloc/image_upload_bloc.dart';
+import 'package:femalefellows/components/female_fellows_button.dart';
+import 'package:femalefellows/models/address.dart';
+import 'package:femalefellows/models/enums.dart';
+import 'package:femalefellows/models/user_model.dart';
+import 'package:femalefellows/provider/controller.dart';
 
 class EditProfile extends StatefulWidget {
   EditProfile({super.key, required this.userstate});

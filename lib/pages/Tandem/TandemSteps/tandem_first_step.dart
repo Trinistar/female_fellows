@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
+import 'package:femalefellows/pages/Authentication/authentication_entry.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 

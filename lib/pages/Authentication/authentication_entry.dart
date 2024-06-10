@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:vs_femalefellows/models/enums.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_adress.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_age.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_local.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_notification.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_safety.dart';
-//import 'package:vs_femalefellows/pages/Authentication/authentication_connection.dart'; // unused page //
-import 'package:vs_femalefellows/pages/Authentication/authentication_socialmedia.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_verification.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_who.dart';
+import 'package:femalefellows/models/enums.dart';
+import 'package:femalefellows/pages/Authentication/authentication_adress.dart';
+import 'package:femalefellows/pages/Authentication/authentication_age.dart';
+import 'package:femalefellows/pages/Authentication/authentication_local.dart';
+import 'package:femalefellows/pages/Authentication/authentication_notification.dart';
+import 'package:femalefellows/pages/Authentication/authentication_safety.dart';
+//import 'package:femalefellows/pages/Authentication/authentication_connection.dart'; // unused page //
+import 'package:femalefellows/pages/Authentication/authentication_socialmedia.dart';
+import 'package:femalefellows/pages/Authentication/authentication_verification.dart';
+import 'package:femalefellows/pages/Authentication/authentication_who.dart';
 
 class RegistrationEntry extends StatefulWidget {
   const RegistrationEntry({super.key, this.isFromOnboarding = false});

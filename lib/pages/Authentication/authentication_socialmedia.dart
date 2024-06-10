@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/models/enums.dart';
+import 'package:femalefellows/models/enums.dart';
 
 
 class AuthSocialmedia extends StatefulWidget {

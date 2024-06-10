@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/models/events.dart';
+import 'package:femalefellows/models/user_model.dart';
 
 class FavoritesIconWidget extends StatelessWidget {
   FavoritesIconWidget({

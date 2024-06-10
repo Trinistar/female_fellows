@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_fempowerment.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_kooperations_partner.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_unsere_mission.dart';
+import 'package:femalefellows/pages/Homepage/homepage_fempowerment.dart';
+import 'package:femalefellows/pages/Homepage/homepage_kooperations_partner.dart';
+import 'package:femalefellows/pages/Homepage/homepage_unsere_mission.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AboutUs extends StatelessWidget {

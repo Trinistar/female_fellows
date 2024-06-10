@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/blocs/CategoriesCubit/categories_cubit.dart';
-import 'package:vs_femalefellows/blocs/EventBloc/event_bloc.dart';
-import 'package:vs_femalefellows/models/category.dart';
+import 'package:femalefellows/blocs/CategoriesCubit/categories_cubit.dart';
+import 'package:femalefellows/blocs/EventBloc/event_bloc.dart';
+import 'package:femalefellows/models/category.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EventCategorys extends StatelessWidget {

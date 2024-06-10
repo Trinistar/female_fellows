@@ -2,12 +2,12 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:vs_femalefellows/models/enums.dart';
-import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/provider/controller.dart';
-import 'package:vs_femalefellows/provider/firebase/firestore_event_repository.dart';
-import 'package:vs_femalefellows/provider/firebase/storage_repository.dart';
+import 'package:femalefellows/models/enums.dart';
+import 'package:femalefellows/models/events.dart';
+import 'package:femalefellows/models/user_model.dart';
+import 'package:femalefellows/provider/controller.dart';
+import 'package:femalefellows/provider/firebase/firestore_event_repository.dart';
+import 'package:femalefellows/provider/firebase/storage_repository.dart';
 
 part 'event_event.dart';
 part 'event_state.dart';

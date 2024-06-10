@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_first_step.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_second_step.dart';
-import 'package:vs_femalefellows/pages/Tandem/TandemSteps/tandem_third_step.dart';
+import 'package:femalefellows/pages/Tandem/TandemSteps/tandem_first_step.dart';
+import 'package:femalefellows/pages/Tandem/TandemSteps/tandem_second_step.dart';
+import 'package:femalefellows/pages/Tandem/TandemSteps/tandem_third_step.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TandemSteps extends StatelessWidget {

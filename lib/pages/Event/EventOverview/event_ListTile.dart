@@ -1,10 +1,10 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/models/german_locale.dart';
-import 'package:vs_femalefellows/widgets/favorites_icon_widget.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/models/events.dart';
+import 'package:femalefellows/models/german_locale.dart';
+import 'package:femalefellows/widgets/favorites_icon_widget.dart';
 
 class EventListTile extends StatelessWidget {
   EventListTile({super.key, required this.event});

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:vs_femalefellows/pages/Onboarding/onboarding_step1.dart';
-import 'package:vs_femalefellows/pages/Onboarding/onboarding_step2.dart';
-import 'package:vs_femalefellows/pages/Onboarding/onboarding_step3.dart';
-import 'package:vs_femalefellows/pages/Onboarding/onboarding_step4.dart';
-import 'package:vs_femalefellows/pages/Onboarding/onboarding_end.dart';
+import 'package:femalefellows/pages/Onboarding/onboarding_step1.dart';
+import 'package:femalefellows/pages/Onboarding/onboarding_step2.dart';
+import 'package:femalefellows/pages/Onboarding/onboarding_step3.dart';
+import 'package:femalefellows/pages/Onboarding/onboarding_step4.dart';
+import 'package:femalefellows/pages/Onboarding/onboarding_end.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnboardingPage extends StatefulWidget {

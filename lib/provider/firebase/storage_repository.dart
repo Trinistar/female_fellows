@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:vs_femalefellows/models/enums.dart';
+import 'package:femalefellows/models/enums.dart';
 
 class StorageRepository {
   static const String userPath = 'user/profilePicture/';

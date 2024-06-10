@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/pages/Authentication/Login/login_page.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
-import 'package:vs_femalefellows/pages/Profile/profil_header.dart';
-import 'package:vs_femalefellows/pages/Profile/profil_overview.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/pages/Authentication/Login/login_page.dart';
+import 'package:femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
+import 'package:femalefellows/pages/Profile/profil_header.dart';
+import 'package:femalefellows/pages/Profile/profil_overview.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

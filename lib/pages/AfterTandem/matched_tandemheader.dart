@@ -1,10 +1,10 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vs_femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:vs_femalefellows/models/german_locale.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:femalefellows/models/german_locale.dart';
+import 'package:femalefellows/models/user_model.dart';
+import 'package:femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AfterTandemHeader extends StatelessWidget {

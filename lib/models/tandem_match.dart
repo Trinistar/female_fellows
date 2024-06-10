@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:vs_femalefellows/helper_functions.dart';
-import 'package:vs_femalefellows/models/enums.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:femalefellows/helper_functions.dart';
+import 'package:femalefellows/models/enums.dart';
+import 'package:femalefellows/models/user_model.dart';
 
 part 'tandem_match.g.dart';
 

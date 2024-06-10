@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vs_femalefellows/components/text_bar.dart';
-import 'package:vs_femalefellows/models/event_participant.dart';
-import 'package:vs_femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
-import 'package:vs_femalefellows/provider/controller.dart';
+import 'package:femalefellows/components/text_bar.dart';
+import 'package:femalefellows/models/event_participant.dart';
+import 'package:femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
+import 'package:femalefellows/provider/controller.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 

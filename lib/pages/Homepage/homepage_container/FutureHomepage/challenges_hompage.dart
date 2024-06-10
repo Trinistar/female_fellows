@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
-import 'package:vs_femalefellows/pages/Tandem/Activitys/tandem_item_coffee.dart';
+import 'package:femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
+import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_coffee.dart';
 
 class Challenges extends StatelessWidget {
   const Challenges({super.key});

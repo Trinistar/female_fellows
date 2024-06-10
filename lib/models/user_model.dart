@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:language_picker/languages.dart';
-import 'package:vs_femalefellows/helper_functions.dart';
-import 'package:vs_femalefellows/models/address.dart';
-import 'package:vs_femalefellows/models/enums.dart';
-import 'package:vs_femalefellows/models/event_participant.dart';
-import 'package:vs_femalefellows/models/notifications.dart';
-import 'package:vs_femalefellows/models/tandem_match.dart';
+import 'package:femalefellows/helper_functions.dart';
+import 'package:femalefellows/models/address.dart';
+import 'package:femalefellows/models/enums.dart';
+import 'package:femalefellows/models/event_participant.dart';
+import 'package:femalefellows/models/notifications.dart';
+import 'package:femalefellows/models/tandem_match.dart';
 
 part 'user_model.g.dart';
 

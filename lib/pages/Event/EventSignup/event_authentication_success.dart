@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:vs_femalefellows/components/female_fellows_button.dart';
-import 'package:vs_femalefellows/models/events.dart';
-import 'package:vs_femalefellows/models/german_locale.dart';
-import 'package:vs_femalefellows/pages/Event/EventComponents/color_artbar.dart';
-import 'package:vs_femalefellows/pages/Event/EventComponents/participants_rowWhite.dart';
+import 'package:femalefellows/components/female_fellows_button.dart';
+import 'package:femalefellows/models/events.dart';
+import 'package:femalefellows/models/german_locale.dart';
+import 'package:femalefellows/pages/Event/EventComponents/color_artbar.dart';
+import 'package:femalefellows/pages/Event/EventComponents/participants_rowWhite.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vs_femalefellows/blocs/SignedupEvent/signedup_event_bloc.dart';
-import 'package:vs_femalefellows/pages/Event/EventOverview/event_ListTile.dart';
+import 'package:femalefellows/blocs/SignedupEvent/signedup_event_bloc.dart';
+import 'package:femalefellows/pages/Event/EventOverview/event_ListTile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SingedUpEvents extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/components/female_fellows_button.dart';
-import 'package:vs_femalefellows/pages/Authentication/authentication_entry.dart';
+import 'package:femalefellows/components/female_fellows_button.dart';
+import 'package:femalefellows/pages/Authentication/authentication_entry.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Page1 extends StatelessWidget {

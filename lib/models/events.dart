@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:vs_femalefellows/helper_functions.dart';
-import 'package:vs_femalefellows/models/address.dart';
-import 'package:vs_femalefellows/models/event_participant.dart';
-import 'package:vs_femalefellows/models/materials.dart';
-import 'package:vs_femalefellows/models/user_model.dart';
+import 'package:femalefellows/helper_functions.dart';
+import 'package:femalefellows/models/address.dart';
+import 'package:femalefellows/models/event_participant.dart';
+import 'package:femalefellows/models/materials.dart';
+import 'package:femalefellows/models/user_model.dart';
 
 part 'events.g.dart';
 

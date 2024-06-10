@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vs_femalefellows/models/events.dart';
+import 'package:femalefellows/models/events.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
