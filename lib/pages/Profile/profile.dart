@@ -148,6 +148,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
             );
           } else if (state is UnauthenticatedUser) {
             return LoginPage();
+          } else if (state is AuthenticationLoading) {
+            return Center(child: CircularProgressIndicator());
           }
           return Container();
         },
