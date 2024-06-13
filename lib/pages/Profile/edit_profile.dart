@@ -444,6 +444,12 @@ class _EditProfileState extends State<EditProfile> {
                 SizedBox(
                   height: 40,
                 ),
+                Text((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.emailVerified.toString()),
+                MaterialButton(
+                  child: Text('verifiy'),
+                  color: Colors.amber,
+                  onPressed: () => (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.sendEmailVerification(),
+                ),
                 FFButton(
                     onTap: () {
                       FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
@@ -471,8 +477,8 @@ class _EditProfileState extends State<EditProfile> {
 
                           break;
                         default:
+                          context.pop();
                       }
-                      context.pop();
                     },
                     text: 'Update User'),
                 SizedBox(

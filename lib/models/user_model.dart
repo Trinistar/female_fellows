@@ -30,7 +30,7 @@ class FFUser {
   String? id;
   UserLocation? location;
   @JsonKey(defaultValue: '')
-  String? aboutMe;
+  String aboutMe;
   TandemTypeFilter? tandemTypeFilter;
   @JsonKey(includeFromJson: false, includeToJson: false)
   double? tandemMatch;
@@ -59,7 +59,7 @@ class FFUser {
     this.address,
     this.socialMedia,
     this.location,
-    this.aboutMe,
+    this.aboutMe = '',
     this.tandemTypeFilter,
     this.tandemMatch = 0.0,
     this.languages,
