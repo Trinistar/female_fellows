@@ -52,7 +52,6 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
 
     if (event.user != null) {
       final IdTokenResult tokenResult = await event.user!.getIdTokenResult();
-
       await emit.onEach(
         CombineLatestStream.list(<Stream>[_firestoreUserProfileRepository.loadUserProfile(event.user!.uid), _firestoreUserProfileRepository.loadUserProfileLocationData(event.user!.uid)]),
         onData: (List<dynamic> streams) async {
@@ -123,25 +122,30 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       if (currentuser != null) {
         userdata.email = currentuser.email;
         final IdTokenResult tokenResult = await currentuser.getIdTokenResult();
-        final UploadTask? task = await _getUploadTask(event.picture, currentuser.uid);
+        if (event.picture != null && event.picture!.path.isNotEmpty) {
+          final UploadTask? task = await _getUploadTask(event.picture, currentuser.uid);
 
-        if (task != null) {
-          await emit.onEach(task.snapshotEvents, onData: (uploadState) async {
-            switch (uploadState.state) {
-              case TaskState.running:
-                break;
+          if (task != null) {
+            await emit.onEach(task.snapshotEvents, onData: (uploadState) async {
+              switch (uploadState.state) {
+                case TaskState.running:
+                  break;
 
-              case TaskState.success:
-                final String downloadUrl = await uploadState.ref.getDownloadURL();
-                userdata.profilPicture = downloadUrl;
-                await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
-                break;
-              default:
-            }
-          });
+                case TaskState.success:
+                  final String downloadUrl = await uploadState.ref.getDownloadURL();
+                  userdata.profilPicture = downloadUrl;
+                  await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
+                  break;
+                default:
+              }
+            });
+          } else {
+            await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
+          }
         } else {
           await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
         }
+
         emit(AuthenticatedUser(user: currentuser, userProfile: userdata, tokenResult: tokenResult));
       } else {
         emit(UnauthenticatedUser());

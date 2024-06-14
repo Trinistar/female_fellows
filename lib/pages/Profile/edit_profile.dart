@@ -444,12 +444,6 @@ class _EditProfileState extends State<EditProfile> {
                 SizedBox(
                   height: 40,
                 ),
-                Text((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.emailVerified.toString()),
-                MaterialButton(
-                  child: Text('verifiy'),
-                  color: Colors.amber,
-                  onPressed: () => (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.sendEmailVerification(),
-                ),
                 FFButton(
                     onTap: () {
                       FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
@@ -461,11 +455,13 @@ class _EditProfileState extends State<EditProfile> {
                       switch (_imageProcessing) {
                         case ImageProcessing.upload:
                           context.read<ImageUploadBloc>().add(UploadImageEvent(_image, widget.userstate));
+                          context.pop();
                           break;
                         case ImageProcessing.delete:
                           context.read<ImageUploadBloc>().add(DeleteImageEvent(widget.userstate));
                           if (!_wasEmpty) {
                             context.read<ImageUploadBloc>().add(DeleteImageEvent(widget.userstate));
+                            context.pop();
                           } else {
                             context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
                             context.pop();
