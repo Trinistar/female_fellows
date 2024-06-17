@@ -2,6 +2,7 @@ import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:femalefellows/models/user_model.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfilOverview extends StatefulWidget {
   const ProfilOverview({super.key, required this.userstate});
@@ -144,7 +145,7 @@ class _ProfilOverviewState extends State<ProfilOverview> {
         SizedBox(
           height: 20,
         ),
-        FFButton(onTap: null, text: 'Profil vervollständigen'),
+        FFButton(onTap: () => context.go('/profile/editProfile', extra: widget.userstate), text: 'Profil vervollständigen'),
       ],
     );
   }

@@ -1,3 +1,4 @@
+import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -51,15 +52,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 actions: [
                   IconButton(
                     onPressed: () {
-                      //TODO add profile edit screen
                       context.go('/profile/editProfile', extra: state.userProfile);
-                      /* Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => EditProfile(
-                            userstate: state.userProfile!,
-                          ),
-                        ),
-                      ); */
                     },
                     icon: Icon(Icons.edit),
                     color: Colors.white,
@@ -115,8 +108,11 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-
+                  !(state.user!.emailVerified) ?
+                  FFButton(color: Colors.redAccent, onTap: () => (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.sendEmailVerification(), text: 'E-Mail-Adresse verifizieren') :
+                  SizedBox.shrink(),
                   ///User Inhalt
+                  ///
                   ///
                   ///
                   SizedBox(
@@ -131,7 +127,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   ),
                   SizedBox(
                     width: double.maxFinite,
-                    height: 400,
+                    height: 600,
                     child: TabBarView(controller: _profilTabController, children: [
                       ProfilOverview(
                         userstate: state.userProfile!,

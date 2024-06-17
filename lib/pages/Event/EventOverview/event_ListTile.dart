@@ -16,8 +16,9 @@ class EventListTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 130,
+        height: 110,
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               height: 100,
@@ -41,7 +42,7 @@ class EventListTile extends StatelessWidget {
               child: SizedBox(
                 height: 130,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 5.0),
+                  padding: const EdgeInsets.only(left: 10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -80,18 +81,31 @@ class EventListTile extends StatelessWidget {
                       BlocBuilder<AuthenticationBloc, AuthenticationState>(
                         builder: (context, state) {
                           if (state is AuthenticatedUser) {
-                            return Row(
-                              children: [
-                                Icon(
-                                  Icons.location_on_outlined,
-                                  size: 20,
-                                ),
-                                Text(
-                                  '${event.location.street}\n${event.location.zipCode}, ${event.location.city}',
-                                  style: TextStyle(fontSize: 13),
-                                ),
-                              ],
-                            );
+                            return state.user!.emailVerified
+                                ? Row(
+                                    children: [
+                                      Icon(
+                                        Icons.location_on_outlined,
+                                        size: 20,
+                                      ),
+                                      Text(
+                                        '${event.location.street}\n${event.location.zipCode}, ${event.location.city}',
+                                        style: TextStyle(fontSize: 13),
+                                      ),
+                                    ],
+                                  )
+                                : Row(
+                                    children: [
+                                      Icon(
+                                        Icons.location_on_outlined,
+                                        size: 20,
+                                      ),
+                                      Text(
+                                        event.location.city,
+                                        style: TextStyle(fontSize: 13),
+                                      ),
+                                    ],
+                                  );
                           } else if (state is UnauthenticatedUser) {
                             return Row(
                               children: [
