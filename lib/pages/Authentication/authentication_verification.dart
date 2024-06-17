@@ -99,7 +99,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                     height: 10,
                   ),
                   Text(
-                    'Gib deine E-Mail-Adresse und ein Passwort an',
+                    'Gib ein Passwort ein und klicke bitte anschließend auf den Link, den wir dir per E-Mail an diese Adresse senden. Durch Klicken des Links verifizierst du deine E-Mail-Adresse und kannst dich anschließend einloggen.',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       fontSize: 15,
@@ -180,7 +180,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                   BlocBuilder<AuthenticationBloc, AuthenticationState>(
                     builder: (context, state) {
                       return FFButton(
-                        text: AppLocalizations.of(context)!.authenticationTitle,
+                        text: 'E-Mail-Verifizierungslink senden',
                         onTap: () {
                           if (_formKey.currentState!.validate()) {
                             final FFUser profile = FFUser(

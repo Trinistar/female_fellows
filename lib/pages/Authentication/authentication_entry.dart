@@ -124,12 +124,16 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
               child: PageView(
                 controller: _controller,
                 onPageChanged: (index) {
-                  if (index == _pageCount - 1 && !_accepted) {
+                  if (index == _pageCount - 1) {
                     setState(() {
                       _disabledNextButton = true;
-                      _accepted = false;
+                    });
+                  } else if (index < _pageCount - 1) {
+                    setState(() {
+                      _disabledNextButton = false;
                     });
                   }
+
                   if (index == _pageCount) {
                     setState(() {
                       _disabledNextButton = true;
