@@ -108,3 +108,15 @@ class RegisterWithMailEvent extends AuthenticationEvent {
     return 'RegisterWithMailEvent { email: $email }';
   }
 }
+
+class ReloadUserEvent extends AuthenticationEvent {
+  ReloadUserEvent({
+    required this.email,
+    required this.password,
+    required this.profile,
+  });
+
+  final FFUser profile;
+  final String email;
+  final String password;
+}

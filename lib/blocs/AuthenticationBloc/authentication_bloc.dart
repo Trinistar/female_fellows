@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:femalefellows/helper_functions.dart';
 import 'package:femalefellows/models/address.dart';
 import 'package:femalefellows/models/event_participant.dart';
 import 'package:femalefellows/models/user_model.dart';
@@ -34,6 +35,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     on<SetEventParticipationEvent>(_onSetEventParticipationEvent);
     on<RevokeEventParticipationEvent>(_onRevokeEventParticipationEvent);
     on<SetTandemMatchEvent>(_onSetTandemMatchEvent);
+    on<ReloadUserEvent>(_onReloadUserEvent);
 
     _userSubscription = _authenticationProvider.user.listen((User? user) => add(AuthenticationUserChangedEvent(user)));
   }
@@ -42,6 +44,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   final FirestoreEventRepository _firestoreEventRepository = FirestoreEventRepository();
   final FirestoreTandemRepository _firestoreTandemRepository = FirestoreTandemRepository();
   final StorageRepository _storageRepository = StorageRepository();
+  late IdTokenResult _idTokenResult;
 
   StreamSubscription<User?>? _userSubscription;
 
@@ -51,7 +54,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     emit(AuthenticationLoading());
 
     if (event.user != null) {
-      final IdTokenResult tokenResult = await event.user!.getIdTokenResult();
+      _idTokenResult = await event.user!.getIdTokenResult();
       await emit.onEach(
         CombineLatestStream.list(<Stream>[_firestoreUserProfileRepository.loadUserProfile(event.user!.uid), _firestoreUserProfileRepository.loadUserProfileLocationData(event.user!.uid)]),
         onData: (List<dynamic> streams) async {
@@ -70,13 +73,13 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
               profile.tandemMatches = matches;
               if (profile.tandemMatches != null) {
                 profile.tandemMatches!.first.otherProfile = await _firestoreUserProfileRepository.getUserProfile(profile.tandemMatches!.first.otherUserId);
-                emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: tokenResult));
+                emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: _idTokenResult));
               }
             });
           }
 
           profile.location = location;
-          emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: tokenResult));
+          emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: _idTokenResult));
         },
       );
     } else {
@@ -121,7 +124,9 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       final User? currentuser = await _authpage.signUp(email: event.email, password: event.password);
       if (currentuser != null) {
         userdata.email = currentuser.email;
-        final IdTokenResult tokenResult = await currentuser.getIdTokenResult();
+        //FirebaseAuth.instance.sendSignInLinkToEmail(email: event.email, actionCodeSettings: actionCodeSettings);
+        currentuser.sendEmailVerification(HelperFunctions.getActionCodeSettings(currentuser.email!));
+        _idTokenResult = await currentuser.getIdTokenResult();
         if (event.picture != null && event.picture!.path.isNotEmpty) {
           final UploadTask? task = await _getUploadTask(event.picture, currentuser.uid);
 
@@ -146,7 +151,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
           await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
         }
 
-        emit(AuthenticatedUser(user: currentuser, userProfile: userdata, tokenResult: tokenResult));
+        emit(AuthenticatedUser(user: currentuser, userProfile: userdata, tokenResult: _idTokenResult));
       } else {
         emit(UnauthenticatedUser());
       }
@@ -219,6 +224,19 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       }
       _authenticationProvider.logOut();
       emit(UnauthenticatedUser());
+    } catch (error) {
+      print(error);
+      //emit(state.copyWith(errorCode: AuthenticationErrorCode.SIGN_OUT_FAILED, error: error.toString()) as AuthenticationState);
+      //emit(const UnauthenticatedUser());
+    }
+  }
+
+  Future<void> _onReloadUserEvent(ReloadUserEvent event, Emitter<AuthenticationState> emit) async {
+    emit(AuthenticationLoading());
+    try {
+      final UserCredential cred = await _authenticationProvider.reauthenticateWithMail(event.email, event.password);
+      _idTokenResult = await cred.user!.getIdTokenResult();
+      emit(AuthenticatedUser(user: cred.user, userProfile: event.profile, tokenResult: _idTokenResult));
     } catch (error) {
       print(error);
       //emit(state.copyWith(errorCode: AuthenticationErrorCode.SIGN_OUT_FAILED, error: error.toString()) as AuthenticationState);

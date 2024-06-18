@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>897188779737-cpfeeij1inqcmbegthpn4rpcfbgg6680.apps.googleusercontent.com</string>
+	<string>897188779737-bfhih25u4dmmal68qpf95k9mu73k1u5b.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.897188779737-cpfeeij1inqcmbegthpn4rpcfbgg6680</string>
+	<string>com.googleusercontent.apps.897188779737-bfhih25u4dmmal68qpf95k9mu73k1u5b</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>897188779737-59fatfjbhdflmqmilqncol03soag8672.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD3E05dK1KWqgIcgDaFXsueu2hZO-tMmgM</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.vsFemalefellows.RunnerTests</string>
+	<string>com.example.vsFemalefellows</string>
 	<key>PROJECT_ID</key>
 	<string>femalefellows-11bb9</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:897188779737:ios:62c1c2ccbf33bf327a10c8</string>
+	<string>1:897188779737:ios:94b55591295f338a7a10c8</string>
+	<key>DATABASE_URL</key>
+	<string>https://femalefellows-11bb9-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>

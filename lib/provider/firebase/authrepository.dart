@@ -54,6 +54,13 @@ class AuthRepository implements Exception {
     }
   }
 
+  Future<UserCredential> reauthenticateWithMail(String email, String password) async {
+    final User? user = _firebaseAuth.currentUser;
+    final AuthCredential credential = EmailAuthProvider.credential(email: user!.email!, password: password);
+    final UserCredential userCred = await _firebaseAuth.currentUser!.reauthenticateWithCredential(credential);
+    return userCred;
+  }
+
   /// Stream of [User] which will emit the current user when
   /// the authentication state changes.
   ///

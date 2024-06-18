@@ -1,4 +1,6 @@
 import 'package:femalefellows/components/female_fellows_button.dart';
+import 'package:femalefellows/helper_functions.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -18,6 +20,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   late TabController _profilTabController;
+
   @override
   void initState() {
     super.initState();
@@ -108,9 +111,14 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  !(state.user!.emailVerified) ?
-                  FFButton(color: Colors.redAccent, onTap: () => (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.sendEmailVerification(), text: 'E-Mail-Adresse verifizieren') :
-                  SizedBox.shrink(),
+                  !(state.user!.emailVerified)
+                      ? FFButton(
+                          color: Colors.redAccent,
+                          onTap: () => (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.sendEmailVerification(HelperFunctions.getActionCodeSettings((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.email!)),
+                          text: 'E-Mail-Adresse verifizieren',
+                        )
+                      : SizedBox.shrink(),
+
                   ///User Inhalt
                   ///
                   ///

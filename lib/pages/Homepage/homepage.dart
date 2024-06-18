@@ -1,7 +1,12 @@
+import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:femalefellows/data/constants.dart';
 import 'package:femalefellows/main.dart';
@@ -45,7 +50,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
 
-    //_initDynamicLinks();
+    _initDynamicLinks();
 
     // App opened from terminated state
     Messaging().firebaseMessaging.getInitialMessage().then(
@@ -64,22 +69,22 @@ class _HomeState extends State<Home> {
 
         if (notification != null && android != null) {
           Messaging().flutterLocalNotificationsPlugin.show(
-            notification.hashCode,
-            notification.title,
-            notification.body,
-            const NotificationDetails(
-              android: AndroidNotificationDetails(
-                androidLocalNotificationChannelId,
-                androidLocalNotificationChannelName,
-                channelDescription: androidLocalNotificationChannelDescription,
-                /* importance: Importance.max,
+                notification.hashCode,
+                notification.title,
+                notification.body,
+                const NotificationDetails(
+                  android: AndroidNotificationDetails(
+                    androidLocalNotificationChannelId,
+                    androidLocalNotificationChannelName,
+                    channelDescription: androidLocalNotificationChannelDescription,
+                    /* importance: Importance.max,
                 priority: Priority.high, */
-                // TODO add a proper drawable resource to android, for now using
-                //      one that already exists in example app.
-                icon: '@drawable/ic_notification_icon',
-              ),
-            ),
-          );
+                    // TODO add a proper drawable resource to android, for now using
+                    //      one that already exists in example app.
+                    icon: '@drawable/ic_notification_icon',
+                  ),
+                ),
+              );
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: Colors.green,
@@ -102,6 +107,49 @@ class _HomeState extends State<Home> {
         _handlePushMessages(message);
       },
     );
+  }
+
+  Future<void> _initDynamicLinks() async {
+    FirebaseDynamicLinks.instance.onLink.listen((PendingDynamicLinkData dynamicLink) async {
+      final Uri deepLink = dynamicLink.link;
+
+      //TODO make dynamic link work for ios, if clicked card on web
+
+      if (deepLink.pathSegments.last.isNotEmpty) {
+        if (deepLink.pathSegments.last == 'verify' && context.read<AuthenticationBloc>().state is AuthenticatedUser) {
+          var authState = (context.read<AuthenticationBloc>().state as AuthenticatedUser);
+          context.push('/emailCheck');
+          //context.read<AuthenticationBloc>().add(ReloadUserEvent(profile: authState.userProfile!, user: authState.user!));
+        }
+        //_reauth(deepLink.pathSegments.last);
+      }
+    });
+
+    final PendingDynamicLinkData? data = await FirebaseDynamicLinks.instance.getInitialLink();
+    final Uri? deepLink = data?.link;
+
+    if (deepLink != null) {
+      if (!mounted) return;
+      if (deepLink.pathSegments.last.isNotEmpty) {
+        if (deepLink.pathSegments.last == 'verify' && context.read<AuthenticationBloc>().state is AuthenticatedUser) {
+          var authState = (context.read<AuthenticationBloc>().state as AuthenticatedUser);
+          context.push('/emailCheck');
+          //context.read<AuthenticationBloc>().add(ReloadUserEvent(profile: authState.userProfile!, user: authState.user!));
+        }
+        //_reauth(deepLink.pathSegments.last);
+      }
+    }
+  }
+
+  void _reauth(String link) {
+    if (link == 'verify' && context.read<AuthenticationBloc>().state is AuthenticatedUser) {
+      final User user = (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!;
+      final AuthCredential credential = AuthCredential(
+        providerId: user.providerData.first.providerId,
+        signInMethod: 'password',
+      );
+      (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!.reauthenticateWithCredential(credential);
+    }
   }
 
   @override

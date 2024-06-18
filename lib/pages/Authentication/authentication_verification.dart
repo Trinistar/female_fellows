@@ -180,7 +180,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                   BlocBuilder<AuthenticationBloc, AuthenticationState>(
                     builder: (context, state) {
                       return FFButton(
-                        text: 'E-Mail-Verifizierungslink senden',
+                        text: AppLocalizations.of(context)!.authenticationTitle,
                         onTap: () {
                           if (_formKey.currentState!.validate()) {
                             final FFUser profile = FFUser(

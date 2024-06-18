@@ -1,3 +1,4 @@
+import 'package:femalefellows/pages/Authentication/Email/email_verification.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -276,6 +277,13 @@ final GoRouter _router = GoRouter(
       parentNavigatorKey: _rootNavigatorKey,
       builder: (BuildContext context, GoRouterState state) {
         return const TandemStoryThree();
+      },
+    ),
+    GoRoute(
+      path: '/emailCheck',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const EmailCheck();
       },
     ),
     StatefulShellRoute.indexedStack(

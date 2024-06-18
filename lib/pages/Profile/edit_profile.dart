@@ -444,6 +444,7 @@ class _EditProfileState extends State<EditProfile> {
                 SizedBox(
                   height: 40,
                 ),
+                Text((context.read<AuthenticationBloc>().state as AuthenticatedUser).user!.emailVerified.toString()),
                 FFButton(
                     onTap: () {
                       FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;

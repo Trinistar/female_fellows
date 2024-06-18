@@ -965,6 +965,9 @@ PODS:
     - FirebaseAuth (~> 10.27.0)
   - Firebase/CoreOnly (10.27.0):
     - FirebaseCore (= 10.27.0)
+  - Firebase/DynamicLinks (10.27.0):
+    - Firebase/CoreOnly
+    - FirebaseDynamicLinks (~> 10.27.0)
   - Firebase/Firestore (10.27.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 10.27.0)
@@ -983,6 +986,10 @@ PODS:
     - Flutter
   - firebase_core (3.0.0):
     - Firebase/CoreOnly (= 10.27.0)
+    - Flutter
+  - firebase_dynamic_links (6.0.0):
+    - Firebase/DynamicLinks (= 10.27.0)
+    - firebase_core
     - Flutter
   - firebase_messaging (15.0.0):
     - Firebase/Messaging (= 10.27.0)
@@ -1009,6 +1016,8 @@ PODS:
     - FirebaseCore (~> 10.0)
   - FirebaseCoreInternal (10.27.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
+  - FirebaseDynamicLinks (10.27.0):
+    - FirebaseCore (~> 10.0)
   - FirebaseFirestore (10.27.0):
     - FirebaseCore (~> 10.0)
     - FirebaseCoreExtension (~> 10.0)
@@ -1204,6 +1213,7 @@ DEPENDENCIES:
   - cloud_functions (from `.symlinks/plugins/cloud_functions/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
+  - firebase_dynamic_links (from `.symlinks/plugins/firebase_dynamic_links/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - Flutter (from `Flutter`)
@@ -1226,6 +1236,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreExtension
     - FirebaseCoreInternal
+    - FirebaseDynamicLinks
     - FirebaseFirestore
     - FirebaseFirestoreInternal
     - FirebaseFunctions
@@ -1254,6 +1265,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
+  firebase_dynamic_links:
+    :path: ".symlinks/plugins/firebase_dynamic_links/ios"
   firebase_messaging:
     :path: ".symlinks/plugins/firebase_messaging/ios"
   firebase_storage:
@@ -1283,6 +1296,7 @@ SPEC CHECKSUMS:
   Firebase: 26b040b20866a55f55eb3611b9fcf3ae64816b86
   firebase_auth: 17ce83d25a062b2a594e5dfce91a4ad36e3739d5
   firebase_core: 5926464bbb028fef87d2443369b73ada2a8a3608
+  firebase_dynamic_links: 6db768a4e1480b2994fcd6e9eee8e477643b8784
   firebase_messaging: 17bc029302b3342daa1c5905a1ee4258bcf47572
   firebase_storage: ff66671828d524fc9e36f30cd7ed1909036324c7
   FirebaseAppCheckInterop: 0dd062c9926a76332ca5711dbed6f1a9ac540b54
@@ -1291,6 +1305,7 @@ SPEC CHECKSUMS:
   FirebaseCore: a2b95ae4ce7c83ceecfbbbe3b6f1cddc7415a808
   FirebaseCoreExtension: 4ec89dd0c6de93d6becde32122d68b7c35f6bf5d
   FirebaseCoreInternal: 4b297a2d56063dbea2c1d0d04222d44a8d058862
+  FirebaseDynamicLinks: 087bf18ffabe8b6abe0c80301fd16ba2225ce373
   FirebaseFirestore: 7169b75e7db8f9796d4130e3c2157ed444f100d4
   FirebaseFirestoreInternal: 7ba63f170a554ae49392da44f9430e5b7915a7ff
   FirebaseFunctions: d95bacf9a201ebabd2df7d2412281538016a07dd

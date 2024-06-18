@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:geolocator/geolocator.dart';
 
 class HelperFunctions {
@@ -37,5 +38,15 @@ class HelperFunctions {
       return Future.error('Location permisson are permantly denied, we cannot request Location');
     }
     return await Geolocator.getCurrentPosition();
+  }
+
+  static ActionCodeSettings getActionCodeSettings(String email) {
+    final ActionCodeSettings dynLinkSettings = ActionCodeSettings(
+      url: 'https://femalefellows-11bb9.firebaseapp.com/verify?email=$email',
+      androidPackageName: 'com.femalefellows.app',
+      iOSBundleId: 'com.example.vsFemalefellows',
+      //dynamicLinkDomain: 'http://femalefellows.page.link/verify',
+    );
+    return dynLinkSettings;
   }
 }
