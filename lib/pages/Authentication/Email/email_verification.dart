@@ -1,19 +1,19 @@
 import 'package:femalefellows/blocs/LoginBloc/login_bloc.dart';
 import 'package:femalefellows/blocs/LoginBloc/login_event.dart';
 import 'package:femalefellows/blocs/LoginBloc/login_state.dart';
+import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:femalefellows/provider/controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:femalefellows/components/female_fellows_button.dart';
-import 'package:femalefellows/pages/Homepage/homepage.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../blocs/AuthenticationBloc/authentication_bloc.dart';
 
 class EmailCheck extends StatefulWidget {
-  const EmailCheck({super.key});
+  const EmailCheck({super.key, this.isDeleteAccount = false});
+
+  final bool isDeleteAccount;
 
   @override
   State<EmailCheck> createState() => _EmailCheckState();
@@ -53,7 +53,7 @@ class _EmailCheckState extends State<EmailCheck> {
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text('Bitte gib erneut dein Passwort ein, um den Verifizierungsprozess abzuschließen'),
+              child: Text(widget.isDeleteAccount ? 'Bitte gib erneut dein Passwort ein, um den Löschprozess abzuschließen' : 'Bitte gib erneut dein Passwort ein, um den Verifizierungsprozess abzuschließen'),
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -110,13 +110,22 @@ class _EmailCheckState extends State<EmailCheck> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: FFButton(
-                  onTap: () => context.read<AuthenticationBloc>().add(
-                        ReloadUserEvent(
-                            email: (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!.email!,
-                            password: Controller.passwordController.text,
-                            profile: (context.read<AuthenticationBloc>().state as AuthenticatedUser).userProfile!),
-                      ),
-                  text: 'Einloggen'),
+                  color: widget.isDeleteAccount ? Colors.redAccent : null,
+                  onTap: () {
+                    if (widget.isDeleteAccount) {
+                      context.read<AuthenticationBloc>().add(DeleteAccountEvent(user: (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!));
+                      context.pop();
+                      context.pop();
+                    } else {
+                      context.read<AuthenticationBloc>().add(
+                            ReloadUserEvent(
+                                email: (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!.email!,
+                                password: Controller.passwordController.text,
+                                profile: (context.read<AuthenticationBloc>().state as AuthenticatedUser).userProfile!),
+                          );
+                    }
+                  },
+                  text: widget.isDeleteAccount ? 'Authentifizieren und löschen' : 'Einloggen'),
             ),
           ],
         ),

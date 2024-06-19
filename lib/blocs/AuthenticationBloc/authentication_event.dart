@@ -120,3 +120,9 @@ class ReloadUserEvent extends AuthenticationEvent {
   final String email;
   final String password;
 }
+
+class DeleteAccountEvent extends AuthenticationEvent {
+  DeleteAccountEvent({required this.user});
+
+  final User user;
+}

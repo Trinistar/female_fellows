@@ -36,6 +36,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     on<RevokeEventParticipationEvent>(_onRevokeEventParticipationEvent);
     on<SetTandemMatchEvent>(_onSetTandemMatchEvent);
     on<ReloadUserEvent>(_onReloadUserEvent);
+    on<DeleteAccountEvent>(_onDeleteAccountEvent);
 
     _userSubscription = _authenticationProvider.user.listen((User? user) => add(AuthenticationUserChangedEvent(user)));
   }
@@ -241,6 +242,27 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       print(error);
       //emit(state.copyWith(errorCode: AuthenticationErrorCode.SIGN_OUT_FAILED, error: error.toString()) as AuthenticationState);
       //emit(const UnauthenticatedUser());
+    }
+  }
+
+  Future<void> _onDeleteAccountEvent(DeleteAccountEvent event, Emitter<AuthenticationState> emit) async {
+    emit(AuthenticationLoading());
+    try {
+      final String? token = await Messaging().firebaseMessaging.getToken();
+
+      if (token != null) {
+        CloudFunctions().firebaseFunctions.httpsCallable('removeFcmToken').call(<String, dynamic>{
+          'token': token,
+        });
+      }
+      await event.user.delete();
+
+      //emit(const UnauthenticatedUser());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        emit(Reauthenticate());
+        //event.user!.reauthenticateWithCredential(credential);
+      }
     }
   }
 

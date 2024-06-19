@@ -172,318 +172,368 @@ class _EditProfileState extends State<EditProfile> {
 
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
-        ),
-        child: RepositoryProvider<FFUser>(
-          create: (context) => widget.userstate,
-          child: Scaffold(
-            extendBody: true,
-            extendBodyBehindAppBar: true,
-            appBar: AppBar(
-              backgroundColor: Colors.white,
-              title: Text(
-                'Bearbeite dein Profil',
+    return BlocListener<AuthenticationBloc, AuthenticationState>(
+      listener: (context, state) {
+        if (state is Reauthenticate) {
+          context.push('/emailCheck');
+        }
+      },
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle(
+            statusBarColor: Colors.white,
+          ),
+          child: RepositoryProvider<FFUser>(
+            create: (context) => widget.userstate,
+            child: Scaffold(
+              extendBody: true,
+              extendBodyBehindAppBar: true,
+              appBar: AppBar(
+                backgroundColor: Colors.white,
+                title: Text(
+                  'Bearbeite dein Profil',
+                ),
               ),
-            ),
-            backgroundColor: Colors.white,
-            body: ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: Center(
-                    child: Wrap(
-                      children: <Widget>[
-                        if (_imageProcessing != ImageProcessing.none)
-                          if (_image.path.isEmpty)
-                            _standardAvatar(context)
-                          else
-                            Container(
-                              margin: const EdgeInsets.all(12.0),
-                              width: 100.0,
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: FileImage(File(_image.path)),
+              backgroundColor: Colors.white,
+              body: ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Center(
+                      child: Wrap(
+                        children: <Widget>[
+                          if (_imageProcessing != ImageProcessing.none)
+                            if (_image.path.isEmpty)
+                              _standardAvatar(context)
+                            else
+                              Container(
+                                margin: const EdgeInsets.all(12.0),
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: FileImage(File(_image.path)),
+                                  ),
                                 ),
+                              ),
+                          if (_imageProcessing == ImageProcessing.none)
+                            if (widget.userstate.profilPicture == null || widget.userstate.profilPicture!.isEmpty)
+                              _standardAvatar(context)
+                            else
+                              Container(
+                                margin: const EdgeInsets.all(12.0),
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: NetworkImage(widget.userstate.profilPicture != null ? widget.userstate.profilPicture! : ''),
+                                  ),
+                                ),
+                              )
+                        ],
+                      ),
+                    ),
+                  ),
+                  CupertinoButton(
+                    onPressed: () async {
+                      _showChangePictureOptionsDialog(context);
+                    },
+                    child: Text('changePicture'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20, left: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ListTile(
+                          leading: SvgPicture.asset(
+                            'lib/images/notebook.svg',
+                            height: 20,
+                          ),
+                          title: TextFormField(
+                            controller: Controller.firstnameController,
+                            decoration: InputDecoration(
+                              disabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              fillColor: Theme.of(context).colorScheme.surface,
+                              hintText: widget.userstate.firstname,
+                            ),
+                          ),
+                          subtitle: Text(
+                            'Firstname',
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ),
+                        ListTile(
+                          leading: SvgPicture.asset(
+                            'lib/images/notebook.svg',
+                            height: 20,
+                          ),
+                          title: TextFormField(
+                            controller: Controller.lastnameController,
+                            decoration: InputDecoration(
+                              disabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              fillColor: Theme.of(context).colorScheme.surface,
+                              hintText: widget.userstate.lastname,
+                            ),
+                          ),
+                          subtitle: Text(
+                            'Lastname',
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.calendar_today),
+                          title: GestureDetector(
+                            onTap: () {
+                              _showdatePicker();
+                            },
+                            child: Text(
+                              // ignore: unnecessary_null_comparison
+                              _dateTime != null
+                                  ? '${_dateTime.day}.${_dateTime.month}.${_dateTime.year}'
+                                  : '${widget.userstate.birthday!.toDate().day}.${widget.userstate.birthday!.toDate().month}.${widget.userstate.birthday!.toDate().year}',
+                              style: TextStyle(
+                                fontSize: 15,
                               ),
                             ),
-                        if (_imageProcessing == ImageProcessing.none)
-                          if (widget.userstate.profilPicture == null || widget.userstate.profilPicture!.isEmpty)
-                            _standardAvatar(context)
-                          else
-                            Container(
-                              margin: const EdgeInsets.all(12.0),
-                              width: 100.0,
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(widget.userstate.profilPicture != null ? widget.userstate.profilPicture! : ''),
+                          ),
+                          subtitle: Text(
+                            'Birthday',
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ),
+                        ListTile(
+                          leading: SvgPicture.asset(
+                            'lib/images/globe.svg',
+                            height: 20,
+                          ),
+                          title: TextFormField(
+                            controller: Controller.streetnameController,
+                            decoration: InputDecoration(
+                              disabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              fillColor: Theme.of(context).colorScheme.surface,
+                              hintText: widget.userstate.address?.street,
+                            ),
+                          ),
+                          subtitle: Text(
+                            'Streetname',
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ),
+                        ListTile(
+                          leading: SvgPicture.asset(
+                            'lib/images/globe.svg',
+                            height: 20,
+                          ),
+                          title: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: Controller.zipCodeController,
+                            decoration: InputDecoration(
+                              disabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              fillColor: Theme.of(context).colorScheme.surface,
+                              hintText: widget.userstate.address?.zipCode,
+                            ),
+                          ),
+                          subtitle: Text(
+                            'Zipcode',
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ),
+                        ListTile(
+                          leading: SvgPicture.asset(
+                            'lib/images/globe.svg',
+                            height: 20,
+                          ),
+                          title: TextFormField(
+                            controller: Controller.placeController,
+                            decoration: InputDecoration(
+                              disabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              fillColor: Theme.of(context).colorScheme.surface,
+                              hintText: widget.userstate.address?.city,
+                            ),
+                          ),
+                          subtitle: Text(
+                            'Place',
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30),
+                          child: SizedBox(
+                            width: 350,
+                            child: RadioListTile(
+                                isThreeLine: true,
+                                groupValue: localOrNot,
+                                dense: true,
+                                title: Text(
+                                  AppLocalizations.of(context)!.authenticationNewcomerTitle,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Theme.of(context).colorScheme.primary,
+                                  ),
                                 ),
-                              ),
-                            )
+                                subtitle: Text(AppLocalizations.of(context)!.authenticationNewcomer),
+                                value: LocalOrNewcomer.newcomer,
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    localOrNot = newValue;
+                                    //widget.onSettingsChanged(_question);
+                                  });
+                                }),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30),
+                          child: SizedBox(
+                            width: 350,
+                            child: RadioListTile(
+                                isThreeLine: true,
+                                groupValue: localOrNot,
+                                dense: true,
+                                title: Text(
+                                  AppLocalizations.of(context)!.authenticationLocalTitle,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Theme.of(context).colorScheme.primary,
+                                  ),
+                                ),
+                                subtitle: Text(AppLocalizations.of(context)!.authenticationLocal),
+                                value: LocalOrNewcomer.local,
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    localOrNot = newValue;
+                                  });
+                                }),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                ),
-                CupertinoButton(
-                  onPressed: () async {
-                    _showChangePictureOptionsDialog(context);
-                  },
-                  child: Text('changePicture'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ListTile(
-                        leading: SvgPicture.asset(
-                          'lib/images/notebook.svg',
-                          height: 20,
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        Text(
+                          'About You',
+                          style: TextStyle(fontSize: 20),
                         ),
-                        title: TextFormField(
-                          controller: Controller.firstnameController,
-                          decoration: InputDecoration(
-                            disabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: widget.userstate.firstname,
-                          ),
-                        ),
-                        subtitle: Text(
-                          'Firstname',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                      ListTile(
-                        leading: SvgPicture.asset(
-                          'lib/images/notebook.svg',
-                          height: 20,
-                        ),
-                        title: TextFormField(
-                          controller: Controller.lastnameController,
-                          decoration: InputDecoration(
-                            disabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: widget.userstate.lastname,
-                          ),
-                        ),
-                        subtitle: Text(
-                          'Lastname',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.calendar_today),
-                        title: GestureDetector(
-                          onTap: () {
-                            _showdatePicker();
-                          },
-                          child: Text(
-                            // ignore: unnecessary_null_comparison
-                            _dateTime != null
-                                ? '${_dateTime.day}.${_dateTime.month}.${_dateTime.year}'
-                                : '${widget.userstate.birthday!.toDate().day}.${widget.userstate.birthday!.toDate().month}.${widget.userstate.birthday!.toDate().year}',
-                            style: TextStyle(
-                              fontSize: 15,
+                        Container(
+                          decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: BorderRadius.all(Radius.circular(20))),
+                          height: 150,
+                          width: 350,
+                          child: TextFormField(
+                            controller: Controller.aboutYouController,
+                            maxLines: 6,
+                            decoration: InputDecoration(
+                              disabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              fillColor: Theme.of(context).colorScheme.surface,
+                              hintText: widget.userstate.aboutMe,
                             ),
                           ),
                         ),
-                        subtitle: Text(
-                          'Birthday',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                      ListTile(
-                        leading: SvgPicture.asset(
-                          'lib/images/globe.svg',
-                          height: 20,
-                        ),
-                        title: TextFormField(
-                          controller: Controller.streetnameController,
-                          decoration: InputDecoration(
-                            disabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: widget.userstate.address?.street,
-                          ),
-                        ),
-                        subtitle: Text(
-                          'Streetname',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                      ListTile(
-                        leading: SvgPicture.asset(
-                          'lib/images/globe.svg',
-                          height: 20,
-                        ),
-                        title: TextFormField(
-                          keyboardType: TextInputType.number,
-                          controller: Controller.zipCodeController,
-                          decoration: InputDecoration(
-                            disabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: widget.userstate.address?.zipCode,
-                          ),
-                        ),
-                        subtitle: Text(
-                          'Zipcode',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                      ListTile(
-                        leading: SvgPicture.asset(
-                          'lib/images/globe.svg',
-                          height: 20,
-                        ),
-                        title: TextFormField(
-                          controller: Controller.placeController,
-                          decoration: InputDecoration(
-                            disabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: widget.userstate.address?.city,
-                          ),
-                        ),
-                        subtitle: Text(
-                          'Place',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: SizedBox(
-                          width: 350,
-                          child: RadioListTile(
-                              isThreeLine: true,
-                              groupValue: localOrNot,
-                              dense: true,
-                              title: Text(
-                                AppLocalizations.of(context)!.authenticationNewcomerTitle,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Theme.of(context).colorScheme.primary,
-                                ),
-                              ),
-                              subtitle: Text(AppLocalizations.of(context)!.authenticationNewcomer),
-                              value: LocalOrNewcomer.newcomer,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  localOrNot = newValue;
-                                  //widget.onSettingsChanged(_question);
-                                });
-                              }),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: SizedBox(
-                          width: 350,
-                          child: RadioListTile(
-                              isThreeLine: true,
-                              groupValue: localOrNot,
-                              dense: true,
-                              title: Text(
-                                AppLocalizations.of(context)!.authenticationLocalTitle,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Theme.of(context).colorScheme.primary,
-                                ),
-                              ),
-                              subtitle: Text(AppLocalizations.of(context)!.authenticationLocal),
-                              value: LocalOrNewcomer.local,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  localOrNot = newValue;
-                                });
-                              }),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    children: [
-                      Text(
-                        'About You',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: BorderRadius.all(Radius.circular(20))),
-                        height: 150,
-                        width: 350,
-                        child: TextFormField(
-                          controller: Controller.aboutYouController,
-                          maxLines: 6,
-                          decoration: InputDecoration(
-                            disabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            fillColor: Theme.of(context).colorScheme.surface,
-                            hintText: widget.userstate.aboutMe,
-                          ),
-                        ),
-                      ),
-                    ],
+                  SizedBox(
+                    height: 40,
                   ),
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                Text((context.read<AuthenticationBloc>().state as AuthenticatedUser).user!.emailVerified.toString()),
-                FFButton(
-                    onTap: () {
-                      FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
-                      profile.firstname = Controller.firstnameController.text;
-                      profile.lastname = Controller.lastnameController.text;
-                      profile.birthday = Timestamp.fromDate(_dateTime);
-                      profile.address = Address(street: Controller.streetnameController.text, zipCode: Controller.zipCodeController.text, city: Controller.placeController.text);
-                      profile.aboutMe = Controller.aboutYouController.text;
-                      switch (_imageProcessing) {
-                        case ImageProcessing.upload:
-                          context.read<ImageUploadBloc>().add(UploadImageEvent(_image, widget.userstate));
-                          context.pop();
-                          break;
-                        case ImageProcessing.delete:
-                          context.read<ImageUploadBloc>().add(DeleteImageEvent(widget.userstate));
-                          if (!_wasEmpty) {
-                            context.read<ImageUploadBloc>().add(DeleteImageEvent(widget.userstate));
+                  //Text((context.read<AuthenticationBloc>().state as AuthenticatedUser).user!.emailVerified.toString()),
+                  FFButton(
+                      onTap: () {
+                        FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
+                        profile.firstname = Controller.firstnameController.text;
+                        profile.lastname = Controller.lastnameController.text;
+                        profile.birthday = Timestamp.fromDate(_dateTime);
+                        profile.address = Address(street: Controller.streetnameController.text, zipCode: Controller.zipCodeController.text, city: Controller.placeController.text);
+                        profile.aboutMe = Controller.aboutYouController.text;
+                        switch (_imageProcessing) {
+                          case ImageProcessing.upload:
+                            context.read<ImageUploadBloc>().add(UploadImageEvent(_image, widget.userstate));
                             context.pop();
-                          } else {
+                            break;
+                          case ImageProcessing.delete:
+                            context.read<ImageUploadBloc>().add(DeleteImageEvent(widget.userstate));
+                            if (!_wasEmpty) {
+                              context.read<ImageUploadBloc>().add(DeleteImageEvent(widget.userstate));
+                              context.pop();
+                            } else {
+                              context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
+                              context.pop();
+                            }
+                            break;
+                          case ImageProcessing.none:
                             context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
                             context.pop();
-                          }
-                          break;
-                        case ImageProcessing.none:
-                          context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
-                          context.pop();
 
-                          break;
-                        default:
-                          context.pop();
-                      }
-                    },
-                    text: 'Update User'),
-                SizedBox(
-                  height: 30,
-                ),
-              ],
+                            break;
+                          default:
+                            context.pop();
+                        }
+                      },
+                      text: 'Update User'),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  FFButton(
+                    color: Colors.redAccent,
+                    onTap: () => _deleteAccountDialog(context),
+                    text: 'Account löschen',
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ));
+          )),
+    );
+  }
+
+  Future<void> _deleteAccountDialog(BuildContext context) {
+    return showDialog<void>(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Account löschen'),
+          content: const Text('Möchtest du deinen Account wirklich löschen? Achtung alle Daten werden dadurch unwiederbringlich gelöscht.'),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Abbrechen'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Löschen'),
+              onPressed: () {
+                context.read<AuthenticationBloc>().add(DeleteAccountEvent(user: (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!));
+                context.pop();
+                context.pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
