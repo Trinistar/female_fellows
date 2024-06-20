@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -174,9 +175,9 @@ class _EditProfileState extends State<EditProfile> {
   Widget build(BuildContext context) {
     return BlocListener<AuthenticationBloc, AuthenticationState>(
       listener: (context, state) {
-        if (state is Reauthenticate) {
-          context.push('/emailCheck');
-        }
+        /* if (state is Reauthenticate) {
+          context.push('/emailCheck', extra: true);
+        } */
       },
       child: AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle(
@@ -517,7 +518,7 @@ class _EditProfileState extends State<EditProfile> {
               ),
               child: const Text('Abbrechen'),
               onPressed: () {
-                Navigator.of(context).pop();
+                context.pop();
               },
             ),
             TextButton(
@@ -525,10 +526,22 @@ class _EditProfileState extends State<EditProfile> {
                 textStyle: Theme.of(context).textTheme.labelLarge,
               ),
               child: const Text('Löschen'),
-              onPressed: () {
-                context.read<AuthenticationBloc>().add(DeleteAccountEvent(user: (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!));
-                context.pop();
-                context.pop();
+              onPressed: () async {
+                try {
+                  await (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.delete();
+                  if (!mounted) return;
+
+                  context.pop();
+                  context.pop();
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'requires-recent-login') {
+                    context.pop();
+
+                    context.push('/emailCheck', extra: true);
+                  }
+                }
+                /* context.read<AuthenticationBloc>().add(DeleteAccountEvent(user: (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!));
+                context.pop(); */
               },
             ),
           ],

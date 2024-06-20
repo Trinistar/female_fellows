@@ -3,6 +3,7 @@ import 'package:femalefellows/blocs/LoginBloc/login_event.dart';
 import 'package:femalefellows/blocs/LoginBloc/login_state.dart';
 import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:femalefellows/provider/controller.dart';
+import 'package:femalefellows/provider/firebase/authrepository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,6 +29,7 @@ class _EmailCheckState extends State<EmailCheck> {
   bool isChecked = false;
 
   final _formKey = GlobalKey<FormState>();
+  final AuthRepository _authRepository = AuthRepository();
 
   @override
   void initState() {
@@ -43,6 +45,7 @@ class _EmailCheckState extends State<EmailCheck> {
         }
       },
       child: Scaffold(
+        appBar: AppBar(),
         resizeToAvoidBottomInset: false,
         backgroundColor: Theme.of(context).colorScheme.surface,
         body: ListView(
@@ -111,9 +114,14 @@ class _EmailCheckState extends State<EmailCheck> {
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: FFButton(
                   color: widget.isDeleteAccount ? Colors.redAccent : null,
-                  onTap: () {
+                  onTap: () async {
                     if (widget.isDeleteAccount) {
-                      context.read<AuthenticationBloc>().add(DeleteAccountEvent(user: (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!));
+                      var cred = await _authRepository.reauthenticateWithMail(
+                        (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!.email!,
+                        Controller.passwordController.text,
+                      );
+                      cred.user!.delete();
+                      //context.read<AuthenticationBloc>().add(DeleteAccountEvent(user: (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!));
                       context.pop();
                       context.pop();
                     } else {

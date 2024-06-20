@@ -283,7 +283,7 @@ final GoRouter _router = GoRouter(
       path: '/emailCheck',
       parentNavigatorKey: _rootNavigatorKey,
       builder: (BuildContext context, GoRouterState state) {
-        return const EmailCheck();
+        return EmailCheck(isDeleteAccount: state.extra as bool);
       },
     ),
     StatefulShellRoute.indexedStack(
