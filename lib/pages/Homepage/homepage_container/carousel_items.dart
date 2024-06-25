@@ -26,10 +26,23 @@ class CarouselItem extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                          height: 100,
-                          width: double.infinity,
-                          decoration: BoxDecoration(color: Theme.of(context).colorScheme.secondary, borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40))),
-                          child: Image.asset('lib/images/Mask group2.png')),
+                        height: 100,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)),
+                          image: (event.picture != null && event.picture!.isNotEmpty)
+                              ? DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(
+                                    event.picture!,
+                                  ))
+                              : DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                    'lib/images/partner1.png',
+                                  )),
+                        ),
+                      ),
                       SizedBox(
                         height: 5,
                       ),

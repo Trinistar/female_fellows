@@ -178,7 +178,15 @@ class _HomeState extends State<Home> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
           ),
-          //carousel
+          Padding(
+            padding: const EdgeInsets.only(left: 25.0, bottom: 30),
+            child: Divider(
+                color: Theme.of(context).colorScheme.primary,
+                thickness: 5,
+                endIndent: 320,
+                indent: 15,
+              ),
+          ),
           SizedBox(
             height: 150,
             width: 1000,

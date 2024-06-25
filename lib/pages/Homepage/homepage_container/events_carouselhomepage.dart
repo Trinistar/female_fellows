@@ -9,66 +9,68 @@ import 'package:femalefellows/provider/firebase/firestore_event_repository.dart'
 class EventCarousel extends StatelessWidget {
   const EventCarousel({super.key, this.pagechange});
   final void Function(int)? pagechange;
+  
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 1000,
       color: Theme.of(context).colorScheme.surfaceVariant,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 10,
-              ),
-              child: Text(
-                AppLocalizations.of(context)!.homeEventsTeaserTitle,
-                style: TextStyle(fontSize: 20),
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 40,
             ),
-            Divider(
+            child: Text(
+              AppLocalizations.of(context)!.homeEventsTeaserTitle,
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0),
+            child: Divider(
               color: Theme.of(context).colorScheme.primary,
               thickness: 5,
               endIndent: 320,
               indent: 15,
             ),
-            SizedBox(
-              height: 30,
-            ),
-            BlocBuilder<AllEventsStore, List<Event>>(
-              builder: (context, state) {
-                return SizedBox(
-                  height: 220,
-                  width: 1000,
-                  child: ListView.builder(
-                    itemCount:state.length ,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return CarouselItem(
-                        event: state [index],
-                      );
-                    },
-                  ),
-                );
-              },
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10,top: 30),
-              child: GestureDetector(
-                onTap: () => context.go('/events'),
-                child: Text(
-                  'Zu allen Events',
-                  style: TextStyle(
-                      fontSize: 13,
-                      decoration: TextDecoration.underline,
-                      decorationThickness: 1),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          BlocBuilder<AllEventsStore, List<Event>>(
+            builder: (context, state) {
+              return SizedBox(
+                height: 220,
+                width: 1000,
+                child: ListView.builder(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  itemCount:state.length ,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return CarouselItem(
+                      event: state [index],
+                    );
+                  },
                 ),
+              );
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 40,top: 30),
+            child: GestureDetector(
+              onTap: () => context.go('/events'),
+              child: Text(
+                'Zu allen Events',
+                style: TextStyle(
+                    fontSize: 13,
+                    decoration: TextDecoration.underline,
+                    decorationThickness: 1),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

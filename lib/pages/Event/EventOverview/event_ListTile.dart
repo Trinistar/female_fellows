@@ -20,22 +20,25 @@ class EventListTile extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                image: (event.picture != null && event.picture!.isNotEmpty)
-                    ? DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          event.picture!,
-                        ))
-                    : DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage(
-                          'lib/images/partner1.png',
-                        )),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  image: (event.picture != null && event.picture!.isNotEmpty)
+                      ? DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                            event.picture!,
+                          ))
+                      : DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                            'lib/images/partner1.png',
+                          )),
+                ),
               ),
             ),
             Expanded(
