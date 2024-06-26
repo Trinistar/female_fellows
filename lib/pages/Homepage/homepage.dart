@@ -188,7 +188,7 @@ class _HomeState extends State<Home> {
               ),
           ),
           SizedBox(
-            height: 150,
+            height: 160,
             width: 1000,
             child: ListView(
               scrollDirection: Axis.horizontal,

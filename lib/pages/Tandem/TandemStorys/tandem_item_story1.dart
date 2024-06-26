@@ -7,7 +7,7 @@ class TandemItemStoryOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: GestureDetector(
         onTap: () => context.push('/tandemStoryOne'),
         child: Stack(
