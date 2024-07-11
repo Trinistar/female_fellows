@@ -55,13 +55,15 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 actions: [
                   IconButton(
                     onPressed: () {
-                      context.go('/profile/editProfile', extra: state.userProfile);
+                      context.go('/profile/editProfile',
+                          extra: state.userProfile);
                     },
                     icon: Icon(Icons.edit),
                     color: Colors.white,
                   ),
                   IconButton(
-                    onPressed: () => context.read<AuthenticationBloc>().add(SignOutEvent()),
+                    onPressed: () =>
+                        context.read<AuthenticationBloc>().add(SignOutEvent()),
                     icon: Icon(Icons.logout),
                     color: Colors.white,
                   ),
@@ -84,19 +86,26 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 25),
-                          child: DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.primary),
+                          child: DividerBouthCorner(
+                              color1: Colors.white,
+                              color2: Theme.of(context).colorScheme.primary),
                         ),
                         Center(
-                          child: (state.userProfile!.profilPicture != null && state.userProfile!.profilPicture!.isNotEmpty)
+                          child: (state.userProfile!.profilPicture != null &&
+                                  state.userProfile!.profilPicture!.isNotEmpty)
                               ? CircleAvatar(
-                                  backgroundImage: NetworkImage(state.userProfile!.profilPicture!),
+                                  backgroundImage: NetworkImage(
+                                      state.userProfile!.profilPicture!),
                                   radius: 75,
-                                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.secondary,
                                 )
                               : CircleAvatar(
-                                  backgroundImage: AssetImage('lib/images/ImageIcon.png'),
+                                  backgroundImage:
+                                      AssetImage('lib/images/ImageIcon.png'),
                                   radius: 75,
-                                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.secondary,
                                 ),
                         ),
                       ],
@@ -111,13 +120,26 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  !(state.user!.emailVerified)
-                      ? FFButton(
-                          color: Colors.redAccent,
-                          onTap: () => (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.sendEmailVerification(HelperFunctions.getActionCodeSettings((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.email!)),
-                          text: 'E-Mail-Adresse verifizieren',
-                        )
-                      : SizedBox.shrink(),
+                  if (!state.user!.emailVerified) ...[
+                    FFButton(
+                      color: Colors.redAccent,
+                      onTap: () => (BlocProvider.of<AuthenticationBloc>(context)
+                              .state as AuthenticatedUser)
+                          .user!
+                          .sendEmailVerification(
+                              HelperFunctions.getActionCodeSettings(
+                                  (BlocProvider.of<AuthenticationBloc>(context)
+                                          .state as AuthenticatedUser)
+                                      .user!
+                                      .email!)),
+                      text: 'E-Mail-Adresse verifizieren',
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                          'Bitte E-Mail verifizieren um an Events oder dem Tandem-Projekt teilzunehmen. Falls du keine Mail von uns bekommen hast, schaue im Spamordner nach.'),
+                    )
+                  ],
 
                   ///User Inhalt
                   ///
@@ -136,7 +158,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   SizedBox(
                     width: double.maxFinite,
                     height: 600,
-                    child: TabBarView(controller: _profilTabController, children: [
+                    child:
+                        TabBarView(controller: _profilTabController, children: [
                       ProfilOverview(
                         userstate: state.userProfile!,
                       ),

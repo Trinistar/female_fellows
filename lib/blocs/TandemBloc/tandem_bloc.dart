@@ -44,7 +44,7 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
     return emit.onEach(
       _firestoreUserprofileRepository.getAllTandems(event.profile.tandemTypeFilter.toString()),
       onData: (List<FFUser> tandems) async {
-        if (tandems.isEmpty) emit(TandemsNotLoaded());
+        if (tandems.isEmpty) return emit(TandemsNotLoaded());
 
         emit(TandemNewcomersLoaded(tandems: await _filterGeoTandems(event.profile, tandems)));
       },
@@ -55,7 +55,7 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
     return emit.onEach(
       _firestoreUserprofileRepository.getAllTandems('local'),
       onData: (List<FFUser> tandems) async {
-        if (tandems.isEmpty) emit(TandemsNotLoaded());
+        if (tandems.isEmpty) return emit(TandemsNotLoaded());
 
         final List<FFUser> current = await _filterGeoTandems(event.profile, tandems);
 
@@ -68,7 +68,7 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
     return emit.onEach(
       _firestoreUserprofileRepository.getAllTandems('newcomer'),
       onData: (List<FFUser> tandems) async {
-        if (tandems.isEmpty) emit(TandemsNotLoaded());
+        if (tandems.isEmpty) return emit(TandemsNotLoaded());
 
         emit(TandemNewcomersLoaded(tandems: await _filterGeoTandems(event.profile, tandems)));
       },
