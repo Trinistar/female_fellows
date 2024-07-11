@@ -29,10 +29,17 @@ class DetailEvent extends StatefulWidget {
 class _DetailEventState extends State<DetailEvent> {
   @override
   void initState() {
-    if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser && HelperFunctions.isAdmin((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).tokenResult!.claims)) {
-      BlocProvider.of<EventBloc>(context).add(LoadEvent(eventId: widget.eventId, isAdmin: true));
+    if (BlocProvider.of<AuthenticationBloc>(context).state
+            is AuthenticatedUser &&
+        HelperFunctions.isAdmin((BlocProvider.of<AuthenticationBloc>(context)
+                .state as AuthenticatedUser)
+            .tokenResult!
+            .claims)) {
+      BlocProvider.of<EventBloc>(context)
+          .add(LoadEvent(eventId: widget.eventId, isAdmin: true));
     } else {
-      BlocProvider.of<EventBloc>(context).add(LoadEvent(eventId: widget.eventId));
+      BlocProvider.of<EventBloc>(context)
+          .add(LoadEvent(eventId: widget.eventId));
     }
     super.initState();
   }
@@ -70,9 +77,12 @@ class _DetailEventState extends State<DetailEvent> {
           ),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) {
-              if (state is AuthenticatedUser && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
+              if (state is AuthenticatedUser &&
+                  HelperFunctions.isAdmin(state.tokenResult!.claims)) {
                 return IconButton(
-                  onPressed: () => context.go('/events/detailEvent/${widget.eventId}/updateEvent', extra: event),
+                  onPressed: () => context.go(
+                      '/events/detailEvent/${widget.eventId}/updateEvent',
+                      extra: event),
                   icon: Icon(Icons.edit),
                 );
               } else {
@@ -93,7 +103,8 @@ class _DetailEventState extends State<DetailEvent> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Event melden'),
-          content: const Text('Möchten Sie dieses Event wegen unangemessener Inhalte melden?'),
+          content: const Text(
+              'Möchten Sie dieses Event wegen unangemessener Inhalte melden?'),
           actions: <Widget>[
             TextButton(
               style: TextButton.styleFrom(
@@ -125,19 +136,20 @@ class _DetailEventState extends State<DetailEvent> {
       children: [
         Container(
           decoration: BoxDecoration(
-            image: (eventState.picture != null && eventState.picture!.isNotEmpty)
-                ? DecorationImage(
-                    image: NetworkImage(
-                      eventState.picture!,
-                    ),
-                    fit: BoxFit.cover,
-                  )
-                : DecorationImage(
-                    image: AssetImage(
-                      'lib/images/Mask group2.png',
-                    ),
-                    fit: BoxFit.cover,
-                  ),
+            image:
+                (eventState.picture != null && eventState.picture!.isNotEmpty)
+                    ? DecorationImage(
+                        image: NetworkImage(
+                          eventState.picture!,
+                        ),
+                        fit: BoxFit.cover,
+                      )
+                    : DecorationImage(
+                        image: AssetImage(
+                          'lib/images/Mask group2.png',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
             color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(60),
@@ -146,7 +158,9 @@ class _DetailEventState extends State<DetailEvent> {
           height: 215,
           width: 1000,
         ),
-        Artbar(colorleft: Theme.of(context).colorScheme.secondary, colorright: Colors.white),
+        Artbar(
+            colorleft: Theme.of(context).colorScheme.secondary,
+            colorright: Colors.white),
         Padding(
           padding: const EdgeInsets.only(left: 40),
           child: Column(
@@ -190,25 +204,60 @@ class _DetailEventState extends State<DetailEvent> {
         BlocBuilder<AuthenticationBloc, AuthenticationState>(
           builder: (context, state) {
             if (state is AuthenticatedUser) {
-              if (state.userProfile!.participatingEvents.contains(eventState.id)) {
-                return FFButton(
-                  onTap: () {
-                    final Map<String, dynamic> map = <String, dynamic>{};
-                    map['participating'] = false;
-                    context.read<AuthenticationBloc>().add(RevokeEventParticipationEvent(userId: state.user!.uid, eventId: widget.eventId, userData: state.userProfile!, participation: map));
-                  },
-                  text: AppLocalizations.of(context)!.eventButtonSignout,
-                  color: Colors.red,
-                );
+              if (state.user!.emailVerified) {
+                if (state.userProfile!.participatingEvents
+                    .contains(eventState.id)) {
+                  return FFButton(
+                    onTap: () {
+                      final Map<String, dynamic> map = <String, dynamic>{};
+                      map['participating'] = false;
+                      context.read<AuthenticationBloc>().add(
+                          RevokeEventParticipationEvent(
+                              userId: state.user!.uid,
+                              eventId: widget.eventId,
+                              userData: state.userProfile!,
+                              participation: map));
+                    },
+                    text: AppLocalizations.of(context)!.eventButtonSignout,
+                    color: Colors.red,
+                  );
+                } else {
+                  return FFButton(
+                    onTap: () => context.go(
+                        '/events/detailEvent/${widget.eventId}/eventOnboarding',
+                        extra: eventState),
+                    text: AppLocalizations.of(context)!.eventButtonSignin,
+                  );
+                }
               } else {
-                return FFButton(
-                  onTap: () => context.go('/events/detailEvent/${widget.eventId}/eventOnboarding', extra: eventState),
-                  text: AppLocalizations.of(context)!.eventButtonSignin,
+                return Column(
+                  children: [
+                    FFButton(
+                      color: Colors.redAccent,
+                      onTap: () => (BlocProvider.of<AuthenticationBloc>(context)
+                              .state as AuthenticatedUser)
+                          .user!
+                          .sendEmailVerification(
+                              HelperFunctions.getActionCodeSettings(
+                                  (BlocProvider.of<AuthenticationBloc>(context)
+                                          .state as AuthenticatedUser)
+                                      .user!
+                                      .email!)),
+                      text: 'E-Mail-Adresse verifizieren',
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(35.0),
+                      child: Text(
+                          'Bitte E-Mail verifizieren um an Events oder dem Tandem-Projekt teilzunehmen. Falls du keine Mail von uns bekommen hast, schaue im Spamordner nach. Wenn du den Link in der Mail bereits geklickt hast und diesen Text immer noch siehst, logge dich bitte erneut ein.'),
+                    )
+                  ],
                 );
               }
             } else if (state is UnauthenticatedUser) {
               return FFButton(
-                onTap: () => context.go('/events/detailEvent/${widget.eventId}/eventNotAuthenticated', extra: eventState),
+                onTap: () => context.go(
+                    '/events/detailEvent/${widget.eventId}/eventNotAuthenticated',
+                    extra: eventState),
                 text: AppLocalizations.of(context)!.eventButtonSignin,
               );
             } else {
@@ -223,13 +272,14 @@ class _DetailEventState extends State<DetailEvent> {
         EventCategorys(selectedCats: eventState.categories!),
         EventImages(),
         DividerBouthCorner(
-          color1: Theme.of(context).colorScheme.surfaceVariant,
+          color1: Theme.of(context).colorScheme.surfaceContainerHighest,
           color2: Colors.white,
         ),
         EventMaterials(eventState: eventState),
         BlocBuilder<AuthenticationBloc, AuthenticationState>(
           builder: (context, state) {
-            if (state is AuthenticatedUser && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
+            if (state is AuthenticatedUser &&
+                HelperFunctions.isAdmin(state.tokenResult!.claims)) {
               return ParticipantsData();
             } else {
               return SizedBox.shrink();
@@ -238,7 +288,7 @@ class _DetailEventState extends State<DetailEvent> {
         ),
         Container(
           height: 30,
-          color: Theme.of(context).colorScheme.surfaceVariant,
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
         )
       ],
     );

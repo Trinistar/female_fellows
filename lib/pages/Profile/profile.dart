@@ -137,7 +137,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Text(
-                          'Bitte E-Mail verifizieren um an Events oder dem Tandem-Projekt teilzunehmen. Falls du keine Mail von uns bekommen hast, schaue im Spamordner nach.'),
+                          'Bitte E-Mail verifizieren um an Events oder dem Tandem-Projekt teilzunehmen. Falls du keine Mail von uns bekommen hast, schaue im Spamordner nach. Wenn du den Link in der Mail bereits geklickt hast und diesen Text immer noch siehst, logge dich bitte erneut ein.'),
                     )
                   ],
 

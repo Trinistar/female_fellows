@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/models/events.dart';
 import 'package:femalefellows/pages/Event/EventComponents/participants_image_row.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class EventItems extends StatelessWidget {
@@ -52,8 +52,11 @@ class EventItems extends StatelessWidget {
               if (state is AuthenticatedUser) {
                 return ListTile(
                   leading: Icon(Icons.location_on_outlined),
-                  title: Text(
+                  title: state.user!.emailVerified ? Text(
                     '${eventState.location.street}, ${eventState.location.zipCode} ${eventState.location.city}',
+                    style: TextStyle(fontSize: 15),
+                  ) : Text(
+                    eventState.location.city,
                     style: TextStyle(fontSize: 15),
                   ),
                   subtitle: Text(
