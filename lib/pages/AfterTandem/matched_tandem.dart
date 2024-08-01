@@ -53,7 +53,7 @@ class _AfterTandemState extends State<AfterTandem> {
                   SizedBox(
                     width: 350,
                     child: Text(
-                      AppLocalizations.of(context)!.tandemAftermatchedActivitys,
+                      AppLocalizations.of(context)!.tandemAftermatchedActivities,
                       style: TextStyle(
                         fontSize: 20,
                       ),

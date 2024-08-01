@@ -1,529 +1,548 @@
 {
-    "onboardingPageOneTitle": "Behind every \nstrong woman\nstand strong women.",
-    "onboardingPageOneBody": "We are here to empower women\nwith refugee and migrant\nexperinces\nand live out empowerment",
-    "onboardingPageTwoTitle": "Finding the\nperfect Tandem\nPartner.",
-    "onboardingPageTwoBody": "The Female Fellows Tandem Project\nconnects women with and without\nrefugee and migration experiences.",
-    "onboardingPageThreeTitle": "Participate in\nexciting\nevents.",
-    "onboardingPageThreeBody": "Enjoy a variety of\nevents organized by women\nfor women. You\ncan participate in live events and\ndigital activities.",
-    "onboardingPageFourTitle": "Become part of our\nFemale Fellows\nCommunity.",
-    "onboardingPageFourBody": "Dive into our themed groups\nto share and network with\n like-minded people.\nLet the success stories\nof other tandems inspire you.",
-    "buttonRegistration": "Join us",
-    "intro": "Return to start",
-    "skip": "Skip",
+    "onboardingPageOneTitle": "Behind every \nsstrong woman\nsre strong\n women",
+    "onboardingPageOneBody": "We are here to empower women\nwith refugee and migration\nexperience and \to live fempowerment.",
+    "onboardingPageTwoTitle": "Find the perfect\nTandem-\n partner.",
+    "onboardingPageTwoBody": "The Female Fellows Tandem Project\nconnects women with and without\nrefugee and migration experience.",
+    "onboardingPageThreeTitle": "Take part in\nexciting\nevents.",
+    "onboardingPageThreeBody": "Enjoy a variety of\nevents organized by women\n anf for women. You\n can take part in live events \n and digital activities.",
+    "onboardingPageFourTitle": "Become a part of our\nFemale Fellows\nCommunity.",
+    "onboardingPageFourBody": "Dive into our theme groups\n, to exchange ideas and \nnetwork with like-minded people.n\nLBe inspired by the success stories\nof other tandems.",
+    "buttonRegistration": "Become a member",
+    "intro": "Back to the introduction",
+    "skip": "Cancel",
     "start": "Start",
-    "startnow": "Get started",
+    "startnow": "Start now",
+    "loginPageTitle": "Login",
     "password": "Password",
     "email": "Email",
     "signin": "Sign in",
-    "signinTextup": "Noch nicht Registriert?",
-    "signinTextdown": "klicke hier!",
-    "loginContinue": "Weiter ohne Anmeldung",
-    "loginTextup": "Schon Registriert?",
-    "loginTextdown": " klicke hier!",
-    "loginPageTitle": "Sign in",
-    "loginPageBody": "Sign in with your email and you password",
+    "signinTextup": "Not registered yet?",
+    "signinTextdown": "Click here!",
+    "loginTextup": "Already registered?",
+    "loginTextdown": "Click here!",
+    "loginContinue": "Continue without login",
+    "loginPageBody": "Log in with your email and password",
     "verificationTitle": "Verification",
-    "verficationBody": "Enter your email\nand password",
-
-    "authenticationAge": "Wie alt bist du?",
-    "authenticationAgeImage": "Klick auf das Bild",
-    "authenticationAgeBirthday": "Dein Geburtstag:",
-    "authenticationConnection": "Wie möchtest du dich\ntreffen?",
-    "authenticationConnectionPlace": "vor Ort",
+    "verficationBody": "Enter your Email\nand your passwort here",
+    "authenticationAge": "How old are you?",
+    "authenticationAgeImage": "Click on the picture",
+    "authenticationAgeBirthday": "Your birthday:",
+    "authenticationConnection": "How would you \nlike to meet?",
+    "authenticationConnectionPlace": "Locally",
     "authenticationConnectionOnline": "Online",
-    "authenticationConnectionOnlinePlace": "vor Ort & Online",
-    "authenticationTitle": "Mitglied werden",
-    "authenticationHow": "Wie bist du auf uns\naufmerksam geworden?",
+    "authenticationConnectionOnlinePlace": "Locally & Online",
+    "authenticationTitle": "Become a member",
+    "authenticationHow": "How did you become\naware of us?",
     "authenticationInstagram": "Instagram",
     "authenticationFacebook": "Facebook",
     "authenticationLinkedin": "Linkedin",
-    "authenticationPresse": "Presse/Zeitung",
-    "authenticationFreunde": "Freunde",
-    "authenticationSonstiges": "Sonstiges",
-    "authenticationNotificationTitle": "Wie können wir dich\nerreichen?",
-    "authenticationCall": "Anruf",
+    "authenticationPresse": "Press/Newspaper",
+    "authenticationFreunde": "Friends",
+    "authenticationSonstiges": "Other",
+    "authenticationNotificationTitle": "How can we \nreach out to you?",
+    "authenticationCall": "Call",
     "authenticationWhatsApp": "Whatsapp",
     "authenticationEmail": "Email",
-    "authenticationHandy": "Handynummer",
-    "authenticationPlace": "Wo wohnst du?",
-    "authenticationStreet": "Straße und Hausnummer",
-    "authenticationPostcode": "Postleitzahl und Wohnort",
-    "authenticationSafetyTitle": "Datenschutzerklärung\nund Newsletter",
-    "authenticationNewsletter": "Ja, ich möchte den Newsletter abonnieren ",
-    "authenticationAGBS": "Ja, ich habe die Datenschutz-\nvereinbarung und die AGB`s\nvon Female Fellows e.V. gelesen und stimme zu.",
-    "authenticationWho": "Wer bist du?",
-    "authenticationPicture": "Profilbild / Avatar auswählen",
-    "authenticationFirstname": "Vorname",
-    "authenticationLastname": "Nachname",
-    "authenticationNewcomerTitle": "Ich bin Newcomer",
-    "authenticationNewcomer": "Du wünschst dir mehr Kontakt zu Frauen,\ndie sich gut in Deutschland auskennen?",
-    "authenticationLocalTitle": "Ich bin Local",
-    "authenticationLocal": "Du sucht einen kulturellen Austausch und\nmöchtest dich für ein gutes Zusammenleben stark\nmachen?",
-   
-    "homeWelcomeTextOne": "Hallo",
-    "homeWelcomeTextTwo": "Schön, dass du dabei bist!",
-    "homeInfo": "Entdecke Events, finde dein \nperfekte Tandem-Partnerin\nund lass dich von unseren \nTandem-Stories inspirieren.",
-    "homeTandemstoriesTitle": "Tandemstories",
+    "authenticationHandy": "Mobile number",
+    "authenticationPlace": "Where do you live?",
+    "authenticationStreet": "Street and house number",
+    "authenticationPostcode": "Postcode and city",
+    "authenticationSafetyTitle": "Privacy policy\nand Newsletter",
+    "authenticationNewsletter": "Yes, I would like to subscribe to the newsletter",
+    "authenticationAGBS": "Yes, I have read the data protection\nagreement and the TERMS AND CONDITIONS\nof Female Fellows e.V. and I agree with them.",
+    "authenticationWho": "Who are you",
+    "authenticationPicture": "Choose /nyour Profile picture or Avatar",
+    "authenticationFirstname": "First name",
+    "authenticationLastname": "Last name",
+    "authenticationNewcomerTitle": "I am a newcomer",
+    "authenticationNewcomer": "Would you like to have more contact\nwith women who know their way around Germany?",
+    "authenticationLocalTitle": "I am a local",
+    "authenticationLocal": "Are you looking for a cultural exchange\nand would you like to make a contribution to \ngood coexistence??",
+    "homeWelcomeTextOne": "Hello",
+    "homeWelcomeTextTwo": "Nice to have you with us!",
+    "homeInfo": "Discover Events, find your \nperfect tandem partner\nund get inspired by our \ntandem stories.",
+    "homeTandemstoriesTitle": "andem stories",
     "homeTandemstoryOneSubTitle": "Erfahrungsbericht der Tandems",
-    "homeTandemstoryOneBodyOne": "Ein Tandem mit einer Frau, die aus einem anderen Land stammt, zu haben ist eine bereichernde Erfahrung, die ich nicht mehr missen möchte.Makai hatte zunächst vor allem zum Deutschlernen eine hier beheimatete Frau gesucht. Doch auch das gemeinsame Lernen war meistens schon davon begleitet, dass wir gemeinsam Chai getrunken, etwas gegessen, uns ausgetauscht und viel gemeinsam gelacht haben. Ich finde die Zeit, dass man in Form von interessanten Einblicken, neuen Kontakten und einem ganz praktischen kulturellen Lernen tausendmal zurückbekommt.",
-    "homeTandemstoryOneBodyTwo": "Es war ein Kennenlernen für uns beide: Nicht nur ich habe Makai Deutsch und etwas über das Leben hier beigebracht– ich konnte von ihr und ihrer Familie auch total viel über Afghanistan, die Lebensweise dort und auch über die Bedingungen für Geflüchtete hier in Deutschland lernen. Ich finde es total wichtig, als Frau andere Frauen darin zu bestärken, alle Möglichkeiten, die wir haben, für sich zu nutzen. Gemeinsam haben wir auch viele Freizeitaktivitäten in Stuttgart unternommen, waren schwimmen, im Park oder der Bücherei. Da konnte ich meine Stadt selbst nochmal mit ganz anderen Augen kennenlernen und zeigen, was ich hier schätze. Der Verein bietet auch mega schöne und vielseitige Aktivitäten für die ganze Gemeinschaft an, in der man eine interessante Zeit mit anderen Frauen verbringen kann.Ich kann nur jede interessierte Frau ermutigen, selbst auch diese sinnvolle Chance zu nutzen und andere Frauen zu unterstützen!",
-    "homeTandemTeaser": "Finde deine perfekte \nTandem-Partnerin ",
-    "homeEventsTeaserTitle": "Schau bei unseren Events vorbei.",
-    "homeVereinInfoTitle": "Über den Verein",
-    "homeVereinInfoOneTitle": "Unsere Mission",
-    "homeVereinInfoOneBody": "Der Verein Female Fellows e.V. setzt sich aktuell insbesondere für die Stärkung von Frauen mit Flucht- und Migrationserfahrung ein. Unter dem Motto „Hinter jeder starken Frau stehen starke Frauen“ möchten wir zum Fempowerment und damit zu einer Gesellschaft beitragen, die ihre Vielfalt lebt und in der alle gleichberechtigt mitgestalten. Die ehrenamtlich vermittelten Tandem-Projekte in Stuttgart, Bietigheim-Bissingen und Tübingen zeichnen sich daher neben sprachlicher und alltäglicher Unterstützung vor allem durch Events und Unternehmungen jeglicher Art aus – denn Begegnungen sind der Schlüssel für einen inspirierenden, helfenden, offenen und horizonterweiternden Umgang miteinander.",
-    "homeVereinInfoTwoBody": "Laut einer aktuellen Studie der OECD werden weibliche Geflüchtete schlechter in die deutsche Gesellschaft integriert. Grund hierfür ist die geringe Teilnahme an Integrationsangeboten und wenig Kontakt zu Einheimischen. Nur 12% der geflüchteten Frauen in Deutschland haben täglich Kontakt zu Einheimischen. Female Fellows möchte diesem Phänomen durch das Tandemprojekt entgegenwirken und einen großen ersten Schritt hin zu einem gelungenen Miteinander machen. Das Tandemprojekt ermöglicht und fördert darüber hinaus den kulturellen Austausch.Diese Frauen haben das Potenzial, die Kapazität und die Fähigkeit zum Handeln! Es geht darum, das Potenzial der Frauen zu nutzen, sie stark zu machen und zu ermutigen!",
-    "homeVereinInfoThreeTitle": "Kooperations-\npartner",
-    "homeVereinInfoThreeBody": "Vielen Dank! Wir möchten uns bei allen Ehrenamtlichen und fleißigen Helfer*innen für ihre Zeit, Geduld und ihre Begeisterung bedanken. Ein großer Dank gilt auch allen unseren Spender*innen und Unterstützer*innen, die an uns glauben und das Projekt so mittragen. Auch unseren vielen Teilnehmer*innen möchten wir herzlich für ihr Vertrauen, ihre Offenheit und ihre Lebensfreude danken! Ohne euch alle wäre das Projekt nur eine fixe Idee geblieben!",
-    "homeVereinInfoThreeButton": "Zu den Kooperationspartner",
-    "homeLinkOneTitle": "Werde Teil unseres bunten Teams",
-    "homeLinkTwoTitle": "Förder*in werden",
-    "homeNewsTitle": "Neuigkeiten",
-    
-    "profilOverview": "Übersicht",
-    "profilProgress": "Fortschritt",
-    "profilProgressMember": "Mitglied seit\nTagen",
-    "profilProgressEvents": "An Events \n teilgenommen",
-    "profilProgressQualification": "Ehrentamtsnachweis beantragen",
-    "profilSettingsMainTitle": "Einstellungen",
-    "profilSettingFieldOne": "Benachrichtigungen",
-    "profilSettingFieldTwo": "Über uns",
+    "homeTandemstoryOneBodyOne": "A tandem with a woman from another country is an enriching experience that I wouldn't want to do without.Makai had initially been looking for a woman who lived here primarily to learn German. But even learning together was usually accompanied by drinking chai, eating something, chatting and laughing a lot together. I think you get a thousand times the time back in the form of interesting insights, new contacts and very practical cultural learning. A tandem with a woman from another country is an enriching experience that I wouldn't want to do without.Makai had initially been looking for a woman who lived here primarily to learn German. But even learning together was usually accompanied by drinking chai, eating something, chatting and laughing a lot together. I think you get a thousand times the time back in the form of interesting insights, new contacts and very practical cultural learning.",
+    "homeTandemstoryOneBodyTwo": "It was an opportunity for both of us to get to know each other: I wasn't the only one who taught Makai German and something about life here - I was also able to learn a lot from her and her family about Afghanistan, the way of life there and also about the conditions for refugees here in Germany. I think it's really important as a woman to encourage other women to take advantage of all the opportunities we have. We also did lots of leisure activities together in Stuttgart, went swimming, to the park or the library. I was able to get to know my city through completely different eyes and show what I appreciate here. The association also offers mega fun and varied activities for the whole community, where you can spend an interesting time with other women, and I can only encourage every interested woman to take advantage of this meaningful opportunity and support other women!",
+    "homeTandemTeaser": "Find your perfect \ntandem partner ",
+    "homeEventsTeaserTitle": "Stop by at our events",
+    "homeVereinInfoTitle": "About the association",
+    "homeVereinInfoOneTitle": "Our mission",
+    "homeVereinInfoOneBody": "The Female Fellows e.V. association is currently particularly committed to empowering women who have refugee and migration experience. Under the motto ‘Behind every strong woman are strong women’, we want to contribute to empowerment and thus to a society that embraces its diversity and in which everyone has an equal say. The volunteer Tandem projects in Stuttgart, Bietigheim-Bissingen and Tübingen are therefore characterised not only by language and everyday support, but above all by events and activities of all kinds - because encounters are the key to inspiring, helpful, open and horizon-broadening interaction with one another.",
+    "homeVereinInfoTwoBody": "According to a recent study by the OECD, female refugees are less well integrated into German society. The reason for this is the low level of participation in integration programmes and little contact with locals. Only 12% of refugee women in Germany have daily contact with locals. Female Fellows aims to counteract this phenomenon through the tandem project and take a big first step towards successful interaction. The tandem project also facilitates and promotes cultural exchange - these women have the potential, the capacity and the ability to act! It's about utilising the potential of women, empowering and encouraging them!",
+    "homeVereinInfoThreeTitle": "Cooperation\npartner",
+    "homeVereinInfoThreeBody": "Thank you very much! We would like to thank all our volunteers and hard-working helpers for their time, patience and enthusiasm. A big thank you also goes to all our donors and supporters who believe in us and support the project. We would also like to thank our many participants for their trust, their openness and their joie de vivre! Without all of you, the project would have remained just an idea!",
+    "homeVereinInfoThreeButton": "About the cooperation partners",
+    "homeLinkOneTitle": "Become part of our colourful team",
+    "homeLinkTwoTitle": "Become a supporter",
+    "homeNewsTitle": "News",
+    "profilOverview": "Overview",
+    "profilProgress": "Progress",
+    "profilProgressMember": "Member since\nDays",
+    "profilProgressEvents": "Attended \n events",
+    "profilProgressQualification": "Apply for proof of honour",
+    "profilSettingsMainTitle": "Settings",
+    "profilSettingFieldOne": "Notifications",
+    "profilSettingFieldTwo": "About us",
     "profilSettingFieldThree": "App Review",
     "profilSettingFieldFour": "Feedback",
-    "profilSettingFieldFive": "Datenschutzerklärung",
-    "profilSettingFieldSix": "Impressum",
-   
-    "eventsPageAllState": "Keine Events vorhanden",
-    "eventsPageEventState":"Du hast dich noch für keine Events angemeldet",
-    "eventsPageFavorits": "Du hast noch keine Events favorisiert ",
-    "eventsPageGetLocation": "Dein Standort",
-    "eventsPageAllFilter": "Datum wählen",    
-    "eventsPageAllSearchFieldPlaceholder": "Suche nach ...",
-    "eventsPageAllDefaultSection": "Alle",
-    "eventsPageAllSectionTwo": "Angemeldet",
-    "eventsPageAllSectionThree": "Favoriten",
-    "eventsPageAllButtonOne": "Mehr Events anzeigen",
-    "eventsPageAllTitle": "Events vorschlagen",
-    "eventsPageAllSubtitle": "Du kannst dein eigenes Events organisieren oder\n Events von anderen Organisationen vorschlagen.",
-    "eventsFiltersTitleFilterThree": "Kategorien",
-   
-    "eventsPageAllMailtoButtonOne": "Deine Female-Fellows-\nEvent-Idee einreichen",
-    "eventsPageAllMailtoButtonTwo": "Events von anderen\nOrganisationen teilen",
+    "profilSettingFieldFive": "Data privacy policy",
+    "profilSettingFieldSix": "Legal notice",
+    "eventsPageAllState": "No events availablen",
+    "eventsPageEventState": "You have not yet registered for any events",
+    "eventsPageFavorits": "You have not favoured any events yet ",
+    "eventsPageGetLocation": "Your location",
+    "eventsPageAllFilter": "Select a date",
+    "eventsPageAllSearchFieldPlaceholder": "Search for ...",
+    "eventsPageAllDefaultSection": "All",
+    "eventsPageAllSectionTwo": "Logged int",
+    "eventsPageAllSectionThree": "Favorites",
+    "eventsPageAllButtonOne": "Show more events",
+    "eventsPageAllTitle": "Propose events",
+    "eventsPageAllSubtitle": "You can organise your own events or\n you can suggest events from other organisations.",
+    "eventsFiltersTitleFilterThree": "Categories",
+    "eventsPageAllMailtoButtonOne": "Submit your Female-Fellows\nEvent idea",
+    "eventsPageAllMailtoButtonTwo": "Share events of other\norganisations",
     "eventsFiltersTitleFilterOne": "Location",
-    "eventsFiltersTitleFilterTwo": "Häufigkeit der Events",
-
-
-    "createEventsDescription": "Event Beschreibung",
-    "createEventsTitle": "Erstelle Events",
-    "createEventsMaterialTitle": "Was soll mitgebracht werden",
-    "createEventsMaterial": "Trage die Materialien ein",
-    "createEventOrga": "Orga des Events",
-    "createEventsHost": "Veranstalter",
-    "createEventsContactPerson": "Kontakt Person",
-    "createEventsContactPerson2": "Kontakt Person",
+    "eventsFiltersTitleFilterTwo": "Frequency of the events",
+    "createEventsDescription": "Event description",
+    "createEventsTitle": "Create Events",
+    "createEventsMaterialTitle": "What to bring along",
+    "createEventsMaterial": "Enter the materials",
+    "createEventOrga": "Organisation of the event",
+    "createEventsHost": "Event organiser",
+    "createEventsContactPerson": "Contact person",
+    "createEventsContactPerson2": "Contact person",
     "createEventTitle": "Event Title",
-    "createEventDate": "Event Datum",
-    "createEventDate2": "Datum des Events",
-    "createEventMail": "Eventemail",
-    "createEventHandy": "Eventhandynummer",
-    "createEventWhatsApp": "Event WhatsApp Gruppen Link",
-    "createEventWhatsApp2": "Event WhatsApp Gruppen Link",
-    "createEventSuccess": "Event wurde erfolgreich erstellt",
-    "createEventDatePicker": "Öffne Date Picker",
-    "createEventPlace": "Ort",
-    "createEventStreet": "Straße",
-    "createEventZipCode": "Postleitzahl",
-    "snackbarFailure": "Fehlgeschlagen",
-    "snackbarEventSuccess": "Du hast dich erfolgreich für dieses Event angemeldet",
-    
-    "eventButtonSignup": "Event-Anmeldung",
-    "eventOneButton": "Jetzt anmelden",
-    "eventOneTitleOne": "Über das Event",
-    "eventOneTitleTwo": "Kategorien",
-    "eventOneTitleThree": "Bilder von den letzten Events",
-    "eventOneTitleFour": "Was muss ich mitbringen?",
-    "eventOneSubtitleOne": "Notizen und Stifte",
-    "eventOneSubtitleOneBodyOne": "Um neue Wörter oder Sätze festzuhalten \nund Notizen zu machen.",
-    "eventOneSubtitleTwo": "Kulinarische Köstlichkeiten",
-    "eventOneSubtitleTwoBodyTwo": "Jede Teilnehmerin könnte ein kleines\n Gericht oder Snacks aus ihrer Heimat\n mitbringen, um die kulturelle Vielfalt auch\n kulinarisch zu erkunden.",
-    "eventOneSubtitleThree": "Kleidung",
-    "eventOneSubtitleFour": "Sonstiges",
-    "eventAdress": "Adresse des Events",
-    "eventOneSubtitleThreeBodyThree": "Wenn du aus einem anderen Land stammst, könntest du interessante Informationen über ihre Kultur oder Traditionen teilen.",
-    "eventButtonSignin": "Verbindlich anmelden",
-    "eventButtonSignout": "Anmeldung zurückziehen",
-    "buttonNext": "Weiter",
-    "buttonBack": "Zurück",
-    "eventRegistrationOneTitle": "Brauchst du eine \nDolmetcherin beim Event?",
-    "eventRegistrationOneFilterThree": "Sprache:",
-
-    "eventRegistrationTwoTitle": "Brauchst du eine\nKinderbetreuung?",
-    "eventRegistrationTwoFilterOne": "Nein",
-    "eventRegistrationTwoFilterTwo": "Ja",
-    "eventRegistrationTwoFieldOne": "Anzahl der Kinder:",
-    "eventRegistrationTwoFieldTwo": "Alter des Kindes",
-    "eventRegistrationTwoFieldTwo1": "Alter",
-
-    "eventRegistrationThreeSubtitle": "Event-Anmeldung",
-    "eventRegistrationThreeTitle": "Fotoeinwilligung\n beim Event",
-    "eventRegistrationThreeFilterTwo": "Ja,\nich bin damit einverstanden, dass Female Fellows e.V.\n (nachfolgend bezeichnet als „Verein“)\nFilmaufnahmen/ Fotos von mir zum Zwecke der\nPresse- und Öffentlichkeitsarbeit des Fundraisings\n des Marketings der internen Verwendung von\nWerbemaßnahmen und eventuellen\n Spendenaktionen verarbeitet und veröffentlicht\n werden dürfen. Ebenfalls bin ich einverstanden, dass\n meine Daten zum Zwecke der Vereinsorganisation\n gespeichert werden. Ebenfalls bin ich einverstanden,\ndass meine Daten zum Zwecke der Vereinsorganisation gespeichert werden.",
-  
-    "eventNotMemberEventTitle": "Du hast es gleich geschafft!",
-    "eventNotMemberEventBody": "Unsere Events sind nur für Mitglieder des Vereins zugänglich. Du bist im Moment noch kein Mitglied.",
-    "eventNotMemberEventButton": "Kostenlos Mitglied werden",
-
-    "eventOneRegisteredTitle": "Herzlichen Glückwunsch! ",
-    "eventOneRegisteredPerson": "Ansprechpartnerin",
-    "eventOneRegisteredTitle2": "! Du nimmst am Sprachencafé teil: Arabisch/Deutsch.",
-    "eventOneRegisteredButtonOne": "Zum Event Chat",
-    "eventOneRegisteredButtonTwo": "Zurück zu den Events",
-
-    "updateEventTitle": "Bearbeite das Event",
+    "createEventDate": "Event Date",
+    "createEventDate2": "Event Date",
+    "createEventMail": "Event email",
+    "createEventHandy": "Event mobile number",
+    "createEventWhatsApp": "Event WhatsApp group link",
+    "createEventWhatsApp2": "Event WhatsApp group link",
+    "createEventSuccess": "Event has been successfully created",
+    "createEventDatePicker": "Open Date Picker",
+    "createEventPlace": "City",
+    "createEventStreet": "street",
+    "createEventZipCode": "Postal code",
+    "snackbarFailure": "Error",
+    "snackbarEventSuccess": "You have successfully registered for this event",
+    "eventButtonSignup": "Event application",
+    "eventOneButton": "Register now",
+    "eventOneTitleOne": "About the event",
+    "eventOneTitleTwo": "Categories",
+    "eventOneTitleThree": "Pictures from the latest events",
+    "eventOneTitleFour": "What do I need to bring",
+    "eventOneSubtitleOne": "Notes and pencils",
+    "eventOneSubtitleOneBodyOne": "To capture new words or sentences \nand to take notes.",
+    "eventOneSubtitleTwo": "Culinary delights",
+    "eventOneSubtitleTwoBodyTwo": "Each participant could bring a small\n dish or snacks from their home country\n order to explore the cultural diversity of the country\n a culinary way.",
+    "eventOneSubtitleThree": "clothes",
+    "eventOneSubtitleFour": "Other",
+    "eventAdress": "Event address",
+    "eventOneSubtitleThreeBodyThree": "If you are from another country, you could share interesting information about your culture or traditions.",
+    "eventButtonSignin": "Register bindingly",
+    "eventButtonSignout": "Withdraw your registration",
+    "buttonNext": "Continue",
+    "buttonBack": "Back",
+    "eventRegistrationOneTitle": "Do you need an \ninterpreter at the event?",
+    "eventRegistrationOneFilterThree": "Language:",
+    "eventRegistrationTwoTitle": "Do you need\nchildcare",
+    "eventRegistrationTwoFilterOne": "No",
+    "eventRegistrationTwoFilterTwo": "Yes",
+    "eventRegistrationTwoFieldOne": "Number of children:",
+    "eventRegistrationTwoFieldTwo": "Child's age",
+    "eventRegistrationTwoFieldTwo1": "age",
+    "eventRegistrationThreeSubtitle": "Event application",
+    "eventRegistrationThreeTitle": "Photo consent\nat the eventt",
+    "eventRegistrationThreeFilterTwo": "Yes,\nI agree that Female Fellows e.V.\n (hereinafter referred to as ‘Association’)\nfilm recordings/photographs of me may be processed and published for the purpose of\npress and public relations work, fundraising\nmarketing, internal use of\nadvertising measures and any\nfundraising campaigns. I also agree that my data may be stored for the purpose of the organisation of the association. I also agree that my data may be stored for the purpose of the organisation of the association.",
+    "eventNotMemberEventTitle": "You've done it in a minute!",
+    "eventNotMemberEventBody": "Our events are only accessible to members of the association. You are not yet a member.",
+    "eventNotMemberEventButton": "Become a member for free",
+    "eventOneRegisteredTitle": "Congratulations!",
+    "eventOneRegisteredPerson": "Contact person",
+    "eventOneRegisteredTitle2": "You take part in the language café: Arabic/German.",
+    "eventOneRegisteredButtonOne": "Go to the Event Chat",
+    "eventOneRegisteredButtonTwo": "Go back to Events",
+    "updateEventTitle": "Edit the event",
     "updateEventButton": "Update Event",
-    "updateEventWhatsApp": "WhatsApp Gruppenlink",
-
-
-    "tandemMatchingAnmeldungOverlayOneSubtitle": "Tandem-Matching",
-    "tandemMatchingAnmeldungOverlayOneTitle": "Erzähl uns etwas\nüber dich?",
-    "tandemMatchingAnmeldungOverlayOneFieldPlaceholder": "z.B. Ich bin aus Syrien und habe\n Interesse an kulturellem Austausch und\n beruflicher Orientierung in\n Deutschland.",
-    "tandemMatchingAnmeldungOverlayOneFieldPlaceholder2" :"*Um dich mit deiner perfekten Tandem-Partnerin zu matchen, müssen wir ein bisschen mehr über dich erfahren.",
-    "tandemMatchingAnmeldungOverlayTwoSubtitle": "Tandem-Matching",
-    "tandemMatchingAnmeldungOverlayTitle": "Welche Sprachen sprichst du?",
-    "tandemMatchingAnmeldungOverlayFilterOneTitle": "Muttersprache",
-    "tandemMatchingAnmeldungOverlayFilterThreePlaceholder": "weitere Sprachen",
-
-    "tandemMatchingOverviewTitle": "Deine Tandem-Matches",
-    "tandemMatchingOverviewFilterTitle": "Möchtest du ein Tandem in deiner Nähe oder ein Online-Tandem?",
-    "tandemMatchingOverviewFilterOptionOne": "Alle Matches",
-    "tandemMatchingOverviewFilterOptionTwo": "Matches in der Nähe",
+    "updateEventWhatsApp": "WhatsApp group link",
+    "tandemMatchingAnmeldungOverlayOneSubtitle": "Tandem matching",
+    "tandemMatchingAnmeldungOverlayOneTitle": "Tell us something about yourself?",
+    "tandemMatchingAnmeldungOverlayOneFieldPlaceholder": "E.g. I am from Syria and am\n interested in cultural exchange and\n professional orientation in\n Germany.",
+    "tandemMatchingAnmeldungOverlayOneFieldPlaceholder2": "To match you with your perfect Tandem partner, we need to know a bit more about you.",
+    "tandemMatchingAnmeldungOverlayTwoSubtitle": "Tandem Matching",
+    "tandemMatchingAnmeldungOverlayTitle": "What languages do you speak?",
+    "tandemMatchingAnmeldungOverlayFilterOneTitle": "Native language",
+    "tandemMatchingAnmeldungOverlayFilterThreePlaceholder": "Further anguages",
+    "tandemMatchingOverviewTitle": "Your Tandem matches",
+    "tandemMatchingOverviewFilterTitle": "Do you want a Tandem in your area or an online tandem?",
+    "tandemMatchingOverviewFilterOptionOne": "All Matches",
+    "tandemMatchingOverviewFilterOptionTwo": "Matches close by",
     "tandemMatchingOverviewFilterOptionThree": "Online",
-    "tandemMatchingOverviewButton": "Als Tandem-Partnerin anfragen",
-    "tandemMatchingOverviewBody2":"Denk daran, du hast 24 Stunden Zeit, um dich für einen Vorschlag zu entscheiden, bevor du die Antwort deiner Tandem-Partnerin erhälst. Viel Spaß beim Kennenlernen und Entdecken neuer Freundschaften!",
-    "tandemMatchingOverviewBody1": "Von diesen Matching-Vorschägen kannst du dir eine passende Tandem-Partnerinnen aussuchen und anfragen. Die Matches basieren auf eurem Wohnort und Alter. Wähle den Vorschlag aus, der am besten zu dir passt, und lasst eure gemeinsame Reise beginnen!",
-    "tandemMatchingFailure": "Leider konnten wir keine Tandems in deiner Nähe (20km Umkreis) finden",
-    "tandemMatchingRouting": "Zum Tandem",
-    "tandemMatchingAngefragtTitle": "Bitte habe etwas Geduld",
-    "tandemMatchingAngefragtBody": "Es kann bis zu 24 Stunden dauern, dass dem Match zugestimmt wird. Du wirst per E-Mail und in der App eine Nachricht bekommen, ob die Matching-Anfrage zustande gekommen ist. Falls es nicht geklappt hat bekommst du deine drei neuen best Matches vorgeschlagen.",
-    "tandemMatchingAngefragtButtonMatching": "Jetzt mit Tandem matchen",
-    "tandemMatchingAngefragtButton": "Zurück zur Tandem-Seite",
-    "tandemMatchingAngefragtButton2": "Als Tandem-Partnerin anfragen",
-
-    "tandemFirstStep": "1 | Werde Mitglied in unserem Verein",
-    "tandemMemberSignin": "Jetzt Mietglied werden",
-    "tandemFirstStepBody": "Deine Reise beginnt, indem du Mitglied bei uns wirst. Nur als Mitglied hast du die Möglichkeit, dich für ein Tandem-Matching zu registrieren. Das ist der erste Schritt, um Teil unserer wachsenden Community zu werden.",
-    "tandemSecondStep": "2 | Der Tandem-\nMatching-Prozess:",
-    "tandemSecondStepnoslash": "2 | Der Tandem-Matching-Prozess:",
-    "tandemSecondStepBody": "Nach deiner Registrierung erhältst du drei auf dich abgestimmte Tandem-Vorschläge. Du hast die Wahl und kannst das Tandem auswählen, das am besten zu deinen Interessen und Zielen passt. Innerhalb von 24 Stunden erhältst du eine Benachrichtigung, ob deine Tandem-Partnerin ebenfalls zustimmt. Dies ist der Moment, in dem eure Reise beginnt.",
-    "tandemThirdStep": "3 | Das Kennenlernen",
-    "tandemThirdStepBody": "Du wohnst schon länger in Deutschland und möchtest dich für ein gutes Zusammenleben ALLER stark machen, und bist an einem kulturellen Austausch interessiert? Dann bist du genau richtig für unser Tandem-Projekt. Wir suchen eine passende Tandem-Partnerin für dich, die deinen kulturellen Horizont erweitern wird und sich im Gegenzug über deine Unterstützung freut. In zusätzlichen monatlichen Gruppenveranstaltungen kannst du dich mit anderen Tandems austauschen und an spannenden Events teilnehmen.",
-    "tandemThirdStepNewcomer": "Als Newcomerin mitmachen",
-    "tandemThirdStepBody2": "Du bist entweder neu in Deutschland oder wohnst schon länger in Deutschland? Du wünschst dir eine Freundin zum Austauschen oder Kontakt zu Frauen, die sich gut in Deutschland und in deiner Umgebung auskennen? Dann bist du genau richtig bei uns! Wir suchen eine passende Tandem-Partnerin für dich, die dir hilft, dich in Deutschland wohlzufühlen. In zusätzlichen monatlichen Gruppenveranstaltungen kannst du dich mit anderen Tandems austauschen und an spannenden Events teilnehmen.",
-    "tandemThirdStepLocal": "Als Local mitmachen:",
+    "tandemMatchingOverviewButton": "Enquire as a tandem partner",
+    "tandemMatchingOverviewBody2": "Remember, you have 24 hours to decide on a proposal before you receive a reply from your Tandem partner. Have fun getting to know each other and discovering new friendships!",
+    "tandemMatchingOverviewBody1": "From these matching suggestions, you can choose and request a suitable tandem partner. The matches are based on your location and age. Choose the suggestion that suits you best and let your journey together begin!",
+    "tandemMatchingFailure": "Unfortunately we could not find any tandems in your area (20km radius)",
+    "tandemMatchingRouting": "Go to Tandem",
+    "tandemMatchingAngefragtTitle": "Please have some patience",
+    "tandemMatchingAngefragtBody": "It can take up to 24 hours for the match to be approved. You will receive a message by email and in the app as to whether the matching request has been successful. If it didn't work out, you will receive your three new best matches.",
+    "tandemMatchingAngefragtButtonMatching": "Match with Tandem now",
+    "tandemMatchingAngefragtButton": "Back to the tandem page",
+    "tandemMatchingAngefragtButton2": "Request as a tandem partner",
+    "tandemFirstStep": "1 | Become a member of our association",
+    "tandemMemberSignin": "Become a member now", 
+    "tandemFirstStepBody": "Your journey begins by becoming a member with us. Only as a member can you register for tandem matching. This is the first step to becoming part of our growing community.",
+    "tandemSecondStep": "2 | The Tandem-\nMatching process:",
+    "tandemSecondStepnoslash": "2 | The tandem matching process:",
+    "tandemSecondStepBody": "After you register, you will receive three tandem proposals tailored to you. You have the choice and can select the tandem that best suits your interests and goals. Within 24 hours, you will receive a notification as to whether your tandem partner also agrees. This is the moment when your journey begins.",
+    "tandemThirdStep": "3 | Getting to know each other",
+    "tandemThirdStepBody": "Have you been living in Germany for a while and would like to work towards good coexistence for ALL and are interested in cultural exchange? Then you're just right for our tandem project. We are looking for a suitable tandem partner for you who will broaden your cultural horizons and is happy to receive your support in return. In additional monthly group events, you can exchange ideas with other tandems and take part in exciting events.",
+    "tandemThirdStepNewcomer": "Join as a newcomer",
+    "tandemThirdStepBody2": "Are you either new to Germany or have you been living in Germany for a while? Are you looking for a friend to exchange ideas with or contact with women who know Germany and your neighbourhood well? Then you've come to the right place! We are looking for a suitable tandem partner for you who will help you to feel at home in Germany. In additional monthly group events, you can exchange ideas with other tandems and take part in exciting events.",
+    "tandemThirdStepLocal": "Join as a local:",
     "tandemReady": "Ready",
-    "tandemQuotesOne": "Ich habe immer so viele Fragen und Denise hilft mir immer.",
-    "tandemQuotesTwo": "Ich lerne viel über kulturelle Unterschiede.",
-    "tandemLocalOrNewcomer": "Als Local oder Newcomerin beim Tandem-Projekt mitmachen",
-    "tandemSlogan": "Das Female Fellows Tandemprojekt verbindet Frauen mit und ohne Flucht- und Migrationserfahrung. ",
-    "tandemSloganBody": "Das Female Fellows Tandemprojekt verbindet Frauen mit und ohne Flucht- und Migrationserfahrung. Bei diesem ehrenamtlichen Integrationsprojekt werden Frauen mit Flucht- und Migrationserfahrung beispielsweise beim Spracherwerb, bei Behördengängen, im Alltag und in Ausbildung und der Integration auf dem deutschen Arbeitsmarkt unterstützt. Dabei entstehen Freundschaften, ein spannender Austausch zwischen unterschiedlichen Kulturen und jede Menge Spaß.",
-    "getMore": "Mehr erfahren",
-    "getLess": "Weniger Anzeigen",
-    "tandemHowDoesItWork": "Wie funktioniert´s",
-    "tandemMatchNow": "Jetzt mit Tandem matchen",
-    "tandemStorys": "Tandem-Stories",
-
-    "tandemMatchLocal": "Als Local beim Tandem-Projekt mitmachen",
-    "tandemMatchNewcomer": "Als Newcomerin beim Tandem-Projekt mitmachen",
-
-    "tandemNewComerQuestion1":"1 | Was muss ich tun um eine Tandem-Partnerin (deutsche Freundin) zu bekommen?",
-    "tandemNewComerQuestion2":"2 | Wie geht es weiter, wenn mir eine Tandem-Partnerin vermittelt wurde?",
-    "tandemNewComerQuestion3":"3 | Mit wie viel Zeitaufwand ist eine Tandempartnerschaft ungefähr verbunden?",
-    "tandemNewComerQuestion4":"4 | Ich suche nach einer Wohnung, kann mir eine Tandem-Partnerin helfen?",
-    "tandemNewComerQuestion5":"5 | Ich möchte meinen Führerschein machen und dann eine Ausbildung, kann mir eine Tandem-Partnerin dabei helfen?",
-    "tandemNewComerQuestion6":"6 | Ich kann schlecht Deutsch und auch kein Englisch, wie kann ich mich dann mit einer Tandem-Partnerin verständigen?",
-    "tandemNewComerQuestion7":"7 | Mir fällt es schwer in Deutschland zurecht zu kommen (Behörden, Arzt…?), kann mir eine Tandem-Partnerin helfen?",
-    "tandemNewComerQuestion8":"8 | Wie kann die Tandem-Partnerin mir helfen?",
-    "tandemNewComerQuestion9":"9 | Meine Tandem-Partnerin meldet sich nicht mehr. Was soll ich tun?",
-   
-
-    "tandemNewComerAnswer1":"Der erste Schritt ist die Anmeldung: Du kannst dich entweder in Stuttgart, Bietigheim-Bissingen oder in Tübingen anmelden. Im nächsten Schritt suchen wir nach einer passenden Tandem-Partnerin für dich. Dabei achten wir in der Regel auf ein ähnliches Alter und – wenn möglich – auf die Nähe eurer Wohnorte. Ist eine Tandem-Partnerin gefunden, nehmen wir Kontakt zu dir auf. Das Finden einer Tandem-Partnerin kann einige Zeit in Anspruch nehmen, daher ist Geduld gefragt. Wir bemühen uns natürlich, so schnell wie möglich eine passende Tandem-Partnerin für dich zu finden.",
-    "tandemNewComerAnswer2":"Das könnt ihr gemeinsam entscheiden. Sprecht bei euren ersten Treffen darüber, was ihr euch von eurem Tandem erhofft. Sei es, die deutsche Sprache zu lernen, sich kulturell auszutauschen oder sich in der neuen Umgebung besser auszukennen. Nenne deutlich deine Wünsche, damit deine Partnerin darauf eingehen kann. Eine wichtige Frage ist auch: Was kannst du ihr zeigen? Kannst du zum Beispiel besonders gut kochen? Überlegt gemeinsam, wie ihr den Austausch gestalten möchtet – ob mit regelmäßigen Spaziergängen, beim Abendessen oder in der Bibliothek. Wichtig ist, dass es für euch beide von Anfang an klar ist. Eine erste Hilfestellung bietet euch unser Welcome KIT, das ihr erhaltet, sobald ihr gematcht wurdet. Weitere Anregungen findest Du hier auf der Website.",
-    "tandemNewComerAnswer3":"Das hängt ein bisschen davon ab, was du mit deiner Partnerin vereinbarst. In erster Linie soll das Tandem Spaß machen, du sollst dich auf die Treffen freuen. Sprecht also zu Beginn eurer Partnerschaft ab, was ihr euch von dem Tandem erhofft und setzt euch Ziele. Unsere Empfehlung ist, einmal die Woche ca. eine Stunde gemeinsam Zeit zu verbringen. Wenn das in deinen Zeitplan nicht passt, vereinbart andere Termine. Das ist gar kein Problem, solange ihr darüber sprecht und es für euch beide in Ordnung ist",
-    "tandemNewComerAnswer4":"Im Prinzip ist das möglich, sofern deine Tandempartnerin bereit dazu ist. Wir können euch wärmstens ans Herz legen, schon zu Beginn eurer Tandempartnerschaft eure Erwartungen abzuklären, damit beide Seite wissen, was auf sie zukommt. Außerdem kannst du schon bei der Anmeldung unter dem Punkt “Was möchtest du mit deiner Tandem-Partnerin machen?” angeben, was du dir von deiner Tandempartnerin wünschst.",
-    "tandemNewComerAnswer5":"Wir freuen uns, wenn ihr euch Ziele steckt. Besprich aber bitte im Voraus mit deiner Tandempartnerin, in wiefern sie Zeit und Lust hat, dich beim Lernen zu unterstützen. Beachte, dass alles was unsere Mitglieder tun, ehrenamtlich ist, sie werden dafür nicht bezahlt und verbringen mit dir ihre Freizeit.",
-    "tandemNewComerAnswer6":"Unsere bisherige Erfahrung hat gezeigt, dass sich für erste sprachliche Hürden immer Lösungen finden lassen – kochen oder spazieren kann man beispielweise trotzdem. Auf unseren Veranstaltungen sind außerdem immer Frauen, die gerne übersetzen. Sprecht diese einfach direkt an, ob sie euch beim Übersetzen helfen können. Weitere Tipps im Umgang mit sprachlichen Herausforderungen findet ihr außerdem hier.",
-    "tandemNewComerAnswer7":"Im Prinzip ist das möglich, sofern deine Tandem-Partnerin bereit dazu ist. Wir können euch wärmstens ans Herz legen, schon zu Beginn eurer Tandempartnerschaft eure Erwartungen abzuklären, damit beide Seiten wissen, was auf sie zukommt. Außerdem kannst du schon bei der Anmeldung unter dem Punkt “Was möchtest du mit deiner Tandem-Partnerin machen?” angeben, was du dir von deiner Tandem-Partnerin wünschst.",
-    "tandemNewComerAnswer8":"Uns ist wichtig, dass von unseren Tandems beide Seiten profitieren und gegenseitig voneinander lernen. Sprecht bei eurem Kennenlernen gerne direkt darüber, wobei ihr Hilfe benötigt und worin du zum Beispiel gut bist.",
-    "tandemNewComerAnswer9":"Es ist überhaupt nicht schlimm, wenn ihr nach ein-zwei Treffen merkt, dass es so gar nicht passt mit euch. Wichtig ist nur, dass ihr darüber sprecht. Wenn ihr nicht miteinander darüber sprechen möchtet, wendet euch gerne an uns. Gerne übernehmen wir die Vermittlung zwischen beiden Parteien und nehmen euch wieder in die Kartei der “Tandemsuchenden” auf. Auch wenn ihr euch schon öfter getroffen habt und irgendwann keine Zeit mehr dafür habt, gebt uns Bescheid, sodass wir uns um die Partnerin kümmern können.",
-   
-
-
-    "tandemLocalsQuestion1": "1 | Was muss ich tun um eine Tandem-Partnerin zu bekommen?",
-    "tandemLocalsQuestion2": "2 | Ein Tandemprojekt klingt recht einfach, unkompliziert und flexibel in der Zeiteinteilung. Das wäre etwas für mich, was ich auch locker neben meinem Beruf noch machen kann. Stimmt das?",
-    "tandemLocalsQuestion3": "3 | Wie geht es weiter, wenn mir eine Tandem-Partnerin vermittelt wurde?",
-    "tandemLocalsQuestion4": "4 | Was tue ich Gutes? Bringt das was? Was sind die Effekte meines Engagements?",
-    "tandemLocalsQuestion5": "5 | Meine Tandempartnerin meldet sich nicht mehr, was soll ich tun?",
-    "tandemLocalsQuestion6": "6 | Ich ziehe um. Was passiert mit meiner Tandempartnerschaft?",
-    "tandemLocalsQuestion7": "7 | Meine Tandem-Partnerin und ich passen nicht gut zusammen. Was soll ich tun?",
-    "tandemLocalsQuestion8": "8 | Wo fließt das Spendengeld bei Female Fellows hin?",
-    "tandemLocalsQuestion9": "9 | Was konnte Female Fellows bisher mit Spendengeldern erreichen?",
-    "tandemLocalsQuestion10": "10 | An welchen Stellen sollen in Zukunft Spendengelder investiert werden?",
-    "tandemLocalsQuestion11": "11 | Ich benötige eine Spendenbescheinigung. Wo erhalte ich sie?",
-
-    "tandemLocalsAnswer1": "Der erste Schritt ist die Anmeldung: Du kannst dich entweder in Stuttgart, Bietigheim-Bissingen oder in Tübingen anmelden. Im nächsten Schritt suchen wir nach einer passenden Tandem-Partnerin für dich. Dabei achten wir in der Regel auf ein ähnliches Alter und – wenn möglich – auf die Nähe eurer Wohnorte. Ist eine Tandem-Partnerin gefunden, nehmen wir Kontakt zu dir auf. Das Finden einer Tandem-Partnerin kann einige Zeit in Anspruch nehmen, daher ist Geduld gefragt. Wir bemühen uns natürlich, so schnell wie möglich eine passende Tandem-Partnerin für dich zu finden.",
-    "tandemLocalsAnswer2": "Das hängt ein bisschen davon ab, was du mit deiner Partnerin vereinbarst. In erster Linie soll das Tandem aber Spaß machen, du sollst dich auf die Treffen freuen. Sprecht also zu Anfang ab, was ihr euch von dem Tandem erhofft und setzt euch Ziele. Unsere Empfehlung ist, einmal die Woche eine Stunde gemeinsam Zeit zu verbringen. Wenn das in deinen Zeitplan nicht passt, vereinbart andere Termine, das ist gar kein Problem, solange ihr darüber sprecht.",
-    "tandemLocalsAnswer3": "Das könnt ihr gemeinsam entscheiden. Sprecht bei euren ersten Treffen darüber, was ihr euch von eurem Tandem erhofft. Sei es, die deutsche Sprache zu lernen, sich kulturell auszutauschen oder sich in der neuen Umgebung besser auszukennen. Nenne deutlich deine Wünsche, damit deine Partnerin darauf eingehen kann. Eine wichtige Frage ist auch: Was kannst du ihr zeigen? Kannst du zum Beispiel besonders gut kochen? Überlegt gemeinsam, wie ihr den Austausch gestalten möchtet – ob mit regelmäßigen Spaziergängen, beim Abendessen oder in der Bibliothek. Wichtig ist, dass es für euch beide von Anfang an klar ist. Eine erste Hilfestellung bietet euch unser Welcome KIT, das ihr erhaltet, sobald ihr gematcht wurdet. Weitere Anregungen findest Du hier auf der Website.",
-    "tandemLocalsAnswer4": "Laut einer aktuellen Studie der OECD werden weibliche Geflüchtete schlechter in die deutsche Gesellschaft integriert. Grund hierfür ist die geringe Teilnahme an Integrationsangeboten und wenig Kontakt zu Einheimischen. Nur 12% der geflüchteten Frauen haben täglich Kontakt zu Deutschen. Female Fellows möchte dem entgegenwirken und einen großen (ersten) Schritt hin zu einem gelungenen Miteinander machen. Es geht darum, das Potenzial der Frauen zu nutzen, sie stark zu machen und zu ermutigen. Diese Form der Unterstützung trägt zu einer offenen und reflektierten Gesellschaft bei, die ihre Vielfalt lebt und das Potenzial des Weiter- und Mitgestaltens entdeckt. Als Tandempartnerin könntest du einen wichtigen Beitrag zu diesen Zielen leisten. Darüber hinaus erweiterst du deinen persönlichen Horizont und lernst durch gemeinsame Aktivitäten vielleicht nicht nur deine eigene Stadt, sondern auch spannende andere Kulturen und vor allem viele interessante Menschen besser kennen.",
-    "tandemLocalsAnswer5": "Wenn deine Partnerin nicht mehr auf deine Anrufe oder Nachrichten reagiert, gib uns gerne Bescheid. Wir versuchen dann herauszufinden, was los ist und zwischen euch zu vermitteln. Manchmal liegt es am mangelnden Internet in den Unterkünften, manchmal traut sie sich nicht, das Tandem zu beenden. In jedem Fall möchten wir mit euch darüber sprechen und euch bestmöglich in eurem Tandem unterstützen.",
-    "tandemLocalsAnswer6": "Auch hier ist es wichtig, dass du sowohl mit deiner Partnerin als auch mit uns darüber sprichst. Gerne kümmern wir uns darum, dass deine Partnerin wieder eine neue Tandempartnerin findet. Vielleicht hast du ja eine Freundin, die das Tandem übernehmen möchte?",
-    "tandemLocalsAnswer7": "Es ist überhaupt nicht schlimm, wenn ihr nach ein oder zwei Treffen merkt, dass es gar nicht passt mit euch. Wichtig ist nur, dass ihr darüber sprecht. Wenn ihr nicht miteinander darüber sprechen möchtet, wendet euch gerne an uns, dann übernehmen wir die Vermittlung zwischen beiden Parteien und nehmen euch wieder in die Kartei der „Tandemsuchenden” auf. Gebt uns auch Bescheid, wenn ihr euch schon öfter getroffen habt, irgendwann aber keine Zeit mehr habt, sodass wir uns um die Partnerin kümmern können.",
-    "tandemLocalsAnswer8": "Der größte Teil der Spendengelder fließt direkt in das Tandem-Projekt. Dort werden dann Events und Workshops organisiert, administrative Vorgänge wie das Tandem-Matching ermöglicht, Ansprechpartner für die Tandems sowie Locals und Newcomer*innen akquiriert, Vernetzung mit sozialen Trägern und Sozialarbeitern*innen hergestellt und Vieles mehr.",
-    "tandemLocalsAnswer9": "Die Crowdfunding-Kampagne 2019 beispielweise hat die Finanzierung einer 25% Personalstelle für Tandem-Matcher sowie der Projektkosten in Stuttgart von Juli 2019 bis Juli 2020 ermöglicht. Mehr Infos über Kooperationspartner und Spenden sowie über deren Verwendung findest du hier.Bisherige Spenden tragen außerdem zu einem wesentlichen Teil dazu bei, dass wir bis heute insgesamt 122 Tandems (das entspricht 244 Frauen insgesamt) zusammenbringen konnten und dass immer wieder tolle Veranstaltungen organisiert und durchgeführt werden können.",
-    "tandemLocalsAnswer10": "Langfristig streben wir unter anderem die Finanzierung einer Integrationsmanagementstelle in Stuttgart sowie feste Personalstellen in den Standorten Stuttgart, Bietigheim-Bissingen und Tübingen an. Darüber hinaus arbeiten wir an der Skalierung des Tandem-Projekts in Deutschland generell. Weiterhin möchten wir die Integration von Newcomern (Frauen mit Migrationshintergrund) im Orga-Team ermöglichen. Geld wird außerdem im DRC Projekt (Filmprojekt über afghanische Frauen) benötigt. Weitere Projekte wie Workshops über „Self-Reliance“ oder den „Einstieg in das Berufsleben in Deutschland“ sind ebenfalls in Planung.",
-    "tandemLocalsAnswer11": "Für eine Spendenbescheinigung kontaktiere uns einfach unter: j.derbas@femalefellows.com",
-    
-
-    "tandemStory2Title": "FREUNDSCHAFT AUF DEN ERSTEN BLICK",
-    "tandemStory2Body": "Es ist ein ziemlich kalter Oktobertag als Jana und ich uns mit Yasna und Franziska treffen. Dadurch, dass es zu laut ist in dem Café, beschließen wir, für das Interview nach draußen zu gehen.\n Es ist schon ziemlich abgekühlt, doch dick eingepackt und mit Tee und heißer Schokolade machen Jana und ich uns daran, eines unserer Tandems besser kennenzulernen. \nFranziska und Yasna erzählen mir, dass ihr erstes Treffen sehr schön war. Beide gingen damals spazieren, um sich besser kennenzulernen.  \nAls ich die beiden Frauen frage, wie viel sich seit dem letzten Treffen getan hat, erzählen sie, dass sich viel getan habe. Gedanken, ob sie denn zusammenpassen würden, trotz so unterschiedlicher Kulturen, begleiteten beide.  Doch als sie sich näher kennenlernten, verflogen diese Zweifel sehr schnell. \nYasna kommt ursprünglich aus Afghanistan und ist in Deutschland mit ihrem Bruder und ihren Eltern. Ihre große Leidenschaft ist das Tanzen, welche sie auch in Stuttgart weiterverfolgt. Anfangs war sie noch sehr schüchtern und zurückhaltend aufgrund der unterschiedlichen Kultur, die Deutschland als gebürtige Afghanin bietet.",
-    "tandemStory2Body1":"Franziska lebt erst seit kurzem wieder in Stuttgart, sie erzählt uns, dass sie für den Job hergezogen sei und sich vor allem für Frauen engagieren wolle. Durch das Internet ist sie dann auf Female Fellows gestoßen. \nAls ich Franziska frage, was ihr an Yasna gefalle, erzählte sie uns, dass sie Yasna für ihre Stärke bewundere und für das, was sie alles schon in ihrem jungen Leben geschafft hat. Yasna lächelte gerührt und dann gewähren uns Yasna und Franziska Einblicke in ihre gemeinsamen Treffen und die Probleme, denen sie oft begegnen.\nYasna lebte lange Zeit in einer Gemeinschaftsunterkunft mit ihren Eltern zusammen und hatte keinen Rückzugsort. Glücklicherweise hat sich jetzt etwas getan, denn sie hat eine eigene Wohnung, worüber sie sehr froh ist. Jedoch hatte sie dort kein Internet, da sie im Keller wohnt und keinen Empfang hat. Sie wünsche sich sehr, Internet zu haben, denn so kann sie leichter mit ihren Freunden und Verwandten aus Afghanistan kommunizieren und natürlich auch mit ihren Eltern.",
-    "tandemStory2Body2":"Nicht nur deswegen, sondern auch für den Deutschkurs brauche sie oft besseres Internet als es ihr mobiles Internet zulässt. Sie muss oft Wörter nachschlagen oder würde auch gerne Videos anschauen, mit denen sie Deutsch lernen kann. Yasna macht gerade noch einen Deutschkurs und würde später sehr gerne eine Ausbildung machen. \nFranziska hilft ihr bei der Suche nach einem bezahlbaren Internet­anbieter, aber es sei nicht sehr leicht. Beide wünschen sich mehr Unterstützung. \nDie Atmosphäre die uns dieses innige Gespräch bat, werde ich so schnell nicht vergessen. Man merkt, dass Yasna und Franziska sich gegenseitig sehr ans Herz gewachsen sind und dass sie beide sehr froh sind sich kennengelernt zu haben.\n Beiden Frauen macht es sehr viel Spaß sich miteinander zutreffen. Insgesamt war es eine sehr schöne Begegnung, Jana und ich sind schon gespannt, wen wir als nächstes kennenlernen dürfen.",
-    "tandemStory3Body1": "Zouzan und Sandra haben sich Anfang des Jahres kennengelernt. Gematched wurden die beiden bereits im März, konnten sich aufgrund des Lockdowns aber erst im Juli persönlich treffen. Ihr erstes Treffen haben sie bei einer Fahrradtour 🚲durch Bietigheim-Bissingen verbracht, um ihre Stadt 🌃 ein bisschen besser kennenzulernen. Das war eines ihrer schönsten Treffen meinen beide. Momentan sehen sie sich wegen der Corona-Krise leider nicht so häufig, aber sie chatten trotzdem regelmäßig miteinander, um in Kontakt zu bleiben.",
-    "tandemStory3Body2":"Sandra erzählt uns, dass sie erst durch das Tandemprojekt erkannte, wie viele Hürden Menschen, die nach Deutschland 🇩🇪 kommen, überwinden müssen. Sie ist immer wieder davon erstaunt, wie toll Zouzan ihren Alltag in Deutschland meistert. Gerne kochen 🥘 sie auch zusammen und lernen sich und die Kultur des anderen dadurch besser kennen. Sandra sagt, dass Zouzan eine Powerfrau 🦹‍♀️sei. Zouzan lernt auch abends noch Deutsch und macht gerade ein Praktikum im Pflegeheim. Zouzan ist alleine in Deutschland und freut sich darüber, mit Sandra jemanden an ihrer Seite zu haben. Als wir beide fragen, was ihnen am meisten an ihrer Tandem-Partnerin gefällt, antwortet Zouzan, dass sie eine sehr gute Freundin dadurch gewonnen habe. Dies bejaht auch Sandra lächelnd.",
-
-
-
-    "tandemAftermatchedTitle": "Dein Tandem",
-    "tandemAftermatchedActivitys": "Das Könnt ihr gemeinsam unternehmen",
-    "tandemAftermatchedActivitys2" : "Schaut gerne vorbei",
-    "tandemAftermatchedEvents": "Events, zu denen ihr beide zugesagt habt",
-    "tandemAftermatchedCheckpoints": "Wichtige Anlaufstellen",
-
-
-    "tandemActivitiesTitle": "Was kann man als Tandem gemeinsam unternehmen?",
-    "tandemActivityOneTitle": "Ins Café gehen",
-    "tandemActivityOneBody": "Viele unserer Tandems gehen sehr gerne in Cafés zum quatschen, Deutsch lernen oder einfach um sich auszutauschen.Hier findest du eine kleine Liste mit coolen Cafés:",
-
-
-    "tandemActivityTwoTitle": "Picknicken",
-    "tandemActivityTwoBody": "Es geht nichts über ein gemeinsames Picknick mit deiner Tandempartnerin. Erfahre hier, was ihr dafür alles braucht.\n\nDie besten Locations in Stuttgart:\n1 | Max-Eyth-See:\nDer Max-Eyth-See ist unser Favorit zum Picknicken. Ob Grillen, sportliche Aktivitäten, Boot fahren auf dem See oder einfach nur gemütlich zusammen sitzen…\n2 | Schlossgarten\nDer Schlossgarten ist der zentralste Park um sich gemeinsam zum Picknicken zu treffen. Man kann sich auch schnell Kaffee und Snacks aus der Stadt holen und dann gemütlich im Park sitzen.\n3 | Teehaus\nEiner der schönsten Aussichtspunkte über Stuttgart.\n4 | Santiago de Chile Platz\nPicknick mit Aussicht über Stuttgart. Allerdings oft sehr voll und keine Grünfläche.\n",
-    "tandemActivityTwoBody2":"  Die besten Locations in Bietigheim-Bissingen:\n 1 | Stadtgarten Bietigheim\nSchön gepflegte Grünflächen zwischen Blumengärten und dem Fluss Enz. Man findet hier immer ein Plätzchen zum Relaxen und Picknicken. Wer sich gerne sportlich betätigen möchte, der darf sich hier mit Outdoor-Aktivitäten vergnügen. Ob bei einer Runde Federball, Wikingerschach, Tanzen oder Yoga – der wunderschöne Park in Bietigheim bietet dafür die ideale Möglichkeit. Wer sich lieber auf dem Wasser austobt, der kann sich beim Verleih der Zugvögel in der Holzgartenstraße 18, 74321 Bietigheim-Bissingen ein Kajak oder SUP mieten und das kühle Nass genießen.\n",
-    "tandemActivityTwoBody3":" Die besten Locations in Tübingen:\n1 | Alter Botanischer Garten („Bota“)\nDer Bota ist vor allem im Sommer the place to be. Ob einfach nur zum gemütlichen Picknicken, Slacklinen, Frisbee-Spielen oder zum Wikingerschach – es ist eigentlich immer etwas los.\nWas mitbringen?\n1 | Spiele für Sport\nOb Federball, Volleyball, Tischtennis oder Boul: Bewegung an der frischen Luft tut jedem gut!\n2 | Musikbox \nDem gemeinsamen Tanzen oder dem Austausch über die neuste Lieblingsmusik steht so nichts mehr im Wege!\n3 | Picknickdecke\n4 | Besteck\nSnacks zum mitnehmen:\n1 | Tabule:\nDieser köstliche Salat mit frischer Petersilie ist besonders an heißen Tagen ein erfrischender Genuss!\n2 | Pizza- oder Blätterteigtaschen:\nBesonders handlich kommen Pizza- und Blätterteigtaschen daher. Besteck vergessen? Kein Problem!\n3 | Gemüse oder (selbstgebackenes) Brot mit Dips:\nMit Joghurt, Kräutern, Gewürzen und Feta beispielsweise lässt sich ein leckerer, erfrischerender Dip zaubern. Kurz ein wenig Brot oder Gemüse kleingeschnitten und schon ist für Snacks gesorgt!\n",
-    "tandemActivityTwoBody4":"  Weitere schöne Plätze und Ausflugsziele für ein Picknick findest du in der Rubrik Ab ins Grüne. Du hast mit deiner Tandempartnerin weitere schöne Spots zum Picknicken entdeckt oder möchtest Rezepte, Ideen für Spiele o.Ä. weiterempfehlen? Schreibe uns eine Mail an info@femalefellows.com (a ref= mailto:infor@femalefellows.com) mit dem Betreff „Picknicken“",
-
-
-    "tandemActivityThreeTitle": "Musik machen",
-    "tandemActivityThreeBody": "Du spielst ein Instrument oder kannst singen? Dann teile diese Leidenschaft mit deiner Tandem-Partnerin und/oder verbinde dich mit unseren FF-Musikerinnen.\n\n1 | Drauf los singen/spielen\nEs gibt zahlreiche Playbacks und Tutorials auf Youtube, mit denen ihr einfach mal ausprobieren könnt, was eure Stimme so hergibt und worauf ihr Lust habt. Dasselbe gilt natürlich auch für Instrumente, solltet ihr beispielsweise eine Gitarre haben. Wenn eine von euch schon ein Instrument spielen kann, könnt ihr euch auch gegenseitig Tipps zeigen, wie man es erlernt oder einfach zusammen Lieder singen oder spielen.\n",
-    "tandemActivityThreeBody2":"<span>2 | </span> {chor}\n<span> Ihr singt gerne und möchtet ab und zu einfach mal Chorluft schnuppern? Informiert euch über die Angebote beim </span> {musikwerk} <span> Stuttgart.\nDas </span> {laboratorium} <span> in Stuttgart Ost veranstaltet regelmäßig Offenes Singen, Infos und Termine gibt’s unter.\nUnverbindlich und für jedermann/-frau: Der Ich-kann-nicht-singen-Chor.\n… ebenso eine lustige Truppe und für spontane Aktionen perfekt: </span> {kneipchor}\n",
+    "tandemQuotesOne": "I always have so many questions and Denise always helps me.",
+    "tandemQuotesTwo": "I learn a lot about cultural differences.",
+    "tandemLocalOrNewcomer": "Join as a Local or as a Newcomer at the Tandem project",
+    "tandemSlogan": "The Female Fellows Tandem Project connects women with and without refugee and migration experience.",
+    "tandemSloganBody": "The Female Fellows Tandem Project connects women with and without refugee and migration experience. In this voluntary integration project, women with refugee and migration experience are supported, for example, in language acquisition, dealing with authorities, in everyday life and in training and integration into the German labour market. This creates friendships, an exciting exchange between different cultures and lots of fun.",
+    "getMore": "Learn more",
+    "getLess": "Show less",
+    "tandemHowDoesItWork": "How does it work?",
+    "tandemMatchNow": "Match with a Tandem now",
+    "tandemStorys": "Tandem stories",
+    "tandemMatchLocal": "Join as a Local at the Tandem project",
+    "tandemMatchNewcomer": "Join as a Newcomer at the Tandem project",
+    "tandemNewComerQuestion1": "1 | What do I have to do to get a tandem partner (German friend)?",
+    "tandemNewComerQuestion2": "2 | What happens once I have found a Tandem partner?",
+    "tandemNewComerQuestion3": "3 | Approximately how much time is involved in a tandem partnership?",
+    "tandemNewComerQuestion4": "4 | I'm looking for a flat, can a Tandem partner help me?",
+    "tandemNewComerQuestion5": "5 | I would like to get my driving licence and then do an apprenticeship, can a tandem partner help me?",
+    "tandemNewComerQuestion6": "6 | I can't speak German very well and I don't speak English either, how can I communicate with a tandem partner?",
+    "tandemNewComerQuestion7": "7 | I find it difficult to get around in Germany (authorities, doctor...?), can a tandem partner help me?",
+    "tandemNewComerQuestion8": "8 | How can the tandem partner help me?",
+    "tandemNewComerQuestion9": "9 | My tandem partner is no longer contacting me. What should I do?",
+    "tandemNewComerAnswer1": "The first step is to register: You can register either in Stuttgart, Bietigheim-Bissingen or Tübingen. In the next step, we will look for a suitable tandem partner for you. We usually look for people of a similar age and - if possible - close to where you live. Once a Tandem partner has been found, we will contact you. Finding a tandem partner can take some time, so patience is required. We will of course endeavour to find a suitable Tandem partner for you as quickly as possible.",
+    "tandemNewComerAnswer2": "You can decide that together. At your first meeting, talk about what you hope to gain from your tandem. Be it learning the German language, exchanging cultural ideas or getting to know your new surroundings better. State your wishes clearly so that your partner can respond to them. Another important question is: What can you show her? For example, are you particularly good at cooking? Think together about how you would like to organise the exchange - whether with regular walks, over dinner or in the library. It is important that it is clear to both of you from the start. Our Welcome KIT, which you will receive as soon as you have been matched, offers you initial assistance. You can find further suggestions here on the website.",
+    "tandemNewComerAnswer3": "That depends a bit on what you agree with your partner. First and foremost, the tandem should be fun and you should look forward to the meetings. So talk about what you want from the tandem at the start of your partnership and set yourselves goals. Our recommendation is to spend about an hour together once a week. If this doesn't fit into your schedule, arrange other dates. That's not a problem as long as you talk about it and it's okay for both of you.",
+    "tandemNewComerAnswer4": "In principle, this is possible if your tandem partner is willing. We highly recommend that you set out your expectations at the start of your tandem partnership so that both parties know what to expect. You can also specify what you would like your tandem partner to do when you sign up under: What would you like to do with your tandem partner?",
+    "tandemNewComerAnswer5": "We are happy for you to set goals. However, please discuss in advance with your tandem partner how much time and inclination she has to support you in your learning. Please note that everything our members do is voluntary, they are not paid for it and spend their free time with you.",
+    "tandemNewComerAnswer6": "Our experience so far has shown that solutions can always be found for initial language barriers - you can still cook or go for a walk, for example. There are also always women at our events who are happy to translate. Simply ask them directly if they can help you translate. You can also find more tips on dealing with language challenges here.",
+    "tandemNewComerAnswer7": "In principle, this is possible if your tandem partner is willing. We highly recommend that you clarify your expectations at the start of your tandem partnership so that both parties know what to expect. You can also specify what you would like your tandem partner to do when you sign up under ‘What would you like to do with your tandem partner?",
+    "tandemNewComerAnswer8": "It is important to us that both sides benefit from our tandems and learn from each other. When you get to know each other, talk directly about what you need help with and what you are good at, for example.",
+    "tandemNewComerAnswer9": "It's no big deal if you realise after one or two meetings that you're not really compatible. The important thing is that you talk about it. If you don't want to talk to each other about it, feel free to contact us. We will be happy to mediate between the two parties and put you back on the ‘tandem seekers’ list. Even if you've already met several times and no longer have the time, let us know so that we can look after your partner.",
+    "tandemLocalsQuestion1": "1 | What do I have to do to get a tandem partner?",
+    "tandemLocalsQuestion2": "2 | A tandem project sounds quite simple, uncomplicated and flexible in terms of time management. That would be something I could easily do alongside my job. Is that true?",
+    "tandemLocalsQuestion3": "3 | What happens once I've found a tandem partner?",
+    "tandemLocalsQuestion4": "4 | What good am I doing? Does it do any good? What are the effects of my commitment?",
+    "tandemLocalsQuestion5": "5 | My tandem partner no longer contacts me, what should I do?",
+    "tandemLocalsQuestion6": "6 | I'm moving. What happens to my tandem partnership?",
+    "tandemLocalsQuestion7": "7 | My tandem partner and I are not a good match. What should I do?",
+    "tandemLocalsQuestion8": "8 | Where does the donation money go at Female Fellows?",
+    "tandemLocalsQuestion9": "9 | What has Female Fellows been able to achieve with donations so far?",
+    "tandemLocalsQuestion10": "10 | Where should donations be invested in the future?",
+    "tandemLocalsQuestion11": "11 | I need a donation receipt. Where can I get one?",
+    "tandemLocalsAnswer1": "The first step is to register: You can register in either Stuttgart, Bietigheim-Bissingen or Tübingen. In the next step, we will look for a suitable tandem partner for you. We usually look for people of a similar age and - if possible - close to where you live. Once a Tandem partner has been found, we will contact you. Finding a tandem partner can take some time, so patience is required. We will of course endeavour to find a suitable Tandem partner for you as quickly as possible.",
+    "tandemLocalsAnswer2": "That depends a bit on what you agree with your partner. But first and foremost, the tandem should be fun and you should look forward to the meetings. So talk about what you want from the tandem at the beginning and set yourselves goals. Our recommendation is to spend an hour together once a week. If that doesn't fit into your schedule, arrange other dates, that's not a problem as long as you talk about it.",
+    "tandemLocalsAnswer3": "You can decide that together. At your first meeting, talk about what you hope to gain from your tandem. Be it learning the German language, exchanging cultural ideas or getting to know your new surroundings better. State your wishes clearly so that your partner can respond to them. Another important question is: What can you show her? For example, are you particularly good at cooking? Think together about how you would like to organise the exchange - whether with regular walks, over dinner or in the library. It is important that it is clear to both of you from the start. Our Welcome KIT, which you will receive as soon as you have been matched, offers you initial assistance. You can find further suggestions here on the website.",
+    "tandemLocalsAnswer4": "According to a recent OECD study, female refugees are less well integrated into German society. The reason for this is the low level of participation in integration programmes and little contact with locals. Only 12% of refugee women have daily contact with Germans. Female Fellows aims to counteract this and take a big (first) step towards successful coexistence. It is about utilising the potential of women, empowering and encouraging them. This form of support contributes to an open and reflective society that embraces its diversity and discovers the potential for further development and co-creation. As a tandem partner, you could make an important contribution to these goals. In addition, you will broaden your personal horizons and perhaps not only get to know your own city better through joint activities, but also exciting other cultures and, above all, many interesting people.",
+    "tandemLocalsAnswer5": "If your partner no longer responds to your calls or messages, please let us know. We'll then try to find out what's going on and mediate between you. Sometimes it's due to a lack of internet in the accommodation, sometimes she doesn't have the courage to end the tandem. In any case, we want to talk to you about it and give you the best possible support in your tandem.",
+    "tandemLocalsAnswer6": "Here too, it is important that you talk to both your partner and us about this. We will be happy to make sure that your partner finds a new tandem partner. Perhaps you have a friend who would like to take over the tandem?",
+    "tandemLocalsAnswer7": "It's no problem at all if you realise after one or two meetings that it's not working out between you. The important thing is that you talk about it. If you don't want to talk to each other about it, please contact us and we will mediate between the two parties and put you back on the ‘tandem seekers’ register. Also let us know if you've already met several times but no longer have time so that we can take care of your partner.",
+    "tandemLocalsAnswer8": "Most of the donations go directly to the tandem project. Events and workshops are then organised there, administrative processes such as tandem matching are made possible, contact persons for the tandems as well as locals and newcomers are acquired, networking with social institutions and social workers is established and much more.",
+    "tandemLocalsAnswer9": "The 2019 crowdfunding campaign, for example, made it possible to finance a 25% staff position for tandem matchers as well as the project costs in Stuttgart from July 2019 to July 2020. You can find more information about cooperation partners and donations and how they are used here. donations to date have also made a significant contribution to the fact that we have been able to bring together a total of 122 tandems (which corresponds to 244 women in total) and that great events can be organised and held again and again.",
+    "tandemLocalsAnswer10": "In the long term, we are aiming to finance an integration management centre in Stuttgart as well as permanent staff positions in Stuttgart, Bietigheim-Bissingen and Tübingen. We are also working on scaling up the Tandem project in Germany in general. We would also like to facilitate the integration of newcomers (women with a migration background) into the organisation team. Money is also needed for the DRC project (film project about Afghan women). Other projects such as workshops on Self-Reliance or Starting a career in Germany are also being planned.",
+    "tandemLocalsAnswer11": "For a donation receipt, simply contact us at: j.derbas@femalefellows.com",
+    "tandemStory2Title": "FRIENDSHIP AT FIRST SIGHT",
+    "tandemStory2Body": "It's a pretty cold October day when Jana and I meet up with Yasna and Franziska. It's too noisy in the café, so we decide to go outside for the interview.\n It's already pretty chilly, but wrapped up warm and with tea and hot chocolate, Jana and I set about getting to know one of our tandems better. \nFranziska and Yasna tell me that their first meeting was really nice. They both went for a walk to get to know each other better.  \nWhen I ask the two women how much has changed since they last met, they tell me that a lot has happened. They both wondered whether they would fit together despite their different cultures.  But as they got to know each other better, these doubts quickly disappeared. \nYasna is originally from Afghanistan and lives in Germany with her brother and parents. Her great passion is dancing, which she continues to pursue in Stuttgart. At first, she was still very shy and reserved due to the different culture that Germany offers as a native Afghan.",
+    "tandemStory2Body1": "Franziska has only recently moved back to Stuttgart, she tells us that she moved here for the job and wanted to do something for women in particular. She came across Female Fellows on the internet. When I asked Franziska what she liked about Yasna, she told us that she admired Yasna for her strength and for what she had already achieved in her young life. Yasna smiled with emotion and then Yasna and Franziska gave us an insight into their meetings together and the problems they often encounter.\nYasna lived in shared accommodation with her parents for a long time and had no place to retreat to. Fortunately, things have changed now that she has her own flat, which she is very happy about. However, she had no internet there as she lived in the basement and had no reception. She really wishes she had the internet, because it would make it easier for her to communicate with her friends and relatives from Afghanistan and, of course, with her parents.",
+    "tandemStory2Body2": "Not only for this reason, but also for her German course, she often needs better internet than her mobile internet allows. She often has to look up words or would like to watch videos to help her learn German. Yasna is currently doing another German course and would very much like to do an apprenticeship later on. \nFranziska helps her to find an affordable internet provider, but it is not very easy. Both would like more support. \nI won't soon forget the atmosphere that this intimate conversation created. You can tell that Yasna and Franziska have grown very fond of each other and that they are both very happy to have met.\n Both women really enjoy meeting each other. All in all, it was a very nice meeting, Jana and I are already looking forward to seeing who we can meet next.",
+    "tandemStory3Body1": "Zouzan and Sandra met at the beginning of the year. They were matched back in March, but were only able to meet in person in July due to the lockdown. They spent their first meeting on a bike tour 🚲through Bietigheim-Bissingen to get to know their city 🌃 a little better. It was one of their favourite meetings, according to both of them. Unfortunately, they don't see each other that often at the moment due to the corona crisis, but they still chat regularly to keep in touch.",
+    "tandemStory3Body2": "Sandra tells us that it was only through the tandem project that she realised how many hurdles people who come to Germany 🇩🇪 have to overcome. She is always amazed at how well Zouzan copes with everyday life in Germany. They also enjoy cooking 🥘 together and get to know each other and each other's culture better as a result. Sandra says that Zouzan is a power woman 🦹‍♀️sei. Zouzan also learns German in the evenings and is currently doing an internship in a care home. Zouzan is alone in Germany and is happy to have Sandra by her side. When we ask both of them what they like most about their tandem partner, Zouzan replies that she has made a very good friend as a result. Sandra agrees with a smile.",
+    "tandemAftermatchedTitle": "Your Tandem",
+    "tandemAftermatchedActivities": "You can do this together",
+    "tandemAftermatchedActivities2": "You are welcome to drop by",
+    "tandemAftermatchedEvents": "Events that you have both agreed to attend",
+    "tandemAftermatchedCheckpoints": "Important points of contact",
+    "tandemActivitiesTitle": "What can you do together as a tandem?",
+    "tandemActivityOneTitle": "Going to a café",
+    "tandemActivityOneBody": "Many of our tandems like to go to cafés to chat, learn German or simply to exchange ideas. here is a small list of cool cafés:",
+    "tandemActivityTwoTitle": "Picnic",
+    "tandemActivityTwoBody": "There's nothing like a picnic with your tandem partner. Find out here what you need for it.\n\nThe best locations in Stuttgart:\n1 | Max-Eyth-See:\nThe Max-Eyth-See is our favourite place for a picnic. Whether it's a barbecue, sporting activities, boating on the lake or just sitting together in a cosy atmosphere...\n2 | Schlossgarten\nThe Schlossgarten is the most central park to meet up for a picnic. You can also grab a quick coffee and snacks from the city and then sit comfortably in the park.\n3 | Teehaus\nOne of the most beautiful viewpoints over Stuttgart.\n4 | Santiago de Chile Platz\nPicnic with a view over Stuttgart. However, often very crowded and no green space.\n",
+    "tandemActivityTwoBody2": "The best locations in Bietigheim-Bissingen:\n 1 | Stadtgarten Bietigheim\nBeautifully manicured green spaces between flower gardens and the River Enz. You can always find a place to relax and picnic here. If you want to get active, you can enjoy outdoor activities here. Whether it's a game of badminton, Viking chess, dancing or yoga - the beautiful park in Bietigheim offers the ideal opportunity. If you prefer to let off steam on the water, you can hire a kayak or SUP from the Zugvögel hire centre at Holzgartenstraße 18, 74321 Bietigheim-Bissingen and enjoy the cool water,",
+    "tandemActivityTwoBody3": "The best locations in Tübingen:\n1 | Old Botanical Garden (‘Bota’)\nThe Bota is the place to be, especially in summer. Whether it's just for a cosy picnic, slacklining, playing frisbee or Viking chess - there's always something going on.\nWhat to bring along:\n1 | Games for sports\nWhether badminton, volleyball, table tennis or boul: exercise in the fresh air is good for everyone!\n2 | Music box \nNothing stands in the way of dancing together or discussing the latest favourite music! \n3 | Picnic blanket\n4 | Cutlery\nTakeaway snacks:\n1 | Tabule:\nThis delicious salad with fresh parsley is a refreshing treat, especially on hot days!\n2 | Pizza or puff pastry pockets:\nPizza and puff pastry pockets are particularly handy. Forgotten your cutlery? No problem!\n3 | Vegetables or (homemade) bread with dips:\nYoghurt, herbs, spices and feta, for example, can be used to conjure up a delicious, refreshing dip. Just chop up some bread or vegetables and you've got yourself a snack!",
+    "tandemActivityTwoBody4": "2 You can find more beautiful places and excursion destinations for a picnic in the ‘Off to the countryside’ section. Have you discovered other great spots for picnics with your tandem partner or would you like to recommend recipes, ideas for games or similar? Send us an e-mail to info@femalefellows.com (a ref= mailto:infor@femalefellows.com) with the subject Picnicking",
+    "tandemActivityThreeTitle": "Make music",
+    "tandemActivityThreeBody": "You play an instrument or can sing? Then share this passion with your tandem partner and/or connect with our FF musicians.\n\n1 | Start singing/playing\nThere are numerous playbacks and tutorials on YouTube that you can use to try out what your voice has to offer and what you feel like doing. The same applies to instruments, of course, if you have a guitar, for example. If one of you can already play an instrument, you can also show each other tips on how to learn it or simply sing or play songs together,",
+    "tandemActivityThreeBody2": "<p>2 | {chor}\n<span>h You like singing and would like to get a taste of choir life from time to time? Find out about the programmes at</span> {musikwerk} Stuttgart.\nThe {laboratorium}in Stuttgart East regularly organises open singing, information and dates can be found at.\nNon-binding and for everyone: the Ich-kann-nicht-singen-Chor.\n... also a fun group and perfect for spontaneous activities: {kneipchor}\n</p>",
     "@tandemActivityThreeBody2": {
         "placeholders": {
-            "chor":{"description": "Offene Chöre"},
-            "laboratorium":{"description": "Laboratorium"},
-            "musikwerk":{"description": "Musikwerk"},
-            "kneipchor":{"description": "Der Kneipenchor Stuttgart"}
-        }
-      },
-    "tandemActivityThreeBody3":"3 | Gemeinsam Musik hören und Geschmäcke austauschen\nAn regnerischen Tagen, aber auch bei einem gemeinsamen Picknick oder Spaziergang könnt ihr statt eines Filme- oder Kochabends auch mal austauschen, welche Musik euch gefällt. Vielleicht stoßt ihr auch gemeinsam auf neue Musik, die euch beiden gefällt?\nInspiration aus dem Rückblick\nGemütliches Zusammenkommen in Bietigheim-Bissingen\nIm September 2019 organisierte die Projektkoordinatorin Masooma Torfa ein Treffen für alle Interessiert am Tandem-Projekt. Bei leckeren süßen Stückchen verzauberte Fatima uns mit ihrer tollen Stimme./nDu spielst ein Instrument oder kannst singen? Du würdest dich gerne mit anderen FF-Musikerinnen verbinden? Du möchtest weitere Ideen zum Thema Musik machen weiterempfehlen? Oder einen Musik-Workshop anbieten? Dann schreibe uns eine Mail an info@femalefellows.com mit dem Betreff „Musik machen“ ",
-
-
-
-    "tandemActivityFourTitle": "Kreativ sein",
-    "tandemActivityFourBody": "Rückblickende Events\n1 | Wachstücher selber machen\n Bei  Gruppentreffen im September 2019 haben wir Wachstücher, als nachhaltige Alternative zu Frischhaltefolie, selbst gemacht.\n2 | Stricken macht glücklich.Thaera aus Afghanistan hat gemeinsam mit ihren Töchtern unseren Stuttgarter Tandems stricken beigebracht.\n",
-    "tandemActivityFourBody2":"Weitere Ideen\n1 | Karten basteln / Handlettering\nOb zu einem bestimmten Anlass oder einfach nur, um einer Person, die euch am Herzen liegt, ein paar Grüße zu überbringen: Lasst euch beispielsweise auf pinterest für Kartenmotive inspirieren oder probiert mal verschiedene Schriftarten oder Techniken des Handlettering aus.\n2 | Fotografieren\nIhr habt Interesse an schönen Motiven und/oder bearbeitet gerne Bilder? Zeigt euch gegenseitig eure Tipps und Tricks. Wenn ihr gerne draußen (in der Natur oder von einem Aussichtspunkt) fotografiert und Ideen für geeignete Spots sucht, könnt ihr euch von der Rubrik Ab ins Grüne inspirieren lassen. Die entstandenen Bilder können dann natürlich auch kreativ weiterverarbeitet werden (z.B. als Kartenmotive).\n3 | Nähen\nAus alten Handtüchern lassen sich wunderbar Kosmetiktücher herstellen! Ihr braucht dazu ein altes Handtuch, einen Stoff für die Rückseite (oft reichen auch Stoffreste, man kann auch alte Jeans oder sonstige Kleidungsstücke aus gewebtem Stoff verwenden), ein Bügeleisen, etwas Karton/dickes Papier für die Schablonen, eine Schere und eine Nähmaschine (notfalls geht es auch mit Nadel und Faden). Tipps, wie ihr vorgehen könnt, findet ihr im DIY-Video auf der rechten Seite.\n",
-    "tandemActivityFourBody3":" Weitere Tipps &amp; Inspirationen folgen...\nDu bastelst, nähst, strickst oder häkelst gerne; kurz: du bist gerne kreativ? Und würdest dich hierfür gerne mit anderen Tandems treffen? Oder sogar ein kreativen Workshop anbieten?\n\nDann schreibe uns eine Mail {mail} mit dem Betreff 'Kreativ sein'",
-      "@tandemActivityFourBody3":{
-        "placeholders":{
-            "mail":{"description": "info@femalefellows.com"}
+            "chor": {
+                "description": "Open choirs"
+            },
+            "laboratorium": {
+                "description": "Laboratory"
+            },
+            "musikwerk": {
+                "description": "Music factory"
+            },
+            "kneipchor": {
+                "description": "The Stuttgart pub choir"
+            }
         }
     },
-   
-    "tandemActivityFiveTitle":"Ab ins Grüne",
-    "tandemActivityFiveBody": "Ob zu Fuß oder mit dem Rad – deine Umgebung bietet viele tolle Spots und Ausblicke. Zeit zum Durchatmen und für gute Gespräche!",
-
-    "tandemActivityFiveBody1":"<span> Umgebung Stuttgart:\n1 | Birkenkopf/Monte Scherbelino\nDer </span> {birkenkopf} <span> ist der höchste Aussichtspunkt Stuttgarts. Wer möchte, kann ein Stück des Weges mit der Bahn oder dem Bus zurücklegen und den letzten moderaten Anstieg zu Fuß zurücklegen. Wer noch nicht genug hat: Der umliegende Wald bietet schöne Wander- und Spazierwege, die beispielsweise auch zum </span> {baerenschloss} <span> führen! </span>\n",
-    "@tandemActivityFiveBody1":{
+    "tandemActivityThreeBody3": "3 | Listening to music together and exchanging tastes\nOn rainy days, but also during a picnic or walk together, you can exchange ideas about what music you like instead of a film or cooking evening. Maybe you'll come across some new music together that you both like\nInspiration from the review\nCozy get-together in Bietigheim-Bissingen\nIn September 2019, project coordinator Masooma Torfa organised a get-together for anyone interested in the Tandem project. Fatima enchanted us with her wonderful voice over delicious sweet treats./nYou play an instrument or can sing? Would you like to connect with other FF musicians? Would you like to recommend other ideas for making music? Or offer a music workshop? Then send us an e-mail to info@femalefellows.com with the subject ‘Making music",
+    "tandemActivityFourTitle": "Being creative",
+    "tandemActivityFourBody": "Retrospective Events\n1 | Making oilcloths yourself\n At group meetings in September 2019, we made oilcloths ourselves as a sustainable alternative to cling film.\n2 | Knitting makes you happy.\nThaera from Afghanistan taught our Stuttgart tandems how to knit together with her daughters.\n",
+    "tandemActivityFourBody2": "More ideas\n1 | Making cards / hand lettering\nWhether for a special occasion or simply to send a few greetings to someone close to your heart: Get inspiration for card motifs on Pinterest, for example, or try out different fonts or hand lettering techniques.\n2 | Photography\nAre you interested in beautiful motifs and/or do you like editing pictures? Show each other your tips and tricks. If you like to take photos outdoors (in nature or from a vantage point) and are looking for ideas for suitable spots, you can find inspiration in the ‘Out in the countryside’ section. The resulting pictures can of course also be used creatively (e.g. as card motifs).\n3 | Sewing\nOld towels can be used to make wonderful cosmetic tissues! You will need an old towel, fabric for the back (scraps of fabric are often enough, you can also use old jeans or other items of clothing made from woven fabric), an iron, some cardboard/thick paper for the templates, scissors and a sewing machine (if necessary, you can also use a needle and thread). You can find tips on how to proceed in the DIY video on the right-hand side.\n",
+    "tandemActivityFourBody3": " More tips &amp; inspiration to follow...\nDo you like crafting, sewing, knitting or crocheting; in short: do you like being creative? And would you like to meet up with other tandems? Or even offer a creative workshop?\n\nThen write us an email {mail} with the subject line ‘Be creative’’,",
+    "@tandemActivityFourBody3": {
         "placeholders": {
-            "baerenschloss":{"description":"Bärenschlössle"},
-            "birkenkopf":{"description": "Birkenkopf"}}
-         
-
-    },
-   
-    "tandemActivityFiveBody2":"<span> 2 | Fernsehturm\nDer </span> {fernsehturm} <span> zählt zu den Wahrzeichen Stuttgarts. Von hier aus hat man einen einzigartigen Blick über die Stadt, die Weinberge in und um Stuttgart – bei gutem Wetter sogar bis zur Alb, dem Schwarzwald und dem Odenwald! Der umliegende Wald bietet sich für längere Spaziergänge an, die nächstgelegenen U-Bahn-Haltestellen sind „Ruhbank (Fernsehturm)“ und </span> {waldau}.\n",
-      "@tandemActivityFiveBody2":{
-       "placeholders": {
-            "fernsehturm":{"description": "Fernsehturm"},
-            "waldau":{"description": "Waldau"}
+            "mail": {
+                "description": "info@femalefellows.com"
+            }
         }
     },
-
-  
-    "tandemActivityFiveBody3":"<span> 3 | Aussichtspunkt Gaußstraße\nHier habt ihr nicht nur einen tollen weiten Blick über die Stadt, sondern seid auch ganz in der Nähe des </span> {kraehenwald} <span> ,in dem ihr wunderschöne Strecken zum Spazierengehen, Joggen oder Radfahren erkunden könnt. </span>",
-   "@tandemActivityFiveBody3":{
-    "placeholders": {
-        "kraehenwald":{"description": "Kräherwaldes"}
+    "tandemActivityFiveTitle": "Off into the countryside",
+    "tandemActivityFiveBody": "Whether on foot or by bike - your surroundings offer many great spots and views. Time to take a deep breath and enjoy good conversation!",
+    "tandemActivityFiveBody1": "Surroundings Stuttgart:\n1 | Birkenkopf/Monte Scherbelino\nThe {birkenkopf} is the highest vantage point in Stuttgart. If you want, you can cover part of the route by train or bus and walk the last moderate ascent. If you still haven't had enough: The surrounding forest offers beautiful hiking and walking trails that also lead to {baerenschloss}, for example!",
+    "@tandemActivityFiveBody1": {
+        "placeholders": {
+            "baerenschloss": {
+                "description": "Bärenschlössle"
+            },
+            "birkenkopf": {
+                "description": "Birkenkopf"
+            }
+        }
+    },
+    "tandemActivityFiveBody2": "2 | TV tower\nThe {fernsehturm}is one of Stuttgart's landmarks. From here you have a unique view over the city, the vineyards in and around Stuttgart - in good weather even as far as the Alb, the Black Forest and the Odenwald! The surrounding forest is ideal for long walks, and the nearest underground stops are ‘Ruhbank (Fernsehturm)’ and ‘{waldau}",
+    "@tandemActivityFiveBody2": {
+        "placeholders": {
+            "fernsehturm": {
+                "description": "TV tower"
+            },
+            "waldau": {
+                "description": "Waldau"
+            }
+        }
+    },
+    "tandemActivityFiveBody3": "3 | Viewpoint Gaußstraße\nHere you not only have a great wide view over the city, but you are also very close to the {kraehenwald}, where you can explore beautiful routes for walking, jogging or cycling.",
+    "@tandemActivityFiveBody3": {
+        "placeholders": {
+            "kraehenwald": {
+                "description": "Kräherwaldes"
+            }
+        }
+    },
+    "tandemActivityFiveBody4": "4 | Bismarck Tower\nThe {bismarckturm} is located in the north of Stuttgart. Climb 92 steps to reach a platform on the 20-metre-high tower, from where you can enjoy a fantastic panoramic view of the city. Are you afraid of heights or don't fancy the climb? Don't worry, you can enjoy a wonderful panoramic view from the foot of the tower,",
+    "@tandemActivityFiveBody4": {
+        "placeholders": {
+            "bismarckturm": {
+                "description": "Bismarckturm"
+            }
+        }
+    },
+    "tandemActivityFiveBody5": "5 | Höhenpark Killesberg\nIn {killesbergpark} you can expect beautifully landscaped park areas with a large variety of different flowers, small ponds, an outdoor pool, a few animals that you can pet and even a beer garden. There are also cafés and an ice cream parlour next to the park. You should also not miss the Killesberg Tower in the centre of the park, which offers a view as far as Cannstatt.\n",
+    "@tandemActivityFiveBody5": {
+        "placeholders": {
+            "killesbergpark": {
+                "description": "Killesberg park"
+            }
+        }
+    },
+    "tandemActivityFiveBody6": "6 | Kriegsberg Tower\nYou also have a great view over Stuttgart from the foot of the tower as well as from the battlements. The {kriegsbergturm} can be easily incorporated into a longer walk, during which you can also stop by the nearby Chinese garden. stuttgart-tourist.de describes the Kriegsbergturm as a ‘little tower like from Rapunzel's fairy tale’ - one more reason to take a closer look!",
+    "@tandemActivityFiveBody6": {
+        "placeholders": {
+            "kriegsbergturm": {
+                "description": "Kriegsberg Tower"
+            }
+        }
+    },
+    "tandemActivityFiveBody7": "7 | Chinese garden\nThe {chinesischegarten} is located near the {kriegsbergturm} - you walk through a small gate and are then transported directly to the Far East. And in the centre of Stuttgart! The ‘Garden of Beautiful Melody’ is intended to reflect the world in miniature. You can expect southern Chinese architecture, the pavilion of the four cardinal points and - as is often the case in Stuttgart thanks to its location in a basin - a view into the distance,",
+    "@tandemActivityFiveBody7": {
+        "placeholders": {
+            "kriegsbergturm": {
+                "description": "Kriegsberg Tower"
+            },
+            "chinese garden": {
+                "description": "chinese Garden"
+            }
+        }
+    },
+    "tandemActivityFiveBody8": "8 | Bärenschlössle\nPure relaxation and nature await you here: the Bärenschlössle is located in the middle of the forest and is surrounded by a beautiful lake landscape. It is a wonderful place for a picnic, but there is also a restaurant, a kiosk and plenty of seating in and around the castle. From here, you can take a perfect walk to Solitude Castle or explore the surrounding red deer park.\n",
+    "tandemActivityFiveBody9": "9 | Blaustrümpflerweg\nThe Blaustrümpflerweg actually starts at Marienplatz, but you can also start at other points along the route and only cover part of the 7.5 km route. You pass various viewpoints and sights and, despite longer sections in the countryside, you are close to the city centre and well connected to public transport. \n",
+    "tandemActivityFiveBody10": "10 | Take the train from the Kessel\nWith the {zacke} you can travel from Marienplatz to Degerloch. There you can expect a beautiful view, pretty villas and, after a walk, the television tower. Incidentally, the beautiful Schimmelhüttenweg trail leads from Degerloch back to the Kessel, which runs through the middle of the vineyards and offers a great view of Stuttgart all the way! Another railway tip: In Heslach, there is a funicular railway that takes you back to the 1920s. Carried by steel cables, you are pulled approx. 550 metres up to the forest cemetery,",
+    "@tandemActivityFiveBody10": {
+        "placeholders": {
+            "zacke": {
+                "description": "Zacke"
+            }
+        }
+    },
+    "tandemActivityFiveBody11": "11 | Weinberge\nStuttgart is criss-crossed and surrounded by vineyards, which offer wonderful {ausblicke} and walking routes. Many neighbourhoods along the Neckar, such as Unter- or Obertürkheim on the way to Esslingen or Münster on the way to Ludwigsburg, are surrounded by vineyards. Especially in autumn, you can enjoy a great variety of colours here.\n\nWeitere Tipps\n If you like to drive out a bit, you might also like it here: {siebenmuehlental}{grabkapelle} in Untertürkheim, castle {solitude}\n",
+    "@tandemActivityFiveBody11": {
+        "placeholders": {
+            "ausblicke": {
+                "description": "Outlooks"
+            },
+            "siebenmuehlental": {
+                "description": "Seven Mills Valley"
+            },
+            "grabkapelle": {
+                "description": "Funeral chapel"
+            },
+            "solitude": {
+                "description": "Solitude"
+            }
+        }
+    },
+    "tandemActivityFiveBody12": "Surroundings Bietigheim-Bissingen \n1 | Historic old town Besigheim\nA beautiful cycle and footpath leads from Bietigheim to {besigheim} - along the extensive vineyards and the River Enz. Once you arrive in Besigheim, you can refresh yourself with an ice cream or cool drink and a cosy seat by the River Enz. A little tip: it's particularly nice for this at the Besigheim WineRiver - Enzweg, 74354 Besigheim or on the Enz terrace on Unnamed Road, 74354 Besigheim.\n",
+    "@tandemActivityFiveBody12": {
+        "placeholders": {
+            "besigheim": {
+                "description": "Besigheim"
+            }
+        }
+    },
+    "tandemActivityFiveBody13": "Surroundings Tübingen\n1 | Wurmlinger Kapelle\nOver the Spitzberg and with a wonderful view of the Hirschau valley, there is a marvellous hiking trail to the Wurmlinger {kapelle}. On hot summer days, you can really enjoy the shady and picturesque path through the forest. At the chapel itself there is a barbecue area where you can take a break after a successful hike.",
+    "@tandemActivityFiveBody13": {
+        "placeholders": {
+            "kapelle": {
+                "description": "Chapel"
+            }
+        }
+    },
+    "tandemActivityFiveBody14": "\n2 | Bad Urach Waterfall\nSomewhat outside of Tübingen, but easy to reach by train in around 30 minutes, is {badurach}. There is not only a thermal spa here, but also an impressive waterfall that attracts people from all over at any time of year. In addition to the waterfall, there are also the Hohenurach castle ruins, the slide rock with an impressive view and the foal farm of the Marbach stud farm,",
+    "@tandemActivityFiveBody14": {
+        "placeholders": {
+            "badurach": {
+                "description": "Bad Urach"
+            }
+        }
+    },
+    "tandemActivityFiveBody15": "All the spots can of course be perfectly combined with a picnic, but you can also dance together or listen to music.” Have you discovered other beautiful excursion destinations or green spots with your tandem partner and would like to recommend them to others? Send us an email to {mail} with the subject line ‘Off to the countryside.",
+    "@tandemActivityFiveBody15": {
+        "placeholders": {
+            "mail": {
+                "description": "info@femalefellows.com"
+            }
+        }
+    },
+    "tandemActivitySixTitle": "Learn german",
+    "tandemActivitySixBody": "Would you like to learn German together with your tandem partner or support them in doing so? Find tips, tricks and materials here.\nWe are currently working on a concept for an exchange between interested parties in small groups. More information will follow soon. But here you can already get an overview of sites and apps that you can use to take your first steps towards learning German with your tandem partner:\n1 | Placement test:\nWant to know your current language level? {checkteshier}.\n",
+    "@tandemActivitySixBody": {
+        "placeholders": {
+            "checkteshier": {
+                "description": "https://learngerman.dw.com/de/placementDashboard"
+            }
+        }
+    },
+    "tandemActivitySixBody2": "2 | Free online material for practising\nThe Klett publishing house offers numerous materials (worksheets for {download} etc.) on the topic of literacy:\n The Goethe-Institut's {goethe} ”Deutsch für dich’ offers exercises for all language levels, a learning list for saving, a forum for exchanging ideas with others and much more.\n The YouTube channel ‘Deutsch lernen mit Ida’ deals with all kinds of different topics that are important for learning German. There are videos on grammar, vocabulary and German culture:\n If you like learning with videos, you will find numerous learning aids in the {youtubedeutsch}\n Podcasts and video material that are particularly suitable for learning vocabulary and that are prepared for different language levels can be found at ‘{deutschtrainer}\nA varied alternative to classic vocabulary and grammar practice can be found on this English-German {websites} for idioms. \nThe website also offers information on cultural issues, the German alphabet and many other languages and cultures - so it's worth clicking through for native speakers and German learners alike!",
+    "@tandemActivitySixBody2": {
+        "placeholders": {
+            "download": {
+                "description": "Download"
+            },
+            "goethe": {
+                "description": "Online offers"
+            },
+            "youtubedeutsch": {
+                "description": "Youtube-channel 'Hello Germany'"
+            },
+            "deutschtrainer": {
+                "description": "German trainer"
+            },
+            "websites": {
+                "description": "Websites"
+            }
+        }
+    },
+    "tandemActivitySixBody3": "3 | Apps\nThere are numerous apps for learning German, some of which take different approaches. Here we have listed the most important ones for you:\n ‘Unterwegs Deutsch lernen’ - The free German trainer A1 app from {goetheapp}\n {stadtderwoerter} - A1 and A2, Goethe-Institut (free)\n‘ {kennenlernen} - Interactive exercises for learning German from the Goethe-Institut (free)\n’{meinweg}’ - Free app from the Goethe-Institut for language levels A1 and B2, incl. Germany quiz. \nYou can find an overview of the vhs learning portal apps here.\nYour app store also offers apps on the following topics:\n ‘Alphabetisation’ with Serlo ABC\nYou can find lots of information about the Federal Office for Migration and Refugees (BAMF)\nOn the ‘halloDeutsch’ app, you can select your native language as the basis and the content is clearly visualised\n",
+    "@tandemActivitySixBody3": {
+        "placeholders": {
+            "goetheapp": {
+                "description": "Goethe Institute"
+            },
+            "stadtderwoerter": {
+                "description": "The city of words"
+            },
+            "kennenlernen": {
+                "description": "Know. Learn"
+            },
+            "meinweg": {
+                "description": "My journey to Germany"
+            }
+        }
+    },
+    "tandemActivitySixBody4": "4| Further information\nYou want to know which German courses are on offer in your area? Find out {hier}.\nThe Goethe-Institut's German at Work online programme, for example, offers quiz questions and exercises for all language levels on the topic of {arbeitsplatzgoethe} \nFurther information about the workplace in Germany can be found here {link}",
+    "@tandemActivitySixBody4": {
+        "placeholders": {
+            "link": {
+                "description": "https://femalefellows.com/deutsch-lernen/make-it-in-germany.com"
+            },
+            "hier": {
+                "description": "https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php"
+            },
+            "arbeitsplatzgoethe": {
+                "description": "workplace in Deutschland"
+            }
+        }
+    },
+    "tandemActivitySevenTitle": "Cooking together",
+    "tandemActivitySevenBody": "Would you like to cook with your tandem partner? Get inspired here by delicious recipes that have been tried out exclusively by some tandems!\nInspiration from the review\nAfghan cuisine: ‘Bolani’ cooking evening at Caro\n In October 2018, we organised a cosy cooking evening at Caro's home. Our girls from Afghanistan taught us how to cook their speciality ‘Bolani’. Here is the recipe:\n1 | For the dough, put the flour in a large bowl. Add 175 ml water, 2-3 tsp salt and 1 tsp oil and knead until the dough becomes soft. Knead the dough for another 2 minutes and then cover with a cloth and leave to rest for approx. 1 hour.\n2 | For the filling, peel and quarter the potatoes and cook in salted water for approx. 15 minutes until soft.\n3 | Drain the potatoes, add 4 tsp of oil and mash. Clean, wash and finely chop the spring onions and coriander. Mix both with the potatoes and season with salt and pepper.\n4 | For the dip, place the yoghurt in a bowl. Peel and chop the garlic and add. Season with dill, coriander, salt and pepper.\n5 | Divide the dough into 6 pieces and roll out each piece into a round (approx. 20 cm in diameter). Spread the filling on one half of the dough, leaving a 1 cm border. Fold over the free side of the dough and press the edges down firmly. Fry the bolani in a pan with hot oil for 2-3 minutes on each side. Place on a piece of kitchen paper and leave to drain. Serve with yoghurt.\nGood appetite!",
+    "tandemActivitySevenBody2": "Arabic cuisine: ”Auzi’ online cooking event with Baraa and Thaera\n In February 2021, we had a cosy online cooking event. Baraa and her mum Thaera taught us how to cook the Arabic dish ‘Auzi’. Here is the recipe (the respective quantities depend on the number of people eating):\n 1 | Boil chicken in salted water, after boiling bake in the oven at 250 degrees until golden brown (the water in which the chicken was cooked can later be used for the rice) - as a vegetarian variant, the chicken can be replaced by tofu (e.g. smoked tofu with almonds). smoked tofu with almonds), halloumi, falafel or similar \n2| Wash the basmati rice, peel the carrots and cook in boiling water until soft; if required: cook the peas \n3| Bring the (chicken) water to the boil (approx. double the amount of rice), add a little salt, pepper, vegetable stock and a little oil or butter (approx. 2 tbsp); add the washed rice. Once the rice has come to the boil, cover and leave to soak over a medium heat\n4| Heat a little oil or butter in a pan, cut the soft carrots into small cubes and add to the pan with the peas. Season to taste with salt, mint, pepper and any spices \n5| Pour oil into another pan and heat well, fry the peanuts until brown, add the almonds a little later and stir well (be careful, they can burn quickly!).    When the nuts have browned, add approx. 2 tbsp of sweetcorn\n6| Place the finished rice in a casserole dish, top with carrots and peas, then almond/peanut/corn mixture and chicken or meat substitute. Serve with yoghurt, add a little cinnamon to taste.\nGood appetite!",
+    "tandemActivitySevenBody3": "Do you have delicious recipes that you have perhaps already cooked together with your tandem partner and/or would like to recommend to others? Would you like to organise a cooking event? Send us an email to {mail} with the subject line ‘Cooking together",
+    "@tandemActivitySevenBody3": {
+        "placeholders": {
+            "mail": {
+                "description": "info@femalefellows.com"
+            }
+        }
+    },
+    "tandemActivityEightTitle": "Tandem exchange",
+    "tandemActivityEightBody": "Are you interested in what other tandems are doing or would you simply like to go on an excursion or similar in a larger group? Then write us an email to {mail} with the subject ‘Tandem exchange’.\nOnce we have several interested parties, we will put you in touch with each other. You can then consider together what you hope to gain from the exchange (new ideas for joint activities, getting to know new people, doing something together, just having fun, ...) - and of course you can always share your experiences with us!",
+    "@tandemActivityEightBody": {
+        "placeholders": {
+            "mail": {
+                "description": "info@femalefellows.com"
+            }
+        }
+    },
+    "tandemActivityNineTitle": "Dance together",
+    "tandemActivityNineBody": "Do you like dancing? Then find out more here about a wide variety of dances such as Afghan dance or breakdancing.\nInspiration from the review\n1 | Traditional dance meets urban dance at the picnic\nWhen it's ‘Female-Fellows Picnic’ again, it's time to dance. At all our meetings, we start dancing as soon as our jukebox starts playing. Whether it's traditional dances from different cultures, modern dances or breakdancing, it doesn't matter. For us, it's all about having fun and exchanging ideas!\n2 | Afghan dance in the theatre\nIn October 2018, there was a great event on the topic of ‘different cultures’ at the Stuttgart Adult Education Centre. There were stands from different countries and cultures and, of course, lots of good food. The highlight of the day was a dance performance of various traditional dances, ranging from flamenco to traditional Afghan dance.\n3 | Afghan New Year\nOn the Afghan New Year, our Female Fellows were thrown in at the deep end. Without any introduction to traditional Afghan dance, each of them had to dance directly in the centre and the rest of the group formed a circle in which they all squatted. Then it was the next person's turn. We had a lot of fun together...",
+    "tandemActivityTenTitle": "Go to the cinema",
+    "tandemActivityTenBody": "Need a plan B for bad weather or want to see the latest films? You can find more information here.\nTuesday is cinema day at {cinemastuttgart}. You can see the next blockbuster for 6 euros.\nOn CinemaDIENday, you can get into the cinema at the {cinemaxX} at the Liederhalle for the lowest price! The price depends on which film you have chosen, but the offers start from €5 (3D films are included).\nCheck out {sneakkino} to find out which cinemas in Stuttgart (and other cities) will take you to the cinema cheaply or even for free.\nOlympia- und {paradieslichtspiele}\nSteigstrasse 1, 74321 Bietigheim-Bissingen\nThis small, cosy cinema in Bissingen is really ‘worth seeing’.  In addition to the mainstream blockbuster programme, it also offers extremely interesting films from the ‘Cinema and Church’ series. What's more, the drinks and snacks are cheaper than in the big city cinemas.",
+    "@tandemActivityTenBody": {
+        "placeholders": {
+            "cinemastuttgart": {
+                "description": "Stuttgart City centre cinemas"
+            },
+            "cinemaxX": {
+                "description": "CinemaxX"
+            },
+            "sneakkino": {
+                "description": "sneak-kino.de"
+            },
+            "paradieslichtspiele": {
+                "description": "Paradise light theatre"
+            }
+        }
+    },
+    "tandemActivityElevenTitle": "Enjoy art",
+    "tandemActivityElevenBody": "You want to see or hear what art your neighbourhood has to offer? Then find out here. \nArt in Stuttgart\n1 | Staatsgalerie \nOn Wednesdays, admission to the collection of the Stuttgart Staatsgalerie is free! The opening hours are 10 am to 6 pm. Free admission includes the Print Cabinet and the video box, but not special exhibitions.\n2 | Heat-free at the State Museum \nFrom 25 degrees, admission to the cool rooms of the State Museum in the Old Palace is free. The offer usually applies every year in August. There are many exciting exhibitions to discover\n3 | Free events at the Musikhochschule\nMany concerts and events at the centrally located Musikhochschule Stuttgart are free of charge.\n1 Art in Bietigheim-Bissingen\n1 | Stadtmuseum Hornmoldhaus 57 Hauptstraße, 74321 Bietigheim-Bissingen\nwww.stadtmuseum.bietigheim-bissingen.de\nThe Hornmoldhaus in Bietigheim is one of the best preserved Renaissance town houses in southern Germany. The house was built in 1535/36 by the Bietigheim bailiff Sebastian Hornmold the Elder. The interior paintings from the Renaissance period are particularly worth seeing.Die Ausstellungsthemen wechseln regelmäßig, der Eintritt ist kostenlos.\n2 | Städtische Galerie\nHauptstraße 60-64, 74321 Bietigheim-Bissingen\nwww.galerie.bietigheim-bissingen.de\nIn der Altstadt Bietigheims findet man die 1989 eröffnete und im Jahre 2000 erweiterte Städtische Galerie Bietigheim-Bissingen – eine gelungene Synthese aus historischer Bausubstanz und moderner Architektur. Mit ihren wechselnden Ausstellungen zur Klassischen Moderne und zur Gegenwartskunst sowie einer umfangreichen Sammlung künstlerischer Linolschnitte und Kunst der Region hat die Städtische Galerie eine anerkannte Position im Kulturgeschehen rund um Stuttgart.",
+    "tandemActivityTwelveTitle": "DISCOVER STUTTGART-CITY",
+    "tandemActivityTwelveBody": "Do you want to know what there is to see and do in Stuttgart city centre away from Königstrasse and the Schlosspark? Then find out here.\n1 | Enjoy the variety of markets\nIn addition to the weekly markets, there are numerous flea markets, such as the large spring or autumn flea market or the weekly flea market that takes place every Saturday on Karlsplatz. By the way: From Karlsplatz, it's always worth making a detour to the market hall!\n2 | Experience city history at the station\nIf you want to get information and an overview of Stuttgart 21 or simply a view of the city centre, you can do so from the 56-metre-high station tower. Admission is free and you can always go up via lifts that can be reached from the station concourse. The tower is open Monday to Wednesday and Friday from 9 a.m. to 7 p.m., Thursdays from 10 a.m. to 9 p.m. (your chance for a sunset with a view!), Saturdays and Sundays from 10 a.m. to 6 p.m.\nWould you like to recommend an interesting spot in the city centre? Send us an email to info@femalefellows.com with the subject line ‘Explore Stuttgart's city centre’, briefly describing what exactly your recommendation is about and what makes it special.",
+    "tandemActivityThirteenTitle": "Digital Activities",
+    "tandemActivityThirteenBody": "The corona pandemic only allows online meetings? Get inspiration for online activities here.\n1 | Shifting ‘offline’ activities to online meetings\nSome activities work both in face-to-face meetings and online. You can find inspiration in the relevant sections and then arrange to meet via video chat (WhatsApp, Skype, Zoom, etc.). For example, this could be a good idea: Cooking together, being creative (handicrafts, sewing, knitting, ...), learning German, tandem exchanges, ...\n2 | Games\nMany games can also be played online. You can find some ideas, also for larger groups, here.you can use the whiteboard at Zoom, for example, to play Monday Painters.there are various websites where you can play online with friends.Taboo, Who am I, pantomime, puzzles, quizzes or Stadt-Land-Fluss can also be easily played in an analogue way via video chat.\n3 | Films/Series\nYou can talk about your favourite films and series. Then watch your tandem partner's favourite film and talk about it afterwards. Or you can arrange to meet up and watch something at the same time and talk about it afterwards.\n4 | Exercise ...\n... even in times of social distancing! Going for a walk is always a good solution. You can enjoy the fresh air, discover new parks and paths or find inspiration in the ‘Off to the countryside’ section. You can also keep your distance outside and wear a mask to minimise the risk of infection, and if walking together is too risky for you, you can arrange to do a workout, dance or yoga together, for example by watching the same workout video and video chatting with your tandem partner at the same time. You're often more motivated in pairs than alone!",
+    "tandemActivityThirteenBody2": "\n5 | At least as important as in ‘normal’ times: Try to talk to each other regularly despite the difficult circumstances. Show your appreciation for each other by simply listening to each other and sharing what is currently on your minds or what ideas you have for your next meetings. Be there for each other and have the courage to admit your insecurities and weaknesses.\nInspiration from the review\nFemale Fellows online activities\nAlternatively, you can simply take part in the Female Fellows online activities. On 13 February 2021, for example, we had a wonderful yoga class for beginners and those interested with Sonja Schmid! On 13 February 2021, she held a beginners' course online with our Female Fellows. We all had so much fun! It was all about getting to grips with yoga, sport and movement and getting to know your own body better. And the best thing is: there will now be regular (online) yoga sessions with Sonja - so stay tuned to find out what online activities Female Fellows is planning. \nDo you have any other ideas for digital activities and would like to recommend them?Have you had good experiences with certain digital activities with your Tandem partner and would like to share them with the community? Write us an email to {mail} with the subject line ‘Digital activities’ in which you briefly describe what exactly your recommendation is about and what makes it special.’",
+    "@tandemActivityThirteenBody2": {
+        "placeholders": {
+            "mail": {
+                "description": "info@femalefellows.com"
+            }
+        }
     }
-   },
-
-
-    "tandemActivityFiveBody4":"<span> 4 | Bismarckturm\nDer </span> {bismarckturm} <span> liegt im Stuttgarter Norden. Über 92 Stufen erreicht ihr eine Plattform auf dem ca. 20m hohen Turm, von der aus ihr einen tollen Rundum-Ausblick über die Stadt genießen könnt. Du hast Höhenangst oder keine Lust zum Aufstieg? Keine Sorge, bereits am Fuß des Turms hat man einen wunderbaren Panorama-Ausblick.\n </span>",
-   "@tandemActivityFiveBody4":{
-    "placeholders": {
-        "bismarckturm":{"description": "Bismarckturm"}
-    }
-   },
-
-    "tandemActivityFiveBody5":"<span> 5 | Höhenpark Killesberg\nIm </span> {killesbergpark} <span> erwarten euch wunderschön angelegte Parkflächen mit einer großen Vielfalt verschiedenster Blumen, kleiner Teiche, einem Freibad, ein paar Tieren, die man streicheln darf und sogar einem Biergarten. Auch Cafés und eine Eisdiele grenzen an den Park. Nicht verpassen solltet ihr außerdem den Killesbergturm mitten im Park, der eine Aussicht bis nach Cannstatt ermöglicht.\n </span>",
-   "@tandemActivityFiveBody5":{
-    "placeholders": {
-        "killesbergpark":{"description": "Killesbergpark"}
-    }
-   },
-
-    "tandemActivityFiveBody6":"<span> 6 | Kriegsbergturm\nAuch hier habt ihr sowohl vom Fuß des Turms als auch von den Zinnen einen tollen Blick über Stuttgart. Der </span> {kriegsbergturm} <span> lässt sich bestens in eine größere Spazierrunde einbauen, bei der ihr auch im nahegelegenen chinesischen Garten vorbeischauen könnt. stuttgart-tourist.de beschreibt den Kriegsbergturm übrigens als „kleinen Turm wie aus dem Märchen von Rapunzel“ – ein Grund mehr, ihn sich mal aus der Nähe anzusehen!\n </span>",
-    "@tandemActivityFiveBody6":{
-        "placeholders": {
-            "kriegsbergturm":{"description": "Kriegsbergturm"}
-        }
-    },
-
-    "tandemActivityFiveBody7":"<span> 7 | Chinesischer Garten\nIn der Nähe des </span> {kriegsbergturm} <span> liegt der </span> {chinesischegarten} <span> – man schreitet durch ein kleines Tor und wird dann direkt nach Fernost versetzt. Und das mitten in Stuttgart! Der „Garten der schönen Melodie“ soll die Welt im Kleinen widerspiegeln. Es erwarten euch südchinesische Architektur, der Pavillon der vier Himmelsrichtungen und – wie dank der Kessellage oft in Stuttgart – der Blick in die Weite.\n </span>",
-   "@tandemActivityFiveBody7":{
-    "placeholders": {
-        "kriegsbergturm":{"description": "Kriegsbergturms"},
-        "chinesischegarten":{"description": "chinesische Garten"}
-    }
-   },
-
-    "tandemActivityFiveBody8":"8 | Bärenschlössle\nHier erwarten euch Entspannung und Natur pur: Das Bärenschlössle liegt mitten im Wald und ist von einer wunderschönen Seelandschaft umgeben. Es lässt sich wunderbar picknicken, im und um das Schlössle befinden sich aber auch ein Restaurant, ein Kiosk und viele Sitzgelegenheiten. Von hier aus kann man u.a. perfekt zum Schloss Solitude spazieren oder den umliegenden Rotwildpark erkunden.\n",
-    "tandemActivityFiveBody9":"9 | Blaustrümpflerweg\nEigentlich startet der Blaustrümpflerweg am Marienplatz, man kann aber auch an anderen Stellen auf der Strecke einsteigen und nur einen Teil der insgesamt 7,5km langen Strecke zurücklegen. Man kommt an verschiedenen Aussichtspunkten und Sehenswürdigkeiten vorbei und ist trotz längerer Abschnitte in der Natur zentrumsnah und gut angebunden an den öffentlichen Nahverkehr. \n",
-    "tandemActivityFiveBody10":"<span> 10 | Mit der Zacke aus dem Kessel\nMit der </span> {zacke} <span> könnt ihr vom Marienplatz aus bis nach Degerloch fahren. Dort erwarten euch eine schöne Aussicht, hübsche Villen und nach einem Fußmarsch der Fernsehturm. Von Degerloch zurück in den Kessel führt übrigens der wunderschöne Schimmelhüttenweg, der mitten durch die Weinberge führt und auf dem man durchgehend einen tollen Blick auf Stuttgart hat!Weiterer Bahn-Tipp: In Heslach befindet sich die Standseilbahn, die euch in die 1920er Jahre zurückversetzt. Von Stahlseilen getragen wird man ca. 550 Meter hoch hinauf zum Waldfriedhof gezogen.\n </span>",
-   "@tandemActivityFiveBody10":{
-    "placeholders": {
-        "zacke":{"description": "Zacke"}
-   }
-  },
-    "tandemActivityFiveBody11":"<span> 11 | Weinberge\nStuttgart ist durchzogen und umgeben von Weinbergen, die wunderschöne </span> {ausblicke} <span> und Spazierstrecken bieten. Viele am Neckar gelegene Stadtteile, wie beispielsweise Unter- oder Obertürkheim auf dem Weg Richtung Esslingen oder Münster auf dem Weg Richtung Ludwigsburg, sind eingerahmt vom Weinanbau. Besonders im Herbst könnt ihr hier eine große Farbenvielfalt genießen.\n\nWeitere Tipps\n Wer gerne ein Stück rausfährt, dem könnte es außerdem hier gefallen: </span> {siebenmuehlental} {grabkapelle} <span> in Untertürkheim, Schloss </span> {solitude}\n",
-  "@tandemActivityFiveBody11":{
-    "placeholders": {
-        "ausblicke":{"description": "Ausblicke"},
-        "siebenmuehlental":{"description": "Sieben-Mühlen-Tal"},
-        "grabkapelle":{"description": "Grabkapelle"},
-        "solitude":{"description": "Solitude"}
-    }
-  },
-
-    "tandemActivityFiveBody12":"<span> Umgebung Bietigheim-Bissingen \n1 | Historische Altstadt Besigheim\nVon Bietigheim führt ein schöner Rad- und Fußweg nach </span> {besigheim} <span> – entlang der weitläufigen Weinberge und der Enz. In Besigheim angekommen kann man sich mit einem Eis oder kühlen Getränk und einem gemütlichen Sitzplatz an der Enz erfrischen. Kleiner Tipp: Hierfür ist es besonders schön am WeinFluss Besigheim – Enzweg, 74354 Besigheim oder auf der Enz-Terrasse am Unnamed Road, 74354 Besigheim.\n </span>",
-  "@tandemActivityFiveBody12":{
-    "placeholders": {
-        "besigheim":{"description": "Besigheim"}
-    }
-  },
-
-    "tandemActivityFiveBody13":"<span> Umgebung Tübingen\n1 | Wurmlinger Kapelle\nÜber den Spitzberg und mit einem wunderschönen Blick ins Hirschauer Tal gibt es einen herrlichen Wanderweg zur Wurmlinger </span> {kapelle} <span>. An heißen Sommertagen kann man den schattigen und malerischen Weg durch den Wald so richtig genießen. An der Kapelle selbst gibt es eine Grillstelle, an der sich nach erfolgreicher Wanderung gut Rast machen lässt. </span>",
-    "@tandemActivityFiveBody13":{
-         "placeholders": {
-           "kapelle":{"description": "Kapelle"}
-    }
-   },
-
-    "tandemActivityFiveBody14":"<span> \n2 | Bad Uracher Wasserfall\nEtwas außerhalb von Tübingen, aber mit der Bahn in ca. 30 Minuten gut zu erreichen, liegt </span> {badurach} <span> . Hier gibt es nicht nur eine Therme, sondern auch einen eindrucksvollen Wasserfall, der zu jeder Jahreszeit Leute von überall anzieht. Außer dem Wasserfall findet sich hier zudem die Burgruine Hohenurach, der Rutschenfelsen mit einem imposanten Ausblick sowie ein Fohlenhof des Gestüts Marbach.\n </span>",
-    "@tandemActivityFiveBody14":{
-      "placeholders": {
-           "badurach":{"description": "Bad Urach"}
-     }
-    },
-    "tandemActivityFiveBody15":"Alle Spots lassen sich natürlich perfekt mit einem Picknick verbinden, es kann aber auch zusammen getanzt oder Musik gehört werden.Du hast mit deiner Tandempartnerin weitere schöne Ausflugsziele oder grüne Flecken entdeckt und möchtest diese weiterempfehlen? Schreibe uns eine Mail an {mail}mit dem Betreff „Ab ins Grüne“. ",
-    "@tandemActivityFiveBody15":{
-        "placeholders": {
-            "mail":{"description": "info@femalefellows.com"}
-        }
-    },
-  
-    "tandemActivitySixTitle": "Deutsch Lernen",
-    "tandemActivitySixBody": "Du möchtest gemeinsam mit deiner Tandempartnerin Deutsch lernen bzw. sie dabei unterstützen? Finde hier Tipps, Tricks und Materialien.\nWir arbeiten gerade an einem Konzept für einen Austausch zwischen Interessierten in kleinen Gruppen. Nähere Infos dazu folgen bald. Hier könnt ihr euch aber schon mal einen Überblick über Seiten und Apps verschaffen, mit denen ihr erste Schritte zum Thema Deutschlernen mit eurer Tandempartnerin machen könnt:\n1 | Einstufungstest:\nIhr wollt wissen, auf welchem Sprachniveau ihr aktuell seid? {checkteshier} aus.\n",
-    "@tandemActivitySixBody":{
-        "placeholders": {
-            "checkteshier":{"description": "https://learngerman.dw.com/de/placementDashboard"}
-        }
-    },
-
-    "tandemActivitySixBody2":"<span> 2 | Kostenloses Online-Material zum Üben\nDer Klett-Verlag bietet zahlreiche Materialien (Arbeitsblätter zum </span> {download} </span> etc. rund um das Thema Alphabetisierung:\n Das </span> {goethe} <span> „Deutsch für dich vom Goethe Institut bietet Übungen für alle Sprachniveaus, eine Lernliste zum Speichern, ein Forum für den Austausch mit anderen und vieles mehr.\n Der Youtube-Kanal „Deutsch lernen mit Ida“ befasst sich mit jeder Menge unterschiedlicher Themen, die für das Deutschlernen wichtig sind. Es gibt Videos zu Grammatik, zu Vokabeln und zur deutschen Kultur:\n Wer gerne anhand von Videos lernt, findet zahlreiche Lernhilfen im {youtubedeutsch}\n Podcasts und Videomaterial, die sich besonders zum Vokabeln Lernen eignen und die für unterschiedliche Sprachniveaus aufbereitet sind, findet ihr beim „{deutschtrainer}Eine abwechslungsreiche Alternative zum klassischen Vokabeln und Grammatik Üben findet ihr auf dieser englisch-deutschen </span> {websites} <span> für Redewendungen.\nDie Website bietet außerdem Informationen zu kulturellen Fragen, zum deutschen Alphabet und zu vielen anderen Sprachen und Kulturen – Durchklicken lohnt sich also für Muttersprachler wie Deutschlernende gleichermaßen!\n </span>",
-    "@tandemActivitySixBody2":{
-         "placeholders": {
-           
-            "download":{"description": "Download"},
-            "goethe":{"description": "Online-Angebot"},
-            "youtubedeutsch":{"description": "Youtube-Kanal 'Hallo Deutschschule'"},
-            "deutschtrainer":{"description": "Deutschtrainer"},
-            "websites":{"description": "Websites"}
-         }
-   },
-
-    "tandemActivitySixBody3":"<span> 3 | Apps\nEs gibt zahlreiche Apps zum Deutschlernen, die teilweise unterschiedliche Herangehensweisen wählen. Hier haben wir die wichtigsten für euch aufgelistet:\n„Unterwegs Deutsch lernen“ – Die kostenlose Deutschtrainer-A1-App vom </span> {goetheapp}\n {stadtderwoerter} <span> – A1 und A2, Goethe Institut (kostenlos)\n„ </span> {kennenlernen} <span> – Interaktive Übungen zum Deutschlernen vom Goethe-Institut (kostenlos)\n </span> „{meinweg}“ <span> – Kostenlose App vom Goethe-Institut für Sprachniveau A1 und B2, inkl. Deutschlandquiz.\nEine Übersicht der vhs-Lernportal-Apps findet ihr hier.\nEuer App-Store bietet außerdem Apps zu den Themen:\n„Alphabetisierung“ mit Serlo ABC\nRund ums Thema „Ankommen in Deutschland“ erhaltet ihr viele Informationen über das Bundesamt für Migration und Flüchtlinge (BAMF)\n In der App „halloDeutsch“ könnt ihr als Grundlage eure Muttersprache auswählen, die Inhalte sind anschaulich visualisiert\n </span>",
-    "@tandemActivitySixBody3":{
-        "placeholders": {
-            "goetheapp":{"description": "Goethe-Institut"},
-            "stadtderwoerter":{"description": "Die Stadt der Wörter"},
-            "kennenlernen":{"description": "Kennen. Lernen"},
-            "meinweg":{"description": "Mein Weg nach Deutschland"}
-        }
-    },
-
-    "tandemActivitySixBody4":"4| Weitere Informationen\nIhr wollt wissen, welche Deutschkurse in eurer Nähe angeboten werden? Informiert euch {hier}.\nDas Online-Angebot Deutsch am Arbeitsplatz vom Goethe-Institut bietet zum Beispiel Quiz-Fragen und Übungen für alle Sprachniveaus rund um das Thema {arbeitsplatzgoethe} \nWeitere Infos rund um das Thema Arbeitsplatz in Deutschland findet ihr hier {link}",
-    "@tandemActivitySixBody4":{
-        "placeholders": {
-            "link":{"description": "https://femalefellows.com/deutsch-lernen/make-it-in-germany.com"},
-            "hier":{"description": "https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php"},
-            "arbeitsplatzgoethe":{"description": "Arbeitsplatz in Deutschland"}
-        }
-    },
-  
-    "tandemActivitySevenTitle": "Gemeinsam kochen",
-    "tandemActivitySevenBody":"Du würdest gerne mit deiner Tandempartnerin kochen? Lass dich hier von leckeren Rezepten inspirieren, die exklusiv von einigen Tandems erprobt wurden!\nInspiration aus dem Rückblick\nAfghanische Küche: „Bolani“ Kochabend bei Caro\n Im Oktober 2018 hatten wir einen gemütlichen Kochabend bei Caro organisiert. Unsere Mädels aus Afghanistan haben uns ihre Spezialität „Bolani“beigebracht zu kochen. Hier ist das Rezept:\n1 | Für den Teig Mehl in eine große Schüssel geben. 175 ml Wasser, 2-3 TL Salz und 1 TL Öl zugeben und verkneten, bis der Teig weich wird. Teig noch ca. 2 Minuten weiterkneten und anschließend mit einem Tuch abgedeckt ca. 1 Stunde ruhen lassen.\n2 | Für die Füllung Kartoffeln schälen, vierteln und in Salzwasser ca. 15 Minuten weich kochen.\n3 | Kartoffeln abgießen, 4 TL Öl zugeben und zerstampfen. Lauchzwiebeln und Koriander putzen, waschen und klein hacken. Beides mit den Kartoffeln mischen und mit Salz und Pfeffer würzen.\n4 | Für den Dip den Joghurt in eine Schüssel geben. Knoblauch schälen, hacken und zugeben. Mit Dill, Koriander, Salz und Pfeffer abschmecken.\n5 | Teig in 6 Stücke teilen und jeweils rund ausrollen (ca. 20 cm Durchmesser). Füllung auf je einer Teighälfte verteilen und verstreichen, dabei ca. 1 cm Rand lassen. Freie Teigseite überklappen und die Ränder fest andrücken. Bolani in einer Pfanne mit heißem Öl von jeder Seite 2-3 Minuten braten. Auf ein Stück Küchenpapier legen und abtropfen lassen. Joghurt dazu servieren.\nGuten Appetit!",
-    "tandemActivitySevenBody2":"Arabische Küche: „Auzi“ Online-Kochevent mit Baraa und Thaera\n Im Februar 2021 hatten wir ein gemütliches Online-Kochevent. Baraa und ihre Mutter Thaera haben uns beigebracht, wie man das arabische Gericht „Auzi“ kocht. Hier ist das Rezept (die jeweiligen Mengen hängen von der Anzahl der Essenden ab):\n 1 | Hähnchen in gesalzenem Wasser kochen, nach dem Kochen bei 250 Grad im Backofen goldbraun backen (das Wasser, in dem das Hähnchen gekocht wurde, kann später für den Reis verwendet werden) – als vegetarische Variante kann das Hähnchen durch Tofu (z.B. Räuchertofu mit Mandel), Halloumi, Falafel o.Ä. ersetzt werden \n2| Basmatireis waschen, währenddessen Karotten schälen und in kochendem Wasser weich kochen; bei Bedarf: Erbsen kochen \n3| (Hähnchen-) Wasser zum Kochen bringen (ca. doppelte Menge wie Reis), etwas Salz, Pfeffer, Gemüsebrühe sowie etwas Öl oder Butter (ca. 2 EL) hinzugeben; den gewaschenen Reis beifügen. Nachdem der Reis aufgekocht hat, abgedeckt bei mittlerer Hitze quellen lassen\n4| Etwas Öl oder Butter in einer Pfanne erhitzen, die weichen Karotten in kleine Würfel schneiden und mit Erbsen in die Pfanne geben. Mit Salz, Pfefferminze, Pfeffer und beliebigen Gewürzen abschmecken \n5| In eine weitere Pfanne Öl geben und gut erhitzen, Erdnüsse braun anbraten, etwas später Mandeln hinzugeben und gut rühren (Achtung, kann schnell anbrennen!). Wenn die Nüsse braun angeröstet sind, ca. 2 EL Mais dazugeben\n6| Den fertigen Reis in eine Auflaufform geben, Karotten und Erbsen darauf verteilen, anschließend Mandel/Erdnuss/Mais-Mischung, darauf Hähnchen oder Fleischersatz. Mit Joghurt servieren, je nach Geschmack etwas Zimt hinzugeben.\nGuten Appetit!",
-    "tandemActivitySevenBody3":"Du hast leckere Rezepte, die du vielleicht schon mit deiner Tandempartnerin zusammen gekocht hast und/oder weiterempfehlen möchtest? Du würdest gern ein Koch-Event organisieren? Schreibe uns eine Mail an {mail} mit dem Betreff „Gemeinsam kochen“.",
-    "@tandemActivitySevenBody3":{
-        "placeholders": {
-            "mail":{"description": "info@femalefellows.com"}
-        }
-    },
-
-    "tandemActivityEightTitle": "Tandem-Austausch",
-    "tandemActivityEightBody": "Ihr interessiert euch dafür, was andere Tandems so unternehmen oder würdet einfach gerne mal einen Ausflug o.Ä. in einer größeren Gruppe machen? Dann schreibt uns eine Mail an {mail} mit dem Betreff „Tandemaustausch“.\nSobald wir mehrere Interessentinnen haben, vermitteln wir euch aneinander weiter. Ihr könnt dann gemeinsam überlegen, was ihr euch von dem Austausch erhofft (neue Ideen für gemeinsame Aktivitäten, neue Leute kennenlernen, etwas unternehmen, einfach nur Spaß haben, …) – und die Erfahrungen natürlich immer gerne mit uns teilen!",
-    "@tandemActivityEightBody":{
-        "placeholders": {
-            "mail":{"description": "info@femalefellows.com"}
-        }
-    },
-
-    "tandemActivityNineTitle": "Gemeinsam tanzen",
-    "tandemActivityNineBody": "Du tanzt gerne? Dann erfahre hier mehr über unterschiedlichste Tänze wie den afghanischen Tanz oder Breakdance.\nInspiration aus dem Rückblick\n1 | Traditioneller Tanz trifft auf urbanen Tanz beim Picknick\nWenn es Mal wieder „Female-Fellows Picknick“ heißt, heißt es auch direkt: Tanzen. Bei all unseren Treffen haben wir angefangen zu tanzen, sobald unsere Musikbox anfängt zu spielen. Ob traditionelle Tänze von unterschiedlichsten Kulturen, moderne Tänze oder Breakdance, das ist ganz egal. Uns geht es vor allem um Spaß und um den Austausch!\n2 | Afghanischer Tanz im Theater\nIm Oktober 2018 gab es eine tolle Veranstaltung zum Thema „unterschiedliche Kulturen“ in der Volkshochschule Stuttgart. Es gab Stände von unterschiedlichen Ländern und Kulturen und natürlich eine Menge gutes Essen. Das Highlight des Tages war eine Tan-Aufführung von diversen traditionellen Tänzen wie z.B. vom Flamenco bis zum afghanisch-traditionellen Tanz.\n3 | Afghanisches Neujahrsfest\nAm afghanischen Neujahrsfest wurden unsere Female Fellows ins kalte Wasser geworfen. Ohne Einführung in den traditionellen afghanischen Tanz musste jede direkt in der Mitte tanzen und der Rest der Gruppe bildete einen Kreis, in dem alle in der Hocke sitzen. Danach ist der nächste dran. Wir hatten eine Menge Spaß zusammen…",
-
-
-    "tandemActivityTenTitle": "Ins Kino gehen",
-    "tandemActivityTenBody":"<span> Ihr braucht einen Plan B für schlechtes Wetter oder habt Lust, die neuesten Filme zu sehen? Hier findet ihr mehr Infos.\nDienstags ist Kinotag in den </span> {cinemastuttgart} <span> . Für 6 Euro könnt ihr den nächsten Blockbuster sehen.\nIm </span> {cinemaxX} <span> an der Liederhalle kommt ihr am KinoDIENstag für den günstigsten Preis ins Kino! Der Preis hängt davon ab, welchen Film ihr ausgewählt habt, die Angebote starten aber ab 5€ (3D-Filme sind inklusive).\nInformiert euch unter </span> {sneakkino} <span> , welche Kinos in Stuttgart (und anderen Städten) euch günstig oder auch kostenlos ins Kino bringen.\nOlympia- und </span> {paradieslichtspiele}\n <span> Steigstrasse 1, 74321 Bietigheim-Bissingen\nDas kleine gemütliche Kino in Bissingen ist wirklich „sehenswert“.  Es werden neben dem Mainstream-Blockbuster-Programm noch äußerst interessante Filme aus der Reihe von „Kino und Kirche“ angeboten. Zudem sind die Getränke und Snacks preiswerter als in den Großstadt-Kinos. </span>",
-    "@tandemActivityTenBody":{
-        "placeholders": {
-            "cinemastuttgart":{"description": "Stuttgarter Innenstadtkinos"},
-            "cinemaxX":{"description": "CinemaxX"},
-            "sneakkino":{"description": "sneak-kino.de"},
-            "paradieslichtspiele":{"description": "Paradies-Lichtspiele"}
-        }
-    },
-
-    "tandemActivityElevenTitle": "Kunst genießen",
-    "tandemActivityElevenBody": "Ihr wollt sehen oder hören, was eure Umgebung so an Kunst zu bieten hat? Dann informiert euch hier. \nKunst in Stuttgart\n1 | Staatsgalerie \nMittwochs ist der Eintritt in die Sammlung der Stuttgarter Staatsgalerie frei! Die Öffnungszeiten sind 10 bis 18 Uhr. Das Graphik-Kabinett und die Videobox sind im freien Eintritt inbegriffen, Sonderausstellungen allerdings nicht.\n2 | Hitzefrei im Landesmuseum \nAb 25 Grad ist der Eintritt in die kühlen Räume des Landesmuseums im Alten Schloss frei. Das Angebot gilt meist jährlich im August. Zu entdecken gibt es viele spannende Ausstellungen\n3 | Kostenlose Veranstaltungen in der Musikhochschule\nViele Konzerte und Veranstaltungen in der zentral gelegenen Musikhochschule Stuttgart sind kostenlos.\n1 Kunst in Bietigheim-Bissingen\n1 | Stadtmuseum Hornmoldhaus 57 Hauptstraße, 74321 Bietigheim-Bissingen\nwww.stadtmuseum.bietigheim-bissingen.de\nDas Hornmoldhaus in Bietigheim ist eines der besterhaltenen Bürgerhäuser der Renaissance in Süddeutschland. Erbaut wurde das Haus in den Jahren 1535/36 durch den Bietigheimer Vogt Sebastian Hornmold den Älterwen. Besonders sehenswert sind die Innenausmalungen aus der Renaissancezeit. Die Ausstellungsthemen wechseln regelmäßig, der Eintritt ist kostenlos.\n2 | Städtische Galerie\nHauptstraße 60-64, 74321 Bietigheim-Bissingen\nwww.galerie.bietigheim-bissingen.de\nIn der Altstadt Bietigheims findet man die 1989 eröffnete und im Jahre 2000 erweiterte Städtische Galerie Bietigheim-Bissingen – eine gelungene Synthese aus historischer Bausubstanz und moderner Architektur. Mit ihren wechselnden Ausstellungen zur Klassischen Moderne und zur Gegenwartskunst sowie einer umfangreichen Sammlung künstlerischer Linolschnitte und Kunst der Region hat die Städtische Galerie eine anerkannte Position im Kulturgeschehen rund um Stuttgart.",
-
-
-    "tandemActivityTwelveTitle": "STUTTGART-CITY ERKUNDEN",
-    "tandemActivityTwelveBody": "Ihr wollt wissen, was es abseits der Königstraße und des Schlossparks in der Stuttgarter Stadtmitte zu sehen und unternehmen gibt? Dann informiert euch hier.\n1 | Marktvielfalt genießen\nNeben den Wochenmärkten gibt es zahlreiche Flohmärkte, wie z.B. den großen Frühjahrs- oder Herbstflohmarkt oder den wöchentlichen Flohmarkt, der jeden Samstag auf dem Karlsplatz stattfindet. Übrigens: Vom Karlsplatz aus lohnt sich immer auch ein Abstecher in die Markthalle!\n2 | Stadtgeschichte am Bahnhof erfahren\nWer sich gern Informationen und einen Überblick rund um Stuttgart 21 oder einfach nur einen Blick über den Stadtmittelpunkt verschaffen will, kann das auf dem 56 Meter hohen Bahnhofsturm tun. Der Eintritt ist frei, hoch könnt ihr immer über Aufzüge, die von der Bahnhofshalle aus zu erreichen sind. Geöffnet ist der Turm Montag bis Mittwoch und Freitag von 9 bis 19 Uhr, donnerstags 10 bis 21 Uhr (eure Chance auf einen Sonnenuntergang mit Aussicht!), samstags und sonntags von 10 bis 18 Uhr.\nDu möchtest einen interessanten Spot in der Innenstadt weiterempfehlen? Schreibe uns eine Mail an info@femalefellows.com mit dem Betreff „Stuttgarts Innenstadt erkunden“, in der du kurz beschreibst, worum es sich bei deiner Empfehlung genau handelt und was sie besonders macht.",
-
-    "tandemActivityThirteenTitle":"Digitale Aktivitäten",
-    "tandemActivityThirteenBody":"Die Coronapandemie erlaubt nur Online-Treffen? Lass dich hier für Online-Aktivitäten inspirieren.\n1 | „Offline“-Aktivitäten ins Onlinetreffen verlagern\nEinige Aktivitäten funktionieren sowohl bei face-to-face-Treffen als auch online. Ihr könnt euch in den entsprechenden Rubriken Inspiration holen und euch dann per Videochat (WhatsApp, Skype, Zoom, …) verabreden. Es bietet sich beispielsweise an: Gemeinsam kochen, Kreativ sein (basteln, nähen, stricken, …), Deutsch lernen, Tandemaustausch, …\n2 | Spiele\nViele Spiele lassen sich auch online gut spielen. Einige Ideen, auch für größere Gruppen, findet ihr hier.Über das Whiteboard bei Zoom beispielsweise kann man gut Montagsmaler spielen.Es gibt verschiedene Websites, auf denen man online mit Freunden spielen kann. Tabu, Wer bin ich?, Pantomime, Kniffel, Quiz oder Stadt-Land-Fluss lassen sich aber auch problemlos auf analoge Weise über Videochat spielen.\n3 | Filme/Serien\nIhr könnt über eure Lieblingsfilme und -serien sprechen. Dann schaut ihr den Lieblingsfilm eurer Tandem-Partnerin an und tauscht euch anschließend darüber aus. Oder ihr verabredet euch und seht gleichzeitig etwas an, um euch anschließend auszutauschen.\n4 | Bewegung …\n… darf auch in Zeiten von social distancing nicht zu kurz kommen! Spazierengehen ist immer eine gute Lösung. Ihr könnt die frische Lust genießen, neue Parks und Wege entdecken oder euch in der Rubrik Ab ins Grüne inspirieren lassen. Draußen kann man auch gut Abstand halten und Maske tragen, um das Infektionsrisiko zu minimieren.Wenn euch gemeinsame Spaziergänge zu riskant sind, könnt ihr euch für ein gemeinsames Workout, gemeinsames Tanzen oder Yoga verabreden, indem ihr z.B. dasselbe Workout-Video macht und gleichzeitig per Videochat mit eurer Tandempartnerin verbunden seid. Oft ist man zu zweit motivierter als allein!",
-    "tandemActivityThirteenBody2":"\n5 | Mindestens so wichtig wie in ‚normalen‘ Zeiten: Austausch!\nVersucht, euch trotz der erschwerten Umstände regelmäßig auszutauschen. Zeigt einander Wertschätzung, indem ihr euch einfach zuhört und berichtet, was euch zur Zeit beschäftigt oder auch was für Ideen ihr für eure nächsten Treffen habt. Seid füreinander da und traut euch, Unsicherheiten und Schwächen zuzugeben.\nInspiration aus dem Rückblick\nFemale Fellows Online-Aktivitäten\nAlternativ könnt ihr einfach an den Online-Aktionen von Female Fellows teilnehmen. Am 13.2.2021 hatten wir beispielsweise einen wunderbaren Yoga-Kurs für Einsteiger und Interessierte mit Sonja Schmid! Am 13.2.2021 hat sie einen Anfängerinnen-Kurs mit unseren Female Fellows online durchgeführt. Wir hatten alle unglaublich viel Spaß! Es ging dabei einfach darum, ein bisschen in das Thema ‘Yoga’, ‘Sport’ und ‘Bewegung’ reinzukommen und den eigenen Körper besser kennenzulernen. Und das Beste ist: Es wird jetzt regelmäßig (Online-) Yoga mit Sonja geben – informiert euch also gerne, welche Online-Aktivitäten Female Fellows plant. \nDu hast weitere Ideen für digitale Aktivitäten und möchtest diese weiterempfehlen? Du hast mit deiner Tandem-Partnerin gute Erfahrungen mit bestimmten digitalen Aktivitäten gemacht und möchtest diese mit der Community teilen? Schreibe uns eine Mail an {mail} mit dem Betreff „Digitale Aktivitäten“, in der du kurz beschreibst, worum es sich bei deiner Empfehlung genau handelt und was sie besonders macht.",
-    "@tandemActivityThirteenBody2":{
-        "placeholders": {
-            "mail":{"description": "info@femalefellows.com"}
-        }
-    }
- 
 }
