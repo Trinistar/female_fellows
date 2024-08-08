@@ -47,9 +47,6 @@ class _AuthLoginPageState extends State<LoginPage> {
           create: (context) => LoginBloc(),
           child: BlocConsumer<LoginBloc, LoginState>(
             builder: (context, state) {
-              if (state is FormSubmitting) {
-                return Center(child: CircularProgressIndicator());
-              }
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: ListView(

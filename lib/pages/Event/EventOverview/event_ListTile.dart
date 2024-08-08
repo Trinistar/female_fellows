@@ -16,7 +16,7 @@ class EventListTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: SizedBox(
-        height: 110,
+        height: 120,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -51,7 +51,8 @@ class EventListTile extends StatelessWidget {
                     children: [
                       Text(
                         event.title,
-                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
                       ),
                       Row(
                         children: [
@@ -62,9 +63,14 @@ class EventListTile extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: Text(
-                              formatDate(event.dates!.created!.toDate(), <String>[d, '. ', MM, ' ', yyyy], locale: GermanLocale()),
-                              style: TextStyle(fontSize: 13),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                formatDate(event.dates!.created!.toDate(),
+                                    <String>[d, '. ', MM, ' ', yyyy],
+                                    locale: GermanLocale()),
+                                style: TextStyle(fontSize: 13),
+                              ),
                             ),
                           ),
                         ],
@@ -75,9 +81,12 @@ class EventListTile extends StatelessWidget {
                             Icons.person_2_outlined,
                             size: 20,
                           ),
-                          Text(
-                            event.host,
-                            style: TextStyle(fontSize: 13),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Text(
+                              event.host,
+                              style: TextStyle(fontSize: 13),
+                            ),
                           ),
                         ],
                       ),
@@ -91,9 +100,13 @@ class EventListTile extends StatelessWidget {
                                         Icons.location_on_outlined,
                                         size: 20,
                                       ),
-                                      Text(
-                                        '${event.location.street}\n${event.location.zipCode}, ${event.location.city}',
-                                        style: TextStyle(fontSize: 13),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 8.0),
+                                        child: Text(
+                                          '${event.location.street}\n${event.location.zipCode}, ${event.location.city}',
+                                          style: TextStyle(fontSize: 13),
+                                        ),
                                       ),
                                     ],
                                   )
@@ -103,9 +116,13 @@ class EventListTile extends StatelessWidget {
                                         Icons.location_on_outlined,
                                         size: 20,
                                       ),
-                                      Text(
-                                        event.location.city,
-                                        style: TextStyle(fontSize: 13),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 8.0),
+                                        child: Text(
+                                          event.location.city,
+                                          style: TextStyle(fontSize: 13),
+                                        ),
                                       ),
                                     ],
                                   );
@@ -116,9 +133,13 @@ class EventListTile extends StatelessWidget {
                                   Icons.location_on_outlined,
                                   size: 20,
                                 ),
-                                Text(
-                                  event.location.city,
-                                  style: TextStyle(fontSize: 13),
+                                Padding(
+                                                                                padding: const EdgeInsets.only(left: 8.0),
+
+                                  child: Text(
+                                    event.location.city,
+                                    style: TextStyle(fontSize: 13),
+                                  ),
                                 ),
                               ],
                             );
