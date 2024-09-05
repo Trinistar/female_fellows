@@ -490,11 +490,11 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
-				CURRENT_PROJECT_VERSION = 0.1.30;
+				CURRENT_PROJECT_VERSION = 0.1.31;
 				DEVELOPMENT_TEAM = 736FCHTSD9;
 				ENABLE_BITCODE = NO;
-				FLUTTER_BUILD_NAME = 1.4.9;
-				FLUTTER_BUILD_NUMBER = 1.4.9;
+				FLUTTER_BUILD_NAME = 1.4.11;
+				FLUTTER_BUILD_NUMBER = 1.4.11;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				IPHONEOS_DEPLOYMENT_TARGET = 14;
@@ -502,7 +502,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.9;
+				MARKETING_VERSION = 1.4.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.vsFemalefellows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -681,11 +681,11 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
-				CURRENT_PROJECT_VERSION = 0.1.30;
+				CURRENT_PROJECT_VERSION = 0.1.31;
 				DEVELOPMENT_TEAM = 736FCHTSD9;
 				ENABLE_BITCODE = NO;
-				FLUTTER_BUILD_NAME = 1.4.9;
-				FLUTTER_BUILD_NUMBER = 1.4.9;
+				FLUTTER_BUILD_NAME = 1.4.11;
+				FLUTTER_BUILD_NUMBER = 1.4.11;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				IPHONEOS_DEPLOYMENT_TARGET = 14;
@@ -693,7 +693,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.9;
+				MARKETING_VERSION = 1.4.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.vsFemalefellows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -714,11 +714,11 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
-				CURRENT_PROJECT_VERSION = 0.1.30;
+				CURRENT_PROJECT_VERSION = 0.1.31;
 				DEVELOPMENT_TEAM = 736FCHTSD9;
 				ENABLE_BITCODE = NO;
-				FLUTTER_BUILD_NAME = 1.4.9;
-				FLUTTER_BUILD_NUMBER = 1.4.9;
+				FLUTTER_BUILD_NAME = 1.4.11;
+				FLUTTER_BUILD_NUMBER = 1.4.11;
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				IPHONEOS_DEPLOYMENT_TARGET = 14;
@@ -726,7 +726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.9;
+				MARKETING_VERSION = 1.4.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.vsFemalefellows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
