@@ -20,7 +20,10 @@ class FirestoreEventRepository {
 
   Future<void>? updateEvent(Event eventdata) {
     if (eventdata.id == null || eventdata.id!.isEmpty) return null;
-    return db.collection('event').doc(eventdata.id).set(eventdata.toJson(), SetOptions(merge: true));
+    return db
+        .collection('event')
+        .doc(eventdata.id)
+        .set(eventdata.toJson(), SetOptions(merge: true));
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> getEvents() {
@@ -28,10 +31,15 @@ class FirestoreEventRepository {
   }
 
   Stream<Event?> getEvent(String eventId) {
-    return db.collection('event').doc(eventId).snapshots().map((DocumentSnapshot<Object> snapshot) {
+    return db
+        .collection('event')
+        .doc(eventId)
+        .snapshots()
+        .map((DocumentSnapshot<Object> snapshot) {
       if (!snapshot.exists) return null;
 
-      final Event event = Event.fromJson(snapshot.data()! as Map<String, dynamic>);
+      final Event event =
+          Event.fromJson(snapshot.data()! as Map<String, dynamic>);
 
       event.id = snapshot.id;
       return event;
@@ -40,10 +48,16 @@ class FirestoreEventRepository {
 
   Future<List<FFUser>> getEventParticipants(String eventId) async {
     final List<FFUser> participants = [];
-    var parts = await db.collection('event').doc(eventId).collection('participants').where('participating', isEqualTo: true).get();
+    var parts = await db
+        .collection('event')
+        .doc(eventId)
+        .collection('participants')
+        .where('participating', isEqualTo: true)
+        .get();
     if (parts.docs.isEmpty) return [];
     for (var part in parts.docs) {
       var usersnap = await db.collection('user').doc(part.id).get();
+      if (usersnap.data() == null) continue;
       final FFUser userProfile = FFUser.fromJson(usersnap.data()!);
       userProfile.eventParticipant = EventParticipant.fromJson(part.data());
       userProfile.id = part.id;
@@ -55,7 +69,11 @@ class FirestoreEventRepository {
   Stream<List<Event>> getEventsById(List<String> eventIds) {
     const String error = 'noElements';
     if (eventIds.isEmpty) return Stream.error(error);
-    return db.collection('event').where(FieldPath.documentId, whereIn: eventIds).snapshots().map(
+    return db
+        .collection('event')
+        .where(FieldPath.documentId, whereIn: eventIds)
+        .snapshots()
+        .map(
       ((QuerySnapshot<Map<String, dynamic>> snapshot) {
         if (snapshot.docs.isNotEmpty) {
           List<Event> tmp = [];
@@ -92,12 +110,24 @@ class FirestoreEventRepository {
     );
   }
 
-  Future<void> setEventParticipation(String? userId, String? eventId, EventParticipant data) {
-    return db.collection('event').doc(eventId).collection('participants').doc(userId).set(data.toJson(), SetOptions(merge: true));
+  Future<void> setEventParticipation(
+      String? userId, String? eventId, EventParticipant data) {
+    return db
+        .collection('event')
+        .doc(eventId)
+        .collection('participants')
+        .doc(userId)
+        .set(data.toJson(), SetOptions(merge: true));
   }
 
-  Future<void> revokeEventParticipation(String? userId, String? eventId, Map<String, dynamic> data) {
-    return db.collection('event').doc(eventId).collection('participants').doc(userId).set(data, SetOptions(merge: true));
+  Future<void> revokeEventParticipation(
+      String? userId, String? eventId, Map<String, dynamic> data) {
+    return db
+        .collection('event')
+        .doc(eventId)
+        .collection('participants')
+        .doc(userId)
+        .set(data, SetOptions(merge: true));
   }
 
   Future<List<Category>> getCategories() async {
@@ -112,7 +142,10 @@ class FirestoreEventRepository {
 }
 
 StreamBuilder<QuerySnapshot<Map<String, dynamic>>> eventStreambuilder(
-    Stream<QuerySnapshot<Map<String, dynamic>>> repo, Widget Function(BuildContext context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) builder) {
+    Stream<QuerySnapshot<Map<String, dynamic>>> repo,
+    Widget Function(BuildContext context,
+            AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot)
+        builder) {
   return StreamBuilder(stream: repo, builder: builder);
 }
 
@@ -166,12 +199,15 @@ class SubscribedEventsStore extends Cubit<List<Event>> {
   SubscribedEventsStore(this._authBloc)
       : _db = FirestoreRepository().firestoreInstance,
         super(List.empty(growable: false)) {
-    _authBlocStreamSub = _authBloc.stream.listen((AuthenticationState authState) {
+    _authBlocStreamSub =
+        _authBloc.stream.listen((AuthenticationState authState) {
       if (authState is AuthenticatedUser) {
         if (authState.userProfile!.participatingEvents.isEmpty) {
           return;
         }
-        _eventRepo.getEventsById(authState.userProfile!.participatingEvents).listen((event) {
+        _eventRepo
+            .getEventsById(authState.userProfile!.participatingEvents)
+            .listen((event) {
           emit(event);
         });
       } else {
@@ -231,12 +267,18 @@ class FavoriteEventStore extends Cubit<List<Event>> {
   FavoriteEventStore(this._authBloc)
       : _db = FirestoreRepository().firestoreInstance,
         super(List.empty(growable: true)) {
-    _authBlocStreamSub = _authBloc.stream.listen((AuthenticationState authState) {
+    _authBlocStreamSub =
+        _authBloc.stream.listen((AuthenticationState authState) {
       if (authState is AuthenticatedUser) {
         if (authState.userProfile!.favorites.isEmpty) {
           return;
         }
-        _db.collection('event').where(FieldPath.documentId, whereIn: authState.userProfile!.favorites).snapshots().listen(eventListener);
+        _db
+            .collection('event')
+            .where(FieldPath.documentId,
+                whereIn: authState.userProfile!.favorites)
+            .snapshots()
+            .listen(eventListener);
       }
     });
   }

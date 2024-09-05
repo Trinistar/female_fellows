@@ -28,7 +28,6 @@ class ImageUploadBloc extends Bloc<ImageUploadEvent, ImageUploadState> {
 
   Future<void> _onUploadImageEvent(UploadImageEvent event, Emitter<ImageUploadState> emit) async {
     emit(ImageUploading());
-
     try {
       final PickedFile file = PickedFile(event.image.path);
       final UploadTask? task = await _storageImageRepo.uploadFile(file, event.profile.id, type: event.imageUploadType);
@@ -58,7 +57,7 @@ class ImageUploadBloc extends Bloc<ImageUploadEvent, ImageUploadState> {
 
     try {
       final PickedFile file = PickedFile(event.image.path);
-      final UploadTask? task = await _storageImageRepo.uploadFile(file, event.event.id);
+      final UploadTask? task = await _storageImageRepo.uploadFile(file, event.event.id, type: event.imageUploadType);
 
       if (task != null) {
         return emit.onEach(

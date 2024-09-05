@@ -310,6 +310,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                           information: Controller.informationController.text,
                           clothes: Controller.clothesController.text,
                         ),
+                        picture: widget.eventState.picture,
                       );
                       switch (_imageProcessing) {
                         case ImageProcessing.upload:

@@ -25,6 +25,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
   void initState() {
     _setInputFields(widget.eventState);
     _dateTime = widget.eventState.dates!.eventDate!.toDate();
+    widget.newEventDate!(widget.eventState.dates!.eventDate!);
     super.initState();
   }
 
