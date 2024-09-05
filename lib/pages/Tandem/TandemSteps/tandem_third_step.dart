@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/pages/Authentication/authentication_entry.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+//import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ThirdStep extends StatefulWidget {
@@ -12,7 +12,7 @@ class ThirdStep extends StatefulWidget {
 }
 
 class _ThirdStepState extends State<ThirdStep> {
-  final videoURL =
+  /* final videoURL =
       "https://www.youtube.com/watch?v=5C6p2DxK6S8&t=32s";
   late YoutubePlayerController _controller;
   @override
@@ -26,7 +26,7 @@ class _ThirdStepState extends State<ThirdStep> {
     );
 
     super.initState();
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -115,13 +115,13 @@ class _ThirdStepState extends State<ThirdStep> {
             ),
           ),
           SizedBox(height: 50,),
-          Padding(
+          /* Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: YoutubePlayer(controller: _controller,
                   
             onReady: () => debugPrint(AppLocalizations.of(context)!.tandemReady),
             showVideoProgressIndicator: true,),
-          ),
+          ), */
           SizedBox(
             height: 100,
           ),

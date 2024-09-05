@@ -66,7 +66,7 @@ class EventListTile extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.only(left: 8.0),
                               child: Text(
-                                formatDate(event.dates!.created!.toDate(),
+                                formatDate(event.dates!.eventDate!.toDate(),
                                     <String>[d, '. ', MM, ' ', yyyy],
                                     locale: GermanLocale()),
                                 style: TextStyle(fontSize: 13),
@@ -134,8 +134,7 @@ class EventListTile extends StatelessWidget {
                                   size: 20,
                                 ),
                                 Padding(
-                                                                                padding: const EdgeInsets.only(left: 8.0),
-
+                                  padding: const EdgeInsets.only(left: 8.0),
                                   child: Text(
                                     event.location.city,
                                     style: TextStyle(fontSize: 13),

@@ -19,11 +19,12 @@ class UpdateEventDate extends StatefulWidget {
 }
 
 class UpdateEventDateState extends State<UpdateEventDate> {
-  DateTime dateTime = DateTime.now();
+  late DateTime _dateTime;
 
   @override
   void initState() {
     _setInputFields(widget.eventState);
+    _dateTime = widget.eventState.dates!.eventDate!.toDate();
     super.initState();
   }
 
@@ -46,7 +47,8 @@ class UpdateEventDateState extends State<UpdateEventDate> {
     ).then((value) {
       setState(() {
         if (value != null) {
-          dateTime = value;
+          _dateTime = value;
+          widget.newEventDate!(Timestamp.fromDate(_dateTime));
         }
       });
     });
@@ -67,8 +69,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
                 _showdatePicker();
               },
               child: Text(
-                // ignore: unnecessary_null_comparison
-                dateTime != null ? '${dateTime.day}.${dateTime.month}.${dateTime.year}' : '${widget.eventState.dates!.updated!.toDate().day}.${widget.eventState.dates!.updated!.toDate().month}.${widget.eventState.dates!.updated!.toDate().year}',
+                '${_dateTime.day}.${_dateTime.month}.${_dateTime.year}',
                 style: TextStyle(
                   fontSize: 15,
                 ),

@@ -26,7 +26,6 @@ class _TeamFoerderinState extends State<TeamFoerderin> {
         GestureDetector(
           onTap: () {
             setState(() {
-              // launchUrl(teamurl,mode: LaunchMode.inAppWebView);
               launchUrl(teamUrl, mode: LaunchMode.externalApplication);
             });
           },
@@ -47,7 +46,6 @@ class _TeamFoerderinState extends State<TeamFoerderin> {
         GestureDetector(
           onTap: () {
             setState(() {
-              // launchUrl(teamurl,mode: LaunchMode.inAppWebView);
               launchUrl(foerderinUrl, mode: LaunchMode.externalApplication);
             });
           },
