@@ -100,9 +100,12 @@ class _AuthNotificationState extends State<AuthNotification> {
                     )
                   : Container(),
               _call || _whatsapp
-                  ? TextFormField(
-                      controller: Controller.phonenumberController,
-                    )
+                  ? Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                    child: TextFormField(
+                        controller: Controller.phonenumberController,
+                      ),
+                  )
                   : Container(),
             ],
           ),

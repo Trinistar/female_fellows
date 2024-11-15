@@ -53,7 +53,9 @@ class AfterTandemHeader extends StatelessWidget {
                 ),
               ),
             ),
-            DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.tertiary),
+            DividerBouthCorner(
+                color1: Colors.white,
+                color2: Theme.of(context).colorScheme.tertiary),
             Text(
               '${profile.firstname} & ${profile.tandemMatches!.first.otherProfile!.firstname}',
               style: TextStyle(fontSize: 25),
@@ -63,8 +65,26 @@ class AfterTandemHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.supervised_user_circle_sharp),
-                Text('gematched seit ${formatDate(profile.tandemMatches!.first.requested.toDate(), <String>[d, '. ', MM, ' ', yyyy], locale: GermanLocale())}'),
+                Text(
+                    'gematched seit ${formatDate(profile.tandemMatches!.first.requested.toDate(), <String>[
+                          d,
+                          '. ',
+                          MM,
+                          ' ',
+                          yyyy
+                        ], locale: GermanLocale())}'),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: MaterialButton(
+                onPressed: null,
+                child: Text('Kontaktdaten anzeigen'),
+              ),
+            ),
+            MaterialButton(
+              onPressed: null,
+              child: Text('Match auflösen'),
             ),
           ],
         ),
@@ -73,7 +93,7 @@ class AfterTandemHeader extends StatelessWidget {
           children: [
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 60),
+                padding: const EdgeInsets.only(bottom: 160),
                 child: Stack(
                   alignment: AlignmentDirectional.center,
                   children: [
@@ -97,37 +117,50 @@ class AfterTandemHeader extends StatelessWidget {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 60),
+                padding: const EdgeInsets.only(bottom: 160),
                 child: Stack(
                   alignment: AlignmentDirectional.center,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(right: 90),
-                      child: profile.profilPicture != null && profile.profilPicture!.isNotEmpty
+                      child: profile.profilPicture != null &&
+                              profile.profilPicture!.isNotEmpty
                           ? CircleAvatar(
-                              backgroundImage: NetworkImage(profile.profilPicture!),
+                              backgroundImage:
+                                  NetworkImage(profile.profilPicture!),
                               radius: 55,
                               backgroundColor: Colors.white,
                             )
                           : CircleAvatar(
-                              backgroundImage: AssetImage('lib/images/ImageIcon.png'),
+                              backgroundImage:
+                                  AssetImage('lib/images/ImageIcon.png'),
                               radius: 55,
-                              backgroundColor: Theme.of(context).colorScheme.secondary,
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.secondary,
                             ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 90),
-                      child: profile.tandemMatches!.first.otherProfile != null && profile.tandemMatches!.first.otherProfile!.profilPicture!.isNotEmpty
-                          ? CircleAvatar(
-                              backgroundImage: NetworkImage(profile.tandemMatches!.first.otherProfile!.profilPicture!),
-                              radius: 55,
-                              backgroundColor: Colors.white,
-                            )
-                          : CircleAvatar(
-                              backgroundImage: AssetImage('lib/images/ImageIcon.png'),
-                              radius: 55,
-                              backgroundColor: Theme.of(context).colorScheme.secondary,
-                            ),
+                      child:
+                          profile.tandemMatches!.first.otherProfile != null &&
+                                  profile.tandemMatches!.first.otherProfile!
+                                      .profilPicture!.isNotEmpty
+                              ? CircleAvatar(
+                                  backgroundImage: NetworkImage(profile
+                                      .tandemMatches!
+                                      .first
+                                      .otherProfile!
+                                      .profilPicture!),
+                                  radius: 55,
+                                  backgroundColor: Colors.white,
+                                )
+                              : CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage('lib/images/ImageIcon.png'),
+                                  radius: 55,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.secondary,
+                                ),
                     ),
                   ],
                 ),
