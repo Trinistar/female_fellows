@@ -56,11 +56,9 @@ class EventListTile extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Flexible(
-                            child: Icon(
-                              Icons.calendar_month_outlined,
-                              size: 20,
-                            ),
+                          Icon(
+                            Icons.calendar_month_outlined,
+                            size: 20,
                           ),
                           Expanded(
                             child: Padding(
@@ -81,11 +79,13 @@ class EventListTile extends StatelessWidget {
                             Icons.person_2_outlined,
                             size: 20,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: Text(
-                              event.host,
-                              style: TextStyle(fontSize: 13),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                event.host,
+                                style: TextStyle(fontSize: 13),
+                              ),
                             ),
                           ),
                         ],

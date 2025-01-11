@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:femalefellows/models/events.dart';
-import 'package:femalefellows/pages/Event/EventOverview/event_ListTile.dart';
+import 'package:femalefellows/pages/Event/EventOverview/event_list_tile.dart';
 import 'package:femalefellows/provider/firebase/firestore_event_repository.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
