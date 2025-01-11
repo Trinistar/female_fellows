@@ -130,14 +130,16 @@ class _DetailEventState extends State<DetailEvent> {
     );
   }
 
-  ListView _eventDetails(BuildContext context, Event eventState) {
-    return ListView(
-      padding: EdgeInsets.only(top: 0),
+  Widget _eventDetails(BuildContext context, Event eventState) {
+    return Stack(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            image:
-                (eventState.picture != null && eventState.picture!.isNotEmpty)
+        ListView(
+          padding: EdgeInsets.only(top: 0),
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                image: (eventState.picture != null &&
+                        eventState.picture!.isNotEmpty)
                     ? DecorationImage(
                         image: NetworkImage(
                           eventState.picture!,
@@ -150,147 +152,177 @@ class _DetailEventState extends State<DetailEvent> {
                         ),
                         fit: BoxFit.cover,
                       ),
-            color: Theme.of(context).colorScheme.secondary,
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(60),
-            ),
-          ),
-          height: 215,
-          width: 1000,
-        ),
-        Artbar(
-            colorleft: Theme.of(context).colorScheme.secondary,
-            colorright: Colors.white),
-        Padding(
-          padding: const EdgeInsets.only(left: 40),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: 1000,
-                height: 30,
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Text(
-                      eventState.title,
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    Positioned(
-                      top: -10,
-                      right: 10,
-                      child: FavoritesIconWidget(
-                        event: eventState,
-                      ),
-                    ),
-                  ],
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(60),
                 ),
               ),
-              Divider(
-                thickness: 5,
-                color: Theme.of(context).colorScheme.primary,
-                endIndent: 330,
+              height: 215,
+              width: 1000,
+            ),
+            Artbar(
+                colorleft: Theme.of(context).colorScheme.secondary,
+                colorright: Colors.white),
+            Padding(
+              padding: const EdgeInsets.only(left: 40),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 1000,
+                    height: 30,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Text(
+                          eventState.title,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        Positioned(
+                          top: -10,
+                          right: 10,
+                          child: FavoritesIconWidget(
+                            event: eventState,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Divider(
+                    thickness: 5,
+                    color: Theme.of(context).colorScheme.primary,
+                    endIndent: 330,
+                  ),
+                ],
               ),
-            ],
+            ),
+            EventItems(
+              eventState: eventState,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            EventDescription(event: eventState),
+            EventCategorys(selectedCats: eventState.categories!),
+            EventImages(),
+            DividerBouthCorner(
+              color1: Theme.of(context).colorScheme.surfaceContainerHighest,
+              color2: Colors.white,
+            ),
+            EventMaterials(eventState: eventState),
+            BlocBuilder<AuthenticationBloc, AuthenticationState>(
+              builder: (context, state) {
+                if (state is AuthenticatedUser &&
+                    HelperFunctions.isAdmin(state.tokenResult!.claims)) {
+                  return ParticipantsData();
+                } else {
+                  return SizedBox.shrink();
+                }
+              },
+            ),
+            Container(
+              height: 30,
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
+            )
+          ],
+        ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          left: 0,
+          child: Container(
+            color: Theme.of(context).colorScheme.surface,
+            child: SafeArea(
+              top: false,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: SignUpEventButtonWidget(
+                    eventId: widget.eventId, eventState: eventState),
+              ),
+            ),
           ),
         ),
-        EventItems(
-          eventState: eventState,
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        BlocBuilder<AuthenticationBloc, AuthenticationState>(
-          builder: (context, state) {
-            if (state is AuthenticatedUser) {
-              if (state.user!.emailVerified) {
-                if (state.userProfile!.participatingEvents
-                    .contains(eventState.id)) {
-                  return FFButton(
-                    onTap: () {
-                      final Map<String, dynamic> map = <String, dynamic>{};
-                      map['participating'] = false;
-                      context.read<AuthenticationBloc>().add(
-                          RevokeEventParticipationEvent(
-                              userId: state.user!.uid,
-                              eventId: widget.eventId,
-                              userData: state.userProfile!,
-                              participation: map));
-                    },
-                    text: AppLocalizations.of(context)!.eventButtonSignout,
-                    color: Colors.red,
-                  );
-                } else {
-                  return FFButton(
-                    onTap: () => context.go(
-                        '/events/detailEvent/${widget.eventId}/eventOnboarding',
-                        extra: eventState),
-                    text: AppLocalizations.of(context)!.eventButtonSignin,
-                  );
-                }
-              } else {
-                return Column(
-                  children: [
-                    FFButton(
-                      color: Colors.redAccent,
-                      onTap: () => (BlocProvider.of<AuthenticationBloc>(context)
-                              .state as AuthenticatedUser)
-                          .user!
-                          .sendEmailVerification(
-                              HelperFunctions.getActionCodeSettings(
-                                  (BlocProvider.of<AuthenticationBloc>(context)
-                                          .state as AuthenticatedUser)
-                                      .user!
-                                      .email!)),
-                      text: 'E-Mail-Adresse verifizieren',
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(35.0),
-                      child: Text(
-                          'Bitte E-Mail verifizieren um an Events oder dem Tandem-Projekt teilzunehmen. Falls du keine Mail von uns bekommen hast, schaue im Spamordner nach. Wenn du den Link in der Mail bereits geklickt hast und diesen Text immer noch siehst, logge dich bitte erneut ein.'),
-                    )
-                  ],
-                );
-              }
-            } else if (state is UnauthenticatedUser) {
+      ],
+    );
+  }
+}
+
+class SignUpEventButtonWidget extends StatelessWidget {
+  const SignUpEventButtonWidget(
+      {super.key, required this.eventId, required this.eventState});
+
+  final String eventId;
+  final Event eventState;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+      builder: (context, state) {
+        if (state is AuthenticatedUser) {
+          if (state.user!.emailVerified) {
+            if (state.userProfile!.participatingEvents
+                .contains(eventState.id)) {
+              return FFButton(
+                onTap: () {
+                  final Map<String, dynamic> map = <String, dynamic>{};
+                  map['participating'] = false;
+                  context.read<AuthenticationBloc>().add(
+                      RevokeEventParticipationEvent(
+                          userId: state.user!.uid,
+                          eventId: eventId,
+                          userData: state.userProfile!,
+                          participation: map));
+                },
+                text: AppLocalizations.of(context)!.eventButtonSignout,
+                color: Colors.red,
+              );
+            } else {
               return FFButton(
                 onTap: () => context.go(
-                    '/events/detailEvent/${widget.eventId}/eventNotAuthenticated',
+                    '/events/detailEvent/$eventId/eventOnboarding',
                     extra: eventState),
                 text: AppLocalizations.of(context)!.eventButtonSignin,
               );
-            } else {
-              return SizedBox.shrink();
             }
-          },
-        ),
-        SizedBox(
-          height: 30,
-        ),
-        EventDescription(event: eventState),
-        EventCategorys(selectedCats: eventState.categories!),
-        EventImages(),
-        DividerBouthCorner(
-          color1: Theme.of(context).colorScheme.surfaceContainerHighest,
-          color2: Colors.white,
-        ),
-        EventMaterials(eventState: eventState),
-        BlocBuilder<AuthenticationBloc, AuthenticationState>(
-          builder: (context, state) {
-            if (state is AuthenticatedUser &&
-                HelperFunctions.isAdmin(state.tokenResult!.claims)) {
-              return ParticipantsData();
-            } else {
-              return SizedBox.shrink();
-            }
-          },
-        ),
-        Container(
-          height: 30,
-          color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        )
-      ],
+          } else {
+            return Column(
+              children: [
+                FFButton(
+                  color: Colors.redAccent,
+                  onTap: () => (BlocProvider.of<AuthenticationBloc>(context)
+                          .state as AuthenticatedUser)
+                      .user!
+                      .sendEmailVerification(
+                          HelperFunctions.getActionCodeSettings(
+                              (BlocProvider.of<AuthenticationBloc>(context)
+                                      .state as AuthenticatedUser)
+                                  .user!
+                                  .email!)),
+                  text: 'E-Mail-Adresse verifizieren',
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(35.0),
+                  child: Text(
+                      'Bitte E-Mail verifizieren um an Events oder dem Tandem-Projekt teilzunehmen. Falls du keine Mail von uns bekommen hast, schaue im Spamordner nach. Wenn du den Link in der Mail bereits geklickt hast und diesen Text immer noch siehst, logge dich bitte erneut ein.'),
+                )
+              ],
+            );
+          }
+        } else if (state is UnauthenticatedUser) {
+          return FFButton(
+            onTap: () => context.go(
+                '/events/detailEvent/$eventId/eventNotAuthenticated',
+                extra: eventState),
+            text: AppLocalizations.of(context)!.eventButtonSignin,
+          );
+        } else {
+          return SizedBox.shrink();
+        }
+      },
     );
   }
 }
