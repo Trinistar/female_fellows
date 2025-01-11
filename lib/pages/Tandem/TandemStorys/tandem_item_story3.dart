@@ -24,7 +24,7 @@ class TandemItemStoryThree extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(40)),
                 child: Image.asset(
                   'lib/images/5-sandra-zouzan.png',
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

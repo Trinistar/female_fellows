@@ -24,7 +24,7 @@ class TandemItemStoryOne extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(40)),
                 child: Image.asset(
                   'lib/images/1-makai-lisa.png',
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

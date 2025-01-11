@@ -24,7 +24,7 @@ class TandemItemStoryTwo extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(40)),
                 child: Image.asset(
                   'lib/images/4-yasna-franziska.png',
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
