@@ -21,7 +21,7 @@ class TandemOnboardingEntry extends StatefulWidget {
 class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
   PageController _controller = PageController();
   bool _onLastPage = false;
-  UserLanguages _userLanguages = UserLanguages(main: FFLanguage('de', 'German'), additional: []);
+  UserLanguages _userLanguages = UserLanguages(main: FFLanguage('de', 'German', 'Deutsch'), additional: []);
   void _getUserLanguages(UserLanguages languages) => _userLanguages = languages;
 
   @override

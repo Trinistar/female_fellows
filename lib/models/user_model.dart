@@ -108,7 +108,7 @@ class UserLanguages {
 
 @JsonSerializable()
 class FFLanguage extends Language {
-  FFLanguage(super.isoCode, super.name);
+  FFLanguage(super.isoCode, super.name, super.nativeName);
 
   factory FFLanguage.fromJson(Map<String, dynamic> json) => _$FFLanguageFromJson(json);
   Map<String, dynamic> toJson() => _$FFLanguageToJson(this);

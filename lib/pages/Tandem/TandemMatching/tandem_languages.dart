@@ -30,12 +30,12 @@ class _TandemLanguagesState extends State<TandemLanguages> {
     if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
       final FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
       if (profile.languages != null) {
-        final FFLanguage lang = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile?.languages?.main ?? FFLanguage('de', 'German');
-        _lang = Language(lang.isoCode, lang.name);
+        final FFLanguage lang = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile?.languages?.main ?? FFLanguage('de', 'German', 'Deutsch');
+        _lang = Language(lang.isoCode, lang.name, '');
         final List<FFLanguage> additional = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile?.languages?.additional ?? [];
         _ffLanguages.addAll(additional);
         for (final FFLanguage lang in additional) {
-          _selectedLanguages.add(Language(lang.isoCode, lang.name));
+          _selectedLanguages.add(Language(lang.isoCode, lang.name, ''));
         }
       } else {
         _lang = Languages.german;
@@ -90,7 +90,7 @@ class _TandemLanguagesState extends State<TandemLanguages> {
             onSelected: (value) {
               setState(() {
                 _lang = value!;
-                widget.userLanguages!(UserLanguages(main: FFLanguage(_lang.isoCode, _lang.name), additional: _ffLanguages));
+                widget.userLanguages!(UserLanguages(main: FFLanguage(_lang.isoCode, _lang.name, ''), additional: _ffLanguages));
               });
             },
           ),
@@ -130,8 +130,8 @@ class _TandemLanguagesState extends State<TandemLanguages> {
                 _selectedLanguage = value!;
                 if (!_selectedLanguages.contains(_selectedLanguage)) {
                   _selectedLanguages.add(_selectedLanguage);
-                  _ffLanguages.add(FFLanguage(_selectedLanguage.isoCode, _selectedLanguage.name));
-                  widget.userLanguages!(UserLanguages(main: FFLanguage(_lang.isoCode, _lang.name), additional: _ffLanguages));
+                  _ffLanguages.add(FFLanguage(_selectedLanguage.isoCode, _selectedLanguage.name, ''));
+                  widget.userLanguages!(UserLanguages(main: FFLanguage(_lang.isoCode, _lang.name, ''), additional: _ffLanguages));
                 }
               });
             },
@@ -147,8 +147,8 @@ class _TandemLanguagesState extends State<TandemLanguages> {
                 onDeleted: () {
                   setState(() {
                     _selectedLanguages.remove(lang);
-                    _ffLanguages.remove(FFLanguage(lang.isoCode, lang.name));
-                    widget.userLanguages!(UserLanguages(main: FFLanguage(_lang.isoCode, _lang.name), additional: _ffLanguages));
+                    _ffLanguages.remove(FFLanguage(lang.isoCode, lang.name, ''));
+                    widget.userLanguages!(UserLanguages(main: FFLanguage(_lang.isoCode, _lang.name, ''), additional: _ffLanguages));
                   });
                 },
                 shape: RoundedRectangleBorder(
