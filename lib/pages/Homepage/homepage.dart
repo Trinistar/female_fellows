@@ -203,15 +203,15 @@ class _HomeState extends State<Home> {
           ImageButton(
             pagechange: widget.pagechange,
           ),
-          DividerBouthCorner(color1: Theme.of(context).colorScheme.surfaceVariant, color2: Colors.white),
+          DividerBouthCorner(color1: Theme.of(context).colorScheme.surfaceContainerHighest, color2: Colors.white),
           EventCarousel(
             pagechange: widget.pagechange,
           ),
-          DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.surfaceVariant),
+          DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.surfaceContainerHighest),
           AboutUs(),
-          DividerBouthCorner(color1: Theme.of(context).colorScheme.surfaceVariant, color2: Colors.white),
+          DividerBouthCorner(color1: Theme.of(context).colorScheme.surfaceContainerHighest, color2: Colors.white),
           TeamFoerderin(),
-          DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.surfaceVariant),
+          DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.surfaceContainerHighest),
           SizedBox(
             width: 1000,
             child: Column(

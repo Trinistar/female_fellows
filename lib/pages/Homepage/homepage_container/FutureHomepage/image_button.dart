@@ -10,13 +10,12 @@ class ImageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      //onTap: () => ,
       child: Container(
         color: Colors.white,
         height: 250,
         child: Padding(
           padding:
-              const EdgeInsets.only(top: 20, left: 45, right: 45, bottom: 10),
+              const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
           child: GestureDetector(
             onTap: () => context.go('/tandem'),
             child: Container(

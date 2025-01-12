@@ -19,7 +19,7 @@ class TandemItemStoryOne extends StatelessWidget {
                 color: Theme.of(context).colorScheme.secondary,
               ),
               height: 160,
-              width: 160,
+              width: 150,
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(40)),
                 child: Image.asset(

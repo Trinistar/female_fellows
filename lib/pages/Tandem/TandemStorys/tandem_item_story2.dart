@@ -7,7 +7,7 @@ class TandemItemStoryTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: GestureDetector(
         onTap: () => context.push('/tandemStoryTwo'),
         child: Stack(
@@ -19,7 +19,7 @@ class TandemItemStoryTwo extends StatelessWidget {
                 color: Theme.of(context).colorScheme.primary,
               ),
               height: 160,
-              width: 160,
+              width: 150,
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(40)),
                 child: Image.asset(

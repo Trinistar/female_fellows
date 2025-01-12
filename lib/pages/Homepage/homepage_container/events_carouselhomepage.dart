@@ -14,7 +14,7 @@ class EventCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 1000,
-      color: Theme.of(context).colorScheme.surfaceVariant,
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
