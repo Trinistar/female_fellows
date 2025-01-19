@@ -123,7 +123,7 @@ Map<String, dynamic> _$UserLanguagesToJson(UserLanguages instance) =>
 FFLanguage _$FFLanguageFromJson(Map<String, dynamic> json) => FFLanguage(
       json['isoCode'] as String,
       json['name'] as String,
-      json['nativeName'] as String,
+      json['nativeName'] ?? json['name'] as String,
     );
 
 Map<String, dynamic> _$FFLanguageToJson(FFLanguage instance) =>

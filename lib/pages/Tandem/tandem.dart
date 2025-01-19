@@ -1,3 +1,5 @@
+import 'package:femalefellows/components/female_fellows_button.dart';
+import 'package:femalefellows/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -36,33 +38,36 @@ class _TandementryState extends State<Tandementry> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.isInfo) {
-      return _tandemOnboarding(context);
-    } else {
-      return BlocBuilder<TandemOnboardingBloc, TandemOnboardingState>(
-        builder: (context, state) {
-          if (state is IsTandemOnboardingState) {
-            return _tandemOnboarding(context);
-          } else {
-            return BlocBuilder<AuthenticationBloc, AuthenticationState>(
-              builder: (context, state) {
-                if (state is AuthenticatedUser) {
-                  final DateTime currentLocalTimeMinus24 = DateTime.now();
-                  bool tooLate = false;
-                  Duration difference = Duration.zero;
-                  if (state.userProfile!.tandemMatches != null) {
-                    difference = currentLocalTimeMinus24.difference(state
-                        .userProfile!.tandemMatches!.first.requested
-                        .toDate());
-                    tooLate = difference.inHours >= 24;
-                  }
-                  if (state.userProfile!.tandemMatches != null &&
-                      state.userProfile!.tandemMatches!.first.state ==
-                          TandemMatchesState.confirmed) {
-                    return AfterTandem();
-                  }
-                  final bool tandemRequestExists =
-                      (state.userProfile!.tandemMatches != null &&
+    return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+      builder: (context, authState) {
+        if (widget.isInfo) {
+          return _tandemOnboarding(context, authState);
+        } else {
+          return BlocBuilder<TandemOnboardingBloc, TandemOnboardingState>(
+            builder: (context, tandemState) {
+              if (tandemState is IsTandemOnboardingState) {
+                return _tandemOnboarding(context, authState);
+              } else {
+                return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                  builder: (context, state) {
+                    if (state is AuthenticatedUser) {
+                      final DateTime currentLocalTimeMinus24 = DateTime.now();
+                      bool tooLate = false;
+                      Duration difference = Duration.zero;
+                      if (state.userProfile!.tandemMatches != null) {
+                        difference = currentLocalTimeMinus24.difference(state
+                            .userProfile!.tandemMatches!.first.requested
+                            .toDate());
+                        tooLate = difference.inHours >= 24;
+                      }
+                      if (state.userProfile!.tandemMatches != null &&
+                          state.userProfile!.tandemMatches!.first.state ==
+                              TandemMatchesState.confirmed) {
+                        return AfterTandem();
+                      }
+                      final bool tandemRequestExists = (state
+                                      .userProfile!.tandemMatches !=
+                                  null &&
                               !tooLate &&
                               state.userProfile!.tandemMatches!.first.state !=
                                   TandemMatchesState.declined) &&
@@ -71,35 +76,39 @@ class _TandementryState extends State<Tandementry> {
                               (state.userProfile!.newcomerMatches != null &&
                                   state.userProfile!.newcomerMatches!
                                       .isNotEmpty));
-                  if (tandemRequestExists) {
-                    if (state.userProfile!.tandemMatches!.first.state ==
-                        TandemMatchesState.confirmed) {
-                      return AfterTandem();
-                    } else if (state.userProfile!.tandemMatches!.first.state ==
-                        TandemMatchesState.requested) {
-                      if (state.userProfile!.tandemMatches!.first.requester ==
-                          state.userProfile!.id) {
-                        return _tandemOnboarding(context);
-                      } else {
-                        return TandemMatching();
+                      if (tandemRequestExists) {
+                        if (state.userProfile!.tandemMatches!.first.state ==
+                            TandemMatchesState.confirmed) {
+                          return AfterTandem();
+                        } else if (state
+                                .userProfile!.tandemMatches!.first.state ==
+                            TandemMatchesState.requested) {
+                          if (state.userProfile!.tandemMatches!.first
+                                  .requester ==
+                              state.userProfile!.id) {
+                            return _tandemOnboarding(context, authState);
+                          } else {
+                            return TandemMatching();
+                          }
+                        } else {
+                          return TandemMatching();
+                        }
                       }
-                    } else {
                       return TandemMatching();
+                    } else {
+                      return _tandemOnboarding(context, authState);
                     }
-                  }
-                  return TandemMatching();
-                } else {
-                  return _tandemOnboarding(context);
-                }
-              },
-            );
-          }
-        },
-      );
-    }
+                  },
+                );
+              }
+            },
+          );
+        }
+      },
+    );
   }
 
-  Scaffold _tandemOnboarding(BuildContext context) {
+  Scaffold _tandemOnboarding(BuildContext context, AuthenticationState state) {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
@@ -478,7 +487,8 @@ class _TandementryState extends State<Tandementry> {
                     LocalOrNewcomer.local) {
                   return FAQs();
                 }
-              }return FAQsNew();
+              }
+              return FAQsNew();
             },
           ),
         ],
@@ -486,26 +496,50 @@ class _TandementryState extends State<Tandementry> {
     );
   }
 
-  GestureDetector _tandemOnboardingButton(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        widget.isInfo ? context.pop() : context.go('/tandem/tandemOnboarding');
-      },
-      child: Container(
-        padding: EdgeInsets.all(25),
-        margin: const EdgeInsets.symmetric(horizontal: 50),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          color: Theme.of(context).colorScheme.primary,
-        ),
-        child: Center(
-          child: Text(
-            'Jetzt mit Tandem matchen',
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
-          ),
-        ),
-      ),
-    );
+  Widget _tandemOnboardingButton(BuildContext context) {
+    var authState = context.read<AuthenticationBloc>().state;
+    if (authState is AuthenticatedUser) {
+      if (authState.user!.emailVerified) {
+        return FFButton(
+          onTap: () {
+            widget.isInfo
+                ? context.pop()
+                : context.go('/tandem/tandemOnboarding');
+          },
+          text: 'Jetzt mit Tandem matchen',
+        );
+      } else {
+        return Column(
+          children: [
+            FFButton(
+              color: Colors.redAccent,
+              onTap: () => (BlocProvider.of<AuthenticationBloc>(context).state
+                      as AuthenticatedUser)
+                  .user!
+                  .sendEmailVerification(HelperFunctions.getActionCodeSettings(
+                      (BlocProvider.of<AuthenticationBloc>(context).state
+                              as AuthenticatedUser)
+                          .user!
+                          .email!)),
+              text: 'E-Mail-Adresse verifizieren',
+            ),
+            Padding(
+              padding: const EdgeInsets.all(35.0),
+              child: Text(
+                  'Bitte E-Mail verifizieren um an Events oder dem Tandem-Projekt teilzunehmen. Falls du keine Mail von uns bekommen hast, schaue im Spamordner nach. Wenn du den Link in der Mail bereits geklickt hast und diesen Text immer noch siehst, logge dich bitte erneut ein.'),
+            )
+          ],
+        );
+      }
+    } else {
+      return FFButton(
+        onTap: () {
+          widget.isInfo
+              ? context.pop()
+              : context.go('/tandem/tandemOnboarding');
+        },
+        text: 'Jetzt mit Tandem matchen',
+      );
+    }
   }
 }

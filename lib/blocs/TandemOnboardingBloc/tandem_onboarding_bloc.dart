@@ -8,14 +8,17 @@ import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart'
 part 'tandem_onboarding_event.dart';
 part 'tandem_onboarding_state.dart';
 
-class TandemOnboardingBloc extends Bloc<TandemOnboardingEvent, TandemOnboardingState> {
+class TandemOnboardingBloc
+    extends Bloc<TandemOnboardingEvent, TandemOnboardingState> {
   TandemOnboardingBloc(this._authBloc) : super(IsTandemOnboardingState()) {
     on<TandemOnboardingDoneEvent>(_onTandemOnboardingDoneEvent);
     on<CheckTandemOnboardingEvent>(_onTandemCheckOnboardingEvent);
 
-    _authBlocSubscription = _authBloc.stream.listen((AuthenticationState state) {
+    _authBlocSubscription =
+        _authBloc.stream.listen((AuthenticationState state) {
       if (state is AuthenticatedUser) {
-        add(CheckTandemOnboardingEvent());
+        add(CheckTandemOnboardingEvent(
+            emailVerified: state.user!.emailVerified));
       }
     });
   }
@@ -28,7 +31,8 @@ class TandemOnboardingBloc extends Bloc<TandemOnboardingEvent, TandemOnboardingS
 
   late bool _onboarding;
 
-  Future<void> _onTandemOnboardingDoneEvent(TandemOnboardingDoneEvent event, Emitter<TandemOnboardingState> emit) async {
+  Future<void> _onTandemOnboardingDoneEvent(TandemOnboardingDoneEvent event,
+      Emitter<TandemOnboardingState> emit) async {
     try {
       final SharedPreferences prefs = await _prefs;
       await prefs.setBool('tandemOnboarding', false);
@@ -38,11 +42,16 @@ class TandemOnboardingBloc extends Bloc<TandemOnboardingEvent, TandemOnboardingS
     }
   }
 
-  Future<void> _onTandemCheckOnboardingEvent(CheckTandemOnboardingEvent event, Emitter<TandemOnboardingState> emit) async {
+  Future<void> _onTandemCheckOnboardingEvent(CheckTandemOnboardingEvent event,
+      Emitter<TandemOnboardingState> emit) async {
     try {
       final SharedPreferences prefs = await _prefs;
       _onboarding = prefs.getBool('tandemOnboarding') ?? true;
-      _onboarding ? emit(IsTandemOnboardingState()) : emit(TandemOnboardingDoneState());
+      _onboarding
+          ? emit(IsTandemOnboardingState())
+          : event.emailVerified
+              ? emit(TandemOnboardingDoneState())
+              : emit(IsTandemOnboardingState());
     } catch (e) {
       emit(IsTandemOnboardingState());
     }
