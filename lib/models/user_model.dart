@@ -60,7 +60,7 @@ class FFUser {
     this.socialMedia,
     this.location,
     this.aboutMe = '',
-    this.tandemTypeFilter,
+    this.tandemTypeFilter = TandemTypeFilter.nearby,
     this.tandemMatch = 0.0,
     this.languages,
     this.localMatch,
