@@ -4,7 +4,6 @@ import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart'
 import 'package:femalefellows/provider/controller.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class TandemAboutYou extends StatefulWidget {
   const TandemAboutYou({super.key});
 
@@ -13,11 +12,16 @@ class TandemAboutYou extends StatefulWidget {
 }
 
 class _TandemAboutYouState extends State<TandemAboutYou> {
-
   @override
   void initState() {
-    if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
-      Controller.aboutYouController.text = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile?.aboutMe ?? '';
+    if (BlocProvider.of<AuthenticationBloc>(context).state
+        is AuthenticatedUser) {
+      Controller.aboutYouController.text =
+          (BlocProvider.of<AuthenticationBloc>(context).state
+                      as AuthenticatedUser)
+                  .userProfile
+                  ?.aboutMe ??
+              '';
     }
     super.initState();
   }
@@ -31,7 +35,8 @@ class _TandemAboutYouState extends State<TandemAboutYou> {
         child: ListView(
           children: [
             Text(
-              AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayOneTitle,
+              AppLocalizations.of(context)!
+                  .tandemMatchingAnmeldungOverlayOneTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -52,6 +57,9 @@ class _TandemAboutYouState extends State<TandemAboutYou> {
               height: 50,
             ),
             TextField(
+              onTapOutside: (event) {
+                FocusScope.of(context).unfocus();
+              },
               maxLength: 250,
               maxLines: 7,
               controller: Controller.aboutYouController,
@@ -70,14 +78,16 @@ class _TandemAboutYouState extends State<TandemAboutYou> {
                 ),
                 fillColor: Theme.of(context).colorScheme.surface,
                 filled: true,
-                hintText:AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayOneFieldPlaceholder,
+                hintText: AppLocalizations.of(context)!
+                    .tandemMatchingAnmeldungOverlayOneFieldPlaceholder,
               ),
             ),
             SizedBox(
               height: 20,
             ),
             Text(
-              AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayOneFieldPlaceholder2,
+              AppLocalizations.of(context)!
+                  .tandemMatchingAnmeldungOverlayOneFieldPlaceholder2,
               style: TextStyle(fontSize: 12),
             ),
           ],

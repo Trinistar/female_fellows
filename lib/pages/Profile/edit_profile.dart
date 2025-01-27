@@ -443,6 +443,9 @@ class _EditProfileState extends State<EditProfile> {
                               fillColor: Theme.of(context).colorScheme.surface,
                               hintText: widget.userstate.aboutMe,
                             ),
+                            onTapOutside: (event) {
+                              FocusScope.of(context).unfocus();
+                            },
                           ),
                         ),
                       ],
