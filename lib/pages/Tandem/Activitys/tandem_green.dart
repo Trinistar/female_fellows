@@ -194,7 +194,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody2.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody2.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody2.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody2.getElementsByTagName('a').first.text,
@@ -203,7 +203,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links2[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody2.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody2.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody2.getElementsByTagName('span')[1].text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody2.getElementsByTagName('a')[1].text,
@@ -222,7 +222,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody3.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody3.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody3.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody3.getElementsByTagName('a').first.text,
@@ -231,7 +231,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links3[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody3.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody3.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody3.getElementsByTagName('span')[1].text : ''),
                     ],
                   ),
                 ),
@@ -242,7 +242,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody4.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody4.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody4.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody4.getElementsByTagName('a').first.text,
@@ -251,7 +251,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links4[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody4.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody4.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody4.getElementsByTagName('span')[1].text : ''),
                     ],
                   ),
                 ),
@@ -262,7 +262,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody5.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody5.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody5.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody5.getElementsByTagName('a').first.text,
@@ -271,7 +271,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links5[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody5.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody5.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody5.getElementsByTagName('span')[1].text : ''),
                     ],
                   ),
                 ),
@@ -282,7 +282,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody6.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody6.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody6.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody6.getElementsByTagName('a').first.text,
@@ -291,7 +291,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links6[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody6.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody6.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody6.getElementsByTagName('span')[1].text : ''),
                     ],
                   ),
                 ),
@@ -302,7 +302,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody7.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody7.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody7.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody7.getElementsByTagName('a').first.text,
@@ -311,7 +311,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links7[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody7.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody7.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody7.getElementsByTagName('span')[1].text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody7.getElementsByTagName('a')[1].text,
@@ -320,7 +320,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links7[1]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody7.getElementsByTagName('span')[2].text),
+                      TextSpan(text: _tandemActivityFiveBody7.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody7.getElementsByTagName('span')[2].text : ''),
                     ],
                   ),
                 ),
@@ -345,7 +345,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody10.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody10.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody10.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody10.getElementsByTagName('a').first.text,
@@ -354,7 +354,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links10[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody10.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody10.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody10.getElementsByTagName('span')[1].text : ''),
                     ],
                   ),
                 ),
@@ -365,7 +365,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody11.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody11.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody11.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody11.getElementsByTagName('a').first.text,
@@ -374,7 +374,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links11[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody11.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody11.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody11.getElementsByTagName('span')[1].text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody11.getElementsByTagName('a')[1].text,
@@ -392,7 +392,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links11[2]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody11.getElementsByTagName('span')[2].text),
+                      TextSpan(text: _tandemActivityFiveBody11.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody11.getElementsByTagName('span')[2].text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody11.getElementsByTagName('a')[3].text,
@@ -411,7 +411,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody12.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody12.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody12.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody12.getElementsByTagName('a').first.text,
@@ -420,7 +420,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links12[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody12.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody12.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody12.getElementsByTagName('span')[1].text : ''),
                     ],
                   ),
                 ),
@@ -431,7 +431,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody13.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody13.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody13.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody13.getElementsByTagName('a').first.text,
@@ -440,7 +440,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links13[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody13.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody13.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody13.getElementsByTagName('span')[1].text : ''),
                     ],
                   ),
                 ),
@@ -451,7 +451,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   TextSpan(
                     style: TextStyle(fontSize: 15, color: Colors.white),
                     children: [
-                      TextSpan(text: _tandemActivityFiveBody14.getElementsByTagName('span').first.text),
+                      TextSpan(text: _tandemActivityFiveBody14.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody14.getElementsByTagName('span').first.text : ''),
                       TextSpan(
                         style: TextStyle(fontSize: 15, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
                         text: _tandemActivityFiveBody14.getElementsByTagName('a').first.text,
@@ -460,7 +460,7 @@ class _TandemGreenState extends State<TandemGreen> {
                             launchUrl(Uri.parse(_links14[0]));
                           },
                       ),
-                      TextSpan(text: _tandemActivityFiveBody14.getElementsByTagName('span')[1].text),
+                      TextSpan(text: _tandemActivityFiveBody14.getElementsByTagName('span').isNotEmpty ? _tandemActivityFiveBody14.getElementsByTagName('span')[1].text : ''),
                     ],
                   ),
                 ),

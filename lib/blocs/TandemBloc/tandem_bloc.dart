@@ -96,8 +96,8 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
         user.tandemMatch = _getMatchByAge(profile, user);
       }
       tandems.sort((a, b) => b.tandemMatch!.compareTo(a.tandemMatch!));
-      if (tandems.length > 5) {
-        temp = List<FFUser>.from(<FFUser>[...tandems.getRange(0, 5)]);
+      if (tandems.length > 3) {
+        temp = List<FFUser>.from(<FFUser>[...tandems.getRange(0, 3)]);
       } else {
         return tandems;
       }
