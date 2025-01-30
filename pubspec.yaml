@@ -32,13 +32,12 @@ dependencies:
   flutter_svg: ^2.0.17
   language_picker: ^0.4.5
   shared_preferences: ^2.3.5
-  geoflutterfire_plus: #^0.0.21
-    git: https://github.com/Trinistar/geoflutterfire_plus.git
+  geoflutterfire_plus: ^0.0.32
   geocoding: ^3.0.0
   #youtube_player_flutter: ^9.0.3
   go_router: ^14.6.3
   custom_sliding_segmented_control: ^1.8.5
-  rxdart: ^0.27.7
+  rxdart: ^0.28.0
   flutter_linkify: ^6.0.0
   html: ^0.15.5
   firebase_messaging: ^15.2.0

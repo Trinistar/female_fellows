@@ -637,12 +637,11 @@ packages:
   geoflutterfire_plus:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "37ca5b7e68616bb75b255683d0ea48b58336ad56"
-      url: "https://github.com/Trinistar/geoflutterfire_plus.git"
-    source: git
-    version: "0.0.21"
+      name: geoflutterfire_plus
+      sha256: b21db377fb940eb511abcf0258a54c515882c1eda78fa0c6759b3cbb020a8f8b
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.32"
   geolocator:
     dependency: "direct main"
     description:
@@ -1079,10 +1078,10 @@ packages:
     dependency: "direct main"
     description:
       name: rxdart
-      sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
+      sha256: "5c3004a4a8dbb94bd4bf5412a4def4acdaa12e12f269737a5751369e12d1a962"
       url: "https://pub.dev"
     source: hosted
-    version: "0.27.7"
+    version: "0.28.0"
   shared_preferences:
     dependency: "direct main"
     description:

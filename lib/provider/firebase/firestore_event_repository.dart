@@ -1,12 +1,14 @@
 import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/models/category.dart';
 import 'package:femalefellows/models/event_participant.dart';
 import 'package:femalefellows/models/user_model.dart';
 import 'package:femalefellows/provider/firebase/firestore_repository.dart';
+import 'package:flutter/material.dart';
+import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 
 import '../../models/events.dart';
 
@@ -151,48 +153,61 @@ StreamBuilder<QuerySnapshot<Map<String, dynamic>>> eventStreambuilder(
 
 class AllEventsStore extends Cubit<List<Event>> {
   final FirebaseFirestore db;
-  AllEventsStore()
+  AllEventsStore(this._authBloc)
       : db = FirestoreRepository().firestoreInstance,
         super(List.empty(growable: true)) {
-    db.collection('event').snapshots().listen(eventListener);
+    _authBlocStreamSub =
+        _authBloc.stream.listen((AuthenticationState authState) async {
+      var events = await db.collection('event').get();
+      List<Event> tmp = [];
+
+      if (authState is AuthenticatedUser) {
+        if (authState.userProfile != null &&
+            authState.userProfile!.location != null) {
+          final GeoFirePoint point = GeoFirePoint(GeoPoint(
+              authState.userProfile!.location!.data!.location.latitude,
+              authState.userProfile!.location!.data!.location.longitude));
+
+          for (var doc in events.docs) {
+            final Event event = Event.fromJson(doc.data());
+            event.id = doc.id;
+            var geodata = await db
+                .collection('event')
+                .doc(event.id!)
+                .collection('data')
+                .doc('geodata')
+                .get();
+            if (geodata.data() != null && geodata.data()!['data'] != null) {
+              final GeoData hash = GeoData.fromJson(geodata.data()!['data']);
+              if (point.distanceBetweenInKm(
+                      geopoint: GeoPoint(
+                          hash.location.latitude, hash.location.longitude)) <
+                  100) {
+                tmp.add(event);
+              }
+            }
+          }
+        } else {
+          for (var doc in events.docs) {
+            final Event event = Event.fromJson(doc.data());
+            event.id = doc.id;
+            tmp.add(event);
+          }
+        }
+      } else {
+        for (var doc in events.docs) {
+          final Event event = Event.fromJson(doc.data());
+          event.id = doc.id;
+          tmp.add(event);
+        }
+      }
+      emit(tmp);
+    });
   }
 
-  void eventListener(QuerySnapshot<Map<String, dynamic>> snapshot) {
-    if (snapshot.docs.isNotEmpty) {
-      List<Event> tmp = [];
-      for (var doc in snapshot.docs) {
-        final Event event = Event.fromJson(doc.data());
-        event.id = doc.id;
-        tmp.add(event);
-      }
-      /* for (var change in snapshot.docChanges) {
-        switch (change.type) {
-          case DocumentChangeType.added:
-            final Event event = Event.fromJson(change.doc.data()!);
-            tmp.add(event);
-            event.id = change.doc.id;
-            break;
-          case DocumentChangeType.modified:
-            Event modiefiedEvent = Event.fromJson(change.doc.data()!);
-            int index = tmp.indexWhere((e) => e.title == modiefiedEvent.title);
-            modiefiedEvent.id = change.doc.id;
-            if (index > -1) {
-              tmp[index] = modiefiedEvent;
-            }
-            break;
-          case DocumentChangeType.removed:
-            Event deletedEvent = Event.fromJson(change.doc.data()!);
-            int index = tmp.indexWhere((e) => e.title == deletedEvent.title);
-            deletedEvent.id = change.doc.id;
-            if (index > -1) {
-              tmp.removeAt(index);
-            }
-            break;
-        }
-      } */
-      emit(tmp);
-    }
-  }
+  final AuthenticationBloc _authBloc;
+
+  StreamSubscription<dynamic>? _authBlocStreamSub;
 }
 
 class SubscribedEventsStore extends Cubit<List<Event>> {

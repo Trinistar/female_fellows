@@ -1,10 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/helper_functions.dart';
 import 'package:femalefellows/models/user_model.dart';
@@ -13,8 +6,11 @@ import 'package:femalefellows/pages/Event/EventComponents/color_artbar.dart';
 import 'package:femalefellows/pages/Event/EventOverview/all_events_page.dart';
 import 'package:femalefellows/pages/Event/EventOverview/favorite_events.page.dart';
 import 'package:femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
-import 'package:femalefellows/provider/controller.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EventOverview extends StatefulWidget {
   const EventOverview({
@@ -242,7 +238,6 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
           SizedBox(
             height: 40,
           ),
-          /*********************************************************************************************************/
           SizedBox(
             child: TabBar(
               controller: _tabController,
@@ -271,37 +266,6 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
               ],
             ),
           ),
-          /* MultiBlocProvider(
-                  providers: [
-                    /* BlocProvider<AllEventsStore>(
-                      create: (BuildContext context) => AllEventsStore(),
-                    ), */
-                    /* BlocProvider<SubscribedEventsStore>(
-                      lazy: false,
-                      create: (BuildContext context) => SubscribedEventsStore(BlocProvider.of<AuthenticationBloc>(context)),
-                    ), */
-                    /* BlocProvider<FavoriteEventStore>(
-                      lazy: false,
-                      create: (BuildContext context) => FavoriteEventStore(BlocProvider.of<AuthenticationBloc>(context)),
-                    ), */
-                  ],
-                  child: Expanded(
-                    child: SizedBox(
-                      width: double.maxFinite,
-                      height: 400,
-                      child: TabBarView(
-                        controller: _tabController,
-                        children: [
-                          AllEvents(),
-                          SingedUpEvents(),
-                          FavoritEvents(),
-                        ],
-                      ),
-                    ),
-                  ),
-                ), */
-
-          /*********************************************************************************************************/
           SizedBox(
             height: 20,
           ),

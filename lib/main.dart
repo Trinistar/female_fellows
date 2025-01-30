@@ -523,7 +523,7 @@ class MyApp extends StatelessWidget {
         ), */
         BlocProvider<AllEventsStore>(
           lazy: false,
-          create: (BuildContext context) => AllEventsStore(),
+          create: (BuildContext context) => AllEventsStore(context.read<AuthenticationBloc>()),
         ),
         BlocProvider<CategoryCubit>(
           lazy: false,
