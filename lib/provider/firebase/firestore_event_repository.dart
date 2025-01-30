@@ -182,7 +182,7 @@ class AllEventsStore extends Cubit<List<Event>> {
               if (point.distanceBetweenInKm(
                       geopoint: GeoPoint(
                           hash.location.latitude, hash.location.longitude)) <
-                  100) {
+                  20) {
                 tmp.add(event);
               }
             }

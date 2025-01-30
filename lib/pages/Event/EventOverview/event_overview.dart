@@ -31,7 +31,7 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
 
   DateTimeRange dateRange = DateTimeRange(start: DateTime.now(), end: DateTime.now());
   Future pickDateRange() async {
-    DateTimeRange? newDateRange = await showDateRangePicker(context: context, initialDateRange: dateRange, firstDate: DateTime.now(), lastDate: DateTime(2025));
+    DateTimeRange? newDateRange = await showDateRangePicker(context: context, initialDateRange: dateRange, firstDate: DateTime.now(), lastDate: DateTime(2500));
     if (newDateRange == null) return;
     setState(() {
       dateRange = newDateRange;
