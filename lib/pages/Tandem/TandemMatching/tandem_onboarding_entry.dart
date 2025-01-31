@@ -109,7 +109,7 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
                           final FFUser updatedUserProfile = profile;
                           updatedUserProfile.aboutMe = Controller.aboutYouController.text;
                           updatedUserProfile.languages = _userLanguages;
-                          context.read<AuthenticationBloc>().add(UpdateUserProfileEvent((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid, userProfile: profile));
+                          context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(userId: (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!.uid, userProfile: profile));
                           context.read<TandemOnboardingBloc>().add(TandemOnboardingDoneEvent());
 
                           Navigator.of(context).maybePop();

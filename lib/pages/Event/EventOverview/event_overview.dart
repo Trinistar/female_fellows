@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/helper_functions.dart';
-import 'package:femalefellows/models/events.dart';
 import 'package:femalefellows/models/user_model.dart';
 import 'package:femalefellows/pages/Event/CreateEvent/create_event.dart';
 import 'package:femalefellows/pages/Event/EventComponents/color_artbar.dart';
@@ -26,39 +25,47 @@ class EventOverview extends StatefulWidget {
 class _EventOverviewState extends State<EventOverview>
     with TickerProviderStateMixin {
   late TabController _tabController;
+
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
   }
 
-  DateTimeRange dateRange =
+  DateTimeRange _dateRange =
       DateTimeRange(start: DateTime.now(), end: DateTime.now());
+
   Future pickDateRange() async {
     DateTimeRange? newDateRange = await showDateRangePicker(
         context: context,
-        initialDateRange: dateRange,
-        firstDate: DateTime.now(),
+        initialDateRange: _dateRange,
+        firstDate: DateTime.now().subtract(Duration(days: 360)),
         lastDate: DateTime(2500));
     if (newDateRange == null) return;
     setState(() {
-      dateRange = newDateRange;
-      if (context.read<AuthenticationBloc>().state is AuthenticatedUser) {
+      _dateRange = newDateRange;
+      final EventDateRange eventDateRange = EventDateRange(
+          start: Timestamp.fromDate(_dateRange.start),
+          end: Timestamp.fromDate(_dateRange.end));
+      var authState = context.read<AuthenticationBloc>().state;
+      if (authState is AuthenticatedUser) {
         final FFUser profile = (BlocProvider.of<AuthenticationBloc>(context)
                 .state as AuthenticatedUser)
             .userProfile!;
-        EventDateRange eventDateRange = EventDateRange(
-            start: Timestamp.fromDate(dateRange.start),
-            end: Timestamp.fromDate(dateRange.end));
         profile.eventDateRange = eventDateRange;
         context.read<AuthenticationBloc>().add(
               UpdateUserProfileEvent(
-                (BlocProvider.of<AuthenticationBloc>(context).state
+                userId: (BlocProvider.of<AuthenticationBloc>(context).state
                         as AuthenticatedUser)
                     .user!
                     .uid,
                 userProfile: profile,
               ),
+            );
+      } else if (authState is UnauthenticatedUser) {
+        authState.userProfile!.eventDateRange = eventDateRange;
+        context.read<AuthenticationBloc>().add(
+              UpdateUserProfileEvent(userProfile: authState.userProfile!),
             );
       }
     });
@@ -70,8 +77,22 @@ class _EventOverviewState extends State<EventOverview>
 
   @override
   Widget build(BuildContext context) {
-    final start = dateRange.start;
-    final end = dateRange.end;
+    final DateTime start =
+        context.watch<AuthenticationBloc>().state is AuthenticatedUser
+            ? (context.read<AuthenticationBloc>().state as AuthenticatedUser)
+                .userProfile!
+                .eventDateRange!
+                .start
+                .toDate()
+            : DateTime.now();
+    final DateTime end =
+        context.watch<AuthenticationBloc>().state is AuthenticatedUser
+            ? (context.read<AuthenticationBloc>().state as AuthenticatedUser)
+                .userProfile!
+                .eventDateRange!
+                .end
+                .toDate()
+            : DateTime.now();
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
@@ -165,12 +186,13 @@ class _EventOverviewState extends State<EventOverview>
                         if (BlocProvider.of<AuthenticationBloc>(context).state
                             is AuthenticatedUser) {
                           final FFUser profile =
-                              (BlocProvider.of<AuthenticationBloc>(context).state
-                                      as AuthenticatedUser)
+                              (BlocProvider.of<AuthenticationBloc>(context)
+                                      .state as AuthenticatedUser)
                                   .userProfile!;
                           context.read<AuthenticationBloc>().add(
                                 UpdateUserProfileEvent(
-                                  (BlocProvider.of<AuthenticationBloc>(context)
+                                  userId: (BlocProvider.of<AuthenticationBloc>(
+                                              context)
                                           .state as AuthenticatedUser)
                                       .user!
                                       .uid,
@@ -201,13 +223,13 @@ class _EventOverviewState extends State<EventOverview>
                             if (state is AuthenticatedUser) {
                               return Text(
                                 state.userProfile!.location != null
-                                    ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}'
+                                    ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!} (20km Radius)'
                                     : locationmessage,
                                 style: TextStyle(fontSize: 12),
                               );
                             } else {
                               return Text(
-                                locationmessage,
+                                '$locationmessage (20km Radius)',
                                 style: TextStyle(fontSize: 12),
                               );
                             }

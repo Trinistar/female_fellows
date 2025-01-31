@@ -16,7 +16,8 @@ class SignUpSuccess extends AuthenticationState {
 }
 
 class SignUpFailure extends AuthenticationState {}
-class SignOutSuccess extends AuthenticationState{}
+
+class SignOutSuccess extends AuthenticationState {}
 
 class AuthenticationLoading extends AuthenticationState {}
 
@@ -24,7 +25,11 @@ class AuthenticationLoadingFromLogin extends AuthenticationState {}
 
 class Reauthenticate extends AuthenticationState {}
 
-class UnauthenticatedUser extends AuthenticationState {}
+class UnauthenticatedUser extends AuthenticationState {
+  UnauthenticatedUser({required this.userProfile});
+
+  final FFUser? userProfile;
+}
 
 class AuthenticatedUser extends AuthenticationState {
   AuthenticatedUser({

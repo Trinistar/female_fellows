@@ -22,11 +22,14 @@ import 'package:rxdart/rxdart.dart';
 part 'authentication_event.dart';
 part 'authentication_state.dart';
 
-class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
+class AuthenticationBloc
+    extends Bloc<AuthenticationEvent, AuthenticationState> {
   AuthenticationBloc({required AuthRepository authenticationRepository})
       : _authenticationProvider = authenticationRepository,
         super(
-          authenticationRepository.currentUser != null ? AuthenticatedUser(user: authenticationRepository.currentUser!) : UnauthenticatedUser(),
+          authenticationRepository.currentUser != null
+              ? AuthenticatedUser(user: authenticationRepository.currentUser!)
+              : UnauthenticatedUser(userProfile: FFUser()),
         ) {
     on<RegisterWithMailEvent>(_onRegisterWithMailEvent);
     on<AuthenticationUserChangedEvent>(_onAuthenticationUserChanged);
@@ -38,12 +41,16 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     on<ReloadUserEvent>(_onReloadUserEvent);
     on<DeleteAccountEvent>(_onDeleteAccountEvent);
 
-    _userSubscription = _authenticationProvider.user.listen((User? user) => add(AuthenticationUserChangedEvent(user)));
+    _userSubscription = _authenticationProvider.user
+        .listen((User? user) => add(AuthenticationUserChangedEvent(user)));
   }
   final AuthRepository _authpage = AuthRepository();
-  final FirestoreUserProfileRepository _firestoreUserProfileRepository = FirestoreUserProfileRepository();
-  final FirestoreEventRepository _firestoreEventRepository = FirestoreEventRepository();
-  final FirestoreTandemRepository _firestoreTandemRepository = FirestoreTandemRepository();
+  final FirestoreUserProfileRepository _firestoreUserProfileRepository =
+      FirestoreUserProfileRepository();
+  final FirestoreEventRepository _firestoreEventRepository =
+      FirestoreEventRepository();
+  final FirestoreTandemRepository _firestoreTandemRepository =
+      FirestoreTandemRepository();
   final StorageRepository _storageRepository = StorageRepository();
   late IdTokenResult _idTokenResult;
 
@@ -51,13 +58,19 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
 
   final AuthRepository _authenticationProvider;
 
-  Future<void> _onAuthenticationUserChanged(AuthenticationUserChangedEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onAuthenticationUserChanged(
+      AuthenticationUserChangedEvent event,
+      Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
 
     if (event.user != null) {
       _idTokenResult = await event.user!.getIdTokenResult();
       await emit.onEach(
-        CombineLatestStream.list(<Stream>[_firestoreUserProfileRepository.loadUserProfile(event.user!.uid), _firestoreUserProfileRepository.loadUserProfileLocationData(event.user!.uid)]),
+        CombineLatestStream.list(<Stream>[
+          _firestoreUserProfileRepository.loadUserProfile(event.user!.uid),
+          _firestoreUserProfileRepository
+              .loadUserProfileLocationData(event.user!.uid)
+        ]),
         onData: (List<dynamic> streams) async {
           UserLocation? location;
           FFUser profile = FFUser();
@@ -70,26 +83,37 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
             location = streams[1];
           }
           if (profile.localOrNewcomer != null) {
-            _firestoreUserProfileRepository.loadTandemMatches(event.user!.uid, profile.localOrNewcomer!).listen((matches) async {
+            _firestoreUserProfileRepository
+                .loadTandemMatches(event.user!.uid, profile.localOrNewcomer!)
+                .listen((matches) async {
               profile.tandemMatches = matches;
               if (profile.tandemMatches != null) {
-                profile.tandemMatches!.first.otherProfile = await _firestoreUserProfileRepository.getUserProfile(profile.tandemMatches!.first.otherUserId);
-                emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: _idTokenResult));
+                profile.tandemMatches!.first.otherProfile =
+                    await _firestoreUserProfileRepository.getUserProfile(
+                        profile.tandemMatches!.first.otherUserId);
+                emit(AuthenticatedUser(
+                    user: event.user!,
+                    userProfile: profile,
+                    tokenResult: _idTokenResult));
               }
             });
           }
 
           profile.location = location;
-          emit(AuthenticatedUser(user: event.user!, userProfile: profile, tokenResult: _idTokenResult));
+          emit(AuthenticatedUser(
+              user: event.user!,
+              userProfile: profile,
+              tokenResult: _idTokenResult));
         },
       );
     } else {
-      emit(UnauthenticatedUser());
+      emit(UnauthenticatedUser(userProfile: FFUser()));
     }
   }
 
   Future<Address> _getCityStringFromCoords(GeoPoint coords) async {
-    final List<Placemark> placemarks = await placemarkFromCoordinates(coords.latitude, coords.longitude);
+    final List<Placemark> placemarks =
+        await placemarkFromCoordinates(coords.latitude, coords.longitude);
     final Address address = Address(
       city: placemarks.first.locality!,
       street: placemarks.first.street!,
@@ -99,37 +123,47 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     return address;
   }
 
-  Future<void> _onUpdateUserProfile(UpdateUserProfileEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onUpdateUserProfile(
+      UpdateUserProfileEvent event, Emitter<AuthenticationState> emit) async {
     try {
       final FFUser updated = event.userProfile;
 
-      if (event.latitude != null && event.longitude != null) {
-        final Address address = await _getCityStringFromCoords(GeoPoint(event.latitude!, event.longitude!));
-        //final GeoFirePoint geoFirePoint = GeoFirePoint(GeoPoint(event.latitude!, event.longitude!));
-        //final UserLocation location = UserLocation(data: GeoData(geohash: geoFirePoint.geohash, location: GeoPoint(event.latitude!, event.longitude!)), name: address, isVisible: true);
-        //await _firestoreUserProfileRepository.setUserLocation(event.userId, location);
-        updated.address = address;
+      if (state is AuthenticatedUser) {
+        if (event.latitude != null && event.longitude != null) {
+          final Address address = await _getCityStringFromCoords(
+              GeoPoint(event.latitude!, event.longitude!));
+          //final GeoFirePoint geoFirePoint = GeoFirePoint(GeoPoint(event.latitude!, event.longitude!));
+          //final UserLocation location = UserLocation(data: GeoData(geohash: geoFirePoint.geohash, location: GeoPoint(event.latitude!, event.longitude!)), name: address, isVisible: true);
+          //await _firestoreUserProfileRepository.setUserLocation(event.userId, location);
+          updated.address = address;
+        }
+        await _firestoreUserProfileRepository.updateUserProfile(updated,
+            userID: event.userId!);
+      } else {
+        emit(UnauthenticatedUser(userProfile: updated));
       }
-
-      await _firestoreUserProfileRepository.updateUserProfile(updated, userID: event.userId);
     } catch (_) {}
   }
 
-  Future<void> _onRegisterWithMailEvent(RegisterWithMailEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onRegisterWithMailEvent(
+      RegisterWithMailEvent event, Emitter<AuthenticationState> emit) async {
     //emit(FormSignup());
     emit(AuthenticationLoading());
 
     try {
       FFUser userdata = event.profile;
 
-      final User? currentuser = await _authpage.signUp(email: event.email, password: event.password);
+      final User? currentuser =
+          await _authpage.signUp(email: event.email, password: event.password);
       if (currentuser != null) {
         userdata.email = currentuser.email;
         //FirebaseAuth.instance.sendSignInLinkToEmail(email: event.email, actionCodeSettings: actionCodeSettings);
-        currentuser.sendEmailVerification(HelperFunctions.getActionCodeSettings(currentuser.email!));
+        currentuser.sendEmailVerification(
+            HelperFunctions.getActionCodeSettings(currentuser.email!));
         _idTokenResult = await currentuser.getIdTokenResult();
         if (event.picture != null && event.picture!.path.isNotEmpty) {
-          final UploadTask? task = await _getUploadTask(event.picture, currentuser.uid);
+          final UploadTask? task =
+              await _getUploadTask(event.picture, currentuser.uid);
 
           if (task != null) {
             await emit.onEach(task.snapshotEvents, onData: (uploadState) async {
@@ -138,26 +172,33 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
                   break;
 
                 case TaskState.success:
-                  final String downloadUrl = await uploadState.ref.getDownloadURL();
+                  final String downloadUrl =
+                      await uploadState.ref.getDownloadURL();
                   userdata.profilPicture = downloadUrl;
-                  await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
+                  await _firestoreUserProfileRepository
+                      .updateUserProfile(userdata, userID: currentuser.uid);
                   break;
                 default:
               }
             });
           } else {
-            await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
+            await _firestoreUserProfileRepository.updateUserProfile(userdata,
+                userID: currentuser.uid);
           }
         } else {
-          await _firestoreUserProfileRepository.updateUserProfile(userdata, userID: currentuser.uid);
+          await _firestoreUserProfileRepository.updateUserProfile(userdata,
+              userID: currentuser.uid);
         }
 
-        emit(AuthenticatedUser(user: currentuser, userProfile: userdata, tokenResult: _idTokenResult));
+        emit(AuthenticatedUser(
+            user: currentuser,
+            userProfile: userdata,
+            tokenResult: _idTokenResult));
       } else {
-        emit(UnauthenticatedUser());
+        emit(UnauthenticatedUser(userProfile: FFUser()));
       }
     } catch (e) {
-      emit(UnauthenticatedUser());
+      emit(UnauthenticatedUser(userProfile: FFUser()));
     }
   }
 
@@ -165,7 +206,8 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     if (picture == null) return null;
     try {
       final PickedFile file = PickedFile(picture.path);
-      final UploadTask? task = await _storageRepository.uploadFile(file, userId);
+      final UploadTask? task =
+          await _storageRepository.uploadFile(file, userId);
 
       if (task == null) return null;
 
@@ -176,15 +218,19 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     }
   }
 
-  Future<void> _onSetTandemMatchEvent(SetTandemMatchEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onSetTandemMatchEvent(
+      SetTandemMatchEvent event, Emitter<AuthenticationState> emit) async {
     try {
-      await _firestoreTandemRepository.setTandemMatch(event.tandemMatch, event.profile, event.otherId);
+      await _firestoreTandemRepository.setTandemMatch(
+          event.tandemMatch, event.profile, event.otherId);
     } catch (_) {}
   }
 
-  Future<void> _onSetEventParticipationEvent(SetEventParticipationEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onSetEventParticipationEvent(SetEventParticipationEvent event,
+      Emitter<AuthenticationState> emit) async {
     try {
-      await _firestoreEventRepository.setEventParticipation(event.userId, event.eventId, event.eventParticipant);
+      await _firestoreEventRepository.setEventParticipation(
+          event.userId, event.eventId, event.eventParticipant);
 
       final FFUser userProfile = event.userData;
       List<String> partEvents = userProfile.participatingEvents;
@@ -195,13 +241,17 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
         partEvents.remove(event.eventId);
       }
       userProfile.participatingEvents = partEvents;
-      await _firestoreUserProfileRepository.updateUserProfile(userProfile, userID: event.userId);
+      await _firestoreUserProfileRepository.updateUserProfile(userProfile,
+          userID: event.userId);
     } catch (_) {}
   }
 
-  Future<void> _onRevokeEventParticipationEvent(RevokeEventParticipationEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onRevokeEventParticipationEvent(
+      RevokeEventParticipationEvent event,
+      Emitter<AuthenticationState> emit) async {
     try {
-      await _firestoreEventRepository.revokeEventParticipation(event.userId, event.eventId, event.participation);
+      await _firestoreEventRepository.revokeEventParticipation(
+          event.userId, event.eventId, event.participation);
 
       final FFUser userProfile = event.userData;
       List<String> partEvents = userProfile.participatingEvents;
@@ -209,22 +259,27 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       partEvents.remove(event.eventId);
 
       userProfile.participatingEvents = partEvents;
-      await _firestoreUserProfileRepository.updateUserProfile(userProfile, userID: event.userId);
+      await _firestoreUserProfileRepository.updateUserProfile(userProfile,
+          userID: event.userId);
     } catch (_) {}
   }
 
-  Future<void> _onSignOutEvent(SignOutEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onSignOutEvent(
+      SignOutEvent event, Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     try {
       final String? token = await Messaging().firebaseMessaging.getToken();
 
       if (token != null) {
-        CloudFunctions().firebaseFunctions.httpsCallable('removeFcmToken').call(<String, dynamic>{
+        CloudFunctions()
+            .firebaseFunctions
+            .httpsCallable('removeFcmToken')
+            .call(<String, dynamic>{
           'token': token,
         });
       }
       _authenticationProvider.logOut();
-      emit(UnauthenticatedUser());
+      emit(UnauthenticatedUser(userProfile: FFUser()));
     } catch (error) {
       print(error);
       //emit(state.copyWith(errorCode: AuthenticationErrorCode.SIGN_OUT_FAILED, error: error.toString()) as AuthenticationState);
@@ -232,12 +287,17 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     }
   }
 
-  Future<void> _onReloadUserEvent(ReloadUserEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onReloadUserEvent(
+      ReloadUserEvent event, Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     try {
-      final UserCredential cred = await _authenticationProvider.reauthenticateWithMail(event.email, event.password);
+      final UserCredential cred = await _authenticationProvider
+          .reauthenticateWithMail(event.email, event.password);
       _idTokenResult = await cred.user!.getIdTokenResult();
-      emit(AuthenticatedUser(user: cred.user, userProfile: event.profile, tokenResult: _idTokenResult));
+      emit(AuthenticatedUser(
+          user: cred.user,
+          userProfile: event.profile,
+          tokenResult: _idTokenResult));
     } catch (error) {
       print(error);
       //emit(state.copyWith(errorCode: AuthenticationErrorCode.SIGN_OUT_FAILED, error: error.toString()) as AuthenticationState);
@@ -245,13 +305,17 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     }
   }
 
-  Future<void> _onDeleteAccountEvent(DeleteAccountEvent event, Emitter<AuthenticationState> emit) async {
+  Future<void> _onDeleteAccountEvent(
+      DeleteAccountEvent event, Emitter<AuthenticationState> emit) async {
     emit(AuthenticationLoading());
     try {
       final String? token = await Messaging().firebaseMessaging.getToken();
 
       if (token != null) {
-        CloudFunctions().firebaseFunctions.httpsCallable('removeFcmToken').call(<String, dynamic>{
+        CloudFunctions()
+            .firebaseFunctions
+            .httpsCallable('removeFcmToken')
+            .call(<String, dynamic>{
           'token': token,
         });
       }

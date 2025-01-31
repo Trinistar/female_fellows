@@ -474,12 +474,12 @@ class _EditProfileState extends State<EditProfile> {
                               context.read<ImageUploadBloc>().add(DeleteImageEvent(widget.userstate));
                               context.pop();
                             } else {
-                              context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
+                              context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(userId: widget.userstate.id!, userProfile: profile));
                               context.pop();
                             }
                             break;
                           case ImageProcessing.none:
-                            context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(widget.userstate.id!, userProfile: profile));
+                            context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(userId: widget.userstate.id!, userProfile: profile));
                             context.pop();
 
                             break;

@@ -194,11 +194,29 @@ class AllEventsStore extends Cubit<List<Event>> {
             tmp.add(event);
           }
         }
-      } else {
+        if (authState.userProfile != null &&
+            authState.userProfile!.eventDateRange != null) {
+          final EventDateRange range = authState.userProfile!.eventDateRange!;
+          tmp.retainWhere((element) =>
+              element.dates!.eventDate!
+                  .toDate()
+                  .isAfter(range.start.toDate()) &&
+              element.dates!.eventDate!.toDate().isBefore(range.end.toDate()));
+        }
+      } else if (authState is UnauthenticatedUser) {
         for (var doc in events.docs) {
           final Event event = Event.fromJson(doc.data());
           event.id = doc.id;
           tmp.add(event);
+        }
+        if (authState.userProfile!.eventDateRange != null) {
+          final EventDateRange range = authState.userProfile!.eventDateRange!;
+          tmp.retainWhere((element) =>
+              element.dates!.eventDate!
+                  .toDate()
+                  .isAfter(range.start.toDate()) &&
+              element.dates!.eventDate!.toDate().isBefore(range.end.toDate()));
+              print(tmp.length);
         }
       }
       emit(tmp);
@@ -208,6 +226,12 @@ class AllEventsStore extends Cubit<List<Event>> {
   final AuthenticationBloc _authBloc;
 
   StreamSubscription<dynamic>? _authBlocStreamSub;
+
+  @override
+  Future<void> close() {
+    _authBlocStreamSub?.cancel();
+    return super.close();
+  }
 }
 
 class SubscribedEventsStore extends Cubit<List<Event>> {

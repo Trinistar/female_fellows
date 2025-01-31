@@ -59,7 +59,7 @@ class FavoritesIconWidget extends StatelessWidget {
     HapticFeedback.heavyImpact();
 
     if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
-      context.read<AuthenticationBloc>().add(UpdateUserProfileEvent((BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid, userProfile: userProfile));
+      context.read<AuthenticationBloc>().add(UpdateUserProfileEvent(userId: (context.read<AuthenticationBloc>().state as AuthenticatedUser).user!.uid, userProfile: userProfile));
     }
   }
 }
