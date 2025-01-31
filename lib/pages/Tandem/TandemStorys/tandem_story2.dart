@@ -59,7 +59,9 @@ class TandemStoryTwo extends StatelessWidget {
                             ),
                             Text(
                               'Yasna & Franziska',
-                              style: TextStyle(fontSize: 25),
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  color: Theme.of(context).colorScheme.primary),
                             ),
                             Divider(
                               thickness: 3,
@@ -72,7 +74,9 @@ class TandemStoryTwo extends StatelessWidget {
                             ),
                             Text(
                               S.of(context)!.tandemStory2Body,
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Theme.of(context).colorScheme.primary),
                             ),
                             SizedBox(
                               height: 20,
@@ -117,14 +121,18 @@ class TandemStoryTwo extends StatelessWidget {
                             ),
                             Text(
                               S.of(context)!.tandemStory2Body1,
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Theme.of(context).colorScheme.primary),
                             ),
                             SizedBox(
                               height: 20,
                             ),
                             Text(
                               S.of(context)!.tandemStory2Body2,
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Theme.of(context).colorScheme.primary),
                             ),
                           ],
                         ),

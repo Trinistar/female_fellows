@@ -50,14 +50,18 @@ class TandemStoryThree extends StatelessWidget {
                             ),
                             Text(
                               S.of(context)!.homeTandemstoryOneSubTitle,
-                              style: TextStyle(color: Theme.of(context).colorScheme.tertiary, fontSize: 15),
+                              style: TextStyle(
+                                  color: Theme.of(context).colorScheme.tertiary,
+                                  fontSize: 15),
                             ),
                             SizedBox(
                               height: 5,
                             ),
                             Text(
                               'Sandra & Zuosan',
-                              style: TextStyle(fontSize: 25),
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  color: Theme.of(context).colorScheme.primary),
                             ),
                             Divider(
                               thickness: 3,
@@ -70,7 +74,9 @@ class TandemStoryThree extends StatelessWidget {
                             ),
                             Text(
                               S.of(context)!.tandemStory3Body1,
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Theme.of(context).colorScheme.primary),
                             ),
                             SizedBox(
                               height: 20,
@@ -93,7 +99,8 @@ class TandemStoryThree extends StatelessWidget {
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                                   fit: BoxFit.fill,
-                                  image: AssetImage('lib/images/zouzan-sandra-2.png'),
+                                  image: AssetImage(
+                                      'lib/images/zouzan-sandra-2.png'),
                                 ),
                                 color: Colors.amber,
                                 borderRadius: BorderRadius.circular(60)),
@@ -103,14 +110,24 @@ class TandemStoryThree extends StatelessWidget {
                           ),
                           Container(
                             width: 250,
-                            decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.fill, image: AssetImage('lib/images/zouzan-sandra-3.png')), borderRadius: BorderRadius.circular(60)),
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage(
+                                        'lib/images/zouzan-sandra-3.png')),
+                                borderRadius: BorderRadius.circular(60)),
                           ),
                           SizedBox(
                             width: 20,
                           ),
                           Container(
                             width: 250,
-                            decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.fill, image: AssetImage('lib/images/zouzan-sandra-4.png')), borderRadius: BorderRadius.circular(60)),
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage(
+                                        'lib/images/zouzan-sandra-4.png')),
+                                borderRadius: BorderRadius.circular(60)),
                           ),
                         ],
                       ),
@@ -127,7 +144,9 @@ class TandemStoryThree extends StatelessWidget {
                       children: [
                         Text(
                           S.of(context)!.tandemStory3Body2,
-                          style: TextStyle(fontSize: 15),
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Theme.of(context).colorScheme.primary),
                         ),
                         SizedBox(height: 100),
                       ],

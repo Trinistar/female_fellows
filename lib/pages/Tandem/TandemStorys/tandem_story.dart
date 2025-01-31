@@ -60,7 +60,7 @@ class TandemStoryOne extends StatelessWidget {
                             ),
                             Text(
                               'Makai & Lisa',
-                              style: TextStyle(fontSize: 25),
+                              style: TextStyle(fontSize: 25, color: Theme.of(context).colorScheme.primary),
                             ),
                             Divider(
                               thickness: 3,
@@ -74,7 +74,7 @@ class TandemStoryOne extends StatelessWidget {
                             Text(
                               S.of(context)!
                                   .homeTandemstoryOneBodyOne,
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(fontSize: 15, color: Theme.of(context).colorScheme.primary),
                             ),
                             SizedBox(
                               height: 20,
@@ -131,7 +131,7 @@ class TandemStoryOne extends StatelessWidget {
                         Text(
                           S.of(context)!
                               .homeTandemstoryOneBodyTwo,
-                          style: TextStyle(fontSize: 15),
+                          style: TextStyle(fontSize: 15, color: Theme.of(context).colorScheme.primary),
                         ),
                         SizedBox(height: 100),
                       ],
