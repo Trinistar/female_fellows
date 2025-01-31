@@ -1,7 +1,6 @@
 name: femalefellows
 description: A new Flutter project.
 
-
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.6.3
 
@@ -44,7 +43,7 @@ dependencies:
   cloud_functions: ^5.3.0
   flutter_local_notifications: ^18.0.1
   firebase_dynamic_links: ^6.0.0
-  
+
 dependency_overrides:
   url_launcher:
     git:
@@ -52,19 +51,17 @@ dependency_overrides:
       path: packages/url_launcher/url_launcher
       ref: urllauncher_fix_main_actor_completion_conformance
 
-
 dev_dependencies:
   #firebase_auth_platform_interface: ^6.15.0
   flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
 
-
   flutter_lints: ^4.0.0
   json_serializable: ^6.8.0
   build_runner: ^2.4.9
   flutter_oss_licenses: ^3.0.2
-  
+
 flutter_launcher_icons:
   android: true
   ios: true
@@ -75,7 +72,6 @@ flutter_launcher_icons:
   min_sdk_android: 23
   adaptive_icon_background: "#FCD0DC"
   adaptive_icon_foreground: "lib/images/femalefellows-app-icon.png"
-
   # after executing dart run flutter_launcher_icons -f pubspec.yaml, override ic_launcher.xml with:
   #<foreground>
   #  <inset
@@ -83,19 +79,18 @@ flutter_launcher_icons:
   #    android:inset="24%" />
   #</foreground>  
 
-
 flutter:
   generate: true
 
   uses-material-design: true
 
- 
   assets:
     - lib/images/
     - assets/
- 
-  fonts:
-  - family: Circular
-    fonts:
-      - asset: lib/fonts/circular-std-medium-500.ttf
 
+  fonts:
+    - family: Circular
+      fonts:
+        - asset: lib/fonts/circular-std-medium-500.ttf
+flutter_intl:
+  enabled: true

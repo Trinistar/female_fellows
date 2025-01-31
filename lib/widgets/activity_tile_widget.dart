@@ -30,6 +30,7 @@ class ActivityTileWidget extends StatelessWidget {
             Positioned(
               left: 20,
               top: 20,
+              right: 20,
               child: Text(
                 text,
                 style: TextStyle(
