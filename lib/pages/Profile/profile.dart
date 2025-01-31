@@ -1,6 +1,5 @@
 import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:femalefellows/helper_functions.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:femalefellows/generated/l10n.dart';

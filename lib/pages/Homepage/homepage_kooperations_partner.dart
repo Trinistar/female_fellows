@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:femalefellows/generated/l10n.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:femalefellows/pages/Homepage/homepage.dart';
 
 class Kooperation extends StatefulWidget {
   const Kooperation({super.key});

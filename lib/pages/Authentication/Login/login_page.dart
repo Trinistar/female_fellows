@@ -8,7 +8,6 @@ import 'package:femalefellows/blocs/LoginBloc/login_event.dart';
 import 'package:femalefellows/blocs/LoginBloc/login_state.dart';
 import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:femalefellows/components/text_bar.dart';
-import 'package:femalefellows/pages/Authentication/authentication_entry.dart';
 import 'package:femalefellows/provider/controller.dart';
 
 class LoginPage extends StatefulWidget {

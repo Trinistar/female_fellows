@@ -9,7 +9,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:femalefellows/data/constants.dart';
-import 'package:femalefellows/main.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/FutureHomepage/image_button.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/homepage_about_us.dart';

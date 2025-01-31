@@ -4,7 +4,6 @@ import 'package:femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:femalefellows/pages/Authentication/authentication_entry.dart';
 import 'package:femalefellows/generated/l10n.dart';
-import 'package:femalefellows/pages/ToolBarNavigation/navigation_page.dart';
 
 class Page5 extends StatelessWidget {
   const Page5({super.key});

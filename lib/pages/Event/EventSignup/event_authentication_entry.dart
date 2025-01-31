@@ -9,7 +9,6 @@ import 'package:femalefellows/models/events.dart';
 import 'package:femalefellows/models/user_model.dart';
 import 'package:femalefellows/pages/Event/EventSignup/event_authentication_kids.dart';
 import 'package:femalefellows/pages/Event/EventSignup/event_authentication_pictures.dart';
-import 'package:femalefellows/pages/Event/EventSignup/event_authentication_success.dart';
 import 'package:femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
 import 'package:femalefellows/generated/l10n.dart';
 
