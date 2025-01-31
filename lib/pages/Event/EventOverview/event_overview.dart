@@ -151,67 +151,70 @@ class _EventOverviewState extends State<EventOverview>
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextButton.icon(
-                  onPressed: () {
-                    HelperFunctions.getCurrentLocation().then((value) {
-                      _lat = '${value.latitude}';
-                      _long = '${value.longitude}';
-                      setState(() {
-                        locationmessage = '$_lat,$_long';
+                Flexible(
+                  child: TextButton.icon(
+                    onPressed: () {
+                      HelperFunctions.getCurrentLocation().then((value) {
+                        _lat = '${value.latitude}';
+                        _long = '${value.longitude}';
+                        setState(() {
+                          locationmessage = '$_lat,$_long';
+                        });
+                        if (BlocProvider.of<AuthenticationBloc>(context).state
+                            is AuthenticatedUser) {
+                          final FFUser profile =
+                              (BlocProvider.of<AuthenticationBloc>(context).state
+                                      as AuthenticatedUser)
+                                  .userProfile!;
+                          context.read<AuthenticationBloc>().add(
+                                UpdateUserProfileEvent(
+                                  (BlocProvider.of<AuthenticationBloc>(context)
+                                          .state as AuthenticatedUser)
+                                      .user!
+                                      .uid,
+                                  latitude: value.latitude,
+                                  longitude: value.longitude,
+                                  userProfile: profile,
+                                ),
+                              );
+                        }
                       });
-                      if (BlocProvider.of<AuthenticationBloc>(context).state
-                          is AuthenticatedUser) {
-                        final FFUser profile =
-                            (BlocProvider.of<AuthenticationBloc>(context).state
-                                    as AuthenticatedUser)
-                                .userProfile!;
-                        context.read<AuthenticationBloc>().add(
-                              UpdateUserProfileEvent(
-                                (BlocProvider.of<AuthenticationBloc>(context)
-                                        .state as AuthenticatedUser)
-                                    .user!
-                                    .uid,
-                                latitude: value.latitude,
-                                longitude: value.longitude,
-                                userProfile: profile,
-                              ),
-                            );
-                      }
-                    });
-                  },
-                  icon: Icon(
-                    Icons.location_on_outlined,
-                    color: Theme.of(context).colorScheme.primary,
-                    size: 35,
-                  ),
-                  label: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        AppLocalizations.of(context)!.eventsPageGetLocation,
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontSize: 20),
-                      ),
-                      BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                        builder: (context, state) {
-                          if (state is AuthenticatedUser) {
-                            return Text(
-                              state.userProfile!.location != null
-                                  ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}'
-                                  : locationmessage,
-                              style: TextStyle(fontSize: 12),
-                            );
-                          } else {
-                            return Text(
-                              locationmessage,
-                              style: TextStyle(fontSize: 12),
-                            );
-                          }
-                        },
-                      )
-                    ],
+                    },
+                    icon: Icon(
+                      Icons.location_on_outlined,
+                      color: Theme.of(context).colorScheme.primary,
+                      size: 35,
+                    ),
+                    label: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.eventsPageGetLocation,
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontSize: 20),
+                        ),
+                        BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                          builder: (context, state) {
+                            if (state is AuthenticatedUser) {
+                              return Text(
+                                state.userProfile!.location != null
+                                    ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}'
+                                    : locationmessage,
+                                style: TextStyle(fontSize: 12),
+                              );
+                            } else {
+                              return Text(
+                                locationmessage,
+                                style: TextStyle(fontSize: 12),
+                              );
+                            }
+                          },
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Flexible(
