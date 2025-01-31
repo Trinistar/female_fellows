@@ -1,17 +1,5 @@
+import 'package:femalefellows/widgets/activity_tile_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_activ.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_art.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_cinema.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_city.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_coffee.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_cooking.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_creative.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_digital.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_exchange.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_german.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_green.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_music.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_picnic.dart';
 
 class ActivitysCarousel extends StatelessWidget {
   const ActivitysCarousel({super.key});
@@ -24,19 +12,71 @@ class ActivitysCarousel extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          ItemCoffee(),
-          ItemPicnic(),
-          ItemMusic(),
-          ItemCreative(),
-          ItemGreen(),
-          ItemGerman(),
-          ItemCooking(),
-          ItemExchange(),
-          ItemActiv(),
-          ItemCinema(),
-          ItemArt(),
-          ItemCity(),
-          ItemDigital(),
+          ActivityTileWidget(
+              assetPath: 'assets/cafe-01.svg',
+              text: 'Ins Café gehen',
+              colorDark: false,
+              route: '/tandemCoffee'),
+          ActivityTileWidget(
+              assetPath: 'assets/picknicken-01.svg',
+              text: 'Picknicken',
+              colorDark: true,
+              route: '/tandemPicknick'),
+          ActivityTileWidget(
+              assetPath: 'assets/musik-01.svg',
+              text: 'Musik machen',
+              colorDark: false,
+              route: '/tandemMusic'),
+          ActivityTileWidget(
+              assetPath: 'assets/kreativ-01.svg',
+              text: 'Kreativ sein',
+              colorDark: false,
+              route: '/tandemCreativ'),
+          ActivityTileWidget(
+              assetPath: 'assets/ab-ins-gruene-01.svg',
+              text: 'Ab ins Grüne',
+              colorDark: true,
+              route: '/tandemGreen'),
+          ActivityTileWidget(
+              assetPath: 'assets/deutsch-lernen-01.svg',
+              text: 'Deutsch lernen',
+              colorDark: false,
+              route: '/tandemGerman'),
+          ActivityTileWidget(
+              assetPath: 'assets/gemeinsam-kochen.svg',
+              text: 'Gemeinsam kochen',
+              colorDark: false,
+              route: '/tandemCook'),
+          ActivityTileWidget(
+              assetPath: 'assets/tandem-austausch-01.svg',
+              text: 'Tandem-Austausch',
+              colorDark: true,
+              route: '/tandemExchange'),
+          ActivityTileWidget(
+              assetPath: 'assets/aktiv-sein-01.svg',
+              text: 'Aktiv sein',
+              colorDark: false,
+              route: '/tandemActiv'),
+          ActivityTileWidget(
+              assetPath: 'assets/kino-01.svg',
+              text: 'Ins Kino gehen',
+              colorDark: false,
+              route: '/tandemCinema'),
+          ActivityTileWidget(
+              assetPath: 'assets/kunst.svg',
+              text: 'Kunst genießen',
+              colorDark: true,
+              route: '/tandemArt'),
+          ActivityTileWidget(
+              assetPath: 'assets/city-erkunden.svg',
+              text: 'City erkunden',
+              colorDark: false,
+              route: '/tandemCity'),
+          ActivityTileWidget(
+              assetPath: 'assets/digitale-aktivitäten-01.svg',
+              text: 'Digitale Aktivitäten',
+              colorDark: false,
+              route: '/tandemDigital'),
         ],
       ),
     );

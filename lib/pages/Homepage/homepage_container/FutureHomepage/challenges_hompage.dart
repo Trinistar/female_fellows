@@ -1,6 +1,5 @@
+import 'package:femalefellows/widgets/activity_tile_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
-import 'package:femalefellows/pages/Tandem/Activitys/tandem_item_coffee.dart';
 
 class Challenges extends StatelessWidget {
   const Challenges({super.key});
@@ -45,9 +44,21 @@ class Challenges extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                 ItemCoffee(),
-                  ItemCoffee(),
-                 ItemCoffee(),
+                  ActivityTileWidget(
+                      assetPath: 'assets/cafe-01.svg',
+                      text: 'Ins Café gehen',
+                      colorDark: false,
+                      route: '/tandemCoffee'),
+                  ActivityTileWidget(
+                      assetPath: 'assets/cafe-01.svg',
+                      text: 'Ins Café gehen',
+                      colorDark: false,
+                      route: '/tandemCoffee'),
+                  ActivityTileWidget(
+                      assetPath: 'assets/cafe-01.svg',
+                      text: 'Ins Café gehen',
+                      colorDark: false,
+                      route: '/tandemCoffee'),
                 ],
               ),
             ),
