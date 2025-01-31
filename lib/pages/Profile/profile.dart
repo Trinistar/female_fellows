@@ -148,7 +148,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   SizedBox(
                     child: TabBar(controller: _profilTabController, tabs: [
                       Tab(
-                        text: S.of(context)!.profilOverview,
+                        text: S.of(context).profilOverview,
                       ),
                       /* Tab(
                         text: S.of(context)!.profilProgress,

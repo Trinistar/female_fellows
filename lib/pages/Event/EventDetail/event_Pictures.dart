@@ -13,7 +13,7 @@ class EventImages extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            S.of(context)!.eventOneTitleThree,
+            S.of(context).eventOneTitleThree,
             style: TextStyle(fontSize: 20),
           ),
           Divider(

@@ -28,7 +28,7 @@ class _AuthNotificationState extends State<AuthNotification> {
               left: 50,
             ),
             child: Text(
-              S.of(context)!.authenticationNotificationTitle,
+              S.of(context).authenticationNotificationTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -58,7 +58,7 @@ class _AuthNotificationState extends State<AuthNotification> {
               CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
                   contentPadding: EdgeInsets.only(left: 40),
-                  title: Text(S.of(context)!.authenticationCall),
+                  title: Text(S.of(context).authenticationCall),
                   value: _call,
                   onChanged: (choice) {
                     setState(() {
@@ -69,7 +69,7 @@ class _AuthNotificationState extends State<AuthNotification> {
               CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
                   contentPadding: EdgeInsets.only(left: 40),
-                  title: Text(S.of(context)!.authenticationWhatsApp),
+                  title: Text(S.of(context).authenticationWhatsApp),
                   value: _whatsapp,
                   onChanged: (choice) {
                     setState(() {
@@ -80,7 +80,7 @@ class _AuthNotificationState extends State<AuthNotification> {
               CheckboxListTile(
                   controlAffinity: ListTileControlAffinity.leading,
                   contentPadding: EdgeInsets.only(left: 40),
-                  title: Text(S.of(context)!.authenticationEmail),
+                  title: Text(S.of(context).authenticationEmail),
                   value: _email,
                   onChanged: (choice) {
                     setState(() {
@@ -92,7 +92,7 @@ class _AuthNotificationState extends State<AuthNotification> {
                   ? Padding(
                       padding: const EdgeInsets.only(left: 40, bottom: 5),
                       child: Text(
-                        S.of(context)!.authenticationHandy,
+                        S.of(context).authenticationHandy,
                         style: TextStyle(
                           fontSize: 15,
                         ),

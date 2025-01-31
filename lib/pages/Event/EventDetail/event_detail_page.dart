@@ -277,7 +277,7 @@ class SignUpEventButtonWidget extends StatelessWidget {
                           userData: state.userProfile!,
                           participation: map));
                 },
-                text: S.of(context)!.eventButtonSignout,
+                text: S.of(context).eventButtonSignout,
                 color: Colors.red,
               );
             } else {
@@ -285,7 +285,7 @@ class SignUpEventButtonWidget extends StatelessWidget {
                 onTap: () => context.go(
                     '/events/detailEvent/$eventId/eventOnboarding',
                     extra: eventState),
-                text: S.of(context)!.eventButtonSignin,
+                text: S.of(context).eventButtonSignin,
               );
             }
           } else {
@@ -317,7 +317,7 @@ class SignUpEventButtonWidget extends StatelessWidget {
             onTap: () => context.go(
                 '/events/detailEvent/$eventId/eventNotAuthenticated',
                 extra: eventState),
-            text: S.of(context)!.eventButtonSignin,
+            text: S.of(context).eventButtonSignin,
           );
         } else {
           return SizedBox.shrink();

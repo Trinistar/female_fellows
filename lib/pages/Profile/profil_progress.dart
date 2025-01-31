@@ -41,7 +41,7 @@ class _ProfilProgressState extends State<ProfilProgress> {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Text(
-                      S.of(context)!.profilProgressMember,
+                      S.of(context).profilProgressMember,
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 15),
                     ),
@@ -70,7 +70,7 @@ class _ProfilProgressState extends State<ProfilProgress> {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Text(
-                      S.of(context)!.profilProgressEvents,
+                      S.of(context).profilProgressEvents,
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 15),
                     ),
@@ -122,7 +122,7 @@ class _ProfilProgressState extends State<ProfilProgress> {
             ),
             child: Center(
                 child: Text(
-              S.of(context)!.profilProgressQualification,
+              S.of(context).profilProgressQualification,
               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
             )),
           ),

@@ -49,7 +49,7 @@ class TandemStoryTwo extends StatelessWidget {
                               height: 50,
                             ),
                             Text(
-                              S.of(context)!.tandemStory2Title,
+                              S.of(context).tandemStory2Title,
                               style: TextStyle(
                                   color: Theme.of(context).colorScheme.tertiary,
                                   fontSize: 15),
@@ -73,7 +73,7 @@ class TandemStoryTwo extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              S.of(context)!.tandemStory2Body,
+                              S.of(context).tandemStory2Body,
                               style: TextStyle(
                                   fontSize: 15,
                                   color: Theme.of(context).colorScheme.primary),
@@ -120,7 +120,7 @@ class TandemStoryTwo extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              S.of(context)!.tandemStory2Body1,
+                              S.of(context).tandemStory2Body1,
                               style: TextStyle(
                                   fontSize: 15,
                                   color: Theme.of(context).colorScheme.primary),
@@ -129,7 +129,7 @@ class TandemStoryTwo extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              S.of(context)!.tandemStory2Body2,
+                              S.of(context).tandemStory2Body2,
                               style: TextStyle(
                                   fontSize: 15,
                                   color: Theme.of(context).colorScheme.primary),

@@ -31,7 +31,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
               ),
               SizedBox(
                 child: Text(
-                S.of(context)!.eventNotMemberEventTitle,
+                S.of(context).eventNotMemberEventTitle,
                   style: TextStyle(
                     fontSize: 25,
                   ),
@@ -44,7 +44,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
               SizedBox(
                 width: 300,
                 child: Text(
-                  S.of(context)!.eventNotMemberEventBody,
+                  S.of(context).eventNotMemberEventBody,
                   style: TextStyle(
                     fontSize: 12,
                   ),
@@ -55,7 +55,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: FFButton(
                   onTap: () => context.push('/loginPage'),
-                  text: S.of(context)!.eventNotMemberEventButton,
+                  text: S.of(context).eventNotMemberEventButton,
                 ),
               )
             ],

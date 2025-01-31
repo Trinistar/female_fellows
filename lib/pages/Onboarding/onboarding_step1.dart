@@ -24,7 +24,7 @@ class Page1 extends StatelessWidget {
               height: 370,
             ),
             Text(
-              S.of(context)!.onboardingPageOneTitle,
+              S.of(context).onboardingPageOneTitle,
               style: TextStyle(
                 color:  Theme.of(context).colorScheme.primary,
                 fontSize: 30,
@@ -45,7 +45,7 @@ class Page1 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 140, bottom: 15),
               child: Text(
-                S.of(context)!.onboardingPageOneBody,
+                S.of(context).onboardingPageOneBody,
                 style: TextStyle(
                   color:  Theme.of(context).colorScheme.primary,
                   fontSize: 15,
@@ -60,7 +60,7 @@ class Page1 extends StatelessWidget {
                       builder: (context) => RegistrationEntry(isFromOnboarding: true),
                     ));
                   },
-                  text: S.of(context)!.buttonRegistration,
+                  text: S.of(context).buttonRegistration,
                   )
             ),
             SizedBox(

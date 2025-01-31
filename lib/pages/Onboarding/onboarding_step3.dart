@@ -22,7 +22,7 @@ class Page3 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right:80),
             child: Text(
-             S.of(context)!.onboardingPageThreeTitle,
+             S.of(context).onboardingPageThreeTitle,
               style: TextStyle(
                 color:  Theme.of(context).colorScheme.primary,
                 fontSize: 35,
@@ -43,7 +43,7 @@ class Page3 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 25),
             child: Text(
-            S.of(context)!.onboardingPageThreeBody,
+            S.of(context).onboardingPageThreeBody,
               style: TextStyle(
                 color:  Theme.of(context).colorScheme.primary,
                 fontSize: 15,

@@ -99,7 +99,7 @@ class _TandemMatchingState extends State<TandemMatching> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: Text(
-                S.of(context)!.tandemMatchingOverviewTitle,
+                S.of(context).tandemMatchingOverviewTitle,
                 style: TextStyle(fontSize: 25, color: Colors.white),
               ),
             ),
@@ -152,7 +152,7 @@ class _TandemMatchingState extends State<TandemMatching> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
-                S.of(context)!.tandemMatchingOverviewFilterTitle,
+                S.of(context).tandemMatchingOverviewFilterTitle,
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -173,14 +173,14 @@ class _TandemMatchingState extends State<TandemMatching> {
                   ),
                   children: <TandemTypeFilter, Widget>{
                     TandemTypeFilter.all: Text(
-                      S.of(context)!
+                      S.of(context)
                           .tandemMatchingOverviewFilterOptionOne,
                       style: _tandemTypeFilter == TandemTypeFilter.all
                           ? null
                           : TextStyle(color: Colors.white),
                     ),
                     TandemTypeFilter.nearby: Text(
-                      S.of(context)!
+                      S.of(context)
                           .tandemMatchingOverviewFilterOptionTwo,
                       style: _tandemTypeFilter == TandemTypeFilter.all
                           ? TextStyle(color: Colors.white)
@@ -217,7 +217,7 @@ class _TandemMatchingState extends State<TandemMatching> {
                       itemCount: tandems.length,
                     )
                   : Text(
-                      S.of(context)!.tandemMatchingFailure,
+                      S.of(context).tandemMatchingFailure,
                       style: TextStyle(
                           color: Colors.white, fontStyle: FontStyle.italic),
                       textAlign: TextAlign.center,
@@ -226,7 +226,7 @@ class _TandemMatchingState extends State<TandemMatching> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                S.of(context)!.tandemMatchingOverviewBody1,
+                S.of(context).tandemMatchingOverviewBody1,
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),
             ),
@@ -236,7 +236,7 @@ class _TandemMatchingState extends State<TandemMatching> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                  S.of(context)!.tandemMatchingOverviewBody2,
+                  S.of(context).tandemMatchingOverviewBody2,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,

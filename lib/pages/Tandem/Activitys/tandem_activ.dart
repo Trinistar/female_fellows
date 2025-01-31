@@ -32,7 +32,7 @@ class _TandemActivState extends State<TandemActiv> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      S.of(context)!.tandemActivityNineTitle,
+                      S.of(context).tandemActivityNineTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -45,7 +45,7 @@ class _TandemActivState extends State<TandemActiv> {
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivityNineBody,
+                      S.of(context).tandemActivityNineBody,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

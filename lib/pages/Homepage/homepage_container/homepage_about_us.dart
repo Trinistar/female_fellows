@@ -20,7 +20,7 @@ class AboutUs extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                S.of(context)!.homeVereinInfoTitle,
+                S.of(context).homeVereinInfoTitle,
                 style: TextStyle(fontSize: 20),
               ),
               Divider(
@@ -52,7 +52,7 @@ class AboutUs extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20)),
                             child: Image.asset('lib/images/unsereMission.png')),
                         Text(
-                          S.of(context)!.homeVereinInfoOneTitle,
+                          S.of(context).homeVereinInfoOneTitle,
                           style: TextStyle(fontSize: 20),
                         ),
                         Icon(
@@ -126,7 +126,7 @@ class AboutUs extends StatelessWidget {
                         SizedBox(
                           width: 150,
                           child: Text(
-                            S.of(context)!
+                            S.of(context)
                                 .homeVereinInfoThreeTitle,
                             style: TextStyle(fontSize: 20),
                           ),

@@ -31,7 +31,7 @@ class Page5 extends StatelessWidget {
                       builder: (context) => RegistrationEntry(isFromOnboarding: true),
                     ));
                   },
-                  text: S.of(context)!.buttonRegistration,
+                  text: S.of(context).buttonRegistration,
                 ),
                 SizedBox(
                   height: 20,
@@ -60,7 +60,7 @@ class Page5 extends StatelessWidget {
                         color: Colors.transparent),
                     child: Center(
                         child: Text(
-                      S.of(context)!.startnow,
+                      S.of(context).startnow,
                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     )),
                   ),

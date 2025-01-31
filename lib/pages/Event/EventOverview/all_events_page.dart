@@ -23,7 +23,7 @@ class _AllEventsState extends State<AllEvents> {
           return Padding(
             padding: const EdgeInsets.only(top: 50.0),
             child: Text(
-              S.of(context)!.eventsPageAllState,
+              S.of(context).eventsPageAllState,
               style: TextStyle(fontStyle: FontStyle.italic),
               textAlign: TextAlign.center,
             ),

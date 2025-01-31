@@ -376,13 +376,13 @@ class _EditProfileState extends State<EditProfile> {
                                 groupValue: localOrNot,
                                 dense: true,
                                 title: Text(
-                                  S.of(context)!.authenticationNewcomerTitle,
+                                  S.of(context).authenticationNewcomerTitle,
                                   style: TextStyle(
                                     fontSize: 15,
                                     color: Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
-                                subtitle: Text(S.of(context)!.authenticationNewcomer),
+                                subtitle: Text(S.of(context).authenticationNewcomer),
                                 value: LocalOrNewcomer.newcomer,
                                 onChanged: (newValue) {
                                   setState(() {
@@ -401,13 +401,13 @@ class _EditProfileState extends State<EditProfile> {
                                 groupValue: localOrNot,
                                 dense: true,
                                 title: Text(
-                                  S.of(context)!.authenticationLocalTitle,
+                                  S.of(context).authenticationLocalTitle,
                                   style: TextStyle(
                                     fontSize: 15,
                                     color: Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
-                                subtitle: Text(S.of(context)!.authenticationLocal),
+                                subtitle: Text(S.of(context).authenticationLocal),
                                 value: LocalOrNewcomer.local,
                                 onChanged: (newValue) {
                                   setState(() {

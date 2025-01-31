@@ -23,28 +23,28 @@ class _FAQsNewState extends State<FAQsNew> {
   @override
   void didChangeDependencies() {
     _faqTitles = [
-      S.of(context)!.tandemNewComerQuestion1,
-      S.of(context)!.tandemNewComerQuestion2,
-      S.of(context)!.tandemNewComerQuestion3,
-      S.of(context)!.tandemNewComerQuestion4,
-      S.of(context)!.tandemNewComerQuestion5,
-      S.of(context)!.tandemNewComerQuestion6,
-      S.of(context)!.tandemNewComerQuestion7,
-      S.of(context)!.tandemNewComerQuestion8,
-      S.of(context)!.tandemNewComerQuestion9,
+      S.of(context).tandemNewComerQuestion1,
+      S.of(context).tandemNewComerQuestion2,
+      S.of(context).tandemNewComerQuestion3,
+      S.of(context).tandemNewComerQuestion4,
+      S.of(context).tandemNewComerQuestion5,
+      S.of(context).tandemNewComerQuestion6,
+      S.of(context).tandemNewComerQuestion7,
+      S.of(context).tandemNewComerQuestion8,
+      S.of(context).tandemNewComerQuestion9,
    
     ];
 
     _faqAnswers = [
-      S.of(context)!.tandemNewComerAnswer1,
-      S.of(context)!.tandemNewComerAnswer2,
-      S.of(context)!.tandemNewComerAnswer3,
-      S.of(context)!.tandemNewComerAnswer4,
-      S.of(context)!.tandemNewComerAnswer5,
-      S.of(context)!.tandemNewComerAnswer6,
-      S.of(context)!.tandemNewComerAnswer7,
-      S.of(context)!.tandemNewComerAnswer8,
-      S.of(context)!.tandemNewComerAnswer9,
+      S.of(context).tandemNewComerAnswer1,
+      S.of(context).tandemNewComerAnswer2,
+      S.of(context).tandemNewComerAnswer3,
+      S.of(context).tandemNewComerAnswer4,
+      S.of(context).tandemNewComerAnswer5,
+      S.of(context).tandemNewComerAnswer6,
+      S.of(context).tandemNewComerAnswer7,
+      S.of(context).tandemNewComerAnswer8,
+      S.of(context).tandemNewComerAnswer9,
     ];
 
     super.didChangeDependencies();

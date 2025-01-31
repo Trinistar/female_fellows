@@ -43,7 +43,7 @@ class HeaderEvent extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 40),
                 child: Text(
-                  S.of(context)!.createEventsTitle,
+                  S.of(context).createEventsTitle,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,

@@ -55,7 +55,7 @@ class _ThirdStepState extends State<ThirdStep> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  S.of(context)!.tandemThirdStep,
+                  S.of(context).tandemThirdStep,
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 ),
                 Divider(
@@ -68,14 +68,14 @@ class _ThirdStepState extends State<ThirdStep> {
                   height: 10,
                 ),
                 Text(
-                  S.of(context)!.tandemThirdStepBody,
+                  S.of(context).tandemThirdStepBody,
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 SizedBox(
                   height: 100,
                 ),
                 Text(
-                  S.of(context)!.tandemThirdStepNewcomer,
+                  S.of(context).tandemThirdStepNewcomer,
                   style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
                 Divider(
@@ -88,14 +88,14 @@ class _ThirdStepState extends State<ThirdStep> {
                   height: 10,
                 ),
                 Text(
-                  S.of(context)!.tandemThirdStepBody2,
+                  S.of(context).tandemThirdStepBody2,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(
                   height: 100,
                 ),
                 Text(
-                  S.of(context)!.tandemThirdStepLocal,
+                  S.of(context).tandemThirdStepLocal,
                   style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
                 Divider(
@@ -108,7 +108,7 @@ class _ThirdStepState extends State<ThirdStep> {
                   height: 10,
                 ),
                 Text(
-           S.of(context)!.tandemThirdStepBody,
+           S.of(context).tandemThirdStepBody,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 )
               ],
@@ -139,7 +139,7 @@ class _ThirdStepState extends State<ThirdStep> {
               ),
               child: Center(
                   child: Text(
-                S.of(context)!.tandemMatchingAngefragtButtonMatching,
+                S.of(context).tandemMatchingAngefragtButtonMatching,
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               )),

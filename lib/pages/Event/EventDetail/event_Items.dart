@@ -30,7 +30,7 @@ class EventItems extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              S.of(context)!.createEventDate2,
+              S.of(context).createEventDate2,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -43,7 +43,7 @@ class EventItems extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              S.of(context)!.createEventsHost,
+              S.of(context).createEventsHost,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -60,7 +60,7 @@ class EventItems extends StatelessWidget {
                     style: TextStyle(fontSize: 15),
                   ),
                   subtitle: Text(
-                   S.of(context)!.eventAdress ,
+                   S.of(context).eventAdress ,
                     style: TextStyle(fontSize: 12),
                   ),
                 );
@@ -81,7 +81,7 @@ class EventItems extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-             S.of(context)!.createEventsContactPerson2 ,
+             S.of(context).createEventsContactPerson2 ,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -104,7 +104,7 @@ class EventItems extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      S.of(context)!.createEventWhatsApp2,
+                      S.of(context).createEventWhatsApp2,
                       style: TextStyle(fontSize: 12),
                     ),
                   ),

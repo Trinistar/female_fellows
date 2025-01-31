@@ -20,7 +20,7 @@ class _TandemMusicState extends State<TandemMusic> {
 
   @override
   void didChangeDependencies() {
-    _tandemActivityThreeBody2 = parse(S.of(context)!.tandemActivityThreeBody2(chorusWebsite, laboratoriumWebsite, musikwerkWebsite, kneipchorWebsite));
+    _tandemActivityThreeBody2 = parse(S.of(context).tandemActivityThreeBody2(chorusWebsite, laboratoriumWebsite, musikwerkWebsite, kneipchorWebsite));
     var aTags = _tandemActivityThreeBody2.getElementsByTagName('a');
     for (var aTag in aTags) {
       aTag.attributes.forEach((key, value) {
@@ -50,7 +50,7 @@ class _TandemMusicState extends State<TandemMusic> {
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(
-                  S.of(context)!.tandemActivityThreeTitle,
+                  S.of(context).tandemActivityThreeTitle,
                   style: TextStyle(fontSize: 30, color: Colors.white),
                 ),
                 Divider(
@@ -63,7 +63,7 @@ class _TandemMusicState extends State<TandemMusic> {
                   height: 10,
                 ),
                 Text(
-                  S.of(context)!.tandemActivityThreeBody,
+                  S.of(context).tandemActivityThreeBody,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(
@@ -116,7 +116,7 @@ class _TandemMusicState extends State<TandemMusic> {
                   height: 10,
                 ),
                 Text(
-                  S.of(context)!.tandemActivityThreeBody3,
+                  S.of(context).tandemActivityThreeBody3,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(

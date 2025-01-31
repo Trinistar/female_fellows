@@ -55,7 +55,7 @@ class FemPower extends StatelessWidget {
                         height: 420,
                         width: 320,
                         child: Text(
-                        S.of(context)!.homeVereinInfoTwoBody),
+                        S.of(context).homeVereinInfoTwoBody),
                       ),
                     ),
                     Padding(

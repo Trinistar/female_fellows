@@ -33,7 +33,7 @@ class _TandemCreativState extends State<TandemCreativ> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      S.of(context)!.tandemActivityFourTitle,
+                      S.of(context).tandemActivityFourTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -46,21 +46,21 @@ class _TandemCreativState extends State<TandemCreativ> {
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivityFourBody,
+                      S.of(context).tandemActivityFourBody,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivityFourBody2,
+                      S.of(context).tandemActivityFourBody2,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivityFourBody3(femaleFellowsMail),
+                      S.of(context).tandemActivityFourBody3(femaleFellowsMail),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

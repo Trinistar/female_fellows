@@ -32,7 +32,7 @@ class _TandemCityState extends State<TandemCity> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      S.of(context)!.tandemActivityTwelveTitle,
+                      S.of(context).tandemActivityTwelveTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -45,7 +45,7 @@ class _TandemCityState extends State<TandemCity> {
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivityTwelveBody,
+                      S.of(context).tandemActivityTwelveBody,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

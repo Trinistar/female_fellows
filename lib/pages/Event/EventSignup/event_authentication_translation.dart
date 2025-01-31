@@ -38,7 +38,7 @@ class _EventTranslationAuthenticationState
         child: ListView(
           children: [
             Text(
-              S.of(context)!.eventRegistrationOneTitle,
+              S.of(context).eventRegistrationOneTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -63,7 +63,7 @@ class _EventTranslationAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      S.of(context)!.eventRegistrationTwoFilterTwo,
+                      S.of(context).eventRegistrationTwoFilterTwo,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -80,7 +80,7 @@ class _EventTranslationAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      S.of(context)!.eventRegistrationTwoFilterOne,
+                      S.of(context).eventRegistrationTwoFilterOne,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -103,7 +103,7 @@ class _EventTranslationAuthenticationState
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            S.of(context)!.eventRegistrationOneFilterThree,
+                            S.of(context).eventRegistrationOneFilterThree,
                             style: TextStyle(
                               fontSize: 15,
                             ),

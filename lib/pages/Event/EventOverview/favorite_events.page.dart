@@ -23,7 +23,7 @@ class _FavoritEventsState extends State<FavoritEvents> {
             return Padding(
               padding: const EdgeInsets.only(top: 50.0),
               child: Text(
-                S.of(context)!.eventsPageFavorits,
+                S.of(context).eventsPageFavorits,
                 style: TextStyle(fontStyle: FontStyle.italic),
                 textAlign: TextAlign.center,
               ),
@@ -45,7 +45,7 @@ class _FavoritEventsState extends State<FavoritEvents> {
           return Padding(
             padding: const EdgeInsets.only(top: 50.0),
             child: Text(
-                S.of(context)!.eventsPageFavorits,
+                S.of(context).eventsPageFavorits,
               style: TextStyle(fontStyle: FontStyle.italic),
               textAlign: TextAlign.center,
             ),

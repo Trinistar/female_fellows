@@ -53,7 +53,7 @@ class _AfterTandemState extends State<AfterTandem> {
                   SizedBox(
                     width: 350,
                     child: Text(
-                      S.of(context)!.tandemAftermatchedActivities,
+                      S.of(context).tandemAftermatchedActivities,
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -88,7 +88,7 @@ class _AfterTandemState extends State<AfterTandem> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: Text(
-                    S.of(context)!.tandemStorys,
+                    S.of(context).tandemStorys,
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -133,7 +133,7 @@ class _AfterTandemState extends State<AfterTandem> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    S.of(context)!.tandemAftermatchedEvents,
+                    S.of(context).tandemAftermatchedEvents,
                     style: TextStyle(
                       fontSize: 20,
                     ),

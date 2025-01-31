@@ -20,7 +20,7 @@ class Page2 extends StatelessWidget {
             height: 130,
           ),
           Text(
-           S.of(context)!.onboardingPageTwoTitle,
+           S.of(context).onboardingPageTwoTitle,
             style: TextStyle(
               color:  Theme.of(context).colorScheme.primary,
               fontSize: 35,
@@ -40,7 +40,7 @@ class Page2 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 25),
             child: Text(
-             S.of(context)!.onboardingPageTwoBody,
+             S.of(context).onboardingPageTwoBody,
               style: TextStyle(
                 color:  Theme.of(context).colorScheme.primary,
                 fontSize: 15,

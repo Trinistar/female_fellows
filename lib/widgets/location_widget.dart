@@ -30,7 +30,7 @@ class _LocationWidgetState extends State<LocationWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            S.of(context)!.eventsPageGetLocation,
+            S.of(context).eventsPageGetLocation,
             style: TextStyle(
               color: widget.textColor,
               fontSize: 20,

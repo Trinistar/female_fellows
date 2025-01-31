@@ -24,7 +24,7 @@ class _AuthAdressState extends State<AuthAdress> {
         child: ListView(
           children: [
             Text(
-              S.of(context)!.authenticationPlace,
+              S.of(context).authenticationPlace,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 30,
@@ -52,7 +52,7 @@ class _AuthAdressState extends State<AuthAdress> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Text(
-                    S.of(context)!.authenticationStreet,
+                    S.of(context).authenticationStreet,
                     style: TextStyle(
                       fontSize: 15,
                     ),
@@ -71,7 +71,7 @@ class _AuthAdressState extends State<AuthAdress> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Text(
-                    S.of(context)!.authenticationPostcode,
+                    S.of(context).authenticationPostcode,
                     style: TextStyle(
                       fontSize: 15,
                     ),

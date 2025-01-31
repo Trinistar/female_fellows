@@ -74,7 +74,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               _controller.jumpTo(0);
                             },
                             child: Text(
-                              S.of(context)!.intro,
+                              S.of(context).intro,
                             )),
                       ),
                     )
@@ -106,7 +106,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             child: Row(
                               children: [
                                 Text(
-                                  S.of(context)!.start,
+                                  S.of(context).start,
                                 ),
                                 Icon(Icons.arrow_forward)
                               ],

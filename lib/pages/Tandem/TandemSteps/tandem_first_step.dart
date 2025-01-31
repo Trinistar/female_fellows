@@ -34,7 +34,7 @@ class Firststep extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  S.of(context)!.tandemFirstStep,
+                  S.of(context).tandemFirstStep,
                   style: TextStyle(fontSize: 25),
                 ),
                 Divider(
@@ -47,7 +47,7 @@ class Firststep extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  S.of(context)!.tandemFirstStepBody,
+                  S.of(context).tandemFirstStepBody,
                   style: TextStyle(fontSize: 20),
                 )
               ],
@@ -67,7 +67,7 @@ class Firststep extends StatelessWidget {
               ),
               child: Center(
                   child: Text(
-                S.of(context)!.tandemMemberSignin,
+                S.of(context).tandemMemberSignin,
                 style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

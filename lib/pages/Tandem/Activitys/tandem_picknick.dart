@@ -32,7 +32,7 @@ class _TandemPicknickState extends State<TandemPicknick> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      S.of(context)!.tandemActivityTwoTitle,
+                      S.of(context).tandemActivityTwoTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -45,28 +45,28 @@ class _TandemPicknickState extends State<TandemPicknick> {
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivityTwoBody,
+                      S.of(context).tandemActivityTwoBody,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                       Text(
-                      S.of(context)!.tandemActivityTwoBody2,
+                      S.of(context).tandemActivityTwoBody2,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                       Text(
-                      S.of(context)!.tandemActivityTwoBody3,
+                      S.of(context).tandemActivityTwoBody3,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                       Text(
-                      S.of(context)!.tandemActivityTwoBody4,
+                      S.of(context).tandemActivityTwoBody4,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

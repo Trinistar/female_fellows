@@ -26,7 +26,7 @@ class _AuthConnectState extends State<AuthConnect> {
               Padding(
                 padding: const EdgeInsets.only(left: 50),
                 child: Text(
-                S.of(context)!.authenticationConnection,
+                S.of(context).authenticationConnection,
                   style: TextStyle(
                     color:  Theme.of(context).colorScheme.primary,
                     fontSize: 28,
@@ -52,7 +52,7 @@ class _AuthConnectState extends State<AuthConnect> {
                 child: Column(children: [
                    RadioListTile(
                     dense: true,
-                    title: Text( S.of(context)!.authenticationConnectionPlace,style: TextStyle(
+                    title: Text( S.of(context).authenticationConnectionPlace,style: TextStyle(
                     fontSize: 15,
                   ),),
                     value: "vor Ort",
@@ -64,7 +64,7 @@ class _AuthConnectState extends State<AuthConnect> {
                     }),
                 RadioListTile(
                   dense: true,
-                    title: Text(S.of(context)!.authenticationConnectionOnline,style: TextStyle(
+                    title: Text(S.of(context).authenticationConnectionOnline,style: TextStyle(
                     fontSize: 15,
                   ),),
                     value: "Online",
@@ -76,7 +76,7 @@ class _AuthConnectState extends State<AuthConnect> {
                     }),
                 RadioListTile(
                   dense: true,
-                    title: Text(S.of(context)!.authenticationConnectionOnlinePlace,style: TextStyle(
+                    title: Text(S.of(context).authenticationConnectionOnlinePlace,style: TextStyle(
                     fontSize: 15,
                   ),),
                     value: "vor Ort & Online",

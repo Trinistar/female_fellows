@@ -23,7 +23,7 @@ class DescriptionEvent extends StatelessWidget {
               child: Image.asset('lib/images/Vector.png'),
             ),
             Text(
-              S.of(context)!.createEventsDescription,
+              S.of(context).createEventsDescription,
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
             Divider(

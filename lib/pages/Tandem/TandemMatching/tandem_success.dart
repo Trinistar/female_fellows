@@ -74,7 +74,7 @@ class TandemSuccess extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        S.of(context)!.tandemMatchingAngefragtTitle,
+                        S.of(context).tandemMatchingAngefragtTitle,
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
                       ),
@@ -83,7 +83,7 @@ class TandemSuccess extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      S.of(context)!.tandemMatchingAngefragtBody,
+                      S.of(context).tandemMatchingAngefragtBody,
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
                     SizedBox(
@@ -101,7 +101,7 @@ class TandemSuccess extends StatelessWidget {
                         ),
                         child: Center(
                             child: Text(
-                          S.of(context)!.tandemMatchingAngefragtButtonMatching,
+                          S.of(context).tandemMatchingAngefragtButtonMatching,
                           style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,

@@ -87,7 +87,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
               child: ListView(
                 children: [
                   Text(
-                    S.of(context)!.verificationTitle,
+                    S.of(context).verificationTitle,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       fontSize: 28,
@@ -111,7 +111,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                     height: 40,
                   ),
                   Text(
-                    S.of(context)!.email,
+                    S.of(context).email,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -131,7 +131,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                   Row(
                     children: [
                       Text(
-                        S.of(context)!.password,
+                        S.of(context).password,
                         style: TextStyle(
                           fontSize: 18,
                         ),
@@ -180,7 +180,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                   BlocBuilder<AuthenticationBloc, AuthenticationState>(
                     builder: (context, state) {
                       return FFButton(
-                        text: S.of(context)!.authenticationTitle,
+                        text: S.of(context).authenticationTitle,
                         onTap: () {
                           if (_formKey.currentState!.validate()) {
                             final FFUser profile = FFUser(

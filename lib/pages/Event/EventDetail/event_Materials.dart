@@ -23,7 +23,7 @@ class EventMaterials extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              S.of(context)!.eventOneTitleFour,
+              S.of(context).eventOneTitleFour,
               style: TextStyle(fontSize: 20),
             ),
             Divider(
@@ -36,7 +36,7 @@ class EventMaterials extends StatelessWidget {
               leading: SvgPicture.asset(
                 'lib/images/notebook.svg',
               ),
-              title: Text(S.of(context)!.eventOneSubtitleOne),
+              title: Text(S.of(context).eventOneSubtitleOne),
               subtitle: Text(eventState.material!.planer),
             ),
             ListTile(
@@ -44,7 +44,7 @@ class EventMaterials extends StatelessWidget {
               leading: SvgPicture.asset(
                 'lib/images/food.svg',
               ),
-              title: Text(S.of(context)!.eventOneSubtitleTwo),
+              title: Text(S.of(context).eventOneSubtitleTwo),
               subtitle: Text(eventState.material!.food),
             ),
             ListTile(
@@ -53,7 +53,7 @@ class EventMaterials extends StatelessWidget {
                 'lib/images/kleidung.svg',
                 
               ),
-              title: Text(S.of(context)!.eventOneSubtitleThree),
+              title: Text(S.of(context).eventOneSubtitleThree),
               subtitle: Text(eventState.material!.clothes),
             ),
             ListTile(
@@ -62,7 +62,7 @@ class EventMaterials extends StatelessWidget {
                 'lib/images/sonstiges.svg',
                 
               ),
-              title: Text(S.of(context)!.eventOneSubtitleFour),
+              title: Text(S.of(context).eventOneSubtitleFour),
               subtitle: Text(eventState.material!.information),
             ),
             Container(

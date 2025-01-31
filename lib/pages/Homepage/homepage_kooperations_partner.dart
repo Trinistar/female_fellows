@@ -48,7 +48,7 @@ class _KooperationState extends State<Kooperation> {
                           }),
                     ),
                     Text(
-                      S.of(context)!.homeVereinInfoThreeTitle,
+                      S.of(context).homeVereinInfoThreeTitle,
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                     Divider(
@@ -64,7 +64,7 @@ class _KooperationState extends State<Kooperation> {
                         height: 300,
                         width: 320,
                         child: Text(
-                          S.of(context)!.homeVereinInfoThreeBody,
+                          S.of(context).homeVereinInfoThreeBody,
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
@@ -85,7 +85,7 @@ class _KooperationState extends State<Kooperation> {
                           ),
                           child: Center(
                               child: Text(
-                            S.of(context)!
+                            S.of(context)
                                 .homeVereinInfoThreeButton,
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 15),

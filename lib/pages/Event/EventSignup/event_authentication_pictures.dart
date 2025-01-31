@@ -39,7 +39,7 @@ class _EventPictureAuthenticationState
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-              S.of(context)!.eventRegistrationThreeTitle,
+              S.of(context).eventRegistrationThreeTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -68,13 +68,13 @@ class _EventPictureAuthenticationState
                     dense: true,
                     isThreeLine: true,
                     title: Text(
-                      S.of(context)!.eventRegistrationTwoFilterTwo,
+                      S.of(context).eventRegistrationTwoFilterTwo,
                       style: TextStyle(
                         fontSize: 15,
                       ),
                     ),
                     subtitle: Text(
-                      S.of(context)!.eventRegistrationThreeFilterTwo,
+                      S.of(context).eventRegistrationThreeFilterTwo,
                       style: TextStyle(fontSize: 10),
                     ),
                     value: RadioChoices.ja,
@@ -88,7 +88,7 @@ class _EventPictureAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      S.of(context)!.eventRegistrationTwoFilterOne,
+                      S.of(context).eventRegistrationTwoFilterOne,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -108,7 +108,7 @@ class _EventPictureAuthenticationState
                   onTap: () {
                     widget.sendRequest!();
                   },
-                  text: S.of(context)!.eventButtonSignin,
+                  text: S.of(context).eventButtonSignin,
                 ),
               ],
             ),

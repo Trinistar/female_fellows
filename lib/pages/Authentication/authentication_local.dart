@@ -28,7 +28,7 @@ class _AuthlocalState extends State<Authlocal> {
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-              S.of(context)!.authenticationSafetyTitle,
+              S.of(context).authenticationSafetyTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -58,14 +58,14 @@ class _AuthlocalState extends State<Authlocal> {
                   groupValue: localOrNot,
                   dense: true,
                   title: Text(
-                    S.of(context)!.authenticationNewcomerTitle,
+                    S.of(context).authenticationNewcomerTitle,
                     style: TextStyle(
                       fontSize: 15,
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                   subtitle: Text(
-                      S.of(context)!.authenticationNewcomer),
+                      S.of(context).authenticationNewcomer),
                   value: LocalOrNewcomer.newcomer,
                   onChanged: (newValue) {
                     setState(() {
@@ -89,14 +89,14 @@ class _AuthlocalState extends State<Authlocal> {
                   groupValue: localOrNot,
                   dense: true,
                   title: Text(
-                    S.of(context)!.authenticationLocalTitle,
+                    S.of(context).authenticationLocalTitle,
                     style: TextStyle(
                       fontSize: 15,
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                   subtitle:
-                      Text(S.of(context)!.authenticationLocal),
+                      Text(S.of(context).authenticationLocal),
                   value: LocalOrNewcomer.local,
                   onChanged: (newValue) {
                     setState(() {

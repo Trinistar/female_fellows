@@ -35,7 +35,7 @@ class _AuthSafetyState extends State<AuthSafety> {
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-              S.of(context)!.authenticationSafetyTitle,
+              S.of(context).authenticationSafetyTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -65,7 +65,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                   controlAffinity: ListTileControlAffinity.leading,
                   dense: true,
                   title: Text(
-                    S.of(context)!.authenticationNewsletter,
+                    S.of(context).authenticationNewsletter,
                     style: TextStyle(
                       fontSize: 15,
                       color: Theme.of(context).colorScheme.primary,
@@ -93,7 +93,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                   title: GestureDetector(
                     onTap: () => launchUrl(Uri.parse('https://femalefellows.com/')),
                     child: Text(
-                      S.of(context)!.authenticationAGBS,
+                      S.of(context).authenticationAGBS,
                       style: TextStyle(
                         fontSize: 15,
                         color: Theme.of(context).colorScheme.primary,

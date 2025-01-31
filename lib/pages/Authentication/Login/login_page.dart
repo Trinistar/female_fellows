@@ -63,7 +63,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              S.of(context)!.loginPageTitle,
+                              S.of(context).loginPageTitle,
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
                                 fontSize: 28,
@@ -74,7 +74,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                               height: 10,
                             ),
                             Text(
-                              S.of(context)!.loginPageBody,
+                              S.of(context).loginPageBody,
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
                                 fontSize: 15,
@@ -85,7 +85,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                             Row(
                               children: [
                                 Text(
-                                  S.of(context)!.email,
+                                  S.of(context).email,
                                   style: TextStyle(
                                     fontSize: 18,
                                   ),
@@ -115,7 +115,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                             Row(
                               children: [
                                 Text(
-                                  S.of(context)!.password,
+                                  S.of(context).password,
                                   style: TextStyle(
                                     fontSize: 18,
                                   ),
@@ -173,7 +173,7 @@ class _AuthLoginPageState extends State<LoginPage> {
                             BlocBuilder<LoginBloc, LoginState>(
                               builder: (context, state) {
                                 return FFButton(
-                                  text: S.of(context)!.signin,
+                                  text: S.of(context).signin,
                                   onTap: () {
                                     if (_formKey.currentState!.validate()) {
                                       context.read<LoginBloc>().add(LoginSubmitted(email: Controller.emailController.text, password: Controller.passwordController.text));
@@ -187,14 +187,14 @@ class _AuthLoginPageState extends State<LoginPage> {
                             ),
                             Center(
                                 child: Text(
-                              S.of(context)!.signinTextup,
+                              S.of(context).signinTextup,
                               style: TextStyle(color: Theme.of(context).colorScheme.primary),
                             )),
                             Center(
                               child: GestureDetector(
                                 onTap: () => context.push('/registrationPage'),
                                 child: Text(
-                                  S.of(context)!.signinTextdown,
+                                  S.of(context).signinTextdown,
                                   style: TextStyle(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline),
                                 ),
                               ),

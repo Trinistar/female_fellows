@@ -32,7 +32,7 @@ class TandemComments extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                              S.of(context)!.tandemQuotesOne,
+                              S.of(context).tandemQuotesOne,
                                 style: TextStyle(color: Colors.white, fontSize: 20),
                               ),
                                 Text(
@@ -64,7 +64,7 @@ class TandemComments extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                S.of(context)!.tandemQuotesTwo,
+                                S.of(context).tandemQuotesTwo,
                                 style: TextStyle(color: Colors.white, fontSize: 20),
                               ),
                                 Text(

@@ -49,7 +49,7 @@ class TandemStoryThree extends StatelessWidget {
                               height: 50,
                             ),
                             Text(
-                              S.of(context)!.homeTandemstoryOneSubTitle,
+                              S.of(context).homeTandemstoryOneSubTitle,
                               style: TextStyle(
                                   color: Theme.of(context).colorScheme.tertiary,
                                   fontSize: 15),
@@ -73,7 +73,7 @@ class TandemStoryThree extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              S.of(context)!.tandemStory3Body1,
+                              S.of(context).tandemStory3Body1,
                               style: TextStyle(
                                   fontSize: 15,
                                   color: Theme.of(context).colorScheme.primary),
@@ -143,7 +143,7 @@ class TandemStoryThree extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          S.of(context)!.tandemStory3Body2,
+                          S.of(context).tandemStory3Body2,
                           style: TextStyle(
                               fontSize: 15,
                               color: Theme.of(context).colorScheme.primary),

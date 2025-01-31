@@ -22,7 +22,7 @@ class EventCategory extends StatelessWidget {
                 'lib/images/category.png',
                 cacheHeight: 30,
               ),
-              title: Text(S.of(context)!.eventsFiltersTitleFilterThree),
+              title: Text(S.of(context).eventsFiltersTitleFilterThree),
             ),
             SizedBox(
               height: 20,

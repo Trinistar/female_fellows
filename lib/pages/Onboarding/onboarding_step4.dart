@@ -22,7 +22,7 @@ class Page4 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Text(
-           S.of(context)!.onboardingPageFourTitle,
+           S.of(context).onboardingPageFourTitle,
               style: TextStyle(
                 color:  Theme.of(context).colorScheme.primary,
                 fontSize: 35,
@@ -42,7 +42,7 @@ class Page4 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 25),
             child: Text(
-             S.of(context)!.onboardingPageFourBody,
+             S.of(context).onboardingPageFourBody,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 15,

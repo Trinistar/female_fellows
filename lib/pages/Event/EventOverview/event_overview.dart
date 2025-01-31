@@ -186,7 +186,7 @@ class _EventOverviewState extends State<EventOverview>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          S.of(context)!.eventsPageAllFilter,
+                          S.of(context).eventsPageAllFilter,
                           style: TextStyle(
                               color: Theme.of(context).colorScheme.primary,
                               fontSize: 20),
@@ -253,13 +253,13 @@ class _EventOverviewState extends State<EventOverview>
               tabs: [
                 Tab(
                   text:
-                      S.of(context)!.eventsPageAllDefaultSection,
+                      S.of(context).eventsPageAllDefaultSection,
                 ),
                 Tab(
-                  text: S.of(context)!.eventsPageAllSectionTwo,
+                  text: S.of(context).eventsPageAllSectionTwo,
                 ),
                 Tab(
-                  text: S.of(context)!.eventsPageAllSectionThree,
+                  text: S.of(context).eventsPageAllSectionThree,
                 ),
               ],
             ),
@@ -282,7 +282,7 @@ class _EventOverviewState extends State<EventOverview>
           TextButton(
               onPressed: null,
               child: Text(
-                S.of(context)!.eventsPageAllButtonOne,
+                S.of(context).eventsPageAllButtonOne,
                 style: TextStyle(color: Colors.black, fontSize: 17),
               )),
           SizedBox(
@@ -301,7 +301,7 @@ class _EventOverviewState extends State<EventOverview>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    S.of(context)!.eventsPageAllTitle,
+                    S.of(context).eventsPageAllTitle,
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                   Divider(
@@ -310,7 +310,7 @@ class _EventOverviewState extends State<EventOverview>
                     color: Colors.white,
                   ),
                   Text(
-                    S.of(context)!.eventsPageAllSubtitle,
+                    S.of(context).eventsPageAllSubtitle,
                     style: TextStyle(fontSize: 13, color: Colors.white),
                   ),
                   SizedBox(
@@ -348,7 +348,7 @@ class _EventOverviewState extends State<EventOverview>
                             child: SizedBox(
                               width: 170,
                               child: Text(
-                                S.of(context)!
+                                S.of(context)
                                     .eventsPageAllMailtoButtonOne,
                                 textAlign: TextAlign.center,
                               ),
@@ -393,7 +393,7 @@ class _EventOverviewState extends State<EventOverview>
                             child: SizedBox(
                               width: 170,
                               child: Text(
-                                S.of(context)!
+                                S.of(context)
                                     .eventsPageAllMailtoButtonTwo,
                                 textAlign: TextAlign.center,
                               ),

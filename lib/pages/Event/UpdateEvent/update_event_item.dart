@@ -77,7 +77,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              S.of(context)!.createEventDate2,
+              S.of(context).createEventDate2,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -93,7 +93,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              S.of(context)!.createEventsHost,
+              S.of(context).createEventsHost,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -109,7 +109,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              S.of(context)!.createEventStreet,
+              S.of(context).createEventStreet,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -120,7 +120,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               decoration: InputDecoration(disabledBorder: InputBorder.none, focusedBorder: InputBorder.none, fillColor: Theme.of(context).colorScheme.surface, hintText: widget.eventState.location.city),
             ),
             subtitle: Text(
-              S.of(context)!.createEventPlace,
+              S.of(context).createEventPlace,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -136,7 +136,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              S.of(context)!.createEventZipCode,
+              S.of(context).createEventZipCode,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -155,7 +155,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              S.of(context)!.eventOneRegisteredPerson,
+              S.of(context).eventOneRegisteredPerson,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -176,7 +176,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              S.of(context)!.authenticationHandy,
+              S.of(context).authenticationHandy,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -195,7 +195,7 @@ class UpdateEventDateState extends State<UpdateEventDate> {
               ),
             ),
             subtitle: Text(
-              S.of(context)!.updateEventWhatsApp,
+              S.of(context).updateEventWhatsApp,
               style: TextStyle(fontSize: 12),
             ),
           ),

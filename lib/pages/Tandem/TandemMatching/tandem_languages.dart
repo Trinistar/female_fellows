@@ -55,7 +55,7 @@ class _TandemLanguagesState extends State<TandemLanguages> {
       child: ListView(
         children: [
           Text(
-            S.of(context)!.tandemMatchingAnmeldungOverlayTitle,
+            S.of(context).tandemMatchingAnmeldungOverlayTitle,
             style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
               fontSize: 28,
@@ -76,7 +76,7 @@ class _TandemLanguagesState extends State<TandemLanguages> {
             height: 50,
           ),
           Text(
-            S.of(context)!.tandemMatchingAnmeldungOverlayFilterOneTitle,
+            S.of(context).tandemMatchingAnmeldungOverlayFilterOneTitle,
             style: TextStyle(
               fontSize: 18,
             ),
@@ -111,7 +111,7 @@ class _TandemLanguagesState extends State<TandemLanguages> {
             height: 30,
           ),
           Text(
-            S.of(context)!.tandemMatchingAnmeldungOverlayFilterThreePlaceholder,
+            S.of(context).tandemMatchingAnmeldungOverlayFilterThreePlaceholder,
             style: TextStyle(
               fontSize: 15,
             ),

@@ -52,7 +52,7 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 15, left: 40),
             child: Text(
-              S.of(context)!.tandemMatchingAnmeldungOverlayTwoSubtitle,
+              S.of(context).tandemMatchingAnmeldungOverlayTwoSubtitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 20,
@@ -92,7 +92,7 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
                             _controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                           }
                         },
-                        child: Text(S.of(context)!.buttonBack))
+                        child: Text(S.of(context).buttonBack))
                     : Container(
                         width: 85,
                       ),
@@ -114,14 +114,14 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
 
                           Navigator.of(context).maybePop();
                         },
-                        child: Text(S.of(context)!.tandemMatchingRouting),
+                        child: Text(S.of(context).tandemMatchingRouting),
                       )
                     : MaterialButton(
                         disabledTextColor: Colors.grey,
                         onPressed: () {
                           _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                         },
-                        child: Text(S.of(context)!.buttonNext),
+                        child: Text(S.of(context).buttonNext),
                       ),
               ],
             ),

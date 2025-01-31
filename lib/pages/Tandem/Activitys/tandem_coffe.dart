@@ -38,7 +38,7 @@ class _TandemCoffeeState extends State<TandemCoffee> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      S.of(context)!.tandemActivityOneTitle,
+                      S.of(context).tandemActivityOneTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -51,7 +51,7 @@ class _TandemCoffeeState extends State<TandemCoffee> {
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivityOneBody,
+                      S.of(context).tandemActivityOneBody,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

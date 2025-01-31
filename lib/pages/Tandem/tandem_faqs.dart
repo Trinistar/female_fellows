@@ -23,31 +23,31 @@ class _FAQsState extends State<FAQs> {
   @override
   void didChangeDependencies() {
     _faqTitles = [
-      S.of(context)!.tandemLocalsQuestion1,
-      S.of(context)!.tandemLocalsQuestion2,
-      S.of(context)!.tandemLocalsQuestion3,
-      S.of(context)!.tandemLocalsQuestion4,
-      S.of(context)!.tandemLocalsQuestion5,
-      S.of(context)!.tandemLocalsQuestion6,
-      S.of(context)!.tandemLocalsQuestion7,
-      S.of(context)!.tandemLocalsQuestion8,
-      S.of(context)!.tandemLocalsQuestion9,
-      S.of(context)!.tandemLocalsQuestion10,
-      S.of(context)!.tandemLocalsQuestion11,
+      S.of(context).tandemLocalsQuestion1,
+      S.of(context).tandemLocalsQuestion2,
+      S.of(context).tandemLocalsQuestion3,
+      S.of(context).tandemLocalsQuestion4,
+      S.of(context).tandemLocalsQuestion5,
+      S.of(context).tandemLocalsQuestion6,
+      S.of(context).tandemLocalsQuestion7,
+      S.of(context).tandemLocalsQuestion8,
+      S.of(context).tandemLocalsQuestion9,
+      S.of(context).tandemLocalsQuestion10,
+      S.of(context).tandemLocalsQuestion11,
     ];
 
     _faqAnswers = [
-      S.of(context)!.tandemLocalsAnswer1,
-      S.of(context)!.tandemLocalsAnswer2,
-      S.of(context)!.tandemLocalsAnswer3,
-      S.of(context)!.tandemLocalsAnswer4,
-      S.of(context)!.tandemLocalsAnswer5,
-      S.of(context)!.tandemLocalsAnswer6,
-      S.of(context)!.tandemLocalsAnswer7,
-      S.of(context)!.tandemLocalsAnswer8,
-      S.of(context)!.tandemLocalsAnswer9,
-      S.of(context)!.tandemLocalsAnswer10,
-      S.of(context)!.tandemLocalsAnswer11,
+      S.of(context).tandemLocalsAnswer1,
+      S.of(context).tandemLocalsAnswer2,
+      S.of(context).tandemLocalsAnswer3,
+      S.of(context).tandemLocalsAnswer4,
+      S.of(context).tandemLocalsAnswer5,
+      S.of(context).tandemLocalsAnswer6,
+      S.of(context).tandemLocalsAnswer7,
+      S.of(context).tandemLocalsAnswer8,
+      S.of(context).tandemLocalsAnswer9,
+      S.of(context).tandemLocalsAnswer10,
+      S.of(context).tandemLocalsAnswer11,
     ];
 
     super.didChangeDependencies();

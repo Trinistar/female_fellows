@@ -36,7 +36,7 @@ class _EventChildCareAuthenticationState
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-              S.of(context)!.eventRegistrationTwoTitle,
+              S.of(context).eventRegistrationTwoTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -64,7 +64,7 @@ class _EventChildCareAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      S.of(context)!.eventRegistrationTwoFilterTwo,
+                      S.of(context).eventRegistrationTwoFilterTwo,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -82,7 +82,7 @@ class _EventChildCareAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      S.of(context)!.eventRegistrationTwoFilterOne,
+                      S.of(context).eventRegistrationTwoFilterOne,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -107,7 +107,7 @@ class _EventChildCareAuthenticationState
                           Padding(
                             padding: const EdgeInsets.only(left: 30),
                             child: Text(
-                              S.of(context)!.eventRegistrationTwoFieldTwo,
+                              S.of(context).eventRegistrationTwoFieldTwo,
                               style: TextStyle(
                                 fontSize: 15,
                               ),
@@ -117,7 +117,7 @@ class _EventChildCareAuthenticationState
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: TextBar(                             
                               controller: Controller.childNameController,
-                              hintText: S.of(context)!.eventRegistrationTwoFieldTwo1,
+                              hintText: S.of(context).eventRegistrationTwoFieldTwo1,
                               obscureText: false,
                               onChange: (String text) => widget.needsChildCare!(
                                   ChildCare(needed: true, childName: text)),

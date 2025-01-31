@@ -33,7 +33,7 @@ class _TandemGermanState extends State<TandemGerman> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      S.of(context)!.tandemActivitySixTitle,
+                      S.of(context).tandemActivitySixTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -46,28 +46,28 @@ class _TandemGermanState extends State<TandemGerman> {
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivitySixBody('<a href="https://learngerman.dw.com/de/placementDashboard">https://learngerman.dw.com/de/placementDashboard</a>'),
+                      S.of(context).tandemActivitySixBody('<a href="https://learngerman.dw.com/de/placementDashboard">https://learngerman.dw.com/de/placementDashboard</a>'),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivitySixBody2(alphabetisierungDownload, goetheWebsite, youtubedeutsch, deutschtrainerWebsite, deutschenglischWebsite),
+                      S.of(context).tandemActivitySixBody2(alphabetisierungDownload, goetheWebsite, youtubedeutsch, deutschtrainerWebsite, deutschenglischWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivitySixBody3(goetheappWebsite, stadtderwoerterWebsite, kennenlernenWebsite, meinwegWebsite),
+                      S.of(context).tandemActivitySixBody3(goetheappWebsite, stadtderwoerterWebsite, kennenlernenWebsite, meinwegWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivitySixBody4('<a href="https://femalefellows.com/deutsch-lernen/make-it-in-germany.com">https://femalefellows.com/deutsch-lernen/make-it-in-germany.com</a>', '<a href="https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php">https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php</a>', arbeitsplatzgoetheWebsite),
+                      S.of(context).tandemActivitySixBody4('<a href="https://femalefellows.com/deutsch-lernen/make-it-in-germany.com">https://femalefellows.com/deutsch-lernen/make-it-in-germany.com</a>', '<a href="https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php">https://welcome.stuttgart.de/deutsch-lernen/suche-nach-deutschkursen.php</a>', arbeitsplatzgoetheWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

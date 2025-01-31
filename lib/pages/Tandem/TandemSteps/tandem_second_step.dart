@@ -34,7 +34,7 @@ class SecondStep extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  S.of(context)!.tandemSecondStep,
+                  S.of(context).tandemSecondStep,
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 ),
                 Divider(
@@ -47,7 +47,7 @@ class SecondStep extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  S.of(context)!.tandemSecondStepBody,
+                  S.of(context).tandemSecondStepBody,
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )
               ],
@@ -70,7 +70,7 @@ class SecondStep extends StatelessWidget {
               ),
               child: Center(
                   child: Text(
-                S.of(context)!.tandemMatchingAngefragtButtonMatching,
+                S.of(context).tandemMatchingAngefragtButtonMatching,
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               )),

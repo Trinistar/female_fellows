@@ -33,7 +33,7 @@ class _TandemCinemaState extends State<TandemCinema> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      S.of(context)!.tandemActivityTenTitle,
+                      S.of(context).tandemActivityTenTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -46,7 +46,7 @@ class _TandemCinemaState extends State<TandemCinema> {
                       height: 10,
                     ),
                     Text(
-                      S.of(context)!.tandemActivityTenBody(cinemastuttgartWebsite, cinemaxXWebsite, sneakcinemaWebsite, paradieslichtspieleWebsite),
+                      S.of(context).tandemActivityTenBody(cinemastuttgartWebsite, cinemaxXWebsite, sneakcinemaWebsite, paradieslichtspieleWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

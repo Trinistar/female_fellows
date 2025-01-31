@@ -36,7 +36,7 @@ class OrgaEvent extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 40.0),
                         child: Text(
-                          S.of(context)!.createEventOrga,
+                          S.of(context).createEventOrga,
                           style: TextStyle(fontSize: 20, color: Colors.white),
                         ),
                       ),
@@ -61,7 +61,7 @@ class OrgaEvent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              S.of(context)!.createEventsHost,
+              S.of(context).createEventsHost,
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
@@ -69,7 +69,7 @@ class OrgaEvent extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: TextBar(
                 controller: Controller.hostController,
-                hintText: S.of(context)!.createEventsHost,
+                hintText: S.of(context).createEventsHost,
                 obscureText: false,
                 onChange: null,
                 validator: null),
@@ -81,7 +81,7 @@ class OrgaEvent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              S.of(context)!.createEventsContactPerson,
+              S.of(context).createEventsContactPerson,
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
@@ -90,7 +90,7 @@ class OrgaEvent extends StatelessWidget {
             child: TextBar(
                 controller: Controller.contactPersonController,
                 hintText:
-                    S.of(context)!.createEventsContactPerson,
+                    S.of(context).createEventsContactPerson,
                 obscureText: false,
                 onChange: null,
                 validator: null),
@@ -102,7 +102,7 @@ class OrgaEvent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              S.of(context)!.createEventMail,
+              S.of(context).createEventMail,
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
@@ -110,7 +110,7 @@ class OrgaEvent extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: TextBar(
                 controller: Controller.eventEmailController,
-                hintText: S.of(context)!.createEventMail,
+                hintText: S.of(context).createEventMail,
                 obscureText: false,
                 onChange: null,
                 validator: null),
@@ -122,7 +122,7 @@ class OrgaEvent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              S.of(context)!.createEventHandy,
+              S.of(context).createEventHandy,
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
@@ -149,7 +149,7 @@ class OrgaEvent extends StatelessWidget {
                 ),
                 fillColor: Theme.of(context).colorScheme.surface,
                 filled: true,
-                hintText: S.of(context)!.createEventHandy,
+                hintText: S.of(context).createEventHandy,
               ),
             ),
           ),
@@ -160,7 +160,7 @@ class OrgaEvent extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              S.of(context)!.createEventWhatsApp,
+              S.of(context).createEventWhatsApp,
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
@@ -168,7 +168,7 @@ class OrgaEvent extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: TextBar(
               controller: Controller.whatsAppLinkController,
-              hintText: S.of(context)!.createEventWhatsApp,
+              hintText: S.of(context).createEventWhatsApp,
               obscureText: false,
               onChange: null,
               validator: (value) {

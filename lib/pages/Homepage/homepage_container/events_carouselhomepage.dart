@@ -23,7 +23,7 @@ class EventCarousel extends StatelessWidget {
               left: 40,
             ),
             child: Text(
-              S.of(context)!.homeEventsTeaserTitle,
+              S.of(context).homeEventsTeaserTitle,
               style: TextStyle(fontSize: 20),
             ),
           ),

@@ -33,7 +33,7 @@ class _UpdateDesciptionState extends State<UpdateDesciption> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            S.of(context)!.eventOneTitleOne,
+            S.of(context).eventOneTitleOne,
             style: TextStyle(fontSize: 20),
           ),
           Divider(

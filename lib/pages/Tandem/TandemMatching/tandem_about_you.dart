@@ -35,7 +35,7 @@ class _TandemAboutYouState extends State<TandemAboutYou> {
         child: ListView(
           children: [
             Text(
-              S.of(context)!
+              S.of(context)
                   .tandemMatchingAnmeldungOverlayOneTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
@@ -78,7 +78,7 @@ class _TandemAboutYouState extends State<TandemAboutYou> {
                 ),
                 fillColor: Theme.of(context).colorScheme.surface,
                 filled: true,
-                hintText: S.of(context)!
+                hintText: S.of(context)
                     .tandemMatchingAnmeldungOverlayOneFieldPlaceholder,
               ),
             ),
@@ -86,7 +86,7 @@ class _TandemAboutYouState extends State<TandemAboutYou> {
               height: 20,
             ),
             Text(
-              S.of(context)!
+              S.of(context)
                   .tandemMatchingAnmeldungOverlayOneFieldPlaceholder2,
               style: TextStyle(fontSize: 12),
             ),

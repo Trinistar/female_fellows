@@ -160,7 +160,7 @@ class _UpdateEventState extends State<UpdateEvent> {
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               title: Text(
-                S.of(context)!.updateEventTitle,
+                S.of(context).updateEventTitle,
               ),
             ),
             backgroundColor: Colors.white,
@@ -241,7 +241,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                           ),
                         ),
                         subtitle: Text(
-                          S.of(context)!.createEventTitle,
+                          S.of(context).createEventTitle,
                           style: TextStyle(fontSize: 12),
                         ),
                       ),
@@ -276,7 +276,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                             'lib/images/category.png',
                             cacheHeight: 30,
                           ),
-                          title: Text(S.of(context)!.eventOneTitleTwo),
+                          title: Text(S.of(context).eventOneTitleTwo),
                         ),
                         SizedBox(
                           height: 20,
@@ -342,7 +342,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                       }
                       context.pop();
                     },
-                    text: S.of(context)!.updateEventButton),
+                    text: S.of(context).updateEventButton),
                 SizedBox(
                   height: 30,
                 ),

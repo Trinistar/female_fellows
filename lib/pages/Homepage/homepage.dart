@@ -174,7 +174,7 @@ class _HomeState extends State<Home> {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              S.of(context)!.homeTandemstoriesTitle,
+              S.of(context).homeTandemstoriesTitle,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
           ),
@@ -321,7 +321,7 @@ class _HomeState extends State<Home> {
                 Padding(
                   padding: const EdgeInsets.only(left: 130, top: 30),
                   child: Text(
-                    S.of(context)!.onboardingPageOneTitle,
+                    S.of(context).onboardingPageOneTitle,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       fontSize: 25,

@@ -42,7 +42,7 @@ class EventCategorys extends StatelessWidget {
                   leading: SvgPicture.asset(
                     'lib/images/category.svg',
                   ),
-                  title: Text(S.of(context)!.eventOneTitleTwo),
+                  title: Text(S.of(context).eventOneTitleTwo),
                 ),
                 SizedBox(
                   height: 20,

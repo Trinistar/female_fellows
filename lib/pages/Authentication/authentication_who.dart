@@ -172,7 +172,7 @@ class _AuthWhoState extends State<AuthWho> {
         child: ListView(
           children: [
             Text(
-              S.of(context)!.authenticationWho,
+              S.of(context).authenticationWho,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 30,
@@ -204,7 +204,7 @@ class _AuthWhoState extends State<AuthWho> {
             ),
             Center(
               child: Text(
-                S.of(context)!.authenticationPicture,
+                S.of(context).authenticationPicture,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 20,
@@ -220,7 +220,7 @@ class _AuthWhoState extends State<AuthWho> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Text(
-                    S.of(context)!.authenticationFirstname,
+                    S.of(context).authenticationFirstname,
                     style: TextStyle(
                       fontSize: 15,
                     ),
@@ -244,7 +244,7 @@ class _AuthWhoState extends State<AuthWho> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Text(
-                    S.of(context)!.authenticationLastname,
+                    S.of(context).authenticationLastname,
                     style: TextStyle(
                       fontSize: 15,
                     ),
