@@ -59,7 +59,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       await emit.onEach(
         CombineLatestStream.list(<Stream>[_firestoreUserProfileRepository.loadUserProfile(event.user!.uid), _firestoreUserProfileRepository.loadUserProfileLocationData(event.user!.uid)]),
         onData: (List<dynamic> streams) async {
-          UserLocation location = UserLocation(data: GeoData(geohash: '', location: GeoPoint(0, 0)), name: '', isVisible: true);
+          UserLocation? location;
           FFUser profile = FFUser();
           if (streams[0] == null) {
             emit(AuthenticationLoading());

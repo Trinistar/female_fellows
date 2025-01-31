@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/helper_functions.dart';
+import 'package:femalefellows/models/events.dart';
 import 'package:femalefellows/models/user_model.dart';
 import 'package:femalefellows/pages/Event/CreateEvent/create_event.dart';
 import 'package:femalefellows/pages/Event/EventComponents/color_artbar.dart';
@@ -21,7 +23,8 @@ class EventOverview extends StatefulWidget {
   State<EventOverview> createState() => _EventOverviewState();
 }
 
-class _EventOverviewState extends State<EventOverview> with TickerProviderStateMixin {
+class _EventOverviewState extends State<EventOverview>
+    with TickerProviderStateMixin {
   late TabController _tabController;
   @override
   void initState() {
@@ -29,12 +32,35 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
     _tabController = TabController(length: 3, vsync: this);
   }
 
-  DateTimeRange dateRange = DateTimeRange(start: DateTime.now(), end: DateTime.now());
+  DateTimeRange dateRange =
+      DateTimeRange(start: DateTime.now(), end: DateTime.now());
   Future pickDateRange() async {
-    DateTimeRange? newDateRange = await showDateRangePicker(context: context, initialDateRange: dateRange, firstDate: DateTime.now(), lastDate: DateTime(2500));
+    DateTimeRange? newDateRange = await showDateRangePicker(
+        context: context,
+        initialDateRange: dateRange,
+        firstDate: DateTime.now(),
+        lastDate: DateTime(2500));
     if (newDateRange == null) return;
     setState(() {
       dateRange = newDateRange;
+      if (context.read<AuthenticationBloc>().state is AuthenticatedUser) {
+        final FFUser profile = (BlocProvider.of<AuthenticationBloc>(context)
+                .state as AuthenticatedUser)
+            .userProfile!;
+        EventDateRange eventDateRange = EventDateRange(
+            start: Timestamp.fromDate(dateRange.start),
+            end: Timestamp.fromDate(dateRange.end));
+        profile.eventDateRange = eventDateRange;
+        context.read<AuthenticationBloc>().add(
+              UpdateUserProfileEvent(
+                (BlocProvider.of<AuthenticationBloc>(context).state
+                        as AuthenticatedUser)
+                    .user!
+                    .uid,
+                userProfile: profile,
+              ),
+            );
+      }
     });
   }
 
@@ -57,9 +83,13 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
         backgroundColor: Theme.of(context).colorScheme.onTertiary,
         toolbarHeight: 0,
       ),
-      floatingActionButton: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+      floatingActionButton:
+          BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
-          if (state is AuthenticatedUser && state.tokenResult != null && state.tokenResult!.claims != null && HelperFunctions.isAdmin(state.tokenResult!.claims)) {
+          if (state is AuthenticatedUser &&
+              state.tokenResult != null &&
+              state.tokenResult!.claims != null &&
+              HelperFunctions.isAdmin(state.tokenResult!.claims)) {
             return FloatingActionButton(
               heroTag: CreateEvent,
               onPressed: () => context.go('/events/createEvent'),
@@ -81,9 +111,15 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
               Container(
                 height: 215,
                 width: 1000,
-                decoration: BoxDecoration(color: Color.fromRGBO(241, 80, 60, 1), borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))),
+                decoration: BoxDecoration(
+                    color: Color.fromRGBO(241, 80, 60, 1),
+                    borderRadius:
+                        BorderRadius.only(bottomRight: Radius.circular(60))),
               ),
-              Positioned(bottom: 0, right: 0, child: Image.asset('lib/images/Mask group.png')),
+              Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Image.asset('lib/images/Mask group.png')),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,11 +160,18 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                       setState(() {
                         locationmessage = '$_lat,$_long';
                       });
-                      if (BlocProvider.of<AuthenticationBloc>(context).state is AuthenticatedUser) {
-                        final FFUser profile = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).userProfile!;
+                      if (BlocProvider.of<AuthenticationBloc>(context).state
+                          is AuthenticatedUser) {
+                        final FFUser profile =
+                            (BlocProvider.of<AuthenticationBloc>(context).state
+                                    as AuthenticatedUser)
+                                .userProfile!;
                         context.read<AuthenticationBloc>().add(
                               UpdateUserProfileEvent(
-                                (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticatedUser).user!.uid,
+                                (BlocProvider.of<AuthenticationBloc>(context)
+                                        .state as AuthenticatedUser)
+                                    .user!
+                                    .uid,
                                 latitude: value.latitude,
                                 longitude: value.longitude,
                                 userProfile: profile,
@@ -147,13 +190,17 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                     children: [
                       Text(
                         AppLocalizations.of(context)!.eventsPageGetLocation,
-                        style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: 20),
                       ),
                       BlocBuilder<AuthenticationBloc, AuthenticationState>(
                         builder: (context, state) {
                           if (state is AuthenticatedUser) {
                             return Text(
-                              state.userProfile!.location != null ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}' : locationmessage,
+                              state.userProfile!.location != null
+                                  ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}'
+                                  : locationmessage,
                               style: TextStyle(fontSize: 12),
                             );
                           } else {
@@ -180,7 +227,9 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                       children: [
                         Text(
                           AppLocalizations.of(context)!.eventsPageAllFilter,
-                          style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontSize: 20),
                         ),
                         Text(
                           '${start.day}.${start.month} bis ${end.day}.${end.month}',
@@ -243,7 +292,8 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
               controller: _tabController,
               tabs: [
                 Tab(
-                  text: AppLocalizations.of(context)!.eventsPageAllDefaultSection,
+                  text:
+                      AppLocalizations.of(context)!.eventsPageAllDefaultSection,
                 ),
                 Tab(
                   text: AppLocalizations.of(context)!.eventsPageAllSectionTwo,
@@ -278,7 +328,9 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
           SizedBox(
             height: 20,
           ),
-          Artbar(colorleft: Colors.white, colorright: Theme.of(context).colorScheme.primary),
+          Artbar(
+              colorleft: Colors.white,
+              colorright: Theme.of(context).colorScheme.primary),
           Container(
             width: 700,
             height: 350,
@@ -308,11 +360,17 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                     padding: const EdgeInsets.only(right: 60),
                     child: Container(
                       height: 60,
-                      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(20))),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: Row(
                         children: [
                           Container(
-                            decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20))),
+                            decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20))),
                             height: 60,
                             width: 60,
                             child: Icon(
@@ -325,11 +383,13 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                             width: 30,
                           ),
                           GestureDetector(
-                            onTap: () => _openMail('mailto:events@femalefellows.com'),
+                            onTap: () =>
+                                _openMail('mailto:events@femalefellows.com'),
                             child: SizedBox(
                               width: 170,
                               child: Text(
-                                AppLocalizations.of(context)!.eventsPageAllMailtoButtonOne,
+                                AppLocalizations.of(context)!
+                                    .eventsPageAllMailtoButtonOne,
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -345,11 +405,17 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                     padding: const EdgeInsets.only(right: 60),
                     child: Container(
                       height: 60,
-                      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(20))),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: Row(
                         children: [
                           Container(
-                            decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20))),
+                            decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20))),
                             height: 60,
                             width: 60,
                             child: Icon(
@@ -362,11 +428,13 @@ class _EventOverviewState extends State<EventOverview> with TickerProviderStateM
                             width: 30,
                           ),
                           GestureDetector(
-                            onTap: () => _openMail('mailto:events@femalefellows.com'),
+                            onTap: () =>
+                                _openMail('mailto:events@femalefellows.com'),
                             child: SizedBox(
                               width: 170,
                               child: Text(
-                                AppLocalizations.of(context)!.eventsPageAllMailtoButtonTwo,
+                                AppLocalizations.of(context)!
+                                    .eventsPageAllMailtoButtonTwo,
                                 textAlign: TextAlign.center,
                               ),
                             ),

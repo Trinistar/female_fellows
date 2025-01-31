@@ -39,7 +39,8 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
           : UserLocation.fromJson(json['location'] as Map<String, dynamic>),
       aboutMe: json['aboutMe'] as String? ?? '',
       tandemTypeFilter: $enumDecodeNullable(
-          _$TandemTypeFilterEnumMap, json['tandemTypeFilter']),
+              _$TandemTypeFilterEnumMap, json['tandemTypeFilter']) ??
+          TandemTypeFilter.nearby,
       languages: json['languages'] == null
           ? null
           : UserLanguages.fromJson(json['languages'] as Map<String, dynamic>),
@@ -53,6 +54,10 @@ FFUser _$FFUserFromJson(Map<String, dynamic> json) => FFUser(
           : EventParticipant.fromJson(
               json['eventParticipant'] as Map<String, dynamic>),
       role: $enumDecodeNullable(_$RoleEnumMap, json['role']) ?? Role.USER,
+      eventDateRange: json['eventDateRange'] == null
+          ? null
+          : EventDateRange.fromJson(
+              json['eventDateRange'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
@@ -78,6 +83,7 @@ Map<String, dynamic> _$FFUserToJson(FFUser instance) => <String, dynamic>{
       'matchConfirmed': instance.matchConfirmed,
       'eventParticipant': instance.eventParticipant?.toJson(),
       'role': _$RoleEnumMap[instance.role],
+      'eventDateRange': instance.eventDateRange?.toJson(),
     };
 
 const _$LocalOrNewcomerEnumMap = {
@@ -104,6 +110,18 @@ const _$RoleEnumMap = {
   Role.USER: 'USER',
 };
 
+EventDateRange _$EventDateRangeFromJson(Map<String, dynamic> json) =>
+    EventDateRange(
+      start: HelperFunctions.dateTimeFromTimestamp(json['start'] as Timestamp?),
+      end: HelperFunctions.dateTimeFromTimestamp(json['end'] as Timestamp?),
+    );
+
+Map<String, dynamic> _$EventDateRangeToJson(EventDateRange instance) =>
+    <String, dynamic>{
+      'start': HelperFunctions.dateTimeAsIs(instance.start),
+      'end': HelperFunctions.dateTimeAsIs(instance.end),
+    };
+
 UserLanguages _$UserLanguagesFromJson(Map<String, dynamic> json) =>
     UserLanguages(
       main: json['main'] == null
@@ -123,7 +141,7 @@ Map<String, dynamic> _$UserLanguagesToJson(UserLanguages instance) =>
 FFLanguage _$FFLanguageFromJson(Map<String, dynamic> json) => FFLanguage(
       json['isoCode'] as String,
       json['name'] as String,
-      json['nativeName'] ?? json['name'] as String,
+      json['nativeName'] as String? ?? json['name'] as String,
     );
 
 Map<String, dynamic> _$FFLanguageToJson(FFLanguage instance) =>

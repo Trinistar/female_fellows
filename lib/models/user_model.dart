@@ -12,10 +12,39 @@ part 'user_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class FFUser {
+  FFUser(
+      {this.id,
+      this.favorites = const [],
+      this.participatingEvents = const [],
+      this.lastname,
+      this.profilPicture,
+      this.birthday,
+      this.notification,
+      this.email,
+      this.newsletter,
+      this.firstname,
+      this.localOrNewcomer,
+      this.address,
+      this.socialMedia,
+      this.location,
+      this.aboutMe = '',
+      this.tandemTypeFilter = TandemTypeFilter.nearby,
+      this.tandemMatch = 0.0,
+      this.languages,
+      this.localMatch,
+      this.newcomerMatches,
+      this.tandemMatches,
+      this.matchConfirmed = false,
+      this.eventParticipant,
+      this.role = Role.USER,
+      this.eventDateRange});
+
   String? firstname;
   String? lastname;
   String? profilPicture;
-  @JsonKey(fromJson: HelperFunctions.dateTimeFromTimestamp, toJson: HelperFunctions.dateTimeAsIs)
+  @JsonKey(
+      fromJson: HelperFunctions.dateTimeFromTimestamp,
+      toJson: HelperFunctions.dateTimeAsIs)
   Timestamp? birthday;
   Notifications? notification;
   String? email;
@@ -43,33 +72,7 @@ class FFUser {
   bool matchConfirmed;
   EventParticipant? eventParticipant;
   Role? role;
-
-  FFUser({
-    this.id,
-    this.favorites = const [],
-    this.participatingEvents = const [],
-    this.lastname,
-    this.profilPicture,
-    this.birthday,
-    this.notification,
-    this.email,
-    this.newsletter,
-    this.firstname,
-    this.localOrNewcomer,
-    this.address,
-    this.socialMedia,
-    this.location,
-    this.aboutMe = '',
-    this.tandemTypeFilter = TandemTypeFilter.nearby,
-    this.tandemMatch = 0.0,
-    this.languages,
-    this.localMatch,
-    this.newcomerMatches,
-    this.tandemMatches,
-    this.matchConfirmed = false,
-    this.eventParticipant,
-    this.role = Role.USER,
-  });
+  EventDateRange? eventDateRange;
 
   factory FFUser.fromJson(Map<String, dynamic> json) => _$FFUserFromJson(json);
   Map<String, dynamic> toJson() => _$FFUserToJson(this);
@@ -93,6 +96,24 @@ class FFUser {
 }
 
 @JsonSerializable(explicitToJson: true)
+class EventDateRange {
+  EventDateRange({required this.start, required this.end});
+
+  @JsonKey(
+      fromJson: HelperFunctions.dateTimeFromTimestamp,
+      toJson: HelperFunctions.dateTimeAsIs)
+  final Timestamp start;
+  @JsonKey(
+      fromJson: HelperFunctions.dateTimeFromTimestamp,
+      toJson: HelperFunctions.dateTimeAsIs)
+  final Timestamp end;
+
+  factory EventDateRange.fromJson(Map<String, dynamic> json) =>
+      _$EventDateRangeFromJson(json);
+  Map<String, dynamic> toJson() => _$EventDateRangeToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class UserLanguages {
   UserLanguages({
     required this.main,
@@ -102,7 +123,8 @@ class UserLanguages {
   FFLanguage? main;
   List<FFLanguage>? additional;
 
-  factory UserLanguages.fromJson(Map<String, dynamic> json) => _$UserLanguagesFromJson(json);
+  factory UserLanguages.fromJson(Map<String, dynamic> json) =>
+      _$UserLanguagesFromJson(json);
   Map<String, dynamic> toJson() => _$UserLanguagesToJson(this);
 }
 
@@ -110,7 +132,8 @@ class UserLanguages {
 class FFLanguage extends Language {
   FFLanguage(super.isoCode, super.name, super.nativeName);
 
-  factory FFLanguage.fromJson(Map<String, dynamic> json) => _$FFLanguageFromJson(json);
+  factory FFLanguage.fromJson(Map<String, dynamic> json) =>
+      _$FFLanguageFromJson(json);
   Map<String, dynamic> toJson() => _$FFLanguageToJson(this);
 }
 
@@ -123,12 +146,15 @@ class UserLocation {
   });
 
   factory UserLocation.fromJson(Map<String, dynamic> json) => UserLocation(
-        data: GeoData.fromJson((json['data'] ?? <String, dynamic>{}) as Map<String, dynamic>),
+        data: GeoData.fromJson(
+            (json['data'] ?? <String, dynamic>{}) as Map<String, dynamic>),
         name: json['name'] as String,
         isVisible: (json['isVisible'] ?? false) as bool,
       );
 
-  factory UserLocation.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) => UserLocation.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
+  factory UserLocation.fromDocumentSnapshot(
+          DocumentSnapshot documentSnapshot) =>
+      UserLocation.fromJson(documentSnapshot.data()! as Map<String, dynamic>);
 
   final GeoData? data;
   final String? name;

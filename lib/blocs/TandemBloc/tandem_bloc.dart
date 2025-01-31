@@ -105,7 +105,7 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
     } else {
       final List<FFUser> geoTandems = [];
 
-      if (profile.location!.data != null) {
+      if (profile.location != null && profile.location!.data != null) {
         final GeoFirePoint ownGeoFire =
             GeoFirePoint(profile.location!.data!.location);
 
