@@ -7,6 +7,7 @@ import 'package:femalefellows/pages/Event/EventComponents/color_artbar.dart';
 import 'package:femalefellows/pages/Event/EventOverview/all_events_page.dart';
 import 'package:femalefellows/pages/Event/EventOverview/favorite_events.page.dart';
 import 'package:femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
+import 'package:femalefellows/widgets/location_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -70,10 +71,6 @@ class _EventOverviewState extends State<EventOverview>
       }
     });
   }
-
-  String locationmessage = 'Ort angeben';
-  late String _lat;
-  late String _long;
 
   @override
   Widget build(BuildContext context) {
@@ -175,69 +172,7 @@ class _EventOverviewState extends State<EventOverview>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Flexible(
-                  child: TextButton.icon(
-                    onPressed: () {
-                      HelperFunctions.getCurrentLocation().then((value) {
-                        _lat = '${value.latitude}';
-                        _long = '${value.longitude}';
-                        setState(() {
-                          locationmessage = '$_lat,$_long';
-                        });
-                        if (BlocProvider.of<AuthenticationBloc>(context).state
-                            is AuthenticatedUser) {
-                          final FFUser profile =
-                              (BlocProvider.of<AuthenticationBloc>(context)
-                                      .state as AuthenticatedUser)
-                                  .userProfile!;
-                          context.read<AuthenticationBloc>().add(
-                                UpdateUserProfileEvent(
-                                  userId: (BlocProvider.of<AuthenticationBloc>(
-                                              context)
-                                          .state as AuthenticatedUser)
-                                      .user!
-                                      .uid,
-                                  latitude: value.latitude,
-                                  longitude: value.longitude,
-                                  userProfile: profile,
-                                ),
-                              );
-                        }
-                      });
-                    },
-                    icon: Icon(
-                      Icons.location_on_outlined,
-                      color: Theme.of(context).colorScheme.primary,
-                      size: 35,
-                    ),
-                    label: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)!.eventsPageGetLocation,
-                          style: TextStyle(
-                              color: Theme.of(context).colorScheme.primary,
-                              fontSize: 20),
-                        ),
-                        BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                          builder: (context, state) {
-                            if (state is AuthenticatedUser) {
-                              return Text(
-                                state.userProfile!.location != null
-                                    ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!} (20km Radius)'
-                                    : locationmessage,
-                                style: TextStyle(fontSize: 12),
-                              );
-                            } else {
-                              return Text(
-                                '$locationmessage (20km Radius)',
-                                style: TextStyle(fontSize: 12),
-                              );
-                            }
-                          },
-                        )
-                      ],
-                    ),
-                  ),
+                  child: LocationWidget(textColor: Theme.of(context).colorScheme.primary),
                 ),
                 Flexible(
                   child: TextButton.icon(

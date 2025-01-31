@@ -29,15 +29,19 @@ class _TeamFoerderinState extends State<TeamFoerderin> {
                 launchUrl(teamUrl, mode: LaunchMode.externalApplication);
               });
             },
-            child: Container(
-              width: 320,
-              height: 250,
-              decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
-                  borderRadius: BorderRadius.circular(40)),
-              child: SvgPicture.asset(
-                'lib/images/buntes-team-new.svg',
-              ),
+            child: Stack(
+              children: [
+                SvgPicture.asset(
+                  width: 320,
+                  height: 250,
+                  'assets/buntes-team.svg',
+                ),
+                Positioned(
+                  left: 40,
+                  top: 40,
+                  child: Text('Werde Teil unseres bunten \nTeams', style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 18, fontWeight: FontWeight.bold)),
+                )
+              ],
             ),
           ),
           SizedBox(
@@ -49,13 +53,19 @@ class _TeamFoerderinState extends State<TeamFoerderin> {
                 launchUrl(foerderinUrl, mode: LaunchMode.externalApplication);
               });
             },
-            child: Container(
-              width: 320,
-              height: 250,
-              decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
-                  borderRadius: BorderRadius.circular(40)),
-              child: SvgPicture.asset('lib/images/foerderer-werden.svg'),
+            child: Stack(
+              children: [
+                SvgPicture.asset(
+                  width: 320,
+                  height: 250,
+                  'assets/foerderer-werden.svg',
+                ),
+                Positioned(
+                  left: 40,
+                  top: 40,
+                  child: Text('Foerder*in werden', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                )
+              ],
             ),
           )
         ],

@@ -1,11 +1,11 @@
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
+import 'package:femalefellows/widgets/location_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/blocs/TandemBloc/tandem_bloc.dart';
-import 'package:femalefellows/helper_functions.dart';
 import 'package:femalefellows/models/enums.dart';
 import 'package:femalefellows/models/user_model.dart';
 import 'package:femalefellows/pages/Tandem/TandemMatching/tandem_userCard.dart';
@@ -20,9 +20,6 @@ class TandemMatching extends StatefulWidget {
 
 class _TandemMatchingState extends State<TandemMatching> {
   PageController? _pageController;
-  late String _lat;
-  late String _long;
-  String locationmessage = 'Ort angeben';
   late TandemTypeFilter _tandemTypeFilter;
 
   @override
@@ -122,74 +119,10 @@ class _TandemMatchingState extends State<TandemMatching> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  TextButton.icon(
-                    onPressed: () {
-                      HelperFunctions.getCurrentLocation().then((value) {
-                        _lat = '${value.latitude}';
-                        _long = '${value.longitude}';
-                        setState(() {
-                          locationmessage = '$_lat,$_long';
-                        });
-                        if (BlocProvider.of<AuthenticationBloc>(context).state
-                            is AuthenticatedUser) {
-                          final FFUser profile =
-                              (BlocProvider.of<AuthenticationBloc>(context)
-                                      .state as AuthenticatedUser)
-                                  .userProfile!;
-                          context.read<AuthenticationBloc>().add(
-                              UpdateUserProfileEvent(
-                                  userId: (context
-                                          .read<AuthenticationBloc>()
-                                          .state as AuthenticatedUser)
-                                      .user!
-                                      .uid,
-                                  latitude: value.latitude,
-                                  longitude: value.longitude,
-                                  userProfile: profile));
-                        }
-                      });
-                    },
-                    icon: Icon(
-                      Icons.location_on_outlined,
-                      color: Colors.white,
-                      size: 35,
-                    ),
-                    label: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)!.eventsPageGetLocation,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
-                        BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                          builder: (context, state) {
-                            if (state is AuthenticatedUser) {
-                              return Text(
-                                state.userProfile!.location != null
-                                    ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!}'
-                                    : locationmessage,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white,
-                                ),
-                              );
-                            } else {
-                              return Text(
-                                locationmessage,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white,
-                                ),
-                              );
-                            }
-                          },
-                        )
-                      ],
-                    ),
-                  ),
+                  Flexible(
+                      child: LocationWidget(
+                    textColor: Colors.white,
+                  )),
                   Expanded(
                     child: IconButton(
                       alignment: Alignment.bottomRight,
