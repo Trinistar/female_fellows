@@ -10,7 +10,7 @@ import 'package:femalefellows/pages/Event/EventOverview/signedup_events_page.dar
 import 'package:femalefellows/widgets/location_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -186,7 +186,7 @@ class _EventOverviewState extends State<EventOverview>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          AppLocalizations.of(context)!.eventsPageAllFilter,
+                          S.of(context)!.eventsPageAllFilter,
                           style: TextStyle(
                               color: Theme.of(context).colorScheme.primary,
                               fontSize: 20),
@@ -214,7 +214,7 @@ class _EventOverviewState extends State<EventOverview>
                   flex: 5,
                   child: SizedBox(
                     child: SearchBar(
-                      hintText: AppLocalizations.of(context)!
+                      hintText: S.of(context)!
                           .eventsPageAllSearchFieldPlaceholder,
                       controller: Controller.searchbarController,
                       onTap: null,
@@ -253,13 +253,13 @@ class _EventOverviewState extends State<EventOverview>
               tabs: [
                 Tab(
                   text:
-                      AppLocalizations.of(context)!.eventsPageAllDefaultSection,
+                      S.of(context)!.eventsPageAllDefaultSection,
                 ),
                 Tab(
-                  text: AppLocalizations.of(context)!.eventsPageAllSectionTwo,
+                  text: S.of(context)!.eventsPageAllSectionTwo,
                 ),
                 Tab(
-                  text: AppLocalizations.of(context)!.eventsPageAllSectionThree,
+                  text: S.of(context)!.eventsPageAllSectionThree,
                 ),
               ],
             ),
@@ -282,7 +282,7 @@ class _EventOverviewState extends State<EventOverview>
           TextButton(
               onPressed: null,
               child: Text(
-                AppLocalizations.of(context)!.eventsPageAllButtonOne,
+                S.of(context)!.eventsPageAllButtonOne,
                 style: TextStyle(color: Colors.black, fontSize: 17),
               )),
           SizedBox(
@@ -301,7 +301,7 @@ class _EventOverviewState extends State<EventOverview>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.eventsPageAllTitle,
+                    S.of(context)!.eventsPageAllTitle,
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                   Divider(
@@ -310,7 +310,7 @@ class _EventOverviewState extends State<EventOverview>
                     color: Colors.white,
                   ),
                   Text(
-                    AppLocalizations.of(context)!.eventsPageAllSubtitle,
+                    S.of(context)!.eventsPageAllSubtitle,
                     style: TextStyle(fontSize: 13, color: Colors.white),
                   ),
                   SizedBox(
@@ -348,7 +348,7 @@ class _EventOverviewState extends State<EventOverview>
                             child: SizedBox(
                               width: 170,
                               child: Text(
-                                AppLocalizations.of(context)!
+                                S.of(context)!
                                     .eventsPageAllMailtoButtonOne,
                                 textAlign: TextAlign.center,
                               ),
@@ -393,7 +393,7 @@ class _EventOverviewState extends State<EventOverview>
                             child: SizedBox(
                               width: 170,
                               child: Text(
-                                AppLocalizations.of(context)!
+                                S.of(context)!
                                     .eventsPageAllMailtoButtonTwo,
                                 textAlign: TextAlign.center,
                               ),

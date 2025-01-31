@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class TandemStoryTwo extends StatelessWidget {
   const TandemStoryTwo({super.key});
@@ -49,7 +49,7 @@ class TandemStoryTwo extends StatelessWidget {
                               height: 50,
                             ),
                             Text(
-                              AppLocalizations.of(context)!.tandemStory2Title,
+                              S.of(context)!.tandemStory2Title,
                               style: TextStyle(
                                   color: Theme.of(context).colorScheme.tertiary,
                                   fontSize: 15),
@@ -71,7 +71,7 @@ class TandemStoryTwo extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              AppLocalizations.of(context)!.tandemStory2Body,
+                              S.of(context)!.tandemStory2Body,
                               style: TextStyle(fontSize: 15),
                             ),
                             SizedBox(
@@ -116,14 +116,14 @@ class TandemStoryTwo extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              AppLocalizations.of(context)!.tandemStory2Body1,
+                              S.of(context)!.tandemStory2Body1,
                               style: TextStyle(fontSize: 15),
                             ),
                             SizedBox(
                               height: 20,
                             ),
                             Text(
-                              AppLocalizations.of(context)!.tandemStory2Body2,
+                              S.of(context)!.tandemStory2Body2,
                               style: TextStyle(fontSize: 15),
                             ),
                           ],

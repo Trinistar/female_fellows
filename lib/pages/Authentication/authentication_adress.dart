@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/components/text_bar.dart';
 import 'package:femalefellows/provider/controller.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class AuthAdress extends StatefulWidget {
   const AuthAdress({super.key});
@@ -24,7 +24,7 @@ class _AuthAdressState extends State<AuthAdress> {
         child: ListView(
           children: [
             Text(
-              AppLocalizations.of(context)!.authenticationPlace,
+              S.of(context)!.authenticationPlace,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 30,
@@ -52,7 +52,7 @@ class _AuthAdressState extends State<AuthAdress> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Text(
-                    AppLocalizations.of(context)!.authenticationStreet,
+                    S.of(context)!.authenticationStreet,
                     style: TextStyle(
                       fontSize: 15,
                     ),
@@ -71,7 +71,7 @@ class _AuthAdressState extends State<AuthAdress> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Text(
-                    AppLocalizations.of(context)!.authenticationPostcode,
+                    S.of(context)!.authenticationPostcode,
                     style: TextStyle(
                       fontSize: 15,
                     ),

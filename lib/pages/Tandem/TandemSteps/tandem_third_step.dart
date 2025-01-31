@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/pages/Authentication/authentication_entry.dart';
 //import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class ThirdStep extends StatefulWidget {
   const ThirdStep({super.key});
@@ -55,7 +55,7 @@ class _ThirdStepState extends State<ThirdStep> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.tandemThirdStep,
+                  S.of(context)!.tandemThirdStep,
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 ),
                 Divider(
@@ -68,14 +68,14 @@ class _ThirdStepState extends State<ThirdStep> {
                   height: 10,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemThirdStepBody,
+                  S.of(context)!.tandemThirdStepBody,
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 SizedBox(
                   height: 100,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemThirdStepNewcomer,
+                  S.of(context)!.tandemThirdStepNewcomer,
                   style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
                 Divider(
@@ -88,14 +88,14 @@ class _ThirdStepState extends State<ThirdStep> {
                   height: 10,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemThirdStepBody2,
+                  S.of(context)!.tandemThirdStepBody2,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(
                   height: 100,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemThirdStepLocal,
+                  S.of(context)!.tandemThirdStepLocal,
                   style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
                 Divider(
@@ -108,7 +108,7 @@ class _ThirdStepState extends State<ThirdStep> {
                   height: 10,
                 ),
                 Text(
-           AppLocalizations.of(context)!.tandemThirdStepBody,
+           S.of(context)!.tandemThirdStepBody,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 )
               ],
@@ -119,7 +119,7 @@ class _ThirdStepState extends State<ThirdStep> {
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: YoutubePlayer(controller: _controller,
                   
-            onReady: () => debugPrint(AppLocalizations.of(context)!.tandemReady),
+            onReady: () => debugPrint(S.of(context)!.tandemReady),
             showVideoProgressIndicator: true,),
           ), */
           SizedBox(
@@ -139,7 +139,7 @@ class _ThirdStepState extends State<ThirdStep> {
               ),
               child: Center(
                   child: Text(
-                AppLocalizations.of(context)!.tandemMatchingAngefragtButtonMatching,
+                S.of(context)!.tandemMatchingAngefragtButtonMatching,
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               )),

@@ -58,7 +58,7 @@ class _CategoryItemsState extends State<CategoryItems> {
     for (final Category category in _allCats) {
       yield FilterChip(
         shape: CupertinoTheme.of(context).brightness == Brightness.dark ? null : RoundedRectangleBorder(side: const BorderSide(width: 0.5, color: Colors.grey), borderRadius: BorderRadius.circular(45)),
-        backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+        backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
         selectedColor: Theme.of(context).colorScheme.primary,
         label: Text(
           category.translation.de,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:femalefellows/pages/Authentication/authentication_entry.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class Page1 extends StatelessWidget {
   const Page1({super.key});
@@ -24,7 +24,7 @@ class Page1 extends StatelessWidget {
               height: 370,
             ),
             Text(
-              AppLocalizations.of(context)!.onboardingPageOneTitle,
+              S.of(context)!.onboardingPageOneTitle,
               style: TextStyle(
                 color:  Theme.of(context).colorScheme.primary,
                 fontSize: 30,
@@ -45,7 +45,7 @@ class Page1 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 140, bottom: 15),
               child: Text(
-                AppLocalizations.of(context)!.onboardingPageOneBody,
+                S.of(context)!.onboardingPageOneBody,
                 style: TextStyle(
                   color:  Theme.of(context).colorScheme.primary,
                   fontSize: 15,
@@ -60,7 +60,7 @@ class Page1 extends StatelessWidget {
                       builder: (context) => RegistrationEntry(isFromOnboarding: true),
                     ));
                   },
-                  text: AppLocalizations.of(context)!.buttonRegistration,
+                  text: S.of(context)!.buttonRegistration,
                   )
             ),
             SizedBox(

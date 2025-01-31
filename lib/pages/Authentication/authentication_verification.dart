@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
@@ -87,7 +87,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
               child: ListView(
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.verificationTitle,
+                    S.of(context)!.verificationTitle,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       fontSize: 28,
@@ -111,7 +111,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                     height: 40,
                   ),
                   Text(
-                    AppLocalizations.of(context)!.email,
+                    S.of(context)!.email,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -131,7 +131,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                   Row(
                     children: [
                       Text(
-                        AppLocalizations.of(context)!.password,
+                        S.of(context)!.password,
                         style: TextStyle(
                           fontSize: 18,
                         ),
@@ -180,7 +180,7 @@ class _AuthVerficationState extends State<AuthVerfication> {
                   BlocBuilder<AuthenticationBloc, AuthenticationState>(
                     builder: (context, state) {
                       return FFButton(
-                        text: AppLocalizations.of(context)!.authenticationTitle,
+                        text: S.of(context)!.authenticationTitle,
                         onTap: () {
                           if (_formKey.currentState!.validate()) {
                             final FFUser profile = FFUser(
@@ -222,14 +222,14 @@ class _AuthVerficationState extends State<AuthVerfication> {
                   ),
                   /* Center(
                             child: Text(
-                          AppLocalizations.of(context)!.loginTextup,
+                          S.of(context)!.loginTextup,
                           style: TextStyle(color: Theme.of(context).colorScheme.primary),
                         )),
                         Center(
                             child: GestureDetector(
                           onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage())),
                           child: Text(
-                            AppLocalizations.of(context)!.loginTextdown,
+                            S.of(context)!.loginTextdown,
                             style: TextStyle(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline),
                           ),
                         )), */

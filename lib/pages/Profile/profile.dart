@@ -3,7 +3,7 @@ import 'package:femalefellows/helper_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/pages/Authentication/Login/login_page.dart';
@@ -148,10 +148,10 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   SizedBox(
                     child: TabBar(controller: _profilTabController, tabs: [
                       Tab(
-                        text: AppLocalizations.of(context)!.profilOverview,
+                        text: S.of(context)!.profilOverview,
                       ),
                       /* Tab(
-                        text: AppLocalizations.of(context)!.profilProgress,
+                        text: S.of(context)!.profilProgress,
                       ) */
                     ]),
                   ),

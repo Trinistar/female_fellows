@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
@@ -160,7 +160,7 @@ class _UpdateEventState extends State<UpdateEvent> {
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               title: Text(
-                AppLocalizations.of(context)!.updateEventTitle,
+                S.of(context)!.updateEventTitle,
               ),
             ),
             backgroundColor: Colors.white,
@@ -241,7 +241,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                           ),
                         ),
                         subtitle: Text(
-                          AppLocalizations.of(context)!.createEventTitle,
+                          S.of(context)!.createEventTitle,
                           style: TextStyle(fontSize: 12),
                         ),
                       ),
@@ -276,7 +276,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                             'lib/images/category.png',
                             cacheHeight: 30,
                           ),
-                          title: Text(AppLocalizations.of(context)!.eventOneTitleTwo),
+                          title: Text(S.of(context)!.eventOneTitleTwo),
                         ),
                         SizedBox(
                           height: 20,
@@ -342,7 +342,7 @@ class _UpdateEventState extends State<UpdateEvent> {
                       }
                       context.pop();
                     },
-                    text: AppLocalizations.of(context)!.updateEventButton),
+                    text: S.of(context)!.updateEventButton),
                 SizedBox(
                   height: 30,
                 ),

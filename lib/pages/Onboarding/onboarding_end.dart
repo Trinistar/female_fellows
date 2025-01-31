@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:femalefellows/blocs/OnboardingBloc/onboarding_bloc.dart';
 import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:femalefellows/pages/Authentication/authentication_entry.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:femalefellows/pages/ToolBarNavigation/navigation_page.dart';
 
 class Page5 extends StatelessWidget {
@@ -31,7 +31,7 @@ class Page5 extends StatelessWidget {
                       builder: (context) => RegistrationEntry(isFromOnboarding: true),
                     ));
                   },
-                  text: AppLocalizations.of(context)!.buttonRegistration,
+                  text: S.of(context)!.buttonRegistration,
                 ),
                 SizedBox(
                   height: 20,
@@ -60,7 +60,7 @@ class Page5 extends StatelessWidget {
                         color: Colors.transparent),
                     child: Center(
                         child: Text(
-                      AppLocalizations.of(context)!.startnow,
+                      S.of(context)!.startnow,
                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     )),
                   ),

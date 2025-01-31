@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 
@@ -27,7 +27,7 @@ class ImageButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.homeTandemTeaser,
+                    S.of(context)!.homeTandemTeaser,
                     style: TextStyle(fontSize: 20, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),

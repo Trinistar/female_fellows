@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:femalefellows/models/events.dart';
 import 'package:femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class EventPictureAuthentication extends StatefulWidget {
@@ -39,7 +39,7 @@ class _EventPictureAuthenticationState
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-              AppLocalizations.of(context)!.eventRegistrationThreeTitle,
+              S.of(context)!.eventRegistrationThreeTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -68,13 +68,13 @@ class _EventPictureAuthenticationState
                     dense: true,
                     isThreeLine: true,
                     title: Text(
-                      AppLocalizations.of(context)!.eventRegistrationTwoFilterTwo,
+                      S.of(context)!.eventRegistrationTwoFilterTwo,
                       style: TextStyle(
                         fontSize: 15,
                       ),
                     ),
                     subtitle: Text(
-                      AppLocalizations.of(context)!.eventRegistrationThreeFilterTwo,
+                      S.of(context)!.eventRegistrationThreeFilterTwo,
                       style: TextStyle(fontSize: 10),
                     ),
                     value: RadioChoices.ja,
@@ -88,7 +88,7 @@ class _EventPictureAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      AppLocalizations.of(context)!.eventRegistrationTwoFilterOne,
+                      S.of(context)!.eventRegistrationTwoFilterOne,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -108,7 +108,7 @@ class _EventPictureAuthenticationState
                   onTap: () {
                     widget.sendRequest!();
                   },
-                  text: AppLocalizations.of(context)!.eventButtonSignin,
+                  text: S.of(context)!.eventButtonSignin,
                 ),
               ],
             ),

@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:femalefellows/pages/AfterTandem/matched_tandemheader.dart';
 import 'package:femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:femalefellows/pages/Tandem/Activitys/tandem_activitys.dart';
 import 'package:femalefellows/pages/Tandem/TandemStorys/tandem_carousel.dart';
+import 'package:flutter/material.dart';
 
 class AfterTandem extends StatefulWidget {
   const AfterTandem({super.key});
@@ -53,7 +53,7 @@ class _AfterTandemState extends State<AfterTandem> {
                   SizedBox(
                     width: 350,
                     child: Text(
-                      AppLocalizations.of(context)!.tandemAftermatchedActivities,
+                      S.of(context)!.tandemAftermatchedActivities,
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -88,7 +88,7 @@ class _AfterTandemState extends State<AfterTandem> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: Text(
-                    AppLocalizations.of(context)!.tandemStorys,
+                    S.of(context)!.tandemStorys,
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -117,12 +117,12 @@ class _AfterTandemState extends State<AfterTandem> {
             height: 50,
           ),
           DividerBouthCorner(
-              color1: Theme.of(context).colorScheme.surfaceVariant,
+              color1: Theme.of(context).colorScheme.surfaceContainerHighest,
               color2: Colors.white),
           EventCarousel(),
           DividerBouthCorner(
             color1: Colors.white,
-            color2: Theme.of(context).colorScheme.surfaceVariant,
+            color2: Theme.of(context).colorScheme.surfaceContainerHighest,
           ),
           Container(
             color: Colors.white,
@@ -133,7 +133,7 @@ class _AfterTandemState extends State<AfterTandem> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.tandemAftermatchedEvents,
+                    S.of(context)!.tandemAftermatchedEvents,
                     style: TextStyle(
                       fontSize: 20,
                     ),

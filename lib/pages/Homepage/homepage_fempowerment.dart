@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class FemPower extends StatelessWidget {
@@ -55,7 +55,7 @@ class FemPower extends StatelessWidget {
                         height: 420,
                         width: 320,
                         child: Text(
-                        AppLocalizations.of(context)!.homeVereinInfoTwoBody),
+                        S.of(context)!.homeVereinInfoTwoBody),
                       ),
                     ),
                     Padding(

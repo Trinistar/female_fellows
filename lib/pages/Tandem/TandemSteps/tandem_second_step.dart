@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/pages/Authentication/authentication_entry.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class SecondStep extends StatelessWidget {
@@ -34,7 +34,7 @@ class SecondStep extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.tandemSecondStep,
+                  S.of(context)!.tandemSecondStep,
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 ),
                 Divider(
@@ -47,7 +47,7 @@ class SecondStep extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemSecondStepBody,
+                  S.of(context)!.tandemSecondStepBody,
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )
               ],
@@ -70,7 +70,7 @@ class SecondStep extends StatelessWidget {
               ),
               child: Center(
                   child: Text(
-                AppLocalizations.of(context)!.tandemMatchingAngefragtButtonMatching,
+                S.of(context)!.tandemMatchingAngefragtButtonMatching,
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               )),

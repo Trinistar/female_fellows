@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/blocs/CategoriesCubit/categories_cubit.dart';
 import 'package:femalefellows/blocs/EventBloc/event_bloc.dart';
 import 'package:femalefellows/models/category.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class EventCategorys extends StatelessWidget {
   EventCategorys({super.key, required this.selectedCats});
@@ -42,7 +42,7 @@ class EventCategorys extends StatelessWidget {
                   leading: SvgPicture.asset(
                     'lib/images/category.svg',
                   ),
-                  title: Text(AppLocalizations.of(context)!.eventOneTitleTwo),
+                  title: Text(S.of(context)!.eventOneTitleTwo),
                 ),
                 SizedBox(
                   height: 20,
@@ -61,7 +61,7 @@ class EventCategorys extends StatelessWidget {
                                       width: 0.5, color: Colors.grey),
                                   borderRadius: BorderRadius.circular(45)),
                           backgroundColor:
-                              Theme.of(context).colorScheme.surfaceVariant,
+                              Theme.of(context).colorScheme.surfaceContainerHighest,
                           selectedColor: Theme.of(context).colorScheme.primary,
                           label: Text(
                             category.translation.de,

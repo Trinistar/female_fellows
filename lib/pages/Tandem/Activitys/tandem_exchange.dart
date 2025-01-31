@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:femalefellows/statics.dart';
 
 class TandemExchange extends StatefulWidget {
@@ -33,7 +33,7 @@ class _TandemExchangeState extends State<TandemExchange> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityEightTitle,
+                      S.of(context)!.tandemActivityEightTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -46,7 +46,7 @@ class _TandemExchangeState extends State<TandemExchange> {
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityEightBody(femaleFellowsMail),
+                      S.of(context)!.tandemActivityEightBody(femaleFellowsMail),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

@@ -12,7 +12,7 @@ class DividerBouthCorner extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        Container(
+        SizedBox(
           width: 1000,
           height: 100,
         ),

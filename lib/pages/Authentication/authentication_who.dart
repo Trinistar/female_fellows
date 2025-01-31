@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/components/text_bar.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:femalefellows/models/enums.dart';
 
 import 'package:femalefellows/provider/controller.dart';
@@ -172,7 +172,7 @@ class _AuthWhoState extends State<AuthWho> {
         child: ListView(
           children: [
             Text(
-              AppLocalizations.of(context)!.authenticationWho,
+              S.of(context)!.authenticationWho,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 30,
@@ -204,7 +204,7 @@ class _AuthWhoState extends State<AuthWho> {
             ),
             Center(
               child: Text(
-                AppLocalizations.of(context)!.authenticationPicture,
+                S.of(context)!.authenticationPicture,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 20,
@@ -220,7 +220,7 @@ class _AuthWhoState extends State<AuthWho> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Text(
-                    AppLocalizations.of(context)!.authenticationFirstname,
+                    S.of(context)!.authenticationFirstname,
                     style: TextStyle(
                       fontSize: 15,
                     ),
@@ -244,7 +244,7 @@ class _AuthWhoState extends State<AuthWho> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Text(
-                    AppLocalizations.of(context)!.authenticationLastname,
+                    S.of(context)!.authenticationLastname,
                     style: TextStyle(
                       fontSize: 15,
                     ),

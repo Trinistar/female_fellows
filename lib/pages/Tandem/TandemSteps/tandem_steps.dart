@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/pages/Tandem/TandemSteps/tandem_first_step.dart';
 import 'package:femalefellows/pages/Tandem/TandemSteps/tandem_second_step.dart';
 import 'package:femalefellows/pages/Tandem/TandemSteps/tandem_third_step.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class TandemSteps extends StatelessWidget {
   const TandemSteps({super.key});
@@ -27,7 +27,7 @@ class TandemSteps extends StatelessWidget {
               padding: const EdgeInsets.only(top: 5),
               child: ListTile(
                 leading: SvgPicture.asset('lib/images/mitglied-werden.svg',width: 120,height: 120,),
-                title: Text(AppLocalizations.of(context)!.tandemFirstStep,),
+                title: Text(S.of(context)!.tandemFirstStep,),
                 trailing: IconButton(
                     onPressed: () {
                       Navigator.of(context).push(
@@ -57,7 +57,7 @@ class TandemSteps extends StatelessWidget {
               child: ListTile(
                 leading: SvgPicture.asset('lib/images/tandem-matching.svg',width: 120,height: 120,),
                 title:
-                    Text(AppLocalizations.of(context)!.tandemSecondStepnoslash),
+                    Text(S.of(context)!.tandemSecondStepnoslash),
                 trailing: IconButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -86,7 +86,7 @@ class TandemSteps extends StatelessWidget {
               padding: const EdgeInsets.only(top: 5),
               child: ListTile(
                 leading: SvgPicture.asset('lib/images/kennen-lernen.svg',width: 140,height: 140,),
-                title: Text(AppLocalizations.of(context)!.tandemThirdStep),
+                title: Text(S.of(context)!.tandemThirdStep),
                 trailing: IconButton(
                     onPressed: () {
                       Navigator.of(context).push(

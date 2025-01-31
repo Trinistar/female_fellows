@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/models/events.dart';
 import 'package:femalefellows/provider/controller.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class UpdateMaterials extends StatefulWidget {
   const UpdateMaterials({super.key, required this.event});
@@ -35,7 +35,7 @@ class _UpdateMaterialsState extends State<UpdateMaterials> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppLocalizations.of(context)!.createEventsMaterialTitle,
+            S.of(context)!.createEventsMaterialTitle,
             style: TextStyle(fontSize: 20),
           ),
           Divider(
@@ -51,12 +51,12 @@ class _UpdateMaterialsState extends State<UpdateMaterials> {
             leading: SvgPicture.asset(
               'lib/images/notebook.svg',
             ),
-            title: Text(AppLocalizations.of(context)!.eventOneSubtitleOne),
+            title: Text(S.of(context)!.eventOneSubtitleOne),
             subtitle: TextField(
               controller: Controller.planerController,
               decoration: InputDecoration(
                   hintText: widget.event.material?.planer ??
-                      AppLocalizations.of(context)!.createEventsMaterial),
+                      S.of(context)!.createEventsMaterial),
             ),
           ),
           ListTile(
@@ -64,12 +64,12 @@ class _UpdateMaterialsState extends State<UpdateMaterials> {
             leading: SvgPicture.asset(
               'lib/images/food.svg',
             ),
-            title: Text(AppLocalizations.of(context)!.eventOneSubtitleTwo),
+            title: Text(S.of(context)!.eventOneSubtitleTwo),
             subtitle: TextField(
               controller: Controller.foodController,
               decoration: InputDecoration(
                   hintText: widget.event.material?.food ??
-                      AppLocalizations.of(context)!.createEventsMaterial),
+                      S.of(context)!.createEventsMaterial),
             ),
           ),
           ListTile(
@@ -78,12 +78,12 @@ class _UpdateMaterialsState extends State<UpdateMaterials> {
               'lib/images/Shirt.png',
               cacheHeight: 35,
             ),
-            title: Text(AppLocalizations.of(context)!.eventOneSubtitleThree),
+            title: Text(S.of(context)!.eventOneSubtitleThree),
             subtitle: TextField(
               controller: Controller.clothesController,
               decoration: InputDecoration(
                   hintText: widget.event.material?.clothes ??
-                      AppLocalizations.of(context)!.createEventsMaterial),
+                      S.of(context)!.createEventsMaterial),
             ),
           ),
           ListTile(
@@ -92,12 +92,12 @@ class _UpdateMaterialsState extends State<UpdateMaterials> {
               'lib/images/Star.png',
               cacheHeight: 35,
             ),
-            title: Text(AppLocalizations.of(context)!.eventOneSubtitleFour),
+            title: Text(S.of(context)!.eventOneSubtitleFour),
             subtitle: TextField(
                 controller: Controller.informationController,
                 decoration: InputDecoration(
                     hintText: widget.event.material?.information ??
-                        AppLocalizations.of(context)!.createEventsMaterial)),
+                        S.of(context)!.createEventsMaterial)),
           ),
         ],
       ),

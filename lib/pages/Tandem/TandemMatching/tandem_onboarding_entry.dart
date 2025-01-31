@@ -8,7 +8,7 @@ import 'package:femalefellows/pages/Authentication/Login/login_page.dart';
 import 'package:femalefellows/pages/Tandem/TandemMatching/tandem_about_you.dart';
 import 'package:femalefellows/pages/Tandem/TandemMatching/tandem_languages.dart';
 import 'package:femalefellows/provider/controller.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class TandemOnboardingEntry extends StatefulWidget {
@@ -52,7 +52,7 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 15, left: 40),
             child: Text(
-              AppLocalizations.of(context)!.tandemMatchingAnmeldungOverlayTwoSubtitle,
+              S.of(context)!.tandemMatchingAnmeldungOverlayTwoSubtitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 20,
@@ -92,7 +92,7 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
                             _controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                           }
                         },
-                        child: Text(AppLocalizations.of(context)!.buttonBack))
+                        child: Text(S.of(context)!.buttonBack))
                     : Container(
                         width: 85,
                       ),
@@ -114,14 +114,14 @@ class _TandemOnboardingEntryState extends State<TandemOnboardingEntry> {
 
                           Navigator.of(context).maybePop();
                         },
-                        child: Text(AppLocalizations.of(context)!.tandemMatchingRouting),
+                        child: Text(S.of(context)!.tandemMatchingRouting),
                       )
                     : MaterialButton(
                         disabledTextColor: Colors.grey,
                         onPressed: () {
                           _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                         },
-                        child: Text(AppLocalizations.of(context)!.buttonNext),
+                        child: Text(S.of(context)!.buttonNext),
                       ),
               ],
             ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:femalefellows/statics.dart';
 
 class TandemDigital extends StatefulWidget {
@@ -33,7 +33,7 @@ class _TandemDigitalState extends State<TandemDigital> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityThirteenTitle,
+                      S.of(context)!.tandemActivityThirteenTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -46,14 +46,14 @@ class _TandemDigitalState extends State<TandemDigital> {
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityThirteenBody,
+                      S.of(context)!.tandemActivityThirteenBody,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                        Text(
-                      AppLocalizations.of(context)!.tandemActivityThirteenBody2(femaleFellowsMail),
+                      S.of(context)!.tandemActivityThirteenBody2(femaleFellowsMail),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

@@ -8,7 +8,7 @@ class ThemeGroups extends StatelessWidget {
     return Container(
       width: 1000,
       height: 320,
-      color: Theme.of(context).colorScheme.surfaceVariant,
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
       child: Padding(
         padding: const EdgeInsets.only(left: 30),
         child: Column(

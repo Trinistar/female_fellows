@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
-typedef void BoolCallback(bool id);
+typedef BoolCallback = void Function(bool id);
 
 class AuthSafety extends StatefulWidget {
   AuthSafety(
@@ -35,7 +35,7 @@ class _AuthSafetyState extends State<AuthSafety> {
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-              AppLocalizations.of(context)!.authenticationSafetyTitle,
+              S.of(context)!.authenticationSafetyTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -65,7 +65,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                   controlAffinity: ListTileControlAffinity.leading,
                   dense: true,
                   title: Text(
-                    AppLocalizations.of(context)!.authenticationNewsletter,
+                    S.of(context)!.authenticationNewsletter,
                     style: TextStyle(
                       fontSize: 15,
                       color: Theme.of(context).colorScheme.primary,
@@ -93,7 +93,7 @@ class _AuthSafetyState extends State<AuthSafety> {
                   title: GestureDetector(
                     onTap: () => launchUrl(Uri.parse('https://femalefellows.com/')),
                     child: Text(
-                      AppLocalizations.of(context)!.authenticationAGBS,
+                      S.of(context)!.authenticationAGBS,
                       style: TextStyle(
                         fontSize: 15,
                         color: Theme.of(context).colorScheme.primary,

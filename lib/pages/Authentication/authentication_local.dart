@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:femalefellows/models/enums.dart';
 
-typedef void BoolCallback(bool id);
+typedef BoolCallback = void Function(bool id);
 
 class Authlocal extends StatefulWidget {
   Authlocal(
@@ -28,7 +28,7 @@ class _AuthlocalState extends State<Authlocal> {
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-              AppLocalizations.of(context)!.authenticationSafetyTitle,
+              S.of(context)!.authenticationSafetyTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -58,14 +58,14 @@ class _AuthlocalState extends State<Authlocal> {
                   groupValue: localOrNot,
                   dense: true,
                   title: Text(
-                    AppLocalizations.of(context)!.authenticationNewcomerTitle,
+                    S.of(context)!.authenticationNewcomerTitle,
                     style: TextStyle(
                       fontSize: 15,
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                   subtitle: Text(
-                      AppLocalizations.of(context)!.authenticationNewcomer),
+                      S.of(context)!.authenticationNewcomer),
                   value: LocalOrNewcomer.newcomer,
                   onChanged: (newValue) {
                     setState(() {
@@ -89,14 +89,14 @@ class _AuthlocalState extends State<Authlocal> {
                   groupValue: localOrNot,
                   dense: true,
                   title: Text(
-                    AppLocalizations.of(context)!.authenticationLocalTitle,
+                    S.of(context)!.authenticationLocalTitle,
                     style: TextStyle(
                       fontSize: 15,
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                   subtitle:
-                      Text(AppLocalizations.of(context)!.authenticationLocal),
+                      Text(S.of(context)!.authenticationLocal),
                   value: LocalOrNewcomer.local,
                   onChanged: (newValue) {
                     setState(() {

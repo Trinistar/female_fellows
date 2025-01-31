@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart' as intl;
 import 'package:flutter_svg/svg.dart';
 
 class AuthAge extends StatefulWidget {
@@ -44,7 +44,7 @@ class _AuthAgeState extends State<AuthAge> {
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-              AppLocalizations.of(context)!.authenticationAge,
+              intl.S.of(context).authenticationAge,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 30,
@@ -70,7 +70,7 @@ class _AuthAgeState extends State<AuthAge> {
           ),
           Center(
             child: Text(
-              AppLocalizations.of(context)!.authenticationAgeImage,
+              intl.S.of(context).authenticationAgeImage,
               style: TextStyle(
                 color: Color.fromRGBO(27, 25, 86, 1),
                 fontSize: 20,
@@ -86,7 +86,7 @@ class _AuthAgeState extends State<AuthAge> {
               Padding(
                 padding: const EdgeInsets.only(left: 40, bottom: 5),
                 child: Text(
-                  AppLocalizations.of(context)!.authenticationAgeBirthday,
+                  intl.S.of(context).authenticationAgeBirthday,
                   style: TextStyle(
                     fontSize: 20,
                   ),

@@ -3,7 +3,7 @@ import 'package:femalefellows/models/events.dart';
 import 'package:femalefellows/pages/Event/EventComponents/participants_image_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -30,7 +30,7 @@ class EventItems extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              AppLocalizations.of(context)!.createEventDate2,
+              S.of(context)!.createEventDate2,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -43,7 +43,7 @@ class EventItems extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              AppLocalizations.of(context)!.createEventsHost,
+              S.of(context)!.createEventsHost,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -60,7 +60,7 @@ class EventItems extends StatelessWidget {
                     style: TextStyle(fontSize: 15),
                   ),
                   subtitle: Text(
-                   AppLocalizations.of(context)!.eventAdress ,
+                   S.of(context)!.eventAdress ,
                     style: TextStyle(fontSize: 12),
                   ),
                 );
@@ -81,7 +81,7 @@ class EventItems extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-             AppLocalizations.of(context)!.createEventsContactPerson2 ,
+             S.of(context)!.createEventsContactPerson2 ,
               style: TextStyle(fontSize: 12),
             ),
           ),
@@ -104,7 +104,7 @@ class EventItems extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      AppLocalizations.of(context)!.createEventWhatsApp2,
+                      S.of(context)!.createEventWhatsApp2,
                       style: TextStyle(fontSize: 12),
                     ),
                   ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:femalefellows/pages/Homepage/homepage.dart';
 
@@ -48,7 +48,7 @@ class _KooperationState extends State<Kooperation> {
                           }),
                     ),
                     Text(
-                      AppLocalizations.of(context)!.homeVereinInfoThreeTitle,
+                      S.of(context)!.homeVereinInfoThreeTitle,
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                     Divider(
@@ -64,7 +64,7 @@ class _KooperationState extends State<Kooperation> {
                         height: 300,
                         width: 320,
                         child: Text(
-                          AppLocalizations.of(context)!.homeVereinInfoThreeBody,
+                          S.of(context)!.homeVereinInfoThreeBody,
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
@@ -85,7 +85,7 @@ class _KooperationState extends State<Kooperation> {
                           ),
                           child: Center(
                               child: Text(
-                            AppLocalizations.of(context)!
+                            S.of(context)!
                                 .homeVereinInfoThreeButton,
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 15),

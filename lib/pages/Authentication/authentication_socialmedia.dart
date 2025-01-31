@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/models/enums.dart';
 
@@ -27,7 +27,7 @@ class _AuthSocialmediaState extends State<AuthSocialmedia> {
           Padding(
             padding: const EdgeInsets.only(left: 50),
             child: Text(
-               AppLocalizations.of(context)!.authenticationHow,
+               S.of(context)!.authenticationHow,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -58,7 +58,7 @@ class _AuthSocialmediaState extends State<AuthSocialmedia> {
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      AppLocalizations.of(context)!.authenticationInstagram,
+                      S.of(context)!.authenticationInstagram,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -74,7 +74,7 @@ class _AuthSocialmediaState extends State<AuthSocialmedia> {
                 RadioListTile(
                     dense: true,
                     title: Text(
-          AppLocalizations.of(context)!.authenticationFacebook,
+          S.of(context)!.authenticationFacebook,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -90,7 +90,7 @@ class _AuthSocialmediaState extends State<AuthSocialmedia> {
                 RadioListTile(
                     dense: true,
                     title: Text(
-                     AppLocalizations.of(context)!.authenticationLinkedin,
+                     S.of(context)!.authenticationLinkedin,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -106,7 +106,7 @@ class _AuthSocialmediaState extends State<AuthSocialmedia> {
                 RadioListTile(
                     dense: true,
                     title: Text(
-                   AppLocalizations.of(context)!.authenticationPresse,
+                   S.of(context)!.authenticationPresse,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -122,7 +122,7 @@ class _AuthSocialmediaState extends State<AuthSocialmedia> {
                 RadioListTile(
                     dense: true,
                     title: Text(
-                    AppLocalizations.of(context)!.authenticationFreunde,
+                    S.of(context)!.authenticationFreunde,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -138,7 +138,7 @@ class _AuthSocialmediaState extends State<AuthSocialmedia> {
                  RadioListTile(
                     dense: true,
                     title: Text(
-                   AppLocalizations.of(context)!.authenticationSonstiges,
+                   S.of(context)!.authenticationSonstiges,
                       style: TextStyle(
                         fontSize: 15,
                       ),

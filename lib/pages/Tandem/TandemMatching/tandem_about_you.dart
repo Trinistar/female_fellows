@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/provider/controller.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class TandemAboutYou extends StatefulWidget {
   const TandemAboutYou({super.key});
@@ -35,7 +35,7 @@ class _TandemAboutYouState extends State<TandemAboutYou> {
         child: ListView(
           children: [
             Text(
-              AppLocalizations.of(context)!
+              S.of(context)!
                   .tandemMatchingAnmeldungOverlayOneTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
@@ -78,7 +78,7 @@ class _TandemAboutYouState extends State<TandemAboutYou> {
                 ),
                 fillColor: Theme.of(context).colorScheme.surface,
                 filled: true,
-                hintText: AppLocalizations.of(context)!
+                hintText: S.of(context)!
                     .tandemMatchingAnmeldungOverlayOneFieldPlaceholder,
               ),
             ),
@@ -86,7 +86,7 @@ class _TandemAboutYouState extends State<TandemAboutYou> {
               height: 20,
             ),
             Text(
-              AppLocalizations.of(context)!
+              S.of(context)!
                   .tandemMatchingAnmeldungOverlayOneFieldPlaceholder2,
               style: TextStyle(fontSize: 12),
             ),

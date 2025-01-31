@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class TandemComments extends StatelessWidget {
@@ -32,7 +32,7 @@ class TandemComments extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                              AppLocalizations.of(context)!.tandemQuotesOne,
+                              S.of(context)!.tandemQuotesOne,
                                 style: TextStyle(color: Colors.white, fontSize: 20),
                               ),
                                 Text(
@@ -64,7 +64,7 @@ class TandemComments extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                AppLocalizations.of(context)!.tandemQuotesTwo,
+                                S.of(context)!.tandemQuotesTwo,
                                 style: TextStyle(color: Colors.white, fontSize: 20),
                               ),
                                 Text(

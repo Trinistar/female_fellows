@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class HomePageTitle extends StatelessWidget {
   HomePageTitle({super.key});
@@ -35,14 +35,14 @@ class HomePageTitle extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${AppLocalizations.of(context)!.homeWelcomeTextOne} ${state.userProfile != null ? state.userProfile!.firstname : ''}',
+                            '${S.of(context)!.homeWelcomeTextOne} ${state.userProfile != null ? state.userProfile!.firstname : ''}',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 30,
                             ),
                           ),
                           Text(
-                             AppLocalizations.of(context)!.homeWelcomeTextTwo,
+                             S.of(context)!.homeWelcomeTextTwo,
                             style: TextStyle(fontSize: 20, color: Colors.white),
                           ),
                         ],
@@ -156,7 +156,7 @@ class HomePageTitle extends StatelessWidget {
             top: 300,
             left: 40,
             child: Text(
-              AppLocalizations.of(context)!.homeInfo,
+              S.of(context)!.homeInfo,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
           ),

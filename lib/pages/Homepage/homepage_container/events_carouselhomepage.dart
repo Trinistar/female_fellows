@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:femalefellows/models/events.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/carousel_items.dart';
@@ -23,7 +23,7 @@ class EventCarousel extends StatelessWidget {
               left: 40,
             ),
             child: Text(
-              AppLocalizations.of(context)!.homeEventsTeaserTitle,
+              S.of(context)!.homeEventsTeaserTitle,
               style: TextStyle(fontSize: 20),
             ),
           ),

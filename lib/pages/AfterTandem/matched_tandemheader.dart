@@ -5,7 +5,7 @@ import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart'
 import 'package:femalefellows/models/german_locale.dart';
 import 'package:femalefellows/models/user_model.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart' as intl;
 
 class AfterTandemHeader extends StatelessWidget {
   const AfterTandemHeader({super.key});
@@ -40,7 +40,7 @@ class AfterTandemHeader extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.tandemAftermatchedTitle,
+                      intl.S.of(context).tandemAftermatchedTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(

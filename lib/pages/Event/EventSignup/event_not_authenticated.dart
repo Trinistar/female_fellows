@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/components/female_fellows_button.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class EventNotAuthenticatedState extends StatelessWidget {
@@ -31,7 +31,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
               ),
               SizedBox(
                 child: Text(
-                AppLocalizations.of(context)!.eventNotMemberEventTitle,
+                S.of(context)!.eventNotMemberEventTitle,
                   style: TextStyle(
                     fontSize: 25,
                   ),
@@ -44,7 +44,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
               SizedBox(
                 width: 300,
                 child: Text(
-                  AppLocalizations.of(context)!.eventNotMemberEventBody,
+                  S.of(context)!.eventNotMemberEventBody,
                   style: TextStyle(
                     fontSize: 12,
                   ),
@@ -55,7 +55,7 @@ class EventNotAuthenticatedState extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: FFButton(
                   onTap: () => context.push('/loginPage'),
-                  text: AppLocalizations.of(context)!.eventNotMemberEventButton,
+                  text: S.of(context)!.eventNotMemberEventButton,
                 ),
               )
             ],

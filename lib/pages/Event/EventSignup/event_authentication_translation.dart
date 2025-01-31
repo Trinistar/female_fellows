@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:language_picker/languages.dart';
 import 'package:femalefellows/models/event_participant.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 enum RadioChoices { ja, nein }
@@ -38,7 +38,7 @@ class _EventTranslationAuthenticationState
         child: ListView(
           children: [
             Text(
-              AppLocalizations.of(context)!.eventRegistrationOneTitle,
+              S.of(context)!.eventRegistrationOneTitle,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 28,
@@ -63,7 +63,7 @@ class _EventTranslationAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      AppLocalizations.of(context)!.eventRegistrationTwoFilterTwo,
+                      S.of(context)!.eventRegistrationTwoFilterTwo,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -80,7 +80,7 @@ class _EventTranslationAuthenticationState
                 RadioListTile(
                     dense: true,
                     title: Text(
-                      AppLocalizations.of(context)!.eventRegistrationTwoFilterOne,
+                      S.of(context)!.eventRegistrationTwoFilterOne,
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -103,7 +103,7 @@ class _EventTranslationAuthenticationState
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            AppLocalizations.of(context)!.eventRegistrationOneFilterThree,
+                            S.of(context)!.eventRegistrationOneFilterThree,
                             style: TextStyle(
                               fontSize: 15,
                             ),

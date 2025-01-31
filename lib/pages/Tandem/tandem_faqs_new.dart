@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:femalefellows/pages/Tandem/tandem_Listtile.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class FAQsNew extends StatefulWidget {
   const FAQsNew({super.key});
@@ -23,28 +23,28 @@ class _FAQsNewState extends State<FAQsNew> {
   @override
   void didChangeDependencies() {
     _faqTitles = [
-      AppLocalizations.of(context)!.tandemNewComerQuestion1,
-      AppLocalizations.of(context)!.tandemNewComerQuestion2,
-      AppLocalizations.of(context)!.tandemNewComerQuestion3,
-      AppLocalizations.of(context)!.tandemNewComerQuestion4,
-      AppLocalizations.of(context)!.tandemNewComerQuestion5,
-      AppLocalizations.of(context)!.tandemNewComerQuestion6,
-      AppLocalizations.of(context)!.tandemNewComerQuestion7,
-      AppLocalizations.of(context)!.tandemNewComerQuestion8,
-      AppLocalizations.of(context)!.tandemNewComerQuestion9,
+      S.of(context)!.tandemNewComerQuestion1,
+      S.of(context)!.tandemNewComerQuestion2,
+      S.of(context)!.tandemNewComerQuestion3,
+      S.of(context)!.tandemNewComerQuestion4,
+      S.of(context)!.tandemNewComerQuestion5,
+      S.of(context)!.tandemNewComerQuestion6,
+      S.of(context)!.tandemNewComerQuestion7,
+      S.of(context)!.tandemNewComerQuestion8,
+      S.of(context)!.tandemNewComerQuestion9,
    
     ];
 
     _faqAnswers = [
-      AppLocalizations.of(context)!.tandemNewComerAnswer1,
-      AppLocalizations.of(context)!.tandemNewComerAnswer2,
-      AppLocalizations.of(context)!.tandemNewComerAnswer3,
-      AppLocalizations.of(context)!.tandemNewComerAnswer4,
-      AppLocalizations.of(context)!.tandemNewComerAnswer5,
-      AppLocalizations.of(context)!.tandemNewComerAnswer6,
-      AppLocalizations.of(context)!.tandemNewComerAnswer7,
-      AppLocalizations.of(context)!.tandemNewComerAnswer8,
-      AppLocalizations.of(context)!.tandemNewComerAnswer9,
+      S.of(context)!.tandemNewComerAnswer1,
+      S.of(context)!.tandemNewComerAnswer2,
+      S.of(context)!.tandemNewComerAnswer3,
+      S.of(context)!.tandemNewComerAnswer4,
+      S.of(context)!.tandemNewComerAnswer5,
+      S.of(context)!.tandemNewComerAnswer6,
+      S.of(context)!.tandemNewComerAnswer7,
+      S.of(context)!.tandemNewComerAnswer8,
+      S.of(context)!.tandemNewComerAnswer9,
     ];
 
     super.didChangeDependencies();

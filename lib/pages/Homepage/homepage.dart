@@ -4,7 +4,7 @@ import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -174,7 +174,7 @@ class _HomeState extends State<Home> {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              AppLocalizations.of(context)!.homeTandemstoriesTitle,
+              S.of(context)!.homeTandemstoriesTitle,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
           ),
@@ -321,7 +321,7 @@ class _HomeState extends State<Home> {
                 Padding(
                   padding: const EdgeInsets.only(left: 130, top: 30),
                   child: Text(
-                    AppLocalizations.of(context)!.onboardingPageOneTitle,
+                    S.of(context)!.onboardingPageOneTitle,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       fontSize: 25,

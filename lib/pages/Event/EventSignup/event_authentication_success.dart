@@ -8,7 +8,7 @@ import 'package:femalefellows/models/events.dart';
 import 'package:femalefellows/models/german_locale.dart';
 import 'package:femalefellows/pages/Event/EventComponents/color_artbar.dart';
 import 'package:femalefellows/pages/Event/EventComponents/participants_rowWhite.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart' as intl;
 
 
 class EventSuccess extends StatelessWidget {
@@ -108,7 +108,7 @@ class EventSuccess extends StatelessWidget {
                     ),
                   ),
                   subtitle: Text(
-                    AppLocalizations.of(context)!.eventOneRegisteredPerson,
+                    intl.S.of(context).eventOneRegisteredPerson,
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.white,
@@ -145,7 +145,7 @@ class EventSuccess extends StatelessWidget {
                   child: Center(
                     child: GestureDetector(
                       child: Text(
-                        AppLocalizations.of(context)!.eventOneRegisteredButtonOne,
+                        intl.S.of(context).eventOneRegisteredButtonOne,
                         style: TextStyle(
                           color: Colors.white,
                           decoration: TextDecoration.underline,
@@ -160,7 +160,7 @@ class EventSuccess extends StatelessWidget {
                 ),
                 FFButton(
                   onTap: () => context.go('/events/detailEvent/${event.id}', extra: event),
-                  text: AppLocalizations.of(context)!.eventOneRegisteredButtonTwo,
+                  text: intl.S.of(context).eventOneRegisteredButtonTwo,
                 ),
               ],
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/pages/Authentication/authentication_entry.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class Firststep extends StatelessWidget {
@@ -34,7 +34,7 @@ class Firststep extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.tandemFirstStep,
+                  S.of(context)!.tandemFirstStep,
                   style: TextStyle(fontSize: 25),
                 ),
                 Divider(
@@ -47,7 +47,7 @@ class Firststep extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemFirstStepBody,
+                  S.of(context)!.tandemFirstStepBody,
                   style: TextStyle(fontSize: 20),
                 )
               ],
@@ -67,7 +67,7 @@ class Firststep extends StatelessWidget {
               ),
               child: Center(
                   child: Text(
-                AppLocalizations.of(context)!.tandemMemberSignin,
+                S.of(context)!.tandemMemberSignin,
                 style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

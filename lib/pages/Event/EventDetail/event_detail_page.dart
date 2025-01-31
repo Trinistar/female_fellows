@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/blocs/EventBloc/event_bloc.dart';
@@ -277,7 +277,7 @@ class SignUpEventButtonWidget extends StatelessWidget {
                           userData: state.userProfile!,
                           participation: map));
                 },
-                text: AppLocalizations.of(context)!.eventButtonSignout,
+                text: S.of(context)!.eventButtonSignout,
                 color: Colors.red,
               );
             } else {
@@ -285,7 +285,7 @@ class SignUpEventButtonWidget extends StatelessWidget {
                 onTap: () => context.go(
                     '/events/detailEvent/$eventId/eventOnboarding',
                     extra: eventState),
-                text: AppLocalizations.of(context)!.eventButtonSignin,
+                text: S.of(context)!.eventButtonSignin,
               );
             }
           } else {
@@ -317,7 +317,7 @@ class SignUpEventButtonWidget extends StatelessWidget {
             onTap: () => context.go(
                 '/events/detailEvent/$eventId/eventNotAuthenticated',
                 extra: eventState),
-            text: AppLocalizations.of(context)!.eventButtonSignin,
+            text: S.of(context)!.eventButtonSignin,
           );
         } else {
           return SizedBox.shrink();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:femalefellows/provider/controller.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class DescriptionEvent extends StatelessWidget {
@@ -23,7 +23,7 @@ class DescriptionEvent extends StatelessWidget {
               child: Image.asset('lib/images/Vector.png'),
             ),
             Text(
-              AppLocalizations.of(context)!.createEventsDescription,
+              S.of(context)!.createEventsDescription,
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
             Divider(

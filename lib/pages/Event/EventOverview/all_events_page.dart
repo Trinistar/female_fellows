@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:femalefellows/models/events.dart';
 import 'package:femalefellows/pages/Event/EventOverview/event_list_tile.dart';
 import 'package:femalefellows/provider/firebase/firestore_event_repository.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class AllEvents extends StatefulWidget {
@@ -23,7 +23,7 @@ class _AllEventsState extends State<AllEvents> {
           return Padding(
             padding: const EdgeInsets.only(top: 50.0),
             child: Text(
-              AppLocalizations.of(context)!.eventsPageAllState,
+              S.of(context)!.eventsPageAllState,
               style: TextStyle(fontStyle: FontStyle.italic),
               textAlign: TextAlign.center,
             ),

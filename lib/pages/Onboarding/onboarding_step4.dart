@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class Page4 extends StatelessWidget {
   const Page4({super.key});
@@ -22,7 +22,7 @@ class Page4 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Text(
-           AppLocalizations.of(context)!.onboardingPageFourTitle,
+           S.of(context)!.onboardingPageFourTitle,
               style: TextStyle(
                 color:  Theme.of(context).colorScheme.primary,
                 fontSize: 35,
@@ -42,7 +42,7 @@ class Page4 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 25),
             child: Text(
-             AppLocalizations.of(context)!.onboardingPageFourBody,
+             S.of(context)!.onboardingPageFourBody,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 15,

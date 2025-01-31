@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class TandemActiv extends StatefulWidget {
   const TandemActiv({super.key});
@@ -32,7 +32,7 @@ class _TandemActivState extends State<TandemActiv> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityNineTitle,
+                      S.of(context)!.tandemActivityNineTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -45,7 +45,7 @@ class _TandemActivState extends State<TandemActiv> {
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityNineBody,
+                      S.of(context)!.tandemActivityNineBody,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

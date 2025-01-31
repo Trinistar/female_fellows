@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class Mission extends StatelessWidget {
@@ -37,7 +37,7 @@ class Mission extends StatelessWidget {
                             }),
                       ),
                       Text(
-                        AppLocalizations.of(context)!.homeVereinInfoOneTitle,
+                        S.of(context)!.homeVereinInfoOneTitle,
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                       Divider(
@@ -52,7 +52,7 @@ class Mission extends StatelessWidget {
                           height: 420,
                           width: 320,
                           child: Text(
-                           AppLocalizations.of(context)!.homeVereinInfoOneBody,
+                           S.of(context)!.homeVereinInfoOneBody,
                            style: TextStyle(color: Colors.white),
                           ),
                         ),

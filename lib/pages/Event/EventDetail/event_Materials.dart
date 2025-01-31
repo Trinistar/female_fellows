@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/models/events.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class EventMaterials extends StatelessWidget {
@@ -15,7 +15,7 @@ class EventMaterials extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 1000,
-      color: Theme.of(context).colorScheme.surfaceVariant,
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
       child: Padding(
         padding: const EdgeInsets.only(left: 40),
         child: Column(
@@ -23,7 +23,7 @@ class EventMaterials extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.eventOneTitleFour,
+              S.of(context)!.eventOneTitleFour,
               style: TextStyle(fontSize: 20),
             ),
             Divider(
@@ -36,7 +36,7 @@ class EventMaterials extends StatelessWidget {
               leading: SvgPicture.asset(
                 'lib/images/notebook.svg',
               ),
-              title: Text(AppLocalizations.of(context)!.eventOneSubtitleOne),
+              title: Text(S.of(context)!.eventOneSubtitleOne),
               subtitle: Text(eventState.material!.planer),
             ),
             ListTile(
@@ -44,7 +44,7 @@ class EventMaterials extends StatelessWidget {
               leading: SvgPicture.asset(
                 'lib/images/food.svg',
               ),
-              title: Text(AppLocalizations.of(context)!.eventOneSubtitleTwo),
+              title: Text(S.of(context)!.eventOneSubtitleTwo),
               subtitle: Text(eventState.material!.food),
             ),
             ListTile(
@@ -53,7 +53,7 @@ class EventMaterials extends StatelessWidget {
                 'lib/images/kleidung.svg',
                 
               ),
-              title: Text(AppLocalizations.of(context)!.eventOneSubtitleThree),
+              title: Text(S.of(context)!.eventOneSubtitleThree),
               subtitle: Text(eventState.material!.clothes),
             ),
             ListTile(
@@ -62,11 +62,11 @@ class EventMaterials extends StatelessWidget {
                 'lib/images/sonstiges.svg',
                 
               ),
-              title: Text(AppLocalizations.of(context)!.eventOneSubtitleFour),
+              title: Text(S.of(context)!.eventOneSubtitleFour),
               subtitle: Text(eventState.material!.information),
             ),
             Container(
-              color: Theme.of(context).colorScheme.surfaceVariant,
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
               height: 20,
             ),
           ],

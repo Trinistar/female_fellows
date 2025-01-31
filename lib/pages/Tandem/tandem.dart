@@ -1,8 +1,8 @@
 import 'package:femalefellows/components/female_fellows_button.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:femalefellows/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/blocs/TandemOnboardingBloc/tandem_onboarding_bloc.dart';
@@ -140,8 +140,8 @@ class _TandementryState extends State<Tandementry> {
                         child: Text(
                           state.userProfile?.localOrNewcomer ==
                                   LocalOrNewcomer.local
-                              ? AppLocalizations.of(context)!.tandemMatchLocal
-                              : AppLocalizations.of(context)!
+                              ? S.of(context).tandemMatchLocal
+                              : S.of(context)
                                   .tandemMatchNewcomer,
                           style: TextStyle(fontSize: 20),
                         ),
@@ -160,9 +160,9 @@ class _TandementryState extends State<Tandementry> {
                         child: Text(
                           state.userProfile?.localOrNewcomer ==
                                   LocalOrNewcomer.local
-                              ? AppLocalizations.of(context)!
+                              ? S.of(context)
                                   .tandemThirdStepBody
-                              : AppLocalizations.of(context)!
+                              : S.of(context)
                                   .tandemThirdStepBody2,
                           style: TextStyle(fontSize: 15),
                         ),
@@ -181,7 +181,7 @@ class _TandementryState extends State<Tandementry> {
                       SizedBox(
                         width: 350,
                         child: Text(
-                          AppLocalizations.of(context)!.tandemLocalOrNewcomer,
+                          S.of(context).tandemLocalOrNewcomer,
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
@@ -197,8 +197,8 @@ class _TandementryState extends State<Tandementry> {
                         width: 350,
                         child: Text(
                           showMoreText
-                              ? AppLocalizations.of(context)!.tandemSloganBody
-                              : AppLocalizations.of(context)!.tandemSlogan,
+                              ? S.of(context).tandemSloganBody
+                              : S.of(context).tandemSlogan,
                           style: TextStyle(fontSize: 15),
                         ),
                       ),
@@ -210,8 +210,8 @@ class _TandementryState extends State<Tandementry> {
                         },
                         child: Text(
                           showMoreText
-                              ? AppLocalizations.of(context)!.getLess
-                              : AppLocalizations.of(context)!.getMore,
+                              ? S.of(context).getLess
+                              : S.of(context).getMore,
                           style:
                               TextStyle(fontSize: 12, color: Colors.amber[900]),
                         ),
@@ -225,7 +225,7 @@ class _TandementryState extends State<Tandementry> {
           /*   Padding(
             padding: const EdgeInsets.only(left: 40),
             child: Text(
-              AppLocalizations.of(context)!.getMore,
+              S.of(context)!.getMore,
               style: TextStyle(fontSize: 12, color: Colors.amber[900]),
             ),
           ), */
@@ -248,7 +248,7 @@ class _TandementryState extends State<Tandementry> {
                 Row(
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.tandemHowDoesItWork,
+                      S.of(context).tandemHowDoesItWork,
                       style: TextStyle(fontSize: 20),
                     ),
                     SizedBox(
@@ -373,7 +373,7 @@ class _TandementryState extends State<Tandementry> {
                         ),
                         child: Center(
                           child: Text(
-                            AppLocalizations.of(context)!.tandemMatchNow,
+                            S.of(context).tandemMatchNow,
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -401,7 +401,7 @@ class _TandementryState extends State<Tandementry> {
                   SizedBox(
                     width: 350,
                     child: Text(
-                      AppLocalizations.of(context)!.tandemActivitiesTitle,
+                      S.of(context).tandemActivitiesTitle,
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -443,7 +443,7 @@ class _TandementryState extends State<Tandementry> {
                   Padding(
                     padding: const EdgeInsets.only(left: 40.0),
                     child: Text(
-                      AppLocalizations.of(context)!.tandemStorys,
+                      S.of(context).tandemStorys,
                       style: TextStyle(
                         fontSize: 20,
                       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:html/parser.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:femalefellows/statics.dart';
@@ -42,7 +42,7 @@ class _TandemGreenState extends State<TandemGreen> {
 
   @override
   void didChangeDependencies() {
-    _tandemActivityFiveBody2 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody2(fernsehturmWebsite, waldauWebsite));
+    _tandemActivityFiveBody2 = parse(S.of(context)!.tandemActivityFiveBody2(fernsehturmWebsite, waldauWebsite));
     var aTag2 = _tandemActivityFiveBody2.getElementsByTagName('a');
     for (var aTag in aTag2) {
       aTag.attributes.forEach((key, value) {
@@ -51,7 +51,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody3 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody3(kraehenwaldWebsite));
+    _tandemActivityFiveBody3 = parse(S.of(context)!.tandemActivityFiveBody3(kraehenwaldWebsite));
     var aTags3 = _tandemActivityFiveBody3.getElementsByTagName('a');
     for (var aTag in aTags3) {
       aTag.attributes.forEach((key, value) {
@@ -60,7 +60,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody4 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody4(bismarckturmWebsite));
+    _tandemActivityFiveBody4 = parse(S.of(context)!.tandemActivityFiveBody4(bismarckturmWebsite));
     var aTags4 = _tandemActivityFiveBody4.getElementsByTagName('a');
     for (var aTag in aTags4) {
       aTag.attributes.forEach((key, value) {
@@ -69,7 +69,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody5 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody5(killesberparkWebsite));
+    _tandemActivityFiveBody5 = parse(S.of(context)!.tandemActivityFiveBody5(killesberparkWebsite));
     var aTags5 = _tandemActivityFiveBody5.getElementsByTagName('a');
     for (var aTag in aTags5) {
       aTag.attributes.forEach((key, value) {
@@ -78,7 +78,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody6 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody6(kriegsbergturmWebsite));
+    _tandemActivityFiveBody6 = parse(S.of(context)!.tandemActivityFiveBody6(kriegsbergturmWebsite));
     var aTags6 = _tandemActivityFiveBody6.getElementsByTagName('a');
     for (var aTag in aTags6) {
       aTag.attributes.forEach((key, value) {
@@ -87,7 +87,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody7 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody7(kriegsbergturmWebsite, chinesischegartenWebsite));
+    _tandemActivityFiveBody7 = parse(S.of(context)!.tandemActivityFiveBody7(kriegsbergturmWebsite, chinesischegartenWebsite));
     var aTags7 = _tandemActivityFiveBody7.getElementsByTagName('a');
     for (var aTag in aTags7) {
       aTag.attributes.forEach((key, value) {
@@ -96,7 +96,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody10 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody10(zackeWebsite));
+    _tandemActivityFiveBody10 = parse(S.of(context)!.tandemActivityFiveBody10(zackeWebsite));
     var aTags10 = _tandemActivityFiveBody10.getElementsByTagName('a');
     for (var aTag in aTags10) {
       aTag.attributes.forEach((key, value) {
@@ -105,7 +105,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody11 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody11(ausblickeWebsite, siebenmuehlentalWebsite, grabkapelleWebsite, solitudeWebsite));
+    _tandemActivityFiveBody11 = parse(S.of(context)!.tandemActivityFiveBody11(ausblickeWebsite, siebenmuehlentalWebsite, grabkapelleWebsite, solitudeWebsite));
     var aTags11 = _tandemActivityFiveBody11.getElementsByTagName('a');
     for (var aTag in aTags11) {
       aTag.attributes.forEach((key, value) {
@@ -114,7 +114,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody12 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody12(besigheimWebsite));
+    _tandemActivityFiveBody12 = parse(S.of(context)!.tandemActivityFiveBody12(besigheimWebsite));
     var aTags12 = _tandemActivityFiveBody12.getElementsByTagName('a');
     for (var aTag in aTags12) {
       aTag.attributes.forEach((key, value) {
@@ -123,7 +123,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody13 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody13(kapelleWebsite));
+    _tandemActivityFiveBody13 = parse(S.of(context)!.tandemActivityFiveBody13(kapelleWebsite));
     var aTags13 = _tandemActivityFiveBody13.getElementsByTagName('a');
     for (var aTag in aTags13) {
       aTag.attributes.forEach((key, value) {
@@ -132,7 +132,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody14 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody14(badurachWebsite));
+    _tandemActivityFiveBody14 = parse(S.of(context)!.tandemActivityFiveBody14(badurachWebsite));
     var aTags14 = _tandemActivityFiveBody14.getElementsByTagName('a');
     for (var aTag in aTags14) {
       aTag.attributes.forEach((key, value) {
@@ -141,7 +141,7 @@ class _TandemGreenState extends State<TandemGreen> {
         }
       });
     }
-    _tandemActivityFiveBody15 = parse(AppLocalizations.of(context)!.tandemActivityFiveBody15(femaleFellowsMail));
+    _tandemActivityFiveBody15 = parse(S.of(context)!.tandemActivityFiveBody15(femaleFellowsMail));
     var aTags15 = _tandemActivityFiveBody15.getElementsByTagName('a');
     for (var aTag in aTags15) {
       aTag.attributes.forEach((key, value) {
@@ -171,7 +171,7 @@ class _TandemGreenState extends State<TandemGreen> {
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(
-                  AppLocalizations.of(context)!.tandemActivityFiveTitle,
+                  S.of(context)!.tandemActivityFiveTitle,
                   style: TextStyle(fontSize: 30, color: Colors.white),
                 ),
                 Divider(
@@ -184,7 +184,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   height: 10,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemActivityFiveBody,
+                  S.of(context)!.tandemActivityFiveBody,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(
@@ -328,14 +328,14 @@ class _TandemGreenState extends State<TandemGreen> {
                   height: 10,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemActivityFiveBody8,
+                  S.of(context)!.tandemActivityFiveBody8,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemActivityFiveBody9,
+                  S.of(context)!.tandemActivityFiveBody9,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(
@@ -468,7 +468,7 @@ class _TandemGreenState extends State<TandemGreen> {
                   height: 10,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemActivityFiveBody15(femaleFellowsMail),
+                  S.of(context)!.tandemActivityFiveBody15(femaleFellowsMail),
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(

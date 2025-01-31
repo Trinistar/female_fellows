@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class TandemStoryThree extends StatelessWidget {
   const TandemStoryThree({super.key});
@@ -49,7 +49,7 @@ class TandemStoryThree extends StatelessWidget {
                               height: 50,
                             ),
                             Text(
-                              AppLocalizations.of(context)!.homeTandemstoryOneSubTitle,
+                              S.of(context)!.homeTandemstoryOneSubTitle,
                               style: TextStyle(color: Theme.of(context).colorScheme.tertiary, fontSize: 15),
                             ),
                             SizedBox(
@@ -69,7 +69,7 @@ class TandemStoryThree extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              AppLocalizations.of(context)!.tandemStory3Body1,
+                              S.of(context)!.tandemStory3Body1,
                               style: TextStyle(fontSize: 15),
                             ),
                             SizedBox(
@@ -126,7 +126,7 @@ class TandemStoryThree extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          AppLocalizations.of(context)!.tandemStory3Body2,
+                          S.of(context)!.tandemStory3Body2,
                           style: TextStyle(fontSize: 15),
                         ),
                         SizedBox(height: 100),

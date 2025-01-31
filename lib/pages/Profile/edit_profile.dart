@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
@@ -48,7 +48,7 @@ class _EditProfileState extends State<EditProfile> {
     Controller.streetnameController.text = user.address!.street;
     Controller.zipCodeController.text = user.address!.zipCode;
     Controller.placeController.text = user.address!.city;
-    Controller.aboutYouController.text = user.aboutMe!;
+    Controller.aboutYouController.text = user.aboutMe;
   }
 
   void _showdatePicker() {
@@ -376,13 +376,13 @@ class _EditProfileState extends State<EditProfile> {
                                 groupValue: localOrNot,
                                 dense: true,
                                 title: Text(
-                                  AppLocalizations.of(context)!.authenticationNewcomerTitle,
+                                  S.of(context)!.authenticationNewcomerTitle,
                                   style: TextStyle(
                                     fontSize: 15,
                                     color: Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
-                                subtitle: Text(AppLocalizations.of(context)!.authenticationNewcomer),
+                                subtitle: Text(S.of(context)!.authenticationNewcomer),
                                 value: LocalOrNewcomer.newcomer,
                                 onChanged: (newValue) {
                                   setState(() {
@@ -401,13 +401,13 @@ class _EditProfileState extends State<EditProfile> {
                                 groupValue: localOrNot,
                                 dense: true,
                                 title: Text(
-                                  AppLocalizations.of(context)!.authenticationLocalTitle,
+                                  S.of(context)!.authenticationLocalTitle,
                                   style: TextStyle(
                                     fontSize: 15,
                                     color: Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
-                                subtitle: Text(AppLocalizations.of(context)!.authenticationLocal),
+                                subtitle: Text(S.of(context)!.authenticationLocal),
                                 value: LocalOrNewcomer.local,
                                 onChanged: (newValue) {
                                   setState(() {

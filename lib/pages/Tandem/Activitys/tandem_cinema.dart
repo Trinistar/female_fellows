@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:femalefellows/statics.dart';
 
 class TandemCinema extends StatefulWidget {
@@ -33,7 +33,7 @@ class _TandemCinemaState extends State<TandemCinema> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityTenTitle,
+                      S.of(context)!.tandemActivityTenTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -46,7 +46,7 @@ class _TandemCinemaState extends State<TandemCinema> {
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityTenBody(cinemastuttgartWebsite, cinemaxXWebsite, sneakcinemaWebsite, paradieslichtspieleWebsite),
+                      S.of(context)!.tandemActivityTenBody(cinemastuttgartWebsite, cinemaxXWebsite, sneakcinemaWebsite, paradieslichtspieleWebsite),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

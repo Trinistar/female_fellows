@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class TandemCoffee extends StatefulWidget {
   const TandemCoffee({super.key});
@@ -38,7 +38,7 @@ class _TandemCoffeeState extends State<TandemCoffee> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityOneTitle,
+                      S.of(context)!.tandemActivityOneTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -51,7 +51,7 @@ class _TandemCoffeeState extends State<TandemCoffee> {
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivityOneBody,
+                      S.of(context)!.tandemActivityOneBody,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
@@ -108,7 +108,7 @@ class _TandemCoffeeState extends State<TandemCoffee> {
                   style: TextStyle(color: Colors.white),
                 ),
                 /*  Text(
-                AppLocalizations.of(context)!.eventsPageGetLocation,
+                S.of(context)!.eventsPageGetLocation,
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
                 Divider(

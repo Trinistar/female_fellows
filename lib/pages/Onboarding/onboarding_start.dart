@@ -6,7 +6,7 @@ import 'package:femalefellows/pages/Onboarding/onboarding_step2.dart';
 import 'package:femalefellows/pages/Onboarding/onboarding_step3.dart';
 import 'package:femalefellows/pages/Onboarding/onboarding_step4.dart';
 import 'package:femalefellows/pages/Onboarding/onboarding_end.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -74,7 +74,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               _controller.jumpTo(0);
                             },
                             child: Text(
-                              AppLocalizations.of(context)!.intro,
+                              S.of(context)!.intro,
                             )),
                       ),
                     )
@@ -106,7 +106,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             child: Row(
                               children: [
                                 Text(
-                                  AppLocalizations.of(context)!.start,
+                                  S.of(context)!.start,
                                 ),
                                 Icon(Icons.arrow_forward)
                               ],

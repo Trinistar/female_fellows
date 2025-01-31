@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class EventImages extends StatelessWidget {
   const EventImages({super.key});
@@ -13,7 +13,7 @@ class EventImages extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppLocalizations.of(context)!.eventOneTitleThree,
+            S.of(context)!.eventOneTitleThree,
             style: TextStyle(fontSize: 20),
           ),
           Divider(

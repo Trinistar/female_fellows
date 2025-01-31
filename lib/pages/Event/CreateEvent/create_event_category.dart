@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:femalefellows/pages/Event/CreateEvent/event_category_items.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class EventCategory extends StatelessWidget {
@@ -22,7 +22,7 @@ class EventCategory extends StatelessWidget {
                 'lib/images/category.png',
                 cacheHeight: 30,
               ),
-              title: Text(AppLocalizations.of(context)!.eventsFiltersTitleFilterThree),
+              title: Text(S.of(context)!.eventsFiltersTitleFilterThree),
             ),
             SizedBox(
               height: 20,

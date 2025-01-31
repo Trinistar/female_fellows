@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:html/dom.dart' as htmldoc;
 import 'package:html/parser.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -20,7 +20,7 @@ class _TandemMusicState extends State<TandemMusic> {
 
   @override
   void didChangeDependencies() {
-    _tandemActivityThreeBody2 = parse(AppLocalizations.of(context)!.tandemActivityThreeBody2(chorusWebsite, laboratoriumWebsite, musikwerkWebsite, kneipchorWebsite));
+    _tandemActivityThreeBody2 = parse(S.of(context)!.tandemActivityThreeBody2(chorusWebsite, laboratoriumWebsite, musikwerkWebsite, kneipchorWebsite));
     var aTags = _tandemActivityThreeBody2.getElementsByTagName('a');
     for (var aTag in aTags) {
       aTag.attributes.forEach((key, value) {
@@ -50,7 +50,7 @@ class _TandemMusicState extends State<TandemMusic> {
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(
-                  AppLocalizations.of(context)!.tandemActivityThreeTitle,
+                  S.of(context)!.tandemActivityThreeTitle,
                   style: TextStyle(fontSize: 30, color: Colors.white),
                 ),
                 Divider(
@@ -63,7 +63,7 @@ class _TandemMusicState extends State<TandemMusic> {
                   height: 10,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemActivityThreeBody,
+                  S.of(context)!.tandemActivityThreeBody,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(
@@ -116,7 +116,7 @@ class _TandemMusicState extends State<TandemMusic> {
                   height: 10,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.tandemActivityThreeBody3,
+                  S.of(context)!.tandemActivityThreeBody3,
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(

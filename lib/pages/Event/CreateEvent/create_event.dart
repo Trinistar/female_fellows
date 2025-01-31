@@ -22,7 +22,7 @@ import 'package:femalefellows/pages/Event/CreateEvent/event_category_items.dart'
 import 'package:femalefellows/pages/Event/EventComponents/color_artbar.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:femalefellows/provider/controller.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart' as intl;
 
 class CreateEvent extends StatefulWidget {
   const CreateEvent({super.key});
@@ -165,7 +165,7 @@ class _CreateEventState extends State<CreateEvent> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: Colors.green,
-                content: Text(AppLocalizations.of(context)!.createEventSuccess),
+                content: Text(intl.S.of(context).createEventSuccess),
               ),
             );
             Navigator.of(context).pop();
@@ -176,7 +176,7 @@ class _CreateEventState extends State<CreateEvent> {
           }
           if (state is EventFailure) {
             SnackBar(
-              content: Text(AppLocalizations.of(context)!.snackbarFailure),
+              content: Text(intl.S.of(context).snackbarFailure),
             );
           }
         },
@@ -190,7 +190,6 @@ class _CreateEventState extends State<CreateEvent> {
                 color: Colors.white,
                 height: 20,
               ),
-              // *************************************  //EVENT DATA //**************************************/
               Container(
                 color: Colors.white,
                 width: 1000,
@@ -201,7 +200,7 @@ class _CreateEventState extends State<CreateEvent> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(AppLocalizations.of(context)!.createEventTitle),
+                      Text(intl.S.of(context).createEventTitle),
                       TextBar(controller: Controller.eventTitleController, hintText: 'Title', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
@@ -263,7 +262,7 @@ class _CreateEventState extends State<CreateEvent> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 40),
-                        child: Text(AppLocalizations.of(context)!.createEventDate),
+                        child: Text(intl.S.of(context).createEventDate),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 40),
@@ -272,7 +271,7 @@ class _CreateEventState extends State<CreateEvent> {
                             _showdatePicker();
                           },
                           child: Text(
-                            AppLocalizations.of(context)!.createEventDatePicker,
+                            intl.S.of(context).createEventDatePicker,
                           ),
                         ),
                       ),
@@ -288,19 +287,19 @@ class _CreateEventState extends State<CreateEvent> {
                         color: Colors.white,
                         height: 20,
                       ),
-                      Text(AppLocalizations.of(context)!.createEventStreet),
+                      Text(intl.S.of(context).createEventStreet),
                       TextBar(controller: Controller.streetnameController, hintText: 'Straße', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
                       ),
-                      Text(AppLocalizations.of(context)!.createEventPlace),
+                      Text(intl.S.of(context).createEventPlace),
                       TextBar(controller: Controller.placeController, hintText: 'Ort', obscureText: false, onChange: null, validator: null),
                       Container(
                         color: Colors.white,
                         height: 20,
                       ),
-                      Text(AppLocalizations.of(context)!.createEventZipCode),
+                      Text(intl.S.of(context).createEventZipCode),
                       TextFormField(
                         controller: Controller.zipCodeController,
                         keyboardType: TextInputType.number,
@@ -320,7 +319,7 @@ class _CreateEventState extends State<CreateEvent> {
                           ),
                           fillColor: Theme.of(context).colorScheme.surface,
                           filled: true,
-                          hintText: AppLocalizations.of(context)!.createEventZipCode,
+                          hintText: intl.S.of(context).createEventZipCode,
                         ),
                       ),
                     ],
@@ -351,7 +350,7 @@ class _CreateEventState extends State<CreateEvent> {
                           'lib/images/category.png',
                           cacheHeight: 30,
                         ),
-                        title: Text(AppLocalizations.of(context)!.eventOneTitleTwo),
+                        title: Text(intl.S.of(context).eventOneTitleTwo),
                       ),
                       SizedBox(
                         height: 20,
@@ -361,10 +360,10 @@ class _CreateEventState extends State<CreateEvent> {
                   ),
                 ),
               ),
-              DividerBouthCorner(color1: Theme.of(context).colorScheme.surfaceVariant, color2: Colors.white),
+              DividerBouthCorner(color1: Theme.of(context).colorScheme.surfaceContainerHighest, color2: Colors.white),
               // *************************************  //EVENT MATERIALS //**************************************/
               EventMaterial(),
-              DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.surfaceVariant),
+              DividerBouthCorner(color1: Colors.white, color2: Theme.of(context).colorScheme.surfaceContainerHighest),
               Container(
                 color: Colors.white,
                 height: 20,
@@ -372,7 +371,7 @@ class _CreateEventState extends State<CreateEvent> {
               BlocBuilder<EventBloc, EventState>(
                 builder: (context, state) {
                   return FFButton(
-                    text: AppLocalizations.of(context)!.createEventsTitle,
+                    text: intl.S.of(context).createEventsTitle,
                     onTap: () {
                       context.read<EventBloc>().add(
                             NewEvent(

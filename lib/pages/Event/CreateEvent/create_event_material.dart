@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/provider/controller.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 
@@ -12,7 +12,7 @@ class EventMaterial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 1000,
-      color: Theme.of(context).colorScheme.surfaceVariant,
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
@@ -20,7 +20,7 @@ class EventMaterial extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.createEventsMaterialTitle,
+              S.of(context)!.createEventsMaterialTitle,
               style: TextStyle(fontSize: 20),
             ),
             Divider(
@@ -29,7 +29,7 @@ class EventMaterial extends StatelessWidget {
               endIndent: 220,
             ),
             Container(
-              color: Theme.of(context).colorScheme.surfaceVariant,
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
               height: 20,
             ),
             ListTile(
@@ -38,11 +38,11 @@ class EventMaterial extends StatelessWidget {
               leading: SvgPicture.asset(
                 'lib/images/notebook.svg',
               ),
-              title: Text(AppLocalizations.of(context)!.eventOneSubtitleOne),
+              title: Text(S.of(context)!.eventOneSubtitleOne),
               subtitle: TextField(
                 controller: Controller.planerController,
                 decoration:
-                    InputDecoration(hintText:AppLocalizations.of(context)!.createEventsMaterial,),
+                    InputDecoration(hintText:S.of(context)!.createEventsMaterial,),
               ),
             ),
             ListTile(
@@ -51,11 +51,11 @@ class EventMaterial extends StatelessWidget {
               leading: SvgPicture.asset(
                 'lib/images/food.svg',
               ),
-              title: Text(AppLocalizations.of(context)!.eventOneSubtitleTwo),
+              title: Text(S.of(context)!.eventOneSubtitleTwo),
               subtitle: TextField(
                 controller: Controller.foodController,
                 decoration:
-                    InputDecoration(hintText: AppLocalizations.of(context)!.createEventsMaterial),
+                    InputDecoration(hintText: S.of(context)!.createEventsMaterial),
               ),
             ),
             ListTile(
@@ -65,11 +65,11 @@ class EventMaterial extends StatelessWidget {
                 'lib/images/Shirt.png',
                 cacheHeight: 35,
               ),
-              title: Text(AppLocalizations.of(context)!.eventOneSubtitleThree),
+              title: Text(S.of(context)!.eventOneSubtitleThree),
               subtitle: TextField(
                 controller: Controller.clothesController,
                 decoration:
-                    InputDecoration(hintText: AppLocalizations.of(context)!.createEventsMaterial),
+                    InputDecoration(hintText: S.of(context)!.createEventsMaterial),
               ),
             ),
             ListTile(
@@ -79,14 +79,14 @@ class EventMaterial extends StatelessWidget {
                 'lib/images/Star.png',
                 cacheHeight: 35,
               ),
-              title: Text(AppLocalizations.of(context)!.eventOneSubtitleFour),
+              title: Text(S.of(context)!.eventOneSubtitleFour),
               subtitle: TextField(
                   controller: Controller.informationController,
                   decoration:
-                      InputDecoration(hintText:AppLocalizations.of(context)!.createEventsMaterial)),
+                      InputDecoration(hintText:S.of(context)!.createEventsMaterial)),
             ),
             Container(
-              color: Theme.of(context).colorScheme.surfaceVariant,
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
               height: 20,
             ),
           ],

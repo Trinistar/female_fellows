@@ -11,7 +11,7 @@ class ParticipantsData extends StatelessWidget {
     return Container(
       width: 1000,
       height: 1500,
-      color: Theme.of(context).colorScheme.surfaceVariant,
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(

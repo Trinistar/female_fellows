@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:femalefellows/blocs/FavoritesBloc/favorites_bloc.dart';
 import 'package:femalefellows/pages/Event/EventOverview/event_list_tile.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class FavoritEvents extends StatefulWidget {
@@ -23,7 +23,7 @@ class _FavoritEventsState extends State<FavoritEvents> {
             return Padding(
               padding: const EdgeInsets.only(top: 50.0),
               child: Text(
-                AppLocalizations.of(context)!.eventsPageFavorits,
+                S.of(context)!.eventsPageFavorits,
                 style: TextStyle(fontStyle: FontStyle.italic),
                 textAlign: TextAlign.center,
               ),
@@ -45,7 +45,7 @@ class _FavoritEventsState extends State<FavoritEvents> {
           return Padding(
             padding: const EdgeInsets.only(top: 50.0),
             child: Text(
-                AppLocalizations.of(context)!.eventsPageFavorits,
+                S.of(context)!.eventsPageFavorits,
               style: TextStyle(fontStyle: FontStyle.italic),
               textAlign: TextAlign.center,
             ),

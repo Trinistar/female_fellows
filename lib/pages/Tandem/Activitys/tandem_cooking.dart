@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:femalefellows/statics.dart';
 
 class TandemCook extends StatefulWidget {
@@ -33,7 +33,7 @@ class _TandemCookState extends State<TandemCook> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.tandemActivitySevenTitle,
+                      S.of(context)!.tandemActivitySevenTitle,
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     Divider(
@@ -46,21 +46,21 @@ class _TandemCookState extends State<TandemCook> {
                       height: 10,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemActivitySevenBody,
+                      S.of(context)!.tandemActivitySevenBody,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                       Text(
-                      AppLocalizations.of(context)!.tandemActivitySevenBody2,
+                      S.of(context)!.tandemActivitySevenBody2,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                      Text(
-                      AppLocalizations.of(context)!.tandemActivitySevenBody3(femaleFellowsMail),
+                      S.of(context)!.tandemActivitySevenBody3(femaleFellowsMail),
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                     SizedBox(

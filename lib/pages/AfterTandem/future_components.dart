@@ -1,7 +1,7 @@
+import 'package:femalefellows/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FutureComponents extends StatelessWidget {
   const FutureComponents({super.key});
@@ -22,7 +22,7 @@ class FutureComponents extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.tandemAftermatchedCheckpoints,
+                    S.of(context).tandemAftermatchedCheckpoints,
                     style: TextStyle(
                       fontSize: 20,
                     ),

@@ -11,7 +11,7 @@ import 'package:femalefellows/pages/Event/EventSignup/event_authentication_kids.
 import 'package:femalefellows/pages/Event/EventSignup/event_authentication_pictures.dart';
 import 'package:femalefellows/pages/Event/EventSignup/event_authentication_success.dart';
 import 'package:femalefellows/pages/Event/EventSignup/event_authentication_translation.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class Evententry extends StatefulWidget {
@@ -60,7 +60,7 @@ class _EvententryState extends State<Evententry> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: Colors.green,
-                content: Text(AppLocalizations.of(context)!.snackbarEventSuccess),
+                content: Text(S.of(context)!.snackbarEventSuccess),
               ),
             );
           }
@@ -80,7 +80,7 @@ class _EvententryState extends State<Evententry> {
                   bottom: 15,
                 ),
                 child: Text(
-                AppLocalizations.of(context)!.eventButtonSignup,
+                S.of(context)!.eventButtonSignup,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: 20,
@@ -120,7 +120,7 @@ class _EvententryState extends State<Evententry> {
                             _controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                           }
                         },
-                        child: Text(AppLocalizations.of(context)!.buttonBack)),
+                        child: Text(S.of(context)!.buttonBack)),
                     SmoothPageIndicator(
                       controller: _controller,
                       count: 3,
@@ -132,7 +132,7 @@ class _EvententryState extends State<Evententry> {
                             onPressed: () {
                               _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
                             },
-                            child: Text(AppLocalizations.of(context)!.buttonNext),
+                            child: Text(S.of(context)!.buttonNext),
                           ),
                   ],
                 ),

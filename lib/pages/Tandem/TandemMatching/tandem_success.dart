@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:femalefellows/pages/Tandem/tandem.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 class TandemSuccess extends StatelessWidget {
   const TandemSuccess({super.key});
@@ -74,7 +74,7 @@ class TandemSuccess extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        AppLocalizations.of(context)!.tandemMatchingAngefragtTitle,
+                        S.of(context)!.tandemMatchingAngefragtTitle,
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
                       ),
@@ -83,7 +83,7 @@ class TandemSuccess extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.tandemMatchingAngefragtBody,
+                      S.of(context)!.tandemMatchingAngefragtBody,
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
                     SizedBox(
@@ -101,7 +101,7 @@ class TandemSuccess extends StatelessWidget {
                         ),
                         child: Center(
                             child: Text(
-                          AppLocalizations.of(context)!.tandemMatchingAngefragtButtonMatching,
+                          S.of(context)!.tandemMatchingAngefragtButtonMatching,
                           style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,

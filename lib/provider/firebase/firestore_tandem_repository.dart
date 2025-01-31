@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:femalefellows/models/enums.dart';
-import 'package:femalefellows/models/tandem_match.dart';
 import 'package:femalefellows/models/user_model.dart';
 import 'package:femalefellows/provider/firebase/firestore_repository.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:femalefellows/generated/l10n.dart';
 
 
 class HeaderEvent extends StatelessWidget {
@@ -43,7 +43,7 @@ class HeaderEvent extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 40),
                 child: Text(
-                  AppLocalizations.of(context)!.createEventsTitle,
+                  S.of(context)!.createEventsTitle,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
