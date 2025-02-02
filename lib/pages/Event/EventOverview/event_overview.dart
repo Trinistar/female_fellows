@@ -26,6 +26,8 @@ class EventOverview extends StatefulWidget {
 class _EventOverviewState extends State<EventOverview>
     with TickerProviderStateMixin {
   late TabController _tabController;
+  DateTime _start = DateTime.now();
+  DateTime _end = DateTime.now().add(Duration(days: 360));
 
   @override
   void initState() {
@@ -36,7 +38,7 @@ class _EventOverviewState extends State<EventOverview>
   DateTimeRange _dateRange =
       DateTimeRange(start: DateTime.now(), end: DateTime.now());
 
-  Future pickDateRange() async {
+  Future _pickDateRange() async {
     DateTimeRange? newDateRange = await showDateRangePicker(
         context: context,
         initialDateRange: _dateRange,
@@ -72,24 +74,28 @@ class _EventOverviewState extends State<EventOverview>
     });
   }
 
+  void _setDateRange() {
+    if (context.watch<AuthenticationBloc>().state is AuthenticatedUser) {
+      var user =
+          (context.read<AuthenticationBloc>().state as AuthenticatedUser);
+      if (user.userProfile == null) return;
+      if (user.userProfile!.eventDateRange == null) return;
+      _start = user.userProfile!.eventDateRange!.start.toDate();
+      _end = user.userProfile!.eventDateRange!.end.toDate();
+    } else if (context.watch<AuthenticationBloc>().state
+        is UnauthenticatedUser) {
+      var user =
+          (context.read<AuthenticationBloc>().state as UnauthenticatedUser);
+      if (user.userProfile == null) return;
+      if (user.userProfile!.eventDateRange == null) return;
+      _start = user.userProfile!.eventDateRange!.start.toDate();
+      _end = user.userProfile!.eventDateRange!.end.toDate();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final DateTime start =
-        context.watch<AuthenticationBloc>().state is AuthenticatedUser
-            ? (context.read<AuthenticationBloc>().state as AuthenticatedUser)
-                .userProfile!
-                .eventDateRange!
-                .start
-                .toDate()
-            : DateTime.now();
-    final DateTime end =
-        context.watch<AuthenticationBloc>().state is AuthenticatedUser
-            ? (context.read<AuthenticationBloc>().state as AuthenticatedUser)
-                .userProfile!
-                .eventDateRange!
-                .end
-                .toDate()
-            : DateTime.now();
+    _setDateRange();
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
@@ -172,11 +178,12 @@ class _EventOverviewState extends State<EventOverview>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Flexible(
-                  child: LocationWidget(textColor: Theme.of(context).colorScheme.primary),
+                  child: LocationWidget(
+                      textColor: Theme.of(context).colorScheme.primary),
                 ),
                 Flexible(
                   child: TextButton.icon(
-                    onPressed: pickDateRange,
+                    onPressed: _pickDateRange,
                     icon: Icon(
                       Icons.date_range,
                       color: Theme.of(context).colorScheme.primary,
@@ -192,7 +199,7 @@ class _EventOverviewState extends State<EventOverview>
                               fontSize: 20),
                         ),
                         Text(
-                          '${start.day}.${start.month} bis ${end.day}.${end.month}',
+                          '${_start.day}.${_start.month}.${_start.year} bis ${_end.day}.${_end.month}.${_end.year}',
                           style: TextStyle(fontSize: 12),
                         ),
                       ],
@@ -252,8 +259,7 @@ class _EventOverviewState extends State<EventOverview>
               controller: _tabController,
               tabs: [
                 Tab(
-                  text:
-                      S.of(context).eventsPageAllDefaultSection,
+                  text: S.of(context).eventsPageAllDefaultSection,
                 ),
                 Tab(
                   text: S.of(context).eventsPageAllSectionTwo,
@@ -348,8 +354,7 @@ class _EventOverviewState extends State<EventOverview>
                             child: SizedBox(
                               width: 170,
                               child: Text(
-                                S.of(context)
-                                    .eventsPageAllMailtoButtonOne,
+                                S.of(context).eventsPageAllMailtoButtonOne,
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -393,8 +398,7 @@ class _EventOverviewState extends State<EventOverview>
                             child: SizedBox(
                               width: 170,
                               child: Text(
-                                S.of(context)
-                                    .eventsPageAllMailtoButtonTwo,
+                                S.of(context).eventsPageAllMailtoButtonTwo,
                                 textAlign: TextAlign.center,
                               ),
                             ),

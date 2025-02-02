@@ -216,7 +216,6 @@ class AllEventsStore extends Cubit<List<Event>> {
                   .toDate()
                   .isAfter(range.start.toDate()) &&
               element.dates!.eventDate!.toDate().isBefore(range.end.toDate()));
-              print(tmp.length);
         }
       }
       emit(tmp);
