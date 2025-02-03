@@ -89,17 +89,36 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
     List<FFUser> temp = List.empty();
 
     tandems.removeWhere((element) => element.matchConfirmed == true);
+    String? matchId;
 
     if (profile.tandemTypeFilter == TandemTypeFilter.all ||
         profile.tandemTypeFilter == null) {
       for (final FFUser user in tandems) {
         user.tandemMatch = _getMatchByAge(profile, user);
+        if (profile.tandemMatches != null &&
+            profile.tandemMatches!.first.requester == user.id &&
+            (profile.tandemMatches!.first.state ==
+                    TandemMatchesState.requested ||
+                profile.tandemMatches!.first.state ==
+                    TandemMatchesState.rerequested)) {
+          matchId = user.id;
+        }
       }
       tandems.sort((a, b) => b.tandemMatch!.compareTo(a.tandemMatch!));
       if (tandems.length > 3) {
         temp = List<FFUser>.from(<FFUser>[...tandems.getRange(0, 3)]);
       } else {
         return tandems;
+      }
+      if (matchId != null) {
+        FFUser? match;
+        if (temp.isNotEmpty) {
+          match = temp.firstWhere((element) => element.id == matchId);
+        }
+        if (match != null) {
+          temp.removeWhere((element) => element.id == matchId);
+          temp.insert(0, match);
+        }
       }
       return temp;
     } else {
@@ -124,9 +143,28 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
           user.tandemMatch =
               (locationDistance.abs() + _getMatchByAge(profile, user))
                   .clamp(0, 1);
+
+          if (profile.tandemMatches != null &&
+              profile.tandemMatches!.first.requester == user.id &&
+              (profile.tandemMatches!.first.state ==
+                      TandemMatchesState.requested ||
+                  profile.tandemMatches!.first.state ==
+                      TandemMatchesState.rerequested)) {
+            matchId = user.id;
+          }
         }
         temp = List<FFUser>.from(<FFUser>[...geoTandems]);
         temp.sort((a, b) => b.tandemMatch!.compareTo(a.tandemMatch!));
+        if (matchId != null) {
+          FFUser? match;
+          if (temp.isNotEmpty) {
+            match = temp.firstWhere((element) => element.id == matchId);
+          }
+          if (match != null) {
+            temp.removeWhere((element) => element.id == matchId);
+            temp.insert(0, match);
+          }
+        }
       }
     }
     return temp;
