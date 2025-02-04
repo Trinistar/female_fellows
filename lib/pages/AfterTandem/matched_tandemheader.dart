@@ -56,10 +56,12 @@ class AfterTandemHeader extends StatelessWidget {
             DividerBouthCorner(
                 color1: Colors.white,
                 color2: Theme.of(context).colorScheme.tertiary),
-            Text(
-              '${profile.firstname} & ${profile.tandemMatches!.first.otherProfile!.firstname}',
-              style: TextStyle(fontSize: 25),
-            ),
+            if (profile.tandemMatches != null &&
+                profile.tandemMatches!.first.otherProfile != null)
+              Text(
+                '${profile.firstname} & ${profile.tandemMatches!.first.otherProfile!.firstname}',
+                style: TextStyle(fontSize: 25),
+              ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,

@@ -64,7 +64,6 @@ final FirestoreEventRepository firestoreEventRepository =
 final FirestoreUserProfileRepository firestoreUserprofileRepository =
     FirestoreUserProfileRepository();
 
-
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _tandemTabNavigatorKey = GlobalKey<NavigatorState>();
 final _eventTabNavigatorKey = GlobalKey<NavigatorState>();
@@ -95,11 +94,13 @@ void main() async {
 
   /// Update the iOS foreground notification presentation options to allow
   /// heads up notifications.
-  await Messaging().firebaseMessaging.setForegroundNotificationPresentationOptions(
-    alert: true,
-    badge: true,
-    sound: true,
-  );
+  await Messaging()
+      .firebaseMessaging
+      .setForegroundNotificationPresentationOptions(
+        alert: true,
+        badge: true,
+        sound: true,
+      );
   runApp(const MyApp());
 }
 
@@ -123,13 +124,18 @@ void main() async {
 final GoRouter _router = GoRouter(
   navigatorKey: _rootNavigatorKey,
   initialLocation: '/home',
+  redirect: (context, state) {
+    if (state.uri.toString().contains('google/link?')) {
+      return '/home';
+    }
+  },
   routes: <RouteBase>[
     GoRoute(
       redirect: (context, state) {
         if (context.read<AuthenticationBloc>().state is! AuthenticatedUser) {
           return '/loginPage';
         } else {
-          return null;
+          return '/home';
         }
       },
       path: '/loginPage',
@@ -250,7 +256,7 @@ final GoRouter _router = GoRouter(
         return const TandemCity();
       },
     ),
-      GoRoute(
+    GoRoute(
       path: '/tandemDigital',
       parentNavigatorKey: _rootNavigatorKey,
       builder: (BuildContext context, GoRouterState state) {
@@ -522,7 +528,8 @@ class MyApp extends StatelessWidget {
         ), */
         BlocProvider<AllEventsStore>(
           lazy: false,
-          create: (BuildContext context) => AllEventsStore(context.read<AuthenticationBloc>()),
+          create: (BuildContext context) =>
+              AllEventsStore(context.read<AuthenticationBloc>()),
         ),
         BlocProvider<CategoryCubit>(
           lazy: false,
