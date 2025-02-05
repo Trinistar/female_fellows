@@ -272,9 +272,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "! Du nimmst am Sprachencafé teil: Arabisch/Deutsch.",
     ),
     "eventOneSubtitleFour": MessageLookupByLibrary.simpleMessage("Sonstiges"),
-    "eventOneSubtitleOne": MessageLookupByLibrary.simpleMessage(
-      "Notizen und Stifte",
-    ),
+    "eventOneSubtitleOne": MessageLookupByLibrary.simpleMessage("Materialien"),
     "eventOneSubtitleOneBodyOne": MessageLookupByLibrary.simpleMessage(
       "Um neue Wörter oder Sätze festzuhalten \nund Notizen zu machen.",
     ),

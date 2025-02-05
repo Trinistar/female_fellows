@@ -6,9 +6,10 @@ import 'package:femalefellows/models/german_locale.dart';
 import 'package:femalefellows/models/user_model.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
 import 'package:femalefellows/generated/l10n.dart' as intl;
+import 'package:url_launcher/url_launcher.dart';
 
-class AfterTandemHeader extends StatelessWidget {
-  const AfterTandemHeader({super.key});
+class MatchedTandemHeader extends StatelessWidget {
+  const MatchedTandemHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +24,9 @@ class AfterTandemHeader extends StatelessWidget {
     );
   }
 
-  Stack _matchedContent(BuildContext context, FFUser profile) {
+  Widget _matchedContent(BuildContext context, FFUser profile) {
     return Stack(
-      alignment: AlignmentDirectional.bottomCenter,
+      alignment: AlignmentDirectional.topCenter,
       children: [
         Column(
           children: [
@@ -56,6 +57,10 @@ class AfterTandemHeader extends StatelessWidget {
             DividerBouthCorner(
                 color1: Colors.white,
                 color2: Theme.of(context).colorScheme.tertiary),
+            Divider(
+              height: 50,
+              color: Colors.white,
+            ),
             if (profile.tandemMatches != null &&
                 profile.tandemMatches!.first.otherProfile != null)
               Text(
@@ -79,96 +84,162 @@ class AfterTandemHeader extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
-              child: MaterialButton(
-                onPressed: null,
-                child: Text('Kontaktdaten anzeigen'),
-              ),
+              child: Text(
+                  'Nimm jetzt Kontakt mit ${profile.tandemMatches!.first.otherProfile!.firstname} auf!'),
             ),
-            MaterialButton(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5.0),
+                  child: GestureDetector(
+                    child: Text.rich(
+                      TextSpan(
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
+                        children: [
+                          WidgetSpan(
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 5),
+                              child: Icon(
+                                Icons.email,
+                                size: 16,
+                              ),
+                            ),
+                          ),
+                          TextSpan(
+                              text: profile
+                                  .tandemMatches!.first.otherProfile!.email,
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,
+                              ))
+                        ],
+                      ),
+                    ),
+                    onTap: () => launchUrl(Uri.parse(
+                        'mailto:${profile.tandemMatches!.first.otherProfile!.email}')),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5.0),
+                  child: GestureDetector(
+                    child: Text.rich(
+                      TextSpan(
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
+                        children: [
+                          WidgetSpan(
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 5),
+                              child: Icon(
+                                Icons.phone,
+                                size: 16,
+                              ),
+                            ),
+                          ),
+                          TextSpan(
+                              text: profile.tandemMatches!.first.otherProfile!
+                                  .notification!.phonenumber,
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,
+                              ))
+                        ],
+                      ),
+                    ),
+                    onTap: () => launchUrl(Uri.parse(
+                        'tel://${profile.tandemMatches!.first.otherProfile!.notification!.phonenumber}')),
+                  ),
+                ),
+              ],
+            ),
+            /* MaterialButton(
               onPressed: null,
               child: Text('Match auflösen'),
-            ),
+            ), */
           ],
         ),
-        Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 160),
-                child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 90),
-                      child: CircleAvatar(
-                        radius: 70,
-                        backgroundColor: Colors.white,
+        Positioned(
+          top: 180,
+          child: Stack(
+            alignment: AlignmentDirectional.center,
+            children: [
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 160),
+                  child: Stack(
+                    alignment: AlignmentDirectional.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 90),
+                        child: CircleAvatar(
+                          radius: 70,
+                          backgroundColor: Colors.white,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 90),
-                      child: CircleAvatar(
-                        radius: 70,
-                        backgroundColor: Colors.white,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 90),
+                        child: CircleAvatar(
+                          radius: 70,
+                          backgroundColor: Colors.white,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 160),
-                child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 90),
-                      child: profile.profilPicture != null &&
-                              profile.profilPicture!.isNotEmpty
-                          ? CircleAvatar(
-                              backgroundImage:
-                                  NetworkImage(profile.profilPicture!),
-                              radius: 55,
-                              backgroundColor: Colors.white,
-                            )
-                          : CircleAvatar(
-                              backgroundImage:
-                                  AssetImage('lib/images/ImageIcon.png'),
-                              radius: 55,
-                              backgroundColor:
-                                  Theme.of(context).colorScheme.secondary,
-                            ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 90),
-                      child:
-                          profile.tandemMatches!.first.otherProfile != null &&
-                                  profile.tandemMatches!.first.otherProfile!
-                                      .profilPicture!.isNotEmpty
-                              ? CircleAvatar(
-                                  backgroundImage: NetworkImage(profile
-                                      .tandemMatches!
-                                      .first
-                                      .otherProfile!
-                                      .profilPicture!),
-                                  radius: 55,
-                                  backgroundColor: Colors.white,
-                                )
-                              : CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage('lib/images/ImageIcon.png'),
-                                  radius: 55,
-                                  backgroundColor:
-                                      Theme.of(context).colorScheme.secondary,
-                                ),
-                    ),
-                  ],
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 160),
+                  child: Stack(
+                    alignment: AlignmentDirectional.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 90),
+                        child: profile.profilPicture != null &&
+                                profile.profilPicture!.isNotEmpty
+                            ? CircleAvatar(
+                                backgroundImage:
+                                    NetworkImage(profile.profilPicture!),
+                                radius: 55,
+                                backgroundColor: Colors.white,
+                              )
+                            : CircleAvatar(
+                                backgroundImage:
+                                    AssetImage('lib/images/ImageIcon.png'),
+                                radius: 55,
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.secondary,
+                              ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 90),
+                        child:
+                            profile.tandemMatches!.first.otherProfile != null &&
+                                    profile.tandemMatches!.first.otherProfile!
+                                        .profilPicture!.isNotEmpty
+                                ? CircleAvatar(
+                                    backgroundImage: NetworkImage(profile
+                                        .tandemMatches!
+                                        .first
+                                        .otherProfile!
+                                        .profilPicture!),
+                                    radius: 55,
+                                    backgroundColor: Colors.white,
+                                  )
+                                : CircleAvatar(
+                                    backgroundImage:
+                                        AssetImage('lib/images/ImageIcon.png'),
+                                    radius: 55,
+                                    backgroundColor:
+                                        Theme.of(context).colorScheme.secondary,
+                                  ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

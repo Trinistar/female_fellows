@@ -63,7 +63,7 @@ class _TandementryState extends State<Tandementry> {
                       if (state.userProfile!.tandemMatches != null &&
                           state.userProfile!.tandemMatches!.first.state ==
                               TandemMatchesState.confirmed) {
-                        return AfterTandem();
+                        return MatchedTandemScreen();
                       }
                       final bool tandemRequestExists = (state
                                       .userProfile!.tandemMatches !=
@@ -79,7 +79,7 @@ class _TandementryState extends State<Tandementry> {
                       if (tandemRequestExists) {
                         if (state.userProfile!.tandemMatches!.first.state ==
                             TandemMatchesState.confirmed) {
-                          return AfterTandem();
+                          return MatchedTandemScreen();
                         } else if (state
                                 .userProfile!.tandemMatches!.first.state ==
                             TandemMatchesState.requested) {

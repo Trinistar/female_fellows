@@ -346,7 +346,7 @@ final GoRouter _router = GoRouter(
                   path: 'afterTandem',
                   parentNavigatorKey: _rootNavigatorKey,
                   builder: (BuildContext context, GoRouterState state) {
-                    return const AfterTandem();
+                    return const MatchedTandemScreen();
                   },
                 ),
               ],
@@ -484,7 +484,7 @@ final GoRouter _router = GoRouter(
               builder: (BuildContext context, GoRouterState state) =>
 
                   ///********************************* CHANGE ROUTE TO CHATENTRY  **************************************************************///
-                  const AfterTandem(),
+                  const MatchedTandemScreen(),
             ),
           ],
         ),

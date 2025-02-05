@@ -188,3 +188,27 @@ class GeoData {
         'location': location,
       };
 }
+
+class Contact {
+  Contact({
+    this.phone = false,
+    this.email = false,
+    this.whatsapp = false,
+  });
+
+  final bool phone;
+  final bool email;
+  final bool whatsapp;
+
+  factory Contact.fromJson(Map<String, dynamic> json) => Contact(
+        phone: json['phone'] ?? false,
+        email: json['email'] ?? false,
+        whatsapp: json['whatsapp'] ?? false,
+      );
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'phone': phone,
+        'email': email,
+        'whatsapp': whatsapp,
+      };
+}
