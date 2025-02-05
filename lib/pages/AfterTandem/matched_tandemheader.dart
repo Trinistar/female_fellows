@@ -1,4 +1,5 @@
 import 'package:date_format/date_format.dart';
+import 'package:femalefellows/components/female_fellows_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
@@ -152,10 +153,11 @@ class MatchedTandemHeader extends StatelessWidget {
                 ),
               ],
             ),
-            /* MaterialButton(
-              onPressed: null,
-              child: Text('Match auflösen'),
-            ), */
+            MaterialButton(
+              textColor: Colors.red,
+              onPressed: () => _cancelTandemDialog(context, profile),
+              child: Text('Tandem Match auflösen'),
+            ),
           ],
         ),
         Positioned(
@@ -242,6 +244,48 @@ class MatchedTandemHeader extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Future<void> _cancelTandemDialog(BuildContext context, FFUser profile) {
+    return showDialog<void>(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Tandem Match auflösen'),
+          content: const Text(
+              'Möchtest du den Tandem Match auflösen? Dies kann nicht rückgängig gemacht werden.'),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Abbrechen'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Auflösen'),
+              onPressed: () {
+                final Map<String, dynamic> update = {};
+                update['state'] = 'declined';
+                BlocProvider.of<AuthenticationBloc>(context).add(
+                    SetTandemMatchEvent(
+                        tandemMatch: update,
+                        profile: profile,
+                        otherId:
+                            profile.tandemMatches!.first.otherProfile!.id));
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
