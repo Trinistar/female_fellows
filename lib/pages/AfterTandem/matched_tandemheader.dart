@@ -83,11 +83,13 @@ class MatchedTandemHeader extends StatelessWidget {
                         ], locale: GermanLocale())}'),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Text(
-                  'Nimm jetzt Kontakt mit ${profile.tandemMatches!.first.otherProfile!.firstname} auf!'),
-            ),
+            if (profile.tandemMatches != null &&
+                profile.tandemMatches!.first.otherProfile != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Text(
+                    'Nimm jetzt Kontakt mit ${profile.tandemMatches!.first.otherProfile!.firstname} auf!'),
+              ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

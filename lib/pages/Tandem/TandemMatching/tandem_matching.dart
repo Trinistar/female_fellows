@@ -1,4 +1,7 @@
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
+import 'package:femalefellows/components/female_fellows_button.dart';
+import 'package:femalefellows/pages/Homepage/homepage_container/homepage_divider.dart';
+import 'package:femalefellows/statics.dart';
 import 'package:femalefellows/widgets/location_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +13,7 @@ import 'package:femalefellows/models/enums.dart';
 import 'package:femalefellows/models/user_model.dart';
 import 'package:femalefellows/pages/Tandem/TandemMatching/tandem_userCard.dart';
 import 'package:femalefellows/generated/l10n.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TandemMatching extends StatefulWidget {
   const TandemMatching({super.key});
@@ -173,15 +177,13 @@ class _TandemMatchingState extends State<TandemMatching> {
                   ),
                   children: <TandemTypeFilter, Widget>{
                     TandemTypeFilter.all: Text(
-                      S.of(context)
-                          .tandemMatchingOverviewFilterOptionOne,
+                      S.of(context).tandemMatchingOverviewFilterOptionOne,
                       style: _tandemTypeFilter == TandemTypeFilter.all
                           ? null
                           : TextStyle(color: Colors.white),
                     ),
                     TandemTypeFilter.nearby: Text(
-                      S.of(context)
-                          .tandemMatchingOverviewFilterOptionTwo,
+                      S.of(context).tandemMatchingOverviewFilterOptionTwo,
                       style: _tandemTypeFilter == TandemTypeFilter.all
                           ? TextStyle(color: Colors.white)
                           : null,
@@ -235,8 +237,7 @@ class _TandemMatchingState extends State<TandemMatching> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                  S.of(context).tandemMatchingOverviewBody2,
+              child: Text(S.of(context).tandemMatchingOverviewBody2,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
@@ -244,6 +245,57 @@ class _TandemMatchingState extends State<TandemMatching> {
             ),
             SizedBox(
               height: 50,
+            ),
+            Container(
+              color: Theme.of(context).colorScheme.primary,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Support & Feedback',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                        Divider(
+                          thickness: 3,
+                          indent: 0,
+                          endIndent: 310,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    ),
+                  ),
+                  FFButton(
+                    onTap: () => launchUrl(Uri.parse(femaleFellowsMail)),
+                    text: 'Report Problem',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  FFButton(
+                    onTap: () => launchUrl(Uri.parse(femaleFellowsMail)),
+                    text: 'Feedback geben',
+                    border: Border.all(color: Colors.white, width: 2),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

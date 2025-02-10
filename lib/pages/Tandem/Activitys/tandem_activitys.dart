@@ -23,21 +23,21 @@ class ActivitysCarousel extends StatelessWidget {
               text: S.of(context).tandemActivityTwoTitle,
               colorDark: true,
               route: '/tandemPicknick'),
-          ActivityTileWidget(
+          /* ActivityTileWidget(
               assetPath: 'assets/musik-01.svg',
               text: S.of(context).tandemActivityThreeTitle,
               colorDark: false,
-              route: '/tandemMusic'),
+              route: '/tandemMusic'), */
           ActivityTileWidget(
               assetPath: 'assets/kreativ-01.svg',
               text: S.of(context).tandemActivityFourTitle,
               colorDark: false,
               route: '/tandemCreativ'),
-          ActivityTileWidget(
+          /* ActivityTileWidget(
               assetPath: 'assets/ab-ins-gruene-01.svg',
               text: S.of(context).tandemActivityFiveTitle,
               colorDark: true,
-              route: '/tandemGreen'),
+              route: '/tandemGreen'), */
           ActivityTileWidget(
               assetPath: 'assets/deutsch-lernen-01.svg',
               text: S.of(context).tandemActivitySixTitle,

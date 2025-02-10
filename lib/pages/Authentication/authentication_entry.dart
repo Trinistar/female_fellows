@@ -31,6 +31,7 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
   bool _contactcall = false;
   bool _contactemail = false;
   bool _contactwhatsapp = false;
+  bool _phoneVaild = false;
   LocalOrNewcomer _userchoice = LocalOrNewcomer.newcomer;
   Socialmedia _mediachoice = Socialmedia.facebook;
   final int _pageCount = 7;
@@ -47,6 +48,18 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
         _contactcall = true;
       } else {
         _contactcall = false;
+      }
+    });
+  }
+
+  void _hasValidPhone(bool newValue2) {
+    setState(() {
+      if (newValue2) {
+        _disabledNextButton = false;
+        _phoneVaild = true;
+      } else {
+        _disabledNextButton = true;
+        _phoneVaild = false;
       }
     });
   }
@@ -99,9 +112,13 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
 
   void _handlePageChange() {
     if (_controller.page!.toInt() == _pageCount - 1) {
-      _accepted ? _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn) : null;
+      _accepted
+          ? _controller.nextPage(
+              duration: Duration(microseconds: 500), curve: Curves.easeIn)
+          : null;
     } else {
-      _controller.nextPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
+      _controller.nextPage(
+          duration: Duration(microseconds: 500), curve: Curves.easeIn);
     }
   }
 
@@ -113,7 +130,8 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: Image.asset('lib/images/FF-Logo_blau-1.png', height: 80, alignment: Alignment(0, -0.8)),
+          title: Image.asset('lib/images/FF-Logo_blau-1.png',
+              height: 80, alignment: Alignment(0, -0.8)),
         ),
         resizeToAvoidBottomInset: false,
         backgroundColor: Theme.of(context).colorScheme.surface,
@@ -140,6 +158,18 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
                       //_accepted = false;
                     });
                   }
+
+                  if (index == _pageCount - 2) {
+                    if (_phoneVaild) {
+                      setState(() {
+                        _disabledNextButton = false;
+                      });
+                    } else {
+                      setState(() {
+                        _disabledNextButton = true;
+                      });
+                    }
+                  }
                 },
                 children: [
                   // Pages one Onboarding
@@ -151,7 +181,9 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
                   AuthAge(birthday: _getBirthday),
                   AuthAdress(),
                   AuthSocialmedia(hasMediaChosen: _mediaChosen),
-                  AuthNotification(choiceContact: _choiceForContact),
+                  AuthNotification(
+                      choiceContact: _choiceForContact,
+                      validPhone: _hasValidPhone),
                   AuthSafety(
                     wantsNewsletter: _checkNewsletter,
                     hasConfessed: _hasUserConfessed,
@@ -183,7 +215,9 @@ class _RegistrationEntryState extends State<RegistrationEntry> {
                         if (_controller.page == 0) {
                           Navigator.of(context).pop();
                         } else {
-                          _controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.easeIn);
+                          _controller.previousPage(
+                              duration: Duration(microseconds: 500),
+                              curve: Curves.easeIn);
                         }
                       },
                       child: Text('Back')),

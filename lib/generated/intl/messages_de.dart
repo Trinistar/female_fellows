@@ -131,7 +131,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "authenticationFacebook": MessageLookupByLibrary.simpleMessage("Facebook"),
     "authenticationFirstname": MessageLookupByLibrary.simpleMessage("Vorname"),
     "authenticationFreunde": MessageLookupByLibrary.simpleMessage("Freunde"),
-    "authenticationHandy": MessageLookupByLibrary.simpleMessage("Handynummer"),
+    "authenticationHandy": MessageLookupByLibrary.simpleMessage(
+      "Handynummer *",
+    ),
     "authenticationHow": MessageLookupByLibrary.simpleMessage(
       "Wie bist du auf uns\naufmerksam geworden?",
     ),

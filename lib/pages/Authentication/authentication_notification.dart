@@ -4,15 +4,16 @@ import 'package:flutter_svg/svg.dart';
 import 'package:femalefellows/provider/controller.dart';
 
 class AuthNotification extends StatefulWidget {
-  const AuthNotification({super.key, required this.choiceContact});
+  const AuthNotification(
+      {super.key, required this.choiceContact, required this.validPhone});
   final void Function(bool, bool, bool)? choiceContact;
+  final void Function(bool)? validPhone;
 
   @override
   State<AuthNotification> createState() => _AuthNotificationState();
 }
 
 class _AuthNotificationState extends State<AuthNotification> {
-  //TODO safe choice in DB!
   bool _whatsapp = false;
   bool _call = false;
   bool _email = false;
@@ -88,25 +89,30 @@ class _AuthNotificationState extends State<AuthNotification> {
                       widget.choiceContact!(_call, _whatsapp, _email);
                     });
                   }),
-              _call || _whatsapp
-                  ? Padding(
-                      padding: const EdgeInsets.only(left: 40, bottom: 5),
-                      child: Text(
-                        S.of(context).authenticationHandy,
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                    )
-                  : Container(),
-              _call || _whatsapp
-                  ? Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                    child: TextFormField(
-                        controller: Controller.phonenumberController,
-                      ),
-                  )
-                  : Container(),
+              Padding(
+                padding: const EdgeInsets.only(left: 40, bottom: 5, top: 10),
+                child: Text(
+                  S.of(context).authenticationHandy,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: TextFormField(
+                  controller: Controller.phonenumberController,
+                  onChanged: (value) {
+                    setState(() {
+                      if (value.isNotEmpty) {
+                        widget.validPhone!(true);
+                      } else {
+                        widget.validPhone!(false);
+                      }
+                    });
+                  },
+                ),
+              ),
             ],
           ),
           SizedBox(

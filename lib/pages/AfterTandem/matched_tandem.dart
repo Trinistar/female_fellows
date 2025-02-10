@@ -1,5 +1,6 @@
 import 'package:femalefellows/blocs/AuthenticationBloc/authentication_bloc.dart';
 import 'package:femalefellows/generated/l10n.dart';
+import 'package:femalefellows/pages/AfterTandem/future_components.dart';
 import 'package:femalefellows/pages/AfterTandem/matched_tandemheader.dart';
 import 'package:femalefellows/pages/Event/EventOverview/signedup_events_page.dart';
 import 'package:femalefellows/pages/Homepage/homepage_container/events_carouselhomepage.dart';
@@ -164,7 +165,7 @@ class _MatchedTandemScreenState extends State<MatchedTandemScreen> {
                         SizedBox(
                           height: 20,
                         ),
-                        // FutureComponents(),
+                        FutureComponents(),
                       ],
                     ),
                   ),

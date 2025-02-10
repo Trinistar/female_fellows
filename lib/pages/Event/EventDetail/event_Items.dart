@@ -7,7 +7,6 @@ import 'package:femalefellows/generated/l10n.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class EventItems extends StatelessWidget {
   const EventItems({super.key, required this.eventState});
 
@@ -42,9 +41,47 @@ class EventItems extends StatelessWidget {
                 fontSize: 15,
               ),
             ),
-            subtitle: Text(
-              S.of(context).createEventsHost,
-              style: TextStyle(fontSize: 12),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  S.of(context).createEventsHost,
+                  style: TextStyle(fontSize: 12),
+                ),
+                BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                    builder: (context, state) {
+                  if (state is AuthenticatedUser) {
+                    return GestureDetector(
+                      child: Text.rich(
+                        TextSpan(
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary),
+                          children: [
+                            WidgetSpan(
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 5),
+                                child: Icon(
+                                  Icons.phone,
+                                  size: 16,
+                                ),
+                              ),
+                            ),
+                            TextSpan(
+                                text: eventState.phoneNumber,
+                                style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                ))
+                          ],
+                        ),
+                      ),
+                      onTap: () => launchUrl(
+                          Uri.parse('tel://${eventState.phoneNumber}')),
+                    );
+                  } else {
+                    return SizedBox.shrink();
+                  }
+                }),
+              ],
             ),
           ),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -52,15 +89,17 @@ class EventItems extends StatelessWidget {
               if (state is AuthenticatedUser) {
                 return ListTile(
                   leading: Icon(Icons.location_on_outlined),
-                  title: state.user!.emailVerified ? Text(
-                    '${eventState.location.street}, ${eventState.location.zipCode} ${eventState.location.city}',
-                    style: TextStyle(fontSize: 15),
-                  ) : Text(
-                    eventState.location.city,
-                    style: TextStyle(fontSize: 15),
-                  ),
+                  title: state.user!.emailVerified
+                      ? Text(
+                          '${eventState.location.street}, ${eventState.location.zipCode} ${eventState.location.city}',
+                          style: TextStyle(fontSize: 15),
+                        )
+                      : Text(
+                          eventState.location.city,
+                          style: TextStyle(fontSize: 15),
+                        ),
                   subtitle: Text(
-                   S.of(context).eventAdress ,
+                    S.of(context).eventAdress,
                     style: TextStyle(fontSize: 12),
                   ),
                 );
@@ -81,7 +120,7 @@ class EventItems extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-             S.of(context).createEventsContactPerson2 ,
+              S.of(context).createEventsContactPerson2,
               style: TextStyle(fontSize: 12),
             ),
           ),

@@ -282,7 +282,7 @@ class _EventOverviewState extends State<EventOverview>
               ],
             ),
           ),
-          SizedBox(
+          /* SizedBox(
             height: 20,
           ),
           TextButton(
@@ -290,7 +290,7 @@ class _EventOverviewState extends State<EventOverview>
               child: Text(
                 S.of(context).eventsPageAllButtonOne,
                 style: TextStyle(color: Colors.black, fontSize: 17),
-              )),
+              )), */
           SizedBox(
             height: 20,
           ),

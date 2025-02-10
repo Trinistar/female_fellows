@@ -455,10 +455,10 @@ class S {
     );
   }
 
-  /// `Mobile number`
+  /// `Mobile number *`
   String get authenticationHandy {
     return Intl.message(
-      'Mobile number',
+      'Mobile number *',
       name: 'authenticationHandy',
       desc: '',
       args: [],

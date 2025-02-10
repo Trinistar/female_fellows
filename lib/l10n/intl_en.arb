@@ -43,7 +43,7 @@
   "authenticationCall": "Call",
   "authenticationWhatsApp": "Whatsapp",
   "authenticationEmail": "Email",
-  "authenticationHandy": "Mobile number",
+  "authenticationHandy": "Mobile number *",
   "authenticationPlace": "Where do you live?",
   "authenticationStreet": "Street and house number",
   "authenticationPostcode": "Postcode and city",

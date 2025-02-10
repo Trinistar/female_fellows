@@ -41,13 +41,13 @@ class _LocationWidgetState extends State<LocationWidget> {
               if (state is AuthenticatedUser) {
                 return Text(
                   state.userProfile!.location != null
-                      ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!} (20km Radius)'
+                      ? '${state.userProfile!.address!.zipCode} ${state.userProfile!.location!.name!} (100km Radius)'
                       : locationmessage,
                   style: TextStyle(fontSize: 12, color: widget.textColor),
                 );
               } else {
                 return Text(
-                  '$locationmessage (20km Radius)',
+                  '$locationmessage (100km Radius)',
                   style: TextStyle(fontSize: 12, color: widget.textColor),
                 );
               }

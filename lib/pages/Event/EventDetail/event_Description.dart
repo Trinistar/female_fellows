@@ -32,7 +32,6 @@ class EventDescription extends StatelessWidget {
             height: 15,
           ),
           SizedBox(
-            height: 150,
             width: 350,
             child: Text(
               event.description,

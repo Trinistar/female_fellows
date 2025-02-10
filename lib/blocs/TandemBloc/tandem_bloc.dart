@@ -135,7 +135,7 @@ class TandemBloc extends Bloc<TandemEvent, TandemState> {
           if (user.location != null) {
             final double distanceBetween = ownGeoFire.distanceBetweenInKm(
                 geopoint: user.location!.data!.location);
-            if (distanceBetween < 20) {
+            if (distanceBetween < 100) {
               geoTandems.add(user);
               locationDistance = 1 / distanceBetween * _matchingFactor / 2;
             }

@@ -134,7 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "authenticationFreunde": MessageLookupByLibrary.simpleMessage("Friends"),
     "authenticationHandy": MessageLookupByLibrary.simpleMessage(
-      "Mobile number",
+      "Mobile number *",
     ),
     "authenticationHow": MessageLookupByLibrary.simpleMessage(
       "How did you become\naware of us?",
