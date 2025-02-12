@@ -32,7 +32,7 @@ class DescriptionEvent extends StatelessWidget {
               endIndent: 280,
             ),
             TextField(
-              maxLength: 150,
+              maxLength: 1000,
               maxLines: 6,
               controller: Controller.descriptionController,
               decoration: InputDecoration(
